@@ -1,0 +1,347 @@
+import { useState, useEffect } from "react";
+import { useAuth } from "@/contexts/AuthContext";
+import { supabase } from "@/integrations/supabase/client";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Slider } from "@/components/ui/slider";
+import { Switch } from "@/components/ui/switch";
+import { Textarea } from "@/components/ui/textarea";
+import { Badge } from "@/components/ui/badge";
+import { Checkbox } from "@/components/ui/checkbox";
+import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { useToast } from "@/hooks/use-toast";
+import ReactMarkdown from "react-markdown";
+import { format } from "date-fns";
+import { cn } from "@/lib/utils";
+import {
+  CalendarIcon, Sparkles, ChevronDown, ChevronRight, RotateCcw, BookOpen, CheckCircle2
+} from "lucide-react";
+
+interface WeekPlan {
+  week: number;
+  topic: string;
+  activities: string[];
+  hours: number;
+  completed?: boolean[];
+}
+
+interface StudyPlan {
+  id: string;
+  intake_data: any;
+  plan_data: WeekPlan[];
+}
+
+const confidenceAreas = [
+  "Diagnosis & Assessment",
+  "Treatment Planning",
+  "Ethics & Professional Practice",
+  "Counselor Skills & Attributes",
+  "Crisis Intervention",
+];
+
+const StudyPlan = () => {
+  const { user } = useAuth();
+  const { toast } = useToast();
+  const [plan, setPlan] = useState<StudyPlan | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [generating, setGenerating] = useState(false);
+
+  // Intake form state
+  const [examDate, setExamDate] = useState<Date>();
+  const [hoursPerWeek, setHoursPerWeek] = useState([10]);
+  const [takenBefore, setTakenBefore] = useState(false);
+  const [confidence, setConfidence] = useState<Record<string, number>>({});
+  const [biggestConcern, setBiggestConcern] = useState("");
+
+  useEffect(() => {
+    if (!user) return;
+    supabase
+      .from("study_plans")
+      .select("*")
+      .eq("user_id", user.id)
+      .order("created_at", { ascending: false })
+      .limit(1)
+      .then(({ data }) => {
+        if (data && data.length > 0) {
+          setPlan(data[0] as unknown as StudyPlan);
+        }
+        setLoading(false);
+      });
+  }, [user]);
+
+  const generatePlan = async () => {
+    if (!user || !examDate) return;
+    setGenerating(true);
+
+    const intakeData = {
+      examDate: examDate.toISOString(),
+      hoursPerWeek: hoursPerWeek[0],
+      takenBefore,
+      confidence,
+      biggestConcern,
+    };
+
+    try {
+      const resp = await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/counselor-chat`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+        },
+        body: JSON.stringify({
+          messages: [{
+            role: "user",
+            content: `Generate a structured week-by-week NCMHCE study plan as a JSON array. Each element should have: week (number), topic (string), activities (array of strings), hours (number).
+
+Student info:
+- Exam date: ${format(examDate, "PPP")}
+- Study hours per week: ${hoursPerWeek[0]}
+- Taken NCMHCE before: ${takenBefore ? "Yes" : "No"}
+- Confidence ratings (1-5): ${JSON.stringify(confidence)}
+- Biggest concern: ${biggestConcern}
+
+Create a realistic plan covering 8-12 weeks, focusing more time on weaker areas. Include activities like: reading specific DSM-5-TR sections, completing practice simulations, reviewing flashcards, practicing case conceptualization, and timed practice exams.
+
+IMPORTANT: Return ONLY a valid JSON array, no markdown, no explanation. Example format:
+[{"week":1,"topic":"DSM-5-TR Foundations","activities":["Read DSM-5-TR intro","Complete 2 mood disorder simulations","Review diagnostic flashcards"],"hours":10}]`
+          }],
+          context: "Study Plan Generator",
+        }),
+      });
+
+      if (!resp.ok) throw new Error("Failed to generate plan");
+
+      const reader = resp.body!.getReader();
+      const decoder = new TextDecoder();
+      let buffer = "";
+      let fullText = "";
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+        buffer += decoder.decode(value, { stream: true });
+        let idx: number;
+        while ((idx = buffer.indexOf("\n")) !== -1) {
+          let line = buffer.slice(0, idx);
+          buffer = buffer.slice(idx + 1);
+          if (line.endsWith("\r")) line = line.slice(0, -1);
+          if (!line.startsWith("data: ")) continue;
+          const json = line.slice(6).trim();
+          if (json === "[DONE]") break;
+          try {
+            const p = JSON.parse(json);
+            const c = p.choices?.[0]?.delta?.content;
+            if (c) fullText += c;
+          } catch { break; }
+        }
+      }
+
+      // Parse JSON from response
+      const jsonMatch = fullText.match(/\[[\s\S]*\]/);
+      if (!jsonMatch) throw new Error("Invalid plan format");
+
+      const planData: WeekPlan[] = JSON.parse(jsonMatch[0]).map((w: any) => ({
+        ...w,
+        completed: new Array(w.activities.length).fill(false),
+      }));
+
+      // Save to DB
+      const { data: saved, error } = await supabase
+        .from("study_plans")
+        .insert({ user_id: user.id, intake_data: intakeData, plan_data: planData as any })
+        .select()
+        .single();
+
+      if (error) throw error;
+      setPlan(saved as unknown as StudyPlan);
+      toast({ title: "Study plan generated!" });
+    } catch (e: any) {
+      toast({ title: "Error", description: e.message, variant: "destructive" });
+    } finally {
+      setGenerating(false);
+    }
+  };
+
+  const toggleActivity = async (weekIdx: number, actIdx: number) => {
+    if (!plan) return;
+    const newPlan = { ...plan };
+    const weeks = [...(newPlan.plan_data as WeekPlan[])];
+    const week = { ...weeks[weekIdx] };
+    const completed = [...(week.completed || new Array(week.activities.length).fill(false))];
+    completed[actIdx] = !completed[actIdx];
+    week.completed = completed;
+    weeks[weekIdx] = week;
+    newPlan.plan_data = weeks;
+    setPlan(newPlan);
+
+    await supabase
+      .from("study_plans")
+      .update({ plan_data: weeks as any })
+      .eq("id", plan.id);
+  };
+
+  const resetPlan = () => {
+    setPlan(null);
+  };
+
+  if (loading) {
+    return <div className="p-6 flex justify-center"><div className="h-8 w-8 border-2 border-primary border-t-transparent rounded-full animate-spin" /></div>;
+  }
+
+  // State 2: Plan exists
+  if (plan) {
+    const weeks = plan.plan_data as WeekPlan[];
+    return (
+      <div className="p-6 max-w-4xl mx-auto space-y-6">
+        <div className="flex items-center justify-between">
+          <h1 className="text-2xl font-bold text-foreground">Your Study Plan</h1>
+          <Button variant="outline" onClick={resetPlan}>
+            <RotateCcw className="mr-2 h-4 w-4" /> Regenerate Plan
+          </Button>
+        </div>
+
+        <div className="space-y-3">
+          {weeks.map((week, wi) => {
+            const completedCount = (week.completed || []).filter(Boolean).length;
+            const totalActivities = week.activities.length;
+            const allDone = completedCount === totalActivities;
+
+            return (
+              <Collapsible key={wi} defaultOpen={wi < 3}>
+                <Card className={`card-elevated ${allDone ? "border-emerald-500/30" : ""}`}>
+                  <CollapsibleTrigger className="w-full">
+                    <CardHeader className="flex flex-row items-center justify-between p-4">
+                      <div className="flex items-center gap-3">
+                        <Badge variant="outline" className="font-mono">Week {week.week}</Badge>
+                        <CardTitle className="text-sm">{week.topic}</CardTitle>
+                      </div>
+                      <div className="flex items-center gap-3">
+                        <span className="text-xs text-muted-foreground">{completedCount}/{totalActivities}</span>
+                        <span className="text-xs text-muted-foreground">{week.hours}h</span>
+                        {allDone && <CheckCircle2 className="h-4 w-4 text-emerald-400" />}
+                        <ChevronDown className="h-4 w-4 text-muted-foreground" />
+                      </div>
+                    </CardHeader>
+                  </CollapsibleTrigger>
+                  <CollapsibleContent>
+                    <CardContent className="pt-0 px-4 pb-4">
+                      <div className="space-y-2">
+                        {week.activities.map((activity, ai) => (
+                          <div key={ai} className="flex items-start gap-3 py-1">
+                            <Checkbox
+                              checked={week.completed?.[ai] || false}
+                              onCheckedChange={() => toggleActivity(wi, ai)}
+                              className="mt-0.5"
+                            />
+                            <span className={`text-sm ${week.completed?.[ai] ? "text-muted-foreground line-through" : "text-foreground"}`}>
+                              {activity}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </CardContent>
+                  </CollapsibleContent>
+                </Card>
+              </Collapsible>
+            );
+          })}
+        </div>
+      </div>
+    );
+  }
+
+  // State 1: Intake form
+  return (
+    <div className="p-6 max-w-2xl mx-auto space-y-6">
+      <div className="text-center mb-8">
+        <BookOpen className="h-10 w-10 text-primary mx-auto mb-3" />
+        <h1 className="text-2xl font-bold text-foreground">Let's Build Your Personalized Study Plan</h1>
+        <p className="text-muted-foreground mt-2">Answer a few questions and our AI will create a custom study schedule</p>
+      </div>
+
+      <Card className="card-elevated">
+        <CardContent className="p-6 space-y-6">
+          {/* Exam Date */}
+          <div className="space-y-2">
+            <Label>When is your exam date?</Label>
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button variant="outline" className={cn("w-full justify-start text-left font-normal", !examDate && "text-muted-foreground")}>
+                  <CalendarIcon className="mr-2 h-4 w-4" />
+                  {examDate ? format(examDate, "PPP") : "Pick a date"}
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-auto p-0" align="start">
+                <Calendar mode="single" selected={examDate} onSelect={setExamDate} disabled={(d) => d < new Date()} initialFocus className="p-3 pointer-events-auto" />
+              </PopoverContent>
+            </Popover>
+          </div>
+
+          {/* Hours per week */}
+          <div className="space-y-3">
+            <Label>How many hours per week can you commit? ({hoursPerWeek[0]} hours)</Label>
+            <Slider value={hoursPerWeek} onValueChange={setHoursPerWeek} min={3} max={20} step={1} />
+            <div className="flex justify-between text-xs text-muted-foreground">
+              <span>3 hours</span><span>20 hours</span>
+            </div>
+          </div>
+
+          {/* Taken before */}
+          <div className="flex items-center justify-between">
+            <Label>Have you taken the NCMHCE before?</Label>
+            <Switch checked={takenBefore} onCheckedChange={setTakenBefore} />
+          </div>
+
+          {/* Confidence ratings */}
+          <div className="space-y-3">
+            <Label>Rate your confidence in these areas (1-5)</Label>
+            {confidenceAreas.map((area) => (
+              <div key={area} className="flex items-center justify-between gap-4">
+                <span className="text-sm text-muted-foreground flex-1">{area}</span>
+                <div className="flex gap-1">
+                  {[1, 2, 3, 4, 5].map((n) => (
+                    <Button
+                      key={n}
+                      variant={confidence[area] === n ? "default" : "outline"}
+                      size="sm"
+                      className="h-8 w-8 p-0"
+                      onClick={() => setConfidence((p) => ({ ...p, [area]: n }))}
+                    >
+                      {n}
+                    </Button>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Biggest concern */}
+          <div className="space-y-2">
+            <Label>What's your biggest concern about the exam?</Label>
+            <Textarea
+              value={biggestConcern}
+              onChange={(e) => setBiggestConcern(e.target.value)}
+              placeholder="e.g., I struggle with differential diagnosis between similar disorders..."
+              rows={3}
+            />
+          </div>
+
+          <Button
+            className="w-full"
+            onClick={generatePlan}
+            disabled={!examDate || generating || Object.keys(confidence).length < 5}
+          >
+            <Sparkles className="mr-2 h-4 w-4" />
+            {generating ? "Generating Your Plan..." : "Generate My Study Plan"}
+          </Button>
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
+
+export default StudyPlan;

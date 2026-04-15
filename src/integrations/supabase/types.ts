@@ -131,6 +131,39 @@ export type Database = {
         }
         Relationships: []
       }
+      flashcard_progress: {
+        Row: {
+          card_id: string
+          created_at: string
+          deck_id: string
+          id: string
+          last_reviewed: string | null
+          next_review: string | null
+          status: string
+          user_id: string
+        }
+        Insert: {
+          card_id: string
+          created_at?: string
+          deck_id: string
+          id?: string
+          last_reviewed?: string | null
+          next_review?: string | null
+          status?: string
+          user_id: string
+        }
+        Update: {
+          card_id?: string
+          created_at?: string
+          deck_id?: string
+          id?: string
+          last_reviewed?: string | null
+          next_review?: string | null
+          status?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null
@@ -205,6 +238,33 @@ export type Database = {
           simulation_id?: string
           time_spent?: number | null
           total_score?: number | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      study_plans: {
+        Row: {
+          created_at: string
+          id: string
+          intake_data: Json
+          plan_data: Json
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          id?: string
+          intake_data?: Json
+          plan_data?: Json
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          id?: string
+          intake_data?: Json
+          plan_data?: Json
+          updated_at?: string
           user_id?: string
         }
         Relationships: []
