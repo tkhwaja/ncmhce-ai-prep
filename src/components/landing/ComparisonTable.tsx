@@ -20,7 +20,7 @@ const statusLabel = (s: Status) => {
   }
 };
 
-const competitors = ["CounselorExam.io", "Therapist Dev Center", "Counseling Exam", "AATBS"];
+const competitors = ["TheCounselorExam.com", "Therapist Dev Center", "Counseling Exam", "AATBS"];
 
 const rows: { feature: string; statuses: Status[] }[] = [
   { feature: "AI tutoring built into study flow", statuses: ["yes", "no", "no", "no"] },
@@ -42,7 +42,7 @@ const ComparisonTable = () => (
           Not Just Another Question Bank
         </h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          See how CounselorExam.io stacks up against the tools you've probably already tried.
+          See how TheCounselorExam.com stacks up against the tools you've probably already tried.
         </p>
       </div>
 
