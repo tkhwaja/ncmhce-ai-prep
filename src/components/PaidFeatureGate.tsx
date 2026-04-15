@@ -24,7 +24,7 @@ const PaidFeatureGate = ({ children, feature }: { children: React.ReactNode; fea
             This feature requires a paid account. Get full access to all simulations, flashcards, analytics, study plans, and tools.
           </p>
           <div className="flex gap-3 justify-center">
-            <Button onClick={() => navigate("/#pricing")}>
+            <Button onClick={() => navigate("/checkout")}>
               Upgrade Now — $349
             </Button>
             <Button variant="outline" onClick={() => navigate("/dashboard")}>
