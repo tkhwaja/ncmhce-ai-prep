@@ -77,7 +77,6 @@ const WaitlistForm = ({ variant = "default" }: WaitlistFormProps) => {
         className="rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors whitespace-nowrap glow-primary-sm disabled:opacity-50"
       >
         {loading ? "Joining..." : "Join the Waitlist"}
-        Join the Waitlist
       </button>
       {error && <p className="text-xs text-destructive sm:col-span-2">{error}</p>}
     </form>
