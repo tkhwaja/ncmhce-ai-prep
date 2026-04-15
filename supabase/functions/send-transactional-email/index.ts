@@ -54,6 +54,19 @@ Deno.serve(async (req) => {
     )
   }
 
+  const authHeader = req.headers.get('Authorization')
+  const serviceRoleToken = `Bearer ${supabaseServiceKey}`
+
+  if (authHeader !== serviceRoleToken) {
+    return new Response(
+      JSON.stringify({ error: 'Unauthorized' }),
+      {
+        status: 401,
+        headers: { ...corsHeaders, 'Content-Type': 'application/json' },
+      }
+    )
+  }
+
   // Parse request body
   let templateName: string
   let recipientEmail: string

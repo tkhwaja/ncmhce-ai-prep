@@ -23,31 +23,26 @@ const WaitlistForm = ({ variant = "default" }: WaitlistFormProps) => {
 
     setLoading(true);
     try {
-      const { error: dbError } = await supabase
-        .from("waitlist_signups")
-        .insert({ email: email.toLowerCase().trim() });
+      const { data, error: signupError } = await supabase.functions.invoke("waitlist-signup", {
+        body: { email: email.toLowerCase().trim() },
+      });
 
-      if (dbError) {
-        if (dbError.code === "23505") {
-          // Already signed up
-          setSubmitted(true);
-        } else {
-          setError("Something went wrong. Please try again.");
-          console.error("Waitlist signup error:", dbError);
-        }
-      } else {
-        setSubmitted(true);
-        // Send confirmation email
-        const signupId = crypto.randomUUID();
-        supabase.functions.invoke('send-transactional-email', {
-          body: {
-            templateName: 'waitlist-confirmation',
-            recipientEmail: email.toLowerCase().trim(),
-            idempotencyKey: `waitlist-confirm-${signupId}`,
-            templateData: { email: email.toLowerCase().trim() },
-          },
-        }).catch((err) => console.error('Confirmation email error:', err));
+      if (signupError) {
+        setError("Something went wrong. Please try again.");
+        console.error("Waitlist signup error:", signupError);
+        return;
       }
+
+      if (data?.error) {
+        setError(
+          data.error === "Joined waitlist but failed to queue confirmation email"
+            ? "You joined the waitlist, but we couldn't send the confirmation email yet. Please try again in a minute."
+            : "Something went wrong. Please try again."
+        );
+        return;
+      }
+
+      setSubmitted(true);
     } catch {
       setError("Something went wrong. Please try again.");
     } finally {
