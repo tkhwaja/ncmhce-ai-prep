@@ -15,6 +15,8 @@ import ResetPassword from "./pages/ResetPassword";
 import AppLayout from "./components/app/AppLayout";
 import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
+import Simulations from "./pages/Simulations";
+import SimulationPage from "./pages/SimulationPage";
 import PlaceholderPage from "./pages/PlaceholderPage";
 
 const queryClient = new QueryClient();
@@ -39,7 +41,8 @@ const App = () => (
             <Route element={<ProtectedRoute><AppLayout /></ProtectedRoute>}>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/profile" element={<Profile />} />
-              <Route path="/simulations" element={<PlaceholderPage />} />
+              <Route path="/simulations" element={<Simulations />} />
+              <Route path="/simulation/:id" element={<SimulationPage />} />
               <Route path="/study-plan" element={<PlaceholderPage />} />
               <Route path="/analytics" element={<PlaceholderPage />} />
               <Route path="/flashcards" element={<PlaceholderPage />} />
