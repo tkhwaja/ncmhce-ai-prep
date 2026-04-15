@@ -15,6 +15,7 @@ const pageContextMap: Record<string, string> = {
   "/exam-info": "Exam Info",
   "/community": "Community",
   "/profile": "Profile",
+  "/tools": "Study Tools",
 };
 
 const AppLayout = () => {

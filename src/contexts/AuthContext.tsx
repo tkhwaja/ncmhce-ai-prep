@@ -20,6 +20,7 @@ interface Profile {
   target_exam_date: string | null;
   avatar_url: string | null;
   study_hours_per_week: number | null;
+  payment_status: string;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);

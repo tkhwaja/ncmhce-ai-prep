@@ -164,6 +164,33 @@ export type Database = {
         }
         Relationships: []
       }
+      notes: {
+        Row: {
+          content: string
+          created_at: string
+          id: string
+          title: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          content?: string
+          created_at?: string
+          id?: string
+          title?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          id?: string
+          title?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       posts: {
         Row: {
           body: string
@@ -199,6 +226,7 @@ export type Database = {
           email: string | null
           full_name: string | null
           id: string
+          payment_status: string
           study_hours_per_week: number | null
           target_exam_date: string | null
           updated_at: string
@@ -210,6 +238,7 @@ export type Database = {
           email?: string | null
           full_name?: string | null
           id: string
+          payment_status?: string
           study_hours_per_week?: number | null
           target_exam_date?: string | null
           updated_at?: string
@@ -221,6 +250,7 @@ export type Database = {
           email?: string | null
           full_name?: string | null
           id?: string
+          payment_status?: string
           study_hours_per_week?: number | null
           target_exam_date?: string | null
           updated_at?: string
