@@ -25,6 +25,8 @@ import ExamInfo from "./pages/ExamInfo";
 import Community from "./pages/Community";
 import Tools from "./pages/Tools";
 import PaidFeatureGate from "./components/PaidFeatureGate";
+import CheckoutPage from "./pages/CheckoutPage";
+import CheckoutReturn from "./pages/CheckoutReturn";
 
 const queryClient = new QueryClient();
 
@@ -43,6 +45,8 @@ const App = () => (
             <Route path="/forgot-password" element={<ForgotPassword />} />
             <Route path="/reset-password" element={<ResetPassword />} />
             <Route path="/unsubscribe" element={<Unsubscribe />} />
+            <Route path="/checkout" element={<CheckoutPage />} />
+            <Route path="/checkout/return" element={<CheckoutReturn />} />
 
             {/* Protected routes */}
             <Route element={<ProtectedRoute><AppLayout /></ProtectedRoute>}>
