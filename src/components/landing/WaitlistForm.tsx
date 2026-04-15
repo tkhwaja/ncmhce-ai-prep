@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Mail } from "lucide-react";
+import { supabase } from "@/integrations/supabase/client";
 
 interface WaitlistFormProps {
   variant?: "default" | "large";
@@ -9,8 +10,9 @@ const WaitlistForm = ({ variant = "default" }: WaitlistFormProps) => {
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setError("");
 
@@ -19,9 +21,28 @@ const WaitlistForm = ({ variant = "default" }: WaitlistFormProps) => {
       return;
     }
 
-    // Placeholder: integrate with backend later
-    console.log("Waitlist signup:", email);
-    setSubmitted(true);
+    setLoading(true);
+    try {
+      const { error: dbError } = await supabase
+        .from("waitlist_signups")
+        .insert({ email: email.toLowerCase().trim() });
+
+      if (dbError) {
+        if (dbError.code === "23505") {
+          // Already signed up
+          setSubmitted(true);
+        } else {
+          setError("Something went wrong. Please try again.");
+          console.error("Waitlist signup error:", dbError);
+        }
+      } else {
+        setSubmitted(true);
+      }
+    } catch {
+      setError("Something went wrong. Please try again.");
+    } finally {
+      setLoading(false);
+    }
   };
 
   if (submitted) {
@@ -52,8 +73,10 @@ const WaitlistForm = ({ variant = "default" }: WaitlistFormProps) => {
       </div>
       <button
         type="submit"
-        className="rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors whitespace-nowrap glow-primary-sm"
+        disabled={loading}
+        className="rounded-lg bg-primary px-6 py-3 text-sm font-semibold text-primary-foreground hover:bg-primary/90 transition-colors whitespace-nowrap glow-primary-sm disabled:opacity-50"
       >
+        {loading ? "Joining..." : "Join the Waitlist"}
         Join the Waitlist
       </button>
       {error && <p className="text-xs text-destructive sm:col-span-2">{error}</p>}
