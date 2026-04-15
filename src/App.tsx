@@ -59,7 +59,6 @@ const App = () => (
               <Route path="/community" element={<PaidFeatureGate feature="Community"><Community /></PaidFeatureGate>} />
               <Route path="/tools" element={<PaidFeatureGate feature="Study Tools"><Tools /></PaidFeatureGate>} />
             </Route>
-            </Route>
 
             <Route path="*" element={<NotFound />} />
           </Routes>
