@@ -20,7 +20,7 @@ const statusLabel = (s: Status) => {
   }
 };
 
-const competitors = ["TheCounselorExam.com", "Therapist Dev Center", "Counseling Exam", "AATBS"];
+const competitors = ["TheCounselorExam.com", "Therapist Dev Center", "Mometrix", "AATBS"];
 
 const rows: { feature: string; statuses: Status[] }[] = [
   { feature: "AI tutoring built into study flow", statuses: ["yes", "no", "no", "no"] },
