@@ -37,6 +37,16 @@ const WaitlistForm = ({ variant = "default" }: WaitlistFormProps) => {
         }
       } else {
         setSubmitted(true);
+        // Send confirmation email
+        const signupId = crypto.randomUUID();
+        supabase.functions.invoke('send-transactional-email', {
+          body: {
+            templateName: 'waitlist-confirmation',
+            recipientEmail: email.toLowerCase().trim(),
+            idempotencyKey: `waitlist-confirm-${signupId}`,
+            templateData: { email: email.toLowerCase().trim() },
+          },
+        }).catch((err) => console.error('Confirmation email error:', err));
       }
     } catch {
       setError("Something went wrong. Please try again.");
