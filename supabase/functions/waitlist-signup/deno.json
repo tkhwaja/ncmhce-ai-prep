@@ -1,0 +1,5 @@
+{
+  "compilerOptions": {
+    "types": ["npm:@types/node@22.12.0"]
+  }
+}
