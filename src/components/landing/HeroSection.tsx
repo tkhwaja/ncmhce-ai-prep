@@ -25,7 +25,7 @@ const HeroSection = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-8 leading-relaxed">
-              Stop relying on static question banks. CounselorExam.io combines realistic simulations,
+              Stop relying on static question banks. TheCounselorExam.com combines realistic simulations,
               contextual AI tutoring, and personalized study support — so you can prepare smarter and
               pass with confidence.
             </p>

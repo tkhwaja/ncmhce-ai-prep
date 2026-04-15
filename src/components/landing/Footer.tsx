@@ -4,7 +4,7 @@ const Footer = () => (
       <div className="grid md:grid-cols-3 gap-8 items-start">
         <div>
           <p className="text-lg font-bold text-foreground tracking-tight">
-            CounselorExam<span className="text-primary">.io</span>
+            TheCounselorExam<span className="text-primary">.com</span>
           </p>
           <p className="text-sm text-muted-foreground mt-2">
             AI-powered NCMHCE exam prep, built for clinical reasoning.
@@ -27,7 +27,7 @@ const Footer = () => (
 
       <div className="border-t border-border mt-8 pt-6 text-center">
         <p className="text-xs text-muted-foreground">
-          © {new Date().getFullYear()} CounselorExam.io. All rights reserved.
+          © {new Date().getFullYear()} TheCounselorExam.com. All rights reserved.
         </p>
       </div>
     </div>

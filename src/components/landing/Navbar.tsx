@@ -28,7 +28,7 @@ const Navbar = () => {
     >
       <div className="container max-w-6xl mx-auto flex items-center justify-between h-16 px-4">
         <a href="#" className="text-xl font-bold text-foreground tracking-tight">
-          CounselorExam<span className="text-primary">.io</span>
+          TheCounselorExam<span className="text-primary">.com</span>
         </a>
 
         <div className="hidden md:flex items-center gap-8">

@@ -7,8 +7,8 @@ import {
 
 const faqs = [
   {
-    q: "What is CounselorExam.io?",
-    a: "CounselorExam.io is an upcoming AI-powered exam prep platform built specifically for the NCMHCE. It combines realistic clinical simulations, a contextual AI tutor, adaptive analytics, and personalized study tools to help you prepare smarter and pass with confidence.",
+    q: "What is TheCounselorExam.com?",
+    a: "TheCounselorExam.com is an upcoming AI-powered exam prep platform built specifically for the NCMHCE. It combines realistic clinical simulations, a contextual AI tutor, adaptive analytics, and personalized study tools to help you prepare smarter and pass with confidence.",
   },
   {
     q: "Is the platform live yet?",
@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     q: "Who is this for?",
-    a: "CounselorExam.io is designed for anyone preparing for the NCMHCE — including first-time test takers, repeat test takers looking for deeper insight, and counseling students who want early clinical simulation practice.",
+    a: "TheCounselorExam.com is designed for anyone preparing for the NCMHCE — including first-time test takers, repeat test takers looking for deeper insight, and counseling students who want early clinical simulation practice.",
   },
   {
     q: "Will there be full-length simulations?",
