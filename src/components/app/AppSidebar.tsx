@@ -19,6 +19,7 @@ import {
   BookOpen,
   FileText,
   Users,
+  Wrench,
 } from "lucide-react";
 import { useLocation } from "react-router-dom";
 
@@ -29,6 +30,7 @@ const navItems = [
   { title: "Analytics", url: "/analytics", icon: BarChart3 },
   { title: "Flashcards", url: "/flashcards", icon: Layers },
   { title: "Learning Library", url: "/library", icon: BookOpen },
+  { title: "Study Tools", url: "/tools", icon: Wrench },
   { title: "Exam Info", url: "/exam-info", icon: FileText },
   { title: "Community", url: "/community", icon: Users },
 ];

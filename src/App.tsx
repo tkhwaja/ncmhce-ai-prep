@@ -23,6 +23,8 @@ import Flashcards from "./pages/Flashcards";
 import Library from "./pages/Library";
 import ExamInfo from "./pages/ExamInfo";
 import Community from "./pages/Community";
+import Tools from "./pages/Tools";
+import PaidFeatureGate from "./components/PaidFeatureGate";
 
 const queryClient = new QueryClient();
 
@@ -46,14 +48,17 @@ const App = () => (
             <Route element={<ProtectedRoute><AppLayout /></ProtectedRoute>}>
               <Route path="/dashboard" element={<Dashboard />} />
               <Route path="/profile" element={<Profile />} />
-              <Route path="/simulations" element={<Simulations />} />
-              <Route path="/simulation/:id" element={<SimulationPage />} />
-              <Route path="/study-plan" element={<StudyPlan />} />
-              <Route path="/analytics" element={<Analytics />} />
-              <Route path="/flashcards" element={<Flashcards />} />
-              <Route path="/library" element={<Library />} />
               <Route path="/exam-info" element={<ExamInfo />} />
-              <Route path="/community" element={<Community />} />
+              {/* Premium features */}
+              <Route path="/simulations" element={<PaidFeatureGate feature="Simulations"><Simulations /></PaidFeatureGate>} />
+              <Route path="/simulation/:id" element={<PaidFeatureGate feature="Simulations"><SimulationPage /></PaidFeatureGate>} />
+              <Route path="/study-plan" element={<PaidFeatureGate feature="Study Plan"><StudyPlan /></PaidFeatureGate>} />
+              <Route path="/analytics" element={<PaidFeatureGate feature="Analytics"><Analytics /></PaidFeatureGate>} />
+              <Route path="/flashcards" element={<PaidFeatureGate feature="Flashcards"><Flashcards /></PaidFeatureGate>} />
+              <Route path="/library" element={<PaidFeatureGate feature="Learning Library"><Library /></PaidFeatureGate>} />
+              <Route path="/community" element={<PaidFeatureGate feature="Community"><Community /></PaidFeatureGate>} />
+              <Route path="/tools" element={<PaidFeatureGate feature="Study Tools"><Tools /></PaidFeatureGate>} />
+            </Route>
             </Route>
 
             <Route path="*" element={<NotFound />} />
