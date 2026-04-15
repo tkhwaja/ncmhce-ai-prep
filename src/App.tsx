@@ -20,7 +20,9 @@ import SimulationPage from "./pages/SimulationPage";
 import Analytics from "./pages/Analytics";
 import StudyPlan from "./pages/StudyPlan";
 import Flashcards from "./pages/Flashcards";
-import PlaceholderPage from "./pages/PlaceholderPage";
+import Library from "./pages/Library";
+import ExamInfo from "./pages/ExamInfo";
+import Community from "./pages/Community";
 
 const queryClient = new QueryClient();
 
