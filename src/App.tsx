@@ -17,6 +17,9 @@ import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
 import Simulations from "./pages/Simulations";
 import SimulationPage from "./pages/SimulationPage";
+import Analytics from "./pages/Analytics";
+import StudyPlan from "./pages/StudyPlan";
+import Flashcards from "./pages/Flashcards";
 import PlaceholderPage from "./pages/PlaceholderPage";
 
 const queryClient = new QueryClient();
