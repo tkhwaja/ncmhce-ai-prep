@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const navLinks = [
   { label: "Features", href: "#features" },
@@ -41,12 +42,18 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
-          <a
-            href="#waitlist"
+          <Link
+            to="/login"
+            className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+          >
+            Sign In
+          </Link>
+          <Link
+            to="/signup"
             className="inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
           >
-            Join the Waitlist
-          </a>
+            Get Started
+          </Link>
         </div>
 
         <button
