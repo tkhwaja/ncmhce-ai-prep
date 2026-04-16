@@ -9,10 +9,13 @@ import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
-import { Save, Target, TrendingUp, Layers, Calendar, BarChart3, CalendarCheck, KeyRound, Trash2 } from "lucide-react";
+import { Save, Target, TrendingUp, Layers, Calendar, BarChart3, CalendarCheck, KeyRound, Trash2, CreditCard } from "lucide-react";
+import { useSubscription } from "@/hooks/useSubscription";
+import { getStripeEnvironment } from "@/lib/stripe";
 
 const Profile = () => {
   const { user, profile, refreshProfile, signOut } = useAuth();
+  const { hasAccess, status, cancelAtPeriodEnd, currentPeriodEnd } = useSubscription();
   const { toast } = useToast();
   const navigate = useNavigate();
   const [fullName, setFullName] = useState("");
@@ -20,6 +23,7 @@ const Profile = () => {
   const [studyHours, setStudyHours] = useState(0);
   const [targetExamDate, setTargetExamDate] = useState("");
   const [loading, setLoading] = useState(false);
+  const [portalLoading, setPortalLoading] = useState(false);
   const [deleteConfirmOpen, setDeleteConfirmOpen] = useState(false);
 
   // Stats
@@ -100,8 +104,20 @@ const Profile = () => {
     }
   };
 
+  const handleManageSubscription = async () => {
+    setPortalLoading(true);
+    const { data, error } = await supabase.functions.invoke("create-portal-session", {
+      body: { environment: getStripeEnvironment(), returnUrl: `${window.location.origin}/profile` },
+    });
+    setPortalLoading(false);
+    if (error || !data?.url) {
+      toast({ title: "Error", description: error?.message || "Could not open subscription portal.", variant: "destructive" });
+      return;
+    }
+    window.open(data.url, "_blank");
+  };
+
   const handleDeleteAccount = async () => {
-    // Sign out and inform user to contact support for deletion
     toast({ title: "Account deletion requested", description: "Please contact support to complete account deletion." });
     await signOut();
     navigate("/");
