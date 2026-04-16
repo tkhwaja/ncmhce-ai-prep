@@ -4,6 +4,7 @@ import { useActiveSessionEnforcement } from "@/hooks/useActiveSessionEnforcement
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { user, loading } = useAuth();
+  useActiveSessionEnforcement();
 
   if (loading) {
     return (
