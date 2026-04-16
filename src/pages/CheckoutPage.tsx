@@ -16,9 +16,9 @@ const CheckoutPage = () => {
         <Button variant="ghost" onClick={() => navigate(-1)} className="mb-6">
           <ArrowLeft className="mr-2 h-4 w-4" /> Back
         </Button>
-        <h1 className="text-2xl font-bold text-foreground mb-6">Complete Your Purchase</h1>
+        <h1 className="text-2xl font-bold text-foreground mb-6">Start Your Subscription</h1>
         <StripeEmbeddedCheckout
-          priceId="ncmhce_full_access_onetime"
+          priceId="ncmhce_monthly"
           customerEmail={user?.email || undefined}
           userId={user?.id || ""}
           returnUrl={`${window.location.origin}/checkout/return?session_id={CHECKOUT_SESSION_ID}`}
