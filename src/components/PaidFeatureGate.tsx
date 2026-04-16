@@ -9,6 +9,10 @@ const PaidFeatureGate = ({ children, feature }: { children: React.ReactNode; fea
   const { hasAccess, loading } = useSubscription();
   const navigate = useNavigate();
 
+  // TESTING: paywall temporarily disabled — all authenticated users have full access
+  return <>{children}</>;
+
+  // eslint-disable-next-line no-unreachable
   if (loading) {
     return <div className="p-6 text-center text-sm text-muted-foreground">Loading…</div>;
   }
