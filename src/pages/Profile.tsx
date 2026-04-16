@@ -170,6 +170,55 @@ const Profile = () => {
         </Button>
       </div>
 
+
+      {/* Subscription */}
+      <Card className="card-elevated">
+        <CardHeader>
+          <CardTitle className="text-base">Subscription</CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-3">
+          {hasAccess ? (
+            <>
+              <div className="flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-medium text-foreground">
+                    {status === "canceled"
+                      ? "Canceled (active until period end)"
+                      : cancelAtPeriodEnd
+                      ? "Active (cancels at period end)"
+                      : profile?.payment_status === "paid" && !status
+                      ? "Lifetime Access"
+                      : "Active — $129.95/month"}
+                  </p>
+                  {currentPeriodEnd && (
+                    <p className="text-xs text-muted-foreground">
+                      {cancelAtPeriodEnd || status === "canceled" ? "Access ends" : "Renews"}{" "}
+                      {new Date(currentPeriodEnd).toLocaleDateString()}
+                    </p>
+                  )}
+                </div>
+                {status && (
+                  <Button variant="outline" size="sm" onClick={handleManageSubscription} disabled={portalLoading}>
+                    <CreditCard className="mr-2 h-4 w-4" />
+                    {portalLoading ? "Opening…" : "Manage"}
+                  </Button>
+                )}
+              </div>
+            </>
+          ) : (
+            <div className="flex items-center justify-between">
+              <div>
+                <p className="text-sm font-medium text-foreground">No active subscription</p>
+                <p className="text-xs text-muted-foreground">Unlock all premium features for $129.95/month</p>
+              </div>
+              <Button size="sm" onClick={() => navigate("/checkout")}>
+                Subscribe
+              </Button>
+            </div>
+          )}
+        </CardContent>
+      </Card>
+
       {/* Edit Form */}
       <Card className="card-elevated">
         <CardHeader>
