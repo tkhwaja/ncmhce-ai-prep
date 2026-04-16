@@ -12,6 +12,7 @@ const features = [
   "Learning Library",
   "Community Forum",
   "Pomodoro Timer & Note-Taking",
+  "Cancel anytime",
 ];
 
 const PricingSection = () => {
@@ -22,21 +23,21 @@ const PricingSection = () => {
       <div className="container max-w-4xl mx-auto text-center">
         <p className="text-sm font-medium text-primary uppercase tracking-wider mb-3">Pricing</p>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-          One Price. Full Access. Pass Your Exam.
+          Simple Monthly Pricing. Pass Your Exam.
         </h2>
         <p className="text-muted-foreground mb-10 max-w-lg mx-auto">
-          No subscriptions. No hidden fees. Pay once and get lifetime access to everything.
+          Full access to everything. Cancel anytime — no long-term commitment.
         </p>
 
         <Card className="card-elevated border-primary/30 max-w-md mx-auto">
           <CardHeader className="pb-2">
             <CardTitle className="text-lg text-primary">NCMHCE Full Access</CardTitle>
             <div className="flex items-baseline justify-center gap-1 mt-2">
-              <span className="text-5xl font-extrabold text-foreground">$349</span>
-              <span className="text-muted-foreground text-sm">one-time</span>
+              <span className="text-5xl font-extrabold text-foreground">$129.95</span>
+              <span className="text-muted-foreground text-sm">/month</span>
             </div>
             <p className="text-xs text-muted-foreground mt-2">
-              Use code <span className="font-semibold text-primary">FIRST15</span> for 15% off
+              Use code <span className="font-semibold text-primary">FIRST10</span> for 10% off your first month
             </p>
           </CardHeader>
           <CardContent className="space-y-4 pt-4">
@@ -49,7 +50,7 @@ const PricingSection = () => {
               ))}
             </ul>
             <Button className="w-full" size="lg" onClick={() => navigate("/checkout")}>
-              Get Started — $349
+              Subscribe — $129.95/month
             </Button>
           </CardContent>
         </Card>

@@ -1,8 +1,10 @@
 import { Navigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
+import { useActiveSessionEnforcement } from "@/hooks/useActiveSessionEnforcement";
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { user, loading } = useAuth();
+  useActiveSessionEnforcement();
 
   if (loading) {
     return (

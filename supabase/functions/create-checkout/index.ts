@@ -13,7 +13,7 @@ serve(async (req) => {
   }
 
   try {
-    const { priceId, quantity, customerEmail, userId, returnUrl, environment, discountCode } = await req.json();
+    const { priceId, quantity, customerEmail, userId, returnUrl, environment } = await req.json();
     if (!priceId || typeof priceId !== 'string' || !/^[a-zA-Z0-9_-]+$/.test(priceId)) {
       return new Response(JSON.stringify({ error: "Invalid priceId" }), { status: 400, headers: corsHeaders });
     }
@@ -26,16 +26,19 @@ serve(async (req) => {
       return new Response(JSON.stringify({ error: "Price not found" }), { status: 404, headers: corsHeaders });
     }
     const stripePrice = prices.data[0];
+    const isRecurring = stripePrice.type === "recurring";
 
-    // Build session params
     const sessionParams: any = {
       line_items: [{ price: stripePrice.id, quantity: quantity || 1 }],
-      mode: "payment",
+      mode: isRecurring ? "subscription" : "payment",
       ui_mode: "embedded",
       return_url: returnUrl || `${req.headers.get("origin")}/checkout/return?session_id={CHECKOUT_SESSION_ID}`,
       allow_promotion_codes: true,
       ...(customerEmail && { customer_email: customerEmail }),
-      ...(userId && { metadata: { userId } }),
+      ...(userId && {
+        metadata: { userId },
+        ...(isRecurring && { subscription_data: { metadata: { userId } } }),
+      }),
     };
 
     const session = await stripe.checkout.sessions.create(sessionParams);

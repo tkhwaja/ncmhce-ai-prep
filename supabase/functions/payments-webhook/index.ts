@@ -23,6 +23,18 @@ serve(async (req) => {
       case "checkout.session.completed":
         await handleCheckoutCompleted(event.data.object);
         break;
+      case "customer.subscription.created":
+        await handleSubscriptionCreated(event.data.object, env);
+        break;
+      case "customer.subscription.updated":
+        await handleSubscriptionUpdated(event.data.object, env);
+        break;
+      case "customer.subscription.deleted":
+        await handleSubscriptionDeleted(event.data.object, env);
+        break;
+      case "invoice.payment_failed":
+        console.log("Payment failed:", event.data.object.id);
+        break;
       default:
         console.log("Unhandled event:", event.type);
     }
@@ -38,21 +50,80 @@ serve(async (req) => {
 });
 
 async function handleCheckoutCompleted(session: any) {
-  const userId = session.metadata?.userId;
+  // Legacy one-time payment support — keep updating profile.payment_status
+  if (session.mode === "payment") {
+    const userId = session.metadata?.userId;
+    if (!userId) return;
+    await supabase.from("profiles").update({ payment_status: "paid" }).eq("id", userId);
+    console.log("Legacy one-time payment recorded for user:", userId);
+  }
+  // Subscription mode is handled by customer.subscription.* events
+}
+
+async function handleSubscriptionCreated(subscription: any, env: StripeEnv) {
+  const userId = subscription.metadata?.userId;
   if (!userId) {
-    console.error("No userId in checkout metadata");
+    console.error("No userId in subscription metadata");
     return;
   }
 
-  // Update profile payment_status to "paid"
-  const { error } = await supabase
-    .from("profiles")
-    .update({ payment_status: "paid" })
-    .eq("id", userId);
+  const item = subscription.items?.data?.[0];
+  const priceId = item?.price?.metadata?.lovable_external_id || item?.price?.id;
+  const productId = item?.price?.product;
 
-  if (error) {
-    console.error("Failed to update payment_status:", error);
-  } else {
-    console.log("Payment status updated to paid for user:", userId);
-  }
+  const periodStart = subscription.current_period_start;
+  const periodEnd = subscription.current_period_end;
+
+  const { error } = await supabase.from("subscriptions").upsert(
+    {
+      user_id: userId,
+      stripe_subscription_id: subscription.id,
+      stripe_customer_id: subscription.customer,
+      product_id: productId,
+      price_id: priceId,
+      status: subscription.status,
+      current_period_start: periodStart ? new Date(periodStart * 1000).toISOString() : null,
+      current_period_end: periodEnd ? new Date(periodEnd * 1000).toISOString() : null,
+      cancel_at_period_end: subscription.cancel_at_period_end || false,
+      environment: env,
+      updated_at: new Date().toISOString(),
+    },
+    { onConflict: "stripe_subscription_id" }
+  );
+
+  if (error) console.error("subscription upsert failed:", error);
+}
+
+async function handleSubscriptionUpdated(subscription: any, env: StripeEnv) {
+  const item = subscription.items?.data?.[0];
+  const priceId = item?.price?.metadata?.lovable_external_id || item?.price?.id;
+  const productId = item?.price?.product;
+
+  const periodStart = subscription.current_period_start;
+  const periodEnd = subscription.current_period_end;
+
+  await supabase
+    .from("subscriptions")
+    .update({
+      status: subscription.status,
+      product_id: productId,
+      price_id: priceId,
+      current_period_start: periodStart ? new Date(periodStart * 1000).toISOString() : null,
+      current_period_end: periodEnd ? new Date(periodEnd * 1000).toISOString() : null,
+      cancel_at_period_end: subscription.cancel_at_period_end || false,
+      updated_at: new Date().toISOString(),
+    })
+    .eq("stripe_subscription_id", subscription.id)
+    .eq("environment", env);
+}
+
+async function handleSubscriptionDeleted(subscription: any, env: StripeEnv) {
+  await supabase
+    .from("subscriptions")
+    .update({
+      status: "canceled",
+      updated_at: new Date().toISOString(),
+    })
+    .eq("stripe_subscription_id", subscription.id)
+    .eq("environment", env);
 }
