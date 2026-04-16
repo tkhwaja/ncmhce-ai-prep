@@ -1,33 +1,62 @@
 
-The build failed because `src/components/ui/chart.tsx` (a shadcn-generated file) has TS errors against the installed recharts version. These weren't caused by my edits — but I need to fix them so the build passes. The fix is to loosen the typing on `payload`/`label`/`verticalAlign` props using `any` casts (standard shadcn workaround for recharts type drift).
+User wants:
+1. Every human contact point → `support@thecounselorexam.com` (footer Contact link is the only one I know of; need to check if there are others)
+2. Automated emails → continue from `noreply@thecounselorexam.com` via `notify.` sending domain (already the case)
+3. Explanation of how password reset currently works
 
-On the email/domain question — let me explain clearly without code.
+Let me think about scope:
 
-## The build error
+**Human contact points to audit:**
+- Footer Contact link → currently `mailto:hello@...` → change to `support@`
+- Need to grep for other `mailto:` links and any "contact us" / "support" references in the codebase
 
-`src/components/ui/chart.tsx` has 5 TypeScript errors because the installed `recharts` version's tooltip/legend type definitions don't match what the shadcn chart wrapper expects (`payload`, `label`, `verticalAlign` properties). This is a known recharts type-drift issue — unrelated to the recent waitlist/footer fix.
+**Automated emails — already correct:**
+- `send-transactional-email/index.ts` already sends from `NCMHCE AI Prep <noreply@thecounselorexam.com>` via `notify.thecounselorexam.com` sending domain. No change needed.
+- Waitlist confirmation uses this path. ✓
 
-**Fix:** Patch `src/components/ui/chart.tsx` in three spots to cast the affected props to `any`, which is the standard shadcn workaround. No functional change — purely a type fix so the build compiles.
+**Password reset flow (already implemented, just needs explanation):**
+- `src/pages/ForgotPassword.tsx` — user enters email, calls `supabase.auth.resetPasswordForEmail(email, { redirectTo: window.location.origin + '/reset-password' })`
+- Supabase Auth generates a recovery link and sends an email using its **default Lovable auth email template** (no custom auth-email-hook is scaffolded in this project — I checked the function list earlier, only `send-transactional-email`, `handle-email-*`, `payments-*`, `counselor-chat`, `waitlist-signup`, `process-email-queue`, `create-checkout`, `get-stripe-price` exist).
+- The default email comes from Lovable's default sender (NOT from `noreply@thecounselorexam.com` — because no `auth-email-hook` is deployed).
+- User clicks the link → lands on `/reset-password` with a recovery session → enters new password → `supabase.auth.updateUser({ password })` updates it.
 
-## About your email domains
+So a relevant gap: **password reset emails currently do NOT use the branded `noreply@thecounselorexam.com` sender** because auth email templates have not been scaffolded. The user said "for other automated tasks" they want noreply too — password reset is one of those.
 
-Quick clarification on what's set up vs. what you need to do:
+I should mention this and offer to scaffold auth email templates so password reset (and future signup confirmation, magic links) come from `noreply@thecounselorexam.com` with branded styling matching the app.
 
-**`notify.thecounselorexam.com`** — this is your **sending domain** for Lovable Cloud. It is fully verified and active. It does NOT receive email. It only sends outbound mail (waitlist confirmations, password resets, etc.) on your behalf. There is nothing to configure in Outlook for this — it's purely outbound infrastructure managed by Lovable.
-
-**`hello@thecounselorexam.com`** — this is the **inbox address** I put in the footer's Contact link (`mailto:hello@thecounselorexam.com`). This is a separate thing. For someone to actually email `hello@thecounselorexam.com` and have it land in your Outlook inbox, you need to:
-1. Set up an MX record on `thecounselorexam.com` pointing to Outlook/Microsoft 365, AND
-2. Create the `hello@` mailbox or alias inside your Outlook/Microsoft 365 account.
-
-Right now, **neither is configured**, so anyone clicking "Contact" and emailing `hello@` will get a bounce. You have three options:
-
-1. **Set up Outlook/M365 mail hosting** for `thecounselorexam.com` and create the `hello@` mailbox (done outside Lovable, in your Microsoft admin center).
-2. **Change the footer** to a different address you already own (e.g., your personal Gmail or an existing work address).
-3. **Replace the mailto link** with a proper `/contact` page that uses the existing transactional email system to forward submissions to whatever inbox you choose.
-
-The two domains are completely independent: `notify.` sends; `thecounselorexam.com` (root) would need its own MX setup to receive.
+Let me quickly verify there are no other mailto links I'm missing before finalizing.
 
 ## Plan
 
-1. Fix `src/components/ui/chart.tsx` TS errors (3 small edits, cast to `any`).
-2. Wait for your decision on the contact email — let me know which option above you prefer and I'll wire it up.
+### 1. Audit & swap human contact points to `support@thecounselorexam.com`
+- Search the codebase for all `mailto:` links and contact references.
+- Update each to point to `support@thecounselorexam.com`. Known: Footer Contact link.
+
+### 2. Confirm automated emails already use `noreply@`
+- The waitlist confirmation and any future transactional email already send from `NCMHCE AI Prep <noreply@thecounselorexam.com>` via the verified `notify.thecounselorexam.com` sending domain. No code change needed.
+
+### 3. How password reset works today
+- User goes to `/forgot-password`, enters email.
+- App calls Supabase Auth's `resetPasswordForEmail`, which generates a one-time recovery link and emails it.
+- **Current sender**: Lovable's default auth email template (generic Lovable branding) — NOT `noreply@thecounselorexam.com`. This is because no custom auth email hook has been set up yet.
+- User clicks the link → lands on `/reset-password` with a temporary recovery session → submits new password → `supabase.auth.updateUser({ password })` saves it → redirected to `/dashboard`.
+
+### 4. Recommended: brand the auth emails so password reset comes from `noreply@`
+To make password reset (and future signup verification, magic links) send from `noreply@thecounselorexam.com` with branded styling matching the rest of the app, I can set up custom auth email templates. This is a one-time setup that:
+- Adds an auth email hook that intercepts password reset, signup confirmation, magic link, and email change emails
+- Sends them via the same `notify.thecounselorexam.com` infrastructure
+- Applies the app's brand colors and tone
+- Once deployed, the default Lovable auth emails are replaced
+
+I'll do this as part of the plan since the user explicitly said "other automated tasks" should use `noreply`.
+
+### Steps to implement
+1. Grep codebase for `mailto:` and contact references; update all human contact points to `support@thecounselorexam.com`.
+2. Set up custom auth email templates so password reset and other auth emails send from `noreply@thecounselorexam.com` with branded styling.
+3. Deploy the new auth email hook.
+4. No changes needed to the existing waitlist confirmation flow — it already uses `noreply@`.
+
+### What stays the same
+- `notify.thecounselorexam.com` sending infrastructure (already verified, working)
+- Waitlist confirmation email (already from `noreply@`)
+- Password reset UX flow (`/forgot-password` → email → `/reset-password`) — only the email's sender + branding changes
