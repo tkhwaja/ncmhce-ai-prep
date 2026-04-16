@@ -19,9 +19,9 @@ const Footer = () => (
         </div>
 
         <div className="flex flex-col gap-2 text-sm text-muted-foreground">
-          <a href="#" className="hover:text-foreground transition-colors">Privacy Policy</a>
-          <a href="#" className="hover:text-foreground transition-colors">Terms of Service</a>
-          <a href="#" className="hover:text-foreground transition-colors">Contact</a>
+          <a href="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</a>
+          <a href="/terms" className="hover:text-foreground transition-colors">Terms of Service</a>
+          <a href="mailto:hello@thecounselorexam.com" className="hover:text-foreground transition-colors">Contact</a>
         </div>
       </div>
 
