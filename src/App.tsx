@@ -15,8 +15,8 @@ import ResetPassword from "./pages/ResetPassword";
 import AppLayout from "./components/app/AppLayout";
 import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
-import Simulations from "./pages/Simulations";
-import SimulationPage from "./pages/SimulationPage";
+import Narratives from "./pages/Narratives";
+import NarrativePage from "./pages/NarrativePage";
 import { useParams } from "react-router-dom";
 import Analytics from "./pages/Analytics";
 import StudyPlan from "./pages/StudyPlan";
@@ -62,8 +62,8 @@ const App = () => (
               <Route path="/profile" element={<Profile />} />
               <Route path="/exam-info" element={<ExamInfo />} />
               {/* Premium features */}
-              <Route path="/narratives" element={<PaidFeatureGate feature="Narratives"><Simulations /></PaidFeatureGate>} />
-              <Route path="/narrative/:id" element={<PaidFeatureGate feature="Narratives"><SimulationPage /></PaidFeatureGate>} />
+              <Route path="/narratives" element={<PaidFeatureGate feature="Narratives"><Narratives /></PaidFeatureGate>} />
+              <Route path="/narrative/:id" element={<PaidFeatureGate feature="Narratives"><NarrativePage /></PaidFeatureGate>} />
               {/* Legacy redirects (old "Simulations" URLs) */}
               <Route path="/simulations" element={<Navigate to="/narratives" replace />} />
               <Route path="/simulation/:id" element={<RedirectSimulation />} />
