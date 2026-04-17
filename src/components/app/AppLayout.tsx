@@ -22,7 +22,9 @@ const pageContextMap: Record<string, string> = {
 const AppLayout = () => {
   const [chatOpen, setChatOpen] = useState(false);
   const location = useLocation();
-  const currentContext = pageContextMap[location.pathname] || "App";
+  const currentContext =
+    pageContextMap[location.pathname] ||
+    (location.pathname.startsWith("/narrative/") || location.pathname.startsWith("/simulation/") ? "Narrative" : "App");
 
   return (
     <SidebarProvider>
