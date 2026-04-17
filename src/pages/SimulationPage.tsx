@@ -441,7 +441,7 @@ const SimulationPage = () => {
                       disabled={!allDmAnswered || submitting}
                       className="bg-emerald-600 hover:bg-emerald-700"
                     >
-                      {submitting ? "Submitting..." : "Submit Simulation"}
+                      {submitting ? "Submitting..." : "Submit Narrative"}
                     </Button>
                   )}
                 </div>
