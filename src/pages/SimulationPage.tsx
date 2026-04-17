@@ -570,13 +570,26 @@ const SimulationPage = () => {
                       </CardContent>
                     </Card>
 
+                    {/* Review-mode AI chat — focused on wrong answers */}
+                    <NarrativeReviewChat
+                      narrativeTitle={sim.title}
+                      questions={sim.dmQuestions.map((q) => ({
+                        id: q.id,
+                        question: q.question,
+                        options: q.options,
+                        userAnswerIndex: dmAnswers[q.id],
+                        correctIndex: q.correctIndex,
+                        explanation: q.explanation,
+                      }))}
+                    />
+
                     {/* Action Buttons */}
                     <div className="flex flex-wrap gap-3 pt-2">
                       <Button variant="outline" onClick={() => window.location.reload()}>
-                        <RotateCcw className="mr-2 h-4 w-4" /> Retry This Simulation
+                        <RotateCcw className="mr-2 h-4 w-4" /> Retry This Narrative
                       </Button>
-                      <Button variant="outline" onClick={() => navigate("/simulations")}>
-                        <ArrowRight className="mr-2 h-4 w-4" /> Next Simulation
+                      <Button variant="outline" onClick={() => navigate("/narratives")}>
+                        <ArrowRight className="mr-2 h-4 w-4" /> Next Narrative
                       </Button>
                       <Button onClick={() => navigate("/dashboard")}>
                         <LayoutDashboard className="mr-2 h-4 w-4" /> Return to Dashboard
