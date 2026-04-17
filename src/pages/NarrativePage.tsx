@@ -201,7 +201,7 @@ const NarrativePage = () => {
 
       <div className="flex-1 overflow-hidden flex">
         {/* LEFT PANEL — questions / summary / results / review */}
-        <div className="flex-1 overflow-auto border-r border-border">
+        <div className="flex-1 lg:flex-none lg:w-2/5 overflow-auto border-r border-border">
           {phase === "answering" && (
             <div className="p-6 max-w-2xl mx-auto space-y-6">
               <div>
@@ -450,7 +450,7 @@ const NarrativePage = () => {
         </div>
 
         {/* RIGHT PANEL — pinned scrollable case content */}
-        <aside className="hidden lg:flex w-[420px] xl:w-[480px] flex-col bg-card/30">
+        <aside className="hidden lg:flex lg:w-3/5 flex-col bg-card/30">
           <div className="px-4 py-3 border-b border-border">
             <p className="text-xs uppercase tracking-wide text-muted-foreground">Case File</p>
             <p className="text-sm font-semibold text-foreground">{narrative.title}</p>
