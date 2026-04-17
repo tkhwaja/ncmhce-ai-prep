@@ -1,6 +1,6 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { simulations, IGItem, DMQuestion } from "@/data/simulations";
+import { simulations } from "@/data/simulations";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
@@ -10,13 +10,15 @@ import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
 import { useToast } from "@/hooks/use-toast";
 import ReactMarkdown from "react-markdown";
 import {
   Clock, ChevronRight, CheckCircle2, XCircle, AlertTriangle,
-  RotateCcw, ArrowRight, LayoutDashboard, Sparkles, Eye, EyeOff
+  RotateCcw, ArrowRight, LayoutDashboard, Sparkles, Eye, EyeOff, Lock
 } from "lucide-react";
+import { getNarrativeDurationSeconds, getUnlockedPart, splitNarrativeIntoParts, PART_LABELS } from "@/lib/narrative";
+import NarrativeReviewChat from "@/components/NarrativeReviewChat";
 
 type Phase = "ig" | "dm" | "results";
 
@@ -28,8 +30,15 @@ const SimulationPage = () => {
 
   const sim = simulations.find((s) => s.id === id);
 
+  const totalDuration = useMemo(
+    () => (sim ? getNarrativeDurationSeconds(sim.dmQuestions.length) : 0),
+    [sim]
+  );
+
   const [phase, setPhase] = useState<Phase>("ig");
-  const [timer, setTimer] = useState(0);
+  const [secondsRemaining, setSecondsRemaining] = useState(totalDuration);
+  const [timerExpired, setTimerExpired] = useState(false);
+  const [showExpiryDialog, setShowExpiryDialog] = useState(false);
   const [gatheredItems, setGatheredItems] = useState<Set<string>>(new Set());
   const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set());
   const [dmAnswers, setDmAnswers] = useState<Record<string, number>>({});
@@ -41,17 +50,38 @@ const SimulationPage = () => {
   } | null>(null);
   const [feedbackLoading, setFeedbackLoading] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const dialogShownRef = useRef(false);
 
-  // Timer
+  // Sync initial seconds when sim loads
   useEffect(() => {
-    if (phase === "results") return;
-    const interval = setInterval(() => setTimer((t) => t + 1), 1000);
+    setSecondsRemaining(totalDuration);
+  }, [totalDuration]);
+
+  // Countdown timer
+  useEffect(() => {
+    if (phase === "results" || totalDuration === 0) return;
+    const interval = setInterval(() => {
+      setSecondsRemaining((s) => {
+        const next = s - 1;
+        if (next <= 0 && !dialogShownRef.current) {
+          dialogShownRef.current = true;
+          setTimerExpired(true);
+          setShowExpiryDialog(true);
+          return 0;
+        }
+        return next;
+      });
+    }, 1000);
     return () => clearInterval(interval);
-  }, [phase]);
+  }, [phase, totalDuration]);
+
+  const elapsed = totalDuration - secondsRemaining;
+  const timer = elapsed; // alias used downstream where time-spent is reported
 
   const formatTime = (s: number) => {
-    const m = Math.floor(s / 60);
-    const sec = s % 60;
+    const abs = Math.max(0, s);
+    const m = Math.floor(abs / 60);
+    const sec = abs % 60;
     return `${String(m).padStart(2, "0")}:${String(sec).padStart(2, "0")}`;
   };
 
