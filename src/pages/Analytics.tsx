@@ -27,11 +27,11 @@ interface Attempt {
 }
 
 const DOMAINS = [
-  "Assessment & Diagnosis",
-  "Treatment Planning",
-  "Counselor Attributes & Core Competencies",
-  "Professional Practice & Ethics",
-  "Information Gathering",
+  "Intake/assessment/diagnosis",
+  "Professional practice and ethics",
+  "Core counseling attributes",
+  "Treatment planning",
+  "Counseling skills and interventions",
 ];
 
 const Analytics = () => {
@@ -89,7 +89,7 @@ const Analytics = () => {
 
   // Trend data (last 10)
   const trendData = completed.slice(-10).map((a, i) => ({
-    name: `Sim ${i + 1}`,
+    name: `N${i + 1}`,
     score: a.total_score || 0,
   }));
 
@@ -118,7 +118,7 @@ const Analytics = () => {
         body: JSON.stringify({
           messages: [{
             role: "user",
-            content: `Based on my NCMHCE exam preparation analytics, provide personalized study recommendations:\n\n- Total simulations: ${completed.length}\n- Average score: ${avgScore}%\n- Pass rate: ${passRate}%\n- Domain scores:\n${domainAvgs.map((d) => `  ${d.fullDomain}: ${d.score}%`).join("\n")}\n\nIdentify my top 2 strengths, top 2 areas for improvement, and provide specific study recommendations for each weak area including which DSM-5-TR sections to review.`
+            content: `Based on my NCMHCE exam preparation analytics, provide personalized study recommendations:\n\n- Total narratives: ${completed.length}\n- Average score: ${avgScore}%\n- Pass rate: ${passRate}%\n- Domain scores:\n${domainAvgs.map((d) => `  ${d.fullDomain}: ${d.score}%`).join("\n")}\n\nIdentify my top 2 strengths, top 2 areas for improvement, and provide specific study recommendations for each weak area including which DSM-5-TR sections to review.`
           }],
           context: "Analytics Dashboard",
         }),

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { simulations } from "@/data/simulations";
+import { narratives, totalQuestionCount } from "@/data/narratives";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { Card, CardContent } from "@/components/ui/card";
@@ -16,10 +16,10 @@ const difficultyColor: Record<string, string> = {
 };
 
 interface AttemptMap {
-  [simId: string]: { total_score: number | null; completed_at: string | null };
+  [narrativeId: string]: { total_score: number | null; completed_at: string | null };
 }
 
-const Simulations = () => {
+const Narratives = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
   const [difficultyFilter, setDifficultyFilter] = useState("all");
@@ -46,9 +46,9 @@ const Simulations = () => {
       });
   }, [user]);
 
-  const categories = [...new Set(simulations.map((s) => s.category))];
+  const categories = [...new Set(narratives.map((s) => s.category))];
 
-  const filtered = simulations.filter((s) => {
+  const filtered = narratives.filter((s) => {
     if (difficultyFilter !== "all" && s.difficulty !== difficultyFilter) return false;
     if (categoryFilter !== "all" && s.category !== categoryFilter) return false;
     if (statusFilter !== "all") {
@@ -59,8 +59,8 @@ const Simulations = () => {
     return true;
   });
 
-  const getStatus = (simId: string) => {
-    const attempt = attempts[simId];
+  const getStatus = (id: string) => {
+    const attempt = attempts[id];
     if (!attempt) return "not-started";
     if (attempt.completed_at) return "completed";
     return "in-progress";
@@ -68,7 +68,6 @@ const Simulations = () => {
 
   return (
     <div className="p-6 max-w-6xl mx-auto space-y-8">
-      {/* Full-Length Practice Exams */}
       <div>
         <h1 className="text-2xl font-bold text-foreground mb-2">Narratives</h1>
         <p className="text-muted-foreground mb-6">Practice with realistic NCMHCE clinical case narratives</p>
@@ -92,7 +91,6 @@ const Simulations = () => {
         </div>
       </div>
 
-      {/* Filters */}
       <div className="flex flex-wrap gap-3">
         <Select value={difficultyFilter} onValueChange={setDifficultyFilter}>
           <SelectTrigger className="w-[160px]"><SelectValue placeholder="Difficulty" /></SelectTrigger>
@@ -120,21 +118,22 @@ const Simulations = () => {
         </Select>
       </div>
 
-      {/* Simulation Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-        {filtered.map((sim) => {
-          const status = getStatus(sim.id);
-          const attempt = attempts[sim.id];
+        {filtered.map((n) => {
+          const status = getStatus(n.id);
+          const attempt = attempts[n.id];
+          const qCount = totalQuestionCount(n);
+          const minutes = (n.minutesPerSection ?? 20) * 3;
           return (
             <Card
-              key={sim.id}
+              key={n.id}
               className="card-elevated cursor-pointer hover:border-primary/30 transition-all group"
-              onClick={() => navigate(`/narrative/${sim.id}`)}
+              onClick={() => navigate(`/narrative/${n.id}`)}
             >
               <CardContent className="p-6">
                 <div className="flex items-start justify-between mb-3">
-                  <Badge variant="outline" className={difficultyColor[sim.difficulty]}>
-                    {sim.difficulty}
+                  <Badge variant="outline" className={difficultyColor[n.difficulty]}>
+                    {n.difficulty}
                   </Badge>
                   {status === "completed" && (
                     <div className="flex items-center gap-1 text-emerald-400">
@@ -144,12 +143,12 @@ const Simulations = () => {
                   )}
                 </div>
                 <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">
-                  {sim.title}
+                  {n.title}
                 </h3>
-                <p className="text-sm text-muted-foreground mt-1">{sim.category}</p>
+                <p className="text-sm text-muted-foreground mt-1">{n.category} • {qCount} questions</p>
                 <div className="flex items-center justify-between mt-4 pt-3 border-t border-border">
                   <span className="text-xs text-muted-foreground flex items-center gap-1">
-                    <Clock className="h-3 w-3" /> {sim.estimatedMinutes} min
+                    <Clock className="h-3 w-3" /> ~{minutes} min
                   </span>
                   <Button size="sm" variant={status === "completed" ? "outline" : "default"} className="h-7 text-xs">
                     {status === "completed" ? (
@@ -168,4 +167,4 @@ const Simulations = () => {
   );
 };
 
-export default Simulations;
+export default Narratives;
