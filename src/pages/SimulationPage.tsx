@@ -88,11 +88,16 @@ const SimulationPage = () => {
   if (!sim) {
     return (
       <div className="p-6 text-center">
-        <p className="text-muted-foreground">Simulation not found.</p>
-        <Button onClick={() => navigate("/simulations")} className="mt-4">Back to Simulations</Button>
+        <p className="text-muted-foreground">Narrative not found.</p>
+        <Button onClick={() => navigate("/narratives")} className="mt-4">Back to Narratives</Button>
       </div>
     );
   }
+
+  // Sectioned narrative reveal — gated by how many DM questions have been answered.
+  const narrativeParts = splitNarrativeIntoParts(sim.narrative);
+  const answeredCount = Object.keys(dmAnswers).length;
+  const unlockedPart = getUnlockedPart(answeredCount);
 
   const toggleItem = (itemId: string) => {
     setGatheredItems((prev) => new Set(prev).add(itemId));
@@ -243,8 +248,19 @@ const SimulationPage = () => {
       {/* Top Bar */}
       <div className="h-12 border-b border-border flex items-center justify-between px-4 bg-muted/30 shrink-0">
         <div className="flex items-center gap-4">
-          <Badge variant="outline" className="font-mono text-sm">
-            <Clock className="h-3 w-3 mr-1" /> {formatTime(timer)}
+          <Badge
+            variant="outline"
+            className={`font-mono text-sm ${
+              phase !== "results" && secondsRemaining <= 60 ? "border-red-500/40 text-red-400" :
+              phase !== "results" && secondsRemaining <= 300 ? "border-amber-500/40 text-amber-400" : ""
+            }`}
+          >
+            <Clock className="h-3 w-3 mr-1" />
+            {phase === "results"
+              ? formatTime(elapsed)
+              : timerExpired
+                ? `+${formatTime(Math.abs(secondsRemaining))} over`
+                : formatTime(secondsRemaining)}
           </Badge>
           <span className="text-sm font-medium text-foreground">{sim.title}</span>
         </div>
@@ -255,14 +271,34 @@ const SimulationPage = () => {
 
       <div className="flex-1 overflow-hidden flex">
         <div className="flex-1 overflow-auto">
-          {/* Client Narrative */}
-          <div className="p-4 border-b border-border bg-card/50">
-            <h3 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
+          {/* Client Narrative — staged reveal in 3 parts */}
+          <div className="p-4 border-b border-border bg-card/50 space-y-3">
+            <h3 className="text-sm font-semibold text-foreground flex items-center gap-2">
               <Eye className="h-4 w-4 text-primary" /> Client Narrative
             </h3>
-            <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
-              {sim.narrative}
-            </p>
+            {narrativeParts.map((text, i) => {
+              const isUnlocked = i <= unlockedPart;
+              return (
+                <div key={i} className={`rounded-md border p-3 ${isUnlocked ? "border-border bg-background/40" : "border-dashed border-border/60 bg-muted/20"}`}>
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="text-xs font-medium text-foreground">{PART_LABELS[i]}</span>
+                    {!isUnlocked && (
+                      <span className="text-xs text-muted-foreground inline-flex items-center gap-1">
+                        <Lock className="h-3 w-3" />
+                        Unlocks after {i === 1 ? "Question 5" : "Question 10"}
+                      </span>
+                    )}
+                  </div>
+                  {isUnlocked ? (
+                    <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">{text}</p>
+                  ) : (
+                    <p className="text-xs text-muted-foreground italic">
+                      This section will be revealed once you've answered the required number of decision-making questions.
+                    </p>
+                  )}
+                </div>
+              );
+            })}
           </div>
 
           {/* Main Content Area */}
