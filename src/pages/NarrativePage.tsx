@@ -450,7 +450,7 @@ const NarrativePage = () => {
         </div>
 
         {/* RIGHT PANEL — pinned scrollable case content */}
-        <aside className="hidden lg:flex w-[420px] xl:w-[480px] flex-col bg-card/30">
+        <aside className="hidden lg:flex lg:w-3/5 flex-col bg-card/30">
           <div className="px-4 py-3 border-b border-border">
             <p className="text-xs uppercase tracking-wide text-muted-foreground">Case File</p>
             <p className="text-sm font-semibold text-foreground">{narrative.title}</p>
