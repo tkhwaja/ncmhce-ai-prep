@@ -31,6 +31,11 @@ import CheckoutReturn from "./pages/CheckoutReturn";
 
 const queryClient = new QueryClient();
 
+const RedirectSimulation = () => {
+  const { id } = useParams<{ id: string }>();
+  return <Navigate to={`/narrative/${id}`} replace />;
+};
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
