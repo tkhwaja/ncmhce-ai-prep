@@ -28,6 +28,7 @@ import Tools from "./pages/Tools";
 import PaidFeatureGate from "./components/PaidFeatureGate";
 import CheckoutPage from "./pages/CheckoutPage";
 import CheckoutReturn from "./pages/CheckoutReturn";
+import IconsPreview from "./pages/IconsPreview";
 
 const queryClient = new QueryClient();
 
@@ -53,6 +54,7 @@ const App = () => (
             <Route path="/unsubscribe" element={<Unsubscribe />} />
             <Route path="/checkout" element={<CheckoutPage />} />
             <Route path="/checkout/return" element={<CheckoutReturn />} />
+            <Route path="/icons-preview" element={<IconsPreview />} />
 
             {/* Protected routes */}
             <Route element={<ProtectedRoute><AppLayout /></ProtectedRoute>}>
