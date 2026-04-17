@@ -7,7 +7,8 @@ import { SidebarProvider } from "@/components/ui/sidebar";
 
 const pageContextMap: Record<string, string> = {
   "/dashboard": "Dashboard",
-  "/simulations": "Simulations",
+  "/narratives": "Narratives",
+  "/simulations": "Narratives",
   "/study-plan": "Study Plan",
   "/analytics": "Analytics",
   "/flashcards": "Flashcards",

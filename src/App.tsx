@@ -1,5 +1,5 @@
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Navigate } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -17,6 +17,7 @@ import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
 import Simulations from "./pages/Simulations";
 import SimulationPage from "./pages/SimulationPage";
+import NarrativeReviewChat from "./components/NarrativeReviewChat";
 import Analytics from "./pages/Analytics";
 import StudyPlan from "./pages/StudyPlan";
 import Flashcards from "./pages/Flashcards";
@@ -54,8 +55,11 @@ const App = () => (
               <Route path="/profile" element={<Profile />} />
               <Route path="/exam-info" element={<ExamInfo />} />
               {/* Premium features */}
-              <Route path="/simulations" element={<PaidFeatureGate feature="Simulations"><Simulations /></PaidFeatureGate>} />
-              <Route path="/simulation/:id" element={<PaidFeatureGate feature="Simulations"><SimulationPage /></PaidFeatureGate>} />
+              <Route path="/narratives" element={<PaidFeatureGate feature="Narratives"><Simulations /></PaidFeatureGate>} />
+              <Route path="/narrative/:id" element={<PaidFeatureGate feature="Narratives"><SimulationPage /></PaidFeatureGate>} />
+              {/* Legacy redirects (old "Simulations" URLs) */}
+              <Route path="/simulations" element={<Navigate to="/narratives" replace />} />
+              <Route path="/simulation/:id" element={<RedirectSimulation />} />
               <Route path="/study-plan" element={<PaidFeatureGate feature="Study Plan"><StudyPlan /></PaidFeatureGate>} />
               <Route path="/analytics" element={<PaidFeatureGate feature="Analytics"><Analytics /></PaidFeatureGate>} />
               <Route path="/flashcards" element={<PaidFeatureGate feature="Flashcards"><Flashcards /></PaidFeatureGate>} />
