@@ -1,6 +1,6 @@
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useMemo, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { simulations, IGItem, DMQuestion } from "@/data/simulations";
+import { simulations } from "@/data/simulations";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
@@ -10,13 +10,15 @@ import { Progress } from "@/components/ui/progress";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
-import { ScrollArea } from "@/components/ui/scroll-area";
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
 import { useToast } from "@/hooks/use-toast";
 import ReactMarkdown from "react-markdown";
 import {
   Clock, ChevronRight, CheckCircle2, XCircle, AlertTriangle,
-  RotateCcw, ArrowRight, LayoutDashboard, Sparkles, Eye, EyeOff
+  RotateCcw, ArrowRight, LayoutDashboard, Sparkles, Eye, EyeOff, Lock
 } from "lucide-react";
+import { getNarrativeDurationSeconds, getUnlockedPart, splitNarrativeIntoParts, PART_LABELS } from "@/lib/narrative";
+import NarrativeReviewChat from "@/components/NarrativeReviewChat";
 
 type Phase = "ig" | "dm" | "results";
 
@@ -28,8 +30,15 @@ const SimulationPage = () => {
 
   const sim = simulations.find((s) => s.id === id);
 
+  const totalDuration = useMemo(
+    () => (sim ? getNarrativeDurationSeconds(sim.dmQuestions.length) : 0),
+    [sim]
+  );
+
   const [phase, setPhase] = useState<Phase>("ig");
-  const [timer, setTimer] = useState(0);
+  const [secondsRemaining, setSecondsRemaining] = useState(totalDuration);
+  const [timerExpired, setTimerExpired] = useState(false);
+  const [showExpiryDialog, setShowExpiryDialog] = useState(false);
   const [gatheredItems, setGatheredItems] = useState<Set<string>>(new Set());
   const [expandedItems, setExpandedItems] = useState<Set<string>>(new Set());
   const [dmAnswers, setDmAnswers] = useState<Record<string, number>>({});
@@ -41,28 +50,54 @@ const SimulationPage = () => {
   } | null>(null);
   const [feedbackLoading, setFeedbackLoading] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const dialogShownRef = useRef(false);
 
-  // Timer
+  // Sync initial seconds when sim loads
   useEffect(() => {
-    if (phase === "results") return;
-    const interval = setInterval(() => setTimer((t) => t + 1), 1000);
+    setSecondsRemaining(totalDuration);
+  }, [totalDuration]);
+
+  // Countdown timer
+  useEffect(() => {
+    if (phase === "results" || totalDuration === 0) return;
+    const interval = setInterval(() => {
+      setSecondsRemaining((s) => {
+        const next = s - 1;
+        if (next <= 0 && !dialogShownRef.current) {
+          dialogShownRef.current = true;
+          setTimerExpired(true);
+          setShowExpiryDialog(true);
+          return 0;
+        }
+        return next;
+      });
+    }, 1000);
     return () => clearInterval(interval);
-  }, [phase]);
+  }, [phase, totalDuration]);
+
+  const elapsed = totalDuration - secondsRemaining;
+  const timer = elapsed; // alias used downstream where time-spent is reported
 
   const formatTime = (s: number) => {
-    const m = Math.floor(s / 60);
-    const sec = s % 60;
+    const abs = Math.max(0, s);
+    const m = Math.floor(abs / 60);
+    const sec = abs % 60;
     return `${String(m).padStart(2, "0")}:${String(sec).padStart(2, "0")}`;
   };
 
   if (!sim) {
     return (
       <div className="p-6 text-center">
-        <p className="text-muted-foreground">Simulation not found.</p>
-        <Button onClick={() => navigate("/simulations")} className="mt-4">Back to Simulations</Button>
+        <p className="text-muted-foreground">Narrative not found.</p>
+        <Button onClick={() => navigate("/narratives")} className="mt-4">Back to Narratives</Button>
       </div>
     );
   }
+
+  // Sectioned narrative reveal — gated by how many DM questions have been answered.
+  const narrativeParts = splitNarrativeIntoParts(sim.narrative);
+  const answeredCount = Object.keys(dmAnswers).length;
+  const unlockedPart = getUnlockedPart(answeredCount);
 
   const toggleItem = (itemId: string) => {
     setGatheredItems((prev) => new Set(prev).add(itemId));
@@ -213,8 +248,19 @@ const SimulationPage = () => {
       {/* Top Bar */}
       <div className="h-12 border-b border-border flex items-center justify-between px-4 bg-muted/30 shrink-0">
         <div className="flex items-center gap-4">
-          <Badge variant="outline" className="font-mono text-sm">
-            <Clock className="h-3 w-3 mr-1" /> {formatTime(timer)}
+          <Badge
+            variant="outline"
+            className={`font-mono text-sm ${
+              phase !== "results" && secondsRemaining <= 60 ? "border-red-500/40 text-red-400" :
+              phase !== "results" && secondsRemaining <= 300 ? "border-amber-500/40 text-amber-400" : ""
+            }`}
+          >
+            <Clock className="h-3 w-3 mr-1" />
+            {phase === "results"
+              ? formatTime(elapsed)
+              : timerExpired
+                ? `+${formatTime(Math.abs(secondsRemaining))} over`
+                : formatTime(secondsRemaining)}
           </Badge>
           <span className="text-sm font-medium text-foreground">{sim.title}</span>
         </div>
@@ -225,14 +271,34 @@ const SimulationPage = () => {
 
       <div className="flex-1 overflow-hidden flex">
         <div className="flex-1 overflow-auto">
-          {/* Client Narrative */}
-          <div className="p-4 border-b border-border bg-card/50">
-            <h3 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2">
+          {/* Client Narrative — staged reveal in 3 parts */}
+          <div className="p-4 border-b border-border bg-card/50 space-y-3">
+            <h3 className="text-sm font-semibold text-foreground flex items-center gap-2">
               <Eye className="h-4 w-4 text-primary" /> Client Narrative
             </h3>
-            <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">
-              {sim.narrative}
-            </p>
+            {narrativeParts.map((text, i) => {
+              const isUnlocked = i <= unlockedPart;
+              return (
+                <div key={i} className={`rounded-md border p-3 ${isUnlocked ? "border-border bg-background/40" : "border-dashed border-border/60 bg-muted/20"}`}>
+                  <div className="flex items-center justify-between mb-1.5">
+                    <span className="text-xs font-medium text-foreground">{PART_LABELS[i]}</span>
+                    {!isUnlocked && (
+                      <span className="text-xs text-muted-foreground inline-flex items-center gap-1">
+                        <Lock className="h-3 w-3" />
+                        Unlocks after {i === 1 ? "Question 5" : "Question 10"}
+                      </span>
+                    )}
+                  </div>
+                  {isUnlocked ? (
+                    <p className="text-sm text-muted-foreground leading-relaxed whitespace-pre-line">{text}</p>
+                  ) : (
+                    <p className="text-xs text-muted-foreground italic">
+                      This section will be revealed once you've answered the required number of decision-making questions.
+                    </p>
+                  )}
+                </div>
+              );
+            })}
           </div>
 
           {/* Main Content Area */}
@@ -375,7 +441,7 @@ const SimulationPage = () => {
                       disabled={!allDmAnswered || submitting}
                       className="bg-emerald-600 hover:bg-emerald-700"
                     >
-                      {submitting ? "Submitting..." : "Submit Simulation"}
+                      {submitting ? "Submitting..." : "Submit Narrative"}
                     </Button>
                   )}
                 </div>
@@ -504,13 +570,26 @@ const SimulationPage = () => {
                       </CardContent>
                     </Card>
 
+                    {/* Review-mode AI chat — focused on wrong answers */}
+                    <NarrativeReviewChat
+                      narrativeTitle={sim.title}
+                      questions={sim.dmQuestions.map((q) => ({
+                        id: q.id,
+                        question: q.question,
+                        options: q.options,
+                        userAnswerIndex: dmAnswers[q.id],
+                        correctIndex: q.correctIndex,
+                        explanation: q.explanation,
+                      }))}
+                    />
+
                     {/* Action Buttons */}
                     <div className="flex flex-wrap gap-3 pt-2">
                       <Button variant="outline" onClick={() => window.location.reload()}>
-                        <RotateCcw className="mr-2 h-4 w-4" /> Retry This Simulation
+                        <RotateCcw className="mr-2 h-4 w-4" /> Retry This Narrative
                       </Button>
-                      <Button variant="outline" onClick={() => navigate("/simulations")}>
-                        <ArrowRight className="mr-2 h-4 w-4" /> Next Simulation
+                      <Button variant="outline" onClick={() => navigate("/narratives")}>
+                        <ArrowRight className="mr-2 h-4 w-4" /> Next Narrative
                       </Button>
                       <Button onClick={() => navigate("/dashboard")}>
                         <LayoutDashboard className="mr-2 h-4 w-4" /> Return to Dashboard
@@ -523,6 +602,31 @@ const SimulationPage = () => {
           </div>
         </div>
       </div>
+
+      {/* Timer expired warning */}
+      <AlertDialog open={showExpiryDialog} onOpenChange={setShowExpiryDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Time's up!</AlertDialogTitle>
+            <AlertDialogDescription>
+              Your allotted time for this narrative has ended. On the real exam, your responses would be locked in now.
+              You can choose to submit what you have, or keep working untimed for additional practice.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Keep working (untimed)</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={() => {
+                setShowExpiryDialog(false);
+                if (phase !== "results" && allDmAnswered) handleSubmit();
+              }}
+              disabled={!allDmAnswered}
+            >
+              Submit now
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 };

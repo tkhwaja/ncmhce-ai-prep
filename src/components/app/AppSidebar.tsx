@@ -25,7 +25,7 @@ import { useLocation } from "react-router-dom";
 
 const navItems = [
   { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
-  { title: "Simulations", url: "/simulations", icon: Brain },
+  { title: "Narratives", url: "/narratives", icon: Brain },
   { title: "Study Plan", url: "/study-plan", icon: CalendarCheck },
   { title: "Analytics", url: "/analytics", icon: BarChart3 },
   { title: "Flashcards", url: "/flashcards", icon: Layers },

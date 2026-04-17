@@ -15,6 +15,7 @@ import {
 import {
   Target, TrendingUp, CheckCircle2, AlertTriangle, Sparkles, BarChart3
 } from "lucide-react";
+import { DEMO_MODE, demoAttempts } from "@/data/demo-stats";
 
 interface Attempt {
   simulation_id: string;
@@ -42,6 +43,11 @@ const Analytics = () => {
   const [aiLoading, setAiLoading] = useState(false);
 
   useEffect(() => {
+    if (DEMO_MODE) {
+      setAttempts(demoAttempts as unknown as Attempt[]);
+      setLoading(false);
+      return;
+    }
     if (!user) return;
     supabase
       .from("simulation_attempts")
@@ -162,7 +168,7 @@ const Analytics = () => {
           <CardContent className="p-12 text-center">
             <BarChart3 className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
             <h2 className="text-lg font-semibold text-foreground mb-2">No Data Yet</h2>
-            <p className="text-muted-foreground text-sm">Complete your first simulation to see your analytics here.</p>
+            <p className="text-muted-foreground text-sm">Complete your first narrative to see your analytics here.</p>
           </CardContent>
         </Card>
       </div>
@@ -180,7 +186,7 @@ const Analytics = () => {
             <div className="p-2 rounded-lg bg-primary/20 text-primary"><Target className="h-5 w-5" /></div>
             <div>
               <p className="text-2xl font-bold text-foreground">{completed.length}</p>
-              <p className="text-xs text-muted-foreground">Simulations Completed</p>
+              <p className="text-xs text-muted-foreground">Narratives Completed</p>
             </div>
           </CardContent>
         </Card>
