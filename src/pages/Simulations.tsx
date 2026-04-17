@@ -70,8 +70,8 @@ const Simulations = () => {
     <div className="p-6 max-w-6xl mx-auto space-y-8">
       {/* Full-Length Practice Exams */}
       <div>
-        <h1 className="text-2xl font-bold text-foreground mb-2">Exam Simulations</h1>
-        <p className="text-muted-foreground mb-6">Practice with realistic NCMHCE clinical case scenarios</p>
+        <h1 className="text-2xl font-bold text-foreground mb-2">Narratives</h1>
+        <p className="text-muted-foreground mb-6">Practice with realistic NCMHCE clinical case narratives</p>
 
         <h2 className="text-lg font-semibold text-foreground mb-4">Full-Length Practice Exams</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
@@ -85,7 +85,7 @@ const Simulations = () => {
                 </div>
                 <Brain className="h-8 w-8 text-muted-foreground mb-3" />
                 <h3 className="font-semibold text-foreground">Practice Exam {n}</h3>
-                <p className="text-sm text-muted-foreground mt-1">10 clinical simulations • ~4 hours</p>
+                <p className="text-sm text-muted-foreground mt-1">11 clinical narratives • ~4 hours</p>
               </CardContent>
             </Card>
           ))}
@@ -129,7 +129,7 @@ const Simulations = () => {
             <Card
               key={sim.id}
               className="card-elevated cursor-pointer hover:border-primary/30 transition-all group"
-              onClick={() => navigate(`/simulation/${sim.id}`)}
+              onClick={() => navigate(`/narrative/${sim.id}`)}
             >
               <CardContent className="p-6">
                 <div className="flex items-start justify-between mb-3">
