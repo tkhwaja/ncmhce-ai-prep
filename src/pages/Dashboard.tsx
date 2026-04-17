@@ -1,24 +1,35 @@
 import { useAuth } from "@/contexts/AuthContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Brain, BarChart3, Layers, Target, TrendingUp, Clock, Flame, Sparkles } from "lucide-react";
+import { Brain, BarChart3, Layers, Target, TrendingUp, Clock, Flame, Sparkles, BookOpen } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { DEMO_MODE, demoDashboardStats, demoRecentActivity } from "@/data/demo-stats";
+
+const capitalize = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
 
 const Dashboard = () => {
   const { profile } = useAuth();
   const navigate = useNavigate();
-  const firstName = profile?.full_name?.split(" ")[0] || "there";
+  const rawFirst = profile?.full_name?.trim().split(/\s+/)[0] || "there";
+  const firstName = capitalize(rawFirst);
   const today = new Date().toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
 
-  const stats = [
-    { label: "Simulations Completed", value: "0", icon: Target, color: "text-primary" },
-    { label: "Average Score", value: "—", icon: TrendingUp, color: "text-emerald-400" },
-    { label: "Study Streak", value: "0 days", icon: Flame, color: "text-amber-400" },
-    { label: "Hours Studied", value: "0h", icon: Clock, color: "text-violet-400" },
-  ];
+  const stats = DEMO_MODE
+    ? [
+        { label: "Narratives Completed", value: String(demoDashboardStats.narrativesCompleted), icon: Target, color: "text-primary" },
+        { label: "Average Score", value: `${demoDashboardStats.averageScore}%`, icon: TrendingUp, color: "text-emerald-400" },
+        { label: "Study Streak", value: `${demoDashboardStats.studyStreakDays} days`, icon: Flame, color: "text-amber-400" },
+        { label: "Hours Studied", value: `${demoDashboardStats.hoursStudied}h`, icon: Clock, color: "text-violet-400" },
+      ]
+    : [
+        { label: "Narratives Completed", value: "0", icon: Target, color: "text-primary" },
+        { label: "Average Score", value: "—", icon: TrendingUp, color: "text-emerald-400" },
+        { label: "Study Streak", value: "0 days", icon: Flame, color: "text-amber-400" },
+        { label: "Hours Studied", value: "0h", icon: Clock, color: "text-violet-400" },
+      ];
 
   const quickActions = [
-    { title: "Start a Simulation", desc: "Practice with realistic NCMHCE case scenarios", icon: Brain, path: "/simulations", color: "from-primary/20 to-primary/5" },
+    { title: "Start a Narrative", desc: "Practice with realistic NCMHCE clinical case narratives", icon: Brain, path: "/narratives", color: "from-primary/20 to-primary/5" },
     { title: "Review Study Plan", desc: "Track your progress and upcoming topics", icon: BarChart3, path: "/study-plan", color: "from-emerald-500/20 to-emerald-500/5" },
     { title: "Practice Flashcards", desc: "Review key concepts and DSM-5-TR criteria", icon: Layers, path: "/flashcards", color: "from-violet-500/20 to-violet-500/5" },
   ];
@@ -75,9 +86,32 @@ const Dashboard = () => {
             <CardTitle className="text-base">Recent Activity</CardTitle>
           </CardHeader>
           <CardContent>
-            <div className="text-sm text-muted-foreground text-center py-8">
-              No activity yet. Start a simulation or flashcard session to see your progress here.
-            </div>
+            {DEMO_MODE ? (
+              <ul className="space-y-3">
+                {demoRecentActivity.map((a) => (
+                  <li key={a.id} className="flex items-center gap-3 text-sm">
+                    <div className="h-8 w-8 rounded-lg bg-muted flex items-center justify-center shrink-0">
+                      {a.type === "narrative" ? (
+                        <Brain className="h-4 w-4 text-primary" />
+                      ) : (
+                        <BookOpen className="h-4 w-4 text-violet-400" />
+                      )}
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-foreground truncate">{a.title}</p>
+                      <p className="text-xs text-muted-foreground">{a.when}</p>
+                    </div>
+                    <span className={`text-sm font-medium ${a.type === "narrative" ? (a.score >= 70 ? "text-emerald-400" : "text-amber-400") : "text-muted-foreground"}`}>
+                      {a.type === "narrative" ? `${a.score}%` : `${a.score} cards`}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            ) : (
+              <div className="text-sm text-muted-foreground text-center py-8">
+                No activity yet. Start a narrative or flashcard session to see your progress here.
+              </div>
+            )}
           </CardContent>
         </Card>
 
@@ -93,7 +127,7 @@ const Dashboard = () => {
               <span className="text-foreground font-medium">PTSD differential diagnosis</span>{" "}
               module. Understanding trauma-related disorders is heavily tested on the NCMHCE.
             </p>
-            <Button variant="outline" size="sm" className="mt-4" onClick={() => navigate("/simulations")}>
+            <Button variant="outline" size="sm" className="mt-4" onClick={() => navigate("/narratives")}>
               Start Learning
             </Button>
           </CardContent>
