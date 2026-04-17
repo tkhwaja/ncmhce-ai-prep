@@ -9,30 +9,19 @@ import {
   SidebarMenuItem,
   useSidebar,
 } from "@/components/ui/sidebar";
-import { NavLink } from "react-router-dom";
-import {
-  LayoutDashboard,
-  Brain,
-  CalendarCheck,
-  BarChart3,
-  Layers,
-  BookOpen,
-  FileText,
-  Users,
-  Wrench,
-} from "lucide-react";
-import { useLocation } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import TceIcon, { TceIconName } from "@/components/icons/TceIcon";
 
-const navItems = [
-  { title: "Dashboard", url: "/dashboard", icon: LayoutDashboard },
-  { title: "Narratives", url: "/narratives", icon: Brain },
-  { title: "Study Plan", url: "/study-plan", icon: CalendarCheck },
-  { title: "Analytics", url: "/analytics", icon: BarChart3 },
-  { title: "Flashcards", url: "/flashcards", icon: Layers },
-  { title: "Learning Library", url: "/library", icon: BookOpen },
-  { title: "Study Tools", url: "/tools", icon: Wrench },
-  { title: "Exam Info", url: "/exam-info", icon: FileText },
-  { title: "Community", url: "/community", icon: Users },
+const navItems: { title: string; url: string; icon: TceIconName }[] = [
+  { title: "Dashboard", url: "/dashboard", icon: "dashboard" },
+  { title: "Narratives", url: "/narratives", icon: "narrative" },
+  { title: "Study Plan", url: "/study-plan", icon: "study-plan" },
+  { title: "Analytics", url: "/analytics", icon: "analytics" },
+  { title: "Flashcards", url: "/flashcards", icon: "flashcards" },
+  { title: "Learning Library", url: "/library", icon: "library" },
+  { title: "Study Tools", url: "/tools", icon: "tools" },
+  { title: "Exam Info", url: "/exam-info", icon: "exam-info" },
+  { title: "Community", url: "/community", icon: "community" },
 ];
 
 const AppSidebar = () => {
@@ -44,11 +33,10 @@ const AppSidebar = () => {
     <Sidebar collapsible="icon">
       <SidebarContent>
         <div className="p-4">
-          <NavLink to="/dashboard" className="text-lg font-bold text-foreground tracking-tight">
-            {collapsed ? (
-              <span className="text-primary text-xl">C</span>
-            ) : (
-              <>TCE<span className="text-primary">.com</span></>
+          <NavLink to="/dashboard" className="flex items-center gap-2 text-lg font-bold text-foreground tracking-tight">
+            <TceIcon name="logo-mark" size={collapsed ? 24 : 22} className="text-primary" />
+            {!collapsed && (
+              <span>TCE<span className="text-primary">.com</span></span>
             )}
           </NavLink>
         </div>
@@ -60,7 +48,7 @@ const AppSidebar = () => {
                 <SidebarMenuItem key={item.title}>
                   <SidebarMenuButton asChild isActive={location.pathname === item.url}>
                     <NavLink to={item.url} className="flex items-center gap-2">
-                      <item.icon className="h-4 w-4" />
+                      <TceIcon name={item.icon} size={18} />
                       {!collapsed && <span>{item.title}</span>}
                     </NavLink>
                   </SidebarMenuButton>
