@@ -602,6 +602,31 @@ const SimulationPage = () => {
           </div>
         </div>
       </div>
+
+      {/* Timer expired warning */}
+      <AlertDialog open={showExpiryDialog} onOpenChange={setShowExpiryDialog}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Time's up!</AlertDialogTitle>
+            <AlertDialogDescription>
+              Your allotted time for this narrative has ended. On the real exam, your responses would be locked in now.
+              You can choose to submit what you have, or keep working untimed for additional practice.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Keep working (untimed)</AlertDialogCancel>
+            <AlertDialogAction
+              onClick={() => {
+                setShowExpiryDialog(false);
+                if (phase !== "results" && allDmAnswered) handleSubmit();
+              }}
+              disabled={!allDmAnswered}
+            >
+              Submit now
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
     </div>
   );
 };
