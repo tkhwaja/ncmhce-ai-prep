@@ -17,7 +17,7 @@ import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
 import Simulations from "./pages/Simulations";
 import SimulationPage from "./pages/SimulationPage";
-import NarrativeReviewChat from "./components/NarrativeReviewChat";
+import { useParams } from "react-router-dom";
 import Analytics from "./pages/Analytics";
 import StudyPlan from "./pages/StudyPlan";
 import Flashcards from "./pages/Flashcards";
