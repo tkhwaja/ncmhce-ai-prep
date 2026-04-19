@@ -10,6 +10,16 @@ import { useToast } from "@/hooks/use-toast";
 import {
   ArrowLeft, RotateCcw, Check, Minus, X, Sparkles, Layers, ChevronLeft, ChevronRight
 } from "lucide-react";
+import TceIcon, { TceIconName } from "@/components/icons/TceIcon";
+
+const DECK_HUE: Record<string, string> = {
+  "flash-dsm": "text-violet-400",
+  "flash-modalities": "text-fuchsia-400",
+  "flash-ethical-codes": "text-emerald-400",
+  "flash-theories": "text-amber-400",
+  "flash-assessment": "text-cyan-400",
+  "flash-crisis": "text-red-400",
+};
 
 interface ProgressMap {
   [cardId: string]: { status: string; next_review: string | null };
@@ -261,7 +271,7 @@ Return ONLY valid JSON, no markdown or explanation.`
         </div>
 
         <div className="flex items-center gap-3">
-          <span className="text-3xl">{selectedDeck.icon}</span>
+          <TceIcon name={selectedDeck.icon as TceIconName} size={32} className={DECK_HUE[selectedDeck.icon] || "text-primary"} />
           <div>
             <h1 className="text-2xl font-bold text-foreground">{selectedDeck.name}</h1>
             <p className="text-muted-foreground">{stats.total} cards • {stats.masteryPct}% mastered</p>
@@ -318,7 +328,7 @@ Return ONLY valid JSON, no markdown or explanation.`
               onClick={() => setSelectedDeck(deck)}
             >
               <CardContent className="p-6">
-                <span className="text-3xl mb-3 block">{deck.icon}</span>
+                <TceIcon name={deck.icon as TceIconName} size={32} className={`mb-3 block ${DECK_HUE[deck.icon] || "text-primary"}`} />
                 <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">{deck.name}</h3>
                 <div className="mt-3 space-y-2">
                   <div className="flex justify-between text-sm">
