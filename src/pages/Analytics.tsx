@@ -15,7 +15,16 @@ import {
 import {
   Target, TrendingUp, CheckCircle2, AlertTriangle, Sparkles, BarChart3
 } from "lucide-react";
+import TceIcon, { TceIconName } from "@/components/icons/TceIcon";
 import { DEMO_MODE, demoAttempts } from "@/data/demo-stats";
+
+const DOMAIN_ICONS: Record<string, TceIconName> = {
+  "Intake/assessment/diagnosis": "domain-assessment",
+  "Professional practice and ethics": "domain-ethics",
+  "Core counseling attributes": "domain-counseling",
+  "Treatment planning": "domain-treatment",
+  "Counseling skills and interventions": "domain-intervention",
+};
 
 interface Attempt {
   simulation_id: string;
@@ -231,7 +240,10 @@ const Analytics = () => {
             <div className="space-y-2 mt-4">
               {domainAvgs.map((d) => (
                 <div key={d.fullDomain} className="flex items-center justify-between text-sm">
-                  <span className="text-muted-foreground truncate mr-2">{d.fullDomain}</span>
+                  <span className="text-muted-foreground truncate mr-2 flex items-center gap-2">
+                    <TceIcon name={DOMAIN_ICONS[d.fullDomain]} size={16} className="text-blue-400 shrink-0" />
+                    {d.fullDomain}
+                  </span>
                   <span className={`font-medium ${getColor(d.score)}`}>{d.score}%</span>
                 </div>
               ))}
