@@ -13,6 +13,17 @@ import logoMark from "./svg/logo-mark.svg?raw";
 import aiSpark from "./svg/ai-spark.svg?raw";
 import check from "./svg/check.svg?raw";
 import xFail from "./svg/x-fail.svg?raw";
+import domainAssessment from "./svg/domain-assessment.svg?raw";
+import domainEthics from "./svg/domain-ethics.svg?raw";
+import domainCounseling from "./svg/domain-counseling.svg?raw";
+import domainTreatment from "./svg/domain-treatment.svg?raw";
+import domainIntervention from "./svg/domain-intervention.svg?raw";
+import flashDsm from "./svg/flash-dsm.svg?raw";
+import flashModalities from "./svg/flash-modalities.svg?raw";
+import flashEthicalCodes from "./svg/flash-ethical-codes.svg?raw";
+import flashTheories from "./svg/flash-theories.svg?raw";
+import flashAssessment from "./svg/flash-assessment.svg?raw";
+import flashCrisis from "./svg/flash-crisis.svg?raw";
 
 const ICONS = {
   dashboard,
@@ -28,6 +39,17 @@ const ICONS = {
   "ai-spark": aiSpark,
   check,
   "x-fail": xFail,
+  "domain-assessment": domainAssessment,
+  "domain-ethics": domainEthics,
+  "domain-counseling": domainCounseling,
+  "domain-treatment": domainTreatment,
+  "domain-intervention": domainIntervention,
+  "flash-dsm": flashDsm,
+  "flash-modalities": flashModalities,
+  "flash-ethical-codes": flashEthicalCodes,
+  "flash-theories": flashTheories,
+  "flash-assessment": flashAssessment,
+  "flash-crisis": flashCrisis,
 } as const;
 
 export type TceIconName = keyof typeof ICONS;
