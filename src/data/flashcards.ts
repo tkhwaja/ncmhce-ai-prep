@@ -15,7 +15,7 @@ export const flashcardDecks: FlashcardDeck[] = [
   {
     id: "dsm5",
     name: "DSM-5-TR Disorders",
-    icon: "📋",
+    icon: "flash-dsm",
     cards: [
       { id: "dsm-1", front: "What are the 5 key criteria (A-E) for Major Depressive Disorder?", back: "A: 5+ symptoms during 2-week period (must include depressed mood or anhedonia)\nB: Symptoms cause clinically significant distress/impairment\nC: Episode not attributable to substance or medical condition\nD: Not better explained by another psychotic disorder\nE: Never had a manic or hypomanic episode" },
       { id: "dsm-2", front: "What differentiates Generalized Anxiety Disorder from normal worry?", back: "GAD requires: excessive anxiety/worry about multiple events occurring MORE DAYS THAN NOT for ≥6 MONTHS, difficulty controlling the worry, and 3+ of 6 symptoms: restlessness, fatigue, concentration difficulty, irritability, muscle tension, sleep disturbance. Must cause significant distress/impairment." },
@@ -32,7 +32,7 @@ export const flashcardDecks: FlashcardDeck[] = [
   {
     id: "treatment",
     name: "Treatment Modalities",
-    icon: "🧠",
+    icon: "flash-modalities",
     cards: [
       { id: "tx-1", front: "What are the core components of Cognitive Behavioral Therapy (CBT)?", back: "1. Cognitive restructuring — identifying and challenging automatic negative thoughts and cognitive distortions\n2. Behavioral activation — scheduling pleasurable/mastery activities\n3. Exposure techniques — gradual confrontation of feared stimuli\n4. Skills training — problem-solving, assertiveness, relaxation\n5. Homework assignments between sessions\nEvidence-based for: depression, anxiety, PTSD, OCD, insomnia" },
       { id: "tx-2", front: "What are the 4 modules of Dialectical Behavior Therapy (DBT)?", back: "1. Mindfulness — 'what' skills (observe, describe, participate) and 'how' skills (nonjudgmentally, one-mindfully, effectively)\n2. Distress Tolerance — crisis survival (TIPP, ACCEPTS, IMPROVE) and reality acceptance (radical acceptance, turning the mind)\n3. Emotion Regulation — understanding emotions, reducing vulnerability (PLEASE), opposite action\n4. Interpersonal Effectiveness — DEAR MAN (objectives), GIVE (relationship), FAST (self-respect)" },
@@ -49,7 +49,7 @@ export const flashcardDecks: FlashcardDeck[] = [
   {
     id: "ethics",
     name: "Ethical Codes (ACA)",
-    icon: "⚖️",
+    icon: "flash-ethical-codes",
     cards: [
       { id: "eth-1", front: "What are the 5 foundational principles of the ACA Code of Ethics?", back: "1. Autonomy — respecting clients' right to self-determination\n2. Nonmaleficence — 'do no harm'\n3. Beneficence — promote the well-being of clients\n4. Justice — treating all people fairly and equitably\n5. Fidelity — honoring commitments, maintaining trust\nThese principles undergird all specific ethical standards." },
       { id: "eth-2", front: "When is breaking confidentiality ethically and legally required?", back: "Mandatory exceptions to confidentiality:\n1. Danger to self — imminent suicidal risk\n2. Danger to others — Tarasoff duty to warn/protect\n3. Abuse of vulnerable populations — child abuse, elder abuse (mandated reporting)\n4. Court order — valid subpoena or court order\n5. Supervision — sharing with clinical supervisor\nKey: Inform clients of limits BEFORE beginning counseling (informed consent)" },
@@ -66,7 +66,7 @@ export const flashcardDecks: FlashcardDeck[] = [
   {
     id: "theories",
     name: "Counseling Theories",
-    icon: "📖",
+    icon: "flash-theories",
     cards: [
       { id: "th-1", front: "What are Freud's key concepts in psychoanalytic theory?", back: "Structure: Id (pleasure principle), Ego (reality principle), Superego (morality)\nTopography: Conscious, Preconscious, Unconscious\nDefense mechanisms: repression, denial, projection, displacement, sublimation, rationalization, reaction formation\nPsychosexual stages: Oral, Anal, Phallic, Latency, Genital\nTechniques: free association, dream analysis, interpretation, transference analysis" },
       { id: "th-2", front: "What are the key concepts of Adlerian (Individual Psychology) therapy?", back: "Key concepts:\n1. Social interest (Gemeinschaftsgefühl) — innate potential for community feeling\n2. Inferiority feelings → striving for superiority\n3. Birth order influences personality\n4. Lifestyle — unique pattern of beliefs/goals formed in childhood\n5. Teleological — behavior is purposeful and goal-directed\n6. Fictional finalism — people live by fictional goals\nTechniques: encouragement, acting 'as if,' catching oneself, task setting, early recollections" },
@@ -83,7 +83,7 @@ export const flashcardDecks: FlashcardDeck[] = [
   {
     id: "assessment",
     name: "Assessment Tools",
-    icon: "📊",
+    icon: "flash-assessment",
     cards: [
       { id: "as-1", front: "What is the PHQ-9 and how is it scored?", back: "Patient Health Questionnaire-9: screens for depression severity.\n9 items rated 0-3 (not at all → nearly every day)\nScoring: 0-4 minimal, 5-9 mild, 10-14 moderate, 15-19 moderately severe, 20-27 severe\nItem 9 assesses suicidal ideation — ANY positive response requires further assessment\nUsed for: screening, monitoring treatment response\nStrengths: brief, free, validated, widely used" },
       { id: "as-2", front: "What is the GAD-7 and how is it interpreted?", back: "Generalized Anxiety Disorder-7: screens for anxiety severity.\n7 items rated 0-3\nScoring: 0-4 minimal, 5-9 mild, 10-14 moderate, 15-21 severe\nGood sensitivity/specificity for GAD, also screens for panic, social anxiety, PTSD\nCut-off of 10 recommended for further evaluation\nUsed alongside PHQ-9 for comprehensive mood/anxiety screening" },
@@ -100,7 +100,7 @@ export const flashcardDecks: FlashcardDeck[] = [
   {
     id: "crisis",
     name: "Crisis Intervention",
-    icon: "🚨",
+    icon: "flash-crisis",
     cards: [
       { id: "cr-1", front: "What are the key risk factors for suicide?", back: "Mnemonic: IS PATH WARM\nI — Ideation\nS — Substance abuse\nP — Purposelessness\nA — Anxiety/agitation\nT — Trapped (feeling)\nH — Hopelessness\nW — Withdrawal\nA — Anger\nR — Recklessness\nM — Mood changes\n\nAdditional: previous attempts (#1 predictor), access to means, family history, chronic pain, recent loss, LGBTQ+ youth, veterans, male gender, older adults" },
       { id: "cr-2", front: "What is the Safety Planning Intervention (SPI)?", back: "6-step collaborative safety plan (Stanley & Brown):\n1. Warning signs — internal cues that crisis is developing\n2. Internal coping strategies — things I can do alone (distraction, self-soothing)\n3. Social contacts and social settings for distraction\n4. People I can ask for help (family, friends)\n5. Professionals and agencies to contact in crisis (988 Lifeline, therapist, ER)\n6. Making the environment safe — means restriction\n\nKey: collaborative (not contract), written, given to client, reviewed regularly" },
