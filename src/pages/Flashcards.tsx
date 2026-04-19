@@ -10,6 +10,16 @@ import { useToast } from "@/hooks/use-toast";
 import {
   ArrowLeft, RotateCcw, Check, Minus, X, Sparkles, Layers, ChevronLeft, ChevronRight
 } from "lucide-react";
+import TceIcon, { TceIconName } from "@/components/icons/TceIcon";
+
+const DECK_HUE: Record<string, string> = {
+  "flash-dsm": "text-violet-400",
+  "flash-modalities": "text-fuchsia-400",
+  "flash-ethical-codes": "text-emerald-400",
+  "flash-theories": "text-amber-400",
+  "flash-assessment": "text-cyan-400",
+  "flash-crisis": "text-red-400",
+};
 
 interface ProgressMap {
   [cardId: string]: { status: string; next_review: string | null };
