@@ -123,7 +123,7 @@ const Narratives = () => {
           const status = getStatus(n.id);
           const attempt = attempts[n.id];
           const qCount = totalQuestionCount(n);
-          const minutes = (n.minutesPerSection ?? 20) * 3;
+          const minutes = qCount * 3;
           return (
             <Card
               key={n.id}
