@@ -1,0 +1,725 @@
+{
+  "moduleId": "clinical-case-conceptualization",
+  "moduleTitle": "Clinical Case Conceptualization",
+  "moduleType": "learning_library",
+  "version": "1.0",
+  "exam": {
+    "name": "NCMHCE",
+    "formatAlignment": {
+      "currentBlueprint": true,
+      "effective2027Blueprint": true
+    },
+    "whyThisModuleMatters": "This module trains learners to think like the exam. The NCMHCE does not reward random fact recall alone. It rewards the ability to read a case, identify the presenting problem, recognize risk, organize relevant biopsychosocial data, choose a diagnosis, prioritize next steps, build a treatment plan, and document care in a clinically coherent way."
+  },
+  "uiHints": {
+    "defaultView": "nested_accordion",
+    "recommendedComponents": [
+      "module_header",
+      "conceptualization_framework",
+      "biopsychosocial_grid",
+      "intake_sequence_timeline",
+      "risk_priority_alerts",
+      "treatment_plan_builder",
+      "theory_lens_tabs",
+      "documentation_templates",
+      "simulation_strategy_cards",
+      "exam_trap_callouts",
+      "mini_case_cards",
+      "checkpoint_quiz"
+    ],
+    "tags": [
+      "case-conceptualization",
+      "treatment-planning",
+      "documentation",
+      "biopsychosocial",
+      "ncmhce",
+      "high-yield"
+    ]
+  },
+  "intro": {
+    "summary": "This module teaches how to organize a clinical case from intake through treatment planning and documentation. It focuses on the reasoning process counselors use to make sense of symptoms, history, functioning, risk, diagnosis, and intervention priorities.",
+    "learningObjectives": [
+      "Explain what case conceptualization is and why it matters on the NCMHCE",
+      "Use a biopsychosocial framework to organize clinical information",
+      "Identify the presenting problem, precipitating factors, maintaining factors, strengths, barriers, and risk issues",
+      "Build a treatment plan with diagnosis, goals, objectives, interventions, strengths, barriers, and level of care",
+      "Apply multiple theoretical lenses to the same case",
+      "Write clinically useful SOAP and DAP notes",
+      "Recognize what the exam is really asking when a case evolves over time"
+    ],
+    "howToUse": [
+      "Study the conceptualization sequence first. That is the backbone of the module.",
+      "Then practice the biopsychosocial framework and treatment plan builder until you can organize a case quickly.",
+      "Use the theory lens section to see how the same client can be understood differently depending on orientation.",
+      "Review the simulation strategy section often, because it directly mirrors how NCMHCE cases unfold."
+    ],
+    "highYieldThemes": [
+      "Case conceptualization is an ongoing process, not a one-time summary.",
+      "Safety and risk always outrank routine treatment planning.",
+      "A good conceptualization explains both what is happening and what should happen next.",
+      "The best answer is usually the most appropriate intervention for this client at this stage of treatment."
+    ]
+  },
+  "coreDecisionRules": [
+    {
+      "rule": "Start with the presenting problem, but do not stop there.",
+      "example": "A client may present with 'anxiety,' but the conceptualization must also account for trauma history, medical issues, family dynamics, coping style, and current risk."
+    },
+    {
+      "rule": "Organize information before trying to solve it.",
+      "example": "The exam often gives a lot of detail. Strong test-takers sort it into symptoms, history, triggers, functioning, risk, strengths, and barriers."
+    },
+    {
+      "rule": "Risk changes the treatment sequence.",
+      "example": "If suicidal ideation appears, the priority shifts from routine exploration to safety assessment and stabilization."
+    },
+    {
+      "rule": "Diagnosis should fit the whole pattern, not just one symptom cluster.",
+      "example": "Depression after divorce could be MDD, Adjustment Disorder, PTSD-related distress, or Bipolar II depending on the full picture."
+    },
+    {
+      "rule": "Treatment plans should be specific, measurable, and tied to the case.",
+      "example": "A strong objective targets a behavior, time frame, and measurable outcome rather than vague improvement."
+    }
+  ],
+  "caseConceptualizationOverview": {
+    "title": "What Is Case Conceptualization?",
+    "definition": "Case conceptualization is the clinical process of organizing and making sense of a client's symptoms, history, context, strengths, risks, and patterns in order to guide diagnosis, treatment planning, intervention choice, and documentation.",
+    "whyItMatters": [
+      "It links assessment data to treatment decisions",
+      "It helps explain why the client is struggling now",
+      "It supports diagnosis and differential diagnosis",
+      "It guides goal setting and intervention selection",
+      "It improves continuity of care and documentation quality"
+    ],
+    "aStrongConceptualizationIncludes": [
+      "clear presenting problem",
+      "relevant history and precipitating events",
+      "biological, psychological, and social factors",
+      "current functioning and impairment",
+      "risk assessment",
+      "diagnostic impression",
+      "theoretical or organizing framework",
+      "treatment priorities",
+      "strengths and protective factors",
+      "anticipated barriers"
+    ],
+    "examPearls": [
+      "On the NCMHCE, case conceptualization is not a separate optional skill. It is embedded in almost every correct decision.",
+      "The exam often tests whether you can tell what matters most right now, not whether you can repeat every detail of the narrative.",
+      "A good conceptualization is dynamic. It changes as new information emerges."
+    ]
+  },
+  "biopsychosocialFramework": {
+    "title": "Biopsychosocial Framework",
+    "overview": "The biopsychosocial model organizes clinical understanding into interacting biological, psychological, and social domains. It helps counselors avoid oversimplifying a client into just a diagnosis.",
+    "domains": [
+      {
+        "domain": "Biological",
+        "keyAreas": [
+          "medical history",
+          "medications",
+          "neurological issues",
+          "sleep",
+          "appetite",
+          "physical health",
+          "pain",
+          "family medical history",
+          "substance use",
+          "genetic vulnerability"
+        ],
+        "questionsToAsk": [
+          "Do you have any medical conditions that affect your mood, energy, or functioning?",
+          "What medications, supplements, or substances are you currently using?",
+          "How have your sleep, appetite, and energy been lately?"
+        ],
+        "whyItMatters": "Biological factors can contribute to symptoms, mimic psychiatric conditions, or affect treatment choices."
+      },
+      {
+        "domain": "Psychological",
+        "keyAreas": [
+          "mental health history",
+          "coping skills",
+          "trauma history",
+          "cognitive patterns",
+          "self-concept",
+          "emotion regulation",
+          "personality traits",
+          "prior treatment response"
+        ],
+        "questionsToAsk": [
+          "Have you experienced similar symptoms before?",
+          "How do you usually cope when distressed?",
+          "What thoughts tend to show up when things get worse?"
+        ],
+        "whyItMatters": "Psychological processes often explain how symptoms are maintained and what interventions are likely to work."
+      },
+      {
+        "domain": "Social",
+        "keyAreas": [
+          "family relationships",
+          "social support",
+          "cultural context",
+          "housing",
+          "employment",
+          "education",
+          "legal issues",
+          "spirituality",
+          "financial stress",
+          "community resources"
+        ],
+        "questionsToAsk": [
+          "Who do you rely on for support?",
+          "What stressors are happening in your family, work, or living situation?",
+          "Are there cultural, spiritual, or community factors that are important for me to understand?"
+        ],
+        "whyItMatters": "Symptoms do not happen in a vacuum. Social context can intensify distress or serve as a major protective factor."
+      }
+    ],
+    "integrativePrompt": "A strong conceptualization asks not just 'What diagnosis fits?' but 'How are biological, psychological, and social forces interacting to create or maintain this problem?'",
+    "examTraps": [
+      "Overfocusing on symptoms while ignoring context",
+      "Missing substance use or medical contributors",
+      "Ignoring strengths and supports while focusing only on deficits"
+    ]
+  },
+  "intakeProcess": {
+    "title": "Intake and Initial Case Formulation",
+    "overview": "The first session is not just about gathering data. It is about building rapport, clarifying the problem, assessing risk, and beginning to organize the case.",
+    "sequence": [
+      {
+        "step": 1,
+        "title": "Establish rapport and explain the counseling process",
+        "tasks": [
+          "begin alliance building",
+          "review informed consent",
+          "clarify confidentiality and limits",
+          "set a collaborative tone"
+        ]
+      },
+      {
+        "step": 2,
+        "title": "Clarify the presenting problem",
+        "tasks": [
+          "identify chief complaint",
+          "ask what brought the client now",
+          "understand onset, duration, frequency, and severity"
+        ]
+      },
+      {
+        "step": 3,
+        "title": "Assess functioning and impairment",
+        "tasks": [
+          "work/school functioning",
+          "relationships",
+          "daily responsibilities",
+          "sleep, appetite, self-care"
+        ]
+      },
+      {
+        "step": 4,
+        "title": "Gather relevant history",
+        "tasks": [
+          "psychiatric history",
+          "medical history",
+          "substance use history",
+          "family history",
+          "trauma and developmental history",
+          "social and cultural background"
+        ]
+      },
+      {
+        "step": 5,
+        "title": "Conduct MSE and risk assessment",
+        "tasks": [
+          "observe affect, speech, thought process, cognition, insight, judgment",
+          "screen for suicidal ideation, homicidal ideation, psychosis, self-harm, and safety issues"
+        ]
+      },
+      {
+        "step": 6,
+        "title": "Begin diagnostic thinking and treatment planning",
+        "tasks": [
+          "identify likely diagnosis or differential",
+          "determine level of care",
+          "identify immediate priorities and next steps"
+        ]
+      }
+    ],
+    "openingQuestions": [
+      "What brings you in today?",
+      "What has been hardest lately?",
+      "When did this begin, and what seems to have triggered it?",
+      "How is this affecting your day-to-day life?"
+    ],
+    "examPearls": [
+      "The best early-session responses are usually exploratory, empathic, and structured.",
+      "You do not jump straight from the opening statement to a final diagnosis without fuller assessment.",
+      "Risk assessment belongs early whenever relevant clues are present."
+    ]
+  },
+  "clinicalDomainsToAssess": {
+    "title": "Core Domains to Assess in a Case",
+    "domains": [
+      {
+        "domain": "Presenting Problem",
+        "questions": [
+          "What is the main complaint?",
+          "What does the client want help with?",
+          "Why now?"
+        ]
+      },
+      {
+        "domain": "Symptom Profile",
+        "questions": [
+          "What symptoms are present?",
+          "How long have they been present?",
+          "How severe and frequent are they?"
+        ]
+      },
+      {
+        "domain": "Precipitating Factors",
+        "questions": [
+          "What triggered or worsened the current episode?",
+          "Was there a recent loss, trauma, transition, or conflict?"
+        ]
+      },
+      {
+        "domain": "Maintaining Factors",
+        "questions": [
+          "What keeps the problem going?",
+          "Are avoidance, substance use, distorted beliefs, family conflict, or unstable housing involved?"
+        ]
+      },
+      {
+        "domain": "Risk and Safety",
+        "questions": [
+          "Is there suicidal ideation, homicidal ideation, self-harm, abuse, psychosis, intoxication, or inability to maintain safety?"
+        ]
+      },
+      {
+        "domain": "Strengths and Protective Factors",
+        "questions": [
+          "What internal strengths, supports, beliefs, or prior successes can help treatment?"
+        ]
+      },
+      {
+        "domain": "Barriers",
+        "questions": [
+          "What may interfere with treatment progress? Transportation, childcare, cost, stigma, unstable housing, cognitive limitations?"
+        ]
+      }
+    ],
+    "examPearl": "When the exam asks for the next best step, it is often really asking which domain has not yet been adequately assessed."
+  },
+  "riskPrioritySection": {
+    "title": "Risk Priorities in Case Conceptualization",
+    "overview": "Risk is not a side note. It is a central organizing factor. If present, it changes the treatment sequence and sometimes the level of care.",
+    "priorityRisks": [
+      {
+        "risk": "Suicide risk",
+        "whatChanges": "Requires further risk assessment, safety planning, means review, and possibly emergency intervention"
+      },
+      {
+        "risk": "Homicide / violence risk",
+        "whatChanges": "Requires evaluation of target, intent, means, protective duties, and possible emergency response"
+      },
+      {
+        "risk": "Psychosis",
+        "whatChanges": "May affect reality testing, judgment, and level-of-care decisions"
+      },
+      {
+        "risk": "Substance intoxication or withdrawal",
+        "whatChanges": "May complicate diagnosis and create medical or behavioral danger"
+      },
+      {
+        "risk": "Abuse / neglect",
+        "whatChanges": "May trigger protective action or mandated reporting"
+      }
+    ],
+    "examPearls": [
+      "If a client mentions suicidal ideation mid-case, the next priority usually shifts immediately.",
+      "Case conceptualization is never complete without understanding current safety.",
+      "A client can have both a long-term conceptualization and an urgent immediate safety need."
+    ]
+  },
+  "treatmentPlanningSection": {
+    "title": "Treatment Planning",
+    "overview": "A treatment plan translates conceptualization into action. It should explain what the counselor and client are working on, how progress will be measured, and which interventions fit the case.",
+    "coreComponents": [
+      {
+        "component": "Diagnosis",
+        "description": "DSM-5-TR diagnosis or working diagnosis"
+      },
+      {
+        "component": "Presenting Problem",
+        "description": "Behavioral description of the client's main concerns"
+      },
+      {
+        "component": "Long-Term Goals",
+        "description": "Broad outcomes expected by the end of treatment"
+      },
+      {
+        "component": "Short-Term Objectives",
+        "description": "Specific measurable steps toward the goals"
+      },
+      {
+        "component": "Interventions",
+        "description": "What the counselor will do and which approach will be used"
+      },
+      {
+        "component": "Strengths",
+        "description": "Client resources, motivation, supports, or protective factors"
+      },
+      {
+        "component": "Barriers",
+        "description": "Obstacles that may interfere with progress"
+      },
+      {
+        "component": "Level of Care",
+        "description": "Outpatient, IOP, PHP, residential, inpatient, or other appropriate setting"
+      },
+      {
+        "component": "Review Date",
+        "description": "When progress and goals will be reassessed"
+      }
+    ],
+    "smartGoalsSection": {
+      "title": "SMART Goals",
+      "definition": "Goals and objectives should be Specific, Measurable, Attainable, Realistic, and Timely.",
+      "weakVsStrong": [
+        {
+          "weak": "Client will feel better.",
+          "strong": "Client will reduce panic attacks from four times weekly to one or fewer times weekly within 8 weeks using CBT coping skills."
+        },
+        {
+          "weak": "Client will improve mood.",
+          "strong": "Client will lower PHQ-9 score from 18 to below 10 within 10 weeks and resume two previously valued activities each week."
+        }
+      ],
+      "examPearls": [
+        "Vague goals sound nice but are weak clinical planning.",
+        "The exam increasingly favors measurable, behaviorally anchored objectives."
+      ]
+    },
+    "exampleTreatmentPlan": {
+      "clientProblem": "Client reports daily sadness, anhedonia, fatigue, poor concentration, and social withdrawal after job loss and divorce.",
+      "diagnosis": "Major Depressive Disorder, Moderate",
+      "longTermGoal": "Client will report improved mood and functioning sufficient to resume stable daily routines and occupational engagement.",
+      "shortTermObjectives": [
+        "Client will identify and challenge three recurring negative automatic thoughts each week for 6 weeks.",
+        "Client will complete two planned behavioral activation activities weekly for 8 weeks.",
+        "Client will reduce PHQ-9 score from 17 to below 10 within 10 weeks."
+      ],
+      "interventions": [
+        "CBT thought records",
+        "behavioral activation scheduling",
+        "weekly symptom monitoring",
+        "supportive exploration of divorce-related grief"
+      ],
+      "strengths": [
+        "motivated for treatment",
+        "prior stable work history",
+        "supportive sibling"
+      ],
+      "barriers": [
+        "financial stress",
+        "low energy",
+        "social isolation"
+      ],
+      "levelOfCare": "Outpatient individual therapy"
+    }
+  },
+  "theoryLensSection": {
+    "title": "Using Theory to Shape Conceptualization",
+    "overview": "Different theories can organize the same case in different ways. The theory does not replace the facts. It helps explain the facts and guide intervention choice.",
+    "exampleCase": "A 35-year-old client presents with depression following divorce and job loss, along with withdrawal, self-criticism, hopelessness, and fear of abandonment.",
+    "lenses": [
+      {
+        "theory": "CBT",
+        "conceptualization": "Loss events activated negative core beliefs such as 'I am a failure' and 'I will always be abandoned.' Avoidance and inactivity reduce positive reinforcement and maintain depression.",
+        "likelyInterventions": [
+          "cognitive restructuring",
+          "behavioral activation",
+          "thought monitoring"
+        ]
+      },
+      {
+        "theory": "Psychodynamic",
+        "conceptualization": "Current losses may reactivate unresolved earlier relational wounds, internalized anger, and unconscious expectations of abandonment or unworthiness.",
+        "likelyInterventions": [
+          "pattern exploration",
+          "transference awareness",
+          "interpretation of recurring themes"
+        ]
+      },
+      {
+        "theory": "Adlerian",
+        "conceptualization": "The client's lifestyle and striving for significance may have been organized around perfection or external validation, and the loss has intensified inferiority feelings and social discouragement.",
+        "likelyInterventions": [
+          "encouragement",
+          "lifestyle assessment",
+          "exploration of early recollections"
+        ]
+      },
+      {
+        "theory": "Person-Centered",
+        "conceptualization": "The client may be struggling with incongruence between real self and ideal self, shaped by conditions of worth and self-judgment.",
+        "likelyInterventions": [
+          "empathic reflection",
+          "unconditional positive regard",
+          "support for self-acceptance"
+        ]
+      },
+      {
+        "theory": "Attachment Lens",
+        "conceptualization": "The divorce may have activated insecure attachment patterns, especially fear of abandonment and difficulty self-soothing after relational loss.",
+        "likelyInterventions": [
+          "attachment-focused exploration",
+          "emotion regulation",
+          "relational pattern work"
+        ]
+      }
+    ],
+    "examPearls": [
+      "The exam may explicitly name a theory or imply it through the answer choices.",
+      "You do not need one final universal explanation. You need the explanation that best guides action in the current clinical context."
+    ]
+  },
+  "documentationSection": {
+    "title": "Documentation in Case Conceptualization",
+    "overview": "Documentation translates conceptualization into a clear, clinically useful record. It shows what the client reported, what you observed, what you concluded, and what the plan is.",
+    "soapFormat": {
+      "title": "SOAP Notes",
+      "components": [
+        {
+          "label": "S - Subjective",
+          "content": "Client's self-report, symptoms, concerns, notable quotes, and perceived progress or setbacks"
+        },
+        {
+          "label": "O - Objective",
+          "content": "Counselor observations, MSE findings, behavior, attendance, measurable data, and any observed changes"
+        },
+        {
+          "label": "A - Assessment",
+          "content": "Clinical interpretation, progress toward goals, risk formulation, symptom picture, diagnostic thinking"
+        },
+        {
+          "label": "P - Plan",
+          "content": "Interventions used, homework, referrals, safety steps, next session focus, and follow-up plan"
+        }
+      ],
+      "example": {
+        "S": "Client stated, 'I still feel empty most mornings, but I got myself out for a walk twice this week.'",
+        "O": "Client arrived on time, appropriately groomed, affect constricted but brighter than prior session, speech normal rate, denied current SI.",
+        "A": "Client shows modest progress with behavioral activation and mild improvement in hopelessness. Depression symptoms remain clinically significant.",
+        "P": "Continue CBT and behavioral activation. Assign thought record for self-critical beliefs. Reassess PHQ-9 next session."
+      }
+    },
+    "dapFormat": {
+      "title": "DAP Notes",
+      "components": [
+        {
+          "label": "D - Data",
+          "content": "Relevant subjective and objective information from session"
+        },
+        {
+          "label": "A - Assessment",
+          "content": "Clinical meaning, progress, barriers, diagnostic/risk update"
+        },
+        {
+          "label": "P - Plan",
+          "content": "Next steps, interventions, follow-up"
+        }
+      ]
+    },
+    "documentationBestPractices": [
+      "Be specific and clinically relevant",
+      "Document risk assessment and response clearly",
+      "Tie progress notes back to treatment goals when possible",
+      "Avoid vague statements like 'doing better' without evidence",
+      "Document consultation, referrals, or safety decisions when relevant"
+    ],
+    "examPearls": [
+      "The assessment section is where you show your conceptualization, not just repeat what happened.",
+      "Good documentation reflects movement over time, not isolated facts."
+    ]
+  },
+  "terminationSection": {
+    "title": "Termination and Continuity of Care",
+    "overview": "Termination is part of conceptualization because it reflects whether treatment goals were met, whether the client is ready, and whether continuity of care is needed.",
+    "ethicalTerminationIncludes": [
+      "review of progress toward goals",
+      "discussion of gains and remaining needs",
+      "relapse prevention or maintenance planning",
+      "referrals when needed",
+      "processing the ending therapeutically"
+    ],
+    "prematureTermination": {
+      "definition": "Treatment ends before goals are met, either by client disengagement or other disruption",
+      "bestPractice": [
+        "attempt outreach when appropriate",
+        "offer final session if possible",
+        "provide referrals/resources",
+        "document efforts and status"
+      ]
+    },
+    "abandonmentWarning": "Ending treatment without appropriate transition, referral, or continuity planning can become an ethical problem.",
+    "examPearls": [
+      "The exam often rewards continuity-of-care thinking.",
+      "Termination is not just stopping sessions. It is part of responsible treatment planning."
+    ]
+  },
+  "simulationStrategySection": {
+    "title": "NCMHCE Case Simulation Strategy",
+    "overview": "The exam presents case information in stages. Strong performance depends on noticing what is most important, what changes over time, and what kind of decision the question is actually asking for.",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Anchor yourself in the client basics",
+        "actions": [
+          "note age, context, relationship status, culture, living situation, and presenting complaint"
+        ]
+      },
+      {
+        "step": 2,
+        "title": "Identify the precipitating event",
+        "actions": [
+          "what triggered the current episode?",
+          "is this acute, chronic, or recurrent?"
+        ]
+      },
+      {
+        "step": 3,
+        "title": "Track symptoms and severity",
+        "actions": [
+          "what symptoms are clearly present?",
+          "how long have they lasted?",
+          "how much impairment is there?"
+        ]
+      },
+      {
+        "step": 4,
+        "title": "Read the MSE and safety cues carefully",
+        "actions": [
+          "look for affect, thought content, behavior, orientation, psychosis, suicidality, self-harm, or violence risk"
+        ]
+      },
+      {
+        "step": 5,
+        "title": "Decide what stage of treatment this is",
+        "actions": [
+          "intake?",
+          "early treatment?",
+          "mid-treatment?",
+          "termination?"
+        ]
+      },
+      {
+        "step": 6,
+        "title": "Match the answer to the stage and need",
+        "actions": [
+          "assessment before intervention when information is missing",
+          "safety before insight when risk is present",
+          "support and structure before confrontation when alliance is early"
+        ]
+      },
+      {
+        "step": 7,
+        "title": "Choose the most clinically appropriate next step",
+        "actions": [
+          "not the fanciest answer",
+          "not the most aggressive answer",
+          "the answer that best fits this client right now"
+        ]
+      }
+    ],
+    "examPearls": [
+      "Safety always outranks routine progress.",
+      "The best answer is often the one that matches both the client's condition and the stage of treatment.",
+      "Watch for the difference between what the client says and what the case evidence supports."
+    ]
+  },
+  "commonExamTraps": [
+    "Jumping to intervention before enough assessment has occurred",
+    "Ignoring risk because the emotional material seems more interesting",
+    "Writing vague treatment goals that are not measurable",
+    "Choosing a theoretically elegant answer that does not fit the stage of treatment",
+    "Overpathologizing normal reactions to stress without checking duration and impairment",
+    "Forgetting to identify strengths and protective factors",
+    "Repeating session content in documentation without clinical interpretation"
+  ],
+  "miniCaseDrills": [
+    {
+      "case": "A client reports 6 weeks of severe worry, insomnia, irritability, and panic-like symptoms after losing a job, but also reveals daily alcohol use to manage anxiety and increasing conflict at home.",
+      "bestConceptualizationMove": "Organize the case across symptom profile, precipitating stressor, substance use, social stress, and functional impairment before finalizing diagnosis",
+      "rationale": "The case likely involves more than one maintaining factor, and alcohol use may affect both symptoms and treatment planning."
+    },
+    {
+      "case": "A client presents for depression treatment but casually mentions not wanting to live anymore and having thought about overdosing.",
+      "bestConceptualizationMove": "Shift immediately to suicide risk assessment and safety planning before routine treatment planning",
+      "rationale": "Risk changes the sequence of care."
+    },
+    {
+      "case": "A client says they want help 'feeling better,' but the case narrative shows chronic trauma history, unstable relationships, self-harm, and intense fear of abandonment.",
+      "bestConceptualizationMove": "Identify borderline-type instability and emotion dysregulation as central organizing themes and prioritize safety plus structured treatment planning",
+      "rationale": "The presenting complaint is too vague by itself; the full pattern matters."
+    },
+    {
+      "case": "A client in early treatment reports mild improvement and better sleep after using CBT homework for three weeks.",
+      "bestConceptualizationMove": "Document progress toward goals, update assessment, and continue current treatment plan with measurable tracking",
+      "rationale": "The case is in mid-treatment follow-up, not new intake."
+    },
+    {
+      "case": "A child client presents with school refusal, stomachaches, and panic at separation from mother, while family history reveals parental anxiety and recent relocation.",
+      "bestConceptualizationMove": "Integrate developmental context, symptom pattern, family factors, and recent transition into a biopsychosocial formulation",
+      "rationale": "The best conceptualization connects symptoms to developmental and social context rather than isolating them."
+    }
+  ],
+  "quickReview": {
+    "memoryHooks": [
+      "Presenting problem -> history -> functioning -> risk -> diagnosis -> plan",
+      "Biological + Psychological + Social",
+      "Risk changes sequence",
+      "SMART goals beat vague goals",
+      "Conceptualization explains why and what next",
+      "SOAP = Subjective, Objective, Assessment, Plan",
+      "DAP = Data, Assessment, Plan",
+      "Stage of treatment matters"
+    ],
+    "finalTakeaways": [
+      "Case conceptualization is the organizing skill behind diagnosis, treatment planning, and documentation.",
+      "The strongest answer is rarely the most complicated one. It is the one that is most clinically appropriate for the current stage and risk level.",
+      "If you can explain what is happening, what is maintaining it, what the priorities are, and what the next step should be, you are thinking the right way for the exam."
+    ]
+  },
+  "checkpointQuestions": [
+    {
+      "question": "What are the three major domains in the biopsychosocial model?",
+      "answer": "Biological, psychological, and social"
+    },
+    {
+      "question": "If a client discloses suicidal ideation during a routine intake, what should generally happen to the treatment sequence?",
+      "answer": "The priority shifts to risk assessment and safety planning"
+    },
+    {
+      "question": "What makes a treatment objective stronger: 'Client will feel better' or 'Client will reduce panic attacks from four times weekly to one or fewer within 8 weeks'?",
+      "answer": "The second objective, because it is SMART and measurable"
+    },
+    {
+      "question": "In a SOAP note, where does the counselor's clinical interpretation belong?",
+      "answer": "Assessment"
+    },
+    {
+      "question": "Why does the exam care about stage of treatment?",
+      "answer": "Because the best intervention depends on whether the case is intake, early work, mid-treatment, crisis response, or termination"
+    }
+  ],
+  "sourceBasis": {
+    "derivedFromUploadedMaterials": [
+      "Study Library",
+      "Clinical Case Conceptualization"
+    ],
+    "notes": "Expanded into a production-ready module emphasizing biopsychosocial formulation, intake sequencing, risk prioritization, treatment planning, theory-based conceptualization, documentation, termination, and exam-style case reasoning."
+  }
+}
