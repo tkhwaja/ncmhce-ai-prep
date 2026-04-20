@@ -1,0 +1,1211 @@
+{
+  "moduleId": "counseling-theories-techniques",
+  "moduleTitle": "Counseling Theories & Techniques",
+  "moduleType": "learning_library",
+  "version": "1.0",
+  "exam": {
+    "name": "NCMHCE",
+    "formatAlignment": {
+      "currentBlueprint": true,
+      "effective2027Blueprint": true
+    },
+    "whyThisModuleMatters": "This module trains learners to identify theory-consistent counselor responses in case simulations. On the NCMHCE, students are rarely rewarded for merely naming founders; they must recognize the stance, goals, language, and next-step intervention that fit the case."
+  },
+  "uiHints": {
+    "defaultView": "accordion",
+    "recommendedComponents": [
+      "module_header",
+      "section_overview",
+      "learning_objectives",
+      "theory_cards",
+      "compare_tables",
+      "exam_traps",
+      "mini_case_cards",
+      "quick_review",
+      "checkpoint_quiz"
+    ],
+    "tags": [
+      "theories",
+      "interventions",
+      "case-conceptualization",
+      "ncmhce",
+      "high-yield"
+    ]
+  },
+  "intro": {
+    "summary": "This module covers major counseling theories and techniques tested on the NCMHCE. It emphasizes application over memorization: how each theory conceptualizes distress, what the counselor aims to change, which interventions fit, and what theory-consistent responses look like in a case vignette.",
+    "learningObjectives": [
+      "Identify the core assumptions of major counseling theories",
+      "Match client presentations with appropriate theory-based interventions",
+      "Differentiate similar theories based on goals, language, and counselor stance",
+      "Recognize common exam traps when selecting the best next response",
+      "Use theory to support case conceptualization and treatment planning"
+    ],
+    "howToUse": [
+      "Study one theory at a time, then compare it against similar approaches.",
+      "Focus on what the counselor does in session, not just abstract definitions.",
+      "Practice identifying theory-specific language in case vignettes.",
+      "Pay special attention to CBT, DBT, ACT, person-centered, MI, SFBT, family systems, and trauma-related approaches."
+    ],
+    "highYieldThemes": [
+      "Technique recognition matters more than founder recall.",
+      "The best answer is usually the intervention most appropriate for this client at this stage of treatment.",
+      "Supportive, empathic, and developmentally appropriate responses generally come before confrontation or interpretation.",
+      "Safety and stabilization override deep processing when acute risk is present."
+    ]
+  },
+  "coreDecisionRules": [
+    {
+      "rule": "Match the intervention to the theory, not just the symptom.",
+      "example": "A client with depression could be treated with CBT, ACT, person-centered therapy, or psychodynamic therapy. The correct exam answer depends on the counseling approach named or implied in the question."
+    },
+    {
+      "rule": "Notice the counselor's role.",
+      "example": "Person-centered therapy emphasizes empathic reflection and non-directiveness; REBT is much more active and disputational; MI is collaborative and evocative, not confrontational."
+    },
+    {
+      "rule": "Look for the target of change.",
+      "example": "CBT targets distorted thoughts and behaviors; ACT targets experiential avoidance and psychological inflexibility; DBT targets emotional dysregulation and ineffective coping."
+    },
+    {
+      "rule": "Stage of treatment matters.",
+      "example": "In early sessions, rapport, assessment, and validation are more likely than deep interpretation or aggressive challenge."
+    }
+  ],
+  "theories": [
+    {
+      "id": "cbt",
+      "title": "Cognitive Behavioral Therapy (CBT)",
+      "founder": "Aaron Beck",
+      "examPriority": "very_high",
+      "overview": "CBT teaches that thoughts, emotions, and behaviors are interconnected. Distorted or unhelpful thinking patterns contribute to distress and maladaptive behavior. Treatment focuses on identifying, evaluating, and modifying those patterns while increasing effective coping behaviors.",
+      "corePremise": [
+        "Clients often respond to their interpretation of events, not simply to events themselves.",
+        "Automatic thoughts arise quickly and may reflect deeper core beliefs or schemas.",
+        "Symptoms are maintained by cycles involving cognition, emotion, physiology, and behavior."
+      ],
+      "goals": [
+        "Increase awareness of automatic thoughts",
+        "Identify and modify cognitive distortions",
+        "Shift maladaptive core beliefs",
+        "Increase adaptive behavior and problem-solving",
+        "Reduce avoidance and inactivity"
+      ],
+      "mustKnowConcepts": [
+        {
+          "term": "Cognitive triad",
+          "definition": "Negative views of self, world, and future; classically associated with depression."
+        },
+        {
+          "term": "Automatic thoughts",
+          "definition": "Immediate, situation-linked thoughts that may be distorted or incomplete."
+        },
+        {
+          "term": "Core beliefs/schemas",
+          "definition": "Deeply held beliefs that shape interpretation of experiences."
+        },
+        {
+          "term": "Behavioral activation",
+          "definition": "Deliberately increasing rewarding, meaningful activity to counter depression and withdrawal."
+        },
+        {
+          "term": "Socratic questioning",
+          "definition": "Guided questioning used to test assumptions and generate alternative perspectives."
+        }
+      ],
+      "commonDistortions": [
+        "all-or-nothing thinking",
+        "catastrophizing",
+        "fortune-telling",
+        "mind reading",
+        "overgeneralization",
+        "personalization",
+        "magnification/minimization",
+        "emotional reasoning",
+        "should statements",
+        "labeling"
+      ],
+      "counselorStance": [
+        "Structured and collaborative",
+        "Active, but not authoritarian",
+        "Present-focused, while still considering underlying beliefs",
+        "Psychoeducational and skill-building"
+      ],
+      "signatureTechniques": [
+        "thought records",
+        "cognitive restructuring",
+        "behavioral experiments",
+        "behavioral activation",
+        "psychoeducation",
+        "homework assignments",
+        "activity scheduling",
+        "coping skills training"
+      ],
+      "bestFitPresentations": [
+        "depression",
+        "anxiety disorders",
+        "panic",
+        "social anxiety",
+        "PTSD",
+        "OCD-related work when combined with ERP principles",
+        "self-criticism and maladaptive beliefs"
+      ],
+      "watchForOnExam": [
+        "The exam often presents a client statement containing a distortion and asks for the best CBT response.",
+        "A strong CBT answer usually helps the client examine evidence, test the thought, or link thought-feeling-behavior patterns.",
+        "A weak CBT answer merely offers vague support without cognitive or behavioral intervention."
+      ],
+      "examTraps": [
+        "Giving advice instead of collaborative cognitive work",
+        "Using pure reflection when a structured CBT intervention is being tested",
+        "Confusing ACT defusion with CBT cognitive restructuring",
+        "Jumping to deep childhood interpretation when the question is clearly CBT-oriented"
+      ],
+      "miniCase": {
+        "prompt": "A client says, 'I made one mistake in my report. My boss probably thinks I'm incompetent, and I'm going to get fired.'",
+        "bestApproach": "Identify catastrophizing and mind reading, examine evidence, and generate a more balanced alternative thought.",
+        "why": "CBT targets the distorted interpretation maintaining anxiety and shame."
+      },
+      "quickReview": [
+        "CBT is one of the most heavily tested approaches.",
+        "Focus on distortions, automatic thoughts, schemas, and behavior change.",
+        "Counselor responses are usually collaborative and skill-focused."
+      ]
+    },
+    {
+      "id": "dbt",
+      "title": "Dialectical Behavior Therapy (DBT)",
+      "founder": "Marsha Linehan",
+      "examPriority": "very_high",
+      "overview": "DBT combines acceptance and change strategies to help clients regulate emotions, tolerate distress, improve relationships, and reduce self-destructive behaviors.",
+      "corePremise": [
+        "Emotion dysregulation often develops from a combination of biological vulnerability and an invalidating environment.",
+        "Clients need both acceptance of their experience and support for meaningful change.",
+        "Skills deficits often maintain chronic crises, impulsivity, and self-harm."
+      ],
+      "goals": [
+        "Decrease suicidal and self-harming behavior",
+        "Increase emotion regulation",
+        "Improve distress tolerance",
+        "Strengthen interpersonal effectiveness",
+        "Build mindfulness and wise-mind decision-making"
+      ],
+      "mustKnowConcepts": [
+        {
+          "term": "Dialectic",
+          "definition": "Two truths can coexist, such as acceptance and change."
+        },
+        {
+          "term": "Wise Mind",
+          "definition": "Balanced integration of emotion mind and reason mind."
+        },
+        {
+          "term": "Validation",
+          "definition": "Communicating that the client's emotions make sense in context."
+        },
+        {
+          "term": "Chain analysis",
+          "definition": "Step-by-step review of events, thoughts, feelings, and behaviors leading to a target behavior."
+        }
+      ],
+      "skillModules": [
+        {
+          "module": "Mindfulness",
+          "skills": [
+            "observe",
+            "describe",
+            "participate",
+            "nonjudgmentally",
+            "one-mindfully",
+            "effectively"
+          ]
+        },
+        {
+          "module": "Distress Tolerance",
+          "skills": [
+            "TIPP",
+            "ACCEPTS",
+            "self-soothe",
+            "pros and cons",
+            "radical acceptance"
+          ]
+        },
+        {
+          "module": "Emotion Regulation",
+          "skills": [
+            "check the facts",
+            "opposite action",
+            "PLEASE",
+            "build positive experiences"
+          ]
+        },
+        {
+          "module": "Interpersonal Effectiveness",
+          "skills": [
+            "DEAR MAN",
+            "GIVE",
+            "FAST"
+          ]
+        }
+      ],
+      "bestFitPresentations": [
+        "borderline personality disorder",
+        "chronic suicidality",
+        "self-harm",
+        "intense emotional reactivity",
+        "impulsivity",
+        "high-conflict relationships"
+      ],
+      "watchForOnExam": [
+        "When a client is emotionally dysregulated, self-harming, or chronically suicidal, DBT is often the strongest theoretical match.",
+        "A good DBT response validates the client while moving toward skillful action.",
+        "Safety and behavioral analysis usually come before abstract insight."
+      ],
+      "examTraps": [
+        "Invalidating the client's emotion in the name of behavior change",
+        "Mistaking DBT for generic supportive counseling",
+        "Choosing cognitive disputation when the question is really asking for distress tolerance or emotion regulation"
+      ],
+      "miniCase": {
+        "prompt": "A client with BPD says, 'I texted my partner 37 times after they didn't answer. Then I cut myself because I couldn't stand it.'",
+        "bestApproach": "Assess safety, validate emotional pain, conduct chain analysis, and teach/rehearse distress tolerance and interpersonal effectiveness skills.",
+        "why": "DBT targets the crisis sequence and replaces impulsive behavior with skillful alternatives."
+      },
+      "quickReview": [
+        "DBT = acceptance plus change.",
+        "Think BPD, self-harm, emotion dysregulation, interpersonal chaos.",
+        "Know Wise Mind, DEAR MAN, radical acceptance, and chain analysis."
+      ]
+    },
+    {
+      "id": "act",
+      "title": "Acceptance and Commitment Therapy (ACT)",
+      "founder": "Steven Hayes",
+      "examPriority": "high",
+      "overview": "ACT promotes psychological flexibility by helping clients accept internal experiences, loosen attachment to thoughts, connect with values, and take committed action.",
+      "corePremise": [
+        "Suffering is intensified when clients fuse with thoughts and rigidly avoid painful internal experiences.",
+        "The goal is not to eliminate pain but to change the client's relationship to it.",
+        "Meaningful action can occur even when distress is present."
+      ],
+      "goals": [
+        "Increase psychological flexibility",
+        "Reduce experiential avoidance",
+        "Help clients live in alignment with values",
+        "Promote effective action despite discomfort"
+      ],
+      "hexaflex": [
+        "acceptance",
+        "cognitive defusion",
+        "present-moment awareness",
+        "self-as-context",
+        "values",
+        "committed action"
+      ],
+      "signatureTechniques": [
+        "defusion exercises",
+        "values clarification",
+        "mindfulness practices",
+        "willingness language",
+        "committed action planning",
+        "metaphors and experiential exercises"
+      ],
+      "bestFitPresentations": [
+        "anxiety",
+        "avoidance-based depression",
+        "chronic pain",
+        "shame",
+        "trauma-related avoidance",
+        "values drift and stuckness"
+      ],
+      "watchForOnExam": [
+        "ACT answers often emphasize accepting thoughts and feelings without obeying them.",
+        "The best response frequently links distress to avoidance and redirects toward values-based action.",
+        "ACT is especially likely when the vignette highlights fusion with thoughts or rigid avoidance."
+      ],
+      "examTraps": [
+        "Trying to argue with every thought as though ACT were classic CBT",
+        "Using vague mindfulness language without linking it to values or action",
+        "Confusing acceptance with passivity or resignation"
+      ],
+      "miniCase": {
+        "prompt": "A client says, 'I can't go to my daughter's graduation because my anxiety will ruin it.'",
+        "bestApproach": "Help the client notice anxious thoughts, make space for anxiety, reconnect with the value of family, and plan committed action.",
+        "why": "ACT focuses on willingness and values-guided behavior rather than waiting for anxiety to disappear."
+      },
+      "quickReview": [
+        "ACT does not aim to prove thoughts false; it aims to reduce their control.",
+        "Values matter more than symptom elimination alone.",
+        "Acceptance is active and purposeful, not passive surrender."
+      ]
+    },
+    {
+      "id": "person_centered",
+      "title": "Person-Centered Therapy",
+      "founder": "Carl Rogers",
+      "examPriority": "very_high",
+      "overview": "Person-centered therapy emphasizes the healing power of the therapeutic relationship. Growth occurs when the counselor provides empathy, unconditional positive regard, and congruence.",
+      "corePremise": [
+        "People have an innate actualizing tendency toward growth.",
+        "Psychological distress often develops when conditions of worth pull the client away from the authentic self.",
+        "A deeply accepting therapeutic relationship helps clients move toward congruence."
+      ],
+      "goals": [
+        "Strengthen self-awareness",
+        "Reduce incongruence between real self and ideal self",
+        "Increase self-acceptance",
+        "Support authentic growth and decision-making"
+      ],
+      "coreConditions": [
+        "unconditional positive regard",
+        "accurate empathy",
+        "congruence/genuineness"
+      ],
+      "counselorStance": [
+        "nonjudgmental",
+        "warm",
+        "non-directive",
+        "deeply reflective",
+        "relationship-centered"
+      ],
+      "signatureTechniques": [
+        "reflection of feeling",
+        "paraphrasing",
+        "clarification",
+        "open-ended questions",
+        "accurate empathic attunement"
+      ],
+      "bestFitPresentations": [
+        "shame",
+        "identity concerns",
+        "relationship struggles",
+        "self-worth issues",
+        "clients who need a corrective relational experience"
+      ],
+      "watchForOnExam": [
+        "When the theory is person-centered, the best answer usually sounds empathic, accepting, and non-directive.",
+        "Reflecting feeling is often better than advising, interpreting, or confronting.",
+        "This approach is highly tested in early-session alliance building."
+      ],
+      "examTraps": [
+        "Giving advice in a supposedly person-centered response",
+        "Challenging irrational beliefs, which fits REBT/CBT more than Rogers",
+        "Interpreting unconscious motives, which fits psychodynamic work more than Rogers"
+      ],
+      "miniCase": {
+        "prompt": "A client says, 'I feel like no matter what I do, I'll never be enough for my parents.'",
+        "bestApproach": "Reflect the emotional pain and conditional self-worth embedded in the statement.",
+        "why": "Person-centered therapy prioritizes empathic understanding and acceptance over direction or challenge."
+      },
+      "quickReview": [
+        "If the answer sounds warm, reflective, and non-directive, it may be person-centered.",
+        "Empathy is not repeating words; it is accurate, emotionally attuned understanding.",
+        "The relationship itself is the intervention."
+      ]
+    },
+    {
+      "id": "adlerian",
+      "title": "Adlerian Therapy",
+      "founder": "Alfred Adler",
+      "examPriority": "medium_high",
+      "overview": "Adlerian therapy views behavior as purposeful, socially embedded, and influenced by early experiences, family constellation, lifestyle beliefs, and striving for significance.",
+      "corePremise": [
+        "People are motivated by inferiority feelings and strive toward significance, mastery, and belonging.",
+        "Early life experiences shape a lifestyle pattern that influences later choices.",
+        "Social interest is a core marker of mental health."
+      ],
+      "goals": [
+        "Increase insight into lifestyle patterns and mistaken beliefs",
+        "Strengthen social interest and belonging",
+        "Encourage more useful, courageous action"
+      ],
+      "mustKnowConcepts": [
+        "inferiority feelings",
+        "striving for significance",
+        "lifestyle",
+        "family constellation",
+        "birth order",
+        "fictional finalism",
+        "early recollections",
+        "social interest"
+      ],
+      "phases": [
+        "relationship building",
+        "assessment/lifestyle exploration",
+        "insight/interpretation",
+        "reorientation and reeducation"
+      ],
+      "bestFitPresentations": [
+        "low self-worth",
+        "family-of-origin patterns",
+        "discouragement",
+        "purpose and belonging concerns"
+      ],
+      "watchForOnExam": [
+        "The exam may hint at Adlerian work through birth order, early recollections, or socially embedded goals.",
+        "Encouragement is a major Adlerian intervention."
+      ],
+      "examTraps": [
+        "Reducing Adlerian therapy to only birth order",
+        "Ignoring the social context and belonging dimension",
+        "Confusing Adlerian encouragement with generic reassurance"
+      ],
+      "miniCase": {
+        "prompt": "A perfectionistic client recalls an early memory of being praised only when outperforming siblings.",
+        "bestApproach": "Explore the lifestyle belief that worth depends on performance and encourage more socially connected, flexible ways of living.",
+        "why": "Adlerian therapy links early recollections and family constellation to present beliefs and striving."
+      },
+      "quickReview": [
+        "Adler = belonging, significance, encouragement, early recollections.",
+        "Behavior is purposeful, not random.",
+        "Social interest is central."
+      ]
+    },
+    {
+      "id": "psychodynamic",
+      "title": "Psychodynamic Therapy",
+      "founder": "Freud and later psychodynamic theorists",
+      "examPriority": "high",
+      "overview": "Psychodynamic therapy emphasizes unconscious processes, defense mechanisms, early relational patterns, and the influence of unresolved conflict on current symptoms and relationships.",
+      "corePremise": [
+        "Current distress is often shaped by unconscious conflict and early relational experiences.",
+        "Clients repeat patterns outside awareness, including in the therapeutic relationship.",
+        "Insight can create freedom from repetitive maladaptive patterns."
+      ],
+      "goals": [
+        "Increase insight into unconscious patterns",
+        "Identify defenses and recurring relational themes",
+        "Work through transference and unresolved conflict"
+      ],
+      "mustKnowConcepts": [
+        "unconscious processes",
+        "defense mechanisms",
+        "transference",
+        "countertransference",
+        "repetition compulsion",
+        "object relations",
+        "working through"
+      ],
+      "commonDefenses": [
+        "repression",
+        "denial",
+        "projection",
+        "rationalization",
+        "displacement",
+        "reaction formation",
+        "regression",
+        "intellectualization",
+        "sublimation"
+      ],
+      "bestFitPresentations": [
+        "repetitive relationship patterns",
+        "complex grief",
+        "identity and attachment difficulties",
+        "defensive style and relational avoidance"
+      ],
+      "watchForOnExam": [
+        "Psychodynamic questions often center on transference, defense mechanisms, and interpretation of recurring patterns.",
+        "A theory-consistent answer may name process or pattern rather than offer direct advice."
+      ],
+      "examTraps": [
+        "Using intensive interpretation too early in treatment",
+        "Ignoring the client's current stability and readiness",
+        "Confusing countertransference with the client's projections"
+      ],
+      "miniCase": {
+        "prompt": "A client repeatedly feels abandoned by caring partners and starts accusing the counselor of not truly caring after a scheduling change.",
+        "bestApproach": "Recognize and gently explore possible transference and recurring attachment patterns.",
+        "why": "Psychodynamic work notices how old relational expectations shape present interactions, including with the counselor."
+      },
+      "quickReview": [
+        "Think patterns, defenses, transference, and insight.",
+        "Psychodynamic answers are often less directive and more interpretive.",
+        "Timing matters: do not overinterpret before alliance and safety are established."
+      ]
+    },
+    {
+      "id": "rebt",
+      "title": "Rational Emotive Behavior Therapy (REBT)",
+      "founder": "Albert Ellis",
+      "examPriority": "high",
+      "overview": "REBT teaches that emotional distress is driven less by activating events and more by rigid, irrational beliefs about those events. Treatment focuses on disputing those beliefs and replacing them with more flexible alternatives.",
+      "corePremise": [
+        "It is not the event alone that causes distress, but the belief about the event.",
+        "Demandingness, absolutism, and catastrophizing drive unhealthy emotion.",
+        "Healthy discomfort is different from dysfunctional disturbance."
+      ],
+      "abcdeModel": [
+        "A - activating event",
+        "B - belief",
+        "C - consequence",
+        "D - dispute",
+        "E - effective new philosophy"
+      ],
+      "mustKnowConcepts": [
+        "irrational beliefs",
+        "demandingness",
+        "awfulizing/catastrophizing",
+        "low frustration tolerance",
+        "global rating of self/others"
+      ],
+      "signatureTechniques": [
+        "disputing irrational beliefs",
+        "logical analysis",
+        "shame-attacking exercises",
+        "cognitive homework",
+        "reframing rigid demands into preferences"
+      ],
+      "bestFitPresentations": [
+        "perfectionism",
+        "anger linked to rigid expectations",
+        "self-condemnation",
+        "must/should thinking"
+      ],
+      "watchForOnExam": [
+        "If a client says 'I must be loved by everyone' or 'It would be unbearable if I failed,' REBT may be the best fit.",
+        "REBT responses are usually more direct and active than person-centered responses."
+      ],
+      "examTraps": [
+        "Mistaking REBT for gentle empathic reflection only",
+        "Choosing advice-giving instead of disputation",
+        "Forgetting that REBT challenges absolutistic beliefs, not realistic preferences"
+      ],
+      "miniCase": {
+        "prompt": "A student says, 'If I don't pass this exam, that proves I'm worthless and my life is ruined.'",
+        "bestApproach": "Dispute the irrational belief and separate performance failure from global self-worth.",
+        "why": "REBT specifically targets absolutistic and self-downing beliefs."
+      },
+      "quickReview": [
+        "REBT is more directive than Rogers.",
+        "Listen for musts, shoulds, and awfulizing.",
+        "ABCDE is the memory anchor."
+      ]
+    },
+    {
+      "id": "sfbt",
+      "title": "Solution-Focused Brief Therapy (SFBT)",
+      "founders": [
+        "Steve de Shazer",
+        "Insoo Kim Berg"
+      ],
+      "examPriority": "very_high",
+      "overview": "SFBT focuses on solutions, strengths, exceptions, and future-oriented change rather than in-depth analysis of problems.",
+      "corePremise": [
+        "Clients already possess strengths and resources that can support change.",
+        "Small changes can create larger systemic shifts.",
+        "Understanding the full origin of a problem is less important than identifying what works."
+      ],
+      "goals": [
+        "Clarify preferred future",
+        "Identify exceptions to the problem",
+        "Amplify strengths and effective coping",
+        "Build small, actionable next steps"
+      ],
+      "signatureTechniques": [
+        "miracle question",
+        "scaling questions",
+        "exception questions",
+        "coping questions",
+        "compliments"
+      ],
+      "bestFitPresentations": [
+        "goal-focused work",
+        "mild to moderate distress",
+        "client demoralization",
+        "situational problems",
+        "brief treatment settings"
+      ],
+      "watchForOnExam": [
+        "The exam often tests whether the counselor shifts from problem-saturated language to solution-building language.",
+        "Scaling questions are a major clue."
+      ],
+      "examTraps": [
+        "Digging too deeply into pathology when the theory is solution-focused",
+        "Ignoring client strengths and exceptions",
+        "Using confrontational language instead of future-building questions"
+      ],
+      "miniCase": {
+        "prompt": "A client says, 'Nothing ever works. Every day is the same.'",
+        "bestApproach": "Ask about times when the problem has been slightly less severe and what was different.",
+        "why": "SFBT searches for exceptions and practical leverage points."
+      },
+      "quickReview": [
+        "SFBT = brief, strengths-based, future-focused.",
+        "Know miracle, scaling, exceptions, and coping questions.",
+        "The client is not forced to retell the problem in detail."
+      ]
+    },
+    {
+      "id": "mi",
+      "title": "Motivational Interviewing (MI)",
+      "founders": [
+        "William Miller",
+        "Stephen Rollnick"
+      ],
+      "examPriority": "very_high",
+      "overview": "MI is a collaborative, person-centered approach for strengthening motivation and commitment to change by exploring and resolving ambivalence.",
+      "corePremise": [
+        "Ambivalence is normal and expected in behavior change.",
+        "Motivation is more effectively evoked than imposed.",
+        "The counselor works with resistance rather than against it."
+      ],
+      "spirit": [
+        "partnership",
+        "acceptance",
+        "compassion",
+        "evocation"
+      ],
+      "skills": [
+        "open-ended questions",
+        "affirmations",
+        "reflective listening",
+        "summaries"
+      ],
+      "goals": [
+        "Elicit change talk",
+        "Reduce sustain talk dominance",
+        "Strengthen autonomy and self-efficacy",
+        "Support movement through stages of change"
+      ],
+      "bestFitPresentations": [
+        "substance use",
+        "health behavior change",
+        "treatment ambivalence",
+        "clients mandated to treatment but not internally motivated"
+      ],
+      "watchForOnExam": [
+        "If a client is ambivalent, the MI answer usually explores both sides rather than persuading or arguing.",
+        "The best MI response often reflects discrepancy gently and evokes the client's own reasons for change."
+      ],
+      "examTraps": [
+        "Confrontation, arguing, warning, or lecturing",
+        "Taking the expert stance too strongly",
+        "Mistaking reflective listening for passive agreement"
+      ],
+      "miniCase": {
+        "prompt": "A client says, 'I know drinking is messing up my marriage, but it's the only thing that helps me relax.'",
+        "bestApproach": "Use reflective listening to capture ambivalence and evoke the client's own reasons for change.",
+        "why": "MI is designed for exactly this kind of mixed motivation."
+      },
+      "quickReview": [
+        "MI is not confrontation.",
+        "OARS and stages of change are high-yield.",
+        "Explore ambivalence; do not overpower it."
+      ]
+    },
+    {
+      "id": "gestalt",
+      "title": "Gestalt Therapy",
+      "founder": "Fritz Perls",
+      "examPriority": "medium",
+      "overview": "Gestalt therapy emphasizes awareness, present-moment experience, unfinished business, and direct encounter with feelings, behaviors, and internal conflicts.",
+      "corePremise": [
+        "Growth occurs through heightened awareness of present experience.",
+        "Unfinished business from the past intrudes into the present until it is fully acknowledged and processed.",
+        "Clients benefit from owning their experience directly."
+      ],
+      "signatureTechniques": [
+        "empty chair",
+        "two-chair dialogue",
+        "here-and-now focus",
+        "exaggeration exercises",
+        "I-statements"
+      ],
+      "bestFitPresentations": [
+        "unfinished relational conflicts",
+        "internal conflict",
+        "blocked affect",
+        "clients disconnected from present-moment experience"
+      ],
+      "watchForOnExam": [
+        "The empty-chair technique is the classic Gestalt clue.",
+        "Gestalt answers often ask clients to describe what they feel now rather than explain it intellectually."
+      ],
+      "examTraps": [
+        "Over-intellectualizing",
+        "Staying entirely in abstract insight without embodied awareness",
+        "Using Gestalt experiments before sufficient safety is established"
+      ],
+      "miniCase": {
+        "prompt": "A grieving client keeps saying, 'I never got to tell my father how angry I was.'",
+        "bestApproach": "Use an empty-chair intervention to facilitate direct expression of unresolved feelings.",
+        "why": "Gestalt therapy targets unfinished business through experiential work."
+      },
+      "quickReview": [
+        "Gestalt = awareness, here-and-now, unfinished business.",
+        "Empty chair is the signature move.",
+        "Experiential depth matters more than abstract analysis."
+      ]
+    },
+    {
+      "id": "eft",
+      "title": "Emotionally Focused Therapy (EFT)",
+      "founder": "Sue Johnson",
+      "examPriority": "medium_high",
+      "overview": "EFT is an attachment-based approach, especially for couples, that helps partners identify negative cycles, access vulnerable emotions, and create more secure emotional bonds.",
+      "corePremise": [
+        "Relationship distress is maintained by rigid negative interaction cycles rooted in attachment insecurity.",
+        "Emotional accessibility, responsiveness, and engagement create secure bonds.",
+        "The cycle is the enemy, not the partner."
+      ],
+      "phases": [
+        "de-escalation",
+        "restructuring interactions",
+        "consolidation"
+      ],
+      "bestFitPresentations": [
+        "couples conflict",
+        "pursue-withdraw patterns",
+        "attachment injuries",
+        "emotional disconnection"
+      ],
+      "watchForOnExam": [
+        "EFT answers usually move toward identifying the couple's negative cycle and underlying attachment needs.",
+        "The counselor helps partners express softer emotions rather than stay stuck in blame and defensiveness."
+      ],
+      "examTraps": [
+        "Getting pulled into content fights instead of the cycle",
+        "Treating anger only as anger rather than exploring underlying hurt or fear",
+        "Confusing EFT with Gottman-based skill coaching alone"
+      ],
+      "miniCase": {
+        "prompt": "In session, one partner criticizes while the other shuts down and withdraws.",
+        "bestApproach": "Name the pursue-withdraw cycle and help each partner access the fear and longing beneath the surface reactions.",
+        "why": "EFT targets attachment-driven interaction patterns."
+      },
+      "quickReview": [
+        "EFT is attachment-based and cycle-focused.",
+        "Look for vulnerable emotions beneath defensive patterns.",
+        "Common clue: couples trapped in repetitive negative cycles."
+      ]
+    },
+    {
+      "id": "ifs",
+      "title": "Internal Family Systems (IFS)",
+      "founder": "Richard Schwartz",
+      "examPriority": "medium",
+      "overview": "IFS views the mind as made up of multiple parts organized around burdens, protection, and healing. Therapy helps clients access Self-energy and develop compassionate relationships with parts.",
+      "corePremise": [
+        "Multiplicity of mind is normal.",
+        "Protective parts develop for understandable reasons.",
+        "Healing occurs when Self leads and burdened parts are witnessed and unburdened."
+      ],
+      "parts": [
+        {
+          "name": "Exiles",
+          "role": "Carry pain, shame, fear, and wounds."
+        },
+        {
+          "name": "Managers",
+          "role": "Proactively control life to prevent pain."
+        },
+        {
+          "name": "Firefighters",
+          "role": "Reactively extinguish pain, often through impulsive behaviors."
+        }
+      ],
+      "bestFitPresentations": [
+        "trauma",
+        "internal conflict",
+        "self-criticism",
+        "part-based language",
+        "shame and protective coping"
+      ],
+      "watchForOnExam": [
+        "IFS questions may describe conflicting inner parts or protective strategies.",
+        "Theory-consistent language includes curiosity, compassion, and unblending from parts."
+      ],
+      "examTraps": [
+        "Pathologizing parts instead of understanding their protective intent",
+        "Trying to eliminate parts rather than relate to them differently"
+      ],
+      "miniCase": {
+        "prompt": "A client says, 'One part of me wants intimacy, but another part sabotages every relationship.'",
+        "bestApproach": "Help the client notice and compassionately explore the protective function of each part.",
+        "why": "IFS conceptualizes inner conflict through parts rather than simple inconsistency."
+      },
+      "quickReview": [
+        "IFS = Self, exiles, managers, firefighters.",
+        "Protectors are not the enemy.",
+        "The stance is curious and compassionate."
+      ]
+    },
+    {
+      "id": "narrative",
+      "title": "Narrative Therapy",
+      "founders": [
+        "Michael White",
+        "David Epston"
+      ],
+      "examPriority": "medium_high",
+      "overview": "Narrative therapy helps clients separate from problem-saturated identities and develop richer, preferred stories about themselves and their lives.",
+      "corePremise": [
+        "People are not the problem; the problem is the problem.",
+        "Identity is shaped through stories constructed in social and cultural context.",
+        "Therapy seeks unique outcomes and preferred meanings."
+      ],
+      "signatureTechniques": [
+        "externalizing the problem",
+        "mapping the influence of the problem",
+        "identifying unique outcomes",
+        "re-authoring preferred stories",
+        "therapeutic letters"
+      ],
+      "bestFitPresentations": [
+        "shame-based identity",
+        "oppression-informed distress",
+        "adolescents and families",
+        "clients overidentified with diagnoses or failures"
+      ],
+      "watchForOnExam": [
+        "A narrative answer often renames the problem as separate from the person.",
+        "The exam may test whether the counselor reduces problem-saturated language."
+      ],
+      "examTraps": [
+        "Reinforcing the client's fused identity with the problem",
+        "Using highly pathologizing labels when the theory aims to deconstruct them"
+      ],
+      "miniCase": {
+        "prompt": "A client says, 'I am a depressed, broken person and that's all I've ever been.'",
+        "bestApproach": "Externalize depression and explore moments when the client has acted outside that story.",
+        "why": "Narrative therapy loosens identity fusion and builds preferred alternative stories."
+      },
+      "quickReview": [
+        "Narrative = externalization and re-authoring.",
+        "The person is not the problem.",
+        "Culture and meaning matter."
+      ]
+    },
+    {
+      "id": "reality_therapy",
+      "title": "Reality Therapy / Choice Theory",
+      "founder": "William Glasser",
+      "examPriority": "medium",
+      "overview": "Reality therapy emphasizes personal responsibility, present behavior, and making effective choices to meet basic needs.",
+      "corePremise": [
+        "Behavior is chosen in an attempt to meet needs.",
+        "The counselor focuses on what the client is doing now and whether it is working.",
+        "Change becomes more likely when clients evaluate current behavior honestly and develop practical plans."
+      ],
+      "basicNeeds": [
+        "survival",
+        "love and belonging",
+        "power",
+        "freedom",
+        "fun"
+      ],
+      "wdep": [
+        "Wants",
+        "Doing",
+        "Evaluation",
+        "Planning"
+      ],
+      "bestFitPresentations": [
+        "behavioral stuckness",
+        "poor responsibility-taking",
+        "school settings",
+        "clients who benefit from concrete planning"
+      ],
+      "watchForOnExam": [
+        "Look for WDEP language and present-focused behavior evaluation.",
+        "The counselor often asks whether current behavior is helping the client get what they want."
+      ],
+      "examTraps": [
+        "Overemphasizing the past when the model is strongly present-focused",
+        "Shaming clients instead of guiding honest self-evaluation"
+      ],
+      "miniCase": {
+        "prompt": "A teen says, 'I keep skipping class, but I still want to graduate.'",
+        "bestApproach": "Use WDEP to clarify wants, review current behavior, evaluate whether it is working, and build a specific plan.",
+        "why": "Reality therapy centers on current choices and workable planning."
+      },
+      "quickReview": [
+        "Reality therapy = present behavior plus responsibility.",
+        "Know WDEP.",
+        "Planning is concrete and practical."
+      ]
+    },
+    {
+      "id": "gottman",
+      "title": "Gottman Method",
+      "founders": [
+        "John Gottman",
+        "Julie Gottman"
+      ],
+      "examPriority": "medium_high",
+      "overview": "The Gottman Method is a couples approach that emphasizes relational friendship, emotion regulation, conflict management, and repair of destructive interaction patterns.",
+      "corePremise": [
+        "Stable relationships require emotional attunement, fondness, and effective conflict repair.",
+        "Certain destructive patterns strongly predict relationship breakdown."
+      ],
+      "mustKnowConcepts": [
+        "love maps",
+        "fondness and admiration",
+        "turning toward bids for connection",
+        "repair attempts",
+        "shared meaning"
+      ],
+      "fourHorsemen": [
+        "criticism",
+        "contempt",
+        "defensiveness",
+        "stonewalling"
+      ],
+      "bestFitPresentations": [
+        "couples conflict",
+        "communication breakdown",
+        "erosion of affection and respect",
+        "chronic criticism or contempt"
+      ],
+      "watchForOnExam": [
+        "If a couple is trapped in criticism, defensiveness, contempt, or withdrawal, Gottman may be implied.",
+        "The counselor may coach repair attempts or identify destructive communication patterns."
+      ],
+      "examTraps": [
+        "Focusing only on content and missing the process pattern",
+        "Confusing contempt with simple anger; contempt carries superiority and disgust"
+      ],
+      "miniCase": {
+        "prompt": "During session, one partner says, 'You are so selfish,' and the other immediately shuts down and stares at the floor.",
+        "bestApproach": "Identify criticism and stonewalling and begin restructuring toward softer startup and repair.",
+        "why": "Those interaction patterns map directly onto Gottman's framework."
+      },
+      "quickReview": [
+        "Know the Four Horsemen cold.",
+        "Gottman focuses on interaction patterns and relationship friendship.",
+        "Repair and turning toward are central."
+      ]
+    },
+    {
+      "id": "structural_family",
+      "title": "Structural Family Therapy",
+      "founder": "Salvador Minuchin",
+      "examPriority": "high",
+      "overview": "Structural family therapy addresses family organization, boundaries, hierarchies, and interaction patterns. Symptoms are understood within the family structure, not only within the individual.",
+      "corePremise": [
+        "Family problems are maintained by rigid, diffuse, or ineffective structures and boundaries.",
+        "The counselor intervenes actively to reorganize family interactions.",
+        "Healthy family functioning depends on clear boundaries and effective hierarchy."
+      ],
+      "mustKnowConcepts": [
+        "structure",
+        "boundaries",
+        "subsystems",
+        "hierarchy",
+        "enmeshment",
+        "disengagement"
+      ],
+      "signatureTechniques": [
+        "joining",
+        "enactment",
+        "reframing",
+        "boundary making",
+        "restructuring interactions"
+      ],
+      "bestFitPresentations": [
+        "parent-child conflict",
+        "cross-generational coalitions",
+        "enmeshed or disengaged family systems",
+        "family behavior problems maintained by structure"
+      ],
+      "watchForOnExam": [
+        "If the problem is clearly systemic and boundary-related, structural family therapy is a strong fit.",
+        "Enactment is a classic clue: the therapist asks the family to interact in session as they do at home."
+      ],
+      "examTraps": [
+        "Treating the identified patient as the only problem",
+        "Ignoring family hierarchy or subsystem issues",
+        "Confusing enmeshment with closeness and disengagement with independence"
+      ],
+      "miniCase": {
+        "prompt": "A child has severe behavior problems, and the grandmother repeatedly overrides the parents' discipline in front of the child.",
+        "bestApproach": "Address hierarchy and boundaries by strengthening the parental subsystem.",
+        "why": "Structural family therapy targets organization and cross-generational patterns."
+      },
+      "quickReview": [
+        "Structure, boundaries, hierarchy, subsystems.",
+        "Think enmeshed vs disengaged.",
+        "The therapist is active and system-focused."
+      ]
+    },
+    {
+      "id": "bowenian",
+      "title": "Bowenian / Multigenerational Family Therapy",
+      "founder": "Murray Bowen",
+      "examPriority": "high",
+      "overview": "Bowenian therapy examines multigenerational patterns, emotional reactivity, differentiation of self, and triangulation. It helps clients respond to family processes with greater clarity and less fusion.",
+      "corePremise": [
+        "Family anxiety is transmitted across generations through recurring relationship patterns.",
+        "Low differentiation increases fusion, reactivity, and triangulation.",
+        "Insight into family process helps clients relate with greater emotional balance."
+      ],
+      "mustKnowConcepts": [
+        "differentiation of self",
+        "triangulation",
+        "emotional cutoff",
+        "nuclear family emotional system",
+        "family projection process",
+        "multigenerational transmission process",
+        "sibling position",
+        "genogram"
+      ],
+      "signatureTechniques": [
+        "genogram work",
+        "process questions",
+        "detriangling",
+        "coaching toward differentiation"
+      ],
+      "bestFitPresentations": [
+        "chronic family reactivity",
+        "parent-adult child conflict",
+        "repeated intergenerational patterns",
+        "fusion and cutoff"
+      ],
+      "watchForOnExam": [
+        "Triangulation is a major exam clue.",
+        "Bowenian responses tend to be calmer, more observational, and process-focused than emotionally cathartic."
+      ],
+      "examTraps": [
+        "Encouraging emotional cutoff as though it were healthy individuation",
+        "Missing the third person in a triangle",
+        "Ignoring multigenerational patterns"
+      ],
+      "miniCase": {
+        "prompt": "Whenever a married couple fights, one spouse immediately calls their mother for support and advice, escalating the conflict.",
+        "bestApproach": "Identify triangulation and help the spouse strengthen direct, differentiated communication within the marriage.",
+        "why": "Bowenian therapy targets triangulated anxiety regulation."
+      },
+      "quickReview": [
+        "Bowen = differentiation, triangles, genograms, reactivity.",
+        "More differentiation means more ability to stay connected without losing self.",
+        "Do not confuse cutoff with health."
+      ]
+    }
+  ],
+  "crossTheoryComparisons": [
+    {
+      "title": "CBT vs ACT",
+      "points": [
+        "CBT works to examine and modify distorted thoughts; ACT works to change the client's relationship to thoughts.",
+        "CBT often asks whether a thought is accurate; ACT asks whether following the thought is workable and values-consistent.",
+        "CBT emphasizes cognitive restructuring; ACT emphasizes defusion, acceptance, and committed action."
+      ]
+    },
+    {
+      "title": "Person-Centered vs REBT",
+      "points": [
+        "Person-centered therapy is non-directive and empathic; REBT is more active and disputational.",
+        "Rogers emphasizes the relationship as curative; Ellis emphasizes challenging irrational beliefs.",
+        "If the answer reflects feeling, it may be Rogers; if it disputes a rigid belief, it may be REBT."
+      ]
+    },
+    {
+      "title": "MI vs CBT",
+      "points": [
+        "MI is best when the client is ambivalent about change; CBT is best when the client is ready to examine thought-behavior patterns.",
+        "MI evokes motivation; CBT teaches structured coping and cognitive skills.",
+        "MI avoids arguing; CBT may directly test the logic of a thought."
+      ]
+    },
+    {
+      "title": "EFT vs Gottman",
+      "points": [
+        "EFT focuses more on attachment needs and negative emotional cycles.",
+        "Gottman focuses more on communication patterns, repair, friendship, and conflict markers.",
+        "Both can address couples conflict, but the emotional target differs."
+      ]
+    },
+    {
+      "title": "Structural vs Bowenian Family Therapy",
+      "points": [
+        "Structural therapy actively reorganizes family interactions in the present.",
+        "Bowenian therapy emphasizes differentiation, anxiety, and multigenerational process.",
+        "Structural asks how the family is organized; Bowen asks how anxiety is transmitted and managed."
+      ]
+    }
+  ],
+  "commonExamTraps": [
+    "Picking the most sophisticated-sounding intervention instead of the theory-consistent one",
+    "Ignoring treatment stage and choosing deep interpretation too early",
+    "Confusing empathy with passivity; empathy can still be purposeful and strategic",
+    "Forgetting that acute safety concerns override theory-specific technique",
+    "Selecting confrontation when ambivalence, shame, or early alliance suggests a gentler approach",
+    "Treating family/systemic problems as though they exist only inside one identified patient"
+  ],
+  "miniCaseDrills": [
+    {
+      "case": "A client says, 'I know I should quit using, but I also don't want to lose the only thing that calms me down.'",
+      "bestTheory": "Motivational Interviewing",
+      "rationale": "The central issue is ambivalence about change."
+    },
+    {
+      "case": "A client reports panic about social judgment and repeatedly says, 'Everyone at work thinks I'm incompetent.'",
+      "bestTheory": "Cognitive Behavioral Therapy",
+      "rationale": "The presentation features mind reading and cognitive distortion that can be tested and restructured."
+    },
+    {
+      "case": "A couple repeatedly escalates into attack-withdraw patterns and later reports feeling unseen and unsafe with each other.",
+      "bestTheory": "Emotionally Focused Therapy",
+      "rationale": "The issue centers on attachment insecurity and a negative interaction cycle."
+    },
+    {
+      "case": "An adolescent says, 'I am the problem in my family. Everyone would be better off if I weren't like this.'",
+      "bestTheory": "Narrative Therapy",
+      "rationale": "The client is fused with a problem-saturated identity."
+    },
+    {
+      "case": "A highly reactive client with recurrent self-harm feels ashamed after every emotional crisis and cannot tolerate distress without impulsive action.",
+      "bestTheory": "Dialectical Behavior Therapy",
+      "rationale": "The core needs are safety, emotion regulation, distress tolerance, and interpersonal effectiveness."
+    }
+  ],
+  "quickReview": {
+    "memoryHooks": [
+      "CBT = thoughts-feelings-behaviors",
+      "DBT = acceptance + change",
+      "ACT = accept + defuse + values + action",
+      "Rogers = empathy + UPR + congruence",
+      "REBT = dispute irrational beliefs",
+      "SFBT = exceptions and preferred future",
+      "MI = explore ambivalence",
+      "Gestalt = here-and-now + empty chair",
+      "EFT = attachment cycle",
+      "Structural = boundaries and hierarchy",
+      "Bowen = differentiation and triangles"
+    ],
+    "finalTakeaways": [
+      "The exam cares most about application, not trivia.",
+      "Always ask: What does this theory believe is causing the problem, and what would it do next?",
+      "When in doubt, rule out answers that violate the counselor stance of the theory."
+    ]
+  },
+  "checkpointQuestions": [
+    {
+      "question": "A counselor responds by asking, 'What evidence supports that thought, and what evidence goes against it?' Which theory is most clearly being used?",
+      "answer": "CBT"
+    },
+    {
+      "question": "A counselor says, 'Part of you wants to stop drinking, and part of you is afraid to lose your main coping strategy.' Which approach fits best?",
+      "answer": "Motivational Interviewing"
+    },
+    {
+      "question": "A counselor asks a couple to identify the pattern where one partner pursues and the other withdraws, then explores the fear beneath the pattern. Which approach fits best?",
+      "answer": "Emotionally Focused Therapy"
+    },
+    {
+      "question": "A counselor helps a client name a harsh inner critic as a separate problem and identify times when it had less power. Which theory is this most consistent with?",
+      "answer": "Narrative Therapy"
+    },
+    {
+      "question": "A therapist invites a family to demonstrate in session how arguments usually unfold at home. Which family therapy model is most likely?",
+      "answer": "Structural Family Therapy"
+    }
+  ],
+  "sourceBasis": {
+    "derivedFromUploadedMaterials": [
+      "Study Library",
+      "Counseling Theories & Techniques"
+    ],
+    "notes": "Expanded into a production-ready learning module structure for app use, preserving exam emphasis on theory application, techniques, and case-based interpretation."
+  }
+}

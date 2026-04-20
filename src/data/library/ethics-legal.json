@@ -1,0 +1,653 @@
+{
+  "moduleId": "ethics-and-legal-issues",
+  "moduleTitle": "Ethics & Legal Issues",
+  "moduleType": "learning_library",
+  "version": "1.0",
+  "exam": {
+    "name": "NCMHCE",
+    "formatAlignment": {
+      "currentBlueprint": true,
+      "effective2027Blueprint": true
+    },
+    "whyThisModuleMatters": "This module prepares learners to handle ethics and legal decision-making on the NCMHCE. Ethics items often test whether the counselor can prioritize client welfare, protect confidentiality, follow informed consent standards, recognize mandated reporting and duty-to-protect issues, maintain boundaries, document appropriately, and respond in the least harmful and most ethically defensible way."
+  },
+  "uiHints": {
+    "defaultView": "nested_accordion",
+    "recommendedComponents": [
+      "module_header",
+      "ethics_overview_cards",
+      "decision_hierarchy_panel",
+      "aca_code_sections_table",
+      "confidentiality_exceptions_matrix",
+      "duty_to_warn_flow",
+      "mandated_reporting_cards",
+      "telehealth_ethics_panel",
+      "boundary_case_cards",
+      "documentation_rules_section",
+      "exam_trap_callouts",
+      "mini_case_cards",
+      "checkpoint_quiz"
+    ],
+    "tags": [
+      "ethics",
+      "legal",
+      "confidentiality",
+      "duty-to-warn",
+      "mandated-reporting",
+      "documentation",
+      "telehealth",
+      "ncmhce",
+      "high-yield"
+    ]
+  },
+  "intro": {
+    "summary": "This module covers the ethical and legal concepts most likely to appear on the NCMHCE, with emphasis on practical clinical decisions rather than abstract memorization. The focus is on what the counselor should do first, how to balance client welfare with legal duties, and how to choose the answer that is most protective, least harmful, and professionally defensible.",
+    "learningObjectives": [
+      "Recognize the major ethical principles and how they guide clinical decisions",
+      "Understand the structure and practical use of the ACA Code of Ethics",
+      "Apply informed consent and confidentiality rules in clinical cases",
+      "Distinguish mandated reporting from duty to warn/protect",
+      "Evaluate boundary and dual-relationship dilemmas",
+      "Identify best practices in documentation, supervision, and telehealth",
+      "Use an ethical decision-making model when a case is ambiguous"
+    ],
+    "howToUse": [
+      "Start with the ethics hierarchy and confidentiality section before moving into specific legal issues.",
+      "Study the difference between ethical obligations and state-law requirements, because the exam often tests both.",
+      "Read the case examples slowly. Ethics questions are often won by noticing one key fact such as a minor, a signed ROI, an identifiable victim, or a telehealth location issue.",
+      "When two answers both sound reasonable, choose the one that best protects client welfare while honoring law and professional standards."
+    ],
+    "highYieldThemes": [
+      "Client welfare comes first.",
+      "Informed consent is ongoing, not one-and-done.",
+      "Confidentiality is central, but not absolute.",
+      "Mandated reporting and duty to protect are not the same thing.",
+      "Consultation, supervision, and documentation often strengthen the best ethical answer.",
+      "The exam usually rewards the least harmful and most clinically responsible action."
+    ]
+  },
+  "coreDecisionRules": [
+    {
+      "rule": "Protect client welfare first.",
+      "example": "If one answer preserves convenience but another better protects the client, the protective answer is usually stronger."
+    },
+    {
+      "rule": "Clarify before disclosing whenever possible and clinically appropriate.",
+      "example": "If a client asks whether parents, a spouse, or insurance can access records, the best next step is often to review confidentiality limits through informed consent."
+    },
+    {
+      "rule": "Know when confidentiality ends.",
+      "example": "Imminent danger to self, imminent threat to an identifiable other, abuse reporting duties, and valid legal orders may require disclosure."
+    },
+    {
+      "rule": "Do not confuse ethical best practice with legal minimums.",
+      "example": "A behavior may be legal in a jurisdiction but still ethically risky or unwise."
+    },
+    {
+      "rule": "When uncertain, consult and document.",
+      "example": "The exam often favors consultation with a supervisor, attorney, or ethics resource in complex dilemmas, followed by careful documentation."
+    }
+  ],
+  "ethicsHierarchy": {
+    "title": "Practical Ethics Hierarchy for the Exam",
+    "steps": [
+      "Protect client welfare and safety",
+      "Clarify informed consent and confidentiality limits",
+      "Identify legal obligations, including mandated reporting and protective duties",
+      "Apply the ACA Code of Ethics and relevant professional standards",
+      "Consult supervisors, colleagues, or legal resources when needed",
+      "Take the least harmful ethically and legally appropriate action",
+      "Document decision-making, rationale, consultations, and actions taken"
+    ],
+    "examPearls": [
+      "When the vignette is urgent, safety outranks routine process.",
+      "When there is no urgent danger, explanation, clarification, and consultation often come before drastic action.",
+      "Documentation is rarely the first step, but it is almost always part of the right plan."
+    ]
+  },
+  "acaCodeSection": {
+    "title": "ACA Code of Ethics Overview",
+    "overview": "The ACA Code of Ethics provides the main professional framework for counseling ethics. The exam does not require verbatim memorization of every subsection, but it does expect working familiarity with the major sections and their practical meaning.",
+    "sections": [
+      {
+        "section": "A",
+        "topic": "The Counseling Relationship",
+        "practicalUse": "Boundaries, client welfare, informed consent, roles, termination"
+      },
+      {
+        "section": "B",
+        "topic": "Confidentiality and Privacy",
+        "practicalUse": "Privacy, releases, exceptions, records, minor issues"
+      },
+      {
+        "section": "C",
+        "topic": "Professional Responsibility",
+        "practicalUse": "Competence, impairment, accurate representation, self-care"
+      },
+      {
+        "section": "D",
+        "topic": "Relationships with Other Professionals",
+        "practicalUse": "Collaboration, referrals, consultation, interdisciplinary practice"
+      },
+      {
+        "section": "E",
+        "topic": "Evaluation, Assessment, and Interpretation",
+        "practicalUse": "Appropriate assessment use, cultural fairness, interpretation"
+      },
+      {
+        "section": "F",
+        "topic": "Supervision, Training, and Teaching",
+        "practicalUse": "Supervisory responsibility, client disclosure, trainee welfare"
+      },
+      {
+        "section": "G",
+        "topic": "Research and Publication",
+        "practicalUse": "Research ethics, consent, participant protection, accurate reporting"
+      },
+      {
+        "section": "H",
+        "topic": "Distance Counseling, Technology, and Social Media",
+        "practicalUse": "Telehealth, online boundaries, privacy, location and emergency planning"
+      },
+      {
+        "section": "I",
+        "topic": "Resolving Ethical Issues",
+        "practicalUse": "Consultation, addressing ethical violations, decision-making processes"
+      }
+    ],
+    "examPearls": [
+      "You do not need to quote section numbers to answer well, but you should know the themes.",
+      "Many exam answers can be improved by recognizing whether the issue is mainly confidentiality, boundaries, supervision, or technology-related."
+    ]
+  },
+  "foundationalPrinciples": {
+    "title": "Foundational Ethical Principles",
+    "principles": [
+      {
+        "name": "Autonomy",
+        "definition": "Respecting the client's right to make their own decisions",
+        "examUse": "Important in informed consent, treatment choice, and respect for client agency"
+      },
+      {
+        "name": "Beneficence",
+        "definition": "Acting in the client's best interest",
+        "examUse": "Often supports proactive protective and helpful action"
+      },
+      {
+        "name": "Nonmaleficence",
+        "definition": "Avoiding harm",
+        "examUse": "Critical when weighing confidentiality, boundaries, risky interventions, and termination"
+      },
+      {
+        "name": "Justice",
+        "definition": "Fairness and equitable treatment",
+        "examUse": "Relevant to nondiscrimination, access, and consistent standards"
+      },
+      {
+        "name": "Fidelity",
+        "definition": "Trustworthiness, loyalty, and keeping professional commitments",
+        "examUse": "Important in alliance, boundaries, and reliable follow-through"
+      },
+      {
+        "name": "Veracity",
+        "definition": "Honesty and truthfulness",
+        "examUse": "Relevant to informed consent, documentation, representation, and supervision"
+      }
+    ],
+    "examPearl": "When two answers seem close, the better one is usually the one that best preserves safety, trust, and fairness without creating avoidable harm."
+  },
+  "informedConsentSection": {
+    "title": "Informed Consent",
+    "overview": "Informed consent is an ongoing process of explaining counseling, clarifying rights and responsibilities, and ensuring that the client understands the nature and limits of the service.",
+    "requiredElements": [
+      "nature and purpose of counseling",
+      "goals, techniques, and procedures",
+      "potential risks and benefits",
+      "limitations and alternatives",
+      "fees and payment policies",
+      "counselor qualifications and role",
+      "confidentiality and its limits",
+      "records practices",
+      "client right to ask questions and withdraw consent"
+    ],
+    "specialSituations": [
+      {
+        "situation": "Minors",
+        "bestPractice": "Obtain parent/guardian consent when legally required and seek the minor's assent whenever possible"
+      },
+      {
+        "situation": "Adults with diminished capacity",
+        "bestPractice": "Involve legal decision-makers as needed while preserving the client's participation to the greatest extent possible"
+      },
+      {
+        "situation": "Mandated or court-involved clients",
+        "bestPractice": "Clarify the counseling role, reporting expectations, and limits of confidentiality from the start"
+      },
+      {
+        "situation": "Telehealth",
+        "bestPractice": "Include technology-specific consent, privacy risks, emergency procedures, and location requirements"
+      }
+    ],
+    "examPearls": [
+      "If a client asks who can access records, the best answer is often to clarify what can and cannot be shared.",
+      "Informed consent is not a single form; it is a continuing conversation.",
+      "When treatment conditions change, informed consent should be revisited."
+    ],
+    "examTraps": [
+      "Assuming informed consent happened once at intake and never needs review",
+      "Overpromising absolute confidentiality",
+      "Ignoring the minor's understanding and participation entirely"
+    ]
+  },
+  "confidentialitySection": {
+    "title": "Confidentiality and Privacy",
+    "overview": "Confidentiality is one of the strongest foundations of counseling, but it is not absolute. Counselors must understand when information must be protected, when it may be shared with authorization, and when it must be disclosed because safety or law requires it.",
+    "coreRules": [
+      "Protect client information unless there is valid authorization or a recognized exception",
+      "Disclose the minimum necessary information when disclosure is required",
+      "Clarify confidentiality limitations early and revisit them when needed",
+      "Use Release of Information (ROI) forms for voluntary disclosures"
+    ],
+    "exceptionsMatrix": [
+      {
+        "situation": "Imminent risk of harm to self",
+        "typicalAction": "Take protective action, which may include emergency services, hospitalization, support involvement, or other safety measures"
+      },
+      {
+        "situation": "Imminent risk of harm to an identifiable third party",
+        "typicalAction": "Duty to protect/warn may apply depending on jurisdiction; consult and act according to law and safety needs"
+      },
+      {
+        "situation": "Suspected child abuse or neglect",
+        "typicalAction": "Mandated report"
+      },
+      {
+        "situation": "Suspected elder or dependent adult abuse",
+        "typicalAction": "Mandated report where required"
+      },
+      {
+        "situation": "Court order",
+        "typicalAction": "Respond according to legal requirement, ideally with consultation"
+      },
+      {
+        "situation": "Subpoena",
+        "typicalAction": "Do not assume it equals an immediate full release; respond carefully and often consult legal/supervisory resources"
+      },
+      {
+        "situation": "Signed ROI",
+        "typicalAction": "Share only the information authorized"
+      },
+      {
+        "situation": "Consultation or supervision",
+        "typicalAction": "Share only what is necessary and protect identifying details when possible"
+      },
+      {
+        "situation": "Group counseling",
+        "typicalAction": "Explain that the counselor cannot fully guarantee other group members will keep disclosures private"
+      }
+    ],
+    "examPearls": [
+      "The exam often rewards clarifying and limiting disclosure rather than disclosing broadly.",
+      "Minimum necessary disclosure is a key concept.",
+      "A spouse, parent, employer, or school does not automatically get access without the proper legal/ethical basis."
+    ]
+  },
+  "hipaaFerpaSection": {
+    "title": "HIPAA and FERPA Basics",
+    "hipaa": {
+      "overview": "HIPAA governs protected health information in many healthcare settings.",
+      "mustKnow": [
+        "PHI includes identifying information connected to health or billing data",
+        "Provide Notice of Privacy Practices where applicable",
+        "Follow minimum necessary disclosure standards",
+        "Use secure systems and appropriate business associate agreements when needed"
+      ],
+      "examPearl": "HIPAA is about privacy and protected health information, not a blanket excuse to refuse all communication."
+    },
+    "ferpa": {
+      "overview": "FERPA protects educational records in school settings.",
+      "mustKnow": [
+        "Educational records generally require consent for release",
+        "Parents usually have rights for minors, and students gain rights at adulthood as defined by the law",
+        "Health and safety emergencies can affect disclosure rules"
+      ],
+      "examPearl": "FERPA applies to educational records, while HIPAA applies in healthcare contexts; the setting matters."
+    }
+  },
+  "dutyToProtectSection": {
+    "title": "Duty to Warn / Duty to Protect",
+    "overview": "When a client makes a serious threat against an identifiable person and appears capable of acting on it, the counselor may have a legal and ethical duty to take protective action.",
+    "coreElements": [
+      "serious threat",
+      "identifiable victim",
+      "credible intent or dangerousness",
+      "means or realistic ability to act"
+    ],
+    "possibleProtectiveActions": [
+      "warn the potential victim when legally required/permitted",
+      "notify law enforcement",
+      "increase level of care",
+      "seek emergency evaluation or hospitalization",
+      "consult supervisor, attorney, or agency policy resources"
+    ],
+    "tarasoffConcept": "The Tarasoff case established that therapist duties may extend beyond confidentiality when identifiable third parties face serious danger.",
+    "examPearls": [
+      "The exam often expects recognition that a named target plus means plus credible threat changes the legal and ethical picture.",
+      "State law varies, but doing nothing is rarely the best answer when the threat is credible and serious."
+    ],
+    "examTraps": [
+      "Treating all violent thoughts as equally serious without evaluating specificity",
+      "Ignoring access to means",
+      "Forgetting consultation and documentation"
+    ]
+  },
+  "mandatedReportingSection": {
+    "title": "Mandated Reporting",
+    "overview": "Mandated reporting is a legal duty, not merely a counseling option. Counselors must report suspected abuse or neglect in the categories recognized by law in their jurisdiction.",
+    "commonReportableConcerns": [
+      "child physical abuse",
+      "child sexual abuse",
+      "child emotional abuse where legally recognized",
+      "child neglect",
+      "elder abuse",
+      "dependent adult abuse"
+    ],
+    "coreRules": [
+      "Reasonable suspicion is generally enough; certainty is not required",
+      "The counselor does not investigate to prove the abuse before reporting",
+      "Good-faith reporting is generally protected",
+      "Failure to report can create professional and legal liability"
+    ],
+    "examPearls": [
+      "If a child is being harmed, the exam typically favors reporting rather than waiting for more proof.",
+      "The counselor may inform the client about the report when clinically safe and appropriate, but should not delay required reporting to negotiate with the client."
+    ],
+    "examTraps": [
+      "Waiting for confirmation",
+      "Treating disclosure as a family problem rather than a reportable legal issue",
+      "Confusing adult domestic conflict with automatic mandated reporting when a child is not implicated"
+    ]
+  },
+  "boundariesSection": {
+    "title": "Boundaries and Dual Relationships",
+    "overview": "Boundary issues are heavily tested because they often look subtle before they become clearly harmful. Counselors must avoid exploitative or impairing dual relationships and think carefully about role conflicts.",
+    "coreConcepts": [
+      {
+        "term": "Dual / Multiple Relationship",
+        "definition": "A secondary role with the client beyond counseling, such as friend, employer, teacher, business partner, or romantic partner"
+      },
+      {
+        "term": "Boundary Crossing",
+        "definition": "A departure from typical boundaries that may or may not be harmful depending on context"
+      },
+      {
+        "term": "Boundary Violation",
+        "definition": "A harmful boundary breach that exploits or damages the client"
+      }
+    ],
+    "clearlyProhibitedOrHighlyRisky": [
+      "sexual or romantic relationship with a current client",
+      "exploitative financial arrangements",
+      "dual roles that impair objectivity or harm the client",
+      "social media relationships that blur professional boundaries",
+      "using the client relationship for personal gain"
+    ],
+    "caseFactorsToEvaluate": [
+      "likelihood of harm",
+      "impairment of objectivity",
+      "power differential",
+      "client vulnerability",
+      "setting and cultural context",
+      "whether the role can realistically be avoided",
+      "documentation and consultation"
+    ],
+    "examPearls": [
+      "The exam often favors avoiding the dual role when feasible.",
+      "When a boundary issue is unavoidable in a rural or community setting, the best answer usually includes consultation, transparency, documentation, and client protection."
+    ],
+    "examTraps": [
+      "Assuming all boundary crossings are automatically ethical",
+      "Assuming all departures from standard practice are automatically unethical without context",
+      "Ignoring client vulnerability and power imbalance"
+    ]
+  },
+  "supervisionSection": {
+    "title": "Supervision Ethics",
+    "overview": "Supervision-related ethics questions often test responsibility, competence, disclosure, and how supervisors should respond to impairment or risky practice.",
+    "corePrinciples": [
+      "Supervisors bear responsibility for oversight of supervisee clinical work",
+      "Clients should know when they are seeing a supervised counselor or trainee",
+      "Supervisors must address supervisee impairment, incompetence, or unethical conduct",
+      "Sexual or exploitative relationships in supervision are unethical"
+    ],
+    "examPearls": [
+      "If a supervisee is unsafe or impaired, the supervisor must intervene rather than avoid conflict.",
+      "Client welfare outranks trainee comfort."
+    ]
+  },
+  "documentationSection": {
+    "title": "Documentation Ethics and Legal Issues",
+    "overview": "Good documentation protects clients, supports continuity of care, and provides a legal record of clinical reasoning and action.",
+    "mustKnowConcepts": [
+      "clinical records typically belong to the practice or agency, but clients often have rights of access",
+      "psychotherapy/process notes may have greater protection than standard progress notes",
+      "records must be secure, accurate, and timely",
+      "retention periods vary by law and setting"
+    ],
+    "bestPractices": [
+      "document facts, not speculation",
+      "include assessment, interventions, and plan",
+      "record risk assessment and protective actions clearly",
+      "document consultation and rationale in ethical dilemmas",
+      "protect electronic records with secure systems"
+    ],
+    "commonFormats": [
+      "SOAP",
+      "DAP",
+      "other structured progress note formats"
+    ],
+    "examPearls": [
+      "If a case involves a difficult ethics decision, consultation and documentation often strengthen the best answer.",
+      "Documentation should be clinically useful and professionally defensible, not emotional or punitive."
+    ],
+    "examTraps": [
+      "Charting broad unnecessary details when only minimum necessary disclosure is appropriate",
+      "Failing to document risk-related decisions and consultations",
+      "Confusing psychotherapy notes with general progress notes"
+    ]
+  },
+  "telehealthSection": {
+    "title": "Telehealth, Technology, and Social Media Ethics",
+    "overview": "Technology questions are increasingly important. The exam expects counselors to protect privacy, verify location, maintain emergency protocols, and preserve appropriate boundaries online.",
+    "mustDoInTelehealth": [
+      "obtain telehealth-specific informed consent",
+      "verify client location at time of session",
+      "use secure and appropriate platforms",
+      "have emergency and crisis procedures for remote care",
+      "practice within licensure and jurisdiction limits"
+    ],
+    "socialMediaBoundaries": [
+      "avoid casual friending/following that blurs the counseling relationship",
+      "do not discuss client material through insecure channels",
+      "maintain professional boundaries online"
+    ],
+    "aiAndTechnologyConsiderations": [
+      "protect client privacy",
+      "use technology ethically and transparently within professional standards",
+      "do not allow convenience to override confidentiality and competence"
+    ],
+    "examPearls": [
+      "Client location matters in telehealth because licensure is jurisdiction-based.",
+      "Emergency planning is part of competent telehealth practice, not an optional add-on."
+    ],
+    "examTraps": [
+      "Starting telehealth without location verification",
+      "Using insecure platforms casually",
+      "Ignoring crisis planning because the client is remote"
+    ]
+  },
+  "assessmentAndEthicsSection": {
+    "title": "Assessment, Testing, and Ethics",
+    "overview": "When ethics questions involve assessment, the exam often tests whether the counselor chose an appropriate tool, used it competently, interpreted it carefully, and considered culture and fairness.",
+    "coreRules": [
+      "use assessments that fit the referral question and client population",
+      "do not use tools beyond your competence",
+      "interpret results within cultural, linguistic, developmental, and contextual factors",
+      "avoid overpathologizing or overclaiming from limited data"
+    ],
+    "examPearls": [
+      "A technically valid tool can still be misused if it is not appropriate for that client or purpose.",
+      "Assessment ethics often intersect with informed consent and multicultural competence."
+    ]
+  },
+  "terminationSection": {
+    "title": "Termination, Referral, and Abandonment",
+    "overview": "Termination questions often test whether the counselor is ending treatment responsibly or abandoning the client.",
+    "ethicalTerminationIncludes": [
+      "planning and discussion of ending when possible",
+      "review of progress and ongoing needs",
+      "appropriate referrals if needed",
+      "continuity-of-care planning",
+      "avoiding sudden unsupported withdrawal of services"
+    ],
+    "abandonment": {
+      "definition": "Improperly ending counseling or failing to provide continuity or referral when the client still needs care",
+      "examPearl": "Abandonment is a major ethical problem. The counselor cannot simply disappear, stop responding, or terminate abruptly for personal convenience."
+    },
+    "examTraps": [
+      "Terminating in anger after conflict",
+      "Ending services because the client is difficult rather than because care is appropriately transferred",
+      "Refusing referral or coverage planning when the counselor becomes unavailable"
+    ]
+  },
+  "ethicalDecisionMakingSection": {
+    "title": "Ethical Decision-Making Models",
+    "overview": "When cases are ambiguous, the exam often rewards a process-based response rather than impulsive action.",
+    "models": [
+      {
+        "name": "Kitchener Hierarchy",
+        "steps": [
+          "consult the ACA Code of Ethics",
+          "apply ethical principles",
+          "consider broader ethical theory",
+          "be aware of personal values and bias"
+        ]
+      },
+      {
+        "name": "ETHICS-A Model",
+        "steps": [
+          "Evaluate the situation",
+          "Think through alternatives",
+          "Highlight relevant codes and laws",
+          "Identify people affected",
+          "Consult",
+          "Select and implement the best action",
+          "Assess the outcome"
+        ]
+      },
+      {
+        "name": "Rest's Four-Component Model",
+        "steps": [
+          "moral sensitivity",
+          "moral judgment",
+          "moral motivation",
+          "moral character"
+        ]
+      }
+    ],
+    "bestPracticeSummary": [
+      "identify the issue clearly",
+      "review ethics and law",
+      "consult",
+      "consider possible harms and stakeholders",
+      "take action",
+      "document the reasoning and result"
+    ],
+    "examPearl": "If the situation is complex and not urgent, consultation is often part of the best answer."
+  },
+  "commonExamTraps": [
+    "Choosing a harsh or punitive response instead of a protective one",
+    "Confusing mandated reporting with duty to warn/protect",
+    "Overpromising confidentiality",
+    "Disclosing too much information when only minimal necessary disclosure is justified",
+    "Ignoring consultation in a clearly complex ethics problem",
+    "Treating telehealth as ethically identical to in-person care",
+    "Forgetting to revisit informed consent when circumstances change",
+    "Mistaking a subpoena for an automatic full release without careful response"
+  ],
+  "miniCaseDrills": [
+    {
+      "case": "A client asks whether their spouse can see therapy notes because the spouse pays for counseling.",
+      "bestNextStep": "Clarify confidentiality and record access rules through informed consent rather than agreeing automatically",
+      "rationale": "Payment does not automatically equal access."
+    },
+    {
+      "case": "A parent reports that their partner has been hitting the child at home.",
+      "bestNextStep": "Make a mandated report according to law and agency procedure",
+      "rationale": "Reasonable suspicion of child abuse triggers reporting duty."
+    },
+    {
+      "case": "A client says, 'I'm going to kill my ex-boss,' names the person, and describes having a weapon at home.",
+      "bestNextStep": "Treat as a serious protective-duty situation: assess immediacy, consult as needed, and take protective action consistent with law and safety needs",
+      "rationale": "Serious threat plus identifiable victim plus means changes confidentiality obligations."
+    },
+    {
+      "case": "A telehealth client logs in from another state, and the counselor has no crisis contacts or emergency plan for that location.",
+      "bestNextStep": "Address jurisdiction and emergency planning issues immediately before continuing routine care",
+      "rationale": "Telehealth location and emergency readiness are essential ethical and legal considerations."
+    },
+    {
+      "case": "A counselor in a small rural town is invited to the client's wedding, and declining may cause offense in a context where community overlap is common.",
+      "bestNextStep": "Evaluate risk of harm, consult, consider cultural/community context, maintain client welfare as primary, and document the decision",
+      "rationale": "Boundary decisions in unavoidable overlap settings require careful, contextual ethical reasoning."
+    }
+  ],
+  "quickReview": {
+    "memoryHooks": [
+      "Client welfare first",
+      "Informed consent is ongoing",
+      "Confidentiality is strong but not absolute",
+      "Mandated report = abuse/neglect duty",
+      "Duty to protect = serious threat to identifiable other",
+      "Minimum necessary disclosure",
+      "Consult when complex",
+      "Document rationale",
+      "Telehealth = location + security + emergency plan",
+      "Safety over convenience"
+    ],
+    "finalTakeaways": [
+      "The best ethics answer is usually the one that is safest, clearest, least harmful, and most professionally defensible.",
+      "Many ethics items are won by recognizing one turning-point detail: minor status, ROI, abuse suspicion, identifiable victim, or telehealth location.",
+      "Consultation and documentation do not replace action, but they often strengthen the right action."
+    ]
+  },
+  "checkpointQuestions": [
+    {
+      "question": "A client asks whether their parent, spouse, or insurer can automatically see therapy records. What is often the best next step on the exam?",
+      "answer": "Clarify confidentiality limits and access rules through informed consent"
+    },
+    {
+      "question": "What level of certainty is generally required before making a mandated abuse report?",
+      "answer": "Reasonable suspicion, not absolute proof"
+    },
+    {
+      "question": "What is the key difference between mandated reporting and duty to protect?",
+      "answer": "Mandated reporting concerns legally reportable abuse/neglect; duty to protect concerns serious danger to self or others, especially credible threats to identifiable third parties"
+    },
+    {
+      "question": "What should a counselor verify at the start of telehealth sessions that is especially important legally and ethically?",
+      "answer": "The client's current location"
+    },
+    {
+      "question": "When a dilemma is complex but not immediately dangerous, what step often improves the most ethical answer?",
+      "answer": "Consultation with supervisor, colleague, attorney, or ethics resource"
+    }
+  ],
+  "sourceBasis": {
+    "derivedFromUploadedMaterials": [
+      "Study Library",
+      "Ethics & Legal Issues"
+    ],
+    "notes": "Expanded into a production-ready module emphasizing ethical principles, ACA Code themes, confidentiality, informed consent, protective duties, mandated reporting, boundaries, documentation, telehealth, and exam-style decision-making."
+  }
+}

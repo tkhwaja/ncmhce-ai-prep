@@ -1,0 +1,709 @@
+{
+  "moduleId": "crisis-trauma-and-disaster-counseling",
+  "moduleTitle": "Crisis, Trauma & Disaster Counseling",
+  "moduleType": "learning_library",
+  "version": "1.0",
+  "exam": {
+    "name": "NCMHCE",
+    "formatAlignment": {
+      "currentBlueprint": true,
+      "effective2027Blueprint": true
+    },
+    "whyThisModuleMatters": "This module trains learners to recognize and respond to crisis, trauma, suicide risk, violence risk, PTSD-related symptoms, and disaster mental health needs. On the NCMHCE, crisis and trauma content is highly applied: students are expected to prioritize safety, distinguish crisis stabilization from long-term treatment, and select interventions that match the client's current risk level and stage of recovery."
+  },
+  "uiHints": {
+    "defaultView": "nested_accordion",
+    "recommendedComponents": [
+      "module_header",
+      "overview_cards",
+      "risk_assessment_flow",
+      "suicide_risk_tables",
+      "safety_plan_builder",
+      "trauma_concepts_cards",
+      "ptsd_treatment_comparison",
+      "disaster_phase_timeline",
+      "exam_trap_callouts",
+      "mini_case_cards",
+      "checkpoint_quiz"
+    ],
+    "tags": [
+      "crisis",
+      "trauma",
+      "suicide-risk",
+      "safety-planning",
+      "ptsd",
+      "disaster-mental-health",
+      "ncmhce",
+      "high-yield"
+    ]
+  },
+  "intro": {
+    "summary": "This module covers crisis intervention, suicide and violence risk assessment, trauma-informed care, PTSD-related concepts, evidence-based trauma treatments, and disaster mental health. The emphasis is on what the counselor should do first, how to prioritize safety, and how to match intervention intensity to the client's current presentation.",
+    "learningObjectives": [
+      "Differentiate crisis, trauma, and disaster-related presentations",
+      "Conduct basic suicide and violence risk conceptualization using exam-relevant factors",
+      "Recognize when safety planning, higher level of care, emergency response, or hospitalization may be needed",
+      "Apply trauma-informed care principles to clinical decision-making",
+      "Differentiate Acute Stress Disorder, PTSD, and adjustment-related responses in trauma cases",
+      "Recognize core evidence-based trauma treatments and when stabilization should come before deep processing",
+      "Understand the phases of disaster response and common mental health needs in each phase"
+    ],
+    "howToUse": [
+      "Start with the crisis overview and risk hierarchy before studying trauma treatment models.",
+      "Read the suicide and violence sections repeatedly. These are high-value exam areas.",
+      "Pay close attention to what changes the immediate clinical priority: ideation, intent, plan, means, psychosis, intoxication, command hallucinations, severe agitation, and inability to maintain safety.",
+      "Use the mini-cases to practice deciding what comes first, not just what sounds therapeutic."
+    ],
+    "highYieldThemes": [
+      "Safety comes first.",
+      "Crisis stabilization is different from long-term therapy.",
+      "A safety plan is not the same as a no-harm contract.",
+      "Trauma-informed care emphasizes safety, trust, collaboration, choice, and empowerment.",
+      "Do not push trauma processing when the client is unstable or outside the window of tolerance."
+    ]
+  },
+  "coreDecisionRules": [
+    {
+      "rule": "When suicide or homicide risk appears, shift immediately to safety assessment.",
+      "example": "If a client mentions suicidal thoughts mid-vignette, the next best step is usually further risk assessment, not routine exploration of other issues."
+    },
+    {
+      "rule": "Differentiate crisis intervention from insight-oriented therapy.",
+      "example": "In acute crisis, the priority is stabilization, support, problem-solving, and safety planning, not deep interpretation of childhood dynamics."
+    },
+    {
+      "rule": "Use trauma-informed pacing.",
+      "example": "Clients with severe dissociation, panic, or instability often need grounding and regulation before trauma narrative work."
+    },
+    {
+      "rule": "Choose the least restrictive safe option, but do not underreact to imminent risk.",
+      "example": "A client with passive SI and strong protective factors may need a safety plan and close follow-up, while a client with active plan, intent, and means may require emergency evaluation."
+    },
+    {
+      "rule": "Remember that disasters create phase-based mental health needs.",
+      "example": "Immediately after a disaster, practical safety, calming, and connection are usually more appropriate than detailed trauma retelling."
+    }
+  ],
+  "crisisFoundations": {
+    "title": "Crisis Foundations",
+    "definition": "A crisis is a situation perceived as intolerable and beyond the person's current coping resources. It is typically time-limited, linked to a precipitating event, and associated with impaired functioning and significant subjective distress.",
+    "keyFeatures": [
+      "time-limited, often around 4 to 6 weeks",
+      "usually triggered by an identifiable stressor",
+      "creates emotional disequilibrium",
+      "impairs normal coping and functioning",
+      "requires rapid stabilization and support"
+    ],
+    "typesOfCrisis": [
+      {
+        "type": "Developmental / Maturational",
+        "description": "Crises related to normal life transitions",
+        "examples": [
+          "marriage",
+          "parenthood",
+          "retirement",
+          "empty nest"
+        ]
+      },
+      {
+        "type": "Situational",
+        "description": "Unexpected stressors that overwhelm coping",
+        "examples": [
+          "job loss",
+          "divorce",
+          "medical diagnosis",
+          "accident"
+        ]
+      },
+      {
+        "type": "Existential",
+        "description": "Crises involving meaning, freedom, responsibility, isolation, or mortality",
+        "examples": [
+          "loss of purpose",
+          "identity collapse",
+          "fear of death"
+        ]
+      },
+      {
+        "type": "Ecosystemic / Environmental",
+        "description": "Crises caused by large-scale events impacting systems and communities",
+        "examples": [
+          "natural disasters",
+          "pandemics",
+          "community violence",
+          "mass trauma"
+        ]
+      }
+    ],
+    "examPearls": [
+      "A crisis is not automatically a mental disorder.",
+      "The exam often tests whether you can identify the immediate crisis need rather than overpathologize the client.",
+      "Impaired functioning and overwhelmed coping are major clues."
+    ]
+  },
+  "crisisInterventionModels": {
+    "title": "Crisis Intervention Models",
+    "models": [
+      {
+        "name": "Roberts' 7-Stage Crisis Intervention Model",
+        "stages": [
+          "Assess lethality and safety",
+          "Establish rapport rapidly",
+          "Identify the major problems",
+          "Deal with feelings and emotions",
+          "Explore alternatives",
+          "Develop an action plan",
+          "Follow up"
+        ],
+        "examUse": "Good framework for thinking through acute crisis response in sequence."
+      },
+      {
+        "name": "Gilliland & James 6-Step Model",
+        "stages": [
+          "Define the problem",
+          "Ensure safety",
+          "Provide support",
+          "Examine alternatives",
+          "Make plans",
+          "Obtain commitment"
+        ],
+        "examUse": "Helpful when the exam asks for the next best step in a crisis interaction."
+      },
+      {
+        "name": "Psychological First Aid (PFA)",
+        "stages": [
+          "Prioritize safety",
+          "Promote calming",
+          "Support connectedness",
+          "Enhance self-efficacy",
+          "Instill hope"
+        ],
+        "examUse": "Especially relevant for disaster and mass-trauma contexts. It does not involve forcing clients to recount trauma details."
+      }
+    ],
+    "commonExamTraps": [
+      "Jumping into trauma processing before ensuring safety and stabilization",
+      "Trying to solve every long-term issue during the acute crisis encounter",
+      "Using confrontation when the client needs grounding, support, and structure"
+    ]
+  },
+  "suicideRiskSection": {
+    "title": "Suicide Risk Assessment",
+    "overview": "Suicide risk assessment is one of the highest-yield topics on the exam. The goal is not simply to ask whether suicidal thoughts are present. The goal is to assess the level of danger, identify modifiable risk factors, determine immediate next steps, and document a clear safety response.",
+    "riskFactors": {
+      "static": [
+        "previous suicide attempt",
+        "family history of suicide",
+        "history of trauma or abuse",
+        "chronic mental illness",
+        "male sex",
+        "history of self-harm"
+      ],
+      "dynamic": [
+        "current suicidal ideation",
+        "specific plan",
+        "intent to act",
+        "access to lethal means",
+        "hopelessness",
+        "recent loss or humiliation",
+        "social isolation",
+        "current substance use or intoxication",
+        "agitation or insomnia",
+        "recent discharge from hospitalization"
+      ]
+    },
+    "protectiveFactors": [
+      "reasons for living",
+      "children or dependents in the home",
+      "social support",
+      "religious or spiritual beliefs",
+      "engagement in treatment",
+      "problem-solving ability",
+      "future orientation",
+      "fear of death or pain"
+    ],
+    "essentialAssessmentQuestions": [
+      "Are you having thoughts of killing yourself or ending your life?",
+      "Are these thoughts passive or active?",
+      "Do you have a specific plan?",
+      "Do you intend to act on that plan?",
+      "Do you have access to the means?",
+      "Have you ever attempted suicide before?",
+      "What has kept you alive or stopped you from acting on these thoughts?",
+      "Who knows how bad this feels right now?"
+    ],
+    "riskHierarchy": [
+      {
+        "level": "Lower but still clinically significant risk",
+        "features": [
+          "passive SI only",
+          "no plan",
+          "no intent",
+          "strong protective factors",
+          "willingness to collaborate on safety"
+        ],
+        "possibleResponse": "Safety planning, means reduction, increased support, close follow-up, consultation as needed"
+      },
+      {
+        "level": "Moderate risk",
+        "features": [
+          "active SI without clear imminent intent",
+          "some planning or rehearsing",
+          "limited supports",
+          "significant hopelessness or substance use"
+        ],
+        "possibleResponse": "More intensive assessment, stronger safety measures, consultation, urgent referral or higher level of care depending on total picture"
+      },
+      {
+        "level": "High / imminent risk",
+        "features": [
+          "active SI with specific plan and intent",
+          "access to lethal means",
+          "recent attempt or preparatory behavior",
+          "severe agitation, psychosis, intoxication, or inability to agree to safety"
+        ],
+        "possibleResponse": "Emergency evaluation, hospitalization or emergency services involvement, do not rely on routine outpatient follow-up alone"
+      }
+    ],
+    "cssrsSection": {
+      "title": "C-SSRS Concepts to Know",
+      "ideationLevels": [
+        "wish to be dead",
+        "non-specific active suicidal thoughts",
+        "active suicidal ideation with any method",
+        "active suicidal ideation with some intent to act",
+        "active suicidal ideation with specific plan and intent"
+      ],
+      "behaviorMarkers": [
+        "preparatory behavior",
+        "interrupted attempt",
+        "aborted attempt",
+        "actual attempt"
+      ],
+      "examPearl": "A client can move up the severity ladder quickly. The more specific and actionable the ideation becomes, the greater the concern."
+    },
+    "examTraps": [
+      "Treating passive SI as irrelevant",
+      "Assuming denial of intent always equals safety",
+      "Using a no-suicide contract instead of a real safety intervention",
+      "Focusing on symptom interpretation before clarifying plan, intent, and means"
+    ]
+  },
+  "safetyPlanningSection": {
+    "title": "Safety Planning",
+    "overview": "A safety plan is a collaborative, practical document developed with the client to reduce acute suicide risk. It is evidence-based and action-oriented.",
+    "coreComponents": [
+      {
+        "step": 1,
+        "title": "Warning signs",
+        "description": "Identify personal signals that a crisis is escalating"
+      },
+      {
+        "step": 2,
+        "title": "Internal coping strategies",
+        "description": "List activities the client can do alone to reduce distress"
+      },
+      {
+        "step": 3,
+        "title": "Social settings or people for distraction",
+        "description": "Identify safe contacts or places that reduce isolation without requiring full disclosure"
+      },
+      {
+        "step": 4,
+        "title": "People to ask for help",
+        "description": "Specific supportive people the client can directly contact"
+      },
+      {
+        "step": 5,
+        "title": "Professional and crisis resources",
+        "description": "Therapist, prescriber, clinic, 988, emergency services, local crisis options"
+      },
+      {
+        "step": 6,
+        "title": "Means safety",
+        "description": "Reduce access to firearms, medications, sharp objects, or other lethal means"
+      },
+      {
+        "step": 7,
+        "title": "Reasons for living",
+        "description": "Personally meaningful anchors that support survival"
+      }
+    ],
+    "safetyPlanVsNoHarmContract": [
+      {
+        "concept": "Safety Plan",
+        "description": "Collaborative, specific, behavioral, and evidence-based"
+      },
+      {
+        "concept": "No-Harm Contract",
+        "description": "Asks for a promise not to self-harm, but is not evidence-based and may create false reassurance"
+      }
+    ],
+    "examPearls": [
+      "The exam strongly favors safety plans over no-harm contracts.",
+      "Means restriction is often one of the most important and concrete interventions.",
+      "A safety plan should be personalized, not generic."
+    ]
+  },
+  "violenceRiskSection": {
+    "title": "Homicidal / Violence Risk Assessment",
+    "overview": "Violence risk assessment is less common than suicide assessment on the exam, but it is high stakes. The counselor must evaluate threat credibility, target specificity, intent, means, history, and contextual factors.",
+    "coreAssessmentFactors": [
+      "thoughts of harming others",
+      "specific identifiable target",
+      "intent to act",
+      "access to weapons or other means",
+      "history of violence",
+      "substance use",
+      "command hallucinations",
+      "impulsivity",
+      "acute humiliation, rage, or destabilization"
+    ],
+    "tarasoffConcepts": {
+      "title": "Duty to Warn / Protect Basics",
+      "principles": [
+        "serious threat",
+        "identifiable victim",
+        "intent or credible danger",
+        "means or plausible capacity to act"
+      ],
+      "possibleActions": [
+        "warn potential victim when legally required/permitted",
+        "notify law enforcement",
+        "increase level of care",
+        "seek emergency evaluation or hospitalization",
+        "consult supervisor or legal resources"
+      ],
+      "examPearl": "State laws vary, but the exam often expects recognition that credible threats toward identifiable third parties create protective duties."
+    },
+    "examTraps": [
+      "Ignoring homicidal ideation because there is no current act yet",
+      "Missing the significance of a named target plus access to means",
+      "Forgetting consultation and legal/ethical obligations"
+    ]
+  },
+  "traumaInformedCareSection": {
+    "title": "Trauma-Informed Care",
+    "overview": "Trauma-informed care is not a single technique. It is a clinical stance that assumes trauma may shape the client's responses and prioritizes safety and empowerment.",
+    "samhsaPrinciples": [
+      "Safety",
+      "Trustworthiness and transparency",
+      "Peer support",
+      "Collaboration and mutuality",
+      "Empowerment, voice, and choice",
+      "Cultural, historical, and gender issues"
+    ],
+    "clinicalImplications": [
+      "Explain what you are doing and why",
+      "Avoid unnecessary power struggles",
+      "Offer choices when possible",
+      "Monitor for overwhelm, dissociation, and shutdown",
+      "Validate adaptive survival responses without glorifying harmful behavior",
+      "Move at a pace the client can tolerate"
+    ],
+    "examPearls": [
+      "Trauma-informed care does not mean avoiding all difficult material forever.",
+      "It does mean avoiding unnecessary retraumatization and respecting the client's regulatory limits.",
+      "In trauma cases, the exam often rewards grounding, collaboration, and stabilization before deep processing."
+    ]
+  },
+  "traumaConceptsSection": {
+    "title": "Core Trauma Concepts",
+    "concepts": [
+      {
+        "term": "Hyperarousal",
+        "definition": "State of increased physiological threat activation such as startle response, irritability, insomnia, and scanning for danger"
+      },
+      {
+        "term": "Avoidance",
+        "definition": "Efforts to escape internal memories or external reminders of trauma"
+      },
+      {
+        "term": "Reexperiencing",
+        "definition": "Flashbacks, nightmares, intrusive memories, and distress in response to cues"
+      },
+      {
+        "term": "Dissociation",
+        "definition": "Disruption in normal integration of consciousness, memory, identity, or perception; may include depersonalization or derealization"
+      },
+      {
+        "term": "Window of Tolerance",
+        "definition": "Optimal arousal zone in which a person can remain emotionally present and process information without tipping into hyperarousal or hypoarousal"
+      },
+      {
+        "term": "Neuroception",
+        "definition": "Automatic nervous-system detection of cues of safety or danger"
+      }
+    ],
+    "windowOfToleranceGuide": {
+      "insideWindow": [
+        "can think and feel at the same time",
+        "can engage in therapy",
+        "can reflect without losing regulation"
+      ],
+      "hyperarousalSigns": [
+        "panic",
+        "racing heart",
+        "rage",
+        "overwhelm",
+        "startle",
+        "agitation"
+      ],
+      "hypoarousalSigns": [
+        "numbing",
+        "shutdown",
+        "blankness",
+        "detachment",
+        "collapse"
+      ],
+      "clinicalUse": "If the client is outside the window, grounding and regulation come before deeper trauma work."
+    }
+  },
+  "ptsdTreatmentSection": {
+    "title": "Evidence-Based PTSD Treatments",
+    "overview": "The exam does not require mastery of every protocol detail, but it does expect recognition of major evidence-based models and the kinds of clients or treatment stages they fit.",
+    "treatments": [
+      {
+        "name": "Cognitive Processing Therapy (CPT)",
+        "coreIdea": "Targets trauma-related stuck points and distorted beliefs about safety, trust, power, esteem, and intimacy",
+        "bestFit": [
+          "clients able to engage in cognitive trauma work",
+          "trauma-related guilt, shame, and meaning distortions"
+        ],
+        "examClue": "If the vignette emphasizes trauma-related beliefs such as 'It was all my fault,' CPT may be a strong fit."
+      },
+      {
+        "name": "Prolonged Exposure (PE)",
+        "coreIdea": "Uses imaginal exposure to the trauma memory and in vivo exposure to trauma reminders to reduce avoidance and conditioned fear",
+        "bestFit": [
+          "clients ready for structured exposure work",
+          "PTSD maintained by strong avoidance"
+        ],
+        "examClue": "PE is especially associated with fear reduction through repeated exposure."
+      },
+      {
+        "name": "EMDR",
+        "coreIdea": "Uses bilateral stimulation while processing trauma-related material",
+        "bestFit": [
+          "clients working on trauma reprocessing with trained EMDR clinician"
+        ],
+        "examClue": "Know it as evidence-based for PTSD, not as a casual grounding technique."
+      },
+      {
+        "name": "TF-CBT",
+        "coreIdea": "Trauma-focused CBT model for children and adolescents involving psychoeducation, skills, trauma narrative, caregiver involvement, and safety work",
+        "bestFit": [
+          "children and adolescents with trauma symptoms"
+        ],
+        "practiceComponents": [
+          "Psychoeducation",
+          "Relaxation",
+          "Affect modulation",
+          "Cognitive coping",
+          "Trauma narrative",
+          "In vivo mastery of trauma reminders",
+          "Conjoint sessions",
+          "Enhancing safety"
+        ],
+        "examClue": "If the case is a child trauma case with caregiver involvement, TF-CBT is high yield."
+      },
+      {
+        "name": "Narrative Exposure Therapy",
+        "coreIdea": "Constructs a chronological life narrative that integrates traumatic experiences into a broader autobiographical framework",
+        "bestFit": [
+          "complex trauma",
+          "refugee and mass-trauma populations"
+        ]
+      }
+    ],
+    "stabilizationBeforeProcessing": [
+      "Do not assume every trauma client should immediately begin trauma narrative or exposure work.",
+      "Early treatment may need grounding, sleep stabilization, emotion regulation, psychoeducation, and safety building.",
+      "Dissociation, active substance misuse, unstable housing, ongoing violence, or acute suicidality may shift the priority away from deep processing."
+    ],
+    "examTraps": [
+      "Using exposure-like methods too early with unstable clients",
+      "Ignoring severe avoidance because it feels kind to avoid the topic forever",
+      "Confusing general supportive counseling with a specific evidence-based trauma treatment"
+    ]
+  },
+  "disasterMentalHealthSection": {
+    "title": "Disaster Mental Health",
+    "overview": "Disaster counseling focuses on safety, stabilization, connection, practical support, and phase-appropriate intervention rather than individualizing every response as pathology.",
+    "disasterPhases": [
+      {
+        "phase": "Pre-disaster",
+        "focus": [
+          "preparedness",
+          "education",
+          "resource planning"
+        ]
+      },
+      {
+        "phase": "Impact",
+        "focus": [
+          "survival",
+          "acute safety",
+          "basic needs"
+        ]
+      },
+      {
+        "phase": "Heroic",
+        "focus": [
+          "rescue efforts",
+          "high energy",
+          "immediate helping"
+        ]
+      },
+      {
+        "phase": "Honeymoon",
+        "focus": [
+          "community solidarity",
+          "optimism",
+          "help-seeking"
+        ]
+      },
+      {
+        "phase": "Disillusionment",
+        "focus": [
+          "fatigue",
+          "bureaucratic frustration",
+          "mental health needs often peak"
+        ]
+      },
+      {
+        "phase": "Reconstruction",
+        "focus": [
+          "long-term adjustment",
+          "rebuilding",
+          "chronic stress responses"
+        ]
+      }
+    ],
+    "coreInterventions": [
+      "psychological first aid",
+      "practical assistance",
+      "calming and grounding",
+      "reconnection with supports",
+      "resource coordination",
+      "monitoring for high-risk psychiatric or trauma responses"
+    ],
+    "examPearls": [
+      "Do not force people to retell the disaster narrative immediately after the event.",
+      "PFA prioritizes safety, calming, connectedness, self-efficacy, and hope.",
+      "Community response and systems support matter as much as individual symptom care."
+    ]
+  },
+  "secondaryTraumaSection": {
+    "title": "Secondary Traumatic Stress, Vicarious Trauma, and Compassion Fatigue",
+    "overview": "Counselors working with trauma survivors can themselves be affected by repeated exposure to traumatic material.",
+    "concepts": [
+      {
+        "term": "Secondary Traumatic Stress",
+        "definition": "Trauma-like symptoms resulting from indirect exposure to clients' trauma"
+      },
+      {
+        "term": "Vicarious Trauma",
+        "definition": "Deeper shift in worldview, trust, safety beliefs, or meaning due to cumulative empathic exposure to trauma"
+      },
+      {
+        "term": "Compassion Fatigue",
+        "definition": "Emotional exhaustion related to helping others in distress"
+      }
+    ],
+    "preventionStrategies": [
+      "clinical supervision",
+      "peer consultation",
+      "manageable caseloads",
+      "professional boundaries",
+      "self-care practices",
+      "time away from trauma content when needed"
+    ],
+    "examPearl": "The exam may ask about counselor impairment or burnout-related ethical responsibility. Recognition and consultation matter."
+  },
+  "commonExamTraps": [
+    "Using insight-oriented therapy when the client is in acute crisis and unsafe",
+    "Choosing a no-harm contract instead of a real safety plan",
+    "Ignoring means access when suicidal ideation is disclosed",
+    "Overlooking command hallucinations, severe intoxication, or psychosis in risk formulation",
+    "Starting trauma processing before stabilization",
+    "Forcing disaster survivors to retell traumatic events immediately",
+    "Missing that Acute Stress Disorder and PTSD differ largely by time window"
+  ],
+  "miniCaseDrills": [
+    {
+      "case": "A client says, 'Sometimes I wish I wouldn't wake up,' but denies plan or intent, agrees to collaborate, has strong attachment to children, and is willing to secure medications and call supports.",
+      "bestNextStep": "Complete fuller suicide risk assessment and develop a collaborative safety plan with close follow-up",
+      "rationale": "Passive SI still matters, but the case does not yet indicate imminent intent."
+    },
+    {
+      "case": "A client says they plan to shoot themselves tonight, has already written a note, and confirms access to a loaded gun at home.",
+      "bestNextStep": "Treat as imminent high risk and arrange emergency evaluation / emergency services involvement",
+      "rationale": "Specific plan, intent, preparatory behavior, and means indicate acute danger."
+    },
+    {
+      "case": "Two weeks after a violent assault, a client reports nightmares, flashbacks, avoidance, hypervigilance, and derealization.",
+      "bestClinicalFrame": "Acute Stress Disorder / acute trauma response requiring stabilization and trauma-informed assessment",
+      "rationale": "The symptom pattern is trauma-related and falls in the 3-day to 1-month window."
+    },
+    {
+      "case": "A child trauma case involves nightmares, avoidance, emotional outbursts, and a caregiver who is available to participate in treatment.",
+      "bestTreatmentModel": "TF-CBT",
+      "rationale": "This model is specifically designed for child/adolescent trauma treatment with caregiver involvement."
+    },
+    {
+      "case": "Immediately after a community disaster, a counselor is deployed to a shelter full of displaced families.",
+      "bestImmediateApproach": "Psychological First Aid",
+      "rationale": "The priority is safety, calming, connection, practical support, and hope, not detailed trauma processing."
+    }
+  ],
+  "quickReview": {
+    "memoryHooks": [
+      "Crisis = overwhelmed coping, time-limited distress",
+      "Safety first",
+      "C-SSRS = suicide ideation + behavior ladder",
+      "Safety plan > no-harm contract",
+      "PTSD = trauma + clusters + >1 month",
+      "ASD = trauma symptoms in first month",
+      "Window of tolerance = regulation zone",
+      "PFA = safety, calming, connection, self-efficacy, hope",
+      "TF-CBT = child trauma + caregiver",
+      "CPT = stuck points",
+      "PE = exposure to reduce avoidance"
+    ],
+    "finalTakeaways": [
+      "The best answer in crisis work is often the safest and most immediate one.",
+      "Trauma treatment starts with stabilization when needed, not automatic deep processing.",
+      "Risk assessment must lead to concrete action, not just documentation."
+    ]
+  },
+  "checkpointQuestions": [
+    {
+      "question": "A client reports suicidal thoughts, a specific plan, access to means, and intent to act tonight. What should take priority?",
+      "answer": "Emergency safety intervention and higher level of care / emergency evaluation"
+    },
+    {
+      "question": "What evidence-based alternative does the exam favor over a no-harm contract?",
+      "answer": "A collaborative safety plan"
+    },
+    {
+      "question": "A trauma survivor has symptoms for 2 weeks after the event. Which trauma-related diagnosis is more likely than PTSD at this point if criteria are met?",
+      "answer": "Acute Stress Disorder"
+    },
+    {
+      "question": "What disaster response approach prioritizes safety, calming, connectedness, self-efficacy, and hope without forcing trauma retelling?",
+      "answer": "Psychological First Aid"
+    },
+    {
+      "question": "When a client is outside the window of tolerance and becoming overwhelmed in session, what should generally come before trauma processing?",
+      "answer": "Grounding, stabilization, and regulation support"
+    }
+  ],
+  "sourceBasis": {
+    "derivedFromUploadedMaterials": [
+      "Study Library",
+      "Crisis, Trauma & Disaster Counseling"
+    ],
+    "notes": "Expanded into a production-ready module emphasizing crisis hierarchy, suicide and violence risk, trauma-informed care, evidence-based PTSD treatments, disaster response, and exam-style decision making."
+  }
+}

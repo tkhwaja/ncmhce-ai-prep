@@ -1,0 +1,987 @@
+{
+  "moduleId": "assessment-and-testing",
+  "moduleTitle": "Assessment & Testing",
+  "moduleType": "learning_library",
+  "version": "1.0",
+  "exam": {
+    "name": "NCMHCE",
+    "formatAlignment": {
+      "currentBlueprint": true,
+      "effective2027Blueprint": true
+    },
+    "whyThisModuleMatters": "This module trains learners to select the right assessment for the right clinical question, interpret assessment purpose and limits, understand core psychometric concepts, and connect assessment findings to diagnosis, risk management, and level-of-care decisions."
+  },
+  "uiHints": {
+    "defaultView": "nested_accordion",
+    "recommendedComponents": [
+      "module_header",
+      "assessment_type_cards",
+      "instrument_lookup_table",
+      "mse_breakdown",
+      "psychometrics_explainer",
+      "assessment_selection_flow",
+      "level_of_care_matrix",
+      "exam_trap_callouts",
+      "mini_case_cards",
+      "checkpoint_quiz"
+    ],
+    "tags": [
+      "assessment",
+      "testing",
+      "mse",
+      "screening",
+      "psychometrics",
+      "ncmhce",
+      "high-yield"
+    ]
+  },
+  "intro": {
+    "summary": "This module covers clinical assessment and testing on the NCMHCE, with emphasis on choosing the best assessment tool for the presenting problem, understanding what a tool measures, interpreting basic psychometric language, and using assessment findings to guide diagnosis, treatment planning, and level-of-care decisions.",
+    "learningObjectives": [
+      "Differentiate clinical interview, MSE, self-report measures, clinician-rated tools, standardized tests, projective tests, and behavioral observation",
+      "Select appropriate instruments for depression, anxiety, PTSD, suicide risk, substance use, personality, intelligence, career, and family systems concerns",
+      "Interpret foundational psychometric concepts such as reliability, validity, standardization, and norms",
+      "Use assessment findings to inform risk management and level of care",
+      "Avoid common exam mistakes such as choosing overly broad tools when a focused screener is needed"
+    ],
+    "howToUse": [
+      "Start with the assessment type overview, then learn the major instruments by purpose.",
+      "Focus on what each tool measures, who uses it, and when it is the best choice.",
+      "Practice matching case vignettes to the most appropriate assessment, not just the most familiar one.",
+      "Review the MSE and level-of-care sections repeatedly because they are embedded in many case simulations."
+    ],
+    "highYieldThemes": [
+      "Choose the tool that best answers the specific clinical question.",
+      "Brief screeners are not the same as full diagnostic evaluations.",
+      "Risk assessment takes priority over routine symptom measurement when safety is in question.",
+      "Assessment is an ongoing process, not a one-time event.",
+      "Psychometric vocabulary is often tested in practical rather than purely academic ways."
+    ]
+  },
+  "coreDecisionRules": [
+    {
+      "rule": "Start with the clinical question.",
+      "example": "If the question is 'How depressed is this client right now?', PHQ-9 is more appropriate than MMPI-2."
+    },
+    {
+      "rule": "Match the tool to the presenting problem and setting.",
+      "example": "A busy primary-care style intake may call for PHQ-9, GAD-7, or AUDIT-C; a full personality clarification question may call for MMPI-2/MMPI-3."
+    },
+    {
+      "rule": "Use risk tools when risk is mentioned.",
+      "example": "If the client reports suicidal thoughts, the next step is not another depression screener alone. It is a suicide-specific risk assessment such as the C-SSRS or ASQ, along with clinical interviewing."
+    },
+    {
+      "rule": "Do not confuse screening with diagnosis.",
+      "example": "A positive PHQ-9 suggests clinically significant depression symptoms, but diagnosis still requires clinical judgment and DSM criteria."
+    },
+    {
+      "rule": "Assessment should affect action.",
+      "example": "Findings about suicide risk, psychosis, intoxication, or severe functional decline may change level of care immediately."
+    }
+  ],
+  "assessmentFramework": {
+    "title": "Major Types of Assessment",
+    "types": [
+      {
+        "id": "clinical_interview",
+        "title": "Clinical Interview",
+        "purpose": "Gather presenting problem, symptom history, psychosocial context, diagnostic clues, and treatment needs.",
+        "bestFor": [
+          "initial intake",
+          "biopsychosocial formulation",
+          "diagnostic clarification",
+          "ongoing reassessment"
+        ],
+        "strengths": [
+          "Flexible and comprehensive",
+          "Allows follow-up questions and contextual understanding",
+          "Supports rapport and alliance-building"
+        ],
+        "limitations": [
+          "Subject to interviewer skill and bias",
+          "Less standardized unless structured",
+          "May miss important domains if not systematic"
+        ],
+        "examClue": "If the exam asks for the first step in assessment, a thorough clinical interview is often the correct answer unless acute safety issues require immediate risk assessment."
+      },
+      {
+        "id": "mse",
+        "title": "Mental Status Examination (MSE)",
+        "purpose": "Systematic observation of the client's current mental functioning during the interview.",
+        "bestFor": [
+          "all clinical intakes",
+          "psychosis screening",
+          "cognitive and behavioral observation",
+          "documenting baseline and changes over time"
+        ],
+        "strengths": [
+          "Essential for case formulation",
+          "Useful for detecting acute disorganization, mood shifts, and perceptual disturbance",
+          "Embedded in nearly every full diagnostic interview"
+        ],
+        "limitations": [
+          "Captures current presentation, not full history",
+          "Can be affected by stress, culture, language, medical issues, and setting"
+        ],
+        "examClue": "The NCMHCE often gives subtle MSE details such as 'affect constricted' or 'oriented x4' and expects you to understand their significance."
+      },
+      {
+        "id": "self_report",
+        "title": "Self-Report Measures",
+        "purpose": "Have clients rate their own symptoms, thoughts, or functioning.",
+        "bestFor": [
+          "brief screening",
+          "symptom monitoring",
+          "measurement-based care"
+        ],
+        "strengths": [
+          "Efficient",
+          "Easy to repeat over time",
+          "Useful for tracking treatment progress"
+        ],
+        "limitations": [
+          "Can be influenced by insight, defensiveness, exaggeration, literacy, and motivation",
+          "Not diagnostic by themselves"
+        ],
+        "examClue": "PHQ-9, GAD-7, BAI, BDI-II, PCL-5, and DAST-10 are common self-report examples."
+      },
+      {
+        "id": "clinician_rated",
+        "title": "Clinician-Rated / Structured Screening Tools",
+        "purpose": "Provide structured questions and ratings for specific clinical risks or symptom areas.",
+        "bestFor": [
+          "suicide risk",
+          "alcohol use",
+          "depression severity in some settings",
+          "diagnostic consistency"
+        ],
+        "strengths": [
+          "More guided and systematic than unstructured interviewing",
+          "Often clearer for high-risk domains"
+        ],
+        "limitations": [
+          "Still require clinical interpretation",
+          "Cannot replace clinical judgment"
+        ],
+        "examClue": "C-SSRS, HAM-D, and some alcohol measures fall here."
+      },
+      {
+        "id": "standardized_tests",
+        "title": "Standardized Tests",
+        "purpose": "Measure constructs under standardized conditions using norms and psychometric data.",
+        "bestFor": [
+          "personality assessment",
+          "cognitive testing",
+          "career exploration",
+          "broad psychopathology screening"
+        ],
+        "strengths": [
+          "Standardized administration",
+          "Norm-referenced interpretation",
+          "Often stronger psychometric support"
+        ],
+        "limitations": [
+          "Need training to administer or interpret appropriately",
+          "Not always necessary in routine outpatient cases"
+        ],
+        "examClue": "MMPI-2/MMPI-3, WAIS-IV, WISC-V, MBTI, and SDS are classic examples."
+      },
+      {
+        "id": "behavioral_observation",
+        "title": "Behavioral Observation",
+        "purpose": "Observe behavior in naturalistic or structured contexts.",
+        "bestFor": [
+          "children",
+          "school/behavioral concerns",
+          "functional behavior patterns",
+          "situations where verbal report may be incomplete"
+        ],
+        "strengths": [
+          "Captures actual behavior rather than only reported behavior",
+          "Useful for antecedent-behavior-consequence analysis"
+        ],
+        "limitations": [
+          "Context-specific",
+          "Requires careful recording and interpretation"
+        ],
+        "examClue": "Functional Behavioral Assessment is a key example."
+      },
+      {
+        "id": "projective",
+        "title": "Projective Tests",
+        "purpose": "Use ambiguous stimuli to elicit underlying themes or dynamics.",
+        "bestFor": [
+          "specialized assessment contexts",
+          "depth-oriented personality exploration"
+        ],
+        "strengths": [
+          "Can generate rich material"
+        ],
+        "limitations": [
+          "More controversial psychometrically",
+          "Less likely to be the best answer for routine screening or straightforward symptom assessment"
+        ],
+        "examClue": "Rorschach and TAT are classic projective examples, but the exam more often prioritizes clearer, more targeted tools."
+      }
+    ]
+  },
+  "mseDeepDive": {
+    "title": "Mental Status Examination (MSE) Breakdown",
+    "overview": "The MSE is not a separate interview after the interview. It is the observational and descriptive framework that runs throughout the clinical interaction.",
+    "domains": [
+      {
+        "domain": "Appearance",
+        "whatToObserve": [
+          "grooming",
+          "hygiene",
+          "dress",
+          "apparent age",
+          "eye contact"
+        ],
+        "examples": [
+          "well-groomed",
+          "disheveled",
+          "appears stated age",
+          "poor hygiene"
+        ]
+      },
+      {
+        "domain": "Behavior/Psychomotor Activity",
+        "whatToObserve": [
+          "agitation",
+          "retardation",
+          "tics",
+          "tremor",
+          "restlessness",
+          "posture"
+        ],
+        "examples": [
+          "psychomotor agitation",
+          "psychomotor retardation",
+          "restless",
+          "calm/cooperative"
+        ]
+      },
+      {
+        "domain": "Attitude",
+        "whatToObserve": [
+          "cooperation",
+          "guardedness",
+          "hostility",
+          "engagement"
+        ],
+        "examples": [
+          "cooperative",
+          "guarded",
+          "hostile",
+          "evasive"
+        ]
+      },
+      {
+        "domain": "Speech",
+        "whatToObserve": [
+          "rate",
+          "volume",
+          "fluency",
+          "latency",
+          "coherence"
+        ],
+        "examples": [
+          "pressured",
+          "slow",
+          "monotone",
+          "normal rate and volume"
+        ]
+      },
+      {
+        "domain": "Mood",
+        "whatToObserve": [
+          "the client's subjective report of emotional state"
+        ],
+        "examples": [
+          "\"sad\"",
+          "\"anxious\"",
+          "\"fine\"",
+          "\"angry\""
+        ]
+      },
+      {
+        "domain": "Affect",
+        "whatToObserve": [
+          "observable emotional expression",
+          "range",
+          "intensity",
+          "stability",
+          "congruence with mood/content"
+        ],
+        "examples": [
+          "flat",
+          "blunted",
+          "constricted",
+          "labile",
+          "congruent"
+        ]
+      },
+      {
+        "domain": "Thought Process",
+        "whatToObserve": [
+          "organization and flow of thought"
+        ],
+        "examples": [
+          "linear",
+          "goal-directed",
+          "tangential",
+          "circumstantial",
+          "flight of ideas",
+          "loose associations"
+        ]
+      },
+      {
+        "domain": "Thought Content",
+        "whatToObserve": [
+          "themes and beliefs occupying thought"
+        ],
+        "examples": [
+          "delusions",
+          "obsessions",
+          "suicidal ideation",
+          "homicidal ideation",
+          "rumination"
+        ]
+      },
+      {
+        "domain": "Perception",
+        "whatToObserve": [
+          "hallucinations",
+          "illusions",
+          "derealization",
+          "depersonalization"
+        ],
+        "examples": [
+          "auditory hallucinations denied",
+          "reports visual hallucinations"
+        ]
+      },
+      {
+        "domain": "Cognition",
+        "whatToObserve": [
+          "orientation",
+          "attention",
+          "memory",
+          "concentration",
+          "fund of knowledge"
+        ],
+        "examples": [
+          "alert and oriented x4",
+          "impaired recent memory",
+          "attention intact"
+        ]
+      },
+      {
+        "domain": "Insight",
+        "whatToObserve": [
+          "awareness of illness/problems"
+        ],
+        "examples": [
+          "good insight",
+          "limited insight",
+          "poor insight"
+        ]
+      },
+      {
+        "domain": "Judgment",
+        "whatToObserve": [
+          "decision-making and capacity for safe, appropriate choices"
+        ],
+        "examples": [
+          "intact judgment",
+          "impaired judgment"
+        ]
+      }
+    ],
+    "examPearls": [
+      "Mood is what the client says they feel. Affect is what you observe.",
+      "Congruent affect means expression fits the stated mood or content.",
+      "Pressured speech, flight of ideas, decreased need for sleep, and grandiosity should trigger bipolar screening.",
+      "Hallucinations and delusions belong under perception and thought content respectively, not mood."
+    ]
+  },
+  "majorInstruments": [
+    {
+      "category": "Depression",
+      "instruments": [
+        {
+          "name": "PHQ-9",
+          "type": "self-report screener",
+          "measures": "Depression severity based on 9 core depressive symptoms",
+          "bestUse": [
+            "screening for depression",
+            "monitoring treatment progress"
+          ],
+          "whyItMatters": "One of the most practical and commonly used depression screeners.",
+          "examClue": "If the vignette asks for a brief, targeted depression measure, PHQ-9 is usually stronger than broad personality testing."
+        },
+        {
+          "name": "PHQ-2",
+          "type": "brief self-report screener",
+          "measures": "Depressed mood and anhedonia",
+          "bestUse": [
+            "ultra-brief depression screening"
+          ],
+          "examClue": "Useful as a front-end screener, but a positive result should usually be followed by fuller assessment."
+        },
+        {
+          "name": "BDI-II",
+          "type": "self-report inventory",
+          "measures": "Depression severity",
+          "bestUse": [
+            "clinical and research measurement of depressive symptoms"
+          ],
+          "examClue": "Know it as a classic Beck depression measure."
+        },
+        {
+          "name": "HAM-D",
+          "type": "clinician-rated scale",
+          "measures": "Depression severity",
+          "bestUse": [
+            "structured severity assessment, often in research/medical contexts"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Anxiety",
+      "instruments": [
+        {
+          "name": "GAD-7",
+          "type": "self-report screener",
+          "measures": "General anxiety severity",
+          "bestUse": [
+            "screening for generalized anxiety",
+            "tracking symptom change"
+          ],
+          "examClue": "If the case centers on generalized worry and you need a quick symptom measure, GAD-7 is a go-to choice."
+        },
+        {
+          "name": "BAI",
+          "type": "self-report inventory",
+          "measures": "Anxiety severity, especially somatic symptoms",
+          "bestUse": [
+            "broader anxiety severity assessment"
+          ],
+          "examClue": "Often associated with Beck instruments."
+        }
+      ]
+    },
+    {
+      "category": "Trauma / PTSD",
+      "instruments": [
+        {
+          "name": "PCL-5",
+          "type": "self-report checklist",
+          "measures": "PTSD symptoms aligned with DSM-5 symptom clusters",
+          "bestUse": [
+            "screening for PTSD",
+            "monitoring PTSD symptom change"
+          ],
+          "examClue": "When the case clearly suggests PTSD symptoms, PCL-5 is usually the most targeted tool."
+        },
+        {
+          "name": "ACES Scale",
+          "type": "self-report screening tool",
+          "measures": "Adverse childhood experiences across major trauma categories",
+          "bestUse": [
+            "trauma history screening",
+            "risk context understanding"
+          ],
+          "examClue": "ACES does not diagnose PTSD. It screens childhood adversity exposure."
+        }
+      ]
+    },
+    {
+      "category": "Suicide Risk",
+      "instruments": [
+        {
+          "name": "C-SSRS",
+          "type": "clinician-administered structured assessment",
+          "measures": "Suicidal ideation severity and suicidal behavior",
+          "bestUse": [
+            "suicide risk assessment when ideation or risk is present"
+          ],
+          "whyItMatters": "High-yield and explicitly associated with risk stratification.",
+          "examClue": "When suicidal thoughts are endorsed, a suicide-specific tool like the C-SSRS is often the strongest next assessment step."
+        },
+        {
+          "name": "ASQ",
+          "type": "brief suicide screener",
+          "measures": "Rapid suicide risk screening",
+          "bestUse": [
+            "initial suicide screening in brief or non-specialty settings"
+          ],
+          "examClue": "Brief and practical, but a positive screen still requires follow-up assessment."
+        },
+        {
+          "name": "SAD PERSONS Scale",
+          "type": "risk factor checklist",
+          "measures": "Classic suicide risk factors",
+          "bestUse": [
+            "basic risk factor review"
+          ],
+          "examClue": "Know the name, but the exam often favors more clinically robust suicide assessment plus judgment."
+        }
+      ]
+    },
+    {
+      "category": "Substance Use",
+      "instruments": [
+        {
+          "name": "AUDIT",
+          "type": "self-report screening tool",
+          "measures": "Alcohol use disorder risk and problematic drinking patterns",
+          "bestUse": [
+            "screening for alcohol misuse"
+          ],
+          "examClue": "A very strong choice when alcohol is the specific concern."
+        },
+        {
+          "name": "AUDIT-C",
+          "type": "brief screener",
+          "measures": "Brief alcohol risk screen",
+          "bestUse": [
+            "fast alcohol screening"
+          ]
+        },
+        {
+          "name": "DAST-10",
+          "type": "self-report screening tool",
+          "measures": "Drug use problems",
+          "bestUse": [
+            "screening for non-alcohol drug misuse"
+          ],
+          "examClue": "Best when the issue is drug use rather than alcohol specifically."
+        },
+        {
+          "name": "CAGE",
+          "type": "brief alcohol screener",
+          "measures": "Problem drinking history",
+          "bestUse": [
+            "quick alcohol screen"
+          ],
+          "examClue": "Know the four questions: Cut down, Annoyed, Guilty, Eye-opener."
+        }
+      ]
+    },
+    {
+      "category": "Personality / Broad Psychopathology",
+      "instruments": [
+        {
+          "name": "MMPI-2",
+          "type": "standardized personality/psychopathology inventory",
+          "measures": "Broad psychopathology patterns and personality features",
+          "bestUse": [
+            "complex diagnostic clarification",
+            "personality assessment",
+            "response-style analysis"
+          ],
+          "whyItMatters": "Classic broad psychopathology instrument with validity scales.",
+          "examClue": "Not the best answer when a short targeted screener would do, but very relevant for broad personality/clinical picture questions."
+        },
+        {
+          "name": "MMPI-3",
+          "type": "updated standardized personality inventory",
+          "measures": "Broad psychopathology and personality features",
+          "bestUse": [
+            "similar purposes to MMPI-2 with updated norms"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Intelligence / Cognitive",
+      "instruments": [
+        {
+          "name": "WAIS-IV",
+          "type": "standardized intelligence test",
+          "measures": "Adult intellectual functioning",
+          "bestUse": [
+            "adult cognitive/intellectual assessment"
+          ],
+          "examClue": "Know WAIS for adults and WISC for children."
+        },
+        {
+          "name": "WISC-V",
+          "type": "standardized intelligence test",
+          "measures": "Child/adolescent intellectual functioning",
+          "bestUse": [
+            "child cognitive/intellectual assessment"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Career / Vocational",
+      "instruments": [
+        {
+          "name": "SDS (Self-Directed Search)",
+          "type": "career interest inventory",
+          "measures": "RIASEC career interests",
+          "bestUse": [
+            "career counseling",
+            "matching interests to occupational environments"
+          ],
+          "examClue": "If the case is about career fit or vocational identity, SDS is often the cleanest answer."
+        },
+        {
+          "name": "MBTI",
+          "type": "personality/career tool",
+          "measures": "Jungian preference-based personality typology",
+          "bestUse": [
+            "career exploration",
+            "self-understanding"
+          ],
+          "examClue": "Popular in career contexts, but not a psychopathology tool."
+        },
+        {
+          "name": "Strong Interest Inventory",
+          "type": "career interest measure",
+          "measures": "Interest patterns across occupational themes",
+          "bestUse": [
+            "vocational exploration"
+          ]
+        }
+      ]
+    },
+    {
+      "category": "Family / Systems",
+      "instruments": [
+        {
+          "name": "Genogram",
+          "type": "family systems assessment tool",
+          "measures": "Multigenerational relationship patterns, roles, health issues, occupations, and family themes",
+          "bestUse": [
+            "family systems assessment",
+            "Bowenian work",
+            "biopsychosocial interviewing"
+          ],
+          "examClue": "If the question is about family patterns across generations, a genogram is usually the best choice."
+        }
+      ]
+    },
+    {
+      "category": "Behavioral Assessment",
+      "instruments": [
+        {
+          "name": "Functional Behavioral Assessment (FBA)",
+          "type": "behavioral observation framework",
+          "measures": "Antecedents, behaviors, and consequences; the function of behavior",
+          "bestUse": [
+            "school or child behavior problems",
+            "behavioral intervention planning"
+          ],
+          "examClue": "If the question is why the behavior keeps happening, FBA is often the answer."
+        }
+      ]
+    }
+  ],
+  "riskAssessmentSection": {
+    "title": "Risk Assessment Priorities",
+    "overview": "When safety is in question, targeted risk assessment overrides routine symptom screening.",
+    "suicideRiskPrinciples": [
+      "Ask directly about suicidal ideation when clinically indicated.",
+      "Clarify passive vs active ideation.",
+      "Assess plan, intent, means, timeline, past attempts, and protective factors.",
+      "Use structured tools like the C-SSRS or ASQ to support, not replace, clinical judgment.",
+      "Document risk level and response plan clearly."
+    ],
+    "homicideViolenceRiskPrinciples": [
+      "Assess ideation, identifiable target, intent, means, history of violence, and substance use.",
+      "Know that credible threats may trigger legal/ethical protective duties depending on jurisdiction."
+    ],
+    "examPearls": [
+      "A PHQ-9 item about suicidal thoughts is not enough by itself. It should lead to direct suicide risk assessment.",
+      "If the case includes psychosis, intoxication, command hallucinations, or severe agitation, level-of-care thinking becomes urgent."
+    ]
+  },
+  "psychometrics": {
+    "title": "Psychometric Foundations",
+    "overview": "The exam expects basic working knowledge of psychometrics, especially enough to choose tools wisely and understand what makes an assessment useful.",
+    "reliability": [
+      {
+        "term": "Test-retest reliability",
+        "definition": "Scores remain reasonably stable over time when the construct being measured is stable.",
+        "practicalMeaning": "A good instrument should not produce wildly different results for the same client without a real change."
+      },
+      {
+        "term": "Internal consistency",
+        "definition": "Items on the same scale measure the same construct.",
+        "practicalMeaning": "Questions on a depression scale should hang together as a depression measure."
+      },
+      {
+        "term": "Inter-rater reliability",
+        "definition": "Different raters produce similar results.",
+        "practicalMeaning": "Two trained clinicians using the same measure should score similarly."
+      },
+      {
+        "term": "Split-half reliability",
+        "definition": "Two halves of the same test correlate with each other.",
+        "practicalMeaning": "The test is coherent across items."
+      }
+    ],
+    "validity": [
+      {
+        "term": "Content validity",
+        "definition": "Items represent the full construct being measured."
+      },
+      {
+        "term": "Criterion validity",
+        "definition": "Scores relate meaningfully to an external criterion.",
+        "subtypes": [
+          "Concurrent validity - relates to another measure at the same time",
+          "Predictive validity - predicts future outcomes"
+        ]
+      },
+      {
+        "term": "Construct validity",
+        "definition": "The tool truly measures the theoretical concept it claims to measure."
+      },
+      {
+        "term": "Face validity",
+        "definition": "The measure appears to assess what it claims to assess, though this is not a strong scientific standard by itself."
+      },
+      {
+        "term": "Ecological validity",
+        "definition": "Findings generalize meaningfully to real-world functioning."
+      }
+    ],
+    "standardization": [
+      {
+        "term": "Standardized administration",
+        "definition": "The test is given the same way each time."
+      },
+      {
+        "term": "Norms",
+        "definition": "Comparison-group data used to interpret scores."
+      },
+      {
+        "term": "Standard scores",
+        "definition": "Scores expressed relative to the population distribution, such as z-scores, T-scores, or IQ scores."
+      },
+      {
+        "term": "Normal distribution",
+        "definition": "Bell-shaped distribution where mean, median, and mode coincide.",
+        "examPearl": "Know the 68-95-99.7 rule in broad terms."
+      }
+    ],
+    "examTraps": [
+      "Face validity sounds intuitive, but it is not the strongest form of validity.",
+      "A tool can be reliable without being valid.",
+      "Standardized does not mean universally appropriate; the tool still has to fit the client and question."
+    ]
+  },
+  "assessmentSelectionGuide": {
+    "title": "How to Choose the Best Assessment on the Exam",
+    "steps": [
+      "Define the exact question: depression, anxiety, trauma, suicide, alcohol, drug use, personality, cognition, family patterns, or career fit.",
+      "Decide whether you need a brief screener, structured risk assessment, broad diagnostic tool, or ongoing monitoring instrument.",
+      "Consider who is reporting: self-report, clinician rating, family/collateral, or direct observation.",
+      "Consider setting and urgency: outpatient intake, crisis, school, primary care, couples/family context, substance treatment context.",
+      "Choose the most targeted, efficient, and clinically appropriate tool."
+    ],
+    "bestMatchTable": [
+      {
+        "clinicalConcern": "Depression screening",
+        "recommendedTool": "PHQ-9",
+        "why": "Brief, targeted, easy to repeat over time"
+      },
+      {
+        "clinicalConcern": "General anxiety screening",
+        "recommendedTool": "GAD-7",
+        "why": "Focused measure of generalized anxiety severity"
+      },
+      {
+        "clinicalConcern": "PTSD symptom assessment",
+        "recommendedTool": "PCL-5",
+        "why": "Directly maps to PTSD symptom structure"
+      },
+      {
+        "clinicalConcern": "Suicide risk after positive ideation disclosure",
+        "recommendedTool": "C-SSRS or ASQ plus clinical interview",
+        "why": "Directly assesses suicidal ideation and behavior"
+      },
+      {
+        "clinicalConcern": "Alcohol misuse",
+        "recommendedTool": "AUDIT or CAGE",
+        "why": "Targeted alcohol screening tools"
+      },
+      {
+        "clinicalConcern": "Drug misuse",
+        "recommendedTool": "DAST-10",
+        "why": "Targets non-alcohol drug problems"
+      },
+      {
+        "clinicalConcern": "Broad personality/psychopathology clarification",
+        "recommendedTool": "MMPI-2/MMPI-3",
+        "why": "Broad profile with validity scales"
+      },
+      {
+        "clinicalConcern": "Family systems patterns",
+        "recommendedTool": "Genogram",
+        "why": "Best for multigenerational relational patterns"
+      },
+      {
+        "clinicalConcern": "Career interest match",
+        "recommendedTool": "SDS",
+        "why": "Directly tied to RIASEC model"
+      },
+      {
+        "clinicalConcern": "Behavior function in child/school setting",
+        "recommendedTool": "Functional Behavioral Assessment",
+        "why": "Clarifies antecedents and consequences"
+      }
+    ]
+  },
+  "levelOfCareSection": {
+    "title": "Assessment and Level of Care",
+    "overview": "Assessment does not only assign labels. It helps determine how intensive treatment should be.",
+    "levels": [
+      {
+        "level": "Outpatient",
+        "description": "Community-based care, typically 1-3 hours per week",
+        "bestFit": [
+          "stable clients with manageable risk",
+          "routine psychotherapy and medication follow-up"
+        ]
+      },
+      {
+        "level": "Intensive Outpatient Program (IOP)",
+        "description": "Higher-intensity structured treatment, often 9+ hours per week",
+        "bestFit": [
+          "moderate symptom severity",
+          "substance use recovery support",
+          "clients needing more structure but not 24-hour care"
+        ]
+      },
+      {
+        "level": "Partial Hospitalization Program (PHP)",
+        "description": "Day treatment with significant intensity, often 20+ hours per week",
+        "bestFit": [
+          "severe symptoms requiring close monitoring without overnight hospitalization"
+        ]
+      },
+      {
+        "level": "Residential",
+        "description": "24-hour non-hospital living and treatment environment",
+        "bestFit": [
+          "higher needs than outpatient can safely address",
+          "substance or mental health cases needing containment and structure"
+        ]
+      },
+      {
+        "level": "Inpatient / Acute Psychiatric",
+        "description": "Hospital-based highest level of care",
+        "bestFit": [
+          "imminent suicide or homicide risk",
+          "severe psychosis",
+          "inability to care for self",
+          "medical instability from eating disorder or withdrawal"
+        ]
+      }
+    ],
+    "substanceUseNote": {
+      "tool": "ASAM Criteria",
+      "purpose": "Standard framework for determining substance use treatment level of care",
+      "examClue": "Know that substance cases often require level-of-care thinking, not just a diagnostic label."
+    },
+    "examPearls": [
+      "Assessment findings should change care planning.",
+      "A client with active SI, plan, means, and intent may need emergency evaluation rather than routine weekly therapy.",
+      "Not every severe symptom requires hospitalization, but imminent danger and inability to maintain safety do."
+    ]
+  },
+  "commonExamTraps": [
+    "Picking a broad personality inventory when the case asks for a focused screener",
+    "Using a depression tool alone after suicidality is disclosed instead of a suicide-specific assessment",
+    "Confusing a trauma history screen like ACES with a PTSD symptom measure like PCL-5",
+    "Treating self-report scores as a final diagnosis without clinical integration",
+    "Forgetting that MSE findings can signal bipolar disorder, psychosis, intoxication, delirium, or cognitive impairment",
+    "Overlooking level-of-care implications after identifying risk"
+  ],
+  "miniCaseDrills": [
+    {
+      "case": "A client reports 2 weeks of sadness, low energy, guilt, and poor sleep. You want a quick measure to screen and monitor depressive severity over time.",
+      "bestTool": "PHQ-9",
+      "rationale": "It is brief, targeted, and commonly used for depressive symptom measurement."
+    },
+    {
+      "case": "A client endorses passive suicidal thoughts on intake paperwork. What is the next best assessment step?",
+      "bestTool": "C-SSRS or ASQ plus direct clinical suicide risk assessment",
+      "rationale": "A suicide-specific assessment is needed once suicidal thoughts are present."
+    },
+    {
+      "case": "A client presents after trauma with nightmares, flashbacks, avoidance, and hypervigilance. You want a PTSD-specific symptom checklist.",
+      "bestTool": "PCL-5",
+      "rationale": "It is directly aligned with PTSD symptoms."
+    },
+    {
+      "case": "A teenager's classroom behavior escalates when difficult work begins and reliably stops when removed from the room. You need to understand the function of the behavior.",
+      "bestTool": "Functional Behavioral Assessment",
+      "rationale": "FBA identifies antecedents, behavior, and consequences."
+    },
+    {
+      "case": "A family therapy case reveals repeated intergenerational cutoff, substance use, and caregiving conflict. You want to map patterns across generations.",
+      "bestTool": "Genogram",
+      "rationale": "A genogram is the strongest systems-oriented assessment for multigenerational patterns."
+    }
+  ],
+  "quickReview": {
+    "memoryHooks": [
+      "PHQ-9 = depression",
+      "GAD-7 = generalized anxiety",
+      "PCL-5 = PTSD symptoms",
+      "C-SSRS = suicide risk",
+      "AUDIT = alcohol",
+      "DAST-10 = drugs",
+      "MMPI = broad personality/psychopathology",
+      "WAIS = adult intelligence",
+      "WISC = child intelligence",
+      "SDS = career interests",
+      "Genogram = family patterns",
+      "FBA = function of behavior"
+    ],
+    "finalTakeaways": [
+      "Choose the most targeted tool that answers the clinical question.",
+      "Screening tools support diagnosis; they do not replace diagnosis.",
+      "Risk, MSE findings, and level of care are just as important as symptom counts."
+    ]
+  },
+  "checkpointQuestions": [
+    {
+      "question": "A counselor wants a brief, repeatable measure of depression severity during outpatient treatment. Which tool best fits?",
+      "answer": "PHQ-9"
+    },
+    {
+      "question": "A client reports suicidal thoughts during intake. Which assessment should be prioritized next?",
+      "answer": "A suicide-specific risk assessment such as the C-SSRS or ASQ, along with direct clinical questioning"
+    },
+    {
+      "question": "A case asks for the best tool to assess trauma-related symptoms consistent with DSM PTSD criteria. Which tool best fits?",
+      "answer": "PCL-5"
+    },
+    {
+      "question": "A school-based clinician wants to determine what reinforces a child's repeated classroom outbursts. Which assessment best fits?",
+      "answer": "Functional Behavioral Assessment"
+    },
+    {
+      "question": "A counselor wants to map multigenerational family patterns and relational roles. Which assessment best fits?",
+      "answer": "Genogram"
+    }
+  ],
+  "sourceBasis": {
+    "derivedFromUploadedMaterials": [
+      "Study Library",
+      "Assessment & Testing"
+    ],
+    "notes": "Expanded into a production-ready module emphasizing assessment selection, MSE interpretation, psychometrics, risk assessment, and level-of-care reasoning."
+  }
+}

@@ -1,0 +1,1333 @@
+{
+  "moduleId": "dsm-5-tr-diagnoses",
+  "moduleTitle": "DSM-5-TR Diagnoses",
+  "moduleType": "learning_library",
+  "version": "1.0",
+  "exam": {
+    "name": "NCMHCE",
+    "formatAlignment": {
+      "currentBlueprint": true,
+      "effective2027Blueprint": true
+    },
+    "whyThisModuleMatters": "This module trains learners to recognize diagnostic patterns in case vignettes, rule out competing diagnoses, apply duration and severity requirements, and distinguish primary diagnoses from specifiers and differential diagnoses."
+  },
+  "uiHints": {
+    "defaultView": "nested_accordion",
+    "recommendedComponents": [
+      "module_header",
+      "diagnostic_category_tabs",
+      "diagnosis_cards",
+      "criteria_checklists",
+      "differential_tables",
+      "exam_clue_callouts",
+      "red_flag_alerts",
+      "mini_case_cards",
+      "checkpoint_quiz"
+    ],
+    "tags": [
+      "dsm-5-tr",
+      "diagnosis",
+      "differential-diagnosis",
+      "ncmhce",
+      "high-yield"
+    ]
+  },
+  "intro": {
+    "summary": "This module covers major DSM-5-TR diagnostic categories tested on the NCMHCE. The focus is not memorizing labels in isolation. The focus is learning how symptoms, duration, impairment, exclusion rules, and differential diagnosis appear in clinical cases.",
+    "learningObjectives": [
+      "Recognize hallmark symptoms of major DSM-5-TR disorders",
+      "Apply duration and symptom-count rules when diagnosing from a vignette",
+      "Differentiate closely related disorders using rule-out reasoning",
+      "Distinguish diagnoses from specifiers, severity levels, and associated features",
+      "Identify when medical conditions, substances, bipolar disorders, psychosis, or trauma better explain a presentation"
+    ],
+    "howToUse": [
+      "Study by diagnostic category first, then compare similar disorders within the category.",
+      "Pay attention to symptom count, duration, and level of impairment.",
+      "Practice asking: What diagnosis best explains all of the case details, not just one symptom?",
+      "Use the differential diagnosis blocks heavily. That is where many test items are won or lost."
+    ],
+    "highYieldThemes": [
+      "Duration matters.",
+      "Impairment matters.",
+      "Rule-outs matter.",
+      "A specifier is not a separate diagnosis.",
+      "Safety comes first when suicidality, mania, psychosis, or severe substance use is present."
+    ]
+  },
+  "coreDiagnosticReasoningRules": [
+    {
+      "rule": "Start with the primary complaint, but do not stop there.",
+      "example": "A client may present saying 'I have anxiety,' but the full pattern could better fit PTSD, OCD, panic disorder, social anxiety disorder, or substance-induced anxiety."
+    },
+    {
+      "rule": "Check duration before committing to a diagnosis.",
+      "example": "Acute Stress Disorder lasts from 3 days to 1 month after trauma. PTSD requires symptoms lasting more than 1 month."
+    },
+    {
+      "rule": "Rule out bipolar disorder before diagnosing unipolar depression when elevated mood, decreased need for sleep, grandiosity, or risky behavior appear.",
+      "example": "A client with depressive episodes and a history of 4 days of elevated energy and less sleep may meet Bipolar II, not Major Depressive Disorder alone."
+    },
+    {
+      "rule": "Rule out substances, medical causes, and normative responses when appropriate.",
+      "example": "Intoxication, withdrawal, thyroid issues, grief-related responses, and medication effects can mimic psychiatric disorders."
+    },
+    {
+      "rule": "Use the diagnosis that best accounts for the full pattern and impairment.",
+      "example": "A client with recurrent intrusive obsessions and compulsions for over an hour a day fits OCD better than GAD, even if both involve anxiety."
+    }
+  ],
+  "diagnosticCategories": [
+    {
+      "id": "depressive_disorders",
+      "title": "Depressive Disorders",
+      "overview": "Depressive disorders are characterized by sadness, loss of interest, cognitive changes, physical symptoms, and impairment. On the exam, they are commonly confused with bipolar disorders, adjustment disorder, grief responses, substance-induced symptoms, and medical conditions.",
+      "highYieldDisorders": [
+        {
+          "id": "mdd",
+          "title": "Major Depressive Disorder (MDD)",
+          "hallmark": "At least 5 symptoms during the same 2-week period, with at least one being depressed mood or loss of interest/pleasure.",
+          "coreCriteria": [
+            "Depressed mood most of the day, nearly every day",
+            "Markedly diminished interest or pleasure",
+            "Weight or appetite change",
+            "Insomnia or hypersomnia",
+            "Psychomotor agitation or retardation",
+            "Fatigue or loss of energy",
+            "Feelings of worthlessness or excessive/inappropriate guilt",
+            "Diminished concentration or indecisiveness",
+            "Recurrent thoughts of death, suicidal ideation, attempt, or plan"
+          ],
+          "minimumThreshold": "5 or more symptoms over 2 weeks, including depressed mood and/or anhedonia",
+          "mustRuleOut": [
+            "Bipolar I or II disorder",
+            "Substance/medication-induced depression",
+            "Depression due to a medical condition",
+            "Normal grief reactions that do not meet full syndrome and impairment"
+          ],
+          "severity": {
+            "mild": "Few symptoms beyond the minimum and minor impairment",
+            "moderate": "Symptoms and impairment between mild and severe",
+            "severe": "Many symptoms beyond the minimum and marked impairment"
+          },
+          "specifiersToKnow": [
+            "with anxious distress",
+            "with melancholic features",
+            "with psychotic features",
+            "with peripartum onset",
+            "with seasonal pattern"
+          ],
+          "examClues": [
+            "Daily sadness plus loss of interest is the classic anchor.",
+            "The exam often includes fatigue, guilt, poor concentration, sleep disturbance, and passive SI.",
+            "If manic or hypomanic history appears anywhere in the case, reconsider MDD."
+          ],
+          "differentialDiagnosis": [
+            {
+              "compareTo": "Persistent Depressive Disorder",
+              "keyDifference": "MDD is episodic and requires 2 weeks with 5+ symptoms; PDD is chronic depressed mood for at least 2 years with fewer but persistent symptoms."
+            },
+            {
+              "compareTo": "Adjustment Disorder with Depressed Mood",
+              "keyDifference": "Adjustment Disorder is tied to an identifiable stressor, begins within 3 months of it, and does not meet full criteria for another disorder."
+            },
+            {
+              "compareTo": "Bipolar II Disorder",
+              "keyDifference": "Bipolar II includes at least one hypomanic episode and one major depressive episode."
+            }
+          ],
+          "miniCase": {
+            "prompt": "A client reports 3 weeks of near-daily sadness, anhedonia, low energy, insomnia, guilt, poor concentration, and thoughts that life is not worth living, with significant work impairment.",
+            "bestAnswer": "Major Depressive Disorder",
+            "why": "The case exceeds the 2-week threshold, includes more than 5 symptoms, and causes functional impairment."
+          }
+        },
+        {
+          "id": "pdd",
+          "title": "Persistent Depressive Disorder (Dysthymia)",
+          "hallmark": "Chronically depressed mood for most of the day, more days than not, for at least 2 years.",
+          "coreCriteria": [
+            "Depressed mood most of the day, more days than not, for 2 years or more",
+            "At least 2 of the following: poor appetite or overeating, insomnia or hypersomnia, low energy, low self-esteem, poor concentration, hopelessness",
+            "During the 2-year period, symptoms are not absent for more than 2 months at a time"
+          ],
+          "mustRuleOut": [
+            "Major depressive episodes only, without chronic baseline depression",
+            "Cyclothymic disorder",
+            "Substance/medical causes"
+          ],
+          "examClues": [
+            "The case often reads as 'I've felt this way for years.'",
+            "Chronic low self-esteem and hopelessness are common clues.",
+            "Clients may still function, but with longstanding low mood and diminished optimism."
+          ],
+          "differentialDiagnosis": [
+            {
+              "compareTo": "Major Depressive Disorder",
+              "keyDifference": "PDD is chronic, while MDD is episodic. A client can have persistent depression with intermittent major depressive episodes."
+            },
+            {
+              "compareTo": "Cyclothymic Disorder",
+              "keyDifference": "Cyclothymia includes alternating hypomanic symptoms and depressive symptoms that do not meet full episode criteria."
+            }
+          ]
+        },
+        {
+          "id": "dmdd",
+          "title": "Disruptive Mood Dysregulation Disorder (DMDD)",
+          "hallmark": "Severe recurrent temper outbursts with persistent irritability in children and adolescents.",
+          "coreCriteria": [
+            "Severe verbal or behavioral temper outbursts grossly out of proportion to the situation",
+            "Outbursts occur 3 or more times per week",
+            "Mood between outbursts is persistently irritable or angry",
+            "Duration of 12 months or more",
+            "Diagnosis between ages 6 and 18, with onset before age 10"
+          ],
+          "mustRuleOut": [
+            "Bipolar disorder",
+            "Oppositional Defiant Disorder as a better explanation when mood syndrome threshold is not met",
+            "Autism spectrum-related dysregulation without full DMDD pattern"
+          ],
+          "examClues": [
+            "Chronic irritability is the key, not episodic mania.",
+            "Developed partly to reduce overdiagnosis of pediatric bipolar disorder."
+          ]
+        }
+      ],
+      "redFlags": [
+        "Always assess suicidality when depression is present.",
+        "Psychotic features change the level of severity and may affect treatment setting.",
+        "A history of mania or hypomania changes the diagnostic frame completely."
+      ],
+      "categoryQuickReview": [
+        "MDD = 2 weeks + 5 symptoms",
+        "PDD = 2 years of chronic depressed mood",
+        "DMDD = severe irritability and outbursts in youth"
+      ]
+    },
+    {
+      "id": "anxiety_disorders",
+      "title": "Anxiety Disorders",
+      "overview": "Anxiety disorders share fear, anticipation of threat, avoidance, and physiological arousal, but they differ in trigger, symptom pattern, and duration.",
+      "highYieldDisorders": [
+        {
+          "id": "gad",
+          "title": "Generalized Anxiety Disorder (GAD)",
+          "hallmark": "Excessive anxiety and worry about multiple areas of life occurring more days than not for at least 6 months.",
+          "coreCriteria": [
+            "Excessive anxiety and worry occurring more days than not for 6 months or more",
+            "Difficulty controlling the worry",
+            "At least 3 of the following in adults: restlessness, fatigue, concentration problems, irritability, muscle tension, sleep disturbance"
+          ],
+          "mustRuleOut": [
+            "Substance-related anxiety",
+            "Anxiety better explained by panic disorder, OCD, PTSD, social anxiety, or medical illness"
+          ],
+          "examClues": [
+            "The worry is broad and chronic, not tied to one object or one social performance setting.",
+            "Muscle tension and sleep problems are common clues."
+          ],
+          "differentialDiagnosis": [
+            {
+              "compareTo": "Panic Disorder",
+              "keyDifference": "GAD involves chronic free-floating worry; panic disorder centers on recurrent unexpected panic attacks and fear of future attacks."
+            },
+            {
+              "compareTo": "OCD",
+              "keyDifference": "OCD obsessions are intrusive, ego-dystonic, and often paired with compulsions. GAD worry feels more like persistent concern."
+            }
+          ]
+        },
+        {
+          "id": "panic_disorder",
+          "title": "Panic Disorder",
+          "hallmark": "Recurrent unexpected panic attacks plus persistent concern or maladaptive behavior change related to future attacks.",
+          "coreCriteria": [
+            "Recurrent unexpected panic attacks",
+            "At least one month of persistent concern about additional attacks and/or maladaptive behavior changes related to the attacks"
+          ],
+          "panicAttackSymptoms": [
+            "palpitations",
+            "sweating",
+            "trembling",
+            "shortness of breath",
+            "feelings of choking",
+            "chest pain",
+            "nausea",
+            "dizziness",
+            "derealization or depersonalization",
+            "fear of losing control",
+            "fear of dying",
+            "paresthesias",
+            "chills or hot flushes"
+          ],
+          "examClues": [
+            "The phrase 'out of the blue' often points to unexpected panic attacks.",
+            "Worry about the next attack can lead to avoidance and eventually agoraphobia."
+          ],
+          "differentialDiagnosis": [
+            {
+              "compareTo": "Social Anxiety Disorder",
+              "keyDifference": "Panic in social anxiety is triggered by scrutiny or evaluation; panic disorder attacks are unexpected."
+            },
+            {
+              "compareTo": "Agoraphobia",
+              "keyDifference": "Agoraphobia is fear/avoidance of places where escape feels difficult; it may occur with or without panic disorder."
+            }
+          ]
+        },
+        {
+          "id": "social_anxiety",
+          "title": "Social Anxiety Disorder",
+          "hallmark": "Marked fear of social situations involving possible scrutiny and fear of negative evaluation.",
+          "coreCriteria": [
+            "Marked fear or anxiety about one or more social situations where scrutiny is possible",
+            "Fear of acting in a way that will be negatively evaluated",
+            "Situations almost always provoke fear",
+            "Avoidance or endurance with intense anxiety",
+            "Persistent, typically 6 months or more"
+          ],
+          "examClues": [
+            "Fear of embarrassment, judgment, or humiliation is central.",
+            "Performance-only subtype often appears in public speaking cases."
+          ],
+          "differentialDiagnosis": [
+            {
+              "compareTo": "Avoidant Personality Disorder",
+              "keyDifference": "Avoidant PD is broader, more pervasive, and personality-based across many contexts."
+            },
+            {
+              "compareTo": "Panic Disorder",
+              "keyDifference": "In social anxiety, the feared consequence is negative evaluation; in panic disorder, it is the attack itself and its implications."
+            }
+          ]
+        },
+        {
+          "id": "specific_phobia",
+          "title": "Specific Phobia",
+          "hallmark": "Marked fear or anxiety about a specific object or situation.",
+          "coreCriteria": [
+            "Fear or anxiety about a specific object or situation",
+            "Phobic object almost always provokes immediate fear",
+            "Active avoidance or endurance with intense anxiety",
+            "Fear is out of proportion to actual danger",
+            "Persistent, usually 6 months or more"
+          ],
+          "commonTypes": [
+            "animal",
+            "natural environment",
+            "blood-injection-injury",
+            "situational",
+            "other"
+          ],
+          "examClues": [
+            "The trigger is narrow and specific.",
+            "Blood-injection-injury type may include vasovagal fainting."
+          ]
+        },
+        {
+          "id": "agoraphobia",
+          "title": "Agoraphobia",
+          "hallmark": "Fear or avoidance of situations where escape may be difficult or help unavailable if panic-like symptoms occur.",
+          "coreCriteria": [
+            "Marked fear or anxiety about 2 or more of the following: public transportation, open spaces, enclosed spaces, lines/crowds, being outside home alone",
+            "Situations are avoided because escape might be difficult or help unavailable",
+            "Persistent, typically 6 months or more"
+          ],
+          "examClues": [
+            "The client may become housebound or heavily restricted.",
+            "Often linked with but not identical to panic disorder."
+          ]
+        },
+        {
+          "id": "separation_anxiety",
+          "title": "Separation Anxiety Disorder",
+          "hallmark": "Developmentally inappropriate fear concerning separation from attachment figures.",
+          "coreCriteria": [
+            "Excessive fear or anxiety concerning separation from attachment figures",
+            "Symptoms may include distress on separation, worry about harm to attachment figures, reluctance to be alone, nightmares, physical complaints"
+          ],
+          "examClues": [
+            "Can occur in adults, not only children.",
+            "In adults, the feared attachment figure may be a spouse, child, or partner."
+          ]
+        }
+      ],
+      "redFlags": [
+        "Always rule out substance or medical causes when physical anxiety symptoms dominate.",
+        "Recurrent panic with chest pain and dizziness may still require medical evaluation.",
+        "Avoidance severity helps determine impairment and treatment urgency."
+      ],
+      "categoryQuickReview": [
+        "GAD = chronic broad worry",
+        "Panic Disorder = recurrent unexpected panic attacks + future fear",
+        "Social Anxiety = fear of scrutiny",
+        "Specific Phobia = narrow trigger",
+        "Agoraphobia = avoidance of places where escape feels hard"
+      ]
+    },
+    {
+      "id": "trauma_stressor_related",
+      "title": "Trauma- and Stressor-Related Disorders",
+      "overview": "These disorders require a stressor or trauma exposure and are differentiated largely by the nature of the event, symptom clusters, and duration.",
+      "highYieldDisorders": [
+        {
+          "id": "ptsd",
+          "title": "Posttraumatic Stress Disorder (PTSD)",
+          "hallmark": "Symptoms following exposure to actual or threatened death, serious injury, or sexual violence, lasting more than 1 month.",
+          "traumaExposureWays": [
+            "direct exposure",
+            "witnessing in person",
+            "learning it occurred to a close other",
+            "repeated/extreme indirect exposure to aversive details"
+          ],
+          "clusters": {
+            "intrusion": [
+              "intrusive memories",
+              "nightmares",
+              "flashbacks",
+              "distress/reactivity to cues"
+            ],
+            "avoidance": [
+              "avoidance of memories/thoughts",
+              "avoidance of reminders"
+            ],
+            "negativeCognitionsMood": [
+              "negative beliefs",
+              "blame",
+              "negative emotions",
+              "detachment",
+              "anhedonia",
+              "inability to feel positive emotions"
+            ],
+            "arousal": [
+              "irritability",
+              "reckless behavior",
+              "hypervigilance",
+              "exaggerated startle",
+              "concentration problems",
+              "sleep disturbance"
+            ]
+          },
+          "minimumThreshold": {
+            "intrusion": "1 or more",
+            "avoidance": "1 or more",
+            "negativeCognitionsMood": "2 or more",
+            "arousal": "2 or more",
+            "duration": "more than 1 month"
+          },
+          "specifiersToKnow": [
+            "with dissociative symptoms",
+            "with delayed expression"
+          ],
+          "examClues": [
+            "Watch for trauma exposure plus all four symptom domains.",
+            "Hypervigilance, nightmares, avoidance, detachment, and startle response are classic clues."
+          ],
+          "differentialDiagnosis": [
+            {
+              "compareTo": "Acute Stress Disorder",
+              "keyDifference": "Acute Stress Disorder lasts from 3 days to 1 month after trauma; PTSD lasts longer than 1 month."
+            },
+            {
+              "compareTo": "Adjustment Disorder",
+              "keyDifference": "Adjustment Disorder follows an identifiable stressor but does not require trauma exposure and does not include the full PTSD syndrome."
+            }
+          ],
+          "miniCase": {
+            "prompt": "A paramedic develops nightmares, intrusive images, hypervigilance, avoidance of ambulance sounds, emotional numbing, and insomnia for 3 months after witnessing a gruesome death.",
+            "bestAnswer": "PTSD",
+            "why": "The case includes qualifying trauma exposure, the core symptom clusters, and duration longer than 1 month."
+          }
+        },
+        {
+          "id": "acute_stress_disorder",
+          "title": "Acute Stress Disorder",
+          "hallmark": "Trauma-related symptoms lasting from 3 days to 1 month after the trauma.",
+          "coreCriteria": [
+            "Exposure to trauma",
+            "Symptoms from intrusion, negative mood, dissociation, avoidance, and arousal categories",
+            "Duration between 3 days and 1 month after trauma"
+          ],
+          "examClues": [
+            "The timeline is the major clue.",
+            "If symptoms last beyond 1 month, reconsider PTSD."
+          ]
+        },
+        {
+          "id": "adjustment_disorder",
+          "title": "Adjustment Disorder",
+          "hallmark": "Emotional or behavioral symptoms in response to an identifiable stressor occurring within 3 months of the stressor.",
+          "coreCriteria": [
+            "Symptoms begin within 3 months of the stressor",
+            "Distress is out of proportion to the severity or intensity of the stressor and/or causes significant impairment",
+            "Symptoms do not represent normal bereavement alone and do not meet criteria for another disorder",
+            "Once the stressor or its consequences have ended, symptoms do not persist for more than 6 additional months"
+          ],
+          "subtypes": [
+            "with depressed mood",
+            "with anxiety",
+            "with mixed anxiety and depressed mood",
+            "with disturbance of conduct",
+            "with mixed disturbance of emotions and conduct"
+          ],
+          "examClues": [
+            "Adjustment Disorder is a diagnosis of fit when distress is real and impairing but does not meet full criteria for another syndrome.",
+            "The case often features a clear stressor such as divorce, job loss, relocation, or school transition."
+          ],
+          "differentialDiagnosis": [
+            {
+              "compareTo": "Major Depressive Disorder",
+              "keyDifference": "If full depressive syndrome criteria are met, diagnose MDD rather than Adjustment Disorder."
+            },
+            {
+              "compareTo": "PTSD",
+              "keyDifference": "PTSD requires qualifying trauma exposure and specific symptom clusters."
+            }
+          ]
+        }
+      ],
+      "redFlags": [
+        "Always assess suicide risk in trauma cases, especially when hopelessness, shame, substance use, or sleep disruption are present.",
+        "Dissociation and hyperarousal can complicate engagement and treatment planning.",
+        "Do not force trauma processing when safety and stabilization are not established."
+      ],
+      "categoryQuickReview": [
+        "PTSD = trauma + full clusters + >1 month",
+        "ASD = trauma + symptoms + 3 days to 1 month",
+        "Adjustment Disorder = stressor-linked distress that does not meet another full disorder"
+      ]
+    },
+    {
+      "id": "ocd_related",
+      "title": "Obsessive-Compulsive and Related Disorders",
+      "overview": "These disorders involve obsessions, compulsions, preoccupations, or repetitive behaviors that are difficult to control and cause distress or impairment.",
+      "highYieldDisorders": [
+        {
+          "id": "ocd",
+          "title": "Obsessive-Compulsive Disorder (OCD)",
+          "hallmark": "Obsessions, compulsions, or both that are time-consuming or cause significant distress/impairment.",
+          "coreCriteria": [
+            "Obsessions: recurrent, intrusive, unwanted thoughts, urges, or images that cause anxiety/distress",
+            "Compulsions: repetitive behaviors or mental acts aimed at reducing distress or preventing a feared outcome",
+            "The obsessions or compulsions are time-consuming, such as more than 1 hour per day, or cause significant impairment"
+          ],
+          "examClues": [
+            "Ego-dystonic intrusive thoughts are key.",
+            "The compulsions are meant to neutralize distress, even if they are not realistically connected to the feared event."
+          ],
+          "differentialDiagnosis": [
+            {
+              "compareTo": "GAD",
+              "keyDifference": "GAD worry is more generalized and experienced as excessive concern; OCD obsessions are intrusive, unwanted, and often bizarre or highly specific."
+            },
+            {
+              "compareTo": "Obsessive-Compulsive Personality Disorder",
+              "keyDifference": "OCPD traits are ego-syntonic and personality-based; OCD obsessions/compulsions are distressing and unwanted."
+            }
+          ],
+          "miniCase": {
+            "prompt": "A client spends 3 hours daily washing hands and checking locks because they are tormented by intrusive contamination thoughts they know are irrational.",
+            "bestAnswer": "Obsessive-Compulsive Disorder",
+            "why": "The case includes intrusive obsessions, compulsive rituals, and significant time consumption."
+          }
+        },
+        {
+          "id": "bdd",
+          "title": "Body Dysmorphic Disorder (BDD)",
+          "hallmark": "Preoccupation with one or more perceived defects or flaws in appearance that are not observable or appear slight to others.",
+          "coreCriteria": [
+            "Appearance preoccupation",
+            "Repetitive behaviors or mental acts such as mirror checking, comparing, or reassurance seeking",
+            "Clinically significant distress or impairment"
+          ],
+          "examClues": [
+            "The defect is minor or not observable, but the distress is intense.",
+            "Time spent checking, hiding, comparing, or seeking reassurance is a clue."
+          ]
+        },
+        {
+          "id": "hoarding",
+          "title": "Hoarding Disorder",
+          "hallmark": "Persistent difficulty discarding possessions regardless of actual value due to a perceived need to save them and distress associated with discarding.",
+          "coreCriteria": [
+            "Persistent difficulty discarding possessions",
+            "Perceived need to save items",
+            "Distress associated with discarding",
+            "Accumulation that congests living areas and compromises intended use"
+          ],
+          "examClues": [
+            "Living spaces become unusable.",
+            "Family conflict and safety issues are common clues."
+          ]
+        }
+      ],
+      "redFlags": [
+        "Severe OCD can include significant suicidality due to distress and shame.",
+        "Hoarding can create medical and safety risks.",
+        "BDD can include suicidality and requests for repeated cosmetic interventions."
+      ],
+      "categoryQuickReview": [
+        "OCD = obsessions/compulsions that are distressing and time-consuming",
+        "BDD = appearance preoccupation + repetitive behaviors",
+        "Hoarding = inability to discard + cluttered living spaces"
+      ]
+    },
+    {
+      "id": "psychotic_disorders",
+      "title": "Psychotic Disorders",
+      "overview": "Psychotic disorders are defined by disruptions in reality testing such as delusions, hallucinations, disorganized thought, disorganized behavior, and negative symptoms.",
+      "highYieldDisorders": [
+        {
+          "id": "schizophrenia",
+          "title": "Schizophrenia",
+          "hallmark": "Two or more core psychotic symptoms for at least 1 month, with continuous signs of disturbance for at least 6 months and functional decline.",
+          "coreCriteria": [
+            "Two or more of the following for a significant portion of 1 month: delusions, hallucinations, disorganized speech, grossly disorganized/catatonic behavior, negative symptoms",
+            "At least one must be delusions, hallucinations, or disorganized speech",
+            "Marked decline in functioning",
+            "Continuous signs for at least 6 months"
+          ],
+          "positiveSymptoms": [
+            "delusions",
+            "hallucinations",
+            "disorganized speech",
+            "disorganized behavior"
+          ],
+          "negativeSymptoms": [
+            "flat affect",
+            "alogia",
+            "avolition",
+            "anhedonia",
+            "asociality"
+          ],
+          "mustRuleOut": [
+            "Schizoaffective disorder",
+            "Mood disorder with psychotic features",
+            "Substance-induced psychosis",
+            "Medical/neurological causes"
+          ],
+          "examClues": [
+            "Negative symptoms and duration help distinguish schizophrenia from brief psychosis.",
+            "Functioning below premorbid baseline is important."
+          ],
+          "differentialDiagnosis": [
+            {
+              "compareTo": "Brief Psychotic Disorder",
+              "keyDifference": "Brief psychosis lasts from 1 day to 1 month and returns to premorbid functioning."
+            },
+            {
+              "compareTo": "Schizoaffective Disorder",
+              "keyDifference": "Schizoaffective disorder includes a major mood episode plus at least 2 weeks of psychosis without mood symptoms."
+            }
+          ]
+        },
+        {
+          "id": "brief_psychotic_disorder",
+          "title": "Brief Psychotic Disorder",
+          "hallmark": "One or more psychotic symptoms lasting from at least 1 day to less than 1 month, with eventual full return to premorbid functioning.",
+          "coreCriteria": [
+            "One or more of delusions, hallucinations, disorganized speech, grossly disorganized or catatonic behavior",
+            "Duration of at least 1 day but less than 1 month",
+            "Full return to premorbid functioning"
+          ],
+          "examClues": [
+            "Abrupt onset after severe stress may appear.",
+            "Duration is the major differentiator."
+          ]
+        },
+        {
+          "id": "schizoaffective",
+          "title": "Schizoaffective Disorder",
+          "hallmark": "An uninterrupted period of illness during which there is a major mood episode concurrent with schizophrenia symptoms, plus at least 2 weeks of psychosis without mood symptoms.",
+          "coreCriteria": [
+            "Schizophrenia symptoms present",
+            "A major mood episode present for the majority of total illness duration",
+            "At least 2 weeks of delusions or hallucinations without a mood episode"
+          ],
+          "examClues": [
+            "The psychosis persists even when mood symptoms are absent.",
+            "This is what separates it from mood disorder with psychotic features."
+          ]
+        }
+      ],
+      "redFlags": [
+        "Psychosis requires assessment of safety, command hallucinations, ability to care for self, and level of care.",
+        "Substances and medical/neurological causes must be considered.",
+        "Disorganized behavior and poor insight may increase acute risk."
+      ],
+      "categoryQuickReview": [
+        "Schizophrenia = 1 month active symptoms, 6 months total disturbance, functional decline",
+        "Brief Psychotic Disorder = 1 day to 1 month",
+        "Schizoaffective = mood episode + psychosis alone for 2 weeks at some point"
+      ]
+    },
+    {
+      "id": "bipolar_related",
+      "title": "Bipolar and Related Disorders",
+      "overview": "Bipolar disorders include mood elevation, increased energy, and changes in activity level. These disorders are commonly missed when clinicians focus only on depressive episodes.",
+      "highYieldDisorders": [
+        {
+          "id": "bipolar_i",
+          "title": "Bipolar I Disorder",
+          "hallmark": "At least one manic episode, with or without major depressive episodes.",
+          "manicEpisodeCriteria": [
+            "Distinct period of abnormally elevated, expansive, or irritable mood and increased goal-directed activity or energy",
+            "Lasts at least 1 week and present most of the day, nearly every day, or any duration if hospitalization is necessary",
+            "At least 3 symptoms (4 if mood is only irritable): grandiosity, decreased need for sleep, more talkative/pressured speech, flight of ideas/racing thoughts, distractibility, increased goal-directed activity/psychomotor agitation, risky behavior"
+          ],
+          "examClues": [
+            "Decreased need for sleep is a high-yield clue and is not the same as insomnia.",
+            "Hospitalization or psychosis automatically suggests full mania, not hypomania."
+          ],
+          "differentialDiagnosis": [
+            {
+              "compareTo": "Bipolar II Disorder",
+              "keyDifference": "Bipolar I requires mania. Bipolar II includes hypomania, not mania."
+            },
+            {
+              "compareTo": "Substance-Induced Bipolar Disorder",
+              "keyDifference": "Mood elevation is better explained by intoxication, medication, or another physiological cause."
+            }
+          ],
+          "miniCase": {
+            "prompt": "A client sleeps 2 hours a night for 8 days, becomes grandiose, spends recklessly, talks rapidly, and is hospitalized after becoming severely agitated.",
+            "bestAnswer": "Bipolar I Disorder",
+            "why": "The case clearly describes a manic episode."
+          }
+        },
+        {
+          "id": "bipolar_ii",
+          "title": "Bipolar II Disorder",
+          "hallmark": "At least one hypomanic episode and at least one major depressive episode, with no history of mania.",
+          "hypomaniaCriteria": [
+            "Elevated, expansive, or irritable mood and increased energy/activity",
+            "Lasts at least 4 consecutive days",
+            "At least 3 symptoms (4 if only irritable): grandiosity, decreased need for sleep, more talkative, racing thoughts, distractibility, increased activity, risky behavior",
+            "Observable change in functioning, but not severe enough to cause marked impairment or hospitalization",
+            "No psychotic features"
+          ],
+          "examClues": [
+            "Clients often present for depression, not hypomania.",
+            "A history of brief periods of elevated energy, confidence, less sleep, and increased productivity is a major clue."
+          ],
+          "differentialDiagnosis": [
+            {
+              "compareTo": "Major Depressive Disorder",
+              "keyDifference": "MDD does not include any past hypomanic or manic episode."
+            }
+          ]
+        },
+        {
+          "id": "cyclothymic",
+          "title": "Cyclothymic Disorder",
+          "hallmark": "At least 2 years of numerous periods with hypomanic symptoms and depressive symptoms that never meet full criteria for episodes.",
+          "coreCriteria": [
+            "For at least 2 years, numerous periods of hypomanic symptoms and periods of depressive symptoms",
+            "Symptoms never meet full criteria for hypomanic episode, manic episode, or major depressive episode",
+            "Symptoms present at least half the time and not absent for more than 2 months at a time"
+          ],
+          "examClues": [
+            "Chronic mood instability without full episodes is the key.",
+            "Often mistaken for temperament or personality style."
+          ]
+        }
+      ],
+      "redFlags": [
+        "Mania or mixed states can increase suicide risk, impulsivity, and need for higher level of care.",
+        "Psychosis during mood elevation signals severity.",
+        "Antidepressant history without mood stabilizer may complicate the picture."
+      ],
+      "categoryQuickReview": [
+        "Bipolar I = mania",
+        "Bipolar II = hypomania + major depression",
+        "Cyclothymia = chronic subthreshold mood swings for 2 years"
+      ]
+    },
+    {
+      "id": "personality_disorders",
+      "title": "Personality Disorders",
+      "overview": "Personality disorders are enduring, pervasive, inflexible patterns of inner experience and behavior that deviate from cultural expectations and cause impairment or distress.",
+      "clusters": [
+        {
+          "cluster": "Cluster A",
+          "style": "odd/eccentric",
+          "examples": [
+            "Paranoid PD",
+            "Schizoid PD",
+            "Schizotypal PD"
+          ]
+        },
+        {
+          "cluster": "Cluster B",
+          "style": "dramatic/emotional/erratic",
+          "examples": [
+            "Antisocial PD",
+            "Borderline PD",
+            "Histrionic PD",
+            "Narcissistic PD"
+          ]
+        },
+        {
+          "cluster": "Cluster C",
+          "style": "anxious/fearful",
+          "examples": [
+            "Avoidant PD",
+            "Dependent PD",
+            "Obsessive-Compulsive PD"
+          ]
+        }
+      ],
+      "highYieldDisorders": [
+        {
+          "id": "bpd",
+          "title": "Borderline Personality Disorder (BPD)",
+          "hallmark": "Instability in relationships, self-image, affect, and impulse control, often with fear of abandonment and recurrent self-harm or suicidality.",
+          "coreFeatures": [
+            "frantic efforts to avoid real or imagined abandonment",
+            "unstable intense relationships",
+            "identity disturbance",
+            "impulsivity",
+            "recurrent suicidal behavior or self-mutilation",
+            "affective instability",
+            "chronic emptiness",
+            "intense anger",
+            "transient stress-related paranoia or dissociation"
+          ],
+          "examClues": [
+            "Intense abandonment fear plus self-harm is a major clue.",
+            "Relationship instability and rapid shifts in attachment are common."
+          ],
+          "differentialDiagnosis": [
+            {
+              "compareTo": "Bipolar Disorder",
+              "keyDifference": "BPD mood shifts are often rapid, reactive, and interpersonal; bipolar mood episodes have clearer episode structure and duration."
+            },
+            {
+              "compareTo": "PTSD/Complex Trauma",
+              "keyDifference": "Trauma may coexist, but the pervasive personality pattern and attachment instability help distinguish BPD."
+            }
+          ],
+          "evidenceBasedTreatment": "DBT is the most classically tested evidence-based treatment.",
+          "miniCase": {
+            "prompt": "A client alternates between idealizing and devaluing partners, self-harms after perceived rejection, feels chronically empty, and fears abandonment.",
+            "bestAnswer": "Borderline Personality Disorder",
+            "why": "The case centers on instability, self-harm, emptiness, and abandonment sensitivity."
+          }
+        },
+        {
+          "id": "aspd",
+          "title": "Antisocial Personality Disorder (ASPD)",
+          "hallmark": "Pervasive disregard for and violation of the rights of others since age 15, with diagnosis only at age 18 or older and evidence of conduct disorder before age 15.",
+          "coreFeatures": [
+            "failure to conform to lawful behavior",
+            "deceitfulness",
+            "impulsivity",
+            "irritability and aggressiveness",
+            "reckless disregard for safety",
+            "consistent irresponsibility",
+            "lack of remorse"
+          ],
+          "examClues": [
+            "History of conduct disorder before age 15 is essential.",
+            "The exam may include manipulation, legal issues, aggression, and lack of remorse."
+          ],
+          "differentialDiagnosis": [
+            {
+              "compareTo": "Narcissistic Personality Disorder",
+              "keyDifference": "NPD centers on grandiosity and admiration; ASPD centers on rights violations, exploitation, and rule breaking."
+            }
+          ]
+        },
+        {
+          "id": "ocpd",
+          "title": "Obsessive-Compulsive Personality Disorder (OCPD)",
+          "hallmark": "Preoccupation with orderliness, perfectionism, and control at the expense of flexibility and efficiency.",
+          "coreFeatures": [
+            "preoccupation with rules and details",
+            "perfectionism that interferes with task completion",
+            "excessive devotion to work/productivity",
+            "rigidity and stubbornness",
+            "inflexibility about morality or values",
+            "difficulty delegating unless others submit exactly"
+          ],
+          "examClues": [
+            "OCPD is ego-syntonic; the person often sees the style as appropriate.",
+            "Differentiate from OCD, where obsessions and compulsions are unwanted and distressing."
+          ]
+        }
+      ],
+      "redFlags": [
+        "Self-harm and suicidality are especially important in BPD.",
+        "Personality disorder labels should not be applied lightly in early assessment without longitudinal pattern evidence.",
+        "Trauma can mimic or coexist with personality pathology."
+      ],
+      "categoryQuickReview": [
+        "BPD = instability + abandonment fear + self-harm",
+        "ASPD = rights violations + conduct disorder before 15",
+        "OCPD = perfectionism and control, ego-syntonic"
+      ]
+    },
+    {
+      "id": "substance_related",
+      "title": "Substance-Related and Addictive Disorders",
+      "overview": "DSM-5-TR conceptualizes substance disorders on a spectrum of severity rather than the older abuse/dependence split. NCMHCE cases often combine substance use with mood, trauma, legal, or family problems.",
+      "highYieldDisorders": [
+        {
+          "id": "substance_use_disorder",
+          "title": "Substance Use Disorder (General Framework)",
+          "hallmark": "Problematic pattern of use leading to clinically significant impairment or distress, with at least 2 criteria within 12 months.",
+          "criteriaDomains": {
+            "impairedControl": [
+              "using more than intended",
+              "persistent desire or failed efforts to cut down",
+              "great deal of time spent obtaining/using/recovering",
+              "craving"
+            ],
+            "socialImpairment": [
+              "failure to fulfill major role obligations",
+              "continued use despite social/interpersonal problems",
+              "important activities given up"
+            ],
+            "riskyUse": [
+              "recurrent use in hazardous situations",
+              "continued use despite physical/psychological problems"
+            ],
+            "pharmacological": [
+              "tolerance",
+              "withdrawal"
+            ]
+          },
+          "severity": {
+            "mild": "2-3 symptoms",
+            "moderate": "4-5 symptoms",
+            "severe": "6 or more symptoms"
+          },
+          "examClues": [
+            "The exam often embeds legal, occupational, or relationship consequences.",
+            "Craving, failed attempts to cut down, and continued use despite harm are common clues."
+          ],
+          "differentialDiagnosis": [
+            {
+              "compareTo": "Recreational use without disorder",
+              "keyDifference": "Substance Use Disorder requires clinically significant impairment/distress and threshold criteria."
+            },
+            {
+              "compareTo": "Substance-induced mood or anxiety disorder",
+              "keyDifference": "Sometimes the primary syndrome is induced by the substance rather than independent from it."
+            }
+          ],
+          "miniCase": {
+            "prompt": "A client repeatedly drinks more than planned, has missed work, fights with a spouse about alcohol, has tried to stop several times, and still drinks despite worsening depression.",
+            "bestAnswer": "Alcohol Use Disorder",
+            "why": "The case clearly meets multiple SUD criteria across control, social, and continued-use domains."
+          }
+        }
+      ],
+      "commonSubstancesToKnow": [
+        "alcohol",
+        "opioids",
+        "stimulants",
+        "cannabis",
+        "sedative/hypnotic/anxiolytic substances",
+        "tobacco"
+      ],
+      "redFlags": [
+        "Withdrawal can be medically dangerous, especially alcohol and sedative withdrawal.",
+        "Substance use increases suicide risk and can complicate diagnosis.",
+        "Level of care decisions are essential in substance cases."
+      ],
+      "categoryQuickReview": [
+        "DSM-5-TR uses one spectrum model: 2+ criteria within 12 months",
+        "Severity = mild, moderate, severe",
+        "Always consider intoxication, withdrawal, and substance-induced conditions"
+      ]
+    },
+    {
+      "id": "neurodevelopmental",
+      "title": "Neurodevelopmental Disorders",
+      "overview": "These disorders begin during the developmental period and affect cognitive, behavioral, social, and academic functioning.",
+      "highYieldDisorders": [
+        {
+          "id": "adhd",
+          "title": "Attention-Deficit/Hyperactivity Disorder (ADHD)",
+          "hallmark": "Persistent pattern of inattention and/or hyperactivity-impulsivity that interferes with functioning or development.",
+          "coreCriteria": [
+            "At least 6 inattentive symptoms and/or 6 hyperactive-impulsive symptoms in children (5+ for older adolescents/adults in many settings)",
+            "Several symptoms present before age 12",
+            "Symptoms present in 2 or more settings",
+            "Clear evidence of impairment"
+          ],
+          "presentations": [
+            "predominantly inattentive",
+            "predominantly hyperactive-impulsive",
+            "combined presentation"
+          ],
+          "examClues": [
+            "The two-setting requirement is high yield.",
+            "Onset before age 12 is essential."
+          ],
+          "differentialDiagnosis": [
+            {
+              "compareTo": "Anxiety or trauma-related concentration problems",
+              "keyDifference": "ADHD is chronic and developmentally rooted, not only situational or stress-triggered."
+            }
+          ]
+        },
+        {
+          "id": "asd",
+          "title": "Autism Spectrum Disorder (ASD)",
+          "hallmark": "Persistent deficits in social communication/interaction plus restricted, repetitive behaviors or interests, with onset in the developmental period.",
+          "coreCriteria": [
+            "Deficits in social-emotional reciprocity",
+            "Deficits in nonverbal communicative behaviors",
+            "Deficits in developing, maintaining, and understanding relationships",
+            "Restricted, repetitive patterns of behavior, interests, or activities"
+          ],
+          "severityLevels": [
+            "Level 1 - requiring support",
+            "Level 2 - requiring substantial support",
+            "Level 3 - requiring very substantial support"
+          ],
+          "examClues": [
+            "Look for social communication differences plus repetitive behavior patterns or sensory interests."
+          ]
+        },
+        {
+          "id": "intellectual_disability",
+          "title": "Intellectual Disability",
+          "hallmark": "Deficits in intellectual functions and adaptive functioning with onset during the developmental period.",
+          "coreCriteria": [
+            "Deficits in intellectual functioning",
+            "Deficits in adaptive functioning across conceptual, social, or practical domains",
+            "Onset during development"
+          ],
+          "examClues": [
+            "Adaptive functioning is central, not IQ alone."
+          ]
+        }
+      ],
+      "redFlags": [
+        "Do not confuse trauma, anxiety, language barriers, or educational deprivation with neurodevelopmental disorders without adequate evidence.",
+        "Functional impairment and developmental history matter."
+      ],
+      "categoryQuickReview": [
+        "ADHD = onset before 12 + symptoms across settings",
+        "ASD = social communication deficits + restricted/repetitive patterns",
+        "Intellectual Disability = intellectual deficits + adaptive functioning deficits"
+      ]
+    },
+    {
+      "id": "feeding_eating",
+      "title": "Feeding and Eating Disorders",
+      "overview": "These disorders involve disturbances in eating behavior and body-related beliefs that create medical, psychological, and functional risk.",
+      "highYieldDisorders": [
+        {
+          "id": "anorexia",
+          "title": "Anorexia Nervosa",
+          "hallmark": "Restriction of energy intake leading to significantly low body weight, intense fear of gaining weight, and disturbance in body image.",
+          "coreCriteria": [
+            "Restriction of intake leading to significantly low body weight",
+            "Intense fear of gaining weight or persistent behavior interfering with weight gain",
+            "Disturbance in body image or lack of recognition of seriousness"
+          ],
+          "examClues": [
+            "Low body weight is required.",
+            "Denial of severity is common."
+          ]
+        },
+        {
+          "id": "bulimia",
+          "title": "Bulimia Nervosa",
+          "hallmark": "Recurrent binge eating with compensatory behaviors such as vomiting, laxative misuse, fasting, or excessive exercise.",
+          "coreCriteria": [
+            "Recurrent binge eating",
+            "Recurrent inappropriate compensatory behaviors",
+            "Both occur at least once a week for 3 months",
+            "Self-evaluation unduly influenced by body shape/weight"
+          ],
+          "examClues": [
+            "Weight may be normal, unlike many anorexia cases."
+          ]
+        },
+        {
+          "id": "bed",
+          "title": "Binge Eating Disorder",
+          "hallmark": "Recurrent binge eating without regular compensatory behaviors.",
+          "coreCriteria": [
+            "Recurrent binge episodes",
+            "Marked distress regarding binge eating",
+            "At least once a week for 3 months",
+            "No regular compensatory behaviors"
+          ],
+          "examClues": [
+            "Distinguish from bulimia by the absence of purging/compensation."
+          ]
+        },
+        {
+          "id": "arfid",
+          "title": "Avoidant/Restrictive Food Intake Disorder (ARFID)",
+          "hallmark": "Restricted intake causing nutritional or psychosocial impairment without body image distortion as the main driver.",
+          "examClues": [
+            "Often related to sensory aversion, fear of choking/vomiting, or low interest in eating, rather than weight/shape concerns."
+          ]
+        }
+      ],
+      "redFlags": [
+        "Medical instability may require urgent referral or higher level of care.",
+        "Suicidality, electrolyte problems, and severe malnutrition are high-risk issues."
+      ],
+      "categoryQuickReview": [
+        "Anorexia = low weight + fear of weight gain + body image disturbance",
+        "Bulimia = binge + compensatory behavior",
+        "BED = binge without compensatory behavior",
+        "ARFID = restrictive intake without body image focus"
+      ]
+    },
+    {
+      "id": "somatic_related",
+      "title": "Somatic Symptom and Related Disorders",
+      "overview": "These disorders involve distressing somatic symptoms and/or excessive thoughts, feelings, or behaviors related to health concerns.",
+      "highYieldDisorders": [
+        {
+          "id": "somatic_symptom_disorder",
+          "title": "Somatic Symptom Disorder",
+          "hallmark": "One or more distressing somatic symptoms plus excessive thoughts, feelings, or behaviors related to those symptoms.",
+          "coreCriteria": [
+            "One or more somatic symptoms that are distressing or disruptive",
+            "Excessive thoughts, anxiety, or time/energy devoted to health concerns",
+            "Persistence, typically more than 6 months"
+          ],
+          "examClues": [
+            "The symptoms may or may not be medically explained. The key is the excessive psychological response."
+          ]
+        }
+      ],
+      "redFlags": [
+        "Do not assume symptoms are 'all psychological.' Medical evaluation may still be needed.",
+        "Validate distress while avoiding reinforcement of endless reassurance cycles."
+      ],
+      "categoryQuickReview": [
+        "Somatic Symptom Disorder = distressing symptoms + excessive health-related thoughts/behaviors"
+      ]
+    },
+    {
+      "id": "disruptive_impulse_conduct",
+      "title": "Disruptive, Impulse-Control, and Conduct Disorders",
+      "overview": "These disorders involve problems with emotional and behavioral self-control and often appear in child/adolescent cases.",
+      "highYieldDisorders": [
+        {
+          "id": "conduct_disorder",
+          "title": "Conduct Disorder",
+          "hallmark": "Repetitive and persistent pattern of violating rights of others or major age-appropriate norms/rules.",
+          "coreFeatures": [
+            "aggression to people or animals",
+            "destruction of property",
+            "deceitfulness or theft",
+            "serious rule violations"
+          ],
+          "examClues": [
+            "A history of conduct disorder before age 15 is necessary for later ASPD diagnosis."
+          ]
+        }
+      ],
+      "redFlags": [
+        "Assess safety, aggression, cruelty, fire-setting, and legal problems.",
+        "Family environment, trauma, and neurodevelopmental issues may complicate the picture."
+      ],
+      "categoryQuickReview": [
+        "Conduct Disorder matters partly because it is a prerequisite history for ASPD."
+      ]
+    }
+  ],
+  "globalDifferentialTables": [
+    {
+      "title": "Depression Spectrum Quick Compare",
+      "rows": [
+        {
+          "diagnosis": "Major Depressive Disorder",
+          "duration": "2 weeks",
+          "anchor": "5+ symptoms including depressed mood and/or anhedonia",
+          "commonTrap": "Missing hypomania/mania history"
+        },
+        {
+          "diagnosis": "Persistent Depressive Disorder",
+          "duration": "2 years",
+          "anchor": "chronic depressed mood with at least 2 associated symptoms",
+          "commonTrap": "Confusing chronic baseline depression with recurrent episodes only"
+        },
+        {
+          "diagnosis": "Adjustment Disorder with Depressed Mood",
+          "duration": "begins within 3 months of stressor",
+          "anchor": "stressor-linked distress that does not meet another full syndrome",
+          "commonTrap": "Using it when full MDD criteria are already met"
+        }
+      ]
+    },
+    {
+      "title": "Trauma/Stressor Quick Compare",
+      "rows": [
+        {
+          "diagnosis": "Acute Stress Disorder",
+          "duration": "3 days to 1 month",
+          "anchor": "post-trauma symptoms in acute window"
+        },
+        {
+          "diagnosis": "PTSD",
+          "duration": "> 1 month",
+          "anchor": "intrusion + avoidance + negative mood/cognitions + arousal"
+        },
+        {
+          "diagnosis": "Adjustment Disorder",
+          "duration": "within 3 months of stressor",
+          "anchor": "impairing stress response without full trauma syndrome"
+        }
+      ]
+    },
+    {
+      "title": "Bipolar vs Depression Quick Compare",
+      "rows": [
+        {
+          "diagnosis": "Major Depressive Disorder",
+          "anchor": "no history of mania or hypomania"
+        },
+        {
+          "diagnosis": "Bipolar I Disorder",
+          "anchor": "at least one manic episode"
+        },
+        {
+          "diagnosis": "Bipolar II Disorder",
+          "anchor": "at least one hypomanic episode and one major depressive episode"
+        },
+        {
+          "diagnosis": "Cyclothymic Disorder",
+          "anchor": "2 years of subthreshold hypomanic and depressive symptoms"
+        }
+      ]
+    }
+  ],
+  "commonExamTraps": [
+    "Diagnosing depression without screening for mania/hypomania history",
+    "Choosing Adjustment Disorder when full criteria for another diagnosis are met",
+    "Confusing PTSD with Acute Stress Disorder because the symptom pattern is similar but the timeline differs",
+    "Confusing OCD obsessions with generalized worry",
+    "Mistaking OCPD for OCD",
+    "Overlooking conduct disorder history before diagnosing ASPD",
+    "Treating a specifier such as 'with anxious distress' as though it were the primary diagnosis",
+    "Ignoring substances, medical conditions, or medication effects"
+  ],
+  "redFlagAlerts": [
+    {
+      "title": "Suicidality",
+      "whenToThinkOfIt": [
+        "major depression",
+        "bipolar disorder",
+        "borderline personality disorder",
+        "PTSD",
+        "substance use disorders",
+        "eating disorders",
+        "psychotic disorders"
+      ],
+      "clinicalPriority": "Risk assessment comes before routine diagnostic refinement when acute safety concerns are present."
+    },
+    {
+      "title": "Mania/Psychosis",
+      "whenToThinkOfIt": [
+        "decreased need for sleep",
+        "grandiosity",
+        "pressured speech",
+        "hallucinations",
+        "delusions",
+        "severe disorganization"
+      ],
+      "clinicalPriority": "These symptoms may indicate bipolar spectrum illness, psychotic disorder, substance effect, or need for higher level of care."
+    },
+    {
+      "title": "Substance/Medical Rule-Out",
+      "whenToThinkOfIt": [
+        "abrupt symptom shifts",
+        "intoxication/withdrawal pattern",
+        "medication changes",
+        "atypical symptom constellation"
+      ],
+      "clinicalPriority": "Do not lock into a primary psychiatric diagnosis without considering physiological causes."
+    }
+  ],
+  "miniCaseDrills": [
+    {
+      "case": "A client has 8 months of constant worry about finances, family, work, and health, with muscle tension, insomnia, fatigue, and irritability.",
+      "bestDiagnosis": "Generalized Anxiety Disorder",
+      "rationale": "Broad worry across domains for more than 6 months with associated symptoms."
+    },
+    {
+      "case": "A client develops nightmares, flashbacks, avoidance of reminders, emotional numbing, and hypervigilance for 2 weeks after a violent assault.",
+      "bestDiagnosis": "Acute Stress Disorder",
+      "rationale": "Post-trauma syndrome present within the 3-day to 1-month window."
+    },
+    {
+      "case": "A client reports 2 years of chronic low mood, hopelessness, low energy, and low self-esteem, without symptom-free periods longer than 2 months.",
+      "bestDiagnosis": "Persistent Depressive Disorder",
+      "rationale": "Chronic depressive baseline exceeding the 2-year threshold."
+    },
+    {
+      "case": "A client experiences repeated intrusive contamination thoughts and spends hours cleaning to reduce distress despite knowing the fear is excessive.",
+      "bestDiagnosis": "Obsessive-Compulsive Disorder",
+      "rationale": "Intrusive obsessions plus compulsive rituals that are time-consuming."
+    },
+    {
+      "case": "A client presents for depression but also reports several past periods of 5 days of little sleep, unusually high confidence, increased goal-directed activity, and excessive spending, with no hospitalization.",
+      "bestDiagnosis": "Bipolar II Disorder",
+      "rationale": "History suggests hypomania plus depression rather than unipolar depression."
+    }
+  ],
+  "quickReview": {
+    "memoryHooks": [
+      "MDD = 2 weeks, 5 symptoms",
+      "PDD = 2 years, chronic low mood",
+      "GAD = broad worry for 6 months",
+      "Panic Disorder = recurrent unexpected panic attacks",
+      "PTSD = trauma + 4 symptom cluster pattern + >1 month",
+      "ASD = trauma symptoms in the first month",
+      "OCD = ego-dystonic obsessions and compulsions",
+      "Bipolar I = mania",
+      "Bipolar II = hypomania + depression",
+      "BPD = instability + abandonment fear + self-harm",
+      "ASPD = conduct disorder before 15 + age 18+",
+      "SUD = 2+ criteria in 12 months"
+    ],
+    "finalTakeaways": [
+      "The best diagnosis is the one that explains the whole pattern, not just the loudest symptom.",
+      "Duration, impairment, and exclusions often decide the answer.",
+      "When two diagnoses seem possible, ask which one the vignette supports more completely."
+    ]
+  },
+  "checkpointQuestions": [
+    {
+      "question": "A client has intrusive trauma memories, avoidance, hypervigilance, and sleep disturbance for 10 days after a carjacking. What diagnosis best fits?",
+      "answer": "Acute Stress Disorder"
+    },
+    {
+      "question": "A client has chronic depressed mood for years with low self-esteem and hopelessness, but no symptom-free period longer than 2 months. What diagnosis best fits?",
+      "answer": "Persistent Depressive Disorder"
+    },
+    {
+      "question": "A client is terrified of being judged while eating in public and avoids restaurants for that reason. What diagnosis best fits?",
+      "answer": "Social Anxiety Disorder"
+    },
+    {
+      "question": "A client has one major depressive episode and also a past 4-day period of elevated mood, less sleep, more talkativeness, and increased productivity without hospitalization. What diagnosis should be strongly considered?",
+      "answer": "Bipolar II Disorder"
+    },
+    {
+      "question": "A client worries excessively about work, family, finances, and health for 7 months and cannot control the worry. What diagnosis best fits?",
+      "answer": "Generalized Anxiety Disorder"
+    }
+  ],
+  "sourceBasis": {
+    "derivedFromUploadedMaterials": [
+      "Study Library",
+      "DSM-5-TR Diagnoses"
+    ],
+    "notes": "Expanded into a production-ready diagnostic learning module emphasizing duration, criteria, differential diagnosis, severity, specifiers, and exam-style case interpretation."
+  }
+}
