@@ -16,12 +16,12 @@ const navItems: { title: string; url: string; icon: TceIconName }[] = [
   { title: "Dashboard", url: "/dashboard", icon: "dashboard" },
   { title: "Narratives", url: "/narratives", icon: "narrative" },
   { title: "Study Plan", url: "/study-plan", icon: "study-plan" },
-  { title: "Analytics", url: "/analytics", icon: "analytics" },
-  { title: "Flashcards", url: "/flashcards", icon: "flashcards" },
   { title: "Learning Library", url: "/library", icon: "library" },
+  { title: "Flashcards", url: "/flashcards", icon: "flashcards" },
+  { title: "Analytics", url: "/analytics", icon: "analytics" },
   { title: "Study Tools", url: "/tools", icon: "tools" },
-  { title: "Exam Info", url: "/exam-info", icon: "exam-info" },
   { title: "Community", url: "/community", icon: "community" },
+  { title: "Exam Info", url: "/exam-info", icon: "exam-info" },
 ];
 
 const AppSidebar = () => {

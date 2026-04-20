@@ -10,8 +10,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { MessageSquare, Search, LayoutDashboard, User, LogOut } from "lucide-react";
+import { MessageSquare, Search, LayoutDashboard, User, LogOut, Sun, Moon, MessageCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import { useTheme } from "@/contexts/ThemeContext";
 
 interface AppHeaderProps {
   onToggleChat: () => void;
@@ -21,6 +22,7 @@ interface AppHeaderProps {
 const AppHeader = ({ onToggleChat, chatOpen }: AppHeaderProps) => {
   const { profile, signOut } = useAuth();
   const navigate = useNavigate();
+  const { theme, toggleTheme } = useTheme();
 
   const initials = profile?.full_name
     ? profile.full_name.split(" ").map((n) => n[0]).join("").toUpperCase().slice(0, 2)
@@ -46,13 +48,22 @@ const AppHeader = ({ onToggleChat, chatOpen }: AppHeaderProps) => {
 
       <div className="flex items-center gap-2">
         <Button
-          variant={chatOpen ? "default" : "ghost"}
+          variant="ghost"
           size="icon"
+          onClick={toggleTheme}
+          title="Toggle theme"
+        >
+          {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+        </Button>
+
+        <Button
+          variant={chatOpen ? "default" : "outline"}
           onClick={onToggleChat}
-          className="relative"
+          className="relative gap-2"
           title="Toggle AI Chat"
         >
-          <MessageSquare className="h-4 w-4" />
+          <MessageCircle className="h-5 w-5" />
+          <span className="hidden md:inline text-sm font-medium">CounselorAI</span>
         </Button>
 
         <DropdownMenu>
