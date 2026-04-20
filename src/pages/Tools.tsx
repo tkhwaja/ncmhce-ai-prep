@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef, useCallback } from "react";
+import ReactMarkdown from "react-markdown";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
@@ -226,8 +227,8 @@ const FeynmanTool = () => {
           <h3 className="text-lg font-semibold text-foreground">Step 3: AI Feedback</h3>
           <Card className="card-elevated border-primary/20">
             <CardContent className="p-4">
-              <div className="text-sm text-muted-foreground whitespace-pre-wrap">
-                {feedback || "Analyzing..."}
+              <div className="prose prose-sm dark:prose-invert max-w-none">
+                {feedback ? <ReactMarkdown>{feedback}</ReactMarkdown> : "Analyzing..."}
               </div>
             </CardContent>
           </Card>
@@ -290,7 +291,11 @@ const NotesPad = () => {
 
   useEffect(() => { fetchNotes(); }, [fetchNotes]);
 
-  const selectNote = (note: Note) => {
+  const selectNote = async (note: Note) => {
+    // Save current note before switching
+    if (selectedId && selectedId !== note.id) {
+      await supabase.from("notes").update({ title, content }).eq("id", selectedId);
+    }
     setSelectedId(note.id);
     setTitle(note.title);
     setContent(note.content);

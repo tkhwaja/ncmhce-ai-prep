@@ -5,7 +5,55 @@
 @tailwind utilities;
 
 @layer base {
-  :root {
+  :root,
+  .light {
+    --background: 0 0% 100%;
+    --foreground: 222 28% 12%;
+
+    --card: 0 0% 98%;
+    --card-foreground: 222 28% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 222 28% 12%;
+
+    --primary: 217 91% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 186 72% 40%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 220 14% 94%;
+    --muted-foreground: 215 16% 42%;
+
+    --accent: 260 60% 50%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 55%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 13% 88%;
+    --input: 220 13% 88%;
+    --ring: 217 91% 50%;
+
+    --radius: 0.75rem;
+
+    --glow-primary: 217 91% 50%;
+    --glow-secondary: 186 72% 40%;
+    --glow-accent: 260 60% 50%;
+
+    --surface-elevated: 220 14% 96%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 222 28% 12%;
+    --sidebar-primary: 217 91% 50%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 220 14% 94%;
+    --sidebar-accent-foreground: 222 28% 12%;
+    --sidebar-border: 220 13% 88%;
+    --sidebar-ring: 217 91% 50%;
+  }
+
+  .dark {
     --background: 222 28% 6%;
     --foreground: 210 20% 92%;
 

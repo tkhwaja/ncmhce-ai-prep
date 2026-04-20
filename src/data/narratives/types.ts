@@ -60,7 +60,7 @@ export interface Narrative {
   familyHistory: string;
   workHistory: string;
   intakeSessionSummary: string;
-  sections: [NarrativeSection, NarrativeSection, NarrativeSection];
+  sections: NarrativeSection[];
 }
 
 export const totalQuestionCount = (n: Narrative): number =>
