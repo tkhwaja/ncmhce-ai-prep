@@ -158,6 +158,30 @@ export type Database = {
         }
         Relationships: []
       }
+      feedback: {
+        Row: {
+          body: string
+          category: string
+          created_at: string
+          id: string
+          user_id: string
+        }
+        Insert: {
+          body: string
+          category?: string
+          created_at?: string
+          id?: string
+          user_id: string
+        }
+        Update: {
+          body?: string
+          category?: string
+          created_at?: string
+          id?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       flashcard_progress: {
         Row: {
           card_id: string
