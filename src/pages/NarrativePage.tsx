@@ -426,6 +426,14 @@ const NarrativePage = () => {
                         <p className="text-sm font-medium text-foreground mb-1">Explanation</p>
                         <p className="text-sm text-muted-foreground leading-relaxed">{q.explanation}</p>
                       </div>
+                      <div className="pt-2">
+                        <a
+                          href={`mailto:support@thecounselorexam.com?subject=${encodeURIComponent(`Question Report: ${narrative.title} — Q${q.questionNumber} (${q.id})`)}&body=${encodeURIComponent(`I would like to report an issue with the following question:\n\nNarrative: ${narrative.title}\nQuestion #${q.questionNumber} (ID: ${q.id})\nDomain: ${q.domain}\n\nIssue:\n`)}`}
+                          className="text-xs text-muted-foreground hover:text-primary transition-colors underline underline-offset-2"
+                        >
+                          Report this question
+                        </a>
+                      </div>
                     </CardContent>
                   </Card>
                 );
