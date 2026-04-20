@@ -27,7 +27,7 @@ const DOMAIN_ICONS: Record<string, TceIconName> = {
 };
 
 interface Attempt {
-  simulation_id: string;
+  narrative_id: string;
   total_score: number | null;
   domain_scores: Record<string, number> | null;
   ig_selections: string[] | null;
@@ -59,8 +59,8 @@ const Analytics = () => {
     }
     if (!user) return;
     supabase
-      .from("simulation_attempts")
-      .select("simulation_id, total_score, domain_scores, ig_selections, completed_at, created_at")
+      .from("narrative_attempts")
+      .select("narrative_id, total_score, domain_scores, ig_selections, completed_at, created_at")
       .eq("user_id", user.id)
       .not("completed_at", "is", null)
       .order("created_at", { ascending: true })

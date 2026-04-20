@@ -45,7 +45,7 @@ const Profile = () => {
     if (!user) return;
     const fetchStats = async () => {
       const { data: attempts } = await supabase
-        .from("simulation_attempts")
+        .from("narrative_attempts")
         .select("total_score, completed_at")
         .eq("user_id", user.id)
         .not("completed_at", "is", null);
