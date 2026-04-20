@@ -1,0 +1,2084 @@
+{
+  "moduleId": "key-terms-glossary",
+  "moduleTitle": "Key Terms Glossary",
+  "moduleType": "learning_library",
+  "version": "1.0",
+  "exam": {
+    "name": "NCMHCE",
+    "formatAlignment": {
+      "currentBlueprint": true,
+      "effective2027Blueprint": true
+    },
+    "whyThisModuleMatters": "This module gives learners a fast-reference glossary of high-yield counseling, diagnosis, ethics, assessment, trauma, group, research, and career terms likely to appear across NCMHCE case simulations and learning modules."
+  },
+  "uiHints": {
+    "defaultView": "alphabetical_index",
+    "recommendedComponents": [
+      "module_header",
+      "alphabet_jump_nav",
+      "search_bar",
+      "term_cards",
+      "tag_filters",
+      "related_term_links",
+      "quick_review_panel"
+    ],
+    "tags": [
+      "glossary",
+      "key-terms",
+      "quick-reference",
+      "ncmhce",
+      "high-yield"
+    ]
+  },
+  "intro": {
+    "summary": "This glossary is designed as a fast-reference study tool. Instead of long lessons, it gives learners clean definitions, exam relevance, and related ideas that help them decode case vignettes faster.",
+    "learningObjectives": [
+      "Recognize core counseling and diagnostic terms quickly",
+      "Differentiate similar concepts that are commonly confused on the exam",
+      "Use glossary terms to reinforce deeper module learning",
+      "Improve speed and confidence when reading clinical case language"
+    ],
+    "howToUse": [
+      "Use search when a term in a case vignette is unfamiliar.",
+      "Review related terms together when concepts are commonly confused.",
+      "Pair this glossary with the full theory, diagnosis, ethics, and crisis modules for deeper learning."
+    ]
+  },
+  "terms": [
+    {
+      "term": "Abreaction",
+      "letter": "A",
+      "definition": "Emotional release that occurs when a person revisits a repressed or traumatic experience.",
+      "examRelevance": "May appear in trauma, psychodynamic, or emotionally intense processing contexts.",
+      "relatedTerms": [
+        "Catharsis",
+        "Trauma-Informed Care"
+      ],
+      "tags": [
+        "trauma",
+        "psychodynamic"
+      ]
+    },
+    {
+      "term": "Acculturation",
+      "letter": "A",
+      "definition": "The process of adapting to a new culture while retaining, modifying, or losing aspects of the original culture.",
+      "examRelevance": "Useful in multicultural, developmental, immigrant, and family stress cases.",
+      "relatedTerms": [
+        "Cultural Humility",
+        "Intersectionality"
+      ],
+      "tags": [
+        "multicultural",
+        "development"
+      ]
+    },
+    {
+      "term": "Acute Stress Disorder",
+      "letter": "A",
+      "definition": "Trauma-related condition lasting from 3 days to 1 month after a traumatic event.",
+      "examRelevance": "High-yield differential from PTSD, which requires symptoms longer than 1 month.",
+      "relatedTerms": [
+        "PTSD",
+        "Trauma-Informed Care"
+      ],
+      "tags": [
+        "diagnosis",
+        "trauma"
+      ]
+    },
+    {
+      "term": "Adaptive Functioning",
+      "letter": "A",
+      "definition": "How well a person manages everyday conceptual, social, and practical life demands.",
+      "examRelevance": "Important in intellectual disability and developmental assessment cases.",
+      "relatedTerms": [
+        "Intellectual Disability",
+        "WAIS-IV",
+        "WISC-V"
+      ],
+      "tags": [
+        "assessment",
+        "development"
+      ]
+    },
+    {
+      "term": "Agoraphobia",
+      "letter": "A",
+      "definition": "Fear and avoidance of situations where escape may be difficult or help unavailable if panic-like symptoms occur.",
+      "examRelevance": "Differentiate from panic disorder and specific phobia.",
+      "relatedTerms": [
+        "Panic Disorder",
+        "Specific Phobia"
+      ],
+      "tags": [
+        "diagnosis",
+        "anxiety"
+      ]
+    },
+    {
+      "term": "Akathisia",
+      "letter": "A",
+      "definition": "Medication side effect marked by inner restlessness and inability to sit still, often linked to antipsychotics.",
+      "examRelevance": "Common psychopharmacology test point under EPS.",
+      "relatedTerms": [
+        "Antipsychotics",
+        "Tardive Dyskinesia",
+        "EPS"
+      ],
+      "tags": [
+        "psychopharmacology"
+      ]
+    },
+    {
+      "term": "Altruism",
+      "letter": "A",
+      "definition": "Yalom therapeutic factor in which group members benefit from helping each other.",
+      "examRelevance": "Often tested in group scenarios.",
+      "relatedTerms": [
+        "Universality",
+        "Group Cohesion"
+      ],
+      "tags": [
+        "group"
+      ]
+    },
+    {
+      "term": "Ambivalence",
+      "letter": "A",
+      "definition": "Simultaneous conflicting feelings or motivations about a decision or behavior.",
+      "examRelevance": "Core concept in Motivational Interviewing and substance use cases.",
+      "relatedTerms": [
+        "Motivational Interviewing",
+        "Stages of Change"
+      ],
+      "tags": [
+        "theories",
+        "substance-use"
+      ]
+    },
+    {
+      "term": "Anhedonia",
+      "letter": "A",
+      "definition": "Markedly reduced ability to feel pleasure or interest in previously enjoyable activities.",
+      "examRelevance": "Core symptom of Major Depressive Disorder.",
+      "relatedTerms": [
+        "Major Depressive Disorder",
+        "Behavioral Activation"
+      ],
+      "tags": [
+        "diagnosis",
+        "depression"
+      ]
+    },
+    {
+      "term": "Anxious Attachment",
+      "letter": "A",
+      "definition": "Attachment pattern marked by fear of abandonment, clinginess, and hyperactivation of closeness needs.",
+      "examRelevance": "Relevant in trauma, couples, and personality-related cases.",
+      "relatedTerms": [
+        "Attachment Theory",
+        "Avoidant Attachment",
+        "Disorganized Attachment"
+      ],
+      "tags": [
+        "development",
+        "attachment"
+      ]
+    },
+    {
+      "term": "Assimilation",
+      "letter": "A",
+      "definition": "Piaget concept describing how new information is fitted into existing mental schemas.",
+      "examRelevance": "Appears in human development questions.",
+      "relatedTerms": [
+        "Accommodation",
+        "Schema",
+        "Piaget"
+      ],
+      "tags": [
+        "development"
+      ]
+    },
+    {
+      "term": "Autonomy",
+      "letter": "A",
+      "definition": "Ethical principle emphasizing the client's right to self-determination and informed decision-making.",
+      "examRelevance": "High-yield in informed consent and treatment choice scenarios.",
+      "relatedTerms": [
+        "Informed Consent",
+        "Beneficence",
+        "Justice"
+      ],
+      "tags": [
+        "ethics"
+      ]
+    },
+    {
+      "term": "Avoidant Attachment",
+      "letter": "A",
+      "definition": "Attachment pattern marked by suppression of closeness needs and discomfort with dependence or intimacy.",
+      "examRelevance": "Relevant in adult relationship and trauma conceptualization.",
+      "relatedTerms": [
+        "Anxious Attachment",
+        "Secure Attachment"
+      ],
+      "tags": [
+        "development",
+        "attachment"
+      ]
+    },
+    {
+      "term": "Behavioral Activation",
+      "letter": "B",
+      "definition": "CBT intervention that increases rewarding or meaningful activity to reduce withdrawal and depression.",
+      "examRelevance": "High-yield CBT technique in depression cases.",
+      "relatedTerms": [
+        "CBT",
+        "Anhedonia",
+        "Thought Record"
+      ],
+      "tags": [
+        "theories",
+        "depression"
+      ]
+    },
+    {
+      "term": "Beneficence",
+      "letter": "B",
+      "definition": "Ethical principle requiring action in the client's best interest.",
+      "examRelevance": "Common in ethics balancing questions.",
+      "relatedTerms": [
+        "Nonmaleficence",
+        "Autonomy",
+        "Fidelity"
+      ],
+      "tags": [
+        "ethics"
+      ]
+    },
+    {
+      "term": "Biopsychosocial Model",
+      "letter": "B",
+      "definition": "Framework that explains mental health through interacting biological, psychological, and social factors.",
+      "examRelevance": "Central to case conceptualization and intake formulation.",
+      "relatedTerms": [
+        "Case Conceptualization",
+        "MSE",
+        "Treatment Plan"
+      ],
+      "tags": [
+        "case-conceptualization",
+        "assessment"
+      ]
+    },
+    {
+      "term": "Black Box Warning",
+      "letter": "B",
+      "definition": "The FDA's strongest medication warning, often highlighted for antidepressant-related suicidality risk in youth and young adults.",
+      "examRelevance": "High-yield psychopharmacology point.",
+      "relatedTerms": [
+        "SSRIs",
+        "Suicidal Ideation"
+      ],
+      "tags": [
+        "psychopharmacology"
+      ]
+    },
+    {
+      "term": "Blocking",
+      "letter": "B",
+      "definition": "Group leader intervention that stops harmful or unproductive member behavior.",
+      "examRelevance": "Frequently tested in group safety and scapegoating scenarios.",
+      "relatedTerms": [
+        "Linking",
+        "Processing",
+        "Scapegoating"
+      ],
+      "tags": [
+        "group"
+      ]
+    },
+    {
+      "term": "Boundaries",
+      "letter": "B",
+      "definition": "Professional limits that define and protect the therapeutic relationship.",
+      "examRelevance": "Major ethics topic in dual relationship and role confusion cases.",
+      "relatedTerms": [
+        "Dual Relationship",
+        "Fidelity",
+        "Termination"
+      ],
+      "tags": [
+        "ethics"
+      ]
+    },
+    {
+      "term": "Broaching",
+      "letter": "B",
+      "definition": "Intentional counselor effort to bring up race, culture, or identity factors that may affect the counseling relationship.",
+      "examRelevance": "Relevant in multicultural and alliance-building questions.",
+      "relatedTerms": [
+        "Cultural Humility",
+        "Intersectionality"
+      ],
+      "tags": [
+        "multicultural",
+        "theories"
+      ]
+    },
+    {
+      "term": "CAGE",
+      "letter": "C",
+      "definition": "Brief alcohol screening tool: Cut down, Annoyed, Guilty, Eye-opener.",
+      "examRelevance": "High-yield assessment tool for alcohol use screening.",
+      "relatedTerms": [
+        "AUDIT",
+        "DAST-10"
+      ],
+      "tags": [
+        "assessment",
+        "substance-use"
+      ]
+    },
+    {
+      "term": "Catharsis",
+      "letter": "C",
+      "definition": "Emotional release that brings relief or insight, especially in group work.",
+      "examRelevance": "Yalom factor and trauma/group-related concept.",
+      "relatedTerms": [
+        "Abreaction",
+        "Altruism",
+        "Group Cohesion"
+      ],
+      "tags": [
+        "group",
+        "trauma"
+      ]
+    },
+    {
+      "term": "Chain Analysis",
+      "letter": "C",
+      "definition": "DBT strategy that maps the sequence of events, thoughts, emotions, and actions leading to a problem behavior.",
+      "examRelevance": "High-yield DBT intervention for self-harm and impulsive behavior cases.",
+      "relatedTerms": [
+        "DBT",
+        "Wise Mind",
+        "Distress Tolerance"
+      ],
+      "tags": [
+        "theories"
+      ]
+    },
+    {
+      "term": "Circumscription",
+      "letter": "C",
+      "definition": "Gottfredson concept describing how children narrow career options over time based on role expectations, prestige, and interests.",
+      "examRelevance": "High-yield in career development.",
+      "relatedTerms": [
+        "Compromise",
+        "Gottfredson",
+        "Career Development"
+      ],
+      "tags": [
+        "career"
+      ]
+    },
+    {
+      "term": "Clinical Supervision",
+      "letter": "C",
+      "definition": "Oversight of a counselor's work by a more experienced clinician to support competence, ethics, and client welfare.",
+      "examRelevance": "Important in ethics, supervision, and training questions.",
+      "relatedTerms": [
+        "Vicarious Liability",
+        "Impairment",
+        "Consultation"
+      ],
+      "tags": [
+        "ethics",
+        "supervision"
+      ]
+    },
+    {
+      "term": "Cognitive Defusion",
+      "letter": "C",
+      "definition": "ACT skill of seeing thoughts as mental events rather than literal truths.",
+      "examRelevance": "Differentiates ACT from CBT cognitive restructuring.",
+      "relatedTerms": [
+        "ACT",
+        "Acceptance",
+        "Values"
+      ],
+      "tags": [
+        "theories"
+      ]
+    },
+    {
+      "term": "Cognitive Distortion",
+      "letter": "C",
+      "definition": "Inaccurate or unhelpful pattern of thinking such as catastrophizing or all-or-nothing thinking.",
+      "examRelevance": "Core CBT concept and a common exam clue in client statements.",
+      "relatedTerms": [
+        "CBT",
+        "Thought Record",
+        "Cognitive Triad"
+      ],
+      "tags": [
+        "theories"
+      ]
+    },
+    {
+      "term": "Cognitive Triad",
+      "letter": "C",
+      "definition": "Beck's depression model involving negative views of self, world, and future.",
+      "examRelevance": "Classic depression/CBT concept.",
+      "relatedTerms": [
+        "CBT",
+        "Major Depressive Disorder"
+      ],
+      "tags": [
+        "theories",
+        "depression"
+      ]
+    },
+    {
+      "term": "Cohesiveness",
+      "letter": "C",
+      "definition": "Sense of belonging, trust, and acceptance within a therapy group.",
+      "examRelevance": "One of the most important healing conditions in groups.",
+      "relatedTerms": [
+        "Group Cohesion",
+        "Universality",
+        "Yalom"
+      ],
+      "tags": [
+        "group"
+      ]
+    },
+    {
+      "term": "Collateral Information",
+      "letter": "C",
+      "definition": "Information from sources other than the client, such as family, records, or other providers.",
+      "examRelevance": "Important in assessment, risk, and family-related cases.",
+      "relatedTerms": [
+        "ROI",
+        "Assessment",
+        "Case Conceptualization"
+      ],
+      "tags": [
+        "assessment",
+        "ethics"
+      ]
+    },
+    {
+      "term": "Comorbidity",
+      "letter": "C",
+      "definition": "Presence of two or more diagnosable conditions at the same time.",
+      "examRelevance": "Very common in diagnosis and case conceptualization.",
+      "relatedTerms": [
+        "Differential Diagnosis",
+        "Substance Use Disorder",
+        "PTSD"
+      ],
+      "tags": [
+        "diagnosis"
+      ]
+    },
+    {
+      "term": "Compassion Fatigue",
+      "letter": "C",
+      "definition": "Emotional exhaustion related to repeated exposure to others' suffering.",
+      "examRelevance": "Relevant to counselor impairment and trauma work.",
+      "relatedTerms": [
+        "Secondary Traumatic Stress",
+        "Vicarious Trauma"
+      ],
+      "tags": [
+        "trauma",
+        "ethics"
+      ]
+    },
+    {
+      "term": "Congruence",
+      "letter": "C",
+      "definition": "Rogers' term for genuineness and alignment between inner experience and outward expression.",
+      "examRelevance": "Core person-centered therapy condition.",
+      "relatedTerms": [
+        "Empathy",
+        "Unconditional Positive Regard"
+      ],
+      "tags": [
+        "theories"
+      ]
+    },
+    {
+      "term": "Countertransference",
+      "letter": "C",
+      "definition": "Counselor emotional reactions to the client that may be shaped by the counselor's own unresolved material.",
+      "examRelevance": "Important in psychodynamic and supervision questions.",
+      "relatedTerms": [
+        "Transference",
+        "Psychodynamic Therapy",
+        "Clinical Supervision"
+      ],
+      "tags": [
+        "theories",
+        "supervision"
+      ]
+    },
+    {
+      "term": "C-SSRS",
+      "letter": "C",
+      "definition": "Columbia Suicide Severity Rating Scale, a structured tool for assessing suicidal ideation and behavior.",
+      "examRelevance": "High-yield suicide risk assessment tool.",
+      "relatedTerms": [
+        "Safety Plan",
+        "Suicidal Ideation",
+        "ASQ"
+      ],
+      "tags": [
+        "assessment",
+        "crisis"
+      ]
+    },
+    {
+      "term": "DAP Note",
+      "letter": "D",
+      "definition": "Progress note format consisting of Data, Assessment, and Plan.",
+      "examRelevance": "Documentation format often contrasted with SOAP.",
+      "relatedTerms": [
+        "SOAP Note",
+        "Documentation",
+        "Case Conceptualization"
+      ],
+      "tags": [
+        "documentation"
+      ]
+    },
+    {
+      "term": "Depersonalization",
+      "letter": "D",
+      "definition": "Experience of feeling detached from oneself, as if observing from outside the body or mind.",
+      "examRelevance": "Relevant in trauma, dissociation, and PTSD specifier cases.",
+      "relatedTerms": [
+        "Derealization",
+        "Dissociation"
+      ],
+      "tags": [
+        "trauma",
+        "diagnosis"
+      ]
+    },
+    {
+      "term": "Derealization",
+      "letter": "D",
+      "definition": "Experience of feeling that surroundings are unreal, distant, or dreamlike.",
+      "examRelevance": "Relevant in trauma and dissociative presentations.",
+      "relatedTerms": [
+        "Depersonalization",
+        "Dissociation"
+      ],
+      "tags": [
+        "trauma",
+        "diagnosis"
+      ]
+    },
+    {
+      "term": "Differentiation of Self",
+      "letter": "D",
+      "definition": "Bowen concept describing the ability to stay emotionally connected while maintaining a clear independent sense of self.",
+      "examRelevance": "High-yield family systems concept.",
+      "relatedTerms": [
+        "Triangulation",
+        "Genogram",
+        "Bowenian Therapy"
+      ],
+      "tags": [
+        "family",
+        "theories"
+      ]
+    },
+    {
+      "term": "Disorganized Attachment",
+      "letter": "D",
+      "definition": "Attachment pattern marked by inconsistent or fearful responses, often linked to trauma or frightening caregiving.",
+      "examRelevance": "Relevant in trauma, attachment, and personality-related cases.",
+      "relatedTerms": [
+        "Attachment Theory",
+        "Anxious Attachment",
+        "Avoidant Attachment"
+      ],
+      "tags": [
+        "development",
+        "attachment"
+      ]
+    },
+    {
+      "term": "Dissociation",
+      "letter": "D",
+      "definition": "Disruption in normal integration of consciousness, memory, perception, or identity.",
+      "examRelevance": "Important in trauma, ASD, PTSD, and grounding/stabilization questions.",
+      "relatedTerms": [
+        "Depersonalization",
+        "Derealization",
+        "Window of Tolerance"
+      ],
+      "tags": [
+        "trauma",
+        "crisis"
+      ]
+    },
+    {
+      "term": "Dual Relationship",
+      "letter": "D",
+      "definition": "A second role with a client beyond counseling, such as friend, employer, teacher, or romantic partner.",
+      "examRelevance": "Major ethics concept in boundary and conflict-of-interest cases.",
+      "relatedTerms": [
+        "Boundaries",
+        "Fidelity",
+        "Exploitation"
+      ],
+      "tags": [
+        "ethics"
+      ]
+    },
+    {
+      "term": "Duty to Warn / Protect",
+      "letter": "D",
+      "definition": "Legal and ethical obligation to take protective action when a client poses a serious threat to an identifiable third party.",
+      "examRelevance": "Very high-yield ethics/crisis concept.",
+      "relatedTerms": [
+        "Tarasoff",
+        "Mandated Reporting",
+        "Homicidal Ideation"
+      ],
+      "tags": [
+        "ethics",
+        "crisis"
+      ]
+    },
+    {
+      "term": "Early Recollections",
+      "letter": "E",
+      "definition": "Adlerian assessment tool using earliest memories to reveal lifestyle patterns and beliefs.",
+      "examRelevance": "Common Adlerian exam clue.",
+      "relatedTerms": [
+        "Lifestyle",
+        "Adlerian Therapy",
+        "Fictional Finalism"
+      ],
+      "tags": [
+        "theories"
+      ]
+    },
+    {
+      "term": "Effect Size",
+      "letter": "E",
+      "definition": "Statistic that shows the practical magnitude of a treatment effect or relationship.",
+      "examRelevance": "High-yield in research/program evaluation interpretation.",
+      "relatedTerms": [
+        "p-value",
+        "Statistical Significance",
+        "EBP"
+      ],
+      "tags": [
+        "research"
+      ]
+    },
+    {
+      "term": "Ego-Dystonic",
+      "letter": "E",
+      "definition": "Thoughts, urges, or behaviors that feel unwanted and inconsistent with the self.",
+      "examRelevance": "Classic clue for OCD-related symptoms.",
+      "relatedTerms": [
+        "OCD",
+        "Ego-Syntonic"
+      ],
+      "tags": [
+        "diagnosis"
+      ]
+    },
+    {
+      "term": "Ego-Syntonic",
+      "letter": "E",
+      "definition": "Thoughts, traits, or behaviors experienced as natural, justified, or consistent with the self.",
+      "examRelevance": "Useful in personality disorder and OCPD differentials.",
+      "relatedTerms": [
+        "Ego-Dystonic",
+        "OCPD"
+      ],
+      "tags": [
+        "diagnosis"
+      ]
+    },
+    {
+      "term": "EMDR",
+      "letter": "E",
+      "definition": "Eye Movement Desensitization and Reprocessing, an evidence-based trauma treatment using bilateral stimulation during trauma processing.",
+      "examRelevance": "High-yield PTSD treatment model.",
+      "relatedTerms": [
+        "PTSD",
+        "CPT",
+        "PE",
+        "TF-CBT"
+      ],
+      "tags": [
+        "trauma",
+        "theories"
+      ]
+    },
+    {
+      "term": "Empathy",
+      "letter": "E",
+      "definition": "Accurately understanding and communicating understanding of the client's inner world.",
+      "examRelevance": "Core Rogers condition and broadly central counseling skill.",
+      "relatedTerms": [
+        "Congruence",
+        "Unconditional Positive Regard"
+      ],
+      "tags": [
+        "theories",
+        "core-skills"
+      ]
+    },
+    {
+      "term": "Empowerment",
+      "letter": "E",
+      "definition": "Helping clients recognize and use their strengths, agency, and capacity for change.",
+      "examRelevance": "Relevant in trauma-informed care, multicultural work, and person-centered approaches.",
+      "relatedTerms": [
+        "Trauma-Informed Care",
+        "Strengths-Based"
+      ],
+      "tags": [
+        "core-skills",
+        "multicultural"
+      ]
+    },
+    {
+      "term": "Enmeshment",
+      "letter": "E",
+      "definition": "Structural family therapy concept describing overly diffuse boundaries and excessive involvement among family members.",
+      "examRelevance": "High-yield family systems term.",
+      "relatedTerms": [
+        "Disengagement",
+        "Structural Family Therapy",
+        "Boundaries"
+      ],
+      "tags": [
+        "family",
+        "theories"
+      ]
+    },
+    {
+      "term": "Equifinality",
+      "letter": "E",
+      "definition": "Systems concept that different paths can lead to the same outcome.",
+      "examRelevance": "Useful in family systems and case conceptualization reasoning.",
+      "relatedTerms": [
+        "Biopsychosocial Model",
+        "Systems Theory"
+      ],
+      "tags": [
+        "family",
+        "case-conceptualization"
+      ]
+    },
+    {
+      "term": "ERP",
+      "letter": "E",
+      "definition": "Exposure and Response Prevention, an evidence-based OCD treatment involving exposure to feared stimuli while resisting compulsive rituals.",
+      "examRelevance": "High-yield OCD treatment term.",
+      "relatedTerms": [
+        "OCD",
+        "CBT"
+      ],
+      "tags": [
+        "diagnosis",
+        "theories"
+      ]
+    },
+    {
+      "term": "Existential Factors",
+      "letter": "E",
+      "definition": "Yalom factor involving confrontation with freedom, responsibility, mortality, isolation, and meaning.",
+      "examRelevance": "Common group theory term.",
+      "relatedTerms": [
+        "Yalom",
+        "Catharsis"
+      ],
+      "tags": [
+        "group"
+      ]
+    },
+    {
+      "term": "Externalizing",
+      "letter": "E",
+      "definition": "Narrative therapy practice of separating the problem from the person.",
+      "examRelevance": "High-yield narrative therapy clue.",
+      "relatedTerms": [
+        "Narrative Therapy",
+        "Re-Authoring",
+        "Unique Outcomes"
+      ],
+      "tags": [
+        "theories"
+      ]
+    },
+    {
+      "term": "FERPA",
+      "letter": "F",
+      "definition": "Federal law protecting educational records from unauthorized disclosure.",
+      "examRelevance": "Important in school counseling and educational settings.",
+      "relatedTerms": [
+        "HIPAA",
+        "Confidentiality"
+      ],
+      "tags": [
+        "ethics"
+      ]
+    },
+    {
+      "term": "Fictional Finalism",
+      "letter": "F",
+      "definition": "Adlerian concept describing imagined goals or ideals that guide behavior.",
+      "examRelevance": "Common Adlerian conceptual clue in perfectionism and self-worth cases.",
+      "relatedTerms": [
+        "Adlerian Therapy",
+        "Lifestyle",
+        "Early Recollections"
+      ],
+      "tags": [
+        "theories"
+      ]
+    },
+    {
+      "term": "Fidelity",
+      "letter": "F",
+      "definition": "Ethical principle of trustworthiness, keeping commitments, and maintaining professional reliability.",
+      "examRelevance": "Relevant in alliance, documentation, supervision, and boundaries.",
+      "relatedTerms": [
+        "Veracity",
+        "Beneficence"
+      ],
+      "tags": [
+        "ethics"
+      ]
+    },
+    {
+      "term": "Four Horsemen",
+      "letter": "F",
+      "definition": "Gottman predictors of relationship breakdown: criticism, contempt, defensiveness, and stonewalling.",
+      "examRelevance": "High-yield couples counseling concept.",
+      "relatedTerms": [
+        "Gottman Method",
+        "EFT"
+      ],
+      "tags": [
+        "theories",
+        "couples"
+      ]
+    },
+    {
+      "term": "Functional Behavioral Assessment",
+      "letter": "F",
+      "definition": "Behavioral assessment method that identifies antecedents, behaviors, and consequences to determine the function of a behavior.",
+      "examRelevance": "Important in child, school, and behavior planning cases.",
+      "relatedTerms": [
+        "Behavioral Observation",
+        "Assessment"
+      ],
+      "tags": [
+        "assessment",
+        "development"
+      ]
+    },
+    {
+      "term": "GAD-7",
+      "letter": "G",
+      "definition": "Brief self-report measure of generalized anxiety severity.",
+      "examRelevance": "High-yield assessment tool for anxiety screening and monitoring.",
+      "relatedTerms": [
+        "PHQ-9",
+        "BAI"
+      ],
+      "tags": [
+        "assessment",
+        "anxiety"
+      ]
+    },
+    {
+      "term": "Gemeinschaftsgefühl",
+      "letter": "G",
+      "definition": "Adlerian concept often translated as social interest or community feeling.",
+      "examRelevance": "Key marker of Adlerian mental health.",
+      "relatedTerms": [
+        "Social Interest",
+        "Adlerian Therapy"
+      ],
+      "tags": [
+        "theories"
+      ]
+    },
+    {
+      "term": "Genogram",
+      "letter": "G",
+      "definition": "Diagram of family relationships and patterns across generations.",
+      "examRelevance": "High-yield family systems assessment tool.",
+      "relatedTerms": [
+        "Bowenian Therapy",
+        "Differentiation of Self",
+        "Family Projection Process"
+      ],
+      "tags": [
+        "assessment",
+        "family"
+      ]
+    },
+    {
+      "term": "Gestalt",
+      "letter": "G",
+      "definition": "Experiential therapy emphasizing present-moment awareness, unfinished business, and direct contact with experience.",
+      "examRelevance": "Often signaled by empty-chair or here-and-now work.",
+      "relatedTerms": [
+        "Empty Chair",
+        "Here-and-Now"
+      ],
+      "tags": [
+        "theories"
+      ]
+    },
+    {
+      "term": "Group Cohesion",
+      "letter": "G",
+      "definition": "Strong sense of group belonging, trust, and emotional connection.",
+      "examRelevance": "Critical group healing factor and common exam concept.",
+      "relatedTerms": [
+        "Cohesiveness",
+        "Universality",
+        "Yalom"
+      ],
+      "tags": [
+        "group"
+      ]
+    },
+    {
+      "term": "HIPAA",
+      "letter": "H",
+      "definition": "Federal law governing privacy and protection of health information in covered healthcare settings.",
+      "examRelevance": "Essential ethics/legal term.",
+      "relatedTerms": [
+        "FERPA",
+        "PHI",
+        "Confidentiality"
+      ],
+      "tags": [
+        "ethics"
+      ]
+    },
+    {
+      "term": "Holland Codes",
+      "letter": "H",
+      "definition": "RIASEC career typology: Realistic, Investigative, Artistic, Social, Enterprising, Conventional.",
+      "examRelevance": "High-yield career counseling framework.",
+      "relatedTerms": [
+        "SDS",
+        "Career Development"
+      ],
+      "tags": [
+        "career"
+      ]
+    },
+    {
+      "term": "Homicidal Ideation",
+      "letter": "H",
+      "definition": "Thoughts of killing or seriously harming another person.",
+      "examRelevance": "Important in violence risk and duty-to-protect questions.",
+      "relatedTerms": [
+        "Duty to Warn / Protect",
+        "Tarasoff"
+      ],
+      "tags": [
+        "crisis",
+        "ethics"
+      ]
+    },
+    {
+      "term": "Hypersomnia",
+      "letter": "H",
+      "definition": "Excessive sleepiness or sleeping for unusually long periods.",
+      "examRelevance": "Possible symptom of depression and atypical presentations.",
+      "relatedTerms": [
+        "Major Depressive Disorder",
+        "Insomnia"
+      ],
+      "tags": [
+        "diagnosis"
+      ]
+    },
+    {
+      "term": "Hypomania",
+      "letter": "H",
+      "definition": "Elevated or irritable mood with increased energy lasting at least 4 days, less severe than mania and without marked impairment or psychosis.",
+      "examRelevance": "High-yield differential point for Bipolar II vs MDD.",
+      "relatedTerms": [
+        "Mania",
+        "Bipolar II Disorder"
+      ],
+      "tags": [
+        "diagnosis"
+      ]
+    },
+    {
+      "term": "IFS",
+      "letter": "I",
+      "definition": "Internal Family Systems model viewing the mind as composed of parts led by a core Self.",
+      "examRelevance": "Theory clue when cases use part language and inner conflict.",
+      "relatedTerms": [
+        "Exiles",
+        "Managers",
+        "Firefighters"
+      ],
+      "tags": [
+        "theories"
+      ]
+    },
+    {
+      "term": "Immediacy",
+      "letter": "I",
+      "definition": "Counselor skill of addressing what is happening in the therapeutic relationship in the present moment.",
+      "examRelevance": "Relevant in person-centered, process, and group interventions.",
+      "relatedTerms": [
+        "Here-and-Now",
+        "Processing"
+      ],
+      "tags": [
+        "core-skills",
+        "group"
+      ]
+    },
+    {
+      "term": "Informed Consent",
+      "letter": "I",
+      "definition": "Ongoing process of explaining counseling, risks, benefits, limits, and client rights so the client can make an informed choice.",
+      "examRelevance": "One of the most heavily tested ethics concepts.",
+      "relatedTerms": [
+        "Autonomy",
+        "Confidentiality",
+        "Telehealth"
+      ],
+      "tags": [
+        "ethics"
+      ]
+    },
+    {
+      "term": "Instillation of Hope",
+      "letter": "I",
+      "definition": "Yalom factor in which members gain hope by seeing that improvement is possible.",
+      "examRelevance": "Common group therapy exam clue.",
+      "relatedTerms": [
+        "Universality",
+        "Altruism"
+      ],
+      "tags": [
+        "group"
+      ]
+    },
+    {
+      "term": "Intersectionality",
+      "letter": "I",
+      "definition": "Framework recognizing that multiple social identities and systems of oppression/privilege interact.",
+      "examRelevance": "Relevant in multicultural, trauma, and social justice-informed cases.",
+      "relatedTerms": [
+        "Acculturation",
+        "Cultural Humility",
+        "Privilege"
+      ],
+      "tags": [
+        "multicultural"
+      ]
+    },
+    {
+      "term": "Justice",
+      "letter": "J",
+      "definition": "Ethical principle of fairness and equitable treatment.",
+      "examRelevance": "Important in ethics, nondiscrimination, and access-related questions.",
+      "relatedTerms": [
+        "Autonomy",
+        "Beneficence"
+      ],
+      "tags": [
+        "ethics"
+      ]
+    },
+    {
+      "term": "Krumboltz",
+      "letter": "K",
+      "definition": "Career theorist known for social learning theory of career development and planned happenstance.",
+      "examRelevance": "High-yield career counseling theory.",
+      "relatedTerms": [
+        "Planned Happenstance",
+        "Career Development"
+      ],
+      "tags": [
+        "career"
+      ]
+    },
+    {
+      "term": "Lethality Assessment",
+      "letter": "L",
+      "definition": "Clinical evaluation of the likelihood that a suicidal or violent thought may be acted upon.",
+      "examRelevance": "Core part of crisis and safety work.",
+      "relatedTerms": [
+        "C-SSRS",
+        "Safety Plan",
+        "Means"
+      ],
+      "tags": [
+        "crisis",
+        "assessment"
+      ]
+    },
+    {
+      "term": "Level of Care",
+      "letter": "L",
+      "definition": "Intensity and setting of treatment appropriate to a client's needs, such as outpatient, IOP, PHP, residential, or inpatient.",
+      "examRelevance": "High-yield in crisis, substance use, psychosis, and severity decisions.",
+      "relatedTerms": [
+        "ASAM",
+        "Risk Assessment"
+      ],
+      "tags": [
+        "assessment",
+        "case-conceptualization"
+      ]
+    },
+    {
+      "term": "Lifestyle",
+      "letter": "L",
+      "definition": "Adlerian term for an individual's characteristic pattern of beliefs, goals, and behavior formed early in life.",
+      "examRelevance": "Classic Adlerian conceptual term.",
+      "relatedTerms": [
+        "Early Recollections",
+        "Fictional Finalism"
+      ],
+      "tags": [
+        "theories"
+      ]
+    },
+    {
+      "term": "Linking",
+      "letter": "L",
+      "definition": "Group leader skill that connects themes or experiences across members.",
+      "examRelevance": "Frequently tested group intervention.",
+      "relatedTerms": [
+        "Blocking",
+        "Processing",
+        "Group Cohesion"
+      ],
+      "tags": [
+        "group"
+      ]
+    },
+    {
+      "term": "Mandated Reporter",
+      "letter": "M",
+      "definition": "Professional who is legally required to report certain forms of abuse or neglect.",
+      "examRelevance": "High-yield legal/ethics concept.",
+      "relatedTerms": [
+        "Mandated Reporting",
+        "Child Abuse",
+        "Duty to Warn / Protect"
+      ],
+      "tags": [
+        "ethics"
+      ]
+    },
+    {
+      "term": "Mania",
+      "letter": "M",
+      "definition": "Distinct period of elevated, expansive, or irritable mood with increased energy lasting at least 1 week or requiring hospitalization.",
+      "examRelevance": "High-yield bipolar differential concept.",
+      "relatedTerms": [
+        "Hypomania",
+        "Bipolar I Disorder"
+      ],
+      "tags": [
+        "diagnosis"
+      ]
+    },
+    {
+      "term": "Mean",
+      "letter": "M",
+      "definition": "Arithmetic average of a set of scores.",
+      "examRelevance": "Basic research/statistics term.",
+      "relatedTerms": [
+        "Median",
+        "Mode",
+        "Standard Deviation"
+      ],
+      "tags": [
+        "research"
+      ]
+    },
+    {
+      "term": "Microsystem",
+      "letter": "M",
+      "definition": "Bronfenbrenner level involving the person's immediate environment, such as family, school, and peers.",
+      "examRelevance": "Key in child and systems-based cases.",
+      "relatedTerms": [
+        "Mesosystem",
+        "Macrosystem",
+        "Bronfenbrenner"
+      ],
+      "tags": [
+        "development"
+      ]
+    },
+    {
+      "term": "Miracle Question",
+      "letter": "M",
+      "definition": "SFBT question inviting the client to imagine how life would look if the problem were solved.",
+      "examRelevance": "Classic solution-focused clue.",
+      "relatedTerms": [
+        "Scaling Question",
+        "Exception Question",
+        "SFBT"
+      ],
+      "tags": [
+        "theories"
+      ]
+    },
+    {
+      "term": "Motivational Interviewing",
+      "letter": "M",
+      "definition": "Collaborative, person-centered method for exploring and resolving ambivalence about change.",
+      "examRelevance": "Very high-yield in substance use and behavior change cases.",
+      "relatedTerms": [
+        "OARS",
+        "Stages of Change",
+        "Ambivalence"
+      ],
+      "tags": [
+        "theories",
+        "substance-use"
+      ]
+    },
+    {
+      "term": "MSE",
+      "letter": "M",
+      "definition": "Mental Status Examination, a structured assessment of current mental functioning.",
+      "examRelevance": "Essential in assessment and case conceptualization.",
+      "relatedTerms": [
+        "Assessment",
+        "Orientation",
+        "Affect"
+      ],
+      "tags": [
+        "assessment",
+        "case-conceptualization"
+      ]
+    },
+    {
+      "term": "Multicultural Orientation",
+      "letter": "M",
+      "definition": "Approach emphasizing cultural humility, openness, and responsiveness in the counseling relationship.",
+      "examRelevance": "Relevant in multicultural and alliance questions.",
+      "relatedTerms": [
+        "Cultural Humility",
+        "Broaching"
+      ],
+      "tags": [
+        "multicultural"
+      ]
+    },
+    {
+      "term": "Negative Symptoms",
+      "letter": "N",
+      "definition": "Schizophrenia-related deficits such as flat affect, avolition, alogia, anhedonia, and asociality.",
+      "examRelevance": "High-yield psychosis differential concept.",
+      "relatedTerms": [
+        "Positive Symptoms",
+        "Schizophrenia"
+      ],
+      "tags": [
+        "diagnosis"
+      ]
+    },
+    {
+      "term": "Neurotransmitter",
+      "letter": "N",
+      "definition": "Chemical messenger that transmits signals between neurons.",
+      "examRelevance": "Basic psychopharmacology knowledge point.",
+      "relatedTerms": [
+        "Serotonin",
+        "Dopamine",
+        "GABA",
+        "Glutamate"
+      ],
+      "tags": [
+        "psychopharmacology"
+      ]
+    },
+    {
+      "term": "Nigrescence",
+      "letter": "N",
+      "definition": "Cross's model of Black racial identity development.",
+      "examRelevance": "Relevant in multicultural and identity development questions.",
+      "relatedTerms": [
+        "Cross Model",
+        "Racial Identity Development"
+      ],
+      "tags": [
+        "multicultural",
+        "development"
+      ]
+    },
+    {
+      "term": "Nonmaleficence",
+      "letter": "N",
+      "definition": "Ethical principle of avoiding harm.",
+      "examRelevance": "Major ethics principle in safety and boundary decisions.",
+      "relatedTerms": [
+        "Beneficence",
+        "Justice"
+      ],
+      "tags": [
+        "ethics"
+      ]
+    },
+    {
+      "term": "Null Hypothesis",
+      "letter": "N",
+      "definition": "Research assumption that there is no meaningful difference or relationship.",
+      "examRelevance": "Basic research concept.",
+      "relatedTerms": [
+        "Alternative Hypothesis",
+        "p-value"
+      ],
+      "tags": [
+        "research"
+      ]
+    },
+    {
+      "term": "OARS",
+      "letter": "O",
+      "definition": "Core MI skills: Open-ended questions, Affirmations, Reflective listening, Summaries.",
+      "examRelevance": "Classic Motivational Interviewing exam concept.",
+      "relatedTerms": [
+        "Motivational Interviewing",
+        "Ambivalence"
+      ],
+      "tags": [
+        "theories"
+      ]
+    },
+    {
+      "term": "Object Permanence",
+      "letter": "O",
+      "definition": "Piaget concept that objects continue to exist even when out of sight.",
+      "examRelevance": "Human development concept in early childhood.",
+      "relatedTerms": [
+        "Sensorimotor Stage",
+        "Piaget"
+      ],
+      "tags": [
+        "development"
+      ]
+    },
+    {
+      "term": "OCPD",
+      "letter": "O",
+      "definition": "Obsessive-Compulsive Personality Disorder, an ego-syntonic pattern of perfectionism, rigidity, and control.",
+      "examRelevance": "Important differential from OCD.",
+      "relatedTerms": [
+        "OCD",
+        "Ego-Syntonic",
+        "Perfectionism"
+      ],
+      "tags": [
+        "diagnosis"
+      ]
+    },
+    {
+      "term": "PCL-5",
+      "letter": "P",
+      "definition": "PTSD Checklist for DSM-5, a self-report measure of PTSD symptoms.",
+      "examRelevance": "High-yield PTSD assessment tool.",
+      "relatedTerms": [
+        "PTSD",
+        "ACES",
+        "Assessment"
+      ],
+      "tags": [
+        "assessment",
+        "trauma"
+      ]
+    },
+    {
+      "term": "PHQ-9",
+      "letter": "P",
+      "definition": "Nine-item self-report tool for depression severity screening and monitoring.",
+      "examRelevance": "One of the most important practical assessment measures on the exam.",
+      "relatedTerms": [
+        "PHQ-2",
+        "Major Depressive Disorder"
+      ],
+      "tags": [
+        "assessment",
+        "depression"
+      ]
+    },
+    {
+      "term": "Positive Symptoms",
+      "letter": "P",
+      "definition": "Added psychotic symptoms such as hallucinations, delusions, disorganized speech, and disorganized behavior.",
+      "examRelevance": "High-yield psychosis concept.",
+      "relatedTerms": [
+        "Negative Symptoms",
+        "Schizophrenia"
+      ],
+      "tags": [
+        "diagnosis"
+      ]
+    },
+    {
+      "term": "Privileged Communication",
+      "letter": "P",
+      "definition": "Legal protection that may prevent a counselor from being forced to testify about client disclosures without consent, depending on jurisdiction.",
+      "examRelevance": "Important legal ethics concept.",
+      "relatedTerms": [
+        "Confidentiality",
+        "Subpoena"
+      ],
+      "tags": [
+        "ethics"
+      ]
+    },
+    {
+      "term": "Projective Test",
+      "letter": "P",
+      "definition": "Assessment using ambiguous stimuli to elicit themes or unconscious material, such as the Rorschach or TAT.",
+      "examRelevance": "Assessment term, usually contrasted with more targeted or standardized tools.",
+      "relatedTerms": [
+        "MMPI-2",
+        "Assessment"
+      ],
+      "tags": [
+        "assessment"
+      ]
+    },
+    {
+      "term": "Psychoeducation",
+      "letter": "P",
+      "definition": "Providing information to help clients understand symptoms, treatment, coping, or diagnoses.",
+      "examRelevance": "Common intervention across many theories and settings.",
+      "relatedTerms": [
+        "Imparting Information",
+        "Treatment Plan"
+      ],
+      "tags": [
+        "core-skills"
+      ]
+    },
+    {
+      "term": "Psychomotor Retardation",
+      "letter": "P",
+      "definition": "Noticeable slowing of speech, movement, and mental activity.",
+      "examRelevance": "Depression and MSE clue.",
+      "relatedTerms": [
+        "MSE",
+        "Major Depressive Disorder"
+      ],
+      "tags": [
+        "diagnosis",
+        "assessment"
+      ]
+    },
+    {
+      "term": "Radical Acceptance",
+      "letter": "R",
+      "definition": "DBT skill of fully accepting reality as it is, without approving of it or giving up on change.",
+      "examRelevance": "High-yield DBT concept.",
+      "relatedTerms": [
+        "DBT",
+        "Distress Tolerance",
+        "Wise Mind"
+      ],
+      "tags": [
+        "theories"
+      ]
+    },
+    {
+      "term": "Reframing",
+      "letter": "R",
+      "definition": "Offering an alternative, more useful way of understanding a situation or behavior.",
+      "examRelevance": "Common intervention across family therapy, CBT, and general counseling.",
+      "relatedTerms": [
+        "CBT",
+        "Structural Family Therapy"
+      ],
+      "tags": [
+        "core-skills",
+        "theories"
+      ]
+    },
+    {
+      "term": "Relapse Prevention",
+      "letter": "R",
+      "definition": "Planning for high-risk situations, triggers, and coping responses to reduce return to problematic behavior.",
+      "examRelevance": "Common in substance use, depression, and termination planning.",
+      "relatedTerms": [
+        "Stages of Change",
+        "Substance Use Disorder"
+      ],
+      "tags": [
+        "substance-use",
+        "case-conceptualization"
+      ]
+    },
+    {
+      "term": "Release of Information (ROI)",
+      "letter": "R",
+      "definition": "Signed authorization that allows the counselor to share specified information with a specified person or organization.",
+      "examRelevance": "Important in ethics, collaboration, and records questions.",
+      "relatedTerms": [
+        "Confidentiality",
+        "HIPAA"
+      ],
+      "tags": [
+        "ethics"
+      ]
+    },
+    {
+      "term": "Resilience",
+      "letter": "R",
+      "definition": "Capacity to adapt or recover in the face of adversity.",
+      "examRelevance": "Strengths-based case conceptualization and trauma-related concept.",
+      "relatedTerms": [
+        "Protective Factors",
+        "Strengths-Based"
+      ],
+      "tags": [
+        "trauma",
+        "case-conceptualization"
+      ]
+    },
+    {
+      "term": "RIASEC",
+      "letter": "R",
+      "definition": "Holland's six career interest/environment types: Realistic, Investigative, Artistic, Social, Enterprising, Conventional.",
+      "examRelevance": "High-yield career concept.",
+      "relatedTerms": [
+        "Holland Codes",
+        "SDS"
+      ],
+      "tags": [
+        "career"
+      ]
+    },
+    {
+      "term": "Safety Plan",
+      "letter": "S",
+      "definition": "Collaborative written plan identifying warning signs, coping strategies, supports, crisis resources, means restriction, and reasons for living.",
+      "examRelevance": "Very high-yield crisis intervention concept.",
+      "relatedTerms": [
+        "C-SSRS",
+        "Suicidal Ideation",
+        "Means Safety"
+      ],
+      "tags": [
+        "crisis"
+      ]
+    },
+    {
+      "term": "Scaffolding",
+      "letter": "S",
+      "definition": "Vygotsky concept involving temporary support from a more knowledgeable other to help learning occur.",
+      "examRelevance": "Relevant in development, teaching, and skill-building questions.",
+      "relatedTerms": [
+        "Zone of Proximal Development",
+        "Vygotsky"
+      ],
+      "tags": [
+        "development"
+      ]
+    },
+    {
+      "term": "Scaling Questions",
+      "letter": "S",
+      "definition": "SFBT questions that ask clients to rate progress, motivation, or distress on a numerical scale.",
+      "examRelevance": "Classic SFBT technique.",
+      "relatedTerms": [
+        "Miracle Question",
+        "SFBT"
+      ],
+      "tags": [
+        "theories"
+      ]
+    },
+    {
+      "term": "Secondary Traumatic Stress",
+      "letter": "S",
+      "definition": "Trauma-like symptoms that develop from indirect exposure to other people's traumatic experiences.",
+      "examRelevance": "Relevant in counselor impairment and trauma work.",
+      "relatedTerms": [
+        "Compassion Fatigue",
+        "Vicarious Trauma"
+      ],
+      "tags": [
+        "trauma",
+        "ethics"
+      ]
+    },
+    {
+      "term": "Self-Actualization",
+      "letter": "S",
+      "definition": "Rogers' concept of the natural drive toward growth, fulfillment, and becoming more fully oneself.",
+      "examRelevance": "Person-centered therapy concept.",
+      "relatedTerms": [
+        "Person-Centered Therapy",
+        "Congruence"
+      ],
+      "tags": [
+        "theories"
+      ]
+    },
+    {
+      "term": "SMART Goals",
+      "letter": "S",
+      "definition": "Goals that are Specific, Measurable, Attainable, Realistic, and Timely.",
+      "examRelevance": "High-yield treatment planning concept.",
+      "relatedTerms": [
+        "Treatment Plan",
+        "Case Conceptualization"
+      ],
+      "tags": [
+        "case-conceptualization",
+        "documentation"
+      ]
+    },
+    {
+      "term": "SOAP Note",
+      "letter": "S",
+      "definition": "Progress note format consisting of Subjective, Objective, Assessment, and Plan.",
+      "examRelevance": "Important documentation format.",
+      "relatedTerms": [
+        "DAP Note",
+        "Documentation"
+      ],
+      "tags": [
+        "documentation"
+      ]
+    },
+    {
+      "term": "Social Interest",
+      "letter": "S",
+      "definition": "Adlerian sense of connection to humanity and contribution to others; a marker of mental health.",
+      "examRelevance": "Key Adlerian concept.",
+      "relatedTerms": [
+        "Gemeinschaftsgefühl",
+        "Adlerian Therapy"
+      ],
+      "tags": [
+        "theories"
+      ]
+    },
+    {
+      "term": "Socratic Questioning",
+      "letter": "S",
+      "definition": "CBT technique of using guided questions to examine assumptions and develop more balanced thinking.",
+      "examRelevance": "Very common CBT intervention clue.",
+      "relatedTerms": [
+        "CBT",
+        "Thought Record",
+        "Cognitive Distortion"
+      ],
+      "tags": [
+        "theories"
+      ]
+    },
+    {
+      "term": "Stages of Change",
+      "letter": "S",
+      "definition": "Model of behavior change: precontemplation, contemplation, preparation, action, maintenance, and relapse.",
+      "examRelevance": "Common in MI and substance use cases.",
+      "relatedTerms": [
+        "Motivational Interviewing",
+        "Ambivalence"
+      ],
+      "tags": [
+        "theories",
+        "substance-use"
+      ]
+    },
+    {
+      "term": "Strengths-Based",
+      "letter": "S",
+      "definition": "Approach focusing on client abilities, resilience, and resources rather than only deficits.",
+      "examRelevance": "Useful across case conceptualization and treatment planning.",
+      "relatedTerms": [
+        "Resilience",
+        "Empowerment"
+      ],
+      "tags": [
+        "case-conceptualization",
+        "core-skills"
+      ]
+    },
+    {
+      "term": "Structural Family Therapy",
+      "letter": "S",
+      "definition": "Minuchin's family therapy model focused on boundaries, hierarchy, subsystems, and family organization.",
+      "examRelevance": "High-yield family therapy theory.",
+      "relatedTerms": [
+        "Enmeshment",
+        "Disengagement",
+        "Hierarchy"
+      ],
+      "tags": [
+        "family",
+        "theories"
+      ]
+    },
+    {
+      "term": "Suicidal Ideation",
+      "letter": "S",
+      "definition": "Thoughts about suicide, ranging from passive wishes for death to active plans and intent.",
+      "examRelevance": "One of the most heavily tested crisis topics.",
+      "relatedTerms": [
+        "C-SSRS",
+        "Safety Plan",
+        "Lethality Assessment"
+      ],
+      "tags": [
+        "crisis"
+      ]
+    },
+    {
+      "term": "Super",
+      "letter": "S",
+      "definition": "Career theorist who described lifespan career development and the implementation of self-concept across life roles.",
+      "examRelevance": "High-yield career counseling theory.",
+      "relatedTerms": [
+        "Life-Space",
+        "Career Development"
+      ],
+      "tags": [
+        "career"
+      ]
+    },
+    {
+      "term": "Tardive Dyskinesia",
+      "letter": "T",
+      "definition": "Potentially irreversible involuntary repetitive movements, often caused by long-term antipsychotic use.",
+      "examRelevance": "Major psychopharmacology safety concept.",
+      "relatedTerms": [
+        "Antipsychotics",
+        "Akathisia",
+        "EPS"
+      ],
+      "tags": [
+        "psychopharmacology"
+      ]
+    },
+    {
+      "term": "Termination",
+      "letter": "T",
+      "definition": "Planned therapeutic ending of the counseling relationship.",
+      "examRelevance": "Important in treatment planning, ethics, and continuity-of-care questions.",
+      "relatedTerms": [
+        "Abandonment",
+        "Relapse Prevention"
+      ],
+      "tags": [
+        "ethics",
+        "case-conceptualization"
+      ]
+    },
+    {
+      "term": "Therapeutic Alliance",
+      "letter": "T",
+      "definition": "Collaborative, trusting working relationship between counselor and client.",
+      "examRelevance": "One of the strongest predictors of outcome and central across all theories.",
+      "relatedTerms": [
+        "Empathy",
+        "Fidelity",
+        "Congruence"
+      ],
+      "tags": [
+        "core-skills"
+      ]
+    },
+    {
+      "term": "Thought Record",
+      "letter": "T",
+      "definition": "CBT worksheet or strategy for identifying situations, thoughts, feelings, evidence, and alternative interpretations.",
+      "examRelevance": "Classic CBT tool.",
+      "relatedTerms": [
+        "CBT",
+        "Socratic Questioning",
+        "Cognitive Distortion"
+      ],
+      "tags": [
+        "theories"
+      ]
+    },
+    {
+      "term": "Transference",
+      "letter": "T",
+      "definition": "Client's unconscious redirection of feelings and expectations from past relationships onto the counselor.",
+      "examRelevance": "High-yield psychodynamic concept.",
+      "relatedTerms": [
+        "Countertransference",
+        "Psychodynamic Therapy"
+      ],
+      "tags": [
+        "theories"
+      ]
+    },
+    {
+      "term": "Trauma-Informed Care",
+      "letter": "T",
+      "definition": "Approach that recognizes trauma's impact and emphasizes safety, trust, collaboration, empowerment, and cultural responsiveness.",
+      "examRelevance": "Very high-yield trauma framework.",
+      "relatedTerms": [
+        "Safety",
+        "Window of Tolerance",
+        "Empowerment"
+      ],
+      "tags": [
+        "trauma"
+      ]
+    },
+    {
+      "term": "Treatment Plan",
+      "letter": "T",
+      "definition": "Collaborative clinical plan outlining diagnosis, goals, objectives, interventions, strengths, barriers, and level of care.",
+      "examRelevance": "Core case conceptualization and documentation concept.",
+      "relatedTerms": [
+        "SMART Goals",
+        "Case Conceptualization",
+        "SOAP Note"
+      ],
+      "tags": [
+        "case-conceptualization",
+        "documentation"
+      ]
+    },
+    {
+      "term": "Triangulation",
+      "letter": "T",
+      "definition": "Bowen concept in which tension between two people is stabilized by involving a third person.",
+      "examRelevance": "Very high-yield family systems clue.",
+      "relatedTerms": [
+        "Differentiation of Self",
+        "Genogram"
+      ],
+      "tags": [
+        "family",
+        "theories"
+      ]
+    },
+    {
+      "term": "Tuckman's Stages",
+      "letter": "T",
+      "definition": "Group development stages: forming, storming, norming, performing, and adjourning.",
+      "examRelevance": "Core group counseling concept.",
+      "relatedTerms": [
+        "Group Counseling",
+        "Storming",
+        "Norming"
+      ],
+      "tags": [
+        "group"
+      ]
+    },
+    {
+      "term": "Unconditional Positive Regard",
+      "letter": "U",
+      "definition": "Rogers' principle of accepting the client without judgment or conditions of worth.",
+      "examRelevance": "Core person-centered therapy condition.",
+      "relatedTerms": [
+        "Empathy",
+        "Congruence"
+      ],
+      "tags": [
+        "theories"
+      ]
+    },
+    {
+      "term": "Universality",
+      "letter": "U",
+      "definition": "Yalom factor involving the realization that one is not alone in one's struggles.",
+      "examRelevance": "Classic group counseling test point.",
+      "relatedTerms": [
+        "Altruism",
+        "Group Cohesion"
+      ],
+      "tags": [
+        "group"
+      ]
+    },
+    {
+      "term": "Validity",
+      "letter": "V",
+      "definition": "Degree to which a test or study measures what it claims to measure.",
+      "examRelevance": "Core research and assessment concept.",
+      "relatedTerms": [
+        "Reliability",
+        "Construct Validity",
+        "Criterion Validity"
+      ],
+      "tags": [
+        "research",
+        "assessment"
+      ]
+    },
+    {
+      "term": "Values",
+      "letter": "V",
+      "definition": "Personally meaningful directions or principles that guide action, especially in ACT.",
+      "examRelevance": "High-yield ACT concept.",
+      "relatedTerms": [
+        "ACT",
+        "Committed Action",
+        "Cognitive Defusion"
+      ],
+      "tags": [
+        "theories"
+      ]
+    },
+    {
+      "term": "Vicarious Trauma",
+      "letter": "V",
+      "definition": "Cumulative transformation of the helper's worldview through repeated empathic exposure to trauma survivors.",
+      "examRelevance": "Relevant in trauma work, ethics, and supervision.",
+      "relatedTerms": [
+        "Secondary Traumatic Stress",
+        "Compassion Fatigue"
+      ],
+      "tags": [
+        "trauma",
+        "ethics"
+      ]
+    },
+    {
+      "term": "WDEP",
+      "letter": "W",
+      "definition": "Reality Therapy sequence: Wants, Doing, Evaluation, Planning.",
+      "examRelevance": "Classic Reality Therapy clue.",
+      "relatedTerms": [
+        "Reality Therapy"
+      ],
+      "tags": [
+        "theories"
+      ]
+    },
+    {
+      "term": "Window of Tolerance",
+      "letter": "W",
+      "definition": "Optimal arousal zone in which a person can remain regulated enough to think, feel, and process effectively.",
+      "examRelevance": "High-yield trauma and stabilization concept.",
+      "relatedTerms": [
+        "Dissociation",
+        "Hyperarousal",
+        "Trauma-Informed Care"
+      ],
+      "tags": [
+        "trauma",
+        "crisis"
+      ]
+    },
+    {
+      "term": "Wise Mind",
+      "letter": "W",
+      "definition": "DBT concept describing the integration of emotional mind and rational mind.",
+      "examRelevance": "Common DBT clue in emotion regulation and interpersonal effectiveness cases.",
+      "relatedTerms": [
+        "DBT",
+        "Radical Acceptance",
+        "Chain Analysis"
+      ],
+      "tags": [
+        "theories"
+      ]
+    },
+    {
+      "term": "Yalom",
+      "letter": "Y",
+      "definition": "Group theorist known for identifying 11 therapeutic factors and for existential group psychotherapy.",
+      "examRelevance": "Essential group counseling name and framework.",
+      "relatedTerms": [
+        "Universality",
+        "Altruism",
+        "Group Cohesion"
+      ],
+      "tags": [
+        "group"
+      ]
+    },
+    {
+      "term": "Zone of Proximal Development",
+      "letter": "Z",
+      "definition": "Vygotsky concept describing what a learner can do with guidance but not yet independently.",
+      "examRelevance": "Important development and learning term.",
+      "relatedTerms": [
+        "Scaffolding",
+        "Vygotsky"
+      ],
+      "tags": [
+        "development"
+      ]
+    }
+  ],
+  "commonConfusions": [
+    {
+      "title": "Ego-Dystonic vs Ego-Syntonic",
+      "difference": "Ego-dystonic symptoms feel unwanted and foreign, while ego-syntonic traits feel natural or acceptable to the person."
+    },
+    {
+      "title": "Universality vs Group Cohesion",
+      "difference": "Universality is realizing others share the same struggle; group cohesion is the bond and trust within the group."
+    },
+    {
+      "title": "Mandated Reporting vs Duty to Warn / Protect",
+      "difference": "Mandated reporting usually concerns abuse/neglect duties; duty to protect concerns serious danger to self or identifiable others."
+    },
+    {
+      "title": "PTSD vs Acute Stress Disorder",
+      "difference": "ASD occurs from 3 days to 1 month after trauma; PTSD requires symptoms lasting longer than 1 month."
+    },
+    {
+      "title": "OCD vs OCPD",
+      "difference": "OCD involves ego-dystonic obsessions/compulsions; OCPD is an ego-syntonic personality style of perfectionism and control."
+    }
+  ],
+  "quickReview": {
+    "memoryHooks": [
+      "CBT = thoughts, behaviors, distortions",
+      "DBT = regulation, acceptance, Wise Mind",
+      "ACT = values, defusion, acceptance",
+      "Rogers = empathy, UPR, congruence",
+      "Yalom = why groups heal",
+      "Tarasoff = protect/warn",
+      "PHQ-9 = depression",
+      "GAD-7 = anxiety",
+      "PCL-5 = PTSD",
+      "C-SSRS = suicide risk",
+      "SDS = career interests"
+    ],
+    "finalTakeaways": [
+      "This glossary is best used as a fast-reference layer, not a replacement for the full modules.",
+      "When a term appears in a case, ask what decision it should trigger clinically.",
+      "The more quickly learners can decode the language of a vignette, the more likely they are to pick the best next step."
+    ]
+  },
+  "sourceBasis": {
+    "derivedFromUploadedMaterials": [
+      "Study Library",
+      "Key Terms Glossary"
+    ],
+    "notes": "Expanded into a production-ready glossary with definitions, exam relevance, related terms, and category tags to support fast lookup and app-based search."
+  }
+}

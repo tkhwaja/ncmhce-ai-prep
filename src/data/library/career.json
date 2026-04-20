@@ -1,0 +1,773 @@
+{
+  "moduleId": "career-development",
+  "moduleTitle": "Career Development",
+  "moduleType": "learning_library",
+  "version": "1.0",
+  "exam": {
+    "name": "NCMHCE",
+    "formatAlignment": {
+      "currentBlueprint": true,
+      "effective2027Blueprint": true
+    },
+    "whyThisModuleMatters": "This module helps learners understand how career development theories show up in counseling cases involving vocational indecision, unemployment, transitions, identity, retirement, workplace dissatisfaction, and social barriers. On the NCMHCE, career content is rarely isolated. It is usually embedded inside broader emotional, developmental, and life-adjustment cases."
+  },
+  "uiHints": {
+    "defaultView": "nested_accordion",
+    "recommendedComponents": [
+      "module_header",
+      "career_theory_cards",
+      "riasec_hexagon_panel",
+      "life_span_stage_table",
+      "career_assessment_cards",
+      "career_counseling_process_timeline",
+      "social_barriers_callouts",
+      "exam_trap_callouts",
+      "mini_case_cards",
+      "checkpoint_quiz"
+    ],
+    "tags": [
+      "career-development",
+      "vocational-counseling",
+      "riasec",
+      "super",
+      "krumboltz",
+      "ncmhce",
+      "high-yield"
+    ]
+  },
+  "intro": {
+    "summary": "This module covers the major career development theories and career counseling tools most relevant to the NCMHCE, including Holland's RIASEC model, Super's life-span life-space theory, Krumboltz's social learning and planned happenstance ideas, Gottfredson's circumscription and compromise model, and the practical process of career counseling.",
+    "learningObjectives": [
+      "Explain the major career development theories tested on the NCMHCE",
+      "Use RIASEC, Super, Krumboltz, and Gottfredson concepts in career case conceptualization",
+      "Recognize common career-related presentations such as indecision, unemployment, midlife change, retirement distress, and role conflict",
+      "Identify major career assessment tools and when they are appropriate",
+      "Integrate psychological, developmental, and social justice factors into career counseling"
+    ],
+    "howToUse": [
+      "Start with Holland, Super, and Krumboltz before moving into the practical counseling process.",
+      "Study career theories as tools for understanding real life transitions, not as isolated memorization items.",
+      "Pay attention to how career distress often overlaps with identity, self-esteem, family expectations, and social barriers.",
+      "Use the mini-cases to practice choosing the best theory for the problem presented."
+    ],
+    "highYieldThemes": [
+      "Career counseling on the exam is usually embedded in larger mental health or adjustment cases.",
+      "Theories are often tested through mismatch, transition, indecision, identity, and environmental barriers.",
+      "Strong answers balance vocational strategy with emotional and contextual understanding."
+    ]
+  },
+  "coreDecisionRules": [
+    {
+      "rule": "Start with the actual career problem.",
+      "example": "Unemployment, role conflict, retirement distress, burnout, and indecision are different problems and may call for different conceptual lenses."
+    },
+    {
+      "rule": "Do not separate career from identity and context.",
+      "example": "A client may look indecisive, but the real drivers may be family pressure, discrimination, perfectionism, trauma, or low self-efficacy."
+    },
+    {
+      "rule": "Use the theory that best explains the case, not the theory with the fanciest name.",
+      "example": "A dissatisfaction case built around interest-person mismatch often fits Holland better than Super."
+    },
+    {
+      "rule": "Career interventions should be both practical and emotionally informed.",
+      "example": "The best answer might include assessment, labor-market information, and exploring anxiety or self-beliefs."
+    },
+    {
+      "rule": "Career counseling is developmental.",
+      "example": "A 19-year-old exploring options is different from a 52-year-old re-entering the workforce after job loss."
+    }
+  ],
+  "whyCareerMatters": {
+    "title": "Why Career Development Matters in Counseling",
+    "overview": "Work affects identity, routine, income, belonging, self-esteem, social role, and meaning. Career concerns can intensify depression, anxiety, grief, family conflict, and life transition stress.",
+    "commonClinicalLinks": [
+      "job loss and grief",
+      "career indecision and anxiety",
+      "burnout and depression",
+      "workplace discrimination and trauma-related distress",
+      "retirement and loss of identity",
+      "midlife career change and role confusion",
+      "work-life imbalance and relational strain"
+    ],
+    "examPearls": [
+      "The exam often expects counselors to recognize career issues as valid counseling concerns, not secondary details.",
+      "A career problem may be the stressor, the symptom amplifier, or part of the client's developmental task."
+    ]
+  },
+  "hollandSection": {
+    "title": "Holland's RIASEC Theory",
+    "overview": "Holland proposed that people and work environments can be organized into six broad types. Satisfaction is highest when there is congruence between the person's interests/personality style and the work environment.",
+    "types": [
+      {
+        "code": "R",
+        "name": "Realistic",
+        "characteristics": [
+          "practical",
+          "hands-on",
+          "mechanical",
+          "prefers working with things"
+        ],
+        "sampleOccupations": [
+          "mechanic",
+          "technician",
+          "farmer",
+          "engineer"
+        ]
+      },
+      {
+        "code": "I",
+        "name": "Investigative",
+        "characteristics": [
+          "analytical",
+          "curious",
+          "intellectual",
+          "prefers ideas and problem-solving"
+        ],
+        "sampleOccupations": [
+          "scientist",
+          "researcher",
+          "physician",
+          "data analyst"
+        ]
+      },
+      {
+        "code": "A",
+        "name": "Artistic",
+        "characteristics": [
+          "creative",
+          "expressive",
+          "independent",
+          "prefers imagination and originality"
+        ],
+        "sampleOccupations": [
+          "writer",
+          "designer",
+          "musician",
+          "artist"
+        ]
+      },
+      {
+        "code": "S",
+        "name": "Social",
+        "characteristics": [
+          "helping",
+          "cooperative",
+          "empathic",
+          "prefers working with people"
+        ],
+        "sampleOccupations": [
+          "counselor",
+          "teacher",
+          "nurse",
+          "social worker"
+        ]
+      },
+      {
+        "code": "E",
+        "name": "Enterprising",
+        "characteristics": [
+          "persuasive",
+          "ambitious",
+          "leadership-oriented",
+          "prefers influence and initiative"
+        ],
+        "sampleOccupations": [
+          "manager",
+          "lawyer",
+          "sales professional",
+          "entrepreneur"
+        ]
+      },
+      {
+        "code": "C",
+        "name": "Conventional",
+        "characteristics": [
+          "organized",
+          "detail-oriented",
+          "structured",
+          "prefers systems, order, and data"
+        ],
+        "sampleOccupations": [
+          "accountant",
+          "administrative assistant",
+          "bookkeeper",
+          "operations coordinator"
+        ]
+      }
+    ],
+    "keyConcepts": [
+      {
+        "term": "Congruence",
+        "definition": "Match between a person's type and their work environment"
+      },
+      {
+        "term": "Consistency",
+        "definition": "Degree to which top interests are adjacent/similar on the RIASEC structure"
+      },
+      {
+        "term": "Differentiation",
+        "definition": "How clearly one or a few interests stand out versus a flat profile"
+      },
+      {
+        "term": "Identity",
+        "definition": "Clarity and stability of vocational goals and self-understanding"
+      }
+    ],
+    "clinicalApplication": [
+      "Useful when clients feel bored, drained, or misaligned in their work",
+      "Helpful in career-change cases where the issue is not lack of ability but mismatch",
+      "Supports assessment-guided discussion of interest patterns and environment fit"
+    ],
+    "examPearls": [
+      "A high Social person stuck in a highly Conventional, low-people environment is a classic mismatch vignette.",
+      "Holland is often the best theory when the core issue is fit between interests/personality style and job environment."
+    ]
+  },
+  "superSection": {
+    "title": "Super's Life-Span, Life-Space Theory",
+    "overview": "Super viewed career development as a lifelong process of implementing self-concept across multiple life stages and roles. The key question is not just 'What job fits?' but 'How does work fit into the person's evolving identity and roles over time?'",
+    "lifeStages": [
+      {
+        "stage": "Growth",
+        "ageRange": "Birth-14",
+        "tasks": [
+          "develop self-concept",
+          "fantasy and interest formation",
+          "capacity awareness"
+        ]
+      },
+      {
+        "stage": "Exploration",
+        "ageRange": "15-24",
+        "tasks": [
+          "crystallizing preferences",
+          "specifying choices",
+          "trying out roles"
+        ]
+      },
+      {
+        "stage": "Establishment",
+        "ageRange": "25-44",
+        "tasks": [
+          "stabilizing in a field",
+          "advancement",
+          "building competence and role identity"
+        ]
+      },
+      {
+        "stage": "Maintenance",
+        "ageRange": "45-65",
+        "tasks": [
+          "updating skills",
+          "holding position",
+          "maintaining relevance",
+          "re-evaluating meaning"
+        ]
+      },
+      {
+        "stage": "Disengagement",
+        "ageRange": "65+",
+        "tasks": [
+          "slowing down",
+          "retirement planning",
+          "role transition",
+          "life review"
+        ]
+      }
+    ],
+    "lifeSpaceRoles": [
+      "child",
+      "student",
+      "leisurite",
+      "citizen",
+      "worker",
+      "parent",
+      "spouse",
+      "homemaker"
+    ],
+    "keyConcepts": [
+      {
+        "term": "Self-Concept",
+        "definition": "Career choice is partly an expression of who the person believes themselves to be"
+      },
+      {
+        "term": "Life-Career Rainbow",
+        "definition": "Multiple life roles coexist and vary in salience across time"
+      },
+      {
+        "term": "Mini-Cycles",
+        "definition": "People may revisit exploration and restructuring after job loss, divorce, relocation, or other transitions"
+      }
+    ],
+    "clinicalApplication": [
+      "Very useful in transition cases, adult career shifts, and retirement distress",
+      "Helpful when work problems are really role-balance or self-concept problems",
+      "Supports understanding that career development does not end in adolescence"
+    ],
+    "examPearls": [
+      "A 50-year-old laid off worker may re-enter an exploration-like mini-cycle. That is classic Super logic.",
+      "Super is especially strong for lifespan, role-balance, and identity-over-time cases."
+    ]
+  },
+  "krumboltzSection": {
+    "title": "Krumboltz's Social Learning / Planned Happenstance Theory",
+    "overview": "Krumboltz emphasized that career decisions are shaped by learning experiences, environmental conditions, cognitive beliefs, and chance opportunities. Career development is not always linear or planned.",
+    "fourFactors": [
+      {
+        "factor": "Genetic endowment and special abilities",
+        "description": "Innate traits and capacities that influence opportunities and preferences"
+      },
+      {
+        "factor": "Environmental conditions and events",
+        "description": "Social, economic, cultural, and structural factors that open or close options"
+      },
+      {
+        "factor": "Learning experiences",
+        "description": "Instrumental learning from direct outcomes and associative learning from observation or modeling"
+      },
+      {
+        "factor": "Task approach skills",
+        "description": "Problem-solving, work habits, beliefs, emotional responses, and coping patterns applied to decision-making"
+      }
+    ],
+    "plannedHappenstance": {
+      "title": "Planned Happenstance",
+      "summary": "Clients can learn to notice, create, and capitalize on unexpected career opportunities rather than waiting for a perfect linear plan.",
+      "fiveSkills": [
+        "curiosity",
+        "persistence",
+        "flexibility",
+        "optimism",
+        "risk-taking"
+      ]
+    },
+    "faultyBeliefsExamples": [
+      "I must choose the one perfect job or I will ruin my life",
+      "If I do not feel certain, I should not act",
+      "Only one career path can make me fulfilled"
+    ],
+    "clinicalApplication": [
+      "Strong fit for clients stuck in perfectionism or indecision",
+      "Useful in career change or uncertain labor-market environments",
+      "Helpful when chance events, networking, or experimentation matter"
+    ],
+    "examPearls": [
+      "Krumboltz is often the best fit when the case involves indecision, learning history, opportunity creation, or overly rigid beliefs about career choice.",
+      "Planned happenstance is a favorite contrast to overly rigid, one-right-answer career thinking."
+    ]
+  },
+  "gottfredsonSection": {
+    "title": "Gottfredson's Circumscription and Compromise Theory",
+    "overview": "Gottfredson focused on how children and adolescents eliminate career options over time based on gender-role expectations, prestige, social class, and later personal interests, and how they ultimately compromise due to accessibility constraints.",
+    "circumscriptionStages": [
+      {
+        "stage": "Orientation to Size and Power",
+        "ageRange": "3-5",
+        "description": "Children imagine broad fantasy careers linked to size, power, and status"
+      },
+      {
+        "stage": "Orientation to Sex Roles",
+        "ageRange": "6-8",
+        "description": "Children start eliminating occupations seen as inappropriate for their gender role"
+      },
+      {
+        "stage": "Orientation to Social Valuation",
+        "ageRange": "9-13",
+        "description": "Children become aware of prestige, status, and social class implications"
+      },
+      {
+        "stage": "Orientation to Internal Self",
+        "ageRange": "14+",
+        "description": "Career thinking becomes more tied to personal interests, abilities, and identity"
+      }
+    ],
+    "keyConcepts": [
+      {
+        "term": "Circumscription",
+        "definition": "Progressively narrowing the range of acceptable career options"
+      },
+      {
+        "term": "Compromise",
+        "definition": "Adjusting aspirations based on accessibility, barriers, or constraints"
+      }
+    ],
+    "clinicalApplication": [
+      "Useful when clients prematurely rule out options due to social expectations or internalized limits",
+      "Helpful in cases involving prestige pressure, gender-role restriction, class barriers, or social comparison"
+    ],
+    "examPearls": [
+      "If the case suggests the client has ruled out options as 'not for people like me,' Gottfredson may be highly relevant.",
+      "This theory is useful for understanding invisible narrowing of possibilities over time."
+    ]
+  },
+  "careerCounselingProcessSection": {
+    "title": "Career Counseling Process",
+    "overview": "Career counseling is not just giving job suggestions. It is a structured helping process that integrates assessment, exploration, emotional support, information, and action planning.",
+    "steps": [
+      {
+        "step": 1,
+        "title": "Establish rapport and clarify the presenting concern",
+        "tasks": [
+          "What is the problem: indecision, mismatch, burnout, unemployment, conflict, transition?",
+          "What does the client want from counseling?"
+        ]
+      },
+      {
+        "step": 2,
+        "title": "Assess background and context",
+        "tasks": [
+          "work history",
+          "education and training",
+          "values, interests, strengths, and skills",
+          "family and cultural expectations",
+          "barriers such as finances, discrimination, disability, or caregiving"
+        ]
+      },
+      {
+        "step": 3,
+        "title": "Use career assessments when appropriate",
+        "tasks": [
+          "SDS",
+          "Strong Interest Inventory",
+          "MBTI",
+          "career genogram",
+          "values and skills exercises"
+        ]
+      },
+      {
+        "step": 4,
+        "title": "Provide information and expand options",
+        "tasks": [
+          "occupational information",
+          "labor market trends",
+          "training pathways",
+          "realistic opportunity mapping"
+        ]
+      },
+      {
+        "step": 5,
+        "title": "Address emotional and cognitive barriers",
+        "tasks": [
+          "fear of failure",
+          "perfectionism",
+          "family pressure",
+          "learned helplessness",
+          "anxiety or shame"
+        ]
+      },
+      {
+        "step": 6,
+        "title": "Create an action plan",
+        "tasks": [
+          "job search tasks",
+          "networking steps",
+          "training applications",
+          "experiments or informational interviews",
+          "timeline and accountability"
+        ]
+      },
+      {
+        "step": 7,
+        "title": "Review, adapt, and support follow-through",
+        "tasks": [
+          "monitor progress",
+          "adjust plan",
+          "process setbacks",
+          "reinforce strengths and flexibility"
+        ]
+      }
+    ],
+    "examPearls": [
+      "The best answer is often not 'pick a job for the client' but rather assess, explore, and guide.",
+      "Career counseling includes emotional processing, not just occupational data."
+    ]
+  },
+  "assessmentToolsSection": {
+    "title": "Career Counseling Tools",
+    "tools": [
+      {
+        "name": "SDS (Self-Directed Search)",
+        "bestFor": [
+          "RIASEC-based career interest assessment",
+          "career fit exploration"
+        ],
+        "examClue": "A go-to answer when the case clearly involves interest-environment mismatch."
+      },
+      {
+        "name": "Strong Interest Inventory",
+        "bestFor": [
+          "interest patterns across occupational themes",
+          "career exploration"
+        ],
+        "examClue": "Useful when a fuller interest profile is needed."
+      },
+      {
+        "name": "MBTI",
+        "bestFor": [
+          "self-exploration",
+          "career reflection"
+        ],
+        "examClue": "Popular in career settings, but not a psychopathology tool."
+      },
+      {
+        "name": "O*NET",
+        "bestFor": [
+          "occupational information",
+          "job tasks",
+          "skills",
+          "wages",
+          "outlook"
+        ],
+        "examClue": "Useful when the client needs concrete labor-market and role information."
+      },
+      {
+        "name": "Career Genogram",
+        "bestFor": [
+          "intergenerational family patterns around work, class, and expectations"
+        ],
+        "examClue": "Helpful when family pressure or multigenerational themes are central."
+      }
+    ],
+    "examPearls": [
+      "Choose the tool that fits the question. A client with a fit problem may need SDS. A client with a family expectation problem may benefit from a career genogram.",
+      "Career tools support exploration; they do not make the decision for the client."
+    ]
+  },
+  "commonCareerPresentationsSection": {
+    "title": "Common Career Presentations on the NCMHCE",
+    "presentations": [
+      {
+        "presentation": "Career Indecision",
+        "features": [
+          "difficulty choosing among options",
+          "fear of making the wrong choice",
+          "overthinking",
+          "low confidence"
+        ],
+        "helpfulLenses": [
+          "Krumboltz",
+          "Super",
+          "CBT-style challenge of perfectionism"
+        ]
+      },
+      {
+        "presentation": "Job Loss / Unemployment",
+        "features": [
+          "grief",
+          "financial stress",
+          "identity loss",
+          "shame",
+          "role disruption"
+        ],
+        "helpfulLenses": [
+          "Super",
+          "grief and adjustment work",
+          "practical action planning"
+        ]
+      },
+      {
+        "presentation": "Career Mismatch / Dissatisfaction",
+        "features": [
+          "boredom",
+          "drain",
+          "chronic disengagement",
+          "success without fulfillment"
+        ],
+        "helpfulLenses": [
+          "Holland",
+          "values clarification"
+        ]
+      },
+      {
+        "presentation": "Midlife Career Change",
+        "features": [
+          "re-evaluation",
+          "meaning questions",
+          "family and financial pressure",
+          "fear of starting over"
+        ],
+        "helpfulLenses": [
+          "Super",
+          "Krumboltz",
+          "generativity themes"
+        ]
+      },
+      {
+        "presentation": "Retirement Distress",
+        "features": [
+          "loss of identity",
+          "loss of structure",
+          "fear of purposelessness",
+          "adjustment grief"
+        ],
+        "helpfulLenses": [
+          "Super",
+          "Erikson",
+          "late-life meaning work"
+        ]
+      },
+      {
+        "presentation": "Work-Life Role Conflict",
+        "features": [
+          "burnout",
+          "caregiving stress",
+          "partner conflict",
+          "role overload"
+        ],
+        "helpfulLenses": [
+          "Super life-space roles",
+          "systems and support planning"
+        ]
+      },
+      {
+        "presentation": "Discrimination and Structural Barriers",
+        "features": [
+          "blocked opportunity",
+          "discouragement",
+          "minority stress",
+          "economic limitation"
+        ],
+        "helpfulLenses": [
+          "Krumboltz environmental conditions",
+          "Gottfredson",
+          "social justice and advocacy lens"
+        ]
+      }
+    ],
+    "examPearls": [
+      "The exam often expects recognition that not all career problems are intrapsychic. Some are structural, contextual, or developmental.",
+      "Strong answers may combine emotional support with practical planning."
+    ]
+  },
+  "socialJusticeSection": {
+    "title": "Career Counseling and Social Justice",
+    "overview": "Career development is shaped by systems of access and exclusion. Effective counseling recognizes that clients do not choose from a neutral field of options.",
+    "factors": [
+      "racism and discrimination",
+      "sexism and gender-role restrictions",
+      "class and socioeconomic barriers",
+      "immigration and documentation stress",
+      "disability access issues",
+      "family obligations and caregiving burden",
+      "educational opportunity gaps",
+      "geographic limitations"
+    ],
+    "counselorRole": [
+      "validate structural barriers rather than pathologizing the client",
+      "help the client identify realistic pathways and supports",
+      "advocate when appropriate",
+      "expand options while respecting actual constraints"
+    ],
+    "examPearls": [
+      "The exam increasingly rewards awareness of systemic barriers.",
+      "Do not answer as though all clients have equal opportunity if the case clearly says otherwise."
+    ]
+  },
+  "crossTheoryComparisons": [
+    {
+      "title": "Holland vs Super",
+      "points": [
+        "Holland focuses on person-environment fit based on interests and personality style.",
+        "Super focuses on self-concept, lifespan development, and multiple life roles over time.",
+        "Choose Holland for mismatch cases and Super for developmental/life-stage transition cases."
+      ]
+    },
+    {
+      "title": "Super vs Krumboltz",
+      "points": [
+        "Super emphasizes developmental stages and self-concept across the lifespan.",
+        "Krumboltz emphasizes learning, beliefs, chance events, and opportunity creation.",
+        "Choose Krumboltz when rigidity, indecision, or unexpected opportunity are central."
+      ]
+    },
+    {
+      "title": "Krumboltz vs Gottfredson",
+      "points": [
+        "Krumboltz highlights learning experiences and happenstance.",
+        "Gottfredson highlights early narrowing of career options due to gender, status, and social realities.",
+        "Choose Gottfredson when the case centers on limiting beliefs about who is 'allowed' to pursue a path."
+      ]
+    }
+  ],
+  "commonExamTraps": [
+    "Treating career counseling as purely informational and ignoring emotional barriers",
+    "Giving direct job advice without assessment or exploration",
+    "Ignoring structural barriers like discrimination or family obligation",
+    "Confusing Holland fit problems with Super lifespan-role problems",
+    "Assuming indecision always means lack of motivation rather than fear, perfectionism, or limited exposure"
+  ],
+  "miniCaseDrills": [
+    {
+      "case": "A client is highly empathic and energized by helping people, but feels trapped in a rigid, highly clerical back-office role that leaves them drained and unfulfilled.",
+      "bestTheory": "Holland's RIASEC Theory",
+      "rationale": "The central issue is mismatch between person type and work environment."
+    },
+    {
+      "case": "A 52-year-old client loses a long-term job and feels ashamed, disoriented, and unsure how to rebuild identity and direction.",
+      "bestTheory": "Super's Life-Span, Life-Space Theory",
+      "rationale": "The case involves a developmental career transition and likely a mini-cycle back into exploration."
+    },
+    {
+      "case": "A client says, 'I keep waiting to feel 100 percent sure before I apply anywhere. I don't want to choose wrong.'",
+      "bestTheory": "Krumboltz's Social Learning / Planned Happenstance Theory",
+      "rationale": "The case centers on rigid beliefs, indecision, and difficulty acting without certainty."
+    },
+    {
+      "case": "A teen from a working-class family has ruled out several careers because they seem 'not for people like us.'",
+      "bestTheory": "Gottfredson's Circumscription and Compromise Theory",
+      "rationale": "The case reflects narrowing of options based on social valuation and perceived fit."
+    },
+    {
+      "case": "A recent retiree feels empty, purposeless, and disconnected after leaving a profession that defined their identity for 35 years.",
+      "bestTheory": "Super's Theory with later-life developmental lens",
+      "rationale": "The central issue is role transition, disengagement, and identity reorganization."
+    }
+  ],
+  "quickReview": {
+    "memoryHooks": [
+      "Holland = fit",
+      "RIASEC = Realistic, Investigative, Artistic, Social, Enterprising, Conventional",
+      "Super = lifespan + self-concept + roles",
+      "Krumboltz = learning + chance + flexibility",
+      "Gottfredson = narrowing and compromise",
+      "SDS = career interest tool",
+      "O*NET = job information",
+      "Career problems are often identity problems too"
+    ],
+    "finalTakeaways": [
+      "Career counseling on the exam is usually about more than picking a job.",
+      "The strongest answer often combines assessment, emotional understanding, and practical next steps.",
+      "Choose the theory that best explains the client's current career struggle and life context."
+    ]
+  },
+  "checkpointQuestions": [
+    {
+      "question": "Which theory is most focused on person-environment fit and occupational satisfaction through interest match?",
+      "answer": "Holland's RIASEC Theory"
+    },
+    {
+      "question": "Which theory is most useful for understanding career development across changing life stages and multiple life roles?",
+      "answer": "Super's Life-Span, Life-Space Theory"
+    },
+    {
+      "question": "Which theory emphasizes learning experiences, rigid beliefs, and the value of flexibility and unexpected opportunity?",
+      "answer": "Krumboltz's Social Learning / Planned Happenstance Theory"
+    },
+    {
+      "question": "What assessment is most directly tied to Holland's model?",
+      "answer": "Self-Directed Search (SDS)"
+    },
+    {
+      "question": "Why is social justice awareness important in career counseling?",
+      "answer": "Because career development is shaped by access, discrimination, opportunity, family expectations, and structural barriers, not just personal preference"
+    }
+  ],
+  "sourceBasis": {
+    "derivedFromUploadedMaterials": [
+      "Study Library",
+      "Career Development"
+    ],
+    "notes": "Expanded into a production-ready module emphasizing career theories, vocational counseling process, career assessments, social barriers, and exam-style case application."
+  }
+}

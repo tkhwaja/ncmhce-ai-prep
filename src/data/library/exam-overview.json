@@ -1,0 +1,588 @@
+{
+  "moduleId": "exam-overview-and-blueprint",
+  "moduleTitle": "Exam Overview & Blueprint",
+  "moduleType": "learning_library",
+  "version": "1.0",
+  "exam": {
+    "name": "NCMHCE",
+    "formatAlignment": {
+      "currentBlueprint": true,
+      "effective2027Blueprint": true
+    },
+    "whyThisModuleMatters": "This module gives learners a front-door orientation to the exam: what the NCMHCE is testing, how case-based reasoning works, how the content domains fit together, and how to study strategically without getting lost in random memorization."
+  },
+  "uiHints": {
+    "defaultView": "guided_dashboard",
+    "recommendedComponents": [
+      "module_header",
+      "exam_snapshot_cards",
+      "blueprint_domain_grid",
+      "how_cases_work_timeline",
+      "decision_hierarchy_panel",
+      "study_plan_builder",
+      "high_yield_priority_cards",
+      "common_mistakes_callouts",
+      "readiness_checklist",
+      "checkpoint_quiz"
+    ],
+    "tags": [
+      "exam-overview",
+      "blueprint",
+      "ncmhce",
+      "study-strategy",
+      "high-yield"
+    ]
+  },
+  "intro": {
+    "summary": "This module orients learners to the structure and logic of the NCMHCE. It explains what the exam is really measuring, how to think through case-based items, which content areas matter most, and how to turn the learning library into a practical study system.",
+    "learningObjectives": [
+      "Understand the broad purpose and structure of the NCMHCE",
+      "Identify the major content domains tested on the exam",
+      "Understand how the exam uses case-based clinical decision-making",
+      "Recognize the difference between memorization and applied clinical reasoning",
+      "Build a study strategy based on high-yield domains and weak areas"
+    ],
+    "howToUse": [
+      "Use this as the onboarding module for new users entering the platform.",
+      "Return to this module when study feels scattered or unfocused.",
+      "Use the domain map to decide what to study next and in what order.",
+      "Pair this module with the case conceptualization module to sharpen exam reasoning."
+    ],
+    "highYieldThemes": [
+      "The exam rewards judgment, sequencing, and prioritization more than raw recall.",
+      "Safety, assessment, diagnosis, and theory-consistent intervention are the backbone of strong performance.",
+      "The best answer is usually the most appropriate next step for this client at this stage of treatment.",
+      "A good study plan should reflect exam weight and clinical integration, not just personal preference."
+    ]
+  },
+  "examSnapshot": {
+    "title": "NCMHCE Snapshot",
+    "overview": "The NCMHCE is a clinical decision-making exam built around counseling practice. It does not merely ask whether learners recognize a theory or diagnosis in the abstract. It asks whether they can think like a counselor in a realistic case.",
+    "whatTheExamTests": [
+      "intake reasoning",
+      "risk prioritization",
+      "diagnostic recognition",
+      "assessment selection",
+      "case conceptualization",
+      "treatment planning",
+      "ethics and legal response",
+      "documentation and continuity of care",
+      "theory-consistent intervention choice"
+    ],
+    "whatMakesItDifferent": [
+      "information is embedded in case material rather than isolated facts",
+      "the correct answer often depends on timing and treatment stage",
+      "several answers may sound good, but only one is best for that moment",
+      "safety and clinical appropriateness outrank flashy or overcomplicated responses"
+    ],
+    "examPearls": [
+      "The exam often feels less like a trivia test and more like a supervision question: 'What should the counselor do next?'",
+      "Good test performance requires organizing information fast and not getting distracted by low-value details."
+    ]
+  },
+  "blueprintDomains": {
+    "title": "Core Domain Map",
+    "overview": "The study library is organized around the major knowledge areas most relevant to NCMHCE case performance.",
+    "domains": [
+      {
+        "domainId": "theories-techniques",
+        "title": "Counseling Theories & Techniques",
+        "whyItMatters": "The exam frequently tests whether the intervention matches the theory, the client, and the stage of treatment.",
+        "highYieldFocus": [
+          "CBT",
+          "DBT",
+          "ACT",
+          "Person-Centered",
+          "MI",
+          "SFBT",
+          "Psychodynamic",
+          "Family Systems"
+        ],
+        "linkedModule": "counseling-theories-techniques"
+      },
+      {
+        "domainId": "dsm-diagnosis",
+        "title": "DSM-5-TR Diagnoses",
+        "whyItMatters": "Diagnosis drives case understanding, treatment planning, and differential reasoning.",
+        "highYieldFocus": [
+          "depression",
+          "anxiety",
+          "trauma disorders",
+          "OCD spectrum",
+          "bipolar disorders",
+          "psychotic disorders",
+          "personality disorders",
+          "substance use disorders"
+        ],
+        "linkedModule": "dsm-5-tr-diagnoses"
+      },
+      {
+        "domainId": "assessment-testing",
+        "title": "Assessment & Testing",
+        "whyItMatters": "The exam often asks which tool, screen, or assessment approach is most appropriate.",
+        "highYieldFocus": [
+          "PHQ-9",
+          "GAD-7",
+          "PCL-5",
+          "C-SSRS",
+          "AUDIT",
+          "DAST-10",
+          "MSE",
+          "level of care"
+        ],
+        "linkedModule": "assessment-and-testing"
+      },
+      {
+        "domainId": "crisis-trauma",
+        "title": "Crisis, Trauma & Disaster Counseling",
+        "whyItMatters": "Suicide risk, trauma stabilization, and crisis prioritization are some of the highest-yield applied areas on the exam.",
+        "highYieldFocus": [
+          "suicide risk assessment",
+          "safety planning",
+          "PTSD vs ASD",
+          "trauma-informed care",
+          "disaster phases",
+          "violence risk"
+        ],
+        "linkedModule": "crisis-trauma-and-disaster-counseling"
+      },
+      {
+        "domainId": "ethics-legal",
+        "title": "Ethics & Legal Issues",
+        "whyItMatters": "Ethics questions are heavily tested and often hinge on confidentiality, informed consent, mandated reporting, duty to protect, and documentation.",
+        "highYieldFocus": [
+          "informed consent",
+          "confidentiality",
+          "HIPAA/FERPA",
+          "mandated reporting",
+          "duty to warn/protect",
+          "telehealth ethics",
+          "boundaries"
+        ],
+        "linkedModule": "ethics-and-legal-issues"
+      },
+      {
+        "domainId": "case-conceptualization",
+        "title": "Clinical Case Conceptualization",
+        "whyItMatters": "This is the organizing skill behind almost every good exam answer.",
+        "highYieldFocus": [
+          "biopsychosocial thinking",
+          "presenting problem",
+          "maintaining factors",
+          "strengths and barriers",
+          "SMART treatment goals",
+          "SOAP/DAP notes"
+        ],
+        "linkedModule": "clinical-case-conceptualization"
+      },
+      {
+        "domainId": "human-development",
+        "title": "Human Development & Lifespan",
+        "whyItMatters": "Developmental expectations change assessment, diagnosis, family cases, and intervention style.",
+        "highYieldFocus": [
+          "Erikson",
+          "Piaget",
+          "Attachment",
+          "Identity development",
+          "Aging",
+          "Bronfenbrenner"
+        ],
+        "linkedModule": "human-development-and-lifespan"
+      },
+      {
+        "domainId": "group-counseling",
+        "title": "Group Counseling",
+        "whyItMatters": "Group items often test Yalom factors, stages of group development, leader skills, and group ethics.",
+        "highYieldFocus": [
+          "Yalom",
+          "Tuckman/Corey stages",
+          "linking",
+          "blocking",
+          "cohesion",
+          "group confidentiality"
+        ],
+        "linkedModule": "group-counseling"
+      },
+      {
+        "domainId": "psychopharmacology",
+        "title": "Psychopharmacology",
+        "whyItMatters": "Counselors do not prescribe, but they must recognize medication issues, side effects, and referral needs.",
+        "highYieldFocus": [
+          "SSRIs",
+          "mood stabilizers",
+          "antipsychotic adverse effects",
+          "benzodiazepine dependence",
+          "lithium toxicity"
+        ],
+        "linkedModule": "psychopharmacology"
+      },
+      {
+        "domainId": "career-development",
+        "title": "Career Development",
+        "whyItMatters": "Career concerns are often embedded in identity, transition, adjustment, and role-balance cases.",
+        "highYieldFocus": [
+          "RIASEC",
+          "Super",
+          "Krumboltz",
+          "Gottfredson",
+          "career assessment tools"
+        ],
+        "linkedModule": "career-development"
+      },
+      {
+        "domainId": "research-program-evaluation",
+        "title": "Research & Program Evaluation",
+        "whyItMatters": "The exam expects practical research literacy, not advanced statistics.",
+        "highYieldFocus": [
+          "design types",
+          "basic statistics",
+          "EBP",
+          "program evaluation",
+          "research ethics"
+        ],
+        "linkedModule": "research-and-program-evaluation"
+      },
+      {
+        "domainId": "glossary",
+        "title": "Key Terms Glossary",
+        "whyItMatters": "Supports speed, recognition, and quick clarification during study.",
+        "highYieldFocus": [
+          "cross-domain reference terms",
+          "common confusions",
+          "fast lookup"
+        ],
+        "linkedModule": "key-terms-glossary"
+      }
+    ]
+  },
+  "howCasesWork": {
+    "title": "How Case-Based Reasoning Works on the Exam",
+    "overview": "The NCMHCE often gives a client story in layers. Strong test-takers quickly identify the kind of decision the question is really asking for.",
+    "caseSequence": [
+      {
+        "step": 1,
+        "title": "Identify the presenting problem",
+        "questions": [
+          "Why is the client here now?",
+          "What is the primary complaint or crisis?"
+        ]
+      },
+      {
+        "step": 2,
+        "title": "Identify key symptoms and severity",
+        "questions": [
+          "What symptoms are clearly present?",
+          "How long have they lasted?",
+          "What level of impairment exists?"
+        ]
+      },
+      {
+        "step": 3,
+        "title": "Scan immediately for risk",
+        "questions": [
+          "Is there suicidal ideation, homicidal ideation, psychosis, abuse, intoxication, or severe instability?"
+        ]
+      },
+      {
+        "step": 4,
+        "title": "Recognize the treatment stage",
+        "questions": [
+          "Is this intake, early treatment, mid-treatment, crisis response, or termination?"
+        ]
+      },
+      {
+        "step": 5,
+        "title": "Match the response to the actual need",
+        "questions": [
+          "Is more assessment needed?",
+          "Is safety planning needed?",
+          "Is treatment planning needed?",
+          "Is a theory-specific intervention being tested?"
+        ]
+      },
+      {
+        "step": 6,
+        "title": "Choose the most clinically appropriate next step",
+        "questions": [
+          "Not the most dramatic answer",
+          "Not the fanciest answer",
+          "The best answer for this client right now"
+        ]
+      }
+    ],
+    "examPearls": [
+      "Many wrong answers are not bad counseling in general. They are just wrong for that stage or priority level.",
+      "The exam often rewards sequencing: assess before intervening, stabilize before processing, clarify before disclosing."
+    ]
+  },
+  "decisionHierarchy": {
+    "title": "Practical Decision Hierarchy",
+    "hierarchy": [
+      {
+        "priority": 1,
+        "title": "Safety and imminent risk",
+        "includes": [
+          "suicidality",
+          "violence risk",
+          "psychosis with danger",
+          "abuse/neglect",
+          "medical or substance-related danger"
+        ]
+      },
+      {
+        "priority": 2,
+        "title": "Assessment and clarification",
+        "includes": [
+          "missing diagnostic data",
+          "MSE",
+          "differential diagnosis",
+          "assessment tool selection",
+          "treatment stage clarification"
+        ]
+      },
+      {
+        "priority": 3,
+        "title": "Ethics and legal obligations",
+        "includes": [
+          "confidentiality limits",
+          "informed consent",
+          "mandated reporting",
+          "duty to protect",
+          "telehealth location or scope issues"
+        ]
+      },
+      {
+        "priority": 4,
+        "title": "Conceptualization and planning",
+        "includes": [
+          "diagnosis",
+          "biopsychosocial understanding",
+          "treatment goals",
+          "level of care",
+          "barriers and strengths"
+        ]
+      },
+      {
+        "priority": 5,
+        "title": "Theory-consistent intervention",
+        "includes": [
+          "CBT response",
+          "MI response",
+          "DBT skill use",
+          "family systems intervention",
+          "group process intervention"
+        ]
+      }
+    ],
+    "examPearls": [
+      "Safety and ethics can interrupt every other domain.",
+      "A theory answer that ignores risk is usually wrong.",
+      "A diagnosis answer that ignores missing critical assessment data may also be wrong."
+    ]
+  },
+  "studyStrategySection": {
+    "title": "How to Study Strategically",
+    "overview": "A strong study plan should reflect both exam importance and personal weak spots. Learners often waste time overstudying low-yield trivia while undertraining case reasoning.",
+    "recommendedStudyOrder": [
+      {
+        "tier": 1,
+        "modules": [
+          "Counseling Theories & Techniques",
+          "DSM-5-TR Diagnoses",
+          "Assessment & Testing",
+          "Crisis, Trauma & Disaster Counseling",
+          "Ethics & Legal Issues"
+        ],
+        "why": "These are the most directly tied to applied case decision-making."
+      },
+      {
+        "tier": 2,
+        "modules": [
+          "Clinical Case Conceptualization",
+          "Human Development & Lifespan",
+          "Group Counseling",
+          "Psychopharmacology"
+        ],
+        "why": "These strengthen integration, developmental reasoning, documentation, and specialized applied knowledge."
+      },
+      {
+        "tier": 3,
+        "modules": [
+          "Career Development",
+          "Research & Program Evaluation",
+          "Key Terms Glossary"
+        ],
+        "why": "These are still important, but are usually more supportive than central to most difficult case items."
+      }
+    ],
+    "studyHabitsThatWork": [
+      "study one domain deeply, then immediately apply it to mini-cases",
+      "compare similar diagnoses and theories instead of memorizing them in isolation",
+      "practice identifying what priority changes the next step",
+      "review common exam traps repeatedly",
+      "use glossary review for speed, not as your only study method"
+    ],
+    "studyHabitsThatBackfire": [
+      "memorizing founder names without learning interventions",
+      "studying diagnoses without learning duration and differentials",
+      "ignoring ethics because it feels dry",
+      "spending too much time on low-yield trivia and too little on crisis and case reasoning",
+      "confusing knowing content with being able to apply content"
+    ],
+    "examPearls": [
+      "If a learner can explain why an answer is right and why the tempting answers are wrong, they are getting ready the right way.",
+      "Case reasoning drills should become a regular part of study, not an afterthought."
+    ]
+  },
+  "performanceMindsetSection": {
+    "title": "Performance Mindset on Test Day",
+    "overview": "This section helps learners approach the exam with disciplined clinical thinking rather than panic or overcomplication.",
+    "rules": [
+      "Read for priority, not just for content.",
+      "Underline or mentally flag danger cues immediately.",
+      "Do not overvalue exotic explanations when a straightforward clinical priority is present.",
+      "When two answers seem close, prefer the one that is safer, more ethical, and more stage-appropriate.",
+      "Remember that assessment often comes before intervention when key information is missing."
+    ],
+    "commonThoughtErrorsDuringTesting": [
+      {
+        "error": "Overcomplicating simple priorities",
+        "correction": "If the client is unsafe, the next step is usually about safety."
+      },
+      {
+        "error": "Choosing the most intense response automatically",
+        "correction": "Use the least restrictive safe option that still protects the client."
+      },
+      {
+        "error": "Falling for familiar keywords",
+        "correction": "A case with anxiety is not automatically GAD. Check duration, trigger, and symptom pattern."
+      },
+      {
+        "error": "Answering with your favorite theory regardless of context",
+        "correction": "Let the case determine the frame."
+      }
+    ]
+  },
+  "highYieldCrosslinks": {
+    "title": "High-Yield Crosslinks Between Modules",
+    "crosslinks": [
+      {
+        "from": "DSM-5-TR Diagnoses",
+        "to": "Assessment & Testing",
+        "why": "Diagnosis gets stronger when you know which assessment tools support the clinical question."
+      },
+      {
+        "from": "Crisis, Trauma & Disaster Counseling",
+        "to": "Ethics & Legal Issues",
+        "why": "Risk assessment and safety response are tightly linked to confidentiality limits and protective duties."
+      },
+      {
+        "from": "Counseling Theories & Techniques",
+        "to": "Clinical Case Conceptualization",
+        "why": "Theory helps explain why the problem is happening and what intervention fits."
+      },
+      {
+        "from": "Human Development & Lifespan",
+        "to": "DSM-5-TR Diagnoses",
+        "why": "Developmental appropriateness matters in diagnosis."
+      },
+      {
+        "from": "Group Counseling",
+        "to": "Ethics & Legal Issues",
+        "why": "Group work has distinct confidentiality, safety, and screening issues."
+      }
+    ]
+  },
+  "commonExamMistakes": [
+    "Ignoring a safety cue because another answer sounds more therapeutic",
+    "Choosing a diagnosis without checking duration or rule-outs",
+    "Picking a theory intervention before enough assessment has happened",
+    "Forgetting that informed consent and confidentiality issues can change the best answer",
+    "Treating all positive screening results as final diagnoses",
+    "Confusing warmth with non-action when the case needs structure or protection"
+  ],
+  "readinessChecklist": {
+    "title": "Learner Readiness Checklist",
+    "items": [
+      "I can identify when safety becomes the top priority.",
+      "I can differentiate major depressive, bipolar, anxiety, trauma, OCD-spectrum, psychotic, and personality patterns.",
+      "I know which assessment tools fit depression, anxiety, PTSD, suicidality, and substance use.",
+      "I can recognize theory-consistent counselor responses for the major modalities.",
+      "I understand confidentiality, informed consent, mandated reporting, and duty to protect.",
+      "I can build a basic biopsychosocial conceptualization and SMART treatment plan.",
+      "I can explain why a correct answer is better than attractive but wrong alternatives."
+    ],
+    "scoringHint": "Learners who cannot confidently say yes to most items should focus on Tier 1 domains first."
+  },
+  "miniCaseDrills": [
+    {
+      "case": "A client presents for anxiety, but midway through the case reveals a specific suicide plan and access to pills at home.",
+      "bestLesson": "Safety changes the case immediately",
+      "rationale": "The next step is no longer routine anxiety treatment planning."
+    },
+    {
+      "case": "A vignette describes intrusive trauma memories, nightmares, avoidance, and hypervigilance for two weeks after an assault.",
+      "bestLesson": "Duration matters for diagnosis",
+      "rationale": "This pattern fits Acute Stress Disorder timing more than PTSD timing."
+    },
+    {
+      "case": "A question asks for the best counselor response using a person-centered approach, and one answer offers empathic reflection while another gives structured cognitive disputation.",
+      "bestLesson": "Theory consistency matters",
+      "rationale": "The most sophisticated answer is not always the correct one; the theory-consistent one is."
+    },
+    {
+      "case": "A client endorses passive suicidal ideation and the question asks which assessment tool would be most appropriate next.",
+      "bestLesson": "Assessment tool matching matters",
+      "rationale": "A suicide-specific tool like the C-SSRS is more appropriate than a general mood screener alone."
+    },
+    {
+      "case": "A client in telehealth appears to be in crisis, and the counselor realizes they never confirmed the client's current location.",
+      "bestLesson": "Ethics and telehealth logistics matter clinically",
+      "rationale": "Location and emergency planning are not administrative details; they affect safety response."
+    }
+  ],
+  "quickReview": {
+    "memoryHooks": [
+      "Safety first",
+      "Assessment before guessing",
+      "Diagnosis needs duration + impairment + rule-outs",
+      "Theory answers must fit the theory",
+      "Ethics can override routine intervention",
+      "Case conceptualization organizes everything",
+      "Study the backbone domains first"
+    ],
+    "finalTakeaways": [
+      "This module is the study map for the whole platform.",
+      "The NCMHCE rewards disciplined clinical reasoning more than scattered memorization.",
+      "When learners know what the exam is really asking, the rest of the library becomes much easier to use well."
+    ]
+  },
+  "checkpointQuestions": [
+    {
+      "question": "What should usually become the top priority if a case unexpectedly reveals suicidal intent and means?",
+      "answer": "Safety and risk response"
+    },
+    {
+      "question": "Why is clinical case conceptualization so important for this exam?",
+      "answer": "Because it helps organize symptoms, history, risk, diagnosis, and next-step decisions into a coherent clinical response"
+    },
+    {
+      "question": "What is one major difference between knowing a theory and being ready for the exam?",
+      "answer": "Exam readiness requires recognizing which intervention fits the client and treatment stage, not just naming the theory"
+    },
+    {
+      "question": "What three factors usually guide the best exam answer choice when options feel close?",
+      "answer": "Safety, ethics, and stage-appropriate clinical reasoning"
+    },
+    {
+      "question": "Which study approach is stronger: memorizing isolated facts or practicing applied case reasoning across domains?",
+      "answer": "Practicing applied case reasoning across domains"
+    }
+  ],
+  "sourceBasis": {
+    "derivedFromUploadedMaterials": [
+      "Study Library"
+    ],
+    "notes": "Expanded into a production-ready orientation module that maps the exam, explains case-based reasoning, links the learning library domains, and helps learners study strategically."
+  }
+}
