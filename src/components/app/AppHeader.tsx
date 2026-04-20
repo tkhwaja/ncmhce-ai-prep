@@ -13,6 +13,7 @@ import { Avatar, AvatarFallback } from "@/components/ui/avatar";
 import { MessageSquare, Search, LayoutDashboard, User, LogOut, Sun, Moon, MessageCircle } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "@/contexts/ThemeContext";
+import FeedbackDialog from "@/components/FeedbackDialog";
 
 interface AppHeaderProps {
   onToggleChat: () => void;
@@ -85,6 +86,10 @@ const AppHeader = ({ onToggleChat, chatOpen }: AppHeaderProps) => {
             </DropdownMenuItem>
             <DropdownMenuItem onClick={() => navigate("/profile")}>
               <User className="mr-2 h-4 w-4" /> Profile
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem asChild onSelect={(e) => e.preventDefault()}>
+              <FeedbackDialog />
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem onClick={handleSignOut}>
