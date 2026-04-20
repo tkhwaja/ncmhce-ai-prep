@@ -282,6 +282,26 @@ Return ONLY valid JSON, no markdown or explanation.`
           <Button onClick={() => { setStudyMode(true); setCurrentIndex(0); setFlipped(false); }}>
             <Layers className="mr-2 h-4 w-4" /> Study Now
           </Button>
+          {stats.mastered > 0 && (
+            <Button variant="outline" onClick={async () => {
+              if (!user) return;
+              const cards = getAllCards(selectedDeck);
+              const cardIds = cards.map(c => c.id);
+              await supabase
+                .from("flashcard_progress")
+                .delete()
+                .eq("user_id", user.id)
+                .eq("deck_id", selectedDeck.id);
+              setProgress((prev) => {
+                const next = { ...prev };
+                cardIds.forEach(id => delete next[id]);
+                return next;
+              });
+              toast({ title: "Progress reset!", description: "All cards in this deck have been reset to unseen." });
+            }}>
+              <RotateCcw className="mr-2 h-4 w-4" /> Retake Deck
+            </Button>
+          )}
           <Button variant="outline" onClick={() => generateMore(selectedDeck)} disabled={generating}>
             <Sparkles className="mr-2 h-4 w-4" />
             {generating ? "Generating..." : "AI Generate More"}

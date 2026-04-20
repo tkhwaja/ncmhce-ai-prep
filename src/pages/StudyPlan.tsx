@@ -99,15 +99,25 @@ const StudyPlan = () => {
 
 Student info:
 - Exam date: ${format(examDate, "PPP")}
+- Today's date: ${format(new Date(), "PPP")}
+- Weeks until exam: ${Math.max(1, Math.ceil((examDate.getTime() - Date.now()) / (7 * 24 * 60 * 60 * 1000)))}
 - Study hours per week: ${hoursPerWeek[0]}
 - Taken NCMHCE before: ${takenBefore ? "Yes" : "No"}
 - Confidence ratings (1-5): ${JSON.stringify(confidence)}
 - Biggest concern: ${biggestConcern}
 
-Create a realistic plan covering 8-12 weeks, focusing more time on weaker areas. Include activities like: reading specific DSM-5-TR sections, completing practice simulations, reviewing flashcards, practicing case conceptualization, and timed practice exams.
+CRITICAL: Generate EXACTLY ${Math.max(1, Math.ceil((examDate.getTime() - Date.now()) / (7 * 24 * 60 * 60 * 1000)))} weeks — this is the actual number of weeks until the student's exam date. Do NOT default to 10 weeks.
+
+Create a realistic plan focusing more time on weaker areas. All activities MUST reference resources available on the platform:
+- "Practice Narrative: [topic]" for clinical case practice
+- "Review Flashcards: [deck name]" for flashcard decks (DSM-5-TR Criteria, Therapeutic Modalities, Ethical Codes & Standards, Counseling Theories, Assessment Tools, Crisis Intervention)
+- "Study Learning Library: [module]" for reading content
+- "Complete timed practice exam" for full exam simulation
+
+Do NOT suggest external textbooks, websites, or resources not on the platform.
 
 IMPORTANT: Return ONLY a valid JSON array, no markdown, no explanation. Example format:
-[{"week":1,"topic":"DSM-5-TR Foundations","activities":["Read DSM-5-TR intro","Complete 2 mood disorder simulations","Review diagnostic flashcards"],"hours":10}]`
+[{"week":1,"topic":"DSM-5-TR Foundations","activities":["Study Learning Library: DSM-5-TR Overview","Review Flashcards: DSM-5-TR Criteria","Practice Narrative: Mood Disorders"],"hours":10}]`
           }],
           context: "Study Plan Generator",
         }),

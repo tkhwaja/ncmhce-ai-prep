@@ -215,6 +215,48 @@ export type Database = {
         }
         Relationships: []
       }
+      narrative_attempts: {
+        Row: {
+          completed_at: string | null
+          created_at: string
+          dm_answers: Json
+          domain_scores: Json
+          feedback: string | null
+          id: string
+          ig_selections: Json
+          narrative_id: string
+          time_spent: number | null
+          total_score: number | null
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string | null
+          created_at?: string
+          dm_answers?: Json
+          domain_scores?: Json
+          feedback?: string | null
+          id?: string
+          ig_selections?: Json
+          narrative_id: string
+          time_spent?: number | null
+          total_score?: number | null
+          user_id: string
+        }
+        Update: {
+          completed_at?: string | null
+          created_at?: string
+          dm_answers?: Json
+          domain_scores?: Json
+          feedback?: string | null
+          id?: string
+          ig_selections?: Json
+          narrative_id?: string
+          time_spent?: number | null
+          total_score?: number | null
+          user_id?: string
+        }
+        Relationships: []
+      }
       notes: {
         Row: {
           content: string
@@ -339,48 +381,6 @@ export type Database = {
             referencedColumns: ["id"]
           },
         ]
-      }
-      simulation_attempts: {
-        Row: {
-          completed_at: string | null
-          created_at: string
-          dm_answers: Json
-          domain_scores: Json
-          feedback: string | null
-          id: string
-          ig_selections: Json
-          simulation_id: string
-          time_spent: number | null
-          total_score: number | null
-          user_id: string
-        }
-        Insert: {
-          completed_at?: string | null
-          created_at?: string
-          dm_answers?: Json
-          domain_scores?: Json
-          feedback?: string | null
-          id?: string
-          ig_selections?: Json
-          simulation_id: string
-          time_spent?: number | null
-          total_score?: number | null
-          user_id: string
-        }
-        Update: {
-          completed_at?: string | null
-          created_at?: string
-          dm_answers?: Json
-          domain_scores?: Json
-          feedback?: string | null
-          id?: string
-          ig_selections?: Json
-          simulation_id?: string
-          time_spent?: number | null
-          total_score?: number | null
-          user_id?: string
-        }
-        Relationships: []
       }
       study_plans: {
         Row: {

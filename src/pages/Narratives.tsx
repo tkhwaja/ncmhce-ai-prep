@@ -30,16 +30,16 @@ const Narratives = () => {
   useEffect(() => {
     if (!user) return;
     supabase
-      .from("simulation_attempts")
-      .select("simulation_id, total_score, completed_at")
+      .from("narrative_attempts")
+      .select("narrative_id, total_score, completed_at")
       .eq("user_id", user.id)
       .order("created_at", { ascending: false })
       .then(({ data }) => {
         if (!data) return;
         const map: AttemptMap = {};
         data.forEach((a) => {
-          if (!map[a.simulation_id]) {
-            map[a.simulation_id] = { total_score: a.total_score, completed_at: a.completed_at };
+          if (!map[a.narrative_id]) {
+            map[a.narrative_id] = { total_score: a.total_score, completed_at: a.completed_at };
           }
         });
         setAttempts(map);

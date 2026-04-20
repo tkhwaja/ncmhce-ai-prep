@@ -152,9 +152,9 @@ const NarrativePage = () => {
     });
 
     if (user) {
-      await supabase.from("simulation_attempts").insert({
+      await supabase.from("narrative_attempts").insert({
         user_id: user.id,
-        simulation_id: narrative.id,
+        narrative_id: narrative.id,
         ig_selections: [],
         dm_answers: answers,
         domain_scores: domainScores,
