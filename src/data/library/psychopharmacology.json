@@ -1,0 +1,936 @@
+{
+  "moduleId": "psychopharmacology",
+  "moduleTitle": "Psychopharmacology",
+  "moduleType": "learning_library",
+  "version": "1.0",
+  "exam": {
+    "name": "NCMHCE",
+    "formatAlignment": {
+      "currentBlueprint": true,
+      "effective2027Blueprint": true
+    },
+    "whyThisModuleMatters": "This module helps learners understand psychopharmacology at the level expected on the NCMHCE. Counselors are not prescribers, but they are expected to recognize major medication classes, common indications, serious side effects, adherence issues, and when collaboration or urgent referral is needed."
+  },
+  "uiHints": {
+    "defaultView": "nested_accordion",
+    "recommendedComponents": [
+      "module_header",
+      "counselor_role_panel",
+      "medication_class_cards",
+      "side_effect_alerts",
+      "serious_adverse_effects_grid",
+      "neurotransmitter_overview",
+      "clinical_decision_callouts",
+      "exam_trap_callouts",
+      "mini_case_cards",
+      "checkpoint_quiz"
+    ],
+    "tags": [
+      "psychopharmacology",
+      "medications",
+      "side-effects",
+      "counselor-role",
+      "ncmhce",
+      "high-yield"
+    ]
+  },
+  "intro": {
+    "summary": "This module covers the major medication classes tested on the NCMHCE, including antidepressants, mood stabilizers, antipsychotics, anxiolytics, stimulants, and sleep aids. The emphasis is on what counselors need to know clinically: what these drugs are commonly used for, common side effects, major safety concerns, and how to respond appropriately when medication issues show up in a case.",
+    "learningObjectives": [
+      "Explain the counselor's role in medication-related care",
+      "Identify major psychotropic medication classes and their common uses",
+      "Recognize common side effects and major adverse effects that require follow-up or urgent referral",
+      "Differentiate medication adherence education from prescribing or medication management",
+      "Recognize how medication concerns may affect risk, diagnosis, and level of care",
+      "Understand the basic neurotransmitter systems commonly referenced on the exam"
+    ],
+    "howToUse": [
+      "Study medication classes by what they treat, not just by lists of names.",
+      "Pay close attention to black-box warnings, toxicity, withdrawal risks, and dangerous interactions.",
+      "Focus on what the counselor should do when a client reports side effects or stops medication abruptly.",
+      "Use the mini-cases to practice clinical judgment rather than rote memorization."
+    ],
+    "highYieldThemes": [
+      "Counselors do not prescribe or adjust medication.",
+      "Counselors should monitor, document, educate, and collaborate.",
+      "The exam often tests whether a side effect is routine, urgent, or dangerous.",
+      "Abrupt discontinuation can be risky in several medication classes.",
+      "Medication concerns often overlap with diagnosis, risk, and referral decisions."
+    ]
+  },
+  "coreDecisionRules": [
+    {
+      "rule": "Stay within the counselor role.",
+      "example": "The counselor can educate about adherence, encourage communication with the prescriber, and document reported effects, but should not tell the client to raise, lower, start, or stop a medication."
+    },
+    {
+      "rule": "Take serious adverse effects seriously.",
+      "example": "Symptoms of lithium toxicity, neuroleptic malignant syndrome, severe withdrawal, or escalating suicidality require urgent action rather than routine monitoring."
+    },
+    {
+      "rule": "Distinguish mild side effects from dangerous complications.",
+      "example": "Mild nausea after starting an SSRI is different from severe suicidality, serotonin syndrome concern, or mania activation."
+    },
+    {
+      "rule": "Always consider medication adherence and abrupt discontinuation.",
+      "example": "A client who suddenly stops benzodiazepines or mood stabilizers may be at increased medical or psychiatric risk."
+    },
+    {
+      "rule": "Collaborate appropriately.",
+      "example": "When medication problems arise, the right move is often documentation plus referral or coordination with the prescriber, ideally with a Release of Information."
+    }
+  ],
+  "counselorRoleSection": {
+    "title": "The Counselor's Role in Psychopharmacology",
+    "overview": "The NCMHCE tests whether counselors understand psychopharmacology enough to recognize important medication issues and respond appropriately while staying within scope.",
+    "appropriateResponsibilities": [
+      "screen for current and past medication use during intake",
+      "document client-reported medication benefits, side effects, and adherence concerns",
+      "monitor for symptom change that may reflect medication effects or complications",
+      "encourage clients to communicate with prescribing providers",
+      "provide psychoeducation about adherence, monitoring, and not stopping medication abruptly without medical guidance",
+      "collaborate with prescribers when releases are in place",
+      "recognize red flags requiring urgent referral"
+    ],
+    "outsideScope": [
+      "prescribing medications",
+      "telling a client to start, stop, increase, or decrease a prescription",
+      "acting as though counseling alone determines medication appropriateness without prescriber involvement"
+    ],
+    "examPearls": [
+      "The correct answer is often to document the concern and refer or coordinate with the prescriber.",
+      "The counselor should never sound like a psychiatrist in the answer choices.",
+      "Medication education is appropriate; medication management is not."
+    ]
+  },
+  "antidepressantsSection": {
+    "title": "Antidepressants",
+    "overview": "Antidepressants are commonly used for depression and several anxiety-related conditions. The exam often tests class recognition, common side effects, early suicidality concerns, and important differences between major antidepressant families.",
+    "classes": [
+      {
+        "class": "SSRIs",
+        "fullName": "Selective Serotonin Reuptake Inhibitors",
+        "mechanism": "Increase serotonin availability by blocking reuptake",
+        "commonUses": [
+          "major depressive disorder",
+          "generalized anxiety disorder",
+          "panic disorder",
+          "social anxiety disorder",
+          "OCD",
+          "PTSD"
+        ],
+        "examples": [
+          {
+            "generic": "fluoxetine",
+            "brand": "Prozac"
+          },
+          {
+            "generic": "sertraline",
+            "brand": "Zoloft"
+          },
+          {
+            "generic": "escitalopram",
+            "brand": "Lexapro"
+          },
+          {
+            "generic": "citalopram",
+            "brand": "Celexa"
+          },
+          {
+            "generic": "paroxetine",
+            "brand": "Paxil"
+          },
+          {
+            "generic": "fluvoxamine",
+            "brand": "Luvox"
+          }
+        ],
+        "commonSideEffects": [
+          "nausea",
+          "headache",
+          "sexual dysfunction",
+          "insomnia or sedation",
+          "weight changes"
+        ],
+        "majorWarnings": [
+          "black box warning for increased suicidal ideation in children, adolescents, and young adults",
+          "activation or increased agitation early in treatment",
+          "possible serotonin syndrome risk when combined with other serotonergic agents"
+        ],
+        "examPearls": [
+          "SSRIs are a high-yield first-line class for both depression and many anxiety disorders.",
+          "The exam often expects awareness of increased suicidality risk early in treatment for younger clients."
+        ]
+      },
+      {
+        "class": "SNRIs",
+        "fullName": "Serotonin-Norepinephrine Reuptake Inhibitors",
+        "mechanism": "Increase serotonin and norepinephrine",
+        "commonUses": [
+          "depression",
+          "generalized anxiety disorder",
+          "chronic pain syndromes",
+          "fibromyalgia"
+        ],
+        "examples": [
+          {
+            "generic": "venlafaxine",
+            "brand": "Effexor"
+          },
+          {
+            "generic": "duloxetine",
+            "brand": "Cymbalta"
+          },
+          {
+            "generic": "desvenlafaxine",
+            "brand": "Pristiq"
+          }
+        ],
+        "commonSideEffects": [
+          "nausea",
+          "activation",
+          "sweating",
+          "sleep disturbance",
+          "sexual side effects"
+        ],
+        "examPearls": [
+          "SNRIs are useful when depression and pain are both part of the case.",
+          "Do not treat them as fundamentally outside the antidepressant family. They are still antidepressants with anxiety uses as well."
+        ]
+      },
+      {
+        "class": "TCAs",
+        "fullName": "Tricyclic Antidepressants",
+        "mechanism": "Older antidepressants affecting multiple neurotransmitter systems",
+        "commonUses": [
+          "depression",
+          "some pain syndromes",
+          "sometimes sleep or migraine-related uses depending on context"
+        ],
+        "examples": [
+          {
+            "generic": "amitriptyline",
+            "brand": "Elavil"
+          },
+          {
+            "generic": "nortriptyline",
+            "brand": "Pamelor"
+          },
+          {
+            "generic": "imipramine",
+            "brand": "Tofranil"
+          }
+        ],
+        "commonSideEffects": [
+          "dry mouth",
+          "constipation",
+          "urinary retention",
+          "sedation"
+        ],
+        "majorWarnings": [
+          "dangerous in overdose",
+          "cardiac toxicity concern",
+          "anticholinergic burden"
+        ],
+        "examPearls": [
+          "TCAs are older and less often first-line because side effects and overdose risk matter.",
+          "If the case involves intentional overdose risk, TCA danger is especially relevant."
+        ]
+      },
+      {
+        "class": "MAOIs",
+        "fullName": "Monoamine Oxidase Inhibitors",
+        "mechanism": "Prevent breakdown of monoamines",
+        "commonUses": [
+          "treatment-resistant depression"
+        ],
+        "examples": [
+          {
+            "generic": "phenelzine",
+            "brand": "Nardil"
+          },
+          {
+            "generic": "tranylcypromine",
+            "brand": "Parnate"
+          }
+        ],
+        "majorWarnings": [
+          "dietary tyramine restrictions",
+          "hypertensive crisis risk",
+          "important drug-drug interaction concerns"
+        ],
+        "examPearls": [
+          "The classic exam association is tyramine restriction.",
+          "A client on an MAOI who ignores dietary restrictions may be at serious risk."
+        ]
+      },
+      {
+        "class": "Atypical Antidepressants",
+        "fullName": "Miscellaneous/atypical agents",
+        "examples": [
+          {
+            "generic": "bupropion",
+            "brand": "Wellbutrin",
+            "highYieldNotes": [
+              "dopamine/norepinephrine effects",
+              "less sexual dysfunction",
+              "used for smoking cessation",
+              "avoid or use caution with seizure risk"
+            ]
+          },
+          {
+            "generic": "mirtazapine",
+            "brand": "Remeron",
+            "highYieldNotes": [
+              "sedating",
+              "can increase appetite and weight",
+              "often noted when insomnia or poor appetite are prominent"
+            ]
+          },
+          {
+            "generic": "trazodone",
+            "brand": "Desyrel",
+            "highYieldNotes": [
+              "commonly used at low doses for sleep",
+              "classified as antidepressant but often encountered as sleep aid"
+            ]
+          }
+        ],
+        "examPearls": [
+          "Bupropion is a common exam favorite because it differs from SSRIs in sexual side effects and smoking cessation use.",
+          "Mirtazapine is a common clue when a depressed client also has insomnia and low appetite."
+        ]
+      }
+    ],
+    "commonExamTraps": [
+      "Treating early SSRI side effects as always an emergency",
+      "Ignoring the black box warning in younger clients",
+      "Forgetting that antidepressants can interact with bipolar presentations if manic symptoms emerge"
+    ]
+  },
+  "moodStabilizersSection": {
+    "title": "Mood Stabilizers",
+    "overview": "Mood stabilizers are especially important in bipolar disorder cases. The exam frequently tests lithium and the counselor's response to toxicity or adherence problems.",
+    "medications": [
+      {
+        "name": "Lithium",
+        "brandExamples": [
+          "Eskalith",
+          "Lithobid"
+        ],
+        "commonUses": [
+          "bipolar I disorder",
+          "mania prevention",
+          "mood stabilization"
+        ],
+        "highYieldFacts": [
+          "gold standard for bipolar disorder",
+          "narrow therapeutic window",
+          "requires blood level monitoring"
+        ],
+        "toxicitySigns": [
+          "tremor",
+          "ataxia",
+          "confusion",
+          "vomiting"
+        ],
+        "counselorResponse": "If a client on lithium reports toxicity signs, urgent referral to the prescribing clinician or emergency evaluation may be needed.",
+        "examPearl": "Lithium toxicity is one of the most tested medication emergencies."
+      },
+      {
+        "name": "Valproate / Divalproex",
+        "brandExamples": [
+          "Depakote"
+        ],
+        "commonUses": [
+          "bipolar disorder",
+          "seizure disorders"
+        ],
+        "highYieldFacts": [
+          "can cause weight gain",
+          "hepatotoxicity risk matters"
+        ]
+      },
+      {
+        "name": "Lamotrigine",
+        "brandExamples": [
+          "Lamictal"
+        ],
+        "commonUses": [
+          "bipolar depression",
+          "mood stabilization"
+        ],
+        "highYieldFacts": [
+          "requires slow titration",
+          "Stevens-Johnson syndrome is the classic severe adverse effect"
+        ],
+        "examPearl": "If the exam mentions rash with lamotrigine, take it seriously."
+      },
+      {
+        "name": "Carbamazepine",
+        "brandExamples": [
+          "Tegretol"
+        ],
+        "commonUses": [
+          "bipolar disorder",
+          "seizure disorders"
+        ],
+        "highYieldFacts": [
+          "requires monitoring",
+          "important drug interaction and safety considerations"
+        ]
+      }
+    ],
+    "examPearls": [
+      "Mood stabilizer questions usually appear in bipolar cases, adherence problems, or toxicity side-effect scenarios.",
+      "If the case includes mania symptoms plus antidepressant use, reconsider the medication picture and diagnostic frame."
+    ]
+  },
+  "antipsychoticsSection": {
+    "title": "Antipsychotics",
+    "overview": "Antipsychotics are used for schizophrenia spectrum disorders, psychosis, severe agitation, and some bipolar presentations. The exam often tests extrapyramidal symptoms, tardive dyskinesia, neuroleptic malignant syndrome, and atypical antipsychotic metabolic issues.",
+    "firstGeneration": {
+      "title": "First-Generation (Typical) Antipsychotics",
+      "mechanism": "Strong dopamine D2 receptor blockade",
+      "examples": [
+        {
+          "generic": "haloperidol",
+          "brand": "Haldol"
+        },
+        {
+          "generic": "chlorpromazine",
+          "brand": "Thorazine"
+        },
+        {
+          "generic": "fluphenazine",
+          "brand": "Prolixin"
+        }
+      ],
+      "majorSideEffects": [
+        "extrapyramidal symptoms (EPS)",
+        "akathisia",
+        "dystonia",
+        "pseudoparkinsonism",
+        "tardive dyskinesia"
+      ],
+      "majorEmergencies": [
+        "neuroleptic malignant syndrome"
+      ],
+      "examPearls": [
+        "Akathisia means inner restlessness and inability to sit still.",
+        "Tardive dyskinesia involves involuntary repetitive movements and may be irreversible.",
+        "Neuroleptic malignant syndrome is rare but life-threatening."
+      ]
+    },
+    "secondGeneration": {
+      "title": "Second-Generation (Atypical) Antipsychotics",
+      "mechanism": "Dopamine and serotonin effects, generally with lower EPS risk than typical antipsychotics",
+      "examples": [
+        {
+          "generic": "clozapine",
+          "brand": "Clozaril",
+          "highYieldNotes": [
+            "treatment-resistant psychosis",
+            "agranulocytosis risk",
+            "requires white blood cell monitoring"
+          ]
+        },
+        {
+          "generic": "risperidone",
+          "brand": "Risperdal",
+          "highYieldNotes": [
+            "commonly used",
+            "weight gain can occur"
+          ]
+        },
+        {
+          "generic": "olanzapine",
+          "brand": "Zyprexa",
+          "highYieldNotes": [
+            "metabolic and weight gain concerns"
+          ]
+        },
+        {
+          "generic": "quetiapine",
+          "brand": "Seroquel",
+          "highYieldNotes": [
+            "used in bipolar contexts and sometimes sleep-related discussions"
+          ]
+        },
+        {
+          "generic": "aripiprazole",
+          "brand": "Abilify",
+          "highYieldNotes": [
+            "less weight gain relative to some others"
+          ]
+        },
+        {
+          "generic": "ziprasidone",
+          "brand": "Geodon",
+          "highYieldNotes": [
+            "food requirement",
+            "QT-related monitoring concern"
+          ]
+        }
+      ],
+      "majorSideEffects": [
+        "weight gain",
+        "metabolic syndrome concerns",
+        "sedation",
+        "some EPS still possible depending on agent"
+      ],
+      "examPearls": [
+        "Clozapine is strongly associated with agranulocytosis monitoring.",
+        "Olanzapine and some atypicals are high-yield for weight and metabolic concerns."
+      ]
+    },
+    "urgentRedFlags": [
+      {
+        "term": "Neuroleptic Malignant Syndrome (NMS)",
+        "clues": [
+          "hyperthermia",
+          "rigidity",
+          "altered consciousness",
+          "autonomic instability"
+        ],
+        "clinicalMeaning": "Medical emergency"
+      },
+      {
+        "term": "Tardive Dyskinesia",
+        "clues": [
+          "involuntary facial or oral movements",
+          "repetitive limb or body movements after long-term use"
+        ],
+        "clinicalMeaning": "Serious adverse effect that should be reported promptly"
+      }
+    ]
+  },
+  "anxiolyticsSection": {
+    "title": "Anxiolytics",
+    "overview": "The exam often distinguishes short-term relief agents from longer-term anxiety treatments and tests dependence and withdrawal concerns.",
+    "benzodiazepines": {
+      "title": "Benzodiazepines",
+      "mechanism": "Enhance GABA activity",
+      "commonUses": [
+        "acute anxiety",
+        "panic",
+        "short-term severe distress",
+        "alcohol withdrawal management in medical settings"
+      ],
+      "examples": [
+        {
+          "generic": "lorazepam",
+          "brand": "Ativan"
+        },
+        {
+          "generic": "diazepam",
+          "brand": "Valium"
+        },
+        {
+          "generic": "alprazolam",
+          "brand": "Xanax"
+        },
+        {
+          "generic": "clonazepam",
+          "brand": "Klonopin"
+        },
+        {
+          "generic": "temazepam",
+          "brand": "Restoril"
+        }
+      ],
+      "majorConcerns": [
+        "dependence potential",
+        "sedation",
+        "memory impairment",
+        "dangerous interaction with alcohol or other CNS depressants",
+        "withdrawal can be dangerous if stopped abruptly"
+      ],
+      "examPearls": [
+        "Benzodiazepines are not usually the best long-term answer for chronic anxiety on the exam.",
+        "Abrupt discontinuation can be medically dangerous."
+      ]
+    },
+    "nonBenzodiazepines": {
+      "title": "Non-Benzodiazepine Anxiety Options",
+      "agents": [
+        {
+          "name": "Buspirone",
+          "brand": "Buspar",
+          "highYieldNotes": [
+            "non-addictive",
+            "takes time to work",
+            "common for GAD-type cases"
+          ]
+        },
+        {
+          "name": "Hydroxyzine",
+          "brand": "Vistaril",
+          "highYieldNotes": [
+            "antihistamine",
+            "non-addictive",
+            "sometimes used for acute anxiety"
+          ]
+        }
+      ],
+      "examPearls": [
+        "Buspirone is not a rapid rescue agent like a benzodiazepine.",
+        "Hydroxyzine is often framed as a non-addictive option."
+      ]
+    }
+  },
+  "stimulantsSection": {
+    "title": "Stimulants and ADHD Medications",
+    "overview": "Stimulants are commonly used in ADHD cases and are tested in relation to benefits, appetite/sleep side effects, and misuse risk.",
+    "agents": [
+      {
+        "name": "Amphetamine salts",
+        "brandExamples": [
+          "Adderall"
+        ],
+        "classNotes": [
+          "Schedule II",
+          "misuse potential"
+        ]
+      },
+      {
+        "name": "Methylphenidate",
+        "brandExamples": [
+          "Ritalin",
+          "Concerta"
+        ],
+        "classNotes": [
+          "Schedule II",
+          "misuse potential"
+        ]
+      },
+      {
+        "name": "Lisdexamfetamine",
+        "brandExamples": [
+          "Vyvanse"
+        ],
+        "classNotes": [
+          "Schedule II"
+        ]
+      },
+      {
+        "name": "Atomoxetine",
+        "brandExamples": [
+          "Strattera"
+        ],
+        "classNotes": [
+          "non-stimulant",
+          "SNRI-type ADHD option"
+        ]
+      }
+    ],
+    "commonSideEffects": [
+      "appetite suppression",
+      "insomnia",
+      "increased heart rate",
+      "irritability",
+      "weight or growth concerns in children"
+    ],
+    "examPearls": [
+      "The exam may test misuse/diversion monitoring in ADHD cases.",
+      "Do not assume every ADHD medication is a stimulant. Atomoxetine is a common contrast point."
+    ]
+  },
+  "sleepAidsSection": {
+    "title": "Sleep Aids",
+    "overview": "Sleep-related medications show up in cases involving insomnia, side effects, overuse, and sedation concerns.",
+    "agents": [
+      {
+        "name": "Zolpidem",
+        "brandExamples": [
+          "Ambien"
+        ],
+        "highYieldNotes": [
+          "short-term sleep aid",
+          "sleepwalking or unusual nighttime behaviors are classic concerns"
+        ]
+      },
+      {
+        "name": "Eszopiclone",
+        "brandExamples": [
+          "Lunesta"
+        ],
+        "highYieldNotes": [
+          "sleep aid"
+        ]
+      },
+      {
+        "name": "Melatonin",
+        "brandExamples": [],
+        "highYieldNotes": [
+          "OTC hormone supplement",
+          "circadian rhythm support"
+        ]
+      },
+      {
+        "name": "Trazodone",
+        "brandExamples": [],
+        "highYieldNotes": [
+          "antidepressant commonly used off-label for sleep"
+        ]
+      }
+    ],
+    "examPearls": [
+      "Sleep medications may help symptoms, but the exam often expects assessment of sleep hygiene, underlying causes, and interaction risks too."
+    ]
+  },
+  "neurotransmittersSection": {
+    "title": "Neurotransmitters Overview",
+    "overview": "The exam may reference neurotransmitters in relation to medication classes or symptom patterns.",
+    "neurotransmitters": [
+      {
+        "name": "Serotonin",
+        "functions": [
+          "mood",
+          "sleep",
+          "appetite"
+        ],
+        "oftenReferencedIn": [
+          "depression",
+          "anxiety",
+          "OCD"
+        ]
+      },
+      {
+        "name": "Dopamine",
+        "functions": [
+          "reward",
+          "motivation",
+          "movement"
+        ],
+        "oftenReferencedIn": [
+          "schizophrenia",
+          "ADHD",
+          "addiction"
+        ]
+      },
+      {
+        "name": "Norepinephrine",
+        "functions": [
+          "alertness",
+          "stress response"
+        ],
+        "oftenReferencedIn": [
+          "depression",
+          "anxiety",
+          "ADHD"
+        ]
+      },
+      {
+        "name": "GABA",
+        "functions": [
+          "inhibitory calming effect"
+        ],
+        "oftenReferencedIn": [
+          "anxiety",
+          "seizures"
+        ]
+      },
+      {
+        "name": "Glutamate",
+        "functions": [
+          "excitatory signaling",
+          "learning and memory"
+        ],
+        "oftenReferencedIn": [
+          "PTSD",
+          "schizophrenia"
+        ]
+      },
+      {
+        "name": "Acetylcholine",
+        "functions": [
+          "memory",
+          "muscle control"
+        ],
+        "oftenReferencedIn": [
+          "cognitive disorders"
+        ]
+      }
+    ],
+    "examPearls": [
+      "You do not need advanced neuroscience detail for the exam, but you should know the major neurotransmitter associations.",
+      "Medication classes are often easier to remember when linked to their main neurotransmitter targets."
+    ]
+  },
+  "seriousAdverseEffectsSection": {
+    "title": "Serious Adverse Effects and When to Act",
+    "alerts": [
+      {
+        "issue": "Lithium Toxicity",
+        "warningSigns": [
+          "tremor",
+          "ataxia",
+          "confusion",
+          "vomiting"
+        ],
+        "counselorAction": "Urgent referral or emergency evaluation depending on severity"
+      },
+      {
+        "issue": "Neuroleptic Malignant Syndrome",
+        "warningSigns": [
+          "fever",
+          "rigidity",
+          "altered mental status",
+          "autonomic instability"
+        ],
+        "counselorAction": "Medical emergency response"
+      },
+      {
+        "issue": "Tardive Dyskinesia",
+        "warningSigns": [
+          "involuntary repetitive facial/oral/body movements"
+        ],
+        "counselorAction": "Prompt reporting to prescriber and documentation"
+      },
+      {
+        "issue": "Agranulocytosis Risk with Clozapine",
+        "warningSigns": [
+          "monitoring issues",
+          "infection-related concern context"
+        ],
+        "counselorAction": "Take monitoring adherence and prescriber coordination seriously"
+      },
+      {
+        "issue": "Lamotrigine Severe Rash Concern",
+        "warningSigns": [
+          "rash after initiation or titration"
+        ],
+        "counselorAction": "Urgent prescriber contact / medical attention"
+      },
+      {
+        "issue": "Benzodiazepine Withdrawal Risk",
+        "warningSigns": [
+          "abrupt discontinuation",
+          "severe agitation",
+          "medical instability"
+        ],
+        "counselorAction": "Urgent medical consultation"
+      },
+      {
+        "issue": "Worsening Suicidality After Antidepressant Start",
+        "warningSigns": [
+          "new agitation",
+          "activation",
+          "increased suicidal thinking"
+        ],
+        "counselorAction": "Immediate risk assessment and prescriber coordination"
+      }
+    ],
+    "examPearls": [
+      "Many medication questions boil down to: monitor, reassure, refer, or urgently escalate. Learn the difference.",
+      "The exam often rewards urgent action for toxicity, severe withdrawal, or dangerous adverse reactions."
+    ]
+  },
+  "adherenceAndCollaborationSection": {
+    "title": "Medication Adherence and Collaboration",
+    "overview": "Medication-related cases often center on poor adherence, side effect distress, stigma, or confusion about the role of medication.",
+    "commonReasonsClientsStopMedication": [
+      "side effects",
+      "feeling better and assuming medication is no longer needed",
+      "stigma",
+      "cost or access barriers",
+      "fear of dependency",
+      "lack of education about what to expect"
+    ],
+    "counselorMoves": [
+      "explore the client's experience and beliefs about the medication",
+      "document side effects and adherence patterns",
+      "avoid shaming the client",
+      "encourage discussion with the prescriber",
+      "use ROI-supported collaboration where possible",
+      "integrate medication concerns into broader treatment planning"
+    ],
+    "examPearls": [
+      "The counselor's job is often motivational, educational, and collaborative.",
+      "Do not assume nonadherence equals resistance. Side effects, fear, or access problems may be central."
+    ]
+  },
+  "commonExamTraps": [
+    "Answering as though the counselor is the prescriber",
+    "Missing the urgency of lithium toxicity or neuroleptic malignant syndrome",
+    "Forgetting the black box warning for antidepressants in younger clients",
+    "Treating benzodiazepines as ideal long-term treatment for chronic anxiety",
+    "Ignoring substance or alcohol interaction with sedating medication",
+    "Confusing common side effects with truly dangerous adverse effects",
+    "Recommending medication discontinuation directly"
+  ],
+  "miniCaseDrills": [
+    {
+      "case": "A client on lithium reports vomiting, hand tremor, confusion, and feeling unsteady while walking.",
+      "bestNextStep": "Treat as possible lithium toxicity and refer urgently to the prescribing clinician or emergency care",
+      "rationale": "These are classic toxicity signs and should not be handled as routine side effects."
+    },
+    {
+      "case": "A teenager began an SSRI two weeks ago and now reports feeling more agitated and more suicidal.",
+      "bestNextStep": "Conduct immediate suicide risk assessment and coordinate with the prescriber urgently",
+      "rationale": "Increased suicidality early in antidepressant treatment is a high-yield warning concern."
+    },
+    {
+      "case": "A client with panic disorder asks whether they should just stop taking alprazolam because they do not want to depend on it.",
+      "bestNextStep": "Acknowledge the concern, educate that abrupt stopping can be risky, and direct the client to discuss tapering with the prescriber",
+      "rationale": "The counselor should not instruct medication discontinuation but should recognize withdrawal risk."
+    },
+    {
+      "case": "A client taking an antipsychotic develops repetitive tongue and facial movements over time.",
+      "bestNextStep": "Document the concern and prompt prescriber follow-up for possible tardive dyskinesia",
+      "rationale": "This is a serious medication-related movement concern."
+    },
+    {
+      "case": "A depressed client struggles with poor appetite and insomnia, and the case asks which medication profile would commonly be noted for helping both.",
+      "bestNextStep": "Recognize mirtazapine as a high-yield antidepressant associated with sedation and increased appetite",
+      "rationale": "This is a classic exam contrast point."
+    }
+  ],
+  "quickReview": {
+    "memoryHooks": [
+      "SSRIs = depression/anxiety first-line",
+      "Lithium = bipolar gold standard, watch toxicity",
+      "Typical antipsychotics = EPS / TD risk",
+      "Clozapine = agranulocytosis monitoring",
+      "Benzos = dependence + withdrawal risk",
+      "Buspirone = non-addictive, not immediate",
+      "Stimulants = ADHD + appetite/sleep effects",
+      "Counselor monitors and collaborates, does not prescribe"
+    ],
+    "finalTakeaways": [
+      "Know the major classes, not every obscure medication detail.",
+      "Serious medication side effects should change your urgency and referral decisions.",
+      "The strongest exam answer usually keeps the counselor inside scope while taking medication concerns seriously."
+    ]
+  },
+  "checkpointQuestions": [
+    {
+      "question": "What is the counselor's role when a client reports troubling medication side effects?",
+      "answer": "Document the effects, assess clinical significance, support communication with the prescriber, and refer urgently when needed"
+    },
+    {
+      "question": "What medication is classically associated with toxicity signs such as tremor, ataxia, confusion, and vomiting?",
+      "answer": "Lithium"
+    },
+    {
+      "question": "Which antidepressant class carries a black box warning about increased suicidality in children, adolescents, and young adults?",
+      "answer": "SSRIs and related antidepressant treatment contexts are the key high-yield association"
+    },
+    {
+      "question": "What movement-related long-term adverse effect is classically associated with antipsychotic use?",
+      "answer": "Tardive dyskinesia"
+    },
+    {
+      "question": "Why is it usually inappropriate for a counselor to tell a client to stop taking a benzodiazepine immediately?",
+      "answer": "Because abrupt discontinuation can be dangerous and medication changes belong to the prescriber or medical team"
+    }
+  ],
+  "sourceBasis": {
+    "derivedFromUploadedMaterials": [
+      "Study Library",
+      "Psychopharmacology"
+    ],
+    "notes": "Expanded into a production-ready module emphasizing counselor scope, medication classes, common uses, side effects, serious adverse events, adherence issues, collaboration, and exam-style clinical decision-making."
+  }
+}

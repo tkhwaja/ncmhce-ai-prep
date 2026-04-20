@@ -1,0 +1,747 @@
+{
+  "moduleId": "group-counseling",
+  "moduleTitle": "Group Counseling",
+  "moduleType": "learning_library",
+  "version": "1.0",
+  "exam": {
+    "name": "NCMHCE",
+    "formatAlignment": {
+      "currentBlueprint": true,
+      "effective2027Blueprint": true
+    },
+    "whyThisModuleMatters": "This module prepares learners to recognize how group counseling works, how groups develop over time, how leaders intervene skillfully, and how ethics, screening, and process issues affect outcomes. On the NCMHCE, group content often appears inside cases that test leadership responses, therapeutic factors, stages of group development, and group-specific ethical decision-making."
+  },
+  "uiHints": {
+    "defaultView": "nested_accordion",
+    "recommendedComponents": [
+      "module_header",
+      "group_overview_cards",
+      "yalom_factors_grid",
+      "group_stages_timeline",
+      "leader_skills_cards",
+      "types_of_groups_table",
+      "group_ethics_panel",
+      "screening_and_selection_flow",
+      "group_scenario_cards",
+      "exam_trap_callouts",
+      "mini_case_cards",
+      "checkpoint_quiz"
+    ],
+    "tags": [
+      "group-counseling",
+      "group-process",
+      "yalom",
+      "group-stages",
+      "group-ethics",
+      "ncmhce",
+      "high-yield"
+    ]
+  },
+  "intro": {
+    "summary": "This module covers the major concepts in group counseling that appear on the NCMHCE, including Yalom's therapeutic factors, stages of group development, types of groups, group leader interventions, group ethics, screening and selection, and how group process differs from individual counseling.",
+    "learningObjectives": [
+      "Explain why group counseling can be therapeutically powerful in ways individual counseling cannot fully replicate",
+      "Recognize Yalom's therapeutic factors in case vignettes",
+      "Identify stages of group development and the most appropriate leader response at each stage",
+      "Differentiate psychotherapy, counseling, psychoeducational, task, and support groups",
+      "Use key group leader interventions such as linking, blocking, drawing out, and here-and-now processing",
+      "Apply ethical principles specific to group settings, including confidentiality, informed consent, screening, and termination",
+      "Recognize common group process problems and choose the best clinical next step"
+    ],
+    "howToUse": [
+      "Start with why group counseling works, then learn Yalom's factors thoroughly.",
+      "Study the group stages and leader role shifts together, because the exam often pairs them.",
+      "Practice distinguishing supportive leader responses from strong process interventions like blocking or linking.",
+      "Review group ethics separately from individual ethics, because the differences are high-yield."
+    ],
+    "highYieldThemes": [
+      "Group counseling is not individual counseling with more people in the room.",
+      "The leader's intervention should match the stage of the group and the immediate process need.",
+      "Cohesion, safety, and structure often come before deep confrontation.",
+      "Confidentiality in groups is important but never fully guaranteed."
+    ]
+  },
+  "coreDecisionRules": [
+    {
+      "rule": "Always identify what is happening in the group process right now.",
+      "example": "If one member is dominating and others are withdrawing, the next step is probably a group process intervention, not a new lecture topic."
+    },
+    {
+      "rule": "Match the leader intervention to the developmental stage of the group.",
+      "example": "In forming, leaders are more active and structuring. In working stages, leaders may step back and facilitate deeper member-to-member engagement."
+    },
+    {
+      "rule": "Protect group safety when harmful dynamics appear.",
+      "example": "Scapegoating, bullying, confidentiality breaches, or intense destabilization may require blocking and direct process management."
+    },
+    {
+      "rule": "Think systemically, not just individually.",
+      "example": "A member's silence may reflect fear, group norm issues, unresolved conflict, or stage-of-group development rather than simple resistance."
+    },
+    {
+      "rule": "Group ethics are distinct from individual ethics.",
+      "example": "The leader supports confidentiality, but cannot guarantee that all members will maintain it outside the room."
+    }
+  ],
+  "whyGroupCounselingWorks": {
+    "title": "Why Group Counseling Works",
+    "overview": "Group counseling creates opportunities for peer learning, interpersonal feedback, normalization, connection, and corrective relational experiences that are difficult to replicate fully in individual work.",
+    "keyBenefits": [
+      "reduces isolation",
+      "provides multiple sources of feedback",
+      "creates opportunities for real-time relational learning",
+      "allows members to practice vulnerability and social skills",
+      "can be efficient and cost-effective",
+      "helps members feel less alone in their struggles"
+    ],
+    "examPearls": [
+      "The exam often asks what is unique about group work. The answer is usually not just 'it is cheaper.'",
+      "Group counseling is especially powerful for interpersonal learning, universality, cohesion, and corrective relationship experiences."
+    ]
+  },
+  "yalomSection": {
+    "title": "Yalom's 11 Therapeutic Factors",
+    "overview": "Yalom's factors explain why groups can be curative. These are among the most heavily tested group concepts on the exam.",
+    "factors": [
+      {
+        "name": "Instillation of Hope",
+        "definition": "Members gain optimism by seeing others improve",
+        "examClue": "A member says, 'Hearing your progress makes me believe I can get better too.'"
+      },
+      {
+        "name": "Universality",
+        "definition": "Realizing others share similar struggles and that one is not alone",
+        "examClue": "A member says, 'I thought I was the only one who felt this way.'"
+      },
+      {
+        "name": "Imparting Information",
+        "definition": "Psychoeducation or practical knowledge provided by leader or members",
+        "examClue": "The leader teaches coping skills or members share useful resources."
+      },
+      {
+        "name": "Altruism",
+        "definition": "Members benefit by helping one another",
+        "examClue": "A member feels useful and strengthened after supporting another member."
+      },
+      {
+        "name": "Corrective Recapitulation of the Primary Family Group",
+        "definition": "Group relationships reawaken family-of-origin patterns that can be worked through differently",
+        "examClue": "A member reacts to the leader or peers in ways that mirror family dynamics."
+      },
+      {
+        "name": "Development of Socializing Techniques",
+        "definition": "Members learn and practice healthier social behaviors",
+        "examClue": "The group helps a member communicate more directly or appropriately."
+      },
+      {
+        "name": "Imitative Behavior",
+        "definition": "Members model behaviors demonstrated by the leader or other members",
+        "examClue": "A member starts using a communication style first modeled by another member."
+      },
+      {
+        "name": "Interpersonal Learning",
+        "definition": "Members learn how they affect others and how others experience them",
+        "examClue": "A member gains insight through honest feedback from the group."
+      },
+      {
+        "name": "Group Cohesiveness",
+        "definition": "The sense of belonging, acceptance, trust, and we-ness in the group",
+        "examClue": "Members feel bonded and safe enough to take risks."
+      },
+      {
+        "name": "Catharsis",
+        "definition": "Emotional release that brings relief and deeper processing",
+        "examClue": "A member expresses long-held grief or anger and feels emotionally relieved."
+      },
+      {
+        "name": "Existential Factors",
+        "definition": "Members confront life realities such as freedom, responsibility, isolation, and mortality",
+        "examClue": "The group explores meaning, limitation, or responsibility in a deep way."
+      }
+    ],
+    "highYieldDistinctions": [
+      {
+        "compare": "Universality vs Cohesiveness",
+        "difference": "Universality is realizing shared struggle. Cohesiveness is the bonded sense of belonging and trust in the group."
+      },
+      {
+        "compare": "Interpersonal Learning vs Development of Socializing Techniques",
+        "difference": "Interpersonal learning is gaining insight through feedback and relationship experience. Socializing techniques are practicing healthier interpersonal behavior."
+      },
+      {
+        "compare": "Altruism vs Instillation of Hope",
+        "difference": "Altruism is being strengthened by helping others. Hope is being strengthened by seeing recovery is possible."
+      }
+    ],
+    "examPearls": [
+      "Universality and altruism are especially common test targets.",
+      "Group cohesiveness is often treated as one of the most important conditions for effective group work.",
+      "When a vignette asks what therapeutic factor is happening, focus on the function of the interaction, not just the emotional tone."
+    ]
+  },
+  "groupStagesSection": {
+    "title": "Stages of Group Development",
+    "overview": "The exam often presents a group process moment and asks either what stage the group is in or what the leader should do next.",
+    "tuckmanStages": [
+      {
+        "stage": "Forming",
+        "features": [
+          "orientation and testing",
+          "anxiety and uncertainty",
+          "dependence on leader for structure",
+          "polite or cautious participation"
+        ],
+        "leaderRole": [
+          "establish norms and goals",
+          "clarify purpose and expectations",
+          "create safety and predictability",
+          "encourage participation gently"
+        ],
+        "commonNeeds": [
+          "structure",
+          "safety",
+          "clarity",
+          "belonging"
+        ]
+      },
+      {
+        "stage": "Storming",
+        "features": [
+          "conflict",
+          "power struggles",
+          "resistance",
+          "testing limits",
+          "competition or subgroup tension"
+        ],
+        "leaderRole": [
+          "facilitate conflict rather than avoid it",
+          "maintain safety and boundaries",
+          "process tension",
+          "prevent scapegoating or harmful dynamics"
+        ],
+        "commonNeeds": [
+          "containment",
+          "honest process work",
+          "boundary setting"
+        ]
+      },
+      {
+        "stage": "Norming",
+        "features": [
+          "growing trust",
+          "clearer norms",
+          "increased cohesion",
+          "more mutual support"
+        ],
+        "leaderRole": [
+          "support deeper disclosure",
+          "reinforce healthy member-to-member interaction",
+          "encourage shared responsibility"
+        ],
+        "commonNeeds": [
+          "continued cohesion",
+          "balanced participation",
+          "strengthened group ownership"
+        ]
+      },
+      {
+        "stage": "Performing",
+        "features": [
+          "productive therapeutic work",
+          "high cohesion",
+          "members actively help one another",
+          "greater emotional risk-taking"
+        ],
+        "leaderRole": [
+          "facilitate rather than dominate",
+          "use here-and-now processing",
+          "deepen insight and feedback"
+        ],
+        "commonNeeds": [
+          "depth",
+          "maintenance of safety",
+          "integration of learning"
+        ]
+      },
+      {
+        "stage": "Adjourning",
+        "features": [
+          "termination reactions",
+          "review of progress",
+          "mixed feelings about ending",
+          "sadness, pride, avoidance, or regression"
+        ],
+        "leaderRole": [
+          "process the ending",
+          "consolidate learning",
+          "prepare transfer of gains",
+          "address unresolved feelings about separation"
+        ],
+        "commonNeeds": [
+          "closure",
+          "meaning-making",
+          "transition planning"
+        ]
+      }
+    ],
+    "coreyStages": [
+      {
+        "stage": "Initial",
+        "mapsTo": "Forming",
+        "focus": "trust, norms, safety, goals"
+      },
+      {
+        "stage": "Transition",
+        "mapsTo": "Storming",
+        "focus": "resistance, anxiety, conflict, testing"
+      },
+      {
+        "stage": "Working",
+        "mapsTo": "Norming and Performing",
+        "focus": "cohesion, risk-taking, productive therapeutic work"
+      },
+      {
+        "stage": "Final",
+        "mapsTo": "Adjourning",
+        "focus": "termination, integration, goodbye"
+      }
+    ],
+    "examPearls": [
+      "Conflict is not necessarily a sign of a failing group. It is often a storming/transition marker and can be therapeutically useful if managed well.",
+      "The best leader move changes by stage. Heavy structure makes sense early; deep process work makes more sense once trust has formed."
+    ]
+  },
+  "typesOfGroupsSection": {
+    "title": "Types of Groups",
+    "overview": "Different groups have different purposes, structures, and leadership needs. The exam may ask which type of group best fits a situation.",
+    "types": [
+      {
+        "type": "Psychotherapy Group",
+        "purpose": "Treat deeper psychological symptoms, patterns, and relational issues",
+        "examples": [
+          "process group for depression",
+          "trauma group",
+          "DBT process-oriented group"
+        ],
+        "examClue": "Greater emphasis on insight, emotional work, and interpersonal process"
+      },
+      {
+        "type": "Counseling Group",
+        "purpose": "Support adjustment, growth, problem-solving, and coping around shared concerns",
+        "examples": [
+          "grief group",
+          "divorce adjustment group",
+          "college transition group"
+        ],
+        "examClue": "Focused on life concerns and coping, often less intensive than psychotherapy groups"
+      },
+      {
+        "type": "Psychoeducational Group",
+        "purpose": "Teach information, skills, or structured coping tools",
+        "examples": [
+          "stress management group",
+          "parenting skills group",
+          "anger management group"
+        ],
+        "examClue": "More structured, leader-directed, and educational"
+      },
+      {
+        "type": "Task / Work Group",
+        "purpose": "Complete a task, solve a problem, or coordinate work",
+        "examples": [
+          "treatment team",
+          "committee",
+          "staff planning group"
+        ],
+        "examClue": "Not primarily therapeutic even if interpersonal dynamics matter"
+      },
+      {
+        "type": "Support Group",
+        "purpose": "Mutual aid, shared coping, normalization, and support around a common issue",
+        "examples": [
+          "AA",
+          "NAMI family support",
+          "bereavement peer support"
+        ],
+        "examClue": "Peer support and shared experience are central"
+      }
+    ],
+    "openVsClosed": [
+      {
+        "format": "Open Group",
+        "features": [
+          "new members may join at different times",
+          "useful for ongoing treatment settings",
+          "less stable membership"
+        ]
+      },
+      {
+        "format": "Closed Group",
+        "features": [
+          "fixed membership from beginning to end",
+          "often stronger cohesion and depth",
+          "more predictable development across stages"
+        ]
+      }
+    ],
+    "examPearls": [
+      "Do not confuse psychoeducational groups with process groups.",
+      "Open groups are common in some outpatient and inpatient settings, but closed groups often provide deeper cohesion."
+    ]
+  },
+  "leaderSkillsSection": {
+    "title": "Core Group Leader Skills and Interventions",
+    "overview": "The exam often tests not just what the group is experiencing, but what the leader should do about it.",
+    "skills": [
+      {
+        "skill": "Linking",
+        "definition": "Connecting one member's experience or statement to another member's similar theme",
+        "useWhen": [
+          "building cohesion",
+          "highlighting shared patterns",
+          "shifting from leader-member to member-member engagement"
+        ],
+        "example": "John, what you just said sounds close to what Maria described earlier. Maria, what happens for you hearing him say that?"
+      },
+      {
+        "skill": "Blocking",
+        "definition": "Stopping harmful, unproductive, or unsafe group behavior",
+        "useWhen": [
+          "scapegoating",
+          "attacks",
+          "boundary violations",
+          "confidentiality breaches",
+          "monopolizing"
+        ],
+        "example": "I want to pause here. The way this is unfolding is starting to feel shaming, and I need us to slow down."
+      },
+      {
+        "skill": "Drawing Out",
+        "definition": "Inviting quieter or hesitant members into the process",
+        "useWhen": [
+          "someone has been silent",
+          "engagement is low",
+          "a member seems affected but is not speaking"
+        ],
+        "example": "Aisha, I notice you've been quiet. What is it like for you hearing this?"
+      },
+      {
+        "skill": "Cutting Off / Redirecting",
+        "definition": "Interrupting unhelpful or excessive member speech and redirecting to group process",
+        "useWhen": [
+          "rambling",
+          "topic drift",
+          "domination"
+        ],
+        "example": "I'm going to pause you there so we can bring others in and stay with what the group is reacting to right now."
+      },
+      {
+        "skill": "Here-and-Now Focus",
+        "definition": "Directing attention to what is happening between members in the present moment",
+        "useWhen": [
+          "relational tension",
+          "repeated interaction patterns",
+          "missed process material"
+        ],
+        "example": "I notice the room got very quiet after that comment. What is happening among us right now?"
+      },
+      {
+        "skill": "Processing",
+        "definition": "Reflecting on what just happened in the group and its meaning",
+        "useWhen": [
+          "after conflict",
+          "after emotional moments",
+          "when group pattern needs interpretation"
+        ],
+        "example": "Let's slow down and look at what just happened between the two of you and how the rest of the group responded."
+      },
+      {
+        "skill": "Modeling",
+        "definition": "Demonstrating emotional honesty, clear communication, or respectful feedback",
+        "useWhen": [
+          "teaching relational norms",
+          "showing vulnerability or structure",
+          "creating safety"
+        ]
+      },
+      {
+        "skill": "Feedback Facilitation",
+        "definition": "Helping members give and receive constructive, specific, caring feedback",
+        "useWhen": [
+          "interpersonal learning",
+          "working stage depth",
+          "improving relational insight"
+        ]
+      }
+    ],
+    "examPearls": [
+      "Blocking is protective, not punitive.",
+      "Linking is one of the most group-specific leadership skills and is a frequent exam clue.",
+      "Here-and-now interventions often signal a more process-oriented group moment."
+    ]
+  },
+  "commonProcessProblemsSection": {
+    "title": "Common Group Process Problems",
+    "overview": "Groups rarely run smoothly all the time. The exam often asks how the leader should respond when group process gets stuck or unsafe.",
+    "problems": [
+      {
+        "problem": "Monopolizing",
+        "description": "One member dominates airtime and limits others' participation",
+        "bestLeaderResponses": [
+          "redirect respectfully",
+          "name the process",
+          "invite others in",
+          "explore what function the monopolizing serves if clinically useful"
+        ]
+      },
+      {
+        "problem": "Scapegoating",
+        "description": "The group unconsciously targets one member as the problem-holder",
+        "bestLeaderResponses": [
+          "block harmful process immediately",
+          "protect the member",
+          "explore what the group is displacing onto that person"
+        ]
+      },
+      {
+        "problem": "Silence / Withdrawal",
+        "description": "Silence may reflect fear, reflection, disengagement, resistance, or emotional impact",
+        "bestLeaderResponses": [
+          "explore the meaning of the silence",
+          "draw out gently",
+          "avoid automatically filling every quiet moment"
+        ]
+      },
+      {
+        "problem": "Side Conversations / Subgroups",
+        "description": "Subgroup alliances or whispered side processes undermine cohesion",
+        "bestLeaderResponses": [
+          "bring attention back to the full group",
+          "address subgroup dynamics openly",
+          "recenter shared group norms"
+        ]
+      },
+      {
+        "problem": "Premature Advice Giving",
+        "description": "Members rush to fix each other instead of understanding",
+        "bestLeaderResponses": [
+          "slow the group down",
+          "encourage empathy and process exploration first"
+        ]
+      },
+      {
+        "problem": "Emotional Flooding / Destabilization",
+        "description": "A member becomes too overwhelmed to stay regulated",
+        "bestLeaderResponses": [
+          "slow the pace",
+          "ground and stabilize",
+          "assess safety",
+          "avoid pushing deeper disclosure in the moment"
+        ]
+      }
+    ],
+    "examPearls": [
+      "The best group leader is not passive when harm is occurring.",
+      "Not every silence should be broken immediately, but every silence should be understood."
+    ]
+  },
+  "groupEthicsSection": {
+    "title": "Ethics in Group Counseling",
+    "overview": "Group ethics overlap with general counseling ethics but include unique issues related to confidentiality, screening, informed consent, member interaction, and safety.",
+    "informedConsent": [
+      "purpose and format of the group",
+      "group rules and expectations",
+      "limits of confidentiality",
+      "leader role",
+      "attendance expectations",
+      "extragroup contact policy",
+      "fees and termination expectations",
+      "risks and benefits of participation"
+    ],
+    "confidentiality": {
+      "coreReality": "The leader can strongly encourage confidentiality, set norms around it, and address breaches, but cannot guarantee that every member will remain confidential outside group.",
+      "examPearls": [
+        "This is one of the biggest differences from individual counseling.",
+        "A strong group consent process must explicitly address confidentiality limits."
+      ]
+    },
+    "screeningAndSelection": {
+      "overview": "Not every client is appropriate for every group.",
+      "screeningQuestions": [
+        "What is the client's goal and fit for this type of group?",
+        "Can the client tolerate the emotional demands of the group?",
+        "Is there active psychosis, severe hostility, or acute instability that would make this group unsafe or ineffective?",
+        "Is the client likely to benefit from group norms and format?"
+      ],
+      "possibleExclusionFactors": [
+        "acute psychosis",
+        "imminent suicidality without stabilization",
+        "severe uncontrolled aggression",
+        "active intoxication in a non-substance-focused group",
+        "inability to maintain minimum group safety"
+      ],
+      "examPearl": "The exam often rewards screening and fit assessment rather than assuming every client belongs in every group."
+    },
+    "dualRelationships": [
+      "Avoid overlapping social or therapeutic roles when possible.",
+      "Running individual therapy and group therapy with the same client may create complications depending on setting and purpose.",
+      "Do not exploit group members or blur boundaries through informal social relationships."
+    ],
+    "termination": [
+      "Address premature dropout when possible",
+      "Process endings rather than treating them as administrative only",
+      "Prepare members for separation and transfer of learning"
+    ],
+    "examTraps": [
+      "Promising absolute confidentiality",
+      "Ignoring unsafe member fit issues before admission",
+      "Letting harmful group behavior continue under the label of honesty"
+    ]
+  },
+  "specialContextSection": {
+    "title": "Facilitating Specific Group Contexts",
+    "contexts": [
+      {
+        "context": "Grief Groups",
+        "bestPractices": [
+          "normalize varied grief responses",
+          "avoid forcing a timeline for healing",
+          "support remembrance, meaning-making, and connection"
+        ],
+        "leaderWatchFor": [
+          "comparison of grief as competition",
+          "pressure to 'move on'"
+        ]
+      },
+      {
+        "context": "Trauma Groups",
+        "bestPractices": [
+          "prioritize safety and stabilization",
+          "avoid retraumatization",
+          "set clear pacing and boundaries",
+          "use trauma-informed facilitation"
+        ],
+        "leaderWatchFor": [
+          "emotional flooding",
+          "peer-triggering",
+          "dissociation"
+        ]
+      },
+      {
+        "context": "Substance Use Groups",
+        "bestPractices": [
+          "address ambivalence",
+          "watch denial and minimization",
+          "promote accountability with respect",
+          "understand stage of change"
+        ],
+        "leaderWatchFor": [
+          "shaming confrontation",
+          "glamorizing substance use",
+          "overly passive responses to relapse risk"
+        ]
+      },
+      {
+        "context": "Psychoeducational Skills Groups",
+        "bestPractices": [
+          "maintain structure",
+          "teach clearly",
+          "check understanding",
+          "balance education with participant engagement"
+        ],
+        "leaderWatchFor": [
+          "turning a skills group into unfocused processing without intention",
+          "ignoring skill rehearsal"
+        ]
+      }
+    ],
+    "examPearls": [
+      "Not every group should be run as a deep process group.",
+      "The more acute the trauma or instability, the more important pacing and safety become."
+    ]
+  },
+  "commonExamTraps": [
+    "Confusing Yalom's factors with general supportive statements",
+    "Treating storming as failure rather than a normal developmental phase",
+    "Choosing a passive response when blocking is needed for safety",
+    "Promising confidentiality as if the leader can guarantee member behavior",
+    "Ignoring group fit and screening issues",
+    "Using individual therapy logic without accounting for the group process",
+    "Over-focusing on one member and losing the whole group"
+  ],
+  "miniCaseDrills": [
+    {
+      "case": "A member says, 'I thought I was the only person who hid panic attacks from everyone.' Several others nod visibly and relax.",
+      "bestConcept": "Universality",
+      "rationale": "The central healing factor is realizing shared struggle and not feeling alone."
+    },
+    {
+      "case": "A group has begun challenging one member harshly, and the tone is becoming shaming.",
+      "bestLeaderMove": "Block the harmful process and restore safety before deeper exploration",
+      "rationale": "Protection and process management come before allowing the group to continue attacking."
+    },
+    {
+      "case": "A newly formed group is quiet, polite, and looking to the leader for reassurance and structure.",
+      "bestStage": "Forming",
+      "rationale": "This stage is marked by uncertainty, testing, and leader dependence."
+    },
+    {
+      "case": "One member keeps giving long speeches while others visibly withdraw and stop contributing.",
+      "bestLeaderMove": "Redirect respectfully, limit monopolizing, and bring others into the process",
+      "rationale": "The issue is group balance and participation, not just the content of the dominant member's story."
+    },
+    {
+      "case": "A member says, 'Hearing how you stood up to your father helped me realize I might be able to do that too.'",
+      "bestConcept": "Imitative Behavior",
+      "rationale": "The member is learning through modeling another member's behavior."
+    }
+  ],
+  "quickReview": {
+    "memoryHooks": [
+      "Yalom = why groups heal",
+      "Forming = structure",
+      "Storming = conflict",
+      "Norming = cohesion",
+      "Performing = depth",
+      "Adjourning = closure",
+      "Linking connects members",
+      "Blocking protects safety",
+      "Group confidentiality matters but is not guaranteed",
+      "Screening determines fit"
+    ],
+    "finalTakeaways": [
+      "The best group intervention depends on what is happening in the room right now.",
+      "Group process is often the treatment, not a distraction from it.",
+      "On the exam, protect safety, match the stage, and choose the leader response that strengthens healthy group functioning."
+    ]
+  },
+  "checkpointQuestions": [
+    {
+      "question": "Which Yalom factor is present when a member realizes others share the same struggle?",
+      "answer": "Universality"
+    },
+    {
+      "question": "What group stage is most associated with conflict, testing, and resistance?",
+      "answer": "Storming"
+    },
+    {
+      "question": "What leader skill best fits stopping harmful scapegoating in the group?",
+      "answer": "Blocking"
+    },
+    {
+      "question": "What is one major ethical difference between group and individual counseling?",
+      "answer": "Group confidentiality is encouraged and expected, but cannot be fully guaranteed by the leader"
+    },
+    {
+      "question": "Why is screening important before admitting someone to a group?",
+      "answer": "Because not every client is an appropriate fit for every group, and screening protects safety and treatment effectiveness"
+    }
+  ],
+  "sourceBasis": {
+    "derivedFromUploadedMaterials": [
+      "Study Library",
+      "Group Counseling"
+    ],
+    "notes": "Expanded into a production-ready module emphasizing Yalom's therapeutic factors, stages of group development, leader interventions, group ethics, screening, and exam-style process decision-making."
+  }
+}

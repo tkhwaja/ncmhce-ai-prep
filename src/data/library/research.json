@@ -1,0 +1,690 @@
+{
+  "moduleId": "research-and-program-evaluation",
+  "moduleTitle": "Research & Program Evaluation",
+  "moduleType": "learning_library",
+  "version": "1.0",
+  "exam": {
+    "name": "NCMHCE",
+    "formatAlignment": {
+      "currentBlueprint": true,
+      "effective2027Blueprint": true
+    },
+    "whyThisModuleMatters": "This module prepares learners to handle the research and program evaluation concepts that show up on the NCMHCE. The exam typically does not expect graduate-level statistical computation. It expects practical understanding of research design, evidence-based practice, foundational statistics, ethics in research, and how counselors evaluate whether services are working."
+  },
+  "uiHints": {
+    "defaultView": "nested_accordion",
+    "recommendedComponents": [
+      "module_header",
+      "research_design_cards",
+      "variables_and_sampling_table",
+      "statistics_basics_cards",
+      "ebp_hierarchy_panel",
+      "program_evaluation_workflow",
+      "research_ethics_alerts",
+      "exam_trap_callouts",
+      "mini_case_cards",
+      "checkpoint_quiz"
+    ],
+    "tags": [
+      "research",
+      "program-evaluation",
+      "evidence-based-practice",
+      "statistics",
+      "research-ethics",
+      "ncmhce",
+      "high-yield"
+    ]
+  },
+  "intro": {
+    "summary": "This module covers the research and program evaluation concepts most likely to appear on the NCMHCE. It emphasizes practical understanding: what different study designs can and cannot tell you, how to interpret core statistics language, how evidence-based practice works in counseling, and how programs are evaluated for need, implementation, and outcomes.",
+    "learningObjectives": [
+      "Differentiate major quantitative, qualitative, and mixed-methods research designs",
+      "Understand independent variables, dependent variables, confounds, hypotheses, and sampling methods",
+      "Interpret basic statistical terms such as mean, median, mode, standard deviation, correlation, p-value, and effect size",
+      "Explain evidence-based practice and levels of evidence in clinically useful terms",
+      "Differentiate needs assessment, process/formative evaluation, outcome/summative evaluation, and cost-benefit analysis",
+      "Recognize major research ethics principles and counselor responsibilities in research settings"
+    ],
+    "howToUse": [
+      "Study research designs first, then connect them to what conclusions they support.",
+      "Treat the statistics section as a vocabulary-for-decision-making section, not a math drill.",
+      "Pay attention to evidence-based practice and program evaluation because the exam often uses those ideas in applied scenarios.",
+      "Use the mini-cases to practice selecting the most appropriate design, interpretation, or evaluation type."
+    ],
+    "highYieldThemes": [
+      "The exam cares more about interpretation than calculation.",
+      "Correlation does not equal causation.",
+      "Evidence-based practice combines research, clinical expertise, and client values.",
+      "Program evaluation asks whether services are needed, implemented well, and effective.",
+      "Research ethics focus on consent, confidentiality, justice, and protection of vulnerable populations."
+    ]
+  },
+  "coreDecisionRules": [
+    {
+      "rule": "Ask what question the design is trying to answer.",
+      "example": "If the question is whether treatment caused improvement, an experimental design is stronger than a correlational study."
+    },
+    {
+      "rule": "Do not overclaim from weak designs.",
+      "example": "A correlation between anxiety and sleep problems does not prove one caused the other."
+    },
+    {
+      "rule": "Separate statistical significance from practical significance.",
+      "example": "A result can be statistically significant but so small that it is not clinically meaningful."
+    },
+    {
+      "rule": "Match the program evaluation type to the stage of the program.",
+      "example": "Before starting a new service, a needs assessment makes more sense than an outcome evaluation."
+    },
+    {
+      "rule": "Research ethics are never optional just because a project feels helpful.",
+      "example": "Good intentions do not replace informed consent, confidentiality, or participant protection."
+    }
+  ],
+  "whyResearchMatters": {
+    "title": "Why Research Matters in Counseling Practice",
+    "overview": "Counselors are expected to be informed consumers of research and thoughtful users of evidence. Research literacy helps clinicians choose interventions, interpret treatment outcomes, and avoid relying only on intuition or habit.",
+    "practicalUses": [
+      "choosing evidence-informed interventions",
+      "monitoring whether services are helping clients",
+      "understanding what a study does and does not prove",
+      "communicating with interdisciplinary teams",
+      "supporting accountability and quality improvement"
+    ],
+    "examPearls": [
+      "The NCMHCE usually embeds research in applied counseling scenarios rather than asking purely academic questions.",
+      "If a question asks what kind of evidence best supports a treatment decision, think evidence-based practice, design strength, and clinical relevance."
+    ]
+  },
+  "researchDesignsSection": {
+    "title": "Research Designs",
+    "overview": "Different research designs answer different kinds of questions. Strong answers on the exam come from knowing what each design can do well and where its limits are.",
+    "quantitativeDesigns": [
+      {
+        "design": "Experimental",
+        "definition": "Participants are assigned to conditions, ideally with random assignment, and outcomes are compared.",
+        "strengths": [
+          "strongest design for causal inference",
+          "high control over variables"
+        ],
+        "limitations": [
+          "can be difficult or unethical in some counseling contexts",
+          "may have less real-world flexibility"
+        ],
+        "examPearl": "If the question is about proving treatment caused change, experimental design is the gold standard."
+      },
+      {
+        "design": "Quasi-Experimental",
+        "definition": "Compares groups or conditions without full random assignment.",
+        "strengths": [
+          "more practical in real-world settings",
+          "stronger than purely descriptive work for treatment comparison"
+        ],
+        "limitations": [
+          "weaker control over confounds than true experiments"
+        ],
+        "examPearl": "Useful when random assignment is not possible but comparison is still needed."
+      },
+      {
+        "design": "Survey / Descriptive",
+        "definition": "Describes characteristics, opinions, or experiences of a population.",
+        "strengths": [
+          "broad data collection",
+          "efficient for describing patterns"
+        ],
+        "limitations": [
+          "does not establish causation"
+        ]
+      },
+      {
+        "design": "Correlational",
+        "definition": "Examines the relationship between variables.",
+        "strengths": [
+          "helps identify associations",
+          "useful when manipulation is impossible or unethical"
+        ],
+        "limitations": [
+          "cannot establish causation"
+        ],
+        "examPearl": "High-yield rule: correlation does not equal causation."
+      },
+      {
+        "design": "Longitudinal",
+        "definition": "Follows people over time to observe change or development.",
+        "strengths": [
+          "tracks developmental or symptom change",
+          "can show temporal patterns"
+        ],
+        "limitations": [
+          "time-consuming",
+          "attrition concerns"
+        ]
+      },
+      {
+        "design": "Cross-Sectional",
+        "definition": "Looks at different groups or participants at one point in time.",
+        "strengths": [
+          "efficient",
+          "useful for snapshot comparisons"
+        ],
+        "limitations": [
+          "cannot track within-person change over time"
+        ]
+      },
+      {
+        "design": "Case Study",
+        "definition": "In-depth examination of one case or a small bounded set of cases.",
+        "strengths": [
+          "rich detail",
+          "clinically relevant narrative depth"
+        ],
+        "limitations": [
+          "limited generalizability"
+        ]
+      }
+    ],
+    "qualitativeDesigns": [
+      {
+        "design": "Phenomenology",
+        "focus": "Lived experience of a phenomenon",
+        "examClue": "Best when the goal is understanding what an experience feels like from the participant perspective."
+      },
+      {
+        "design": "Grounded Theory",
+        "focus": "Building theory from the data",
+        "examClue": "Best when the goal is developing a conceptual explanation from participant data."
+      },
+      {
+        "design": "Ethnography",
+        "focus": "Understanding culture through immersion and observation",
+        "examClue": "Useful when the question centers on culture or group practices."
+      },
+      {
+        "design": "Narrative Inquiry",
+        "focus": "Understanding meaning through people's stories",
+        "examClue": "Best when the data source is personal narrative and life meaning."
+      },
+      {
+        "design": "Qualitative Case Study",
+        "focus": "Deep exploration of a bounded case or system",
+        "examClue": "Useful when context and detail matter more than broad generalization."
+      }
+    ],
+    "mixedMethods": {
+      "definition": "Combines quantitative and qualitative approaches in the same project.",
+      "whyUseIt": [
+        "captures both numerical outcomes and lived experience",
+        "strengthens understanding through multiple data types"
+      ],
+      "examPearl": "Mixed methods are useful when numbers alone are not enough and narrative alone is not enough."
+    }
+  },
+  "variablesAndHypothesesSection": {
+    "title": "Variables, Hypotheses, and Confounds",
+    "variables": [
+      {
+        "term": "Independent Variable (IV)",
+        "definition": "The variable that is manipulated or compared as the possible cause or predictor"
+      },
+      {
+        "term": "Dependent Variable (DV)",
+        "definition": "The outcome being measured"
+      },
+      {
+        "term": "Confounding Variable",
+        "definition": "An uncontrolled factor that may distort the relationship between IV and DV"
+      },
+      {
+        "term": "Extraneous Variable",
+        "definition": "Any non-target variable that could affect results"
+      }
+    ],
+    "hypotheses": [
+      {
+        "term": "Null Hypothesis (H0)",
+        "definition": "Assumes no significant difference or relationship"
+      },
+      {
+        "term": "Alternative Hypothesis (H1)",
+        "definition": "Assumes a meaningful difference or relationship exists"
+      }
+    ],
+    "examPearls": [
+      "If a third variable could explain the result, think confound.",
+      "The null hypothesis is what research often attempts to reject, not prove."
+    ]
+  },
+  "samplingSection": {
+    "title": "Sampling",
+    "overview": "Sampling affects how representative and generalizable a study is.",
+    "methods": [
+      {
+        "method": "Random Sampling",
+        "definition": "Every member of the population has an equal chance of being selected",
+        "strength": "Improves representativeness"
+      },
+      {
+        "method": "Stratified Random Sampling",
+        "definition": "Random sampling is done within important subgroups",
+        "strength": "Helps ensure subgroup representation"
+      },
+      {
+        "method": "Convenience Sampling",
+        "definition": "Uses whoever is easy to access",
+        "strength": "Easy and practical",
+        "limitation": "Least representative"
+      },
+      {
+        "method": "Purposive / Purposeful Sampling",
+        "definition": "Intentionally selects participants with specific relevant characteristics",
+        "strength": "Common in qualitative research"
+      },
+      {
+        "method": "Snowball Sampling",
+        "definition": "Participants recruit other participants",
+        "strength": "Useful for hard-to-reach populations"
+      }
+    ],
+    "examPearls": [
+      "If representativeness is the priority, random approaches are stronger than convenience sampling.",
+      "If the study needs people with a very specific lived experience, purposive sampling may make the most sense."
+    ]
+  },
+  "statisticsSection": {
+    "title": "Statistics Basics for the NCMHCE",
+    "overview": "The exam usually expects interpretation of basic statistical language rather than advanced computation.",
+    "centralTendency": [
+      {
+        "term": "Mean",
+        "definition": "Arithmetic average",
+        "bestUse": "Most useful for interval or ratio data when there are no extreme outliers"
+      },
+      {
+        "term": "Median",
+        "definition": "Middle score in an ordered distribution",
+        "bestUse": "Useful for skewed distributions or ordinal data"
+      },
+      {
+        "term": "Mode",
+        "definition": "Most frequent score",
+        "bestUse": "Useful for nominal data or when most common category matters"
+      }
+    ],
+    "variability": [
+      {
+        "term": "Range",
+        "definition": "Difference between highest and lowest score"
+      },
+      {
+        "term": "Variance",
+        "definition": "Average of squared deviations from the mean"
+      },
+      {
+        "term": "Standard Deviation",
+        "definition": "Typical spread of scores around the mean"
+      }
+    ],
+    "normalDistribution": {
+      "definition": "Bell-shaped distribution where mean, median, and mode align",
+      "rule6895997": "Roughly 68 percent of scores fall within 1 standard deviation, 95 percent within 2, and 99.7 percent within 3"
+    },
+    "correlation": {
+      "definition": "Strength and direction of a linear relationship between variables",
+      "range": "-1 to +1",
+      "interpretation": [
+        "0 means no linear relationship",
+        "+1 means perfect positive relationship",
+        "-1 means perfect negative relationship"
+      ],
+      "examPearl": "Correlation does not prove cause and effect."
+    },
+    "statisticalSignificance": [
+      {
+        "term": "p-value",
+        "definition": "Probability that the observed result occurred by chance if the null hypothesis were true",
+        "highYieldPoint": "p < .05 is the conventional significance threshold"
+      },
+      {
+        "term": "Type I Error",
+        "definition": "False positive: rejecting a true null hypothesis"
+      },
+      {
+        "term": "Type II Error",
+        "definition": "False negative: failing to reject a false null hypothesis"
+      },
+      {
+        "term": "Statistical Power",
+        "definition": "Probability of detecting a real effect when it exists"
+      }
+    ],
+    "effectSize": {
+      "definition": "Shows the practical magnitude of a difference or relationship",
+      "whyItMatters": "A finding can be statistically significant but too small to matter clinically",
+      "commonBenchmarks": [
+        "Cohen's d: about .2 small, .5 medium, .8 large",
+        "r: about .1 small, .3 medium, .5 large"
+      ]
+    },
+    "examPearls": [
+      "Statistical significance answers 'Is it likely real?' Effect size answers 'How big is it?'",
+      "A statistically significant result is not automatically clinically important.",
+      "Median is often safer than mean when outliers distort the data."
+    ]
+  },
+  "ebpSection": {
+    "title": "Evidence-Based Practice (EBP)",
+    "overview": "Evidence-based practice is not 'whatever the research says' in isolation. It is the integration of research evidence, clinical expertise, and client values/context.",
+    "threeParts": [
+      "best available research evidence",
+      "clinical expertise",
+      "client values, preferences, and cultural context"
+    ],
+    "levelsOfEvidence": [
+      {
+        "level": 1,
+        "name": "Systematic Reviews and Meta-Analyses",
+        "strength": "Strongest overall evidence summaries when well done"
+      },
+      {
+        "level": 2,
+        "name": "Randomized Controlled Trials",
+        "strength": "Strong causal evidence for specific interventions"
+      },
+      {
+        "level": 3,
+        "name": "Quasi-Experimental Studies",
+        "strength": "Good applied evidence with weaker control than RCTs"
+      },
+      {
+        "level": 4,
+        "name": "Cohort / Longitudinal Studies",
+        "strength": "Useful for tracking outcomes over time"
+      },
+      {
+        "level": 5,
+        "name": "Case-Control Studies",
+        "strength": "Useful for comparing groups retrospectively"
+      },
+      {
+        "level": 6,
+        "name": "Case Reports / Case Series",
+        "strength": "Clinically rich but limited generalizability"
+      },
+      {
+        "level": 7,
+        "name": "Expert Opinion",
+        "strength": "Weakest standalone evidence level"
+      }
+    ],
+    "empiricallySupportedTreatmentsExamples": [
+      {
+        "treatment": "CBT",
+        "commonAssociations": [
+          "depression",
+          "anxiety disorders",
+          "PTSD",
+          "OCD",
+          "eating disorders"
+        ]
+      },
+      {
+        "treatment": "DBT",
+        "commonAssociations": [
+          "BPD",
+          "self-harm",
+          "suicidality"
+        ]
+      },
+      {
+        "treatment": "CPT / PE",
+        "commonAssociations": [
+          "PTSD"
+        ]
+      },
+      {
+        "treatment": "Motivational Interviewing",
+        "commonAssociations": [
+          "substance use",
+          "ambivalence"
+        ]
+      },
+      {
+        "treatment": "Gottman Method",
+        "commonAssociations": [
+          "couples counseling"
+        ]
+      }
+    ],
+    "examPearls": [
+      "The strongest answer usually does not ignore client values just because research exists.",
+      "EBP is a blend of evidence, expertise, and fit for the actual client."
+    ]
+  },
+  "programEvaluationSection": {
+    "title": "Program Evaluation",
+    "overview": "Program evaluation helps counselors and organizations determine whether services are needed, implemented well, effective, and worth their cost.",
+    "types": [
+      {
+        "type": "Needs Assessment",
+        "mainQuestion": "What services are needed?",
+        "whenUsed": "Before program design or expansion",
+        "examClue": "Use when an agency wants to know whether a new program should even exist or what population need is greatest."
+      },
+      {
+        "type": "Process / Formative Evaluation",
+        "mainQuestion": "Is the program being implemented as planned?",
+        "whenUsed": "During implementation",
+        "examClue": "Use when the concern is fidelity, workflow, participation, or whether the service is being delivered correctly."
+      },
+      {
+        "type": "Outcome / Summative Evaluation",
+        "mainQuestion": "Did the program achieve its goals?",
+        "whenUsed": "After implementation or at a major review point",
+        "examClue": "Use when you want to know whether clients improved or outcomes changed."
+      },
+      {
+        "type": "Cost-Benefit Analysis",
+        "mainQuestion": "Is the program worth the cost?",
+        "whenUsed": "At decision points about continuation, expansion, or funding",
+        "examClue": "Useful when administrators are asking whether outcomes justify spending."
+      }
+    ],
+    "evaluationModels": [
+      {
+        "model": "Logic Model",
+        "structure": [
+          "Inputs",
+          "Activities",
+          "Outputs",
+          "Outcomes",
+          "Impact"
+        ],
+        "examPearl": "Great for organizing how a program is supposed to work."
+      },
+      {
+        "model": "CIPP Model",
+        "structure": [
+          "Context",
+          "Input",
+          "Process",
+          "Product"
+        ],
+        "examPearl": "Useful broad framework for evaluating from planning through final results."
+      },
+      {
+        "model": "Goal-Free Evaluation",
+        "structure": [
+          "Examines actual outcomes without centering stated goals"
+        ],
+        "examPearl": "Useful for reducing bias toward only expected outcomes."
+      }
+    ],
+    "commonDataCollectionMethods": [
+      "pre/post testing",
+      "client satisfaction surveys",
+      "case record review",
+      "observation",
+      "interviews",
+      "focus groups"
+    ],
+    "examPearls": [
+      "Needs assessment is before the program. Outcome evaluation is after or near the end. Process evaluation is about implementation quality.",
+      "The exam often tests whether you can match the evaluation method to the question being asked."
+    ]
+  },
+  "researchEthicsSection": {
+    "title": "Research Ethics",
+    "overview": "Research involving humans must protect dignity, autonomy, confidentiality, fairness, and safety. Counselors are expected to recognize these responsibilities.",
+    "coreResponsibilities": [
+      "obtain informed consent",
+      "protect confidentiality and anonymity when applicable",
+      "ensure voluntary participation",
+      "avoid coercion",
+      "avoid unnecessary deception and debrief when deception is used appropriately",
+      "protect vulnerable populations",
+      "report findings honestly and accurately",
+      "seek IRB review when required"
+    ],
+    "belmontReportPrinciples": [
+      {
+        "principle": "Respect for Persons",
+        "meaning": "Autonomy, informed consent, and protection for those with diminished autonomy"
+      },
+      {
+        "principle": "Beneficence",
+        "meaning": "Maximize benefits and minimize harm"
+      },
+      {
+        "principle": "Justice",
+        "meaning": "Fair distribution of burdens and benefits"
+      }
+    ],
+    "highYieldHistoricalExample": {
+      "name": "Tuskegee Syphilis Study",
+      "whyItMatters": "Common example of severe research ethics violation involving deception, exploitation, and withholding treatment, which helped shape modern protections."
+    },
+    "vulnerablePopulations": [
+      "minors",
+      "prisoners",
+      "people with diminished decisional capacity",
+      "highly dependent participants"
+    ],
+    "examPearls": [
+      "A helpful program is still unethical if participants are coerced or uninformed.",
+      "Research ethics questions often sound obvious, but the exam may hide the issue inside a seemingly practical project."
+    ]
+  },
+  "appliedInterpretationSection": {
+    "title": "How Research Concepts Show Up Clinically",
+    "applications": [
+      {
+        "situation": "A counselor reads that treatment A and treatment B are correlated with improvement.",
+        "takeaway": "Correlation alone does not prove either treatment caused the outcome."
+      },
+      {
+        "situation": "A clinic wants to know if its new adolescent anxiety group is actually helping participants.",
+        "takeaway": "Think outcome evaluation, possibly with pre/post measures."
+      },
+      {
+        "situation": "An agency wants to know why attendance is low even though the program already exists.",
+        "takeaway": "Think process/formative evaluation."
+      },
+      {
+        "situation": "A study finds a statistically significant effect with a tiny effect size.",
+        "takeaway": "The result may be real but not very meaningful in practice."
+      },
+      {
+        "situation": "A counselor wants to apply research to a client who has different cultural values and treatment preferences than the study population.",
+        "takeaway": "Use evidence-based practice principles: integrate research with expertise and client context rather than applying findings rigidly."
+      }
+    ],
+    "examPearls": [
+      "The exam often rewards practical interpretation over memorized jargon.",
+      "When in doubt, ask: What can this design really tell me, and what should I not claim from it?"
+    ]
+  },
+  "commonExamTraps": [
+    "Saying correlation proves causation",
+    "Confusing process evaluation with outcome evaluation",
+    "Treating statistical significance as the same as clinical importance",
+    "Forgetting that evidence-based practice includes client values and clinical judgment",
+    "Ignoring ethics because the project is for quality improvement or because the participants are easy to recruit",
+    "Choosing convenience sampling as though it produces the strongest generalizability"
+  ],
+  "miniCaseDrills": [
+    {
+      "case": "A clinic wants to know whether a new depression group is being delivered the way it was designed, whether leaders are covering the intended material, and why attendance is inconsistent.",
+      "bestConcept": "Process / Formative Evaluation",
+      "rationale": "The question is about implementation quality, not just final outcomes."
+    },
+    {
+      "case": "A researcher finds that higher social support is associated with lower anxiety in college students and concludes that increasing social support causes anxiety to decrease.",
+      "bestCorrection": "The study shows correlation, not causation",
+      "rationale": "Association alone cannot prove direct cause-and-effect."
+    },
+    {
+      "case": "A counselor wants the strongest broad evidence summary about whether CBT is effective for panic disorder across many studies.",
+      "bestConcept": "Systematic review or meta-analysis",
+      "rationale": "These synthesize multiple studies and sit near the top of the evidence hierarchy."
+    },
+    {
+      "case": "An agency has not yet launched a parenting program and wants to determine whether the community needs it and what the major unmet needs are.",
+      "bestConcept": "Needs Assessment",
+      "rationale": "This evaluation type comes before implementation."
+    },
+    {
+      "case": "A study result is statistically significant, but the actual difference between groups is extremely small.",
+      "bestConcept": "Effect size matters for practical significance",
+      "rationale": "Statistical significance does not automatically mean meaningful clinical impact."
+    }
+  ],
+  "quickReview": {
+    "memoryHooks": [
+      "Experimental = strongest for causation",
+      "Correlation ≠ causation",
+      "Mean / median / mode = center",
+      "SD = spread",
+      "p-value = likely by chance?",
+      "Effect size = how big?",
+      "EBP = research + expertise + client values",
+      "Needs = before",
+      "Process = during",
+      "Outcome = after",
+      "Belmont = respect, beneficence, justice"
+    ],
+    "finalTakeaways": [
+      "The exam wants functional research literacy, not advanced statistics.",
+      "Choose the design or evaluation type that matches the question being asked.",
+      "A strong research answer is careful about what can actually be concluded."
+    ]
+  },
+  "checkpointQuestions": [
+    {
+      "question": "Which design gives the strongest support for causal conclusions?",
+      "answer": "Experimental design with random assignment"
+    },
+    {
+      "question": "What is the key warning attached to correlational findings?",
+      "answer": "Correlation does not prove causation"
+    },
+    {
+      "question": "What type of evaluation asks whether a program is being implemented as intended?",
+      "answer": "Process or formative evaluation"
+    },
+    {
+      "question": "What are the three parts of evidence-based practice?",
+      "answer": "Best research evidence, clinical expertise, and client values/context"
+    },
+    {
+      "question": "What Belmont Report principle is most closely tied to informed consent and autonomy?",
+      "answer": "Respect for persons"
+    }
+  ],
+  "sourceBasis": {
+    "derivedFromUploadedMaterials": [
+      "Study Library",
+      "Research & Program Evaluation"
+    ],
+    "notes": "Expanded into a production-ready module emphasizing research design, statistics vocabulary, evidence-based practice, program evaluation types, and research ethics in exam-style clinical language."
+  }
+}
