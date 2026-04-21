@@ -448,7 +448,7 @@ const NarrativePage = () => {
                 <Button onClick={() => { setReviewQuestionGlobalIndex(0); setPhase("review"); }}>
                   Review this Narrative
                 </Button>
-                <Button variant="outline" onClick={() => window.location.reload()}>
+                <Button variant="outline" onClick={handleRetry}>
                   <RotateCcw className="mr-2 h-4 w-4" /> Retry
                 </Button>
                 <Button variant="outline" onClick={() => navigate("/narratives")}>
