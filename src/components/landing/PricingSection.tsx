@@ -4,14 +4,15 @@ import { Check } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const features = [
-  "10+ Clinical Simulations (NCMHCE-style)",
+  "14+ Clinical Case Narratives",
+  "Full-Length Timed Practice Exams",
+  "AI-Powered Tutor in Every Session",
+  "Personalized AI Study Plan",
+  "DSM-5-TR Reference Library",
   "60+ Flashcards with Spaced Repetition",
-  "AI-Powered Study Tools",
-  "Personalized Study Plan",
-  "Score Tracking & Analytics",
-  "Learning Library",
-  "Community Forum",
+  "Score Tracking & Domain Analytics",
   "Pomodoro Timer & Note-Taking",
+  "Auto-Save & Resume Progress",
   "Cancel anytime",
 ];
 

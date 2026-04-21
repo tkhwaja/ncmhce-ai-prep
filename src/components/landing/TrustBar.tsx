@@ -1,10 +1,10 @@
-import { Brain, Monitor, Sparkles, Clock } from "lucide-react";
+import { Brain, BookOpen, Sparkles, FileText } from "lucide-react";
 
 const items = [
-  { icon: Brain, text: "Built specifically for NCMHCE preparation" },
-  { icon: Sparkles, text: "Designed around clinical reasoning, not memorization" },
-  { icon: Monitor, text: "Inspired by real exam pain points" },
-  { icon: Clock, text: "Early access launching soon" },
+  { icon: Brain, text: "14+ clinical case narratives" },
+  { icon: FileText, text: "Full-length practice exam" },
+  { icon: Sparkles, text: "AI tutor in every session" },
+  { icon: BookOpen, text: "DSM-5-TR reference library" },
 ];
 
 const TrustBar = () => (
