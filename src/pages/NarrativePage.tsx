@@ -330,6 +330,15 @@ const NarrativePage = () => {
                 </CardContent>
               </Card>
 
+              <div className="flex justify-end">
+                <a
+                  href={`mailto:support@thecounselorexam.com?subject=${encodeURIComponent(`Question Report: ${narrative.title} — Q${globalQuestionNumber} (${currentQuestion.id})`)}&body=${encodeURIComponent(`I would like to report an issue with the following question:\n\nNarrative: ${narrative.title}\nQuestion #${globalQuestionNumber} (ID: ${currentQuestion.id})\nDomain: ${currentQuestion.domain}\n\nIssue:\n`)}`}
+                  className="text-xs text-muted-foreground hover:text-primary transition-colors underline underline-offset-2"
+                >
+                  Report this question
+                </a>
+              </div>
+
               <div className="flex justify-between">
                 <Button variant="outline" onClick={goPrev} disabled={questionIndexInSection === 0}>
                   <ChevronLeft className="mr-1 h-4 w-4" /> Previous
