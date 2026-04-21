@@ -21,7 +21,7 @@ const navItems: { title: string; url: string; icon: TceIconName }[] = [
   { title: "Flashcards", url: "/flashcards", icon: "flashcards" },
   { title: "Analytics", url: "/analytics", icon: "analytics" },
   { title: "Study Tools", url: "/tools", icon: "tools" },
-  { title: "Community", url: "/community", icon: "community" },
+  
   { title: "Exam Info", url: "/exam-info", icon: "exam-info" },
 ];
 
