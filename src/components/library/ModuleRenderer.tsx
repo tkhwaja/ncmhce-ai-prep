@@ -249,13 +249,44 @@ const GenericSection = ({ title, data }: { title: string; data: any }) => {
 
 /* ---- Object content renderer ---- */
 const renderObjectContent = (obj: any): React.ReactNode => {
-  const skipKeys = new Set(["title", "overview", "examPearls", "examPearl", "sourceBasis", "moduleId", "moduleTitle", "moduleType", "version", "exam", "uiHints", "intro"]);
+  const skipKeys = new Set(["title", "overview", "examPearls", "examPearl", "sourceBasis", "moduleId", "moduleTitle", "moduleType", "version", "exam", "uiHints", "intro", "id"]);
 
   return (
     <div className="space-y-2">
       {Object.entries(obj).map(([key, value]) => {
         if (skipKeys.has(key)) return null;
         if (value === null || value === undefined) return null;
+
+        // Render coreCriteria, mustRuleOut, specifiersToKnow, examClues etc as labeled lists
+        if (Array.isArray(value) && value.length > 0 && typeof value[0] === "string") {
+          return (
+            <div key={key}>
+              <span className="text-xs font-medium text-foreground capitalize">{formatKey(key)}</span>
+              <ul className="ml-4 mt-1">
+                {value.map((v: string, i: number) => (
+                  <li key={i} className="text-sm text-muted-foreground flex items-start gap-1"><span className="text-primary text-xs">•</span>{v}</li>
+                ))}
+              </ul>
+            </div>
+          );
+        }
+
+        // Render severity object as key-value
+        if (typeof value === "object" && !Array.isArray(value)) {
+          return (
+            <div key={key}>
+              <span className="text-xs font-medium text-foreground capitalize">{formatKey(key)}</span>
+              <div className="ml-4 mt-1 space-y-1">
+                {Object.entries(value as Record<string, any>).map(([k, v]) => (
+                  <p key={k} className="text-sm text-muted-foreground">
+                    <span className="font-medium text-foreground capitalize">{formatKey(k)}: </span>
+                    {typeof v === "string" ? v : JSON.stringify(v)}
+                  </p>
+                ))}
+              </div>
+            </div>
+          );
+        }
 
         if (typeof value === "string") {
           return (
@@ -264,21 +295,6 @@ const renderObjectContent = (obj: any): React.ReactNode => {
               <span className="text-sm text-muted-foreground">{value}</span>
             </div>
           );
-        }
-
-        if (Array.isArray(value) && value.length > 0) {
-          if (typeof value[0] === "string") {
-            return (
-              <div key={key}>
-                <span className="text-xs font-medium text-foreground capitalize">{formatKey(key)}</span>
-                <ul className="ml-4 mt-1">
-                  {value.map((v, i) => (
-                    <li key={i} className="text-sm text-muted-foreground flex items-start gap-1"><span className="text-primary text-xs">•</span>{v}</li>
-                  ))}
-                </ul>
-              </div>
-            );
-          }
         }
 
         return null;
