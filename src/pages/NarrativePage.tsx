@@ -159,11 +159,17 @@ const NarrativePage = () => {
     return () => clearInterval(interval);
   }, [phase]);
 
-  if (!narrative) {
+  if (!narrative || loadingDraft) {
     return (
       <div className="p-6 text-center">
-        <p className="text-muted-foreground">Narrative not found.</p>
-        <Button onClick={() => navigate("/narratives")} className="mt-4">Back to Narratives</Button>
+        {loadingDraft ? (
+          <p className="text-muted-foreground">Loading...</p>
+        ) : (
+          <>
+            <p className="text-muted-foreground">Narrative not found.</p>
+            <Button onClick={() => navigate("/narratives")} className="mt-4">Back to Narratives</Button>
+          </>
+        )}
       </div>
     );
   }
