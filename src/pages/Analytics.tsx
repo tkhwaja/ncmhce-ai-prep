@@ -3,17 +3,15 @@ import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { Progress } from "@/components/ui/progress";
 import { useToast } from "@/hooks/use-toast";
 import ReactMarkdown from "react-markdown";
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip as ReTooltip,
   ResponsiveContainer, LineChart, Line, RadarChart, PolarGrid,
-  PolarAngleAxis, PolarRadiusAxis, Radar
+  PolarAngleAxis, PolarRadiusAxis, Radar, ReferenceLine
 } from "recharts";
 import {
-  Target, TrendingUp, CheckCircle2, AlertTriangle, Sparkles, BarChart3
+  Target, TrendingUp, CheckCircle2, Sparkles, BarChart3
 } from "lucide-react";
 import TceIcon, { TceIconName } from "@/components/icons/TceIcon";
 import { DEMO_MODE, demoAttempts } from "@/data/demo-stats";
@@ -24,6 +22,14 @@ const DOMAIN_ICONS: Record<string, TceIconName> = {
   "Core counseling attributes": "domain-counseling",
   "Treatment planning": "domain-treatment",
   "Counseling skills and interventions": "domain-intervention",
+};
+
+const DOMAIN_SHORT: Record<string, string> = {
+  "Intake/assessment/diagnosis": "Assessment",
+  "Professional practice and ethics": "Ethics",
+  "Core counseling attributes": "Core Counseling",
+  "Treatment planning": "Treatment",
+  "Counseling skills and interventions": "Interventions",
 };
 
 interface Attempt {
@@ -89,24 +95,18 @@ const Analytics = () => {
     });
   });
   const domainAvgs = DOMAINS.map((d) => ({
-    domain: d.length > 20 ? d.slice(0, 18) + "…" : d,
-    fullDomain: d,
+    domain: d,
+    shortName: DOMAIN_SHORT[d] || d,
     score: domainTotals[d] ? Math.round(domainTotals[d].sum / domainTotals[d].count) : 0,
   }));
 
-  const radarData = domainAvgs.map((d) => ({ subject: d.domain, score: d.score, fullMark: 100 }));
+  const radarData = domainAvgs.map((d) => ({ subject: d.shortName, score: d.score, fullMark: 100 }));
 
   // Trend data (last 10)
   const trendData = completed.slice(-10).map((a, i) => ({
     name: `N${i + 1}`,
     score: a.total_score || 0,
   }));
-
-  // IG critical item stats
-  const totalCriticalGathered = completed.reduce((acc, a) => {
-    const sels = (a.ig_selections as string[]) || [];
-    return acc + sels.filter((s) => s.includes("ig")).length;
-  }, 0);
 
   const getColor = (score: number) => {
     if (score >= 80) return "text-emerald-400";
@@ -127,9 +127,22 @@ const Analytics = () => {
         body: JSON.stringify({
           messages: [{
             role: "user",
-            content: `Based on my NCMHCE exam preparation analytics, provide personalized study recommendations:\n\n- Total narratives: ${completed.length}\n- Average score: ${avgScore}%\n- Pass rate: ${passRate}%\n- Domain scores:\n${domainAvgs.map((d) => `  ${d.fullDomain}: ${d.score}%`).join("\n")}\n\nIdentify my top 2 strengths, top 2 areas for improvement, and provide specific study recommendations for each weak area including which DSM-5-TR sections to review.`
+            content: `Analyze my NCMHCE prep data and give structured recommendations. Use exactly these 3 markdown headers and keep each section to 2-3 bullet points max:
+
+## 💪 Strengths
+## ⚠️ Areas to Improve  
+## 📋 Study Plan
+
+My data:
+- Narratives completed: ${completed.length}
+- Average score: ${avgScore}%
+- Pass rate: ${passRate}%
+- Domain scores:
+${domainAvgs.map((d) => `  ${d.domain}: ${d.score}%`).join("\n")}
+
+Be specific — name exact DSM-5-TR categories or topics to review. Keep it actionable and concise.`
           }],
-          context: "Analytics Dashboard",
+          context: "Analytics Dashboard — structured analysis",
         }),
       });
 
@@ -229,20 +242,24 @@ const Analytics = () => {
         <Card className="card-elevated">
           <CardHeader><CardTitle className="text-base">Domain Performance</CardTitle></CardHeader>
           <CardContent>
-            <ResponsiveContainer width="100%" height={280}>
-              <RadarChart data={radarData}>
+            <ResponsiveContainer width="100%" height={300}>
+              <RadarChart data={radarData} cx="50%" cy="50%" outerRadius="65%">
                 <PolarGrid stroke="hsl(var(--border))" />
-                <PolarAngleAxis dataKey="subject" tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 11 }} />
+                <PolarAngleAxis
+                  dataKey="subject"
+                  tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 12 }}
+                  tickLine={false}
+                />
                 <PolarRadiusAxis angle={90} domain={[0, 100]} tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 10 }} />
                 <Radar name="Score" dataKey="score" stroke="hsl(var(--primary))" fill="hsl(var(--primary))" fillOpacity={0.3} />
               </RadarChart>
             </ResponsiveContainer>
             <div className="space-y-2 mt-4">
               {domainAvgs.map((d) => (
-                <div key={d.fullDomain} className="flex items-center justify-between text-sm">
-                  <span className="text-muted-foreground truncate mr-2 flex items-center gap-2">
-                    <TceIcon name={DOMAIN_ICONS[d.fullDomain]} size={16} className="text-blue-400 shrink-0" />
-                    {d.fullDomain}
+                <div key={d.domain} className="flex items-center justify-between text-sm">
+                  <span className="text-muted-foreground flex items-center gap-2">
+                    <TceIcon name={DOMAIN_ICONS[d.domain]} size={16} className="text-blue-400 shrink-0" />
+                    <span>{d.domain}</span>
                   </span>
                   <span className={`font-medium ${getColor(d.score)}`}>{d.score}%</span>
                 </div>
@@ -255,18 +272,16 @@ const Analytics = () => {
         <Card className="card-elevated">
           <CardHeader><CardTitle className="text-base">Score Trend (Last 10)</CardTitle></CardHeader>
           <CardContent>
-            <ResponsiveContainer width="100%" height={280}>
+            <ResponsiveContainer width="100%" height={300}>
               <LineChart data={trendData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="hsl(var(--border))" />
                 <XAxis dataKey="name" tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 11 }} />
                 <YAxis domain={[0, 100]} tick={{ fill: "hsl(var(--muted-foreground))", fontSize: 11 }} />
                 <ReTooltip contentStyle={{ backgroundColor: "hsl(var(--card))", border: "1px solid hsl(var(--border))", color: "hsl(var(--foreground))" }} />
+                <ReferenceLine y={70} stroke="hsl(var(--destructive))" strokeDasharray="6 4" label={{ value: "Pass: 70%", fill: "hsl(var(--destructive))", fontSize: 10, position: "insideTopRight" }} />
                 <Line type="monotone" dataKey="score" stroke="hsl(var(--primary))" strokeWidth={2} dot={{ fill: "hsl(var(--primary))" }} />
               </LineChart>
             </ResponsiveContainer>
-            <div className="mt-4 flex items-center gap-2 text-xs text-muted-foreground">
-              <div className="h-0.5 w-8 bg-red-400" /> 70% passing threshold
-            </div>
           </CardContent>
         </Card>
       </div>
@@ -280,7 +295,7 @@ const Analytics = () => {
         </CardHeader>
         <CardContent>
           {aiAnalysis ? (
-            <div className="prose prose-sm prose-invert max-w-none">
+            <div className="prose prose-sm dark:prose-invert max-w-none [&>h2]:text-base [&>h2]:font-semibold [&>h2]:mt-4 [&>h2]:mb-2 [&>ul]:my-2 [&>ul>li]:text-sm">
               <ReactMarkdown>{aiAnalysis}</ReactMarkdown>
             </div>
           ) : (
@@ -290,7 +305,7 @@ const Analytics = () => {
           )}
           <Button onClick={generateAIAnalysis} disabled={aiLoading} className="mt-4">
             <Sparkles className="mr-2 h-4 w-4" />
-            {aiLoading ? "Generating..." : aiAnalysis ? "Regenerate Recommendations" : "Get AI Study Recommendations"}
+            {aiLoading ? "Generating..." : aiAnalysis ? "Regenerate" : "Get AI Recommendations"}
           </Button>
         </CardContent>
       </Card>
