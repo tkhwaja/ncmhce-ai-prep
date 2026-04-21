@@ -306,6 +306,93 @@ const renderObjectContent = (obj: any): React.ReactNode => {
 const formatKey = (key: string) =>
   key.replace(/([A-Z])/g, " $1").replace(/^./, (s) => s.toUpperCase()).replace(/Section$/, "").trim();
 
+/* ---- DSM Diagnostic Categories ---- */
+const DiagnosticCategories = ({ categories }: { categories: any[] }) => (
+  <div>
+    <SectionHeading>Diagnostic Categories</SectionHeading>
+    <div className="space-y-4">
+      {categories.map((cat, i) => (
+        <CollapsibleSection key={i} title={cat.title} defaultOpen={i === 0}>
+          {cat.overview && <p className="text-sm text-muted-foreground mb-3">{cat.overview}</p>}
+          {cat.highYieldDisorders?.map((disorder: any, j: number) => (
+            <CollapsibleSection key={j} title={disorder.title}>
+              {disorder.hallmark && (
+                <Alert className="border-primary/30 bg-primary/5 mb-3">
+                  <Target className="h-4 w-4 text-primary" />
+                  <AlertDescription className="text-sm text-foreground">{disorder.hallmark}</AlertDescription>
+                </Alert>
+              )}
+              {disorder.coreCriteria && (
+                <div className="mb-3">
+                  <p className="text-xs font-semibold text-foreground uppercase tracking-wide mb-1">Core Criteria</p>
+                  <ul className="space-y-1 ml-4">
+                    {disorder.coreCriteria.map((c: string, k: number) => (
+                      <li key={k} className="text-sm text-muted-foreground flex items-start gap-1">
+                        <span className="text-primary text-xs">•</span>{c}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {disorder.minimumThreshold && (
+                <p className="text-sm text-muted-foreground mb-2">
+                  <span className="font-medium text-foreground">Minimum Threshold: </span>{disorder.minimumThreshold}
+                </p>
+              )}
+              {disorder.mustRuleOut && (
+                <div className="mb-3">
+                  <p className="text-xs font-semibold text-foreground uppercase tracking-wide mb-1">Must Rule Out</p>
+                  <ul className="space-y-1 ml-4">
+                    {disorder.mustRuleOut.map((r: string, k: number) => (
+                      <li key={k} className="text-sm text-muted-foreground flex items-start gap-1">
+                        <span className="text-destructive text-xs">✕</span>{r}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {disorder.severity && typeof disorder.severity === "object" && (
+                <div className="mb-3">
+                  <p className="text-xs font-semibold text-foreground uppercase tracking-wide mb-1">Severity Levels</p>
+                  {Object.entries(disorder.severity).map(([level, desc]) => (
+                    <p key={level} className="text-sm text-muted-foreground ml-4">
+                      <span className="font-medium text-foreground capitalize">{level}: </span>{desc as string}
+                    </p>
+                  ))}
+                </div>
+              )}
+              {disorder.specifiersToKnow && (
+                <div className="mb-3">
+                  <p className="text-xs font-semibold text-foreground uppercase tracking-wide mb-1">Specifiers to Know</p>
+                  <div className="flex flex-wrap gap-1 ml-4">
+                    {disorder.specifiersToKnow.map((s: string, k: number) => (
+                      <Badge key={k} variant="outline" className="text-xs">{s}</Badge>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {disorder.examClues && <ExamPearls pearls={disorder.examClues} />}
+            </CollapsibleSection>
+          ))}
+          {cat.redFlags && (
+            <div className="mt-3">
+              {cat.redFlags.map((rf: any, k: number) => (
+                <Alert key={k} className="border-destructive/30 bg-destructive/5 mb-2">
+                  <AlertTriangle className="h-4 w-4 text-destructive" />
+                  <AlertDescription className="text-sm">
+                    <span className="font-medium text-foreground">{rf.title || rf}</span>
+                    {rf.whenToThinkOfIt && <span className="text-muted-foreground"> — {rf.whenToThinkOfIt}</span>}
+                  </AlertDescription>
+                </Alert>
+              ))}
+            </div>
+          )}
+        </CollapsibleSection>
+      ))}
+    </div>
+  </div>
+);
+
 /* ================================================================== */
 /*  Main Renderer                                                      */
 /* ================================================================== */
