@@ -13,6 +13,7 @@ import { keishaAdjustment } from "./11-keisha-adjustment";
 import { miguelSocialAnxiety } from "./12-miguel-social-anxiety";
 import { marisolPtsd } from "./13-marisol-ptsd";
 import { claudetteHoarding } from "./14-claudette-hoarding";
+import { rowenaAdhd } from "./15-rowena-adhd";
 
 export type { Narrative, NarrativeSection, NarrativeQuestion, NarrativeDomain, NarrativeClientInfo } from "./types";
 export { NARRATIVE_DOMAINS, totalQuestionCount } from "./types";
@@ -32,6 +33,7 @@ export const narratives: Narrative[] = [
   miguelSocialAnxiety,
   marisolPtsd,
   claudetteHoarding,
+  rowenaAdhd,
 ];
 
 export const getNarrativeById = (id: string | undefined): Narrative | undefined =>
