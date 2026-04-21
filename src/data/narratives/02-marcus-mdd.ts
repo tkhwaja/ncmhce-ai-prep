@@ -6,7 +6,7 @@ export const marcusMdd: Narrative = {
   id: "02-marcus-mdd",
   title: "Marcus — Major Depressive Disorder",
   category: "Mood Disorders",
-  difficulty: "Intermediate",
+  difficulty: "Beginner",
 
   clientInfo: {
     age: 42,
