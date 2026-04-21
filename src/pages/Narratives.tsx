@@ -74,20 +74,18 @@ const Narratives = () => {
 
         <h2 className="text-lg font-semibold text-foreground mb-4">Full-Length Practice Exams</h2>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
-          {[1, 2, 3].map((n) => (
-            <Card key={n} className="card-elevated opacity-60 relative overflow-hidden">
-              <CardContent className="p-6">
-                <div className="absolute top-3 right-3">
-                  <Badge variant="outline" className="bg-muted/50 text-muted-foreground border-border">
-                    <Lock className="h-3 w-3 mr-1" /> Coming Soon
-                  </Badge>
-                </div>
-                <Brain className="h-8 w-8 text-muted-foreground mb-3" />
-                <h3 className="font-semibold text-foreground">Practice Exam {n}</h3>
-                <p className="text-sm text-muted-foreground mt-1">11 clinical narratives • ~4 hours</p>
-              </CardContent>
-            </Card>
-          ))}
+          <Card className="card-elevated opacity-60 relative overflow-hidden">
+            <CardContent className="p-6">
+              <div className="absolute top-3 right-3">
+                <Badge variant="outline" className="bg-muted/50 text-muted-foreground border-border">
+                  <Lock className="h-3 w-3 mr-1" /> Coming Soon
+                </Badge>
+              </div>
+              <Brain className="h-8 w-8 text-muted-foreground mb-3" />
+              <h3 className="font-semibold text-foreground">Practice Exam 1</h3>
+              <p className="text-sm text-muted-foreground mt-1">11 clinical narratives • ~4 hours</p>
+            </CardContent>
+          </Card>
         </div>
       </div>
 

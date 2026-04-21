@@ -9,6 +9,8 @@ import { jordanAnorexia } from "./07-jordan-anorexia";
 import { robertGrief } from "./08-robert-prolonged-grief";
 import { meiOcd } from "./09-mei-ocd";
 import { tyroneBpd } from "./10-tyrone-bpd";
+import { keishaAdjustment } from "./11-keisha-adjustment";
+import { miguelSocialAnxiety } from "./12-miguel-social-anxiety";
 
 export type { Narrative, NarrativeSection, NarrativeQuestion, NarrativeDomain, NarrativeClientInfo } from "./types";
 export { NARRATIVE_DOMAINS, totalQuestionCount } from "./types";
@@ -24,6 +26,8 @@ export const narratives: Narrative[] = [
   robertGrief,
   meiOcd,
   tyroneBpd,
+  keishaAdjustment,
+  miguelSocialAnxiety,
 ];
 
 export const getNarrativeById = (id: string | undefined): Narrative | undefined =>
