@@ -319,7 +319,8 @@ const ModuleRenderer = ({ data }: ModuleRendererProps) => {
 
   const skipTopLevel = new Set([
     "moduleId", "moduleTitle", "moduleType", "version", "exam", "uiHints", "sourceBasis",
-    "intro", "coreDecisionRules", "commonExamTraps", "miniCaseDrills", "quickReview", "checkpointQuestions",
+    "intro", "coreDecisionRules", "coreDiagnosticReasoningRules", "commonExamTraps", "miniCaseDrills", "quickReview", "checkpointQuestions",
+    "diagnosticCategories", "globalDifferentialTables", "redFlagAlerts",
   ]);
 
   // Collect all "other" sections
@@ -334,6 +335,45 @@ const ModuleRenderer = ({ data }: ModuleRendererProps) => {
 
       {/* Decision Rules */}
       {data.coreDecisionRules && <DecisionRules rules={data.coreDecisionRules} />}
+      {data.coreDiagnosticReasoningRules && <DecisionRules rules={data.coreDiagnosticReasoningRules} />}
+
+      {/* DSM Diagnostic Categories */}
+      {data.diagnosticCategories && <DiagnosticCategories categories={data.diagnosticCategories} />}
+
+      {/* Global Differential Tables */}
+      {data.globalDifferentialTables && (
+        <div>
+          <SectionHeading>Differential Diagnosis Tables</SectionHeading>
+          {data.globalDifferentialTables.map((table: any, i: number) => (
+            <CollapsibleSection key={i} title={table.title}>
+              <div className="space-y-2">
+                {table.rows?.map((row: any, j: number) => (
+                  <Card key={j} className="card-elevated">
+                    <CardContent className="p-3">{renderObjectContent(row)}</CardContent>
+                  </Card>
+                ))}
+              </div>
+            </CollapsibleSection>
+          ))}
+        </div>
+      )}
+
+      {/* Red Flag Alerts */}
+      {data.redFlagAlerts && (
+        <div>
+          <SectionHeading>Red Flag Alerts</SectionHeading>
+          {data.redFlagAlerts.map((alert: any, i: number) => (
+            <Alert key={i} className="border-destructive/30 bg-destructive/5 mb-2">
+              <AlertTriangle className="h-4 w-4 text-destructive" />
+              <AlertDescription className="text-sm">
+                <span className="font-medium text-foreground">{alert.title}</span>
+                {alert.whenToThinkOfIt && <span className="text-muted-foreground"> — {alert.whenToThinkOfIt}</span>}
+                {alert.clinicalPriority && <p className="text-xs text-muted-foreground mt-1">{alert.clinicalPriority}</p>}
+              </AlertDescription>
+            </Alert>
+          ))}
+        </div>
+      )}
 
       {/* Domain-specific sections */}
       {otherSections.map(([key, value]) => (
