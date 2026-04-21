@@ -55,6 +55,82 @@ const NarrativePage = () => {
   const dialogShownRef = useRef(false);
   const [submitting, setSubmitting] = useState(false);
   const [reviewQuestionGlobalIndex, setReviewQuestionGlobalIndex] = useState(0);
+  const [attemptId, setAttemptId] = useState<string | null>(null);
+  const [loadingDraft, setLoadingDraft] = useState(true);
+
+  // Load saved draft on mount
+  useEffect(() => {
+    if (!user || !narrative) { setLoadingDraft(false); return; }
+    supabase
+      .from("narrative_attempts")
+      .select("id, dm_answers, completed_at")
+      .eq("user_id", user.id)
+      .eq("narrative_id", narrative.id)
+      .order("created_at", { ascending: false })
+      .limit(1)
+      .then(({ data }) => {
+        if (data && data.length > 0) {
+          const latest = data[0];
+          if (!latest.completed_at) {
+            // Resume draft
+            setAttemptId(latest.id);
+            const saved = latest.dm_answers as Record<string, number>;
+            if (saved && typeof saved === "object") {
+              setAnswers(saved);
+              // Figure out which section/question to resume at
+              const sections = narrative.sections;
+              for (let si = sections.length - 1; si >= 0; si--) {
+                const qs = sections[si].questions;
+                const answeredInSection = qs.filter((q) => saved[q.id] !== undefined);
+                if (answeredInSection.length > 0) {
+                  setSectionIndex(si);
+                  const lastAnsweredIdx = qs.findIndex(
+                    (q) => q.id === answeredInSection[answeredInSection.length - 1].id
+                  );
+                  setQuestionIndexInSection(Math.min(lastAnsweredIdx + 1, qs.length - 1));
+                  break;
+                }
+              }
+            }
+          }
+        }
+        setLoadingDraft(false);
+      });
+  }, [user, narrative]);
+
+  // Auto-save answers to DB on change
+  const saveTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
+  useEffect(() => {
+    if (!user || !narrative || phase === "results" || phase === "review") return;
+    if (Object.keys(answers).length === 0) return;
+
+    clearTimeout(saveTimeoutRef.current);
+    saveTimeoutRef.current = setTimeout(async () => {
+      if (attemptId) {
+        await supabase
+          .from("narrative_attempts")
+          .update({ dm_answers: answers as any })
+          .eq("id", attemptId);
+      } else {
+        const { data } = await supabase
+          .from("narrative_attempts")
+          .insert({
+            user_id: user.id,
+            narrative_id: narrative.id,
+            ig_selections: [],
+            dm_answers: answers as any,
+            domain_scores: {},
+            total_score: null,
+            completed_at: null,
+          })
+          .select("id")
+          .single();
+        if (data) setAttemptId(data.id);
+      }
+    }, 1500);
+
+    return () => clearTimeout(saveTimeoutRef.current);
+  }, [answers, user, narrative, attemptId, phase]);
 
   // Reset timer when entering a new section
   useEffect(() => {
