@@ -234,19 +234,38 @@ const NarrativePage = () => {
     });
 
     if (user) {
-      await supabase.from("narrative_attempts").insert({
-        user_id: user.id,
-        narrative_id: narrative.id,
-        ig_selections: [],
-        dm_answers: answers,
-        domain_scores: domainScores,
+      const payload = {
+        dm_answers: answers as any,
+        domain_scores: domainScores as any,
         total_score: totalScore,
         time_spent: sectionDuration * narrative.sections.length - secondsRemaining,
         completed_at: new Date().toISOString(),
-      });
+      };
+
+      if (attemptId) {
+        await supabase.from("narrative_attempts").update(payload).eq("id", attemptId);
+      } else {
+        await supabase.from("narrative_attempts").insert({
+          user_id: user.id,
+          narrative_id: narrative.id,
+          ig_selections: [],
+          ...payload,
+        });
+      }
     }
     setPhase("results");
     setSubmitting(false);
+  };
+
+  const handleRetry = () => {
+    setAnswers({});
+    setSectionIndex(0);
+    setQuestionIndexInSection(0);
+    setPhase("answering");
+    setAttemptId(null);
+    setTimerExpired(false);
+    setSecondsRemaining(sectionDuration);
+    dialogShownRef.current = false;
   };
 
   const allCurrentSectionAnswered = currentSection.questions.every((q) => answers[q.id] !== undefined);
