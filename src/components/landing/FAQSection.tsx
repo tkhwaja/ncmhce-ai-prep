@@ -8,31 +8,31 @@ import {
 const faqs = [
   {
     q: "What is TheCounselorExam.com?",
-    a: "TheCounselorExam.com is an upcoming AI-powered exam prep platform built specifically for the NCMHCE. It combines realistic clinical simulations, a contextual AI tutor, adaptive analytics, and personalized study tools to help you prepare smarter and pass with confidence.",
+    a: "TheCounselorExam.com is an AI-powered exam prep platform built specifically for the NCMHCE. It combines realistic clinical case narratives, a contextual AI tutor, domain analytics, flashcards, a DSM-5-TR library, and personalized study tools to help you prepare smarter and pass with confidence.",
   },
   {
-    q: "Is the platform live yet?",
-    a: "Not yet. We're currently building the platform and collecting waitlist signups. Early access will open soon — join the waitlist to be notified first and secure founding-user benefits.",
+    q: "How many practice cases are available?",
+    a: "The platform currently includes 14+ individual clinical case narratives covering a wide range of diagnoses — from GAD and MDD to PTSD, Bipolar Disorder, Hoarding, Anorexia, BPD, and more. There's also a full-length timed practice exam, with more cases added regularly.",
   },
   {
     q: "Who is this for?",
-    a: "TheCounselorExam.com is designed for anyone preparing for the NCMHCE — including first-time test takers, repeat test takers looking for deeper insight, and counseling students who want early clinical simulation practice.",
+    a: "TheCounselorExam.com is designed for anyone preparing for the NCMHCE — including first-time test takers, repeat test takers looking for deeper domain-level insight, and counseling students who want early clinical simulation practice.",
   },
   {
-    q: "Will there be full-length simulations?",
-    a: "Yes. We're building full-length, Pearson VUE-style NCMHCE simulations that mirror the real exam's clinical decision-making format, including information gathering, diagnosis, and treatment planning sections.",
+    q: "What does the AI tutor do?",
+    a: "The AI tutor is embedded directly into your study sessions. You can ask follow-up questions about any narrative, request DSM-5-TR explanations, explore differential diagnosis reasoning, and get contextual help — all without leaving the page.",
   },
   {
-    q: "Will AI explanations be grounded in DSM-5-TR concepts?",
-    a: "Absolutely. Our AI tutor is designed to provide explanations rooted in DSM-5-TR diagnostic criteria, evidence-based treatment approaches, and clinical reasoning frameworks relevant to the NCMHCE.",
+    q: "Will my progress be saved if I leave mid-exam?",
+    a: "Yes. Your responses are auto-saved as you work through a narrative or practice exam. If you close your browser or navigate away, you can resume exactly where you left off.",
   },
   {
-    q: "Is this only for repeat test takers?",
-    a: "Not at all. While repeat test takers benefit from targeted weak-area analysis, first-time takers and students gain just as much from structured simulations, guided study plans, and AI-supported learning.",
+    q: "Can I retake practice exams?",
+    a: "Absolutely. You can retake any narrative or practice exam as many times as you want. Each attempt is tracked separately so you can measure improvement over time.",
   },
   {
-    q: "When will early access open?",
-    a: "We'll announce the early access date to waitlist subscribers first. Join the waitlist to stay in the loop and get priority access when we launch.",
+    q: "What's included in the subscription?",
+    a: "Full access to everything: all clinical narratives, practice exams, the AI tutor, flashcards with spaced repetition, DSM-5-TR library, personalized study plan, domain analytics, Pomodoro timer, and note-taking tools. Cancel anytime.",
   },
 ];
 

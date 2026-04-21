@@ -1,13 +1,12 @@
-import { Check, X, Minus, Clock } from "lucide-react";
+import { Check, X, Minus } from "lucide-react";
 
-type Status = "yes" | "no" | "limited" | "coming";
+type Status = "yes" | "no" | "limited";
 
 const statusIcon = (s: Status) => {
   switch (s) {
     case "yes": return <Check size={16} className="text-primary" />;
     case "no": return <X size={16} className="text-destructive/60" />;
     case "limited": return <Minus size={16} className="text-muted-foreground" />;
-    case "coming": return <Clock size={16} className="text-secondary" />;
   }
 };
 
@@ -16,7 +15,6 @@ const statusLabel = (s: Status) => {
     case "yes": return "Included";
     case "no": return "No";
     case "limited": return "Limited";
-    case "coming": return "Coming Soon";
   }
 };
 
@@ -25,11 +23,13 @@ const competitors = ["TheCounselorExam.com", "Therapist Dev Center", "Mometrix",
 const rows: { feature: string; statuses: Status[] }[] = [
   { feature: "AI tutoring built into study flow", statuses: ["yes", "no", "no", "no"] },
   { feature: "Ask follow-up questions in context", statuses: ["yes", "no", "no", "no"] },
-  { feature: "Pearson VUE-style simulation experience", statuses: ["yes", "limited", "limited", "limited"] },
-  { feature: "Adaptive study recommendations", statuses: ["yes", "no", "no", "limited"] },
-  { feature: "Performance analytics by domain", statuses: ["yes", "limited", "limited", "limited"] },
-  { feature: "Built-in study tools", statuses: ["coming", "no", "no", "limited"] },
-  { feature: "Community & accountability features", statuses: ["coming", "no", "no", "no"] },
+  { feature: "Realistic clinical case narratives", statuses: ["yes", "limited", "limited", "limited"] },
+  { feature: "Full-length timed practice exams", statuses: ["yes", "limited", "limited", "limited"] },
+  { feature: "Auto-save & resume mid-exam", statuses: ["yes", "no", "no", "no"] },
+  { feature: "Domain-level performance analytics", statuses: ["yes", "limited", "limited", "limited"] },
+  { feature: "DSM-5-TR reference library", statuses: ["yes", "no", "no", "limited"] },
+  { feature: "Flashcards with spaced repetition", statuses: ["yes", "no", "no", "limited"] },
+  { feature: "AI-generated study plans", statuses: ["yes", "no", "no", "limited"] },
   { feature: "Modern user experience", statuses: ["yes", "no", "no", "no"] },
 ];
 

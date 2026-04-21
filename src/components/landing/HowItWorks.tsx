@@ -1,10 +1,10 @@
-import { UserPlus, Key, BrainCircuit, TrendingUp } from "lucide-react";
+import { UserPlus, BrainCircuit, Target, TrendingUp } from "lucide-react";
 
 const steps = [
-  { icon: UserPlus, title: "Join the Waitlist", desc: "Sign up with your email to get early access and launch updates." },
-  { icon: Key, title: "Get Early Access", desc: "Be among the first to try the platform with founding-user benefits." },
-  { icon: BrainCircuit, title: "Practice with AI Simulations", desc: "Study with realistic NCMHCE simulations and contextual AI support." },
-  { icon: TrendingUp, title: "Study Smarter", desc: "Focus on your weak areas with adaptive analytics and personalized plans." },
+  { icon: UserPlus, title: "Create Your Account", desc: "Sign up and set your target exam date, study hours, and focus areas." },
+  { icon: BrainCircuit, title: "Practice with Narratives", desc: "Work through realistic clinical case narratives with AI-powered support." },
+  { icon: Target, title: "Review & Improve", desc: "Get detailed explanations, domain scores, and targeted recommendations." },
+  { icon: TrendingUp, title: "Pass with Confidence", desc: "Take full-length practice exams and track your progress until exam day." },
 ];
 
 const HowItWorks = () => (

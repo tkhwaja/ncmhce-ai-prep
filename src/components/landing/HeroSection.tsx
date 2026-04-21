@@ -1,4 +1,3 @@
-import { useState } from "react";
 import WaitlistForm from "./WaitlistForm";
 import { ArrowDown } from "lucide-react";
 
@@ -16,7 +15,7 @@ const HeroSection = () => {
           <div className="animate-fade-up">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium text-primary mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              Early Access Coming Soon
+              Now Live — Start Studying Today
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-foreground mb-6">
@@ -25,9 +24,9 @@ const HeroSection = () => {
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-8 leading-relaxed">
-              Stop relying on static question banks. TheCounselorExam.com combines realistic simulations,
-              contextual AI tutoring, and personalized study support — so you can prepare smarter and
-              pass with confidence.
+              14+ clinical narratives, a full-length practice exam, AI tutoring, flashcards,
+              a DSM-5-TR library, and a personalized study plan — everything you need to
+              pass the NCMHCE, in one place.
             </p>
 
             <div className="max-w-md mb-4">
@@ -35,7 +34,7 @@ const HeroSection = () => {
             </div>
 
             <p className="text-xs text-muted-foreground">
-              Join early access for launch updates, beta invites, and founding-user perks.
+              Join for launch updates, beta invites, and founding-user perks.
             </p>
           </div>
 
@@ -71,16 +70,14 @@ const ProductMockup = () => (
       {/* Simulation mock */}
       <div className="grid grid-cols-5 gap-4">
         <div className="col-span-3 space-y-3">
-          <div className="text-xs font-semibold text-primary uppercase tracking-wider">Clinical Simulation</div>
-          <div className="space-y-2">
-            <div className="h-3 bg-muted/50 rounded w-full" />
-            <div className="h-3 bg-muted/50 rounded w-11/12" />
-            <div className="h-3 bg-muted/50 rounded w-4/5" />
+          <div className="text-xs font-semibold text-primary uppercase tracking-wider">Clinical Narrative</div>
+          <div className="text-xs text-muted-foreground leading-relaxed">
+            A 28-year-old male presents with persistent worry about multiple areas of life, including work and finances, for the past 8 months...
           </div>
           <div className="mt-4 space-y-2">
-            {["Gather additional history", "Administer assessment", "Develop treatment plan"].map((item, i) => (
+            {["Assess for co-occurring substance use", "Administer GAD-7 screening", "Begin CBT-based intervention"].map((item, i) => (
               <div key={i} className="flex items-center gap-2 rounded-lg border border-border/50 bg-muted/20 px-3 py-2 text-xs text-muted-foreground">
-                <div className={`w-3 h-3 rounded border ${i === 0 ? "border-primary bg-primary/20" : "border-muted-foreground/30"}`} />
+                <div className={`w-3 h-3 rounded border ${i === 1 ? "border-primary bg-primary/20" : "border-muted-foreground/30"}`} />
                 {item}
               </div>
             ))}
@@ -92,10 +89,10 @@ const ProductMockup = () => (
           <div className="text-xs font-semibold text-secondary uppercase tracking-wider mb-3">AI Tutor</div>
           <div className="space-y-3">
             <div className="rounded-lg bg-primary/10 border border-primary/20 p-2.5 text-xs text-foreground/80">
-              Why is gathering additional history important here?
+              Why is GAD-7 preferred over PHQ-9 here?
             </div>
             <div className="rounded-lg bg-muted/30 p-2.5 text-xs text-muted-foreground">
-              Great question. In this scenario, the client presents with overlapping symptoms...
+              The GAD-7 targets generalized anxiety symptoms, which align with the client's persistent worry pattern...
             </div>
             <div className="h-8 rounded-lg border border-border/30 bg-muted/20 flex items-center px-2">
               <span className="text-xs text-muted-foreground/50">Ask a follow-up...</span>
