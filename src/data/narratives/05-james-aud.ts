@@ -4,7 +4,7 @@ export const jamesAud: Narrative = {
   id: "05-james-aud",
   title: "James — Alcohol Use Disorder",
   category: "Substance-Related Disorders",
-  difficulty: "Intermediate",
+  difficulty: "Beginner",
 
   clientInfo: {
     age: 38,

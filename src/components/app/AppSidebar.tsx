@@ -11,6 +11,7 @@ import {
 } from "@/components/ui/sidebar";
 import { NavLink, useLocation } from "react-router-dom";
 import TceIcon, { TceIconName } from "@/components/icons/TceIcon";
+import SidebarPomodoro from "./SidebarPomodoro";
 
 const navItems: { title: string; url: string; icon: TceIconName }[] = [
   { title: "Dashboard", url: "/dashboard", icon: "dashboard" },
@@ -31,7 +32,7 @@ const AppSidebar = () => {
 
   return (
     <Sidebar collapsible="icon">
-      <SidebarContent>
+      <SidebarContent className="flex flex-col h-full">
         <div className="p-4">
           <NavLink to="/dashboard" className="flex items-center gap-2 text-lg font-bold text-foreground tracking-tight">
             <TceIcon name="logo-mark" size={collapsed ? 24 : 22} className="text-primary" />
@@ -40,7 +41,7 @@ const AppSidebar = () => {
             )}
           </NavLink>
         </div>
-        <SidebarGroup>
+        <SidebarGroup className="flex-1">
           <SidebarGroupLabel>Navigation</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
@@ -57,6 +58,11 @@ const AppSidebar = () => {
             </SidebarMenu>
           </SidebarGroupContent>
         </SidebarGroup>
+
+        {/* Pomodoro pinned at bottom */}
+        <div className="mt-auto">
+          <SidebarPomodoro />
+        </div>
       </SidebarContent>
     </Sidebar>
   );

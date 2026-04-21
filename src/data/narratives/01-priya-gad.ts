@@ -7,7 +7,7 @@ export const priyaGad: Narrative = {
   id: "01-priya-gad",
   title: "Priya — Generalized Anxiety Disorder",
   category: "Anxiety Disorders",
-  difficulty: "Intermediate",
+  difficulty: "Beginner",
 
   clientInfo: {
     age: 28,

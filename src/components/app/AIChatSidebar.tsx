@@ -1,8 +1,8 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { X, Send, Trash2, Sparkles, BookOpen, HelpCircle, Lightbulb, GraduationCap } from "lucide-react";
+import { X, Send, Trash2, Sparkles, BookOpen, HelpCircle, GraduationCap, GripVertical } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { cn } from "@/lib/utils";
 
@@ -15,6 +15,8 @@ interface AIChatSidebarProps {
   open: boolean;
   onClose: () => void;
   context: string;
+  width?: number;
+  onWidthChange?: (w: number) => void;
 }
 
 const quickActions = [
@@ -26,18 +28,41 @@ const quickActions = [
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/counselor-chat`;
 
-const AIChatSidebar = ({ open, onClose, context }: AIChatSidebarProps) => {
+const AIChatSidebar = ({ open, onClose, context, width = 380, onWidthChange }: AIChatSidebarProps) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
+  const dragRef = useRef<{ startX: number; startW: number } | null>(null);
 
   useEffect(() => {
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages]);
+
+  // Drag-to-resize
+  const onDragStart = useCallback(
+    (e: React.MouseEvent) => {
+      e.preventDefault();
+      dragRef.current = { startX: e.clientX, startW: width };
+      const onMove = (ev: MouseEvent) => {
+        if (!dragRef.current) return;
+        const delta = dragRef.current.startX - ev.clientX;
+        const newW = Math.max(300, Math.min(800, dragRef.current.startW + delta));
+        onWidthChange?.(newW);
+      };
+      const onUp = () => {
+        dragRef.current = null;
+        window.removeEventListener("mousemove", onMove);
+        window.removeEventListener("mouseup", onUp);
+      };
+      window.addEventListener("mousemove", onMove);
+      window.addEventListener("mouseup", onUp);
+    },
+    [width, onWidthChange]
+  );
 
   const sendMessage = async (text: string) => {
     if (!text.trim() || isLoading) return;
@@ -90,7 +115,7 @@ const AIChatSidebar = ({ open, onClose, context }: AIChatSidebarProps) => {
               setMessages((prev) => {
                 const last = prev[prev.length - 1];
                 if (last?.role === "assistant") {
-                  return prev.map((m, i) => i === prev.length - 1 ? { ...m, content: assistantSoFar } : m);
+                  return prev.map((m, i) => (i === prev.length - 1 ? { ...m, content: assistantSoFar } : m));
                 }
                 return [...prev, { role: "assistant", content: assistantSoFar }];
               });
@@ -118,9 +143,18 @@ const AIChatSidebar = ({ open, onClose, context }: AIChatSidebarProps) => {
   if (!open) return null;
 
   return (
-    <div className="w-[380px] border-l border-border bg-background flex flex-col h-full shrink-0 max-md:fixed max-md:inset-0 max-md:w-full max-md:z-50">
+    <div
+      className="border-l border-border bg-background flex flex-col h-full shrink-0 max-md:fixed max-md:inset-0 max-md:w-full max-md:z-50"
+      style={{ width: `${width}px` }}
+    >
+      {/* Drag handle */}
+      <div
+        className="absolute left-0 top-0 bottom-0 w-1.5 cursor-col-resize hover:bg-primary/20 transition-colors z-10 hidden md:block"
+        onMouseDown={onDragStart}
+      />
+
       {/* Header */}
-      <div className="h-14 border-b border-border flex items-center justify-between px-4">
+      <div className="h-14 border-b border-border flex items-center justify-between px-4 shrink-0">
         <div className="flex items-center gap-2">
           <Sparkles className="h-4 w-4 text-primary" />
           <span className="font-semibold text-sm">CounselorAI</span>
@@ -136,13 +170,13 @@ const AIChatSidebar = ({ open, onClose, context }: AIChatSidebarProps) => {
       </div>
 
       {/* Context badge */}
-      <div className="px-4 py-2 border-b border-border">
+      <div className="px-4 py-2 border-b border-border shrink-0">
         <span className="text-xs text-muted-foreground">Viewing: </span>
         <span className="text-xs font-medium text-primary">{context}</span>
       </div>
 
-      {/* Messages */}
-      <ScrollArea className="flex-1 p-4" ref={scrollRef}>
+      {/* Messages — flex-1 + overflow so input stays pinned */}
+      <div className="flex-1 overflow-y-auto p-4" ref={scrollRef}>
         {messages.length === 0 && (
           <div className="text-center py-8">
             <Sparkles className="h-8 w-8 text-primary mx-auto mb-3 opacity-50" />
@@ -153,17 +187,19 @@ const AIChatSidebar = ({ open, onClose, context }: AIChatSidebarProps) => {
         <div className="space-y-4">
           {messages.map((msg, i) => (
             <div key={i} className={cn("flex", msg.role === "user" ? "justify-end" : "justify-start")}>
-              <div className={cn(
-                "max-w-[85%] rounded-lg px-3 py-2 text-sm",
-                msg.role === "user"
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-muted text-foreground"
-              )}>
+              <div
+                className={cn(
+                  "max-w-[85%] rounded-lg px-3 py-2 text-sm",
+                  msg.role === "user" ? "bg-primary text-primary-foreground" : "bg-muted text-foreground"
+                )}
+              >
                 {msg.role === "assistant" ? (
                   <div className="prose prose-sm prose-invert max-w-none [&>p]:m-0 [&>ul]:my-1 [&>ol]:my-1">
                     <ReactMarkdown>{msg.content}</ReactMarkdown>
                   </div>
-                ) : msg.content}
+                ) : (
+                  msg.content
+                )}
               </div>
             </div>
           ))}
@@ -179,10 +215,10 @@ const AIChatSidebar = ({ open, onClose, context }: AIChatSidebarProps) => {
             </div>
           )}
         </div>
-      </ScrollArea>
+      </div>
 
-      {/* Quick actions */}
-      <div className="px-4 py-2 border-t border-border flex flex-wrap gap-1.5">
+      {/* Quick actions — pinned at bottom */}
+      <div className="px-4 py-2 border-t border-border flex flex-wrap gap-1.5 shrink-0">
         {quickActions.map((action) => (
           <Button
             key={action.label}
@@ -198,8 +234,8 @@ const AIChatSidebar = ({ open, onClose, context }: AIChatSidebarProps) => {
         ))}
       </div>
 
-      {/* Input */}
-      <div className="p-4 border-t border-border">
+      {/* Input — pinned at bottom */}
+      <div className="p-4 border-t border-border shrink-0">
         <div className="flex gap-2">
           <Input
             ref={inputRef}

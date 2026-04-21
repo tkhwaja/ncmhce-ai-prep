@@ -20,7 +20,8 @@ const pageContextMap: Record<string, string> = {
 };
 
 const AppLayout = () => {
-  const [chatOpen, setChatOpen] = useState(false);
+  const [chatOpen, setChatOpen] = useState(true);
+  const [chatWidth, setChatWidth] = useState(380);
   const location = useLocation();
   const currentContext =
     pageContextMap[location.pathname] ||
@@ -41,7 +42,13 @@ const AppLayout = () => {
             </p>
           </footer>
         </div>
-        <AIChatSidebar open={chatOpen} onClose={() => setChatOpen(false)} context={currentContext} />
+        <AIChatSidebar
+          open={chatOpen}
+          onClose={() => setChatOpen(false)}
+          context={currentContext}
+          width={chatWidth}
+          onWidthChange={setChatWidth}
+        />
       </div>
     </SidebarProvider>
   );
