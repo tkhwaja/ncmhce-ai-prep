@@ -147,11 +147,13 @@ const AIChatSidebar = ({ open, onClose, context, width = 380, onWidthChange }: A
       className="border-l border-border bg-background flex flex-col h-full shrink-0 max-md:fixed max-md:inset-0 max-md:w-full max-md:z-50"
       style={{ width: `${width}px` }}
     >
-      {/* Drag handle */}
+      {/* Drag handle — visible grip on left edge */}
       <div
-        className="absolute left-0 top-0 bottom-0 w-1.5 cursor-col-resize hover:bg-primary/20 transition-colors z-10 hidden md:block"
+        className="absolute left-0 top-0 bottom-0 w-3 cursor-col-resize z-10 hidden md:flex items-center justify-center group"
         onMouseDown={onDragStart}
-      />
+      >
+        <div className="w-1 h-12 rounded-full bg-border group-hover:bg-primary/50 transition-colors" />
+      </div>
 
       {/* Header */}
       <div className="h-14 border-b border-border flex items-center justify-between px-4 shrink-0">
