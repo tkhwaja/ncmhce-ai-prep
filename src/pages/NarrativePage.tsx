@@ -234,12 +234,13 @@ const NarrativePage = () => {
     });
 
     if (user) {
+      const completedAt = new Date().toISOString();
       const payload = {
         dm_answers: answers as any,
         domain_scores: domainScores as any,
         total_score: totalScore,
         time_spent: sectionDuration * narrative.sections.length - secondsRemaining,
-        completed_at: new Date().toISOString(),
+        completed_at: completedAt,
       };
 
       if (attemptId) {

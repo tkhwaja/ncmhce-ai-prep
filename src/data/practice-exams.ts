@@ -6,6 +6,7 @@ export interface PracticeExam {
   title: string;
   description: string;
   narrativeIds: string[];
+  ungradedNarrativeCount?: number;
 }
 
 export const practiceExams: PracticeExam[] = [
@@ -13,6 +14,7 @@ export const practiceExams: PracticeExam[] = [
     id: "practice-exam-1",
     title: "Practice Exam 1",
     description: "11 clinical narratives • ~4 hours",
+    ungradedNarrativeCount: 1,
     narrativeIds: [
       "01-priya-gad",
       "02-marcus-mdd",
@@ -23,8 +25,12 @@ export const practiceExams: PracticeExam[] = [
       "practice-exam-01-case-03-neha-gad",
       "practice-exam-01-case-04-luis-panic",
       "practice-exam-01-case-05-rachel-aud",
-      "13-marisol-ptsd",
-      "14-claudette-hoarding",
+      "practice-exam-01-case-06-samuel-ocd",
+      "practice-exam-01-case-07-monica-bipolar-ii",
+      "practice-exam-01-case-08-kiara-bpd",
+      "practice-exam-01-case-09-emily-bulimia",
+      "practice-exam-01-case-10-erica-prolonged-grief",
+      "practice-exam-01-case-11-jonah-schizophreniform",
     ],
   },
 ];

@@ -24,6 +24,12 @@ import { daniellePeripartumMDDNarrative } from "./exam-01-02-danielle-mdd";
 import { nehaGADPracticeExamNarrative } from "./practice-exam-01-case-03-neha-gad";
 import { luisPanicNarrative } from "./practice-exam-01-case-04-luis-panic";
 import { rachelAUDNarrative } from "./practice-exam-01-case-05-rachel-aud";
+import { samuelOCDPracticeExamNarrative } from "./practice-exam-01-case-06-samuel-ocd";
+import { monicaBipolarIIPracticeExamNarrative } from "./practice-exam-01-case-07-monica-bipolar-ii";
+import { kiaraBPDPracticeExamNarrative } from "./practice-exam-01-case-08-kiara-bpd";
+import { emilyBulimiaPracticeExamNarrative } from "./practice-exam-01-case-09-emily-bulimia";
+import { ericaProlongedGriefPracticeExamNarrative } from "./practice-exam-01-case-10-erica-prolonged-grief";
+import { jonahSchizophreniformPracticeExamNarrative } from "./practice-exam-01-case-11-jonah-schizophreniform";
 
 export type { Narrative, NarrativeSection, NarrativeQuestion, NarrativeDomain, NarrativeClientInfo } from "./types";
 export { NARRATIVE_DOMAINS, totalQuestionCount } from "./types";
@@ -58,6 +64,12 @@ const practiceExamNarratives: Narrative[] = [
   nehaGADPracticeExamNarrative,
   luisPanicNarrative,
   rachelAUDNarrative,
+  samuelOCDPracticeExamNarrative,
+  monicaBipolarIIPracticeExamNarrative,
+  kiaraBPDPracticeExamNarrative,
+  emilyBulimiaPracticeExamNarrative,
+  ericaProlongedGriefPracticeExamNarrative,
+  jonahSchizophreniformPracticeExamNarrative,
 ];
 
 const allNarratives: Narrative[] = [...narratives, ...practiceExamNarratives];
