@@ -19,7 +19,15 @@ const HeroSection = () => {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-foreground mb-6">
-              The NCMHCE Prep Platform That Feels Like the{
+              The NCMHCE Prep Platform That Feels Like the
+              <span className="text-gradient"> Real Exam</span>
+            </h1>
+
+            <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-8 leading-relaxed">
+              Practice with 14+ realistic clinical narratives, a full-length timed exam,
+              domain-based review, and a DSM-5-TR library — with AI available only when you
+              want extra support.
+            </p>
 
             <div className="max-w-md mb-4">
               <WaitlistForm />
