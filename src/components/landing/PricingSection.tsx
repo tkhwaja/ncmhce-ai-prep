@@ -6,8 +6,8 @@ import { useNavigate } from "react-router-dom";
 const features = [
   "14+ Clinical Case Narratives",
   "Full-Length Timed Practice Exams",
-  "AI-Powered Tutor in Every Session",
-  "Personalized AI Study Plan",
+  "Optional In-Session Tutor Support",
+  "Personalized Study Plan",
   "DSM-5-TR Reference Library",
   "60+ Flashcards with Spaced Repetition",
   "Score Tracking & Domain Analytics",
@@ -27,7 +27,7 @@ const PricingSection = () => {
           Simple Monthly Pricing. Pass Your Exam.
         </h2>
         <p className="text-muted-foreground mb-10 max-w-lg mx-auto">
-          Full access to everything. Cancel anytime — no long-term commitment.
+          Full access to the complete exam-style prep experience. Cancel anytime — no long-term commitment.
         </p>
 
         <Card className="card-elevated border-primary/30 max-w-md mx-auto">

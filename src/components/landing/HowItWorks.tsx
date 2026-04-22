@@ -2,8 +2,8 @@ import { UserPlus, BrainCircuit, Target, TrendingUp } from "lucide-react";
 
 const steps = [
   { icon: UserPlus, title: "Create Your Account", desc: "Sign up and set your target exam date, study hours, and focus areas." },
-  { icon: BrainCircuit, title: "Practice with Narratives", desc: "Work through realistic clinical case narratives with AI-powered support." },
-  { icon: Target, title: "Review & Improve", desc: "Get detailed explanations, domain scores, and targeted recommendations." },
+  { icon: BrainCircuit, title: "Practice with Narratives", desc: "Work through realistic clinical case narratives that mirror the pacing and structure of the exam." },
+  { icon: Target, title: "Review & Improve", desc: "See domain-level feedback, revisit missed decisions, and tighten weak areas before test day." },
   { icon: TrendingUp, title: "Pass with Confidence", desc: "Take full-length practice exams and track your progress until exam day." },
 ];
 
@@ -13,7 +13,7 @@ const HowItWorks = () => (
       <div className="text-center mb-14">
         <p className="text-sm font-medium text-primary uppercase tracking-wider mb-3">How It Works</p>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-          Get Started in Four Steps
+          Train the Way You'll Be Tested
         </h2>
       </div>
 
