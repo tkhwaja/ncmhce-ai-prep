@@ -30,6 +30,7 @@ export interface NarrativeQuestion {
 export interface NarrativeSection {
   sessionLabel: string; // e.g. "First session", "Fourth session"
   sectionNarrative: string; // shown in the right panel when this section unlocks
+  recommendedTimeMinutes?: number;
   questions: NarrativeQuestion[];
 }
 
@@ -54,6 +55,7 @@ export interface Narrative {
   difficulty: "Beginner" | "Intermediate" | "Advanced";
   /** Optional manual override for per-section minutes when the default estimate should be replaced. */
   minutesPerSection?: number;
+  recommendedTimeBySectionMinutes?: number[];
   clientInfo: NarrativeClientInfo;
   presentingProblem: string;
   mentalStatusObservation: string;
