@@ -5,7 +5,6 @@ export const soniaSomaticSymptom: Narrative = {
   title: 'Sonia — Somatic Symptom Disorder',
   difficulty: "Advanced",
   category: 'Somatic Symptom Disorder',
-  minutesPerSection: 17,
 
   clientInfo: {
     age: 47,
