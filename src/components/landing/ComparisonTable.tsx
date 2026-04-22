@@ -21,15 +21,16 @@ const statusLabel = (s: Status) => {
 const competitors = ["TheCounselorExam.com", "Therapist Dev Center", "Mometrix", "AATBS"];
 
 const rows: { feature: string; statuses: Status[] }[] = [
-  { feature: "AI tutoring built into study flow", statuses: ["yes", "no", "no", "no"] },
-  { feature: "Ask follow-up questions in context", statuses: ["yes", "no", "no", "no"] },
+  { feature: "Exam-style clinical case narratives", statuses: ["yes", "limited", "limited", "limited"] },
+  { feature: "Continuous question flow like the exam", statuses: ["yes", "limited", "no", "no"] },
   { feature: "Realistic clinical case narratives", statuses: ["yes", "limited", "limited", "limited"] },
   { feature: "Full-length timed practice exams", statuses: ["yes", "limited", "limited", "limited"] },
   { feature: "Auto-save & resume mid-exam", statuses: ["yes", "no", "no", "no"] },
   { feature: "Domain-level performance analytics", statuses: ["yes", "limited", "limited", "limited"] },
   { feature: "DSM-5-TR reference library", statuses: ["yes", "no", "no", "limited"] },
+  { feature: "Optional in-session support", statuses: ["yes", "no", "no", "no"] },
   { feature: "Flashcards with spaced repetition", statuses: ["yes", "no", "no", "limited"] },
-  { feature: "AI-generated study plans", statuses: ["yes", "no", "no", "limited"] },
+  { feature: "Personalized study plans", statuses: ["yes", "no", "no", "limited"] },
   { feature: "Modern user experience", statuses: ["yes", "no", "no", "no"] },
 ];
 
@@ -39,10 +40,10 @@ const ComparisonTable = () => (
       <div className="text-center mb-14">
         <p className="text-sm font-medium text-primary uppercase tracking-wider mb-3">Compare</p>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-          Not Just Another Question Bank
+          The Closest Thing to the Real NCMHCE
         </h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          See how TheCounselorExam.com stacks up against the tools you've probably already tried.
+          See how TheCounselorExam.com compares when realism, pacing, and clinical decision-making matter most.
         </p>
       </div>
 

@@ -8,7 +8,7 @@ import {
 const faqs = [
   {
     q: "What is TheCounselorExam.com?",
-    a: "TheCounselorExam.com is an AI-powered exam prep platform built specifically for the NCMHCE. It combines realistic clinical case narratives, a contextual AI tutor, domain analytics, flashcards, a DSM-5-TR library, and personalized study tools to help you prepare smarter and pass with confidence.",
+    a: "TheCounselorExam.com is an exam prep platform built specifically for the NCMHCE. It combines realistic clinical case narratives, a full-length timed practice exam, domain analytics, flashcards, a DSM-5-TR library, and optional in-session support to help you practice in a way that feels much closer to the real test.",
   },
   {
     q: "How many practice cases are available?",
@@ -19,8 +19,8 @@ const faqs = [
     a: "TheCounselorExam.com is designed for anyone preparing for the NCMHCE — including first-time test takers, repeat test takers looking for deeper domain-level insight, and counseling students who want early clinical simulation practice.",
   },
   {
-    q: "What does the AI tutor do?",
-    a: "The AI tutor is embedded directly into your study sessions. You can ask follow-up questions about any narrative, request DSM-5-TR explanations, explore differential diagnosis reasoning, and get contextual help — all without leaving the page.",
+    q: "Is this mainly an AI product?",
+    a: "No. The main experience is realistic NCMHCE practice through case narratives, timed exams, and domain-based review. Optional in-session support is there when you want clarification, but it is not the center of the platform.",
   },
   {
     q: "Will my progress be saved if I leave mid-exam?",
@@ -32,7 +32,7 @@ const faqs = [
   },
   {
     q: "What's included in the subscription?",
-    a: "Full access to everything: all clinical narratives, practice exams, the AI tutor, flashcards with spaced repetition, DSM-5-TR library, personalized study plan, domain analytics, Pomodoro timer, and note-taking tools. Cancel anytime.",
+    a: "Full access to everything: all clinical narratives, practice exams, optional in-session support, flashcards with spaced repetition, DSM-5-TR library, personalized study plan, domain analytics, Pomodoro timer, and note-taking tools. Cancel anytime.",
   },
 ];
 

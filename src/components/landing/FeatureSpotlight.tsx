@@ -1,8 +1,8 @@
 const spotlights = [
   {
-    label: "Contextual AI Tutor",
-    title: "An AI Tutor That Understands What You're Studying",
-    desc: "Our AI tutor is embedded directly into every narrative and study session. Ask follow-up questions, get DSM-5-TR-grounded explanations, and deepen your clinical reasoning — all without leaving the page.",
+    label: "In-Session Support",
+    title: "Get Help Without Breaking Exam Momentum",
+    desc: "When you want clarification, you can ask follow-up questions and get grounded explanations right inside the case you're working through — without turning the platform into an AI gimmick.",
     mockup: (
       <div className="space-y-3">
         <div className="rounded-lg bg-primary/10 border border-primary/20 p-3 text-sm text-foreground/80">
@@ -43,7 +43,7 @@ const spotlights = [
   {
     label: "Study Tools & Analytics",
     title: "Track Your Progress Across Every Domain",
-    desc: "Your performance dashboard highlights scores across all five NCMHCE domains. Flashcards with spaced repetition, a built-in Pomodoro timer, and note-taking keep you focused and organized.",
+    desc: "Your performance dashboard highlights scores across all five NCMHCE domains so you can spot patterns, review weaker areas, and prep more like the real test demands.",
     mockup: (
       <div className="space-y-4">
         <div className="text-xs font-semibold text-foreground">Domain Performance</div>
@@ -82,7 +82,7 @@ const FeatureSpotlight = () => (
           A Closer Look at Your Study Experience
         </h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          Built around clinical reasoning — not memorization.
+          Built to feel familiar on exam day.
         </p>
       </div>
 
