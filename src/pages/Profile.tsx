@@ -188,7 +188,7 @@ const Profile = () => {
                       ? "Active (cancels at period end)"
                       : profile?.payment_status === "paid" && !status
                       ? "Lifetime Access"
-                      : "Active — $129.95/month"}
+                      : "Active — $79/month"}
                   </p>
                   {currentPeriodEnd && (
                     <p className="text-xs text-muted-foreground">
@@ -209,7 +209,7 @@ const Profile = () => {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-sm font-medium text-foreground">No active subscription</p>
-                <p className="text-xs text-muted-foreground">Unlock all premium features for $129.95/month</p>
+                <p className="text-xs text-muted-foreground">Unlock all premium features for $79/month</p>
               </div>
               <Button size="sm" onClick={() => navigate("/checkout")}>
                 Subscribe
