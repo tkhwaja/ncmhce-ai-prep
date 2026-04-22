@@ -5,7 +5,6 @@ export const rowenaAdhd: Narrative = {
   title: "Rowena — Attention-Deficit/Hyperactivity Disorder",
   category: "ADHD",
   difficulty: "Advanced",
-  minutesPerSection: 17,
 
   clientInfo: {
     age: 39,

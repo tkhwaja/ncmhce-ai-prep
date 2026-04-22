@@ -5,7 +5,6 @@ export const leilaAutism: Narrative = {
   title: "Leila — Autism Spectrum Disorder",
   category: "Autism Spectrum Disorder",
   difficulty: "Advanced",
-  minutesPerSection: 17,
 
   clientInfo: {
     age: 28,

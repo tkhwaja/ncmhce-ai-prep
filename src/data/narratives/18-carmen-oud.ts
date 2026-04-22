@@ -5,7 +5,6 @@ export const carmenOud: Narrative = {
   title: 'Carmen — Opioid Use Disorder',
   difficulty: "Advanced",
   category: 'Opioid Use Disorder',
-  minutesPerSection: 17,
 
   clientInfo: {
     age: 35,

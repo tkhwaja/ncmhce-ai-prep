@@ -52,7 +52,7 @@ export interface Narrative {
   title: string;
   category: string;
   difficulty: "Beginner" | "Intermediate" | "Advanced";
-  /** Optional override for per-section minutes. Defaults to 20. */
+  /** Optional manual override for per-section minutes when the default estimate should be replaced. */
   minutesPerSection?: number;
   clientInfo: NarrativeClientInfo;
   presentingProblem: string;

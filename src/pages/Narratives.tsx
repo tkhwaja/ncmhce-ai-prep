@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { narratives, totalQuestionCount } from "@/data/narratives";
+import { narratives, totalQuestionCount, getNarrativeTotalMinutes } from "@/data/narratives";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { Card, CardContent } from "@/components/ui/card";
@@ -121,7 +121,7 @@ const Narratives = () => {
           const status = getStatus(n.id);
           const attempt = attempts[n.id];
           const qCount = totalQuestionCount(n);
-          const minutes = qCount * 3;
+          const minutes = getNarrativeTotalMinutes(n);
           return (
             <Card
               key={n.id}

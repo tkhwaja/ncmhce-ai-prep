@@ -5,7 +5,6 @@ export const safiyaSchizophreniform: Narrative = {
   title: 'Safiya — Schizophreniform Disorder',
   difficulty: "Advanced",
   category: 'Schizophreniform Disorder',
-  minutesPerSection: 17,
 
   clientInfo: {
     age: 22,
