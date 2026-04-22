@@ -19,6 +19,7 @@ import { soniaSomaticSymptom } from "./17-sonia-somatic-symptom";
 import { nadiaBulimia } from "./20-nadia-bulimia";
 import { darnellPanic } from "./19-darnell-panic";
 import { carmenOud } from "./18-carmen-oud";
+import { safiyaSchizophreniform } from "./21-safiya-schizophreniform";
 
 export type { Narrative, NarrativeSection, NarrativeQuestion, NarrativeDomain, NarrativeClientInfo } from "./types";
 export { NARRATIVE_DOMAINS, totalQuestionCount } from "./types";
@@ -44,6 +45,7 @@ export const narratives: Narrative[] = [
   carmenOud,
   darnellPanic,
   nadiaBulimia,
+  safiyaSchizophreniform,
 ];
 
 export const getNarrativeById = (id: string | undefined): Narrative | undefined =>
