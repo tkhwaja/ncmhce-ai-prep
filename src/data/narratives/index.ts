@@ -20,6 +20,10 @@ import { nadiaBulimia } from "./20-nadia-bulimia";
 import { darnellPanic } from "./19-darnell-panic";
 import { carmenOud } from "./18-carmen-oud";
 import { safiyaSchizophreniform } from "./21-safiya-schizophreniform";
+import { daniellePeripartumMDDNarrative } from "./exam-01-02-danielle-mdd";
+import { nehaGADPracticeExamNarrative } from "./practice-exam-01-case-03-neha-gad";
+import { luisPanicNarrative } from "./practice-exam-01-case-04-luis-panic";
+import { rachelAUDNarrative } from "./practice-exam-01-case-05-rachel-aud";
 
 export type { Narrative, NarrativeSection, NarrativeQuestion, NarrativeDomain, NarrativeClientInfo } from "./types";
 export { NARRATIVE_DOMAINS, totalQuestionCount } from "./types";
@@ -49,5 +53,14 @@ export const narratives: Narrative[] = [
   safiyaSchizophreniform,
 ];
 
+const practiceExamNarratives: Narrative[] = [
+  daniellePeripartumMDDNarrative,
+  nehaGADPracticeExamNarrative,
+  luisPanicNarrative,
+  rachelAUDNarrative,
+];
+
+const allNarratives: Narrative[] = [...narratives, ...practiceExamNarratives];
+
 export const getNarrativeById = (id: string | undefined): Narrative | undefined =>
-  narratives.find((n) => n.id === id);
+  allNarratives.find((n) => n.id === id);
