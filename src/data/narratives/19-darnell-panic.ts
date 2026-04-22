@@ -5,7 +5,6 @@ export const darnellPanic: Narrative = {
   title: 'Darnell — Panic Disorder',
   difficulty: "Intermediate",
   category: 'Panic Disorder',
-  minutesPerSection: 17,
 
   clientInfo: {
     age: 46,

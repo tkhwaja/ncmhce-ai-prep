@@ -5,7 +5,6 @@ export const nadiaBulimia: Narrative = {
   title: 'Nadia — Bulimia Nervosa',
   difficulty: "Advanced",
   category: 'Bulimia Nervosa',
-  minutesPerSection: 17,
 
   clientInfo: {
     age: 29,
