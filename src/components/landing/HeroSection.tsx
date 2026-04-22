@@ -15,13 +15,11 @@ const HeroSection = () => {
           <div className="animate-fade-up">
             <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium text-primary mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              Now Live — Start Studying Today
+              Built to Feel Like the Real Exam
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-foreground mb-6">
-              The AI-Powered NCMHCE Prep Platform Built for{" "}
-              <span className="text-gradient">Clinical Reasoning</span>
-            </h1>
+              The NCMHCE Prep Platform That Feels{
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-8 leading-relaxed">
               14+ clinical narratives, a full-length practice exam, AI tutoring, flashcards,
