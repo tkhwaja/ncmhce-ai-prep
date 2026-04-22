@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { StudyVisuals } from "@/components/library/StudyVisuals";
 import { ChevronDown, ChevronRight, Lightbulb, AlertTriangle, BookOpen, Target, HelpCircle } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
@@ -407,7 +408,7 @@ const ModuleRenderer = ({ data }: ModuleRendererProps) => {
   const skipTopLevel = new Set([
     "moduleId", "moduleTitle", "moduleType", "version", "exam", "uiHints", "sourceBasis",
     "intro", "coreDecisionRules", "coreDiagnosticReasoningRules", "commonExamTraps", "miniCaseDrills", "quickReview", "checkpointQuestions",
-    "diagnosticCategories", "globalDifferentialTables", "redFlagAlerts",
+    "diagnosticCategories", "globalDifferentialTables", "redFlagAlerts", "studyAids",
   ]);
 
   // Collect all "other" sections
@@ -459,6 +460,14 @@ const ModuleRenderer = ({ data }: ModuleRendererProps) => {
               </AlertDescription>
             </Alert>
           ))}
+        </div>
+      )}
+
+      {/* Visual Study Aids */}
+      {data.studyAids && (
+        <div>
+          <SectionHeading>Visual Study Aids</SectionHeading>
+          <StudyVisuals aids={data.studyAids} />
         </div>
       )}
 

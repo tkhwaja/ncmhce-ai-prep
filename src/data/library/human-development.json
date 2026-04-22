@@ -2,717 +2,814 @@
   "moduleId": "human-development-and-lifespan",
   "moduleTitle": "Human Development & Lifespan",
   "moduleType": "learning_library",
-  "version": "1.0",
+  "version": "2.0",
   "exam": {
     "name": "NCMHCE",
     "formatAlignment": {
       "currentBlueprint": true,
       "effective2027Blueprint": true
     },
-    "whyThisModuleMatters": "This module helps learners recognize how development across childhood, adolescence, adulthood, and later life shapes assessment, diagnosis, case conceptualization, family dynamics, and treatment planning. On the NCMHCE, developmental knowledge often appears inside case vignettes rather than as standalone trivia."
+    "whyThisModuleMatters": "Human development questions on the NCMHCE are rarely trivia-only. Development shows up inside school refusal, family conflict, attachment injuries, identity distress, relationship instability, grief, and aging cases. Strong performance comes from matching the intervention to the client's developmental, cognitive, relational, and cultural reality."
   },
   "uiHints": {
     "defaultView": "nested_accordion",
     "recommendedComponents": [
       "module_header",
-      "theory_overview_cards",
-      "stage_tables",
-      "age_range_tabs",
+      "comparison_tables",
+      "stage_timeline",
+      "lifespan_maps",
       "developmental_red_flags",
-      "identity_development_panels",
-      "aging_considerations_cards",
-      "cross_theory_comparison_tables",
-      "exam_trap_callouts",
+      "identity_panels",
+      "aging_cards",
       "mini_case_cards",
       "checkpoint_quiz"
     ],
     "tags": [
       "human-development",
       "lifespan",
-      "child-development",
+      "erikson",
+      "piaget",
+      "attachment",
       "identity",
       "aging",
-      "attachment",
-      "ncmhce",
-      "high-yield"
+      "ncmhce"
     ]
   },
   "intro": {
-    "summary": "This module covers major human development and lifespan theories that appear on the NCMHCE, including Erikson, Piaget, Kohlberg, Bronfenbrenner, Vygotsky, attachment theory, identity development, racial and cultural identity development, and aging considerations. The focus is on how developmental understanding informs real clinical reasoning.",
+    "summary": "This module turns lifespan theory into testable clinical reasoning. It covers Erikson, Piaget, Kohlberg, Vygotsky, Bronfenbrenner, attachment, identity development, racial and cultural identity, normal vs concerning developmental patterns, and later-life counseling considerations. The goal is not to memorize names alone, but to recognize what development should look like in real cases and what the counselor should do next.",
     "learningObjectives": [
-      "Identify major stage-based developmental theories and apply them to case vignettes",
-      "Recognize age-appropriate vs developmentally concerning patterns",
-      "Use developmental theory to improve case conceptualization and intervention planning",
-      "Understand attachment and identity development as they relate to mental health symptoms and relationships",
-      "Differentiate normal aging from clinical decline or pathology",
-      "Integrate culture, context, and systems into developmental thinking"
+      "Differentiate age-expected behavior from clinically concerning developmental patterns",
+      "Apply Erikson, Piaget, Kohlberg, Vygotsky, Bronfenbrenner, and attachment theory to case conceptualization",
+      "Match interventions to developmental level, cognitive capacity, and family context",
+      "Use identity and cultural development frameworks without pathologizing normal exploration",
+      "Recognize red flags that suggest delay, trauma impact, neurodevelopmental concern, or major cognitive decline",
+      "Approach older adult cases with developmentally appropriate, non-ageist clinical reasoning"
     ],
     "howToUse": [
-      "Study each theory with a focus on what it looks like in a real client, not just stage names.",
-      "Compare theories rather than memorizing them in isolation.",
-      "Practice asking what developmental task the client may be struggling with and how that affects treatment.",
-      "Use the mini-cases to connect theory to counseling decisions."
+      "Study each theory by asking what the client would sound like, fear, avoid, or need in session.",
+      "Use the visual tables first, then open the deeper sections for clinical detail and exam traps.",
+      "When reading a vignette, ask four questions: what is expected for this age, what is not, what system is shaping it, and what intervention fits best?",
+      "Use the mini-cases to practice choosing the most developmentally matched counselor response."
     ],
     "highYieldThemes": [
-      "The exam often embeds development inside broader cases about family conflict, school issues, identity, grief, or aging.",
-      "The key question is often not 'What stage is this?' but 'How does developmental level change what the counselor should do?'",
-      "Normal development, delayed development, trauma effects, family systems, and cultural context can all overlap."
+      "The exam rewards developmentally appropriate care more than rigid memorization.",
+      "School, parenting, identity, grief, and relationship cases often hinge on hidden developmental tasks.",
+      "Culture, oppression, trauma, and caregiving context can change how development looks without automatically meaning pathology.",
+      "A client can be chronologically adult while still struggling with earlier tasks involving trust, identity, or intimacy."
     ]
   },
   "coreDecisionRules": [
     {
-      "rule": "Ask whether the client's behavior is developmentally expected, delayed, or disrupted.",
-      "example": "Separation anxiety in a toddler may be expected, while severe separation panic in an older child or adult may be clinically significant."
+      "rule": "Start with the developmental baseline before labeling symptoms.",
+      "example": "Fantasy play in a preschooler is normal; fixed bizarre beliefs with major impairment in an adolescent require a very different lens."
     },
     {
-      "rule": "Use developmental stage to guide intervention style.",
-      "example": "A concrete-operational child will respond differently than an adolescent capable of abstract reflection."
+      "rule": "Match your intervention to how the client thinks, not just how old they are.",
+      "example": "Concrete-operational children often need structure, rehearsal, visuals, and behavioral coaching instead of abstract insight work."
     },
     {
-      "rule": "Development never happens outside context.",
-      "example": "School problems may reflect microsystem stress, family conflict, trauma, acculturation stress, or developmental mismatch."
+      "rule": "Ask whether the developmental task has been blocked by trauma, chronic stress, or environmental mismatch.",
+      "example": "A teen's identity confusion may reflect normal exploration, but it may also be amplified by rejection, bullying, migration stress, or family conflict."
     },
     {
-      "rule": "Identity development and attachment patterns often shape symptom expression.",
-      "example": "Relationship instability, fear of abandonment, and shame may be better understood when attachment and developmental history are considered."
+      "rule": "Use systems thinking whenever the case involves a child, adolescent, or caregiving conflict.",
+      "example": "School refusal may involve anxiety, family accommodation, peer dynamics, academic mismatch, and a recent move all at once."
     },
     {
-      "rule": "Do not pathologize normal aging or culturally shaped developmental differences.",
-      "example": "Mild slowing or forgetting where keys were placed is not the same as dementia."
+      "rule": "Do not confuse normal aging with pathological decline.",
+      "example": "Occasional word-finding difficulty is not equivalent to disorientation, delirium, or major neurocognitive disorder."
+    }
+  ],
+  "redFlagAlerts": [
+    {
+      "title": "Loss of previously acquired skills",
+      "whenToThinkOfIt": "Regression in language, toileting, social engagement, or academic capacity",
+      "clinicalPriority": "Consider developmental disorder, trauma impact, medical issues, neurological concerns, or severe stress."
+    },
+    {
+      "title": "Persistent social or communication mismatch far beyond age expectations",
+      "whenToThinkOfIt": "Marked lack of reciprocity, rigid patterns, or severe pragmatic language difficulty",
+      "clinicalPriority": "Assess for neurodevelopmental concerns and avoid framing it as mere shyness or defiance."
+    },
+    {
+      "title": "Major confusion, fluctuating alertness, or sudden disorientation in an older adult",
+      "whenToThinkOfIt": "Rapid change from baseline functioning",
+      "clinicalPriority": "Think delirium, medication effects, infection, or urgent medical causes before assuming dementia."
+    },
+    {
+      "title": "Identity distress with major safety risk",
+      "whenToThinkOfIt": "Self-harm, suicidality, exploitation, or severe family rejection",
+      "clinicalPriority": "Normalize exploration while immediately addressing danger, stabilization, and supportive resources."
+    }
+  ],
+  "studyAids": [
+    {
+      "type": "timeline",
+      "title": "Erikson Across the Lifespan",
+      "description": "Use this like an exam map: identify the task, what it looks like when healthy, and the kind of distress that appears when development gets stuck.",
+      "items": [
+        {
+          "ageBand": "0-1",
+          "title": "Trust vs Mistrust",
+          "focus": "Reliable caregiving, safety, soothing, and predictability",
+          "expected": ["Comfort from caregiver return", "Growing sense that needs will be met"],
+          "risks": ["Chaotic care", "Inconsistent soothing", "Early mistrust and hypervigilance"],
+          "counselorMoves": ["Support caregiver attunement", "Assess attachment disruption", "Promote predictable routines"]
+        },
+        {
+          "ageBand": "1-3",
+          "title": "Autonomy vs Shame and Doubt",
+          "focus": "Independence, self-control, early mastery",
+          "expected": ["Testing limits", "Wanting to do things alone", "Growing self-control"],
+          "risks": ["Harsh criticism", "Overcontrol", "Shame about mistakes or bodily functions"],
+          "counselorMoves": ["Coach caregivers on limit-setting without humiliation", "Reinforce safe choice-making"]
+        },
+        {
+          "ageBand": "3-6",
+          "title": "Initiative vs Guilt",
+          "focus": "Imagination, initiative, purpose, trying new roles",
+          "expected": ["Pretend play", "Questions", "Goal-directed behavior"],
+          "risks": ["Excessive guilt", "Fear of doing wrong", "Overinhibition"],
+          "counselorMoves": ["Use play-based work", "Normalize curiosity", "Address punitive family patterns"]
+        },
+        {
+          "ageBand": "6-12",
+          "title": "Industry vs Inferiority",
+          "focus": "Competence, school success, peer comparison, mastery",
+          "expected": ["Pride in skills", "Motivation through mastery", "Growing task persistence"],
+          "risks": ["Academic failure", "Inferiority", "Low self-worth tied to performance"],
+          "counselorMoves": ["Assess learning mismatch", "Strengthen competence experiences", "Work with school and caregivers"]
+        },
+        {
+          "ageBand": "12-18",
+          "title": "Identity vs Role Confusion",
+          "focus": "Who am I, what do I value, where do I belong?",
+          "expected": ["Exploration of values, roles, sexuality, vocation, worldview"],
+          "risks": ["Severe confusion", "Foreclosed identity", "Diffuse self-concept under pressure"],
+          "counselorMoves": ["Differentiate healthy exploration from impairment", "Support safe autonomy", "Assess family and cultural context"]
+        },
+        {
+          "ageBand": "18-40",
+          "title": "Intimacy vs Isolation",
+          "focus": "Mutual connection without losing self",
+          "expected": ["Capacity for closeness", "Vulnerability", "Reciprocity"],
+          "risks": ["Fear of commitment", "Chronic isolation", "Repeated unstable attachments"],
+          "counselorMoves": ["Integrate attachment history", "Address vulnerability fears", "Strengthen boundaries and reciprocity"]
+        },
+        {
+          "ageBand": "40-65",
+          "title": "Generativity vs Stagnation",
+          "focus": "Contribution, mentoring, parenting, purpose, legacy",
+          "expected": ["Investment in others", "Meaning through work or care", "Future orientation"],
+          "risks": ["Burnout", "Emptiness", "Stagnation and self-absorption"],
+          "counselorMoves": ["Reconnect client with values", "Explore role strain", "Rebuild purpose and contribution"]
+        },
+        {
+          "ageBand": "65+",
+          "title": "Integrity vs Despair",
+          "focus": "Life review, acceptance, coherence, wisdom",
+          "expected": ["Meaning-making", "Balanced reflection", "Acceptance of life course"],
+          "risks": ["Regret", "Despair", "Death anxiety", "Rigid bitterness"],
+          "counselorMoves": ["Facilitate life review", "Support grief processing", "Address isolation and meaning loss"]
+        }
+      ]
+    },
+    {
+      "type": "comparisonTable",
+      "title": "Piaget Stages and Counseling Implications",
+      "description": "High-yield summary of how children think and what kind of intervention fits that thinking style.",
+      "columns": ["Stage", "Approx. Age", "How They Think", "What Helps in Counseling", "Watch For"],
+      "rows": [
+        ["Sensorimotor", "0-2", "Learns through sensation and action; object permanence develops", "Caregiver work, co-regulation, routine, sensory and attachment-focused support", "Severe failure to respond socially or major developmental regression"],
+        ["Preoperational", "2-7", "Egocentric, symbolic, intuitive, not yet logical about conservation", "Play therapy, visual tools, simple language, repetition, parent coaching", "Expecting adult-like insight or perspective-taking"],
+        ["Concrete Operational", "7-11", "Logical with concrete facts, better perspective-taking, understands rules and sequences", "Behavior plans, coping steps, role-play, concrete examples, school collaboration", "Abstract-only interventions that skip concrete rehearsal"],
+        ["Formal Operational", "12+", "Abstract, hypothetical, future-oriented reasoning becomes possible", "Insight work, values exploration, CBT thought testing, relational and identity processing", "Assuming all adolescents fully sustain abstract reasoning when stressed"]
+      ]
+    },
+    {
+      "type": "comparisonGrid",
+      "title": "Attachment Styles at a Glance",
+      "description": "Focus on how the pattern shows up in the room, not just the label.",
+      "items": [
+        {
+          "style": "Secure",
+          "childhoodPattern": "Uses caregiver as a safe base, shows distress with separation but can be soothed",
+          "adultPattern": "Comfortable with closeness and autonomy, more able to repair conflict",
+          "interventionFocus": ["Build on existing strengths", "Support reflective functioning", "Use relationship as a stable base"]
+        },
+        {
+          "style": "Anxious / Ambivalent",
+          "childhoodPattern": "Clingy, intensely distressed, hard to soothe after separation",
+          "adultPattern": "Fear of abandonment, reassurance-seeking, hypervigilance in relationships",
+          "interventionFocus": ["Increase self-soothing", "Name protest behaviors", "Build secure, predictable therapeutic boundaries"]
+        },
+        {
+          "style": "Avoidant",
+          "childhoodPattern": "Minimizes need for closeness, appears detached",
+          "adultPattern": "Discomfort with dependency, emotional distance, deactivates attachment needs",
+          "interventionFocus": ["Respect pacing", "Increase emotional awareness", "Avoid overwhelming demands for vulnerability too quickly"]
+        },
+        {
+          "style": "Disorganized",
+          "childhoodPattern": "Fearful, contradictory, confused responses to caregiver",
+          "adultPattern": "Chaotic closeness patterns, trauma-linked mistrust, dysregulated approach-avoid cycles",
+          "interventionFocus": ["Stabilization first", "Trauma-informed pacing", "Consistency, safety, and co-regulation"]
+        }
+      ]
+    },
+    {
+      "type": "systemMap",
+      "title": "Bronfenbrenner Ecological Systems Map",
+      "description": "If the vignette is about a child or adolescent, scan each system before treating the symptom as purely individual.",
+      "layers": [
+        {
+          "name": "Microsystem",
+          "meaning": "Immediate environments the person directly experiences",
+          "caseExample": ["family climate", "classroom structure", "peer group", "religious community"]
+        },
+        {
+          "name": "Mesosystem",
+          "meaning": "How microsystems interact",
+          "caseExample": ["parent-teacher conflict", "mixed home/school expectations", "peer issues affecting family stress"]
+        },
+        {
+          "name": "Exosystem",
+          "meaning": "Indirect forces that still affect the client",
+          "caseExample": ["caregiver job loss", "lack of transportation", "community violence", "service access"]
+        },
+        {
+          "name": "Macrosystem",
+          "meaning": "Cultural values, laws, social structures, norms, oppression, privilege",
+          "caseExample": ["racism", "gender rules", "economic inequality", "immigration climate"]
+        },
+        {
+          "name": "Chronosystem",
+          "meaning": "Time, transitions, and historical context",
+          "caseExample": ["divorce", "migration", "pandemic disruption", "puberty", "retirement"]
+        }
+      ]
+    },
+    {
+      "type": "bandMap",
+      "title": "Developmental Red Flags by Age Band",
+      "description": "Use this to separate delay, trauma impact, or major concern from variation that still falls inside normal development.",
+      "bands": [
+        {
+          "band": "Early Childhood",
+          "expected": ["Expanding language", "symbolic play", "basic co-regulation with caregiver help", "growing curiosity and independence"],
+          "concerning": ["loss of language or social engagement", "extreme aggression without pattern assessment", "no pretend play when broader concerns are present", "persistent inability to separate with severe distress beyond context"],
+          "clinicalMove": ["Assess attachment, trauma, neurodevelopment, routines, and caregiver interaction"]
+        },
+        {
+          "band": "School Age",
+          "expected": ["Skill-building", "rule-following", "peer comparison", "more logical thinking about concrete situations"],
+          "concerning": ["major academic decline", "persistent social isolation with communication mismatch", "extreme inferiority or refusal linked to school distress"],
+          "clinicalMove": ["Evaluate school fit, learning issues, bullying, family stress, and anxiety patterns"]
+        },
+        {
+          "band": "Adolescence",
+          "expected": ["Identity exploration", "strong peer salience", "increasing abstract thinking", "conflict around autonomy"],
+          "concerning": ["identity distress with severe impairment", "self-harm or suicidality", "substance use escalation", "rigid role confusion with unsafe behavior"],
+          "clinicalMove": ["Normalize exploration while assessing risk, trauma, family rejection, supports, and coping"]
+        },
+        {
+          "band": "Older Adulthood",
+          "expected": ["Life review", "role shifts", "grief exposure", "mild slowing or retrieval changes"],
+          "concerning": ["acute confusion", "marked disorientation", "rapid decline", "depression dismissed as normal aging"],
+          "clinicalMove": ["Screen for delirium, depression, caregiver strain, grief burden, and neurocognitive change"]
+        }
+      ]
     }
   ],
   "whyDevelopmentMatters": {
     "title": "Why Development Matters on the NCMHCE",
     "points": [
-      "It helps distinguish normal behavior from pathology",
-      "It guides expectations for cognition, language, emotional regulation, and moral reasoning",
-      "It improves family and systems case conceptualization",
-      "It shapes diagnosis and treatment planning across childhood, adolescence, adulthood, and later life",
-      "It helps counselors tailor interventions to developmental capacity and cultural context"
+      "It helps distinguish expected behavior from pathology",
+      "It changes how the counselor interprets symptoms, cognition, and relationship patterns",
+      "It guides how concrete or abstract an intervention should be",
+      "It improves family, school, and systems case conceptualization",
+      "It keeps counselors from pathologizing identity exploration, cultural difference, or normal aging"
     ],
     "examPearls": [
-      "Developmental questions often appear inside cases involving school problems, parenting conflict, relationship issues, retirement, grief, and identity exploration.",
-      "The exam often rewards the answer that is both clinically sound and developmentally appropriate."
+      "The best answer is often the clinically sound choice that is also developmentally matched.",
+      "Developmental knowledge matters most when it changes your intervention, not just your label."
     ]
   },
   "eriksonSection": {
-    "title": "Erikson's Psychosocial Stages",
-    "overview": "Erikson described eight psychosocial stages across the lifespan. Each stage involves a central developmental crisis that can be resolved more or less successfully, shaping future functioning.",
+    "title": "Erikson's Psychosocial Development",
+    "overview": "Erikson is one of the most testable theories because it explains what people are trying to accomplish at different points in life. Cases often present the unresolved task more clearly than the stage name.",
     "stages": [
       {
         "stage": 1,
         "name": "Trust vs Mistrust",
         "ageRange": "0-1",
         "virtue": "Hope",
-        "coreTask": "Develop basic trust through reliable caregiving",
-        "clinicalClues": [
-          "early attachment security",
-          "basic sense of safety",
-          "difficulty trusting others when caregiving was chaotic or neglectful"
-        ]
+        "coreTask": "Experience the world as safe enough through reliable care",
+        "counselingRelevance": "Attachment disruption, neglect, and trauma may create chronic mistrust or hypervigilance that appears later in therapy and relationships.",
+        "clinicalClues": ["caregiving inconsistency", "difficulty being soothed", "global suspicion or fear of dependence"]
       },
       {
         "stage": 2,
         "name": "Autonomy vs Shame and Doubt",
         "ageRange": "1-3",
         "virtue": "Will",
-        "coreTask": "Develop independence and self-control",
-        "clinicalClues": [
-          "toilet training conflict",
-          "excessive self-doubt",
-          "overcontrol by caregivers"
-        ]
+        "coreTask": "Develop independent action and bodily self-control without humiliation",
+        "counselingRelevance": "Overly controlling or shaming caregiving can feed anxiety, perfectionism, and fear of mistakes.",
+        "clinicalClues": ["toilet training conflict", "excessive self-doubt", "caregiver overcontrol"]
       },
       {
         "stage": 3,
         "name": "Initiative vs Guilt",
         "ageRange": "3-6",
         "virtue": "Purpose",
-        "coreTask": "Initiate action, play, and goal-directed behavior",
-        "clinicalClues": [
-          "excessive guilt about wanting or doing",
-          "fear of making mistakes",
-          "difficulty taking initiative"
-        ]
+        "coreTask": "Take initiative, imagine, try, and lead play or action",
+        "counselingRelevance": "Punitive environments may produce inhibition, fearfulness, or guilt around wanting things.",
+        "clinicalClues": ["fear of making mistakes", "inhibited play", "excessive guilt about taking action"]
       },
       {
         "stage": 4,
         "name": "Industry vs Inferiority",
         "ageRange": "6-12",
         "virtue": "Competence",
-        "coreTask": "Develop skills, mastery, and school competence",
-        "clinicalClues": [
-          "school failure",
-          "peer comparison",
-          "feelings of inadequacy",
-          "self-esteem linked to achievement"
-        ]
+        "coreTask": "Build mastery through school, social comparison, and achievement",
+        "counselingRelevance": "Learning differences, bullying, and chronic criticism often surface here as low self-worth or avoidance.",
+        "clinicalClues": ["school failure", "peer comparison", "achievement-linked self-esteem", "giving up quickly"]
       },
       {
         "stage": 5,
         "name": "Identity vs Role Confusion",
         "ageRange": "12-18",
         "virtue": "Fidelity",
-        "coreTask": "Develop a coherent sense of self",
-        "clinicalClues": [
-          "identity confusion",
-          "role experimentation",
-          "intense self-definition struggles",
-          "conflict around values, sexuality, vocation, or belonging"
-        ]
+        "coreTask": "Create a coherent self across values, roles, sexuality, vocation, and belonging",
+        "counselingRelevance": "This stage is central in adolescent cases involving family rejection, peer pressure, cultural conflict, or identity distress.",
+        "clinicalClues": ["role experimentation", "value confusion", "intense belonging concerns", "pressure to prematurely commit"]
       },
       {
         "stage": 6,
         "name": "Intimacy vs Isolation",
         "ageRange": "18-40",
         "virtue": "Love",
-        "coreTask": "Develop close, mutual relationships without losing self",
-        "clinicalClues": [
-          "fear of closeness",
-          "avoidance of vulnerability",
-          "relationship instability",
-          "loneliness"
-        ]
+        "coreTask": "Form close, mutual relationships without losing identity",
+        "counselingRelevance": "Attachment injuries and unresolved identity problems often show up here in unstable, avoidant, or fearful relationships.",
+        "clinicalClues": ["fear of vulnerability", "loneliness", "serial unstable attachments", "emotional distancing"]
       },
       {
         "stage": 7,
         "name": "Generativity vs Stagnation",
         "ageRange": "40-65",
         "virtue": "Care",
-        "coreTask": "Contribute to others and the next generation",
-        "clinicalClues": [
-          "midlife emptiness",
-          "burnout",
-          "feeling stuck or unproductive",
-          "parenting and legacy concerns"
-        ]
+        "coreTask": "Invest in others, work, family, community, and legacy",
+        "counselingRelevance": "Midlife crisis material often reflects burnout, lost meaning, caretaking strain, or stalled contribution.",
+        "clinicalClues": ["emptiness", "career disillusionment", "parenting strain", "feeling replaceable or stuck"]
       },
       {
         "stage": 8,
         "name": "Integrity vs Despair",
         "ageRange": "65+",
         "virtue": "Wisdom",
-        "coreTask": "Review life with acceptance rather than regret",
-        "clinicalClues": [
-          "life review",
-          "death anxiety",
-          "regret",
-          "meaning-making in late life"
-        ]
+        "coreTask": "Review life with acceptance, coherence, and meaning",
+        "counselingRelevance": "Late-life cases frequently center on grief, regret, mortality, identity after loss, and existential review.",
+        "clinicalClues": ["death anxiety", "bitterness", "meaning questions", "rumination on unfinished life tasks"]
       }
     ],
     "examPearls": [
-      "The exam may present an adult client struggling with an earlier unresolved stage, such as identity confusion or trust issues.",
-      "Erikson is especially useful in child, adolescent, parenting, relationship, and aging cases.",
-      "Think of the stage as a developmental task, not a rigid box."
+      "Adults can struggle with earlier Eriksonian tasks; the stage is a lens, not a locked age box.",
+      "In vignette questions, ask what developmental task is blocked before deciding the best counselor response."
     ],
-    "commonTrap": "Do not assume chronological age alone resolves the stage. Adults can still struggle with earlier psychosocial crises."
+    "commonTrap": "Do not answer with a clever abstract intervention if the client has not yet achieved the basic developmental task in front of them."
   },
   "piagetSection": {
     "title": "Piaget's Cognitive Development",
-    "overview": "Piaget described how children's thinking changes qualitatively over time. This matters because counseling interventions must match cognitive capacity.",
+    "overview": "Piaget helps you choose the right level of language, insight work, behavioral coaching, and psychoeducation. On the exam, the question is often whether the client can reason abstractly yet.",
     "stages": [
       {
         "name": "Sensorimotor",
         "ageRange": "0-2",
-        "keyCharacteristics": [
-          "learning through senses and action",
-          "object permanence develops",
-          "limited symbolic thinking early in stage"
-        ],
-        "clinicalUse": "Useful when considering attachment, separation, and the foundations of regulation."
+        "keyCharacteristics": ["Learns through action and sensation", "Object permanence develops", "Self-other differentiation grows"],
+        "clinicalUse": "Relevant for attachment, regulation, and early developmental concerns rather than insight-oriented therapy."
       },
       {
         "name": "Preoperational",
         "ageRange": "2-7",
-        "keyCharacteristics": [
-          "symbolic thinking",
-          "egocentrism",
-          "limited ability to understand conservation",
-          "thinking can be intuitive and concrete"
-        ],
-        "clinicalUse": "Young children may struggle to take others' perspectives and may communicate more effectively through play than abstract discussion."
+        "keyCharacteristics": ["Symbolic thought expands", "Egocentrism is expected", "Conservation is not yet solid", "Thinking is intuitive rather than logical"],
+        "clinicalUse": "Play-based work, parent coaching, stories, visuals, and repetitive coping rehearsal are more effective than abstract insight."
       },
       {
         "name": "Concrete Operational",
         "ageRange": "7-11",
-        "keyCharacteristics": [
-          "logical thinking about concrete objects/events",
-          "conservation",
-          "classification",
-          "less egocentric thinking"
-        ],
-        "clinicalUse": "Children can understand rules and concrete cause/effect better, but abstract metaphor may still be limited."
+        "keyCharacteristics": ["Logical reasoning about concrete events", "Classification and sequencing improve", "Perspective-taking strengthens", "Rules and fairness become more understandable"],
+        "clinicalUse": "Behavior charts, coping plans, stepwise CBT, school interventions, and concrete examples work well."
       },
       {
         "name": "Formal Operational",
         "ageRange": "12+",
-        "keyCharacteristics": [
-          "abstract reasoning",
-          "hypothetical thinking",
-          "deductive logic",
-          "capacity for future-oriented reflection"
-        ],
-        "clinicalUse": "Adolescents and adults can generally engage in more abstract cognitive work, though stress or developmental delays may limit this."
+        "keyCharacteristics": ["Abstract reasoning", "Hypothetical thinking", "Future orientation", "Metacognition grows"],
+        "clinicalUse": "Values work, cognitive restructuring, identity exploration, and long-range planning become more available."
       }
     ],
     "keyConcepts": [
-      {
-        "term": "Schema",
-        "definition": "Mental framework for organizing experience"
-      },
-      {
-        "term": "Assimilation",
-        "definition": "Fitting new information into existing schemas"
-      },
-      {
-        "term": "Accommodation",
-        "definition": "Changing schemas to fit new information"
-      },
-      {
-        "term": "Equilibration",
-        "definition": "Process of balancing assimilation and accommodation"
-      }
+      { "term": "Schema", "definition": "A mental framework used to organize experience" },
+      { "term": "Assimilation", "definition": "Adding new information into an existing schema" },
+      { "term": "Accommodation", "definition": "Changing the schema because new information no longer fits" },
+      { "term": "Equilibration", "definition": "The balancing process that drives cognitive growth" }
     ],
     "examPearls": [
-      "If a child is described as strongly egocentric, preoperational thinking may be relevant.",
-      "If a youth can reason hypothetically about values or future possibilities, formal operations may be in play.",
-      "The clinical takeaway is to match intervention complexity to cognitive level."
+      "If a counselor answer assumes rich perspective-taking or abstract insight in a very young child, it is often the wrong choice.",
+      "Stress, neurodevelopmental differences, and environmental deprivation can limit how fully formal reasoning shows up in practice."
     ]
   },
   "kohlbergSection": {
     "title": "Kohlberg's Moral Development",
-    "overview": "Kohlberg described the development of moral reasoning, progressing from punishment avoidance to social rule-following and eventually to abstract ethical principles.",
+    "overview": "Kohlberg explains how clients justify right and wrong, which shows up in conduct, discipline, school, parenting, and adolescent identity cases.",
     "levels": [
       {
         "level": "Pre-Conventional",
         "stages": [
-          {
-            "name": "Obedience and Punishment",
-            "reasoning": "Avoid punishment"
-          },
-          {
-            "name": "Individualism and Exchange",
-            "reasoning": "What benefits me?"
-          }
+          { "name": "Obedience and Punishment", "reasoning": "Avoid punishment" },
+          { "name": "Individualism and Exchange", "reasoning": "Get reward or advantage" }
         ],
-        "clinicalUse": "More common in younger children and in situations where morality is understood concretely."
+        "clinicalUse": "Children or highly concrete thinkers may frame morality around consequences rather than shared values."
       },
       {
         "level": "Conventional",
         "stages": [
-          {
-            "name": "Interpersonal Accord",
-            "reasoning": "Be seen as good by others"
-          },
-          {
-            "name": "Authority and Social Order",
-            "reasoning": "Follow rules and maintain order"
-          }
+          { "name": "Interpersonal Accord", "reasoning": "Be good in the eyes of others" },
+          { "name": "Authority and Social Order", "reasoning": "Maintain rules and social order" }
         ],
-        "clinicalUse": "Common in adolescents and adults who organize morality around approval, law, duty, and social expectations."
+        "clinicalUse": "Common in adolescence and adulthood where belonging, approval, duty, or authority shape moral choices."
       },
       {
         "level": "Post-Conventional",
         "stages": [
-          {
-            "name": "Social Contract",
-            "reasoning": "Rules should serve the greater good and can be changed"
-          },
-          {
-            "name": "Universal Ethical Principles",
-            "reasoning": "Abstract justice and human rights above rigid law"
-          }
+          { "name": "Social Contract", "reasoning": "Rules exist to serve people and can be revised" },
+          { "name": "Universal Ethical Principles", "reasoning": "Justice and human rights may outweigh rigid rules" }
         ],
-        "clinicalUse": "More advanced moral reasoning involving nuance, principle-based reflection, and ethical complexity."
+        "clinicalUse": "Relevant when cases involve sophisticated ethical reflection, activism, or value conflict."
       }
     ],
     "gilliganCritique": {
       "title": "Gilligan's Critique",
-      "summary": "Gilligan argued that Kohlberg's framework overemphasized justice-based moral reasoning and underrepresented an ethic of care, relationships, and responsibility.",
-      "clinicalMeaning": "Clients may reason morally through care, connection, and relational obligation rather than only rules or abstract justice."
+      "summary": "Gilligan argued that justice-based models can miss moral reasoning grounded in care, responsibility, and relationships.",
+      "clinicalMeaning": "Clients may reason morally through protection of relationships and care obligations, not only through rules or abstract principles."
     },
     "examPearls": [
-      "Moral development questions often show up in school, parenting, conduct, or adolescent identity cases.",
-      "Do not reduce morality to simple rule-breaking. Consider developmental level and relational context."
+      "If a youth acts morally only when consequences are immediate, think lower-level moral reasoning rather than global defiance alone.",
+      "Use moral development to understand the logic underneath behavior, not to shame clients for where they are."
     ]
   },
   "bronfenbrennerSection": {
     "title": "Bronfenbrenner's Ecological Systems Theory",
-    "overview": "Bronfenbrenner emphasized that development occurs within layered environmental systems. This is highly useful in family, school, and community-based counseling cases.",
+    "overview": "This theory is especially high-yield because it keeps counselors from blaming the child for stressors that are spread across home, school, peers, community, and culture.",
     "systems": [
       {
         "system": "Microsystem",
         "definition": "Immediate settings directly experienced by the person",
-        "examples": [
-          "family",
-          "school",
-          "peers",
-          "religious community"
-        ]
+        "examples": ["family", "school", "peers", "faith community"]
       },
       {
         "system": "Mesosystem",
-        "definition": "Interactions between microsystems",
-        "examples": [
-          "parent-teacher relationships",
-          "conflict between home and school",
-          "peer influence affecting family dynamics"
-        ]
+        "definition": "Interactions between parts of the microsystem",
+        "examples": ["parent-teacher communication", "peer conflict spilling into home", "inconsistent rules across settings"]
       },
       {
         "system": "Exosystem",
-        "definition": "Indirect environments that still affect the person",
-        "examples": [
-          "parent's workplace stress",
-          "community resources",
-          "housing instability"
-        ]
+        "definition": "Indirect contexts that still affect development",
+        "examples": ["caregiver work stress", "transportation barriers", "community violence", "service access"]
       },
       {
         "system": "Macrosystem",
-        "definition": "Cultural values, laws, social structures, and dominant norms",
-        "examples": [
-          "racism",
-          "economic systems",
-          "gender norms",
-          "religious culture"
-        ]
+        "definition": "Culture, laws, social structures, privilege, oppression, and norms",
+        "examples": ["racism", "economic inequality", "gender expectations", "immigration policy"]
       },
       {
         "system": "Chronosystem",
-        "definition": "Time-based change and transitions",
-        "examples": [
-          "divorce",
-          "migration",
-          "pandemic effects",
-          "historical or developmental transitions"
-        ]
+        "definition": "Time-based life transitions and historical forces",
+        "examples": ["divorce", "migration", "puberty", "pandemic disruption", "retirement"]
       }
     ],
     "clinicalApplication": [
-      "Use this theory to avoid blaming the individual for system-level stressors.",
-      "Helpful in child and adolescent cases where school, family, and community factors interact.",
-      "Useful for social justice-informed conceptualization."
+      "Use ecological thinking in school refusal, child behavior, family stress, and identity cases.",
+      "A symptom can be real and still be maintained by systemic conditions, not just intrapsychic weakness.",
+      "When the exam asks for the best next step, answers that expand assessment to relevant systems are often stronger than narrow symptom-only moves."
     ],
     "examPearls": [
-      "If the case is about a child, think systems, not just symptoms.",
-      "Problems often live at the intersection of home, school, peers, and culture."
+      "If the vignette contains school, family, peer, and community clues, the test writer probably wants systems thinking.",
+      "Macrosystem and chronosystem clues often show up as culture, oppression, migration, historical events, or major transitions."
     ]
   },
   "vygotskySection": {
     "title": "Vygotsky's Sociocultural Theory",
-    "overview": "Vygotsky emphasized that learning and development occur through social interaction, language, and culture. This helps counselors think about how support, instruction, and environment affect growth.",
+    "overview": "Vygotsky is especially useful for psychoeducation, school-based counseling, parent guidance, and skill-building cases because it emphasizes socially supported development.",
     "keyConcepts": [
-      {
-        "term": "Zone of Proximal Development (ZPD)",
-        "definition": "The gap between what a learner can do alone and what they can do with guidance"
-      },
-      {
-        "term": "Scaffolding",
-        "definition": "Temporary support from a more knowledgeable person to help the learner succeed within the ZPD"
-      },
-      {
-        "term": "Private Speech",
-        "definition": "Self-directed speech that supports thinking and self-regulation"
-      },
-      {
-        "term": "Cultural Tools",
-        "definition": "Language, symbols, and practices that shape development"
-      }
+      { "term": "Zone of Proximal Development", "definition": "What the learner cannot yet do alone but can do with support" },
+      { "term": "Scaffolding", "definition": "Temporary support that is gradually removed as competence grows" },
+      { "term": "Private Speech", "definition": "Self-talk that supports problem solving and self-regulation" },
+      { "term": "Cultural Tools", "definition": "Language, symbols, and practices that shape learning and development" }
     ],
     "clinicalApplication": [
-      "Helpful when thinking about psychoeducation, school support, parenting interventions, and developmental coaching.",
-      "Supports the idea that the counselor or caregiver can provide structure that is gradually faded as competence grows."
+      "Counselors, teachers, and caregivers can function as scaffolds when introducing coping skills or emotional regulation routines.",
+      "Learning problems are not only inside the child; the fit between instruction, support, and culture matters.",
+      "Gradual coaching is often more developmentally sound than demanding independent mastery too early."
     ],
     "examPearls": [
-      "If a child or adolescent case involves learning support, skill-building, or caregiver guidance, Vygotsky may be relevant.",
-      "The take-home message is that development is socially supported, not purely individual."
+      "When a case involves caregiver coaching or psychoeducation, think about how the support can be scaffolded and faded.",
+      "Vygotsky and Bronfenbrenner both move you away from purely individual explanations, but Vygotsky is more focused on guided learning."
     ]
   },
   "attachmentSection": {
     "title": "Attachment Theory",
-    "overview": "Attachment theory explains how early caregiving relationships shape emotional regulation, trust, safety, and later relationship patterns.",
+    "overview": "Attachment theory explains how early caregiving shapes safety, emotion regulation, trust, and later relationship behavior. It is especially relevant in trauma, parenting, couples, and personality-related cases.",
     "coreIdeas": [
-      "Children seek a secure base in caregivers",
-      "Caregiving consistency, attunement, and safety affect internal working models of self and others",
-      "Attachment patterns can influence adult intimacy, distress tolerance, and help-seeking"
+      "Children use caregivers as a secure base from which to explore",
+      "Consistent attunement builds internal models of self as worthy and others as reliable enough",
+      "Attachment patterns influence how people seek closeness, respond to conflict, and manage distress",
+      "Attachment patterns are influential but not destiny; later healing relationships matter"
     ],
     "styles": [
       {
         "style": "Secure",
-        "childPattern": "Uses caregiver as safe base and is comforted by return",
+        "childPattern": "Uses caregiver as safe base and can be comforted by return",
         "adultPattern": "Comfortable with intimacy and autonomy"
       },
       {
         "style": "Anxious / Ambivalent",
         "childPattern": "Clingy, distressed by separation, difficult to soothe",
-        "adultPattern": "Fear of abandonment, hyperactivation, reassurance seeking"
+        "adultPattern": "Fear of abandonment, reassurance-seeking, hyperactivation"
       },
       {
         "style": "Avoidant",
-        "childPattern": "Appears emotionally distant and minimizes need for closeness",
-        "adultPattern": "Discomfort with closeness, deactivation of attachment needs"
+        "childPattern": "Appears distant and downplays need for comfort",
+        "adultPattern": "Discomfort with dependence and emotional distance"
       },
       {
         "style": "Disorganized",
-        "childPattern": "Inconsistent, fearful, confused responses",
-        "adultPattern": "Chaotic attachment patterns, often linked to trauma"
+        "childPattern": "Fearful, confused, contradictory responses",
+        "adultPattern": "Chaotic closeness patterns often linked to trauma"
       }
     ],
     "clinicalUse": [
-      "Useful in trauma, couples, family, and personality-related cases",
-      "Can help explain abandonment fears, relational instability, emotional numbing, or mistrust",
-      "Supports conceptualization of how early care shapes current interpersonal functioning"
+      "Useful for conceptualizing abandonment fears, mistrust, emotional numbing, intense protest behavior, and unstable relational cycles.",
+      "Treatment often begins with safety, predictability, and naming patterns before pushing insight too hard.",
+      "In parenting cases, the best intervention may target caregiver attunement and co-regulation rather than child behavior alone."
     ],
     "examPearls": [
-      "Attachment theory is especially relevant in cases involving BPD-like symptoms, trauma, parenting, and relationship insecurity.",
-      "Do not assume attachment style is destiny. It is a pattern, not a permanent sentence."
+      "Attachment language is often hidden inside relationship complaints, not announced directly.",
+      "If the client alternates between clinging and pushing others away, think attachment and trauma, not just 'difficult personality.'"
     ]
   },
   "identityDevelopmentSection": {
     "title": "Identity Development",
-    "overview": "Identity development is central in adolescence but continues across the lifespan. Identity questions often intersect with culture, gender, sexuality, vocation, autonomy, and belonging.",
+    "overview": "Identity work is most obvious in adolescence, but identity continues to evolve across adulthood through work, culture, relationships, parenthood, grief, illness, and social location.",
     "marciaStatuses": [
       {
         "status": "Identity Diffusion",
         "exploration": "No",
         "commitment": "No",
-        "description": "Lack of exploration and lack of commitment"
+        "description": "Little exploration and little commitment; can look aimless, detached, or externally driven"
       },
       {
         "status": "Identity Foreclosure",
         "exploration": "No",
         "commitment": "Yes",
-        "description": "Commitment adopted without meaningful questioning"
+        "description": "Commitments adopted without adequate exploration, often under family or cultural pressure"
       },
       {
         "status": "Identity Moratorium",
         "exploration": "Yes",
         "commitment": "No",
-        "description": "Active questioning and searching without final commitment"
+        "description": "Active searching and questioning; often developmentally healthy even when emotionally messy"
       },
       {
         "status": "Identity Achievement",
         "exploration": "Yes",
         "commitment": "Yes",
-        "description": "Commitment formed after exploration"
+        "description": "Commitments formed after exploration and reflection"
       }
     ],
     "cassModel": {
       "title": "Cass Model of Homosexual Identity Formation",
-      "stages": [
-        "Identity Confusion",
-        "Identity Comparison",
-        "Identity Tolerance",
-        "Identity Acceptance",
-        "Identity Pride",
-        "Identity Synthesis"
-      ],
-      "clinicalMeaning": "Useful in understanding identity-related stress, shame, belonging, disclosure, and self-acceptance in LGBTQ+ affirmative work."
+      "stages": ["Identity Confusion", "Identity Comparison", "Identity Tolerance", "Identity Acceptance", "Identity Pride", "Identity Synthesis"],
+      "clinicalMeaning": "Useful for understanding self-definition, disclosure stress, shame, belonging, and affirmative counseling needs in LGBTQ+ work."
     },
     "examPearls": [
-      "Identity cases are rarely just about labels. They are often about conflict, belonging, family reaction, values, and self-definition.",
-      "Moratorium is not failure. It often represents active, healthy exploration."
+      "Moratorium is often normal exploration, not automatically pathology.",
+      "Identity cases often hinge on belonging, safety, cultural expectations, or family response more than on the identity label itself."
     ]
   },
   "racialCulturalIdentitySection": {
     "title": "Racial and Cultural Identity Development",
-    "overview": "Cultural identity development theories help counselors understand the impact of race, oppression, acculturation, and social positioning on development and mental health.",
+    "overview": "Development happens inside culture, power, and social position. Exam cases increasingly expect counselors to think about racism, acculturation, privilege, and intersectionality as developmental forces.",
     "helmsModel": {
       "title": "Helms' White Racial Identity Development",
-      "stages": [
-        "Contact",
-        "Disintegration",
-        "Reintegration",
-        "Pseudo-Independence",
-        "Immersion-Emersion",
-        "Autonomy"
-      ],
-      "clinicalUse": "Helpful in understanding how clients and counselors may relate to race, privilege, and racism."
+      "stages": ["Contact", "Disintegration", "Reintegration", "Pseudo-Independence", "Immersion-Emersion", "Autonomy"],
+      "clinicalUse": "Helps conceptualize how race awareness, defensiveness, guilt, and genuine anti-racist development may appear in clients or counselors."
     },
     "crossModel": {
-      "title": "Cross's Black Racial Identity Development (Nigrescence)",
-      "stages": [
-        "Pre-Encounter",
-        "Encounter",
-        "Immersion-Emersion",
-        "Internalization",
-        "Internalization-Commitment"
-      ],
-      "clinicalUse": "Useful in understanding identity transformation, racial stress, pride, belonging, and social meaning."
+      "title": "Cross's Black Racial Identity Development",
+      "stages": ["Pre-Encounter", "Encounter", "Immersion-Emersion", "Internalization", "Internalization-Commitment"],
+      "clinicalUse": "Useful for understanding racial awakening, identity transformation, belonging, pride, and responses to oppression."
     },
     "relatedConcepts": [
-      {
-        "term": "Acculturation",
-        "definition": "Process of adapting to a new culture while retaining or reshaping aspects of culture of origin"
-      },
-      {
-        "term": "Intersectionality",
-        "definition": "The way multiple identities and systems of power/oppression interact"
-      },
-      {
-        "term": "Cultural Humility",
-        "definition": "Ongoing self-reflection, openness, and respect rather than assuming total cultural competence"
-      },
-      {
-        "term": "Microaggressions",
-        "definition": "Subtle, often everyday slights or invalidations tied to identity"
-      },
-      {
-        "term": "Privilege",
-        "definition": "Unearned social advantage linked to dominant-group membership"
-      }
+      { "term": "Acculturation", "definition": "Adapting to a new culture while retaining, reshaping, or negotiating culture-of-origin identity" },
+      { "term": "Intersectionality", "definition": "How multiple identities and systems of advantage or oppression interact" },
+      { "term": "Cultural Humility", "definition": "A stance of ongoing self-reflection, openness, and respect rather than mastery claims" },
+      { "term": "Microaggressions", "definition": "Subtle, repeated slights or invalidations tied to identity" },
+      { "term": "Privilege", "definition": "Unearned social advantage linked to dominant-group status" }
     ],
     "examPearls": [
-      "The exam increasingly expects counselors to recognize systemic context, not just intrapsychic distress.",
-      "Identity development can be deeply affected by racism, migration, language, class, disability, religion, sexuality, and culture."
+      "The culturally responsive answer often validates lived context and expands assessment beyond the individual.",
+      "Avoid pathologizing identity-protective responses to oppression as simple resistance or poor motivation."
     ]
   },
   "agingSection": {
     "title": "Aging and Gerontological Considerations",
-    "overview": "Later-life cases on the NCMHCE often involve grief, health changes, caregiving, role loss, retirement, isolation, cognitive concerns, and meaning-making.",
+    "overview": "Older adult cases commonly blend grief, medical issues, caregiver burden, role loss, isolation, and meaning-making. Good exam answers separate expected aging from serious change while avoiding ageist assumptions.",
     "normalAging": [
-      "some slowed processing speed",
-      "mild word-finding or memory retrieval changes",
-      "sensory decline",
-      "changes in sleep patterns",
-      "retirement or role transitions"
+      "Mild slowing in processing speed",
+      "Occasional word-finding or retrieval difficulty",
+      "Sensory changes",
+      "Sleep pattern changes",
+      "Role transitions involving retirement or caregiving"
     ],
     "notNormalAging": [
-      "delirium",
-      "major neurocognitive decline beyond expected aging",
-      "severe persistent confusion",
-      "depression mistaken for 'normal old age'"
+      "Acute confusion or fluctuating alertness",
+      "Rapid decline from baseline functioning",
+      "Severe persistent disorientation",
+      "Major depression dismissed as just getting older",
+      "Marked neurocognitive impairment that disrupts independence"
     ],
     "lateLifeThemes": [
-      "integrity vs despair",
-      "grief and cumulative loss",
-      "death anxiety",
-      "caregiving burden",
-      "purpose and meaning after retirement",
-      "medical comorbidity"
+      "Integrity vs despair",
+      "Cumulative grief and role loss",
+      "Purpose after retirement",
+      "Caregiving strain",
+      "Medical comorbidity",
+      "Mortality, spirituality, and meaning"
     ],
     "clinicalConsiderations": [
-      "distinguish depression from dementia and delirium when possible",
-      "avoid ageist assumptions",
-      "assess social isolation and caregiver stress",
-      "support life review and meaning-making when appropriate"
+      "Distinguish depression, delirium, and neurocognitive decline whenever possible",
+      "Assess social isolation, transportation, caregiving burden, and access to care",
+      "Support life review and meaning-making when clinically appropriate",
+      "Never assume low energy, hopelessness, or withdrawal are simply normal late life"
     ],
     "examPearls": [
-      "Aging itself is not pathology.",
-      "The exam may test whether you can distinguish normal aging from more serious cognitive decline.",
-      "Older adults may present with grief, purposelessness, and role loss rather than overt psychiatric language."
+      "The exam may reward referral for medical evaluation when confusion appears sudden or fluctuating.",
+      "Many older adults present through grief, loneliness, purposelessness, or somatic complaints rather than explicit psychiatric language."
+    ]
+  },
+  "lifespanMilestonesSection": {
+    "title": "Lifespan Milestones and What They Mean Clinically",
+    "overview": "Milestones matter because the meaning of a symptom changes by age. The same behavior can be expected in one stage and concerning in another.",
+    "ageBands": [
+      {
+        "title": "Infancy and Toddlerhood",
+        "overview": "Attachment, regulation, language beginnings, mobility, and trust-building dominate this period.",
+        "expectedPatterns": ["Separation distress with soothing by caregiver", "Rapid language growth", "Increasing autonomy and limit testing"],
+        "clinicalQuestions": ["Is caregiving stable enough?", "Is the child gaining or losing skills?", "Are routines, sleep, and sensory factors contributing?"]
+      },
+      {
+        "title": "Preschool Years",
+        "overview": "Imagination, symbolic play, initiative, and early self-concept grow quickly.",
+        "expectedPatterns": ["Pretend play", "Egocentric thinking", "Strong emotions with developing self-control"],
+        "clinicalQuestions": ["Is the behavior age-expected or extreme?", "Are caregivers responding with structure or shame?", "Would play-based work fit better than direct talk?"]
+      },
+      {
+        "title": "School Age",
+        "overview": "Academic competence, peer comparison, fairness, and concrete logic become central.",
+        "expectedPatterns": ["Pride in competence", "Sensitivity to comparison", "Improved rule-following and sequencing"],
+        "clinicalQuestions": ["Is there a learning mismatch, bullying, or anxiety problem?", "Is inferiority driving withdrawal or acting out?"]
+      },
+      {
+        "title": "Adolescence",
+        "overview": "Identity, belonging, autonomy, abstract thinking, and peer salience intensify.",
+        "expectedPatterns": ["Questioning values", "Peer focus", "Push-pull around independence"],
+        "clinicalQuestions": ["Is this healthy exploration or major impairment?", "What family, cultural, or community pressures shape identity?", "What are the safety risks?"]
+      },
+      {
+        "title": "Adulthood and Later Life",
+        "overview": "Intimacy, generativity, legacy, loss, and meaning shift across adulthood.",
+        "expectedPatterns": ["Relational commitments", "Contribution and caregiving", "Later-life review and adaptation to loss"],
+        "clinicalQuestions": ["What role task is being disrupted?", "Is grief complicated by isolation or cognitive change?", "What sources of purpose remain available?"]
+      }
+    ],
+    "examPearls": [
+      "A symptom only makes sense when anchored to age, context, and developmental demand.",
+      "Milestones are guides, not weapons; cultural and individual variation matter."
     ]
   },
   "developmentalApplicationSection": {
     "title": "Applying Development to Counseling Decisions",
-    "overview": "Developmental theory becomes clinically useful when it changes what the counselor asks, expects, or does.",
+    "overview": "Developmental theory becomes useful when it changes what the counselor assesses, how the counselor speaks, and what the counselor chooses to do first.",
     "applications": [
       {
-        "situation": "Young child with behavioral dysregulation",
-        "developmentalQuestion": "What emotional regulation and perspective-taking capacities are age-appropriate?",
-        "clinicalImplication": "Use play, caregiver coaching, structure, and concrete language"
+        "situation": "Young child with intense behavioral dysregulation",
+        "developmentalQuestion": "What emotional regulation skills are age-expected, and what caregiver support is missing?",
+        "clinicalImplication": "Use play, routine, co-regulation, and caregiver coaching before expecting mature verbal insight."
       },
       {
-        "situation": "Adolescent with identity distress",
-        "developmentalQuestion": "Is the struggle part of exploration, or is it linked to trauma, rejection, or severe impairment?",
-        "clinicalImplication": "Normalize exploration while assessing risk, family context, and supports"
+        "situation": "School-age child who suddenly refuses school and says they are stupid",
+        "developmentalQuestion": "Is the core issue industry/inferiority, bullying, learning mismatch, or anxiety?",
+        "clinicalImplication": "Assess school and family systems, competence injuries, and practical supports rather than treating it only as defiance."
       },
       {
-        "situation": "Adult with repeated relationship failures",
-        "developmentalQuestion": "Are unresolved attachment or earlier psychosocial issues shaping current intimacy patterns?",
-        "clinicalImplication": "Integrate attachment and developmental history into conceptualization"
+        "situation": "Adolescent questioning identity, future, values, or sexuality",
+        "developmentalQuestion": "Is this normal exploration, or is trauma, rejection, or safety risk intensifying distress?",
+        "clinicalImplication": "Normalize exploration while assessing suicidality, family reaction, social support, and minority stress."
       },
       {
-        "situation": "Older adult grieving retirement and feeling useless",
-        "developmentalQuestion": "Is the client struggling with generativity, integrity, role loss, or social isolation?",
-        "clinicalImplication": "Support meaning-making, role reconstruction, and social connection"
+        "situation": "Adult with repeated unstable relationships",
+        "developmentalQuestion": "Are earlier trust, identity, or attachment injuries shaping intimacy?",
+        "clinicalImplication": "Integrate developmental history, attachment patterns, and emotion regulation work."
+      },
+      {
+        "situation": "Older adult grieving retirement and loss of purpose",
+        "developmentalQuestion": "Is the client struggling with generativity, integrity, grief overload, or social isolation?",
+        "clinicalImplication": "Support role reconstruction, life review, social connection, and meaning-making."
       }
     ],
-    "examPearl": "The best intervention is often the one that fits the client's developmental, cognitive, relational, and cultural reality."
+    "examPearl": "When two answers both sound kind, choose the one that is most developmentally appropriate and context-aware."
   },
   "crossTheoryComparisons": [
     {
       "title": "Erikson vs Piaget",
       "points": [
-        "Erikson focuses on psychosocial tasks and identity across the lifespan.",
-        "Piaget focuses on cognitive development and how thinking changes in childhood and adolescence.",
-        "A client may be cognitively ready for an intervention but still struggling psychosocially, or vice versa."
+        "Erikson explains psychosocial tasks and identity across the lifespan.",
+        "Piaget explains how cognition changes, especially in childhood and adolescence.",
+        "A client can be cognitively capable of an intervention but psychosocially blocked from using it."
       ]
     },
     {
       "title": "Bronfenbrenner vs Vygotsky",
       "points": [
-        "Bronfenbrenner emphasizes layered systems affecting development.",
-        "Vygotsky emphasizes learning through social interaction and guided support.",
-        "Both move beyond purely individual explanations."
+        "Bronfenbrenner maps the systems around the client.",
+        "Vygotsky focuses on social learning and guided support inside those systems.",
+        "Both challenge purely individual explanations for difficulty."
       ]
     },
     {
       "title": "Attachment vs Erikson",
       "points": [
-        "Attachment theory focuses on early relational bonds and internal working models.",
-        "Erikson describes broader psychosocial tasks across the lifespan.",
-        "The two often overlap in trust, identity, intimacy, and later relationship patterns."
+        "Attachment centers on early bonds and internal working models.",
+        "Erikson describes broader developmental tasks from infancy through late life.",
+        "They often overlap in cases involving trust, intimacy, identity, and later relationship distress."
       ]
     }
   ],
   "commonExamTraps": [
-    "Memorizing stage names without understanding what they look like clinically",
-    "Using abstract interventions with children who need concrete, developmentally matched approaches",
-    "Ignoring systems and culture in child or adolescent cases",
-    "Assuming all adolescent identity exploration is pathology",
-    "Confusing normal aging with dementia",
-    "Overlooking attachment patterns in cases dominated by relationship distress"
+    "Memorizing stage names without knowing what the client would actually look like in session",
+    "Choosing an abstract intervention for a client who needs concrete developmental support",
+    "Ignoring culture, school, family, or oppression in child and adolescent cases",
+    "Pathologizing normal identity exploration",
+    "Confusing normal aging with dementia or overlooking depression in later life",
+    "Treating attachment patterns as fixed labels instead of modifiable relational patterns"
   ],
   "miniCaseDrills": [
     {
-      "case": "A 9-year-old is devastated by repeated academic failure and says, 'I'm just stupid compared to everyone else.'",
+      "case": "A 9-year-old has begun refusing homework, crying before school, and saying, 'Everyone else is better than me.'",
       "bestDevelopmentalLens": "Erikson - Industry vs Inferiority",
-      "rationale": "The central issue is competence, mastery, and self-worth during school-age development."
+      "rationale": "The case centers on competence, mastery, and self-worth in the school-age years."
     },
     {
-      "case": "A 4-year-old insists that everyone sees the world exactly as they do and struggles to understand others' perspectives.",
-      "bestDevelopmentalLens": "Piaget - Preoperational Stage",
-      "rationale": "Egocentrism is expected in this developmental stage."
+      "case": "A 5-year-old insists a parent caused the rainstorm because they were angry and struggles to take another person's perspective.",
+      "bestDevelopmentalLens": "Piaget - Preoperational thinking",
+      "rationale": "Egocentric and intuitive reasoning are expected at this stage."
     },
     {
-      "case": "A teenager is intensely questioning identity, values, sexuality, and future direction, but is not severely impaired.",
-      "bestDevelopmentalLens": "Erikson / Marcia - Identity exploration",
-      "rationale": "This may reflect normal identity development, especially moratorium, rather than pathology."
+      "case": "A 16-year-old is questioning identity, values, and belonging, but remains functional and curious rather than severely impaired.",
+      "bestDevelopmentalLens": "Identity exploration / Marcia moratorium",
+      "rationale": "This may represent healthy exploration rather than pathology."
     },
     {
-      "case": "A child's panic at school seems tied not just to the child, but to family stress, a teacher conflict, peer rejection, and a recent move.",
+      "case": "A child's panic at school escalated after a move, a parent's schedule change, and worsening peer rejection.",
       "bestDevelopmentalLens": "Bronfenbrenner's Ecological Systems Theory",
-      "rationale": "The problem exists across interacting systems, not only within the child."
+      "rationale": "Multiple interacting systems are shaping the symptom presentation."
     },
     {
-      "case": "A 74-year-old client says, 'I keep thinking about what my life amounted to, and I don't know if I can make peace with it.'",
+      "case": "A 72-year-old says, 'I keep replaying my life and wondering if I wasted it,' after retirement and the death of a sibling.",
       "bestDevelopmentalLens": "Erikson - Integrity vs Despair",
-      "rationale": "The case reflects late-life review, meaning, regret, and acceptance."
+      "rationale": "The vignette highlights life review, grief, purpose, and meaning in later life."
     }
   ],
   "quickReview": {
     "memoryHooks": [
-      "Erikson = psychosocial tasks",
-      "Piaget = how children think",
-      "Kohlberg = moral reasoning",
+      "Erikson = psychosocial task",
+      "Piaget = thinking style",
+      "Kohlberg = moral logic",
       "Bronfenbrenner = systems around the person",
-      "Vygotsky = learning through guidance",
-      "Attachment = safe base and relationship patterns",
-      "Marcia = identity exploration + commitment",
-      "Aging = distinguish normal change from pathology"
+      "Vygotsky = guided learning",
+      "Attachment = safe base and closeness patterns",
+      "Marcia = exploration plus commitment",
+      "Aging = separate expected change from pathology"
     ],
     "finalTakeaways": [
-      "Developmental knowledge is useful only when it helps explain what the client needs now.",
-      "Ask what task, capacity, or context the client may be struggling with.",
-      "The exam often rewards developmentally appropriate, context-aware thinking over rigid memorization."
+      "Developmental knowledge matters when it changes assessment, intervention, and expectations.",
+      "Always ask what task, capacity, system, or identity stressor the client may be struggling with.",
+      "The strongest NCMHCE answer is usually both clinically sound and developmentally matched."
     ]
   },
   "checkpointQuestions": [
     {
-      "question": "Which Erikson stage is most closely associated with adolescent self-definition and role experimentation?",
+      "question": "Which Erikson stage is most associated with adolescent self-definition and role experimentation?",
       "answer": "Identity vs Role Confusion"
     },
     {
@@ -720,16 +817,16 @@
       "answer": "Preoperational"
     },
     {
-      "question": "Which ecological level describes the interaction between family and school?",
+      "question": "Which ecological level refers to interactions between home and school?",
       "answer": "Mesosystem"
     },
     {
-      "question": "Which attachment style is commonly linked to fear of abandonment and hyperactivation of closeness needs?",
+      "question": "Which attachment pattern is commonly linked to abandonment fears and reassurance-seeking?",
       "answer": "Anxious / Ambivalent"
     },
     {
-      "question": "Why is developmental understanding important in counseling cases?",
-      "answer": "Because it helps determine what is developmentally expected, what may be clinically concerning, and what interventions are appropriate for the client's age, capacity, and context"
+      "question": "Why is developmental understanding so important on the NCMHCE?",
+      "answer": "Because it helps determine what is expected, what may be concerning, and what intervention best fits the client's age, cognition, relationships, and context."
     }
   ],
   "sourceBasis": {
@@ -737,6 +834,6 @@
       "Study Library",
       "Human Development & Lifespan"
     ],
-    "notes": "Expanded into a production-ready module emphasizing developmental stage application, systems thinking, identity development, attachment, aging, and exam-style counseling relevance."
+    "notes": "Expanded into a more comprehensive, case-oriented module with structured visual study aids and higher-detail developmental coverage."
   }
 }
