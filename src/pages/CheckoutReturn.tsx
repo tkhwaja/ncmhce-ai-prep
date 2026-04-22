@@ -25,8 +25,8 @@ const CheckoutReturn = () => {
         <CardContent className="p-8 text-center space-y-4">
           {sessionId ? (
             <>
-              <div className="h-16 w-16 rounded-full bg-green-100 flex items-center justify-center mx-auto">
-                <CheckCircle className="h-8 w-8 text-green-600" />
+              <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
+                <CheckCircle className="h-8 w-8 text-primary" />
               </div>
               <h1 className="text-2xl font-bold text-foreground">Subscription Active!</h1>
               <p className="text-muted-foreground">
