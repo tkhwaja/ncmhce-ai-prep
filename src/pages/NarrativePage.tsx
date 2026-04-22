@@ -1,6 +1,6 @@
 import { useState, useEffect, useMemo, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getNarrativeById, totalQuestionCount, NARRATIVE_DOMAINS } from "@/data/narratives";
+import { getNarrativeById, getNarrativeSectionMinutes, totalQuestionCount, NARRATIVE_DOMAINS } from "@/data/narratives";
 import type { NarrativeQuestion } from "@/data/narratives";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
@@ -36,7 +36,7 @@ const NarrativePage = () => {
   const { user } = useAuth();
   const narrative = getNarrativeById(id);
 
-  const minutesPerSection = narrative?.minutesPerSection ?? 20;
+  const minutesPerSection = narrative ? getNarrativeSectionMinutes(narrative) : 7;
   const sectionDuration = minutesPerSection * 60;
 
   // Flat continuous list of questions across all sections (for numbering, results)

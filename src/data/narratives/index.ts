@@ -23,6 +23,7 @@ import { safiyaSchizophreniform } from "./21-safiya-schizophreniform";
 
 export type { Narrative, NarrativeSection, NarrativeQuestion, NarrativeDomain, NarrativeClientInfo } from "./types";
 export { NARRATIVE_DOMAINS, totalQuestionCount } from "./types";
+export { getNarrativeSectionMinutes, getNarrativeTotalMinutes } from "./timing";
 
 export const narratives: Narrative[] = [
   priyaGad,
