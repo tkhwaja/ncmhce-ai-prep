@@ -1,4 +1,4 @@
-import WaitlistForm from "./WaitlistForm";
+import FreeDiagnosticCTA from "./FreeDiagnosticCTA";
 import { ArrowDown } from "lucide-react";
 
 const HeroSection = () => {
@@ -13,28 +13,25 @@ const HeroSection = () => {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           {/* Left: Copy */}
           <div className="animate-fade-up">
-            <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium text-primary mb-6">
+              <div className="inline-flex items-center gap-2 rounded-full border border-primary/20 bg-primary/5 px-4 py-1.5 text-xs font-medium text-primary mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              Built to Feel Like the Real Exam
+                Built to Feel Like the Real Exam
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-foreground mb-6">
-              Realistic NCMHCE simulations.
-              <span className="text-gradient"> Real exam confidence.</span>
+                See where you stand before the exam.
+                <span className="text-gradient"> Think through one real case first.</span>
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-8 leading-relaxed">
-              Practice with 14+ realistic clinical narratives, a full-length timed exam,
-              domain-based review, and a DSM-5-TR library — with AI available only when you
-              want extra support.
+                Most people miss the NCMHCE because they never learn how to reason through cases under pressure.
+                Take a full diagnostic case, get your breakdown after you finish, and see exactly what to tighten before test day.
             </p>
 
-            <div className="max-w-md mb-4">
-              <WaitlistForm />
-            </div>
+              <FreeDiagnosticCTA className="mb-4" />
 
             <p className="text-xs text-muted-foreground">
-              Join for launch updates, beta invites, and founding-user perks.
+                Realistic pacing, exam-style layout, and a full results breakdown after completion.
             </p>
           </div>
 
