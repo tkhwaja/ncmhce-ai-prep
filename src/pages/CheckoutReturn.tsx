@@ -25,12 +25,12 @@ const CheckoutReturn = () => {
         <CardContent className="p-8 text-center space-y-4">
           {sessionId ? (
             <>
-              <div className="h-16 w-16 rounded-full bg-green-100 flex items-center justify-center mx-auto">
-                <CheckCircle className="h-8 w-8 text-green-600" />
+              <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
+                <CheckCircle className="h-8 w-8 text-primary" />
               </div>
-              <h1 className="text-2xl font-bold text-foreground">Payment Successful!</h1>
+              <h1 className="text-2xl font-bold text-foreground">Subscription Active!</h1>
               <p className="text-muted-foreground">
-                Your account has been upgraded. You now have full access to all features.
+                Your subscription is now active and your account has full access to all premium features.
               </p>
               <Button onClick={() => navigate("/dashboard")} className="w-full">
                 Go to Dashboard
