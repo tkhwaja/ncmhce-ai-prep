@@ -9,10 +9,6 @@ const PaidFeatureGate = ({ children, feature }: { children: React.ReactNode; fea
   const { hasAccess, loading } = useSubscription();
   const navigate = useNavigate();
 
-  // TESTING: paywall temporarily disabled — all authenticated users have full access
-  return <>{children}</>;
-
-  // eslint-disable-next-line no-unreachable
   if (loading) {
     return <div className="p-6 text-center text-sm text-muted-foreground">Loading…</div>;
   }
@@ -34,7 +30,7 @@ const PaidFeatureGate = ({ children, feature }: { children: React.ReactNode; fea
             study plans, and tools.
           </p>
           <div className="flex gap-3 justify-center">
-            <Button onClick={() => navigate("/checkout")}>Subscribe — $129.95/month</Button>
+            <Button onClick={() => navigate("/checkout")}>Subscribe — $79/month</Button>
             <Button variant="outline" onClick={() => navigate("/dashboard")}>
               Back to Dashboard
             </Button>
