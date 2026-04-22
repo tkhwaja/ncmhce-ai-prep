@@ -14,6 +14,8 @@ import { miguelSocialAnxiety } from "./12-miguel-social-anxiety";
 import { marisolPtsd } from "./13-marisol-ptsd";
 import { claudetteHoarding } from "./14-claudette-hoarding";
 import { rowenaAdhd } from "./15-rowena-adhd";
+import { leilaAutism } from "./16-leila-autism";
+import { soniaSomaticSymptom } from "./17-sonia-somatic-symptom";
 
 export type { Narrative, NarrativeSection, NarrativeQuestion, NarrativeDomain, NarrativeClientInfo } from "./types";
 export { NARRATIVE_DOMAINS, totalQuestionCount } from "./types";
@@ -34,6 +36,8 @@ export const narratives: Narrative[] = [
   marisolPtsd,
   claudetteHoarding,
   rowenaAdhd,
+  leilaAutism,
+  soniaSomaticSymptom,
 ];
 
 export const getNarrativeById = (id: string | undefined): Narrative | undefined =>
