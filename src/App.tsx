@@ -71,7 +71,7 @@ const App = () => (
                 <Route path="/study-plan" element={<PaidFeatureGate feature="Study Plan"><StudyPlan /></PaidFeatureGate>} />
                 <Route path="/analytics" element={<PaidFeatureGate feature="Analytics"><Analytics /></PaidFeatureGate>} />
                 <Route path="/flashcards" element={<PaidFeatureGate feature="Flashcards"><Flashcards /></PaidFeatureGate>} />
-                <Route path="/library" element={<PaidFeatureGate feature="Learning Library"><Library /></PaidFeatureGate>} />
+                <Route path="/library" element={<Library />} />
                 <Route path="/tools" element={<PaidFeatureGate feature="Study Tools"><Tools /></PaidFeatureGate>} />
               </Route>
 
