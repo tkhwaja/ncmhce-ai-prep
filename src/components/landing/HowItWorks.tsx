@@ -1,10 +1,10 @@
-import { UserPlus, BrainCircuit, Target, TrendingUp } from "lucide-react";
+import { ClipboardCheck, BrainCircuit, LockKeyhole, TrendingUp } from "lucide-react";
 
 const steps = [
-  { icon: UserPlus, title: "Create Your Account", desc: "Sign up and set your target exam date, study hours, and focus areas." },
-  { icon: BrainCircuit, title: "Practice with Narratives", desc: "Work through realistic clinical case narratives that mirror the pacing and structure of the exam." },
-  { icon: Target, title: "Review & Improve", desc: "See domain-level feedback, revisit missed decisions, and tighten weak areas before test day." },
-  { icon: TrendingUp, title: "Pass with Confidence", desc: "Take full-length practice exams and track your progress until exam day." },
+  { icon: ClipboardCheck, title: "Take the free diagnostic case", desc: "Start one full exam-style case and experience the same layout, pacing, and case flow as the platform." },
+  { icon: LockKeyhole, title: "Unlock your breakdown", desc: "After you finish, enter your full name and email to reveal your score, missed questions, and detailed review." },
+  { icon: BrainCircuit, title: "See exactly what to fix", desc: "Use the domain breakdown, rationale review, and one-page strategy sheet to identify how your reasoning needs to improve." },
+  { icon: TrendingUp, title: "Move into full prep", desc: "Step into 20+ narratives, full-length exams, and ongoing weekly case drops once you’re ready for the full platform." },
 ];
 
 const HowItWorks = () => (
@@ -13,7 +13,7 @@ const HowItWorks = () => (
       <div className="text-center mb-14">
         <p className="text-sm font-medium text-primary uppercase tracking-wider mb-3">How It Works</p>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-          Train the Way You'll Be Tested
+          Train the way you’ll be tested
         </h2>
       </div>
 

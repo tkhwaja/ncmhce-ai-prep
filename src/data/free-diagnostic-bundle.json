@@ -1,0 +1,308 @@
+{
+  "bundleName": "ncmhce_freebie_bundle",
+  "version": "1.0",
+  "description": "Free full-length narrative plus 1-page NCMHCE answer strategy cheat sheet for lead capture and product preview.",
+  "freeNarrative": {
+    "id": "free-diagnostic-case-tessa-gad",
+    "title": "Free Diagnostic Case — Tessa (Generalized Anxiety Disorder)",
+    "difficulty": "intermediate",
+    "estimatedTimeMinutes": 22,
+    "recommendedTimeBySectionMinutes": {
+      "firstSection": 8,
+      "secondSection": 8,
+      "thirdSection": 6
+    },
+    "clientInfo": {
+      "age": 29,
+      "sexAssignedAtBirth": "Female",
+      "genderIdentity": "Cisgender Female",
+      "pronouns": "She/her",
+      "sexualOrientation": "Heterosexual",
+      "raceEthnicity": "White",
+      "relationshipStatus": "Engaged",
+      "setting": "Outpatient private practice",
+      "payment": "Private insurance",
+      "typeOfCounseling": "Individual",
+      "provisionalDiagnosis": "Generalized Anxiety Disorder: F41.1"
+    },
+    "presentingProblem": "You are a licensed mental health counselor in outpatient private practice. Your client self-referred after searching online for therapy late one night. She stated, \"I’m not in crisis exactly. I’m just exhausted from being myself.\"\n\nThe client is a 29-year-old marketing project manager who reported chronic, difficult-to-control worry across multiple areas of her life, including work performance, her upcoming wedding, her father’s health, finances, and whether people are disappointed in her. She stated, \"My brain acts like every problem is urgent and every mistake is permanent.\" She reported that this pattern has been present since adolescence but has worsened over the past eight months after being promoted into a role that involves supervising others.\n\nShe now checks emails repeatedly before sending them, rereads Slack messages to see whether she sounded rude, and mentally replays meetings at night. She stated, \"If my boss says, 'Can we talk tomorrow,' I assume I’m getting fired. Then I spend twelve hours preparing for every possible disaster.\" She reported fatigue, irritability, muscle tension in her shoulders and jaw, difficulty concentrating, restlessness, and sleep disturbance. She stated that she can fall asleep but wakes around 3:00 a.m. thinking about unfinished tasks or possible future problems.\n\nShe reported feeling embarrassed that she appears competent externally while feeling \"like a fraud with a nervous system problem\" internally. Her fiancé has encouraged therapy because she becomes tearful, snappy, and withdrawn during periods of high stress. She denied panic attacks, though she described several moments of feeling \"right on the edge of losing it\" during which her chest feels tight and she fears she may cry at work. When asked what she means by \"losing it,\" she stated, \"Not like I’m going to hurt myself or someone else. More like I’m going to stop being able to keep all the plates spinning and everyone will see I’m not okay.\"\n\nShe denied any history of self-harm, suicide attempts, mania, psychosis, or substance misuse. She drinks one to two glasses of wine on weekends and denied other substances. She denied trauma history beyond what she described as growing up with a father who was loving but unpredictable because of untreated diabetes and periodic hospitalizations. She stated, \"I learned early that if I stayed prepared, things felt less scary.\"\n\nShe reported that her mother was \"a worrier too\" and often asked her as a child whether doors were locked, assignments were done, or if something bad might happen to her father. The client stated that friends describe her as dependable, organized, and driven, but she experiences those same qualities as \"fear dressed up as competence.\" She came to treatment now because she is tired of feeling physically tense all the time and because she worries that marriage, future parenthood, and increasing work responsibility will make her symptoms worse.",
+    "mentalStatusObservation": "Your client presented in neat business attire and appeared her stated age. She was alert and fully oriented to person, place, time, and situation. Grooming and hygiene were good. Eye contact was consistent. Speech was clear, coherent, and mildly fast at times, especially when discussing work stress. Mood was reported as \"stressed all the time.\" Affect was anxious but appropriate and reactive. Psychomotor activity was notable for fidgeting with her ring and periodically rubbing the back of her neck.\n\nThought processes were linear, logical, and goal-directed, though notably preoccupied with future-oriented worry. Thought content reflected fear of failure, perfectionism, and anticipatory anxiety. There was no evidence of delusions, hallucinations, or formal thought disorder. She denied current suicidal or homicidal ideation. Insight was fair to good; she recognized that her worry is excessive but reported feeling unable to shut it off. Judgment appeared intact. She denied substance misuse. She reported chronic shoulder tension, jaw clenching, headaches, and nonrestorative sleep but no acute medical concerns.",
+    "familyHistory": "The client is the older of two daughters. She described her mother as loving, highly responsible, and chronically anxious, though never formally diagnosed. Her father is a retired electrician with longstanding diabetes that was poorly managed during the client’s childhood, resulting in several frightening hospitalizations. She reported that the family often organized itself around preventing crises. She described no family history of bipolar disorder, schizophrenia, or completed suicide. Her younger sister has seen a therapist for panic symptoms in college. The client remains close with both parents and her sister, though she often feels cast in the role of \"the capable one.\" ",
+    "workHistory": "The client earned a bachelor’s degree in communications and has worked in marketing and project coordination roles for the past seven years. She was promoted eight months ago to project manager at a mid-sized healthcare technology company. She supervises three direct reports and coordinates deadlines across multiple departments. Her performance reviews have been strong, but she reported spending excessive time checking work, preparing for unlikely problems, and trying to anticipate others’ needs. She has not disclosed mental health concerns at work and worries that doing so would make her appear weak or incapable.",
+    "intakeSessionSummary": "You completed a thorough intake and administered the GAD-7, on which the client scored 16, consistent with severe anxiety symptoms. You also administered the PHQ-9, on which she scored 9, reflecting mild depressive symptoms likely secondary to chronic anxiety and poor sleep. You conducted a direct risk assessment in response to her statement about feeling near the edge of \"losing it\"; she denied suicidal ideation, self-harm urges, homicidal ideation, and history of attempts.\n\nYou discussed the diagnosis of Generalized Anxiety Disorder and reviewed evidence-based treatment options, including CBT, worry monitoring, cognitive restructuring, behavioral experiments, and relaxation training. You normalized that high-functioning anxiety can still create meaningful impairment and physical distress. The client expressed relief at feeling understood and stated, \"I thought therapy might tell me to just calm down better. This feels more specific than that.\" You scheduled weekly sessions and provided a worry log for the week.",
+    "sections": [
+      {
+        "sessionLabel": "First session",
+        "sectionNarrative": "",
+        "recommendedTimeMinutes": 8,
+        "questions": [
+          {
+            "id": "tessa-q1",
+            "questionNumber": 1,
+            "domain": "Intake/assessment/diagnosis",
+            "stem": "The client says she feels close to 'losing it.' What is the most appropriate immediate response?",
+            "options": [
+              "Reassure her that this is just anxiety",
+              "Clarify what she means and assess for safety",
+              "Teach grounding right away",
+              "Shift to discussing work stress"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Ambiguous statements about losing control should be clarified rather than assumed. Directly assessing what she means and whether there is any risk is the most clinically appropriate next step."
+          },
+          {
+            "id": "tessa-q2",
+            "questionNumber": 2,
+            "domain": "Core counseling attributes",
+            "stem": "The client states, 'I’m exhausted from being myself.' What is the most therapeutic response?",
+            "options": [
+              "What has it been like carrying this level of tension for so long?",
+              "You need better stress management.",
+              "At least you came before it became severe.",
+              "Many people feel that way in demanding jobs."
+            ],
+            "correctAnswer": 0,
+            "explanation": "An empathic, exploratory response deepens the client’s experience without minimizing it. Advice, reassurance, or normalization too early can miss the emotional meaning of her statement."
+          },
+          {
+            "id": "tessa-q3",
+            "questionNumber": 3,
+            "domain": "Intake/assessment/diagnosis",
+            "stem": "Which diagnosis best fits the client’s presentation at intake?",
+            "options": [
+              "Panic Disorder",
+              "Generalized Anxiety Disorder",
+              "Obsessive-Compulsive Disorder",
+              "Adjustment Disorder with anxiety"
+            ],
+            "correctAnswer": 1,
+            "explanation": "The client presents with pervasive, difficult-to-control worry across multiple domains for years, along with tension, restlessness, fatigue, irritability, and poor concentration, which is most consistent with Generalized Anxiety Disorder."
+          },
+          {
+            "id": "tessa-q4",
+            "questionNumber": 4,
+            "domain": "Treatment planning",
+            "stem": "What is the most appropriate initial treatment approach for this client?",
+            "options": [
+              "CBT focused on worry monitoring and cognitive-behavioral skills",
+              "Immediate referral for trauma processing",
+              "Insight-oriented exploration of childhood only",
+              "Supportive therapy without structured interventions"
+            ],
+            "correctAnswer": 0,
+            "explanation": "CBT is a first-line treatment for GAD and fits the client’s presentation well. While developmental themes may matter, the initial plan should include structured, evidence-based strategies targeting chronic worry."
+          },
+          {
+            "id": "tessa-q5",
+            "questionNumber": 5,
+            "domain": "Counseling skills and interventions",
+            "stem": "The client reports replaying conversations at night to see whether she sounded rude. This pattern is best understood as:",
+            "options": [
+              "A delusional belief",
+              "Rumination and anxiety-driven mental review",
+              "A dissociative symptom",
+              "A manic symptom"
+            ],
+            "correctAnswer": 1,
+            "explanation": "The client’s repetitive post-event mental review is a common anxiety-maintaining process. It reflects rumination and reassurance-seeking through internal analysis, not psychosis, dissociation, or mania."
+          }
+        ]
+      },
+      {
+        "sessionLabel": "Fourth session",
+        "sectionNarrative": "Your client arrived on time and completed the worry log consistently. Her GAD-7 this week is 13, down from 16 at intake. She reported that identifying her worry themes has been helpful but also \"humbling\" because she had not realized how often she catastrophizes. She stated, \"I can turn literally anything into a five-step disaster scenario in under thirty seconds.\"\n\nShe described one recent example: her fiancé did not answer a text for two hours while at work, and she went from mild concern to imagining he had been in a car accident or had changed his mind about their relationship. By the time he called back, she was angry, tearful, and ashamed. She stated, \"He was just in a meeting. I acted like I had survived a crisis that never happened.\"\n\nShe also reported increased awareness of how much reassurance she seeks from others, especially her fiancé and her mother. She asks whether they are upset, whether things are okay, and whether she handled situations correctly. She stated, \"It helps for ten minutes, then I need it again.\"\n\nAt work, she has begun experimenting with sending emails after one review instead of four and has found that \"nothing catastrophic happened,\" though she still feels highly tense when doing it. She asked you directly, \"How do I stop needing certainty all the time? Because I know that’s what I’m really chasing.\" ",
+        "recommendedTimeMinutes": 8,
+        "questions": [
+          {
+            "id": "tessa-q6",
+            "questionNumber": 6,
+            "domain": "Counseling skills and interventions",
+            "stem": "The client asks how to stop needing certainty all the time. What is the most useful clinical focus?",
+            "options": [
+              "Help her build tolerance for uncertainty and reduce reassurance-seeking",
+              "Tell her certainty is impossible and she must accept that",
+              "Encourage her fiancé to reassure her more consistently",
+              "Shift to discussing her childhood only"
+            ],
+            "correctAnswer": 0,
+            "explanation": "A central maintaining factor in GAD is intolerance of uncertainty. Treatment often includes reducing reassurance-seeking and helping clients tolerate not knowing without compulsively trying to resolve uncertainty."
+          },
+          {
+            "id": "tessa-q7",
+            "questionNumber": 7,
+            "domain": "Intake/assessment/diagnosis",
+            "stem": "The fact that reassurance helps only briefly before the worry returns most strongly suggests:",
+            "options": [
+              "The reassurance is ineffective because her fiancé is giving it wrong",
+              "The reassurance is functioning as a maintaining factor in the anxiety cycle",
+              "The client actually has psychosis",
+              "The relationship is the primary problem"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Brief relief followed by renewed anxiety is characteristic of reassurance-seeking as a maintaining process. It reduces distress short term but reinforces the idea that certainty is needed to feel safe."
+          },
+          {
+            "id": "tessa-q8",
+            "questionNumber": 8,
+            "domain": "Core counseling attributes",
+            "stem": "The client says, 'I acted like I survived a crisis that never happened.' What is the most therapeutic response?",
+            "options": [
+              "You’re being too hard on yourself.",
+              "What was happening inside you in those two hours before he called back?",
+              "That was irrational, but you know that now.",
+              "You should apologize and move on."
+            ],
+            "correctAnswer": 1,
+            "explanation": "An exploratory question helps the client understand the emotional and cognitive chain that escalated the anxiety. Reassurance, criticism, or advice risks shutting down meaningful reflection."
+          },
+          {
+            "id": "tessa-q9",
+            "questionNumber": 9,
+            "domain": "Treatment planning",
+            "stem": "The client has begun sending emails after one review instead of four. This intervention is best understood as:",
+            "options": [
+              "A relaxation strategy",
+              "A behavioral experiment targeting perfectionistic anxiety",
+              "A trauma narrative technique",
+              "A psychodynamic interpretation"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Reducing repeated checking and observing the outcome is a behavioral experiment. It helps test catastrophic predictions and weaken anxiety-maintaining perfectionistic habits."
+          },
+          {
+            "id": "tessa-q10",
+            "questionNumber": 10,
+            "domain": "Professional practice and ethics",
+            "stem": "The client’s fiancé emails you asking how he can best help her between sessions. What is the most appropriate response?",
+            "options": [
+              "Reply with specific advice since he is her support system",
+              "Invite him into treatment immediately",
+              "Discuss the request with the client first and obtain consent before any collaboration",
+              "Ignore the email to protect confidentiality"
+            ],
+            "correctAnswer": 2,
+            "explanation": "Even well-intended support involvement requires the client’s consent. The clinician should discuss the request with the client and clarify boundaries before sharing information or involving the fiancé."
+          }
+        ]
+      },
+      {
+        "sessionLabel": "Tenth session",
+        "sectionNarrative": "Your client arrived for her tenth session reporting meaningful improvement. Her GAD-7 score is now 8. She stated, \"I still worry, but it doesn’t run the whole day anymore.\" She has been sleeping better on most nights and reports fewer headaches and less jaw tension.\n\nShe described a recent success: her supervisor scheduled a last-minute meeting, and although she noticed the familiar thought that she might be in trouble, she used the cognitive and behavioral strategies you had practiced rather than spiraling into all-night worry. The meeting turned out to be about a new project lead opportunity.\n\nShe also reported a more difficult moment from the previous weekend. Her father had a hypoglycemic episode at home and briefly scared the family. The client noticed herself immediately reverting to old roles — taking charge, overfunctioning, and mentally preparing for every possible medical outcome. She stated, \"For two days it felt like I was fourteen again and the whole job was to hold everything together.\"\n\nShe was able to notice the pattern, name it, and use paced breathing and scheduled worry time, but she felt discouraged that the old intensity returned so quickly. She asked, \"Does this mean I’m back at square one whenever real life happens?\" ",
+        "recommendedTimeMinutes": 6,
+        "questions": [
+          {
+            "id": "tessa-q11",
+            "questionNumber": 11,
+            "domain": "Core counseling attributes",
+            "stem": "The client worries that a spike in symptoms means she is 'back at square one.' What is the most therapeutic response?",
+            "options": [
+              "No, this proves therapy is working.",
+              "Setbacks are normal. Let’s look at what you did differently this time.",
+              "You’re overreacting to one bad week.",
+              "We may need to change the diagnosis."
+            ],
+            "correctAnswer": 1,
+            "explanation": "The most helpful response normalizes symptom fluctuation while drawing attention to the client’s increased awareness and coping. This strengthens self-efficacy without offering empty reassurance."
+          },
+          {
+            "id": "tessa-q12",
+            "questionNumber": 12,
+            "domain": "Counseling skills and interventions",
+            "stem": "The client’s response to her father’s medical episode is best conceptualized as:",
+            "options": [
+              "Evidence that the treatment failed",
+              "A cue-based reactivation of longstanding anxiety and family-role patterns",
+              "A manic shift under stress",
+              "A psychotic decompensation"
+            ],
+            "correctAnswer": 1,
+            "explanation": "Stressful real-world events can reactivate old anxiety patterns, especially when they connect to longstanding family roles and fears. This does not mean treatment failed; it offers meaningful material for relapse prevention."
+          },
+          {
+            "id": "tessa-q13",
+            "questionNumber": 13,
+            "domain": "Treatment planning",
+            "stem": "What is the most appropriate next phase of treatment for this client?",
+            "options": [
+              "Immediate termination because she has improved",
+              "Relapse prevention and consolidation of skills",
+              "Referral for inpatient treatment",
+              "Switch exclusively to family therapy"
+            ],
+            "correctAnswer": 1,
+            "explanation": "As symptoms improve, treatment should shift toward consolidating gains, identifying warning signs, and creating a relapse prevention plan. Immediate termination or escalation of care is not indicated here."
+          },
+          {
+            "id": "tessa-q14",
+            "questionNumber": 14,
+            "domain": "Counseling skills and interventions",
+            "stem": "Which statement best captures a key lesson this client is learning in treatment?",
+            "options": [
+              "Anxiety disappears once life becomes stable",
+              "If she worries enough, she can prevent bad outcomes",
+              "She can experience uncertainty without immediately trying to solve it",
+              "Other people should protect her from stress"
+            ],
+            "correctAnswer": 2,
+            "explanation": "A central treatment goal in GAD is learning to tolerate uncertainty without compulsive mental problem-solving. This reflects a durable shift in how the client relates to anxiety rather than simply reducing surface symptoms."
+          }
+        ]
+      }
+    ]
+  },
+  "cheatSheet": {
+    "title": "NCMHCE Answer Strategy Cheat Sheet",
+    "format": "one_page",
+    "sections": [
+      {
+        "heading": "The Golden Rule",
+        "content": [
+          "Safety -> Rapport -> Least Assumptive -> Within Scope"
+        ]
+      },
+      {
+        "heading": "4-Step Decision Framework",
+        "content": [
+          "1. Check safety first: suicidal ideation, homicidal ideation, psychosis, abuse, severe impairment, or medical risk move to the front.",
+          "2. Early in the case, prioritize reflection, clarification, and assessment over advice or interpretation.",
+          "3. If the client asks what to do, explore meaning and context before jumping to direction.",
+          "4. When two answers seem right, choose the one that is more exploratory, less assumptive, and more client-centered."
+        ]
+      },
+      {
+        "heading": "Most Common Test Traps",
+        "content": [
+          "Giving advice too early.",
+          "Missing safety because the client sounds calm or vague.",
+          "Jumping to diagnosis before enough information is gathered.",
+          "Choosing an answer that acts outside counselor scope.",
+          "Picking the answer that sounds most active instead of most clinically appropriate."
+        ]
+      },
+      {
+        "heading": "Rapid Pattern Recognition",
+        "content": [
+          "GAD = chronic, diffuse worry across domains.",
+          "Panic Disorder = sudden surges of fear plus catastrophic interpretation of body sensations.",
+          "MDD = depressed mood and/or loss of interest with functional impairment.",
+          "Bipolar spectrum = episodic mood shifts, especially decreased need for sleep and increased energy.",
+          "PTSD = trauma exposure plus intrusion, avoidance, and threat-related symptoms.",
+          "OCD = obsessions plus compulsions aimed at reducing distress or preventing feared outcomes."
+        ]
+      },
+      {
+        "heading": "When Two Answers Both Look Good",
+        "content": [
+          "Pick the answer that builds alliance, gathers more information, and stays inside the counselor’s role.",
+          "Avoid answers that overpromise, overinterpret, or skip steps."
+        ]
+      },
+      {
+        "heading": "Final Reminder",
+        "content": [
+          "You are not trying to sound smart. You are trying to think like a careful, ethical, entry-level clinician."
+        ]
+      }
+    ]
+  }
+}

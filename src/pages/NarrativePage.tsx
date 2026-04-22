@@ -1,6 +1,12 @@
 import { useState, useEffect, useMemo, useRef } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getNarrativeById, getNarrativeSectionMinutes, totalQuestionCount, NARRATIVE_DOMAINS } from "@/data/narratives";
+import { z } from "zod";
+import {
+  getNarrativeById,
+  getNarrativeSectionMinutesAt,
+  totalQuestionCount,
+  NARRATIVE_DOMAINS,
+} from "@/data/narratives";
 import type { NarrativeQuestion } from "@/data/narratives";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
@@ -11,17 +17,28 @@ import { Progress } from "@/components/ui/progress";
 import { RadioGroup, RadioGroupItem } from "@/components/ui/radio-group";
 import { Label } from "@/components/ui/label";
 import { ScrollArea } from "@/components/ui/scroll-area";
+import { Input } from "@/components/ui/input";
 import {
   AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent,
   AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle,
 } from "@/components/ui/alert-dialog";
 import {
   Clock, ChevronRight, ChevronLeft, CheckCircle2, XCircle,
-  RotateCcw, ArrowRight, LayoutDashboard,
+  RotateCcw, ArrowRight, LayoutDashboard, Mail, UnlockKeyhole,
 } from "lucide-react";
 import NarrativeReviewChat from "@/components/NarrativeReviewChat";
 
 type Phase = "answering" | "section-summary" | "results" | "review";
+
+interface NarrativePageProps {
+  narrativeIdOverride?: string;
+  publicMode?: boolean;
+}
+
+const leadSchema = z.object({
+  fullName: z.string().trim().min(2, "Enter your full name.").max(120, "Name is too long."),
+  email: z.string().trim().email("Enter a valid email address.").max(255, "Email is too long."),
+});
 
 const formatTime = (s: number) => {
   const abs = Math.max(0, s);
@@ -30,37 +47,50 @@ const formatTime = (s: number) => {
   return `${String(m).padStart(2, "0")}:${String(sec).padStart(2, "0")}`;
 };
 
-const NarrativePage = () => {
+const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePageProps) => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { user } = useAuth();
-  const narrative = getNarrativeById(id);
+  const narrative = getNarrativeById(narrativeIdOverride ?? id);
 
-  const minutesPerSection = narrative ? getNarrativeSectionMinutes(narrative) : 7;
-  const sectionDuration = minutesPerSection * 60;
-
-  // Flat continuous list of questions across all sections (for numbering, results)
   const allQuestions = useMemo<NarrativeQuestion[]>(
     () => (narrative ? narrative.sections.flatMap((s) => s.questions) : []),
-    [narrative]
+    [narrative],
   );
 
   const [phase, setPhase] = useState<Phase>("answering");
   const [sectionIndex, setSectionIndex] = useState(0);
   const [questionIndexInSection, setQuestionIndexInSection] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
-  const [secondsRemaining, setSecondsRemaining] = useState(sectionDuration);
+  const [secondsRemaining, setSecondsRemaining] = useState(
+    narrative ? getNarrativeSectionMinutesAt(narrative, 0) * 60 : 420,
+  );
   const [timerExpired, setTimerExpired] = useState(false);
   const [showExpiryDialog, setShowExpiryDialog] = useState(false);
   const dialogShownRef = useRef(false);
   const [submitting, setSubmitting] = useState(false);
   const [reviewQuestionGlobalIndex, setReviewQuestionGlobalIndex] = useState(0);
   const [attemptId, setAttemptId] = useState<string | null>(null);
-  const [loadingDraft, setLoadingDraft] = useState(true);
+  const [loadingDraft, setLoadingDraft] = useState(!publicMode);
+  const [leadOpen, setLeadOpen] = useState(false);
+  const [leadSubmitted, setLeadSubmitted] = useState(false);
+  const [leadLoading, setLeadLoading] = useState(false);
+  const [leadError, setLeadError] = useState("");
+  const [leadForm, setLeadForm] = useState({ fullName: "", email: "" });
 
-  // Load saved draft on mount
+  const sectionDuration = narrative ? getNarrativeSectionMinutesAt(narrative, sectionIndex) * 60 : 420;
+
   useEffect(() => {
-    if (!user || !narrative) { setLoadingDraft(false); return; }
+    if (publicMode) {
+      setLoadingDraft(false);
+      return;
+    }
+
+    if (!user || !narrative) {
+      setLoadingDraft(false);
+      return;
+    }
+
     supabase
       .from("narrative_attempts")
       .select("id, dm_answers, completed_at")
@@ -72,12 +102,10 @@ const NarrativePage = () => {
         if (data && data.length > 0) {
           const latest = data[0];
           if (!latest.completed_at) {
-            // Resume draft
             setAttemptId(latest.id);
             const saved = latest.dm_answers as Record<string, number>;
             if (saved && typeof saved === "object") {
               setAnswers(saved);
-              // Figure out which section/question to resume at
               const sections = narrative.sections;
               for (let si = sections.length - 1; si >= 0; si--) {
                 const qs = sections[si].questions;
@@ -85,7 +113,7 @@ const NarrativePage = () => {
                 if (answeredInSection.length > 0) {
                   setSectionIndex(si);
                   const lastAnsweredIdx = qs.findIndex(
-                    (q) => q.id === answeredInSection[answeredInSection.length - 1].id
+                    (q) => q.id === answeredInSection[answeredInSection.length - 1].id,
                   );
                   setQuestionIndexInSection(Math.min(lastAnsweredIdx + 1, qs.length - 1));
                   break;
@@ -96,12 +124,11 @@ const NarrativePage = () => {
         }
         setLoadingDraft(false);
       });
-  }, [user, narrative]);
+  }, [user, narrative, publicMode]);
 
-  // Auto-save answers to DB on change
   const saveTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
   useEffect(() => {
-    if (!user || !narrative || phase === "results" || phase === "review") return;
+    if (publicMode || !user || !narrative || phase === "results" || phase === "review") return;
     if (Object.keys(answers).length === 0) return;
 
     clearTimeout(saveTimeoutRef.current);
@@ -109,7 +136,7 @@ const NarrativePage = () => {
       if (attemptId) {
         await supabase
           .from("narrative_attempts")
-          .update({ dm_answers: answers as any })
+          .update({ dm_answers: answers as never })
           .eq("id", attemptId);
       } else {
         const { data } = await supabase
@@ -118,7 +145,7 @@ const NarrativePage = () => {
             user_id: user.id,
             narrative_id: narrative.id,
             ig_selections: [],
-            dm_answers: answers as any,
+            dm_answers: answers as never,
             domain_scores: {},
             total_score: null,
             completed_at: null,
@@ -130,18 +157,16 @@ const NarrativePage = () => {
     }, 1500);
 
     return () => clearTimeout(saveTimeoutRef.current);
-  }, [answers, user, narrative, attemptId, phase]);
+  }, [answers, user, narrative, attemptId, phase, publicMode]);
 
-  // Reset timer when entering a new section
   useEffect(() => {
-    if (phase === "answering") {
-      setSecondsRemaining(sectionDuration);
+    if (phase === "answering" && narrative) {
+      setSecondsRemaining(getNarrativeSectionMinutesAt(narrative, sectionIndex) * 60);
       setTimerExpired(false);
       dialogShownRef.current = false;
     }
-  }, [phase, sectionIndex, sectionDuration]);
+  }, [phase, sectionIndex, narrative]);
 
-  // Countdown
   useEffect(() => {
     if (phase !== "answering") return;
     const interval = setInterval(() => {
@@ -167,7 +192,7 @@ const NarrativePage = () => {
         ) : (
           <>
             <p className="text-muted-foreground">Narrative not found.</p>
-            <Button onClick={() => navigate("/narratives")} className="mt-4">Back to Narratives</Button>
+            <Button onClick={() => navigate(publicMode ? "/" : "/narratives")} className="mt-4">Back</Button>
           </>
         )}
       </div>
@@ -178,8 +203,6 @@ const NarrativePage = () => {
   const currentSection = narrative.sections[sectionIndex];
   const currentQuestion = currentSection.questions[questionIndexInSection];
   const globalQuestionNumber = currentQuestion?.questionNumber ?? 1;
-
-  // Visible right-panel sections: section 0 always visible; section 1, 2 visible only once unlocked.
   const visibleSectionIndex = phase === "review" ? narrative.sections.length - 1 : sectionIndex;
 
   const handleSelectAnswer = (qid: string, optionIndex: number) => {
@@ -195,16 +218,6 @@ const NarrativePage = () => {
       setQuestionIndexInSection(questionIndexInSection + 1);
     } else {
       setPhase("section-summary");
-    }
-  };
-
-  const confirmAndContinue = () => {
-    if (sectionIndex < narrative.sections.length - 1) {
-      setSectionIndex(sectionIndex + 1);
-      setQuestionIndexInSection(0);
-      setPhase("answering");
-    } else {
-      void submitNarrative();
     }
   };
 
@@ -233,13 +246,13 @@ const NarrativePage = () => {
       domainScores[d] = total > 0 ? Math.round((correct / total) * 100) : 0;
     });
 
-    if (user) {
+    if (!publicMode && user) {
       const completedAt = new Date().toISOString();
       const payload = {
-        dm_answers: answers as any,
-        domain_scores: domainScores as any,
+        dm_answers: answers as never,
+        domain_scores: domainScores as never,
         total_score: totalScore,
-        time_spent: sectionDuration * narrative.sections.length - secondsRemaining,
+        time_spent: narrative.sections.reduce((sum, _, idx) => sum + getNarrativeSectionMinutesAt(narrative, idx) * 60, 0) - secondsRemaining,
         completed_at: completedAt,
       };
 
@@ -254,8 +267,19 @@ const NarrativePage = () => {
         });
       }
     }
+
     setPhase("results");
     setSubmitting(false);
+  };
+
+  const confirmAndContinue = () => {
+    if (sectionIndex < narrative.sections.length - 1) {
+      setSectionIndex(sectionIndex + 1);
+      setQuestionIndexInSection(0);
+      setPhase("answering");
+    } else {
+      void submitNarrative();
+    }
   };
 
   const handleRetry = () => {
@@ -265,18 +289,75 @@ const NarrativePage = () => {
     setPhase("answering");
     setAttemptId(null);
     setTimerExpired(false);
-    setSecondsRemaining(sectionDuration);
+    setSecondsRemaining(getNarrativeSectionMinutesAt(narrative, 0) * 60);
     dialogShownRef.current = false;
+    setLeadOpen(false);
+    setLeadSubmitted(false);
+    setLeadError("");
+    setLeadForm({ fullName: "", email: "" });
+  };
+
+  const handleLeadSubmit = async () => {
+    const parsed = leadSchema.safeParse(leadForm);
+    if (!parsed.success) {
+      const fieldErrors = parsed.error.flatten().fieldErrors;
+      setLeadError(fieldErrors.fullName?.[0] ?? fieldErrors.email?.[0] ?? "Please check your details.");
+      return;
+    }
+
+    const results = calculateResults();
+    const answerBreakdown = allQuestions.map((q) => ({
+      questionId: q.id,
+      questionNumber: q.questionNumber,
+      domain: q.domain,
+      prompt: q.stem,
+      selectedAnswer: q.options[answers[q.id]] ?? "No answer selected",
+      correctAnswer: q.options[q.correctAnswer],
+      explanation: q.explanation,
+      isCorrect: answers[q.id] === q.correctAnswer,
+    }));
+    const domainScores: Record<string, number> = {};
+    Object.entries(results.domainStats).forEach(([domain, stat]) => {
+      domainScores[domain] = stat.total > 0 ? Math.round((stat.correct / stat.total) * 100) : 0;
+    });
+
+    setLeadLoading(true);
+    setLeadError("");
+
+    const { data, error } = await supabase.functions.invoke("free-diagnostic-lead", {
+      body: {
+        fullName: parsed.data.fullName,
+        email: parsed.data.email.toLowerCase(),
+        narrativeId: narrative.id,
+        totalScore: results.totalScore,
+        correctAnswers: results.correct,
+        totalQuestions: results.total,
+        domainScores,
+        answerBreakdown,
+      },
+    });
+
+    if (error || data?.error) {
+      setLeadError(
+        data?.error === "Result saved but email delivery could not be queued yet"
+          ? "Your results are ready, but your email is still being queued. Please try again in a minute."
+          : "Something went wrong while unlocking your breakdown.",
+      );
+      setLeadLoading(false);
+      return;
+    }
+
+    setLeadSubmitted(true);
+    setLeadLoading(false);
   };
 
   const allCurrentSectionAnswered = currentSection.questions.every((q) => answers[q.id] !== undefined);
   const answeredCountThisSection = currentSection.questions.filter((q) => answers[q.id] !== undefined).length;
-
   const results = phase === "results" || phase === "review" ? calculateResults() : null;
+  const resultsLocked = publicMode && !leadSubmitted;
 
   return (
-    <div className="flex flex-col h-[calc(100vh-3.5rem-2.5rem)]">
-      {/* Top Bar */}
+    <div className="flex flex-col h-screen bg-background">
       <div className="h-12 border-b border-border flex items-center justify-between px-4 bg-muted/30 shrink-0">
         <div className="flex items-center gap-4">
           {phase === "answering" && (
@@ -302,7 +383,6 @@ const NarrativePage = () => {
       </div>
 
       <div className="flex-1 overflow-hidden flex">
-        {/* LEFT PANEL — questions / summary / results / review */}
         <div className="flex-1 lg:flex-none lg:w-2/5 overflow-auto border-r border-border">
           {phase === "answering" && (
             <div className="p-6 max-w-2xl mx-auto space-y-6">
@@ -318,7 +398,7 @@ const NarrativePage = () => {
                 <CardContent>
                   <RadioGroup
                     value={answers[currentQuestion.id]?.toString() ?? ""}
-                    onValueChange={(v) => handleSelectAnswer(currentQuestion.id, parseInt(v))}
+                    onValueChange={(v) => handleSelectAnswer(currentQuestion.id, parseInt(v, 10))}
                     className="space-y-3"
                   >
                     {currentQuestion.options.map((opt, i) => (
@@ -418,68 +498,111 @@ const NarrativePage = () => {
 
           {phase === "results" && results && (
             <div className="p-6 max-w-2xl mx-auto space-y-6">
-              <Card className={`card-elevated border-2 ${results.totalScore >= 70 ? "border-emerald-500/30" : "border-red-500/30"}`}>
+              {publicMode && (
+                <Card className="card-elevated border-primary/20 bg-primary/5">
+                  <CardContent className="p-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-sm font-semibold text-foreground">Unlock your full breakdown</p>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        Enter your full name and email to reveal your score, missed questions, and get the one-page strategy sheet.
+                      </p>
+                    </div>
+                    <Button onClick={() => setLeadOpen(true)}>
+                      <UnlockKeyhole className="h-4 w-4" />
+                      Unlock Breakdown
+                    </Button>
+                  </CardContent>
+                </Card>
+              )}
+
+              <Card className={`card-elevated border-2 ${resultsLocked ? "border-primary/30" : results.totalScore >= 70 ? "border-emerald-500/30" : "border-red-500/30"}`}>
                 <CardContent className="p-6 text-center">
-                  <div className="text-2xl font-semibold text-foreground mb-1">
-                    {results.correct} out of {results.total}
-                  </div>
-                  <div className={`text-5xl font-bold mb-2 ${results.totalScore >= 70 ? "text-emerald-400" : "text-red-400"}`}>
-                    {results.totalScore}%
-                  </div>
-                  <Badge className={results.totalScore >= 70 ? "bg-emerald-500/20 text-emerald-400" : "bg-red-500/20 text-red-400"}>
-                    {results.totalScore >= 70 ? "PASS" : "BELOW PASSING"}
-                  </Badge>
-                  <p className="text-sm text-muted-foreground mt-2">Passing threshold: 70%</p>
+                  {resultsLocked ? (
+                    <>
+                      <div className="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10 text-primary">
+                        <Mail className="h-6 w-6" />
+                      </div>
+                      <div className="text-2xl font-semibold text-foreground mb-1">Your score is ready</div>
+                      <div className="text-sm text-muted-foreground max-w-md mx-auto">
+                        Finish the last step to unlock your percentage, mistakes, and review breakdown.
+                      </div>
+                    </>
+                  ) : (
+                    <>
+                      <div className="text-2xl font-semibold text-foreground mb-1">
+                        {results.correct} out of {results.total}
+                      </div>
+                      <div className={`text-5xl font-bold mb-2 ${results.totalScore >= 70 ? "text-emerald-400" : "text-red-400"}`}>
+                        {results.totalScore}%
+                      </div>
+                      <Badge className={results.totalScore >= 70 ? "bg-emerald-500/20 text-emerald-400" : "bg-red-500/20 text-red-400"}>
+                        {results.totalScore >= 70 ? "PASS" : "BELOW PASSING"}
+                      </Badge>
+                      <p className="text-sm text-muted-foreground mt-2">Passing threshold: 70%</p>
+                    </>
+                  )}
                 </CardContent>
               </Card>
 
               <Card className="card-elevated">
                 <CardHeader><CardTitle className="text-base">Domain Breakdown</CardTitle></CardHeader>
                 <CardContent className="space-y-4">
-                  {NARRATIVE_DOMAINS.map((d) => {
-                    const stat = results.domainStats[d];
-                    const pct = stat.total > 0 ? Math.round((stat.correct / stat.total) * 100) : 0;
-                    return (
-                      <div key={d}>
-                        <div className="flex justify-between text-sm mb-1">
-                          <span className="text-muted-foreground">{d}</span>
-                          <span className={pct >= 70 ? "text-emerald-400" : "text-red-400"}>
-                            {stat.correct}/{stat.total} ({pct}%)
-                          </span>
+                  {resultsLocked ? (
+                    <div className="rounded-lg border border-dashed border-border bg-muted/30 p-6 text-sm text-muted-foreground text-center">
+                      Your domain-level breakdown unlocks after you submit your name and email.
+                    </div>
+                  ) : (
+                    NARRATIVE_DOMAINS.map((d) => {
+                      const stat = results.domainStats[d];
+                      const pct = stat.total > 0 ? Math.round((stat.correct / stat.total) * 100) : 0;
+                      return (
+                        <div key={d}>
+                          <div className="flex justify-between text-sm mb-1">
+                            <span className="text-muted-foreground">{d}</span>
+                            <span className={pct >= 70 ? "text-emerald-400" : "text-red-400"}>
+                              {stat.correct}/{stat.total} ({pct}%)
+                            </span>
+                          </div>
+                          <Progress value={pct} className="h-2" />
                         </div>
-                        <Progress value={pct} className="h-2" />
-                      </div>
-                    );
-                  })}
+                      );
+                    })
+                  )}
                 </CardContent>
               </Card>
 
               <div className="flex flex-wrap gap-3">
-                <Button onClick={() => { setReviewQuestionGlobalIndex(0); setPhase("review"); }}>
-                  Review this Narrative
-                </Button>
+                {!resultsLocked && (
+                  <Button onClick={() => { setReviewQuestionGlobalIndex(0); setPhase("review"); }}>
+                    Review this Narrative
+                  </Button>
+                )}
                 <Button variant="outline" onClick={handleRetry}>
                   <RotateCcw className="mr-2 h-4 w-4" /> Retry
                 </Button>
-                <Button variant="outline" onClick={() => navigate("/narratives")}>
-                  <ArrowRight className="mr-2 h-4 w-4" /> Next Narrative
+                <Button variant="outline" onClick={() => navigate(publicMode ? "/" : "/narratives")}>
+                  <ArrowRight className="mr-2 h-4 w-4" /> {publicMode ? "Back to Home" : "Next Narrative"}
                 </Button>
-                <Button variant="outline" onClick={() => navigate("/dashboard")}>
-                  <LayoutDashboard className="mr-2 h-4 w-4" /> Dashboard
-                </Button>
+                {!publicMode && (
+                  <Button variant="outline" onClick={() => navigate("/dashboard")}>
+                    <LayoutDashboard className="mr-2 h-4 w-4" /> Dashboard
+                  </Button>
+                )}
               </div>
 
-              <NarrativeReviewChat
-                narrativeTitle={narrative.title}
-                questions={allQuestions.map((q) => ({
-                  id: q.id,
-                  question: q.stem,
-                  options: q.options,
-                  userAnswerIndex: answers[q.id],
-                  correctIndex: q.correctAnswer,
-                  explanation: q.explanation,
-                }))}
-              />
+              {!resultsLocked && (
+                <NarrativeReviewChat
+                  narrativeTitle={narrative.title}
+                  questions={allQuestions.map((q) => ({
+                    id: q.id,
+                    question: q.stem,
+                    options: q.options,
+                    userAnswerIndex: answers[q.id],
+                    correctIndex: q.correctAnswer,
+                    explanation: q.explanation,
+                  }))}
+                />
+              )}
             </div>
           )}
 
@@ -568,7 +691,6 @@ const NarrativePage = () => {
           )}
         </div>
 
-        {/* RIGHT PANEL — pinned scrollable case content */}
         <aside className="hidden lg:flex lg:w-3/5 flex-col bg-card/30">
           <div className="px-4 py-3 border-b border-border">
             <p className="text-xs uppercase tracking-wide text-muted-foreground">Case File</p>
@@ -576,7 +698,6 @@ const NarrativePage = () => {
           </div>
           <ScrollArea className="flex-1 p-4">
             <div className="space-y-5 pb-8">
-              {/* Client info */}
               <section>
                 <h3 className="text-sm font-semibold text-foreground mb-2">Client Information</h3>
                 <dl className="text-xs space-y-1">
@@ -600,7 +721,6 @@ const NarrativePage = () => {
               <CaseSection title="Work History" body={narrative.workHistory} />
               <CaseSection title="Intake Session Summary" body={narrative.intakeSessionSummary} />
 
-              {/* Sections 2 & 3 narratives appear only when unlocked */}
               {narrative.sections.slice(1).map((s, i) => {
                 const sIdx = i + 1;
                 const unlocked = visibleSectionIndex >= sIdx;
@@ -634,6 +754,65 @@ const NarrativePage = () => {
             <AlertDialogAction onClick={() => { setShowExpiryDialog(false); setPhase("section-summary"); }}>
               Go to summary
             </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+
+      <AlertDialog open={leadOpen} onOpenChange={setLeadOpen}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>Unlock your full breakdown</AlertDialogTitle>
+            <AlertDialogDescription>
+              Enter your full name and email to reveal your score, see every mistake, and get the one-page strategy sheet in your inbox.
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          {leadSubmitted ? (
+            <div className="space-y-3 rounded-lg border border-primary/20 bg-primary/5 p-4">
+              <p className="text-sm font-semibold text-foreground">Your breakdown is unlocked.</p>
+              <p className="text-sm text-muted-foreground">
+                We sent your strategy sheet to {leadForm.email}. You can now close this and review everything.
+              </p>
+            </div>
+          ) : (
+            <div className="space-y-4">
+              <div className="space-y-2">
+                <Label htmlFor="free-diagnostic-name">Full name</Label>
+                <Input
+                  id="free-diagnostic-name"
+                  value={leadForm.fullName}
+                  onChange={(e) => {
+                    setLeadForm((prev) => ({ ...prev, fullName: e.target.value }));
+                    setLeadError("");
+                  }}
+                  placeholder="Your full name"
+                />
+              </div>
+              <div className="space-y-2">
+                <Label htmlFor="free-diagnostic-email">Email</Label>
+                <Input
+                  id="free-diagnostic-email"
+                  type="email"
+                  value={leadForm.email}
+                  onChange={(e) => {
+                    setLeadForm((prev) => ({ ...prev, email: e.target.value }));
+                    setLeadError("");
+                  }}
+                  placeholder="you@example.com"
+                />
+              </div>
+              {leadError && <p className="text-sm text-destructive">{leadError}</p>}
+            </div>
+          )}
+          <AlertDialogFooter>
+            <AlertDialogCancel>{leadSubmitted ? "Close" : "Not now"}</AlertDialogCancel>
+            {!leadSubmitted && (
+              <AlertDialogAction onClick={(e) => {
+                e.preventDefault();
+                void handleLeadSubmit();
+              }} disabled={leadLoading}>
+                {leadLoading ? "Unlocking..." : "Unlock My Breakdown"}
+              </AlertDialogAction>
+            )}
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>

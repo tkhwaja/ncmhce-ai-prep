@@ -215,6 +215,48 @@ export type Database = {
         }
         Relationships: []
       }
+      free_diagnostic_leads: {
+        Row: {
+          answer_breakdown: Json
+          correct_answers: number
+          domain_scores: Json
+          email: string
+          email_sent_at: string | null
+          full_name: string
+          id: string
+          narrative_id: string
+          submitted_at: string
+          total_questions: number
+          total_score: number
+        }
+        Insert: {
+          answer_breakdown?: Json
+          correct_answers: number
+          domain_scores?: Json
+          email: string
+          email_sent_at?: string | null
+          full_name: string
+          id?: string
+          narrative_id: string
+          submitted_at?: string
+          total_questions: number
+          total_score: number
+        }
+        Update: {
+          answer_breakdown?: Json
+          correct_answers?: number
+          domain_scores?: Json
+          email?: string
+          email_sent_at?: string | null
+          full_name?: string
+          id?: string
+          narrative_id?: string
+          submitted_at?: string
+          total_questions?: number
+          total_score?: number
+        }
+        Relationships: []
+      }
       narrative_attempts: {
         Row: {
           completed_at: string | null

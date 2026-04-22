@@ -3,38 +3,38 @@ import { MessageSquare, Monitor, CalendarClock, BarChart3, BookOpen, Layers } fr
 const features = [
   {
     icon: MessageSquare,
-    title: "Support When You Need It",
-    desc: "Get optional in-context help, explanations, and clarification without interrupting the flow of exam-style practice.",
+    title: "Support when you need it",
+    desc: "Get optional in-context help and follow-up explanations without turning the platform into a gimmick.",
     badge: null,
   },
   {
     icon: Monitor,
-    title: "Realistic NCMHCE Simulations",
-    desc: "Practice with clinical case narratives that mirror the actual exam format — information gathering, diagnosis, and treatment planning.",
+    title: "Realistic NCMHCE simulations",
+    desc: "Practice inside an exam-style layout that mirrors how clinical information unfolds, sections lock, and timing pressure builds.",
     badge: null,
   },
   {
     icon: CalendarClock,
-    title: "Personalized Study Plans",
-    desc: "Build a study plan around your exam date, weekly availability, and weaker domains so your prep stays focused and realistic.",
-    badge: null,
+    title: "New narratives added weekly",
+    desc: "Keep sharpening your judgment with fresh cases instead of overfitting to the same limited set over and over.",
+    badge: "Weekly",
   },
   {
     icon: BarChart3,
-    title: "Score Tracking & Analytics",
-    desc: "Track your performance across all five NCMHCE domains, review past attempts, and measure real improvement over time.",
+    title: "Score tracking and analytics",
+    desc: "See domain patterns, breakdowns, and review trends so your study decisions are based on more than a pass/fail score.",
     badge: null,
   },
   {
     icon: BookOpen,
-    title: "Learning Library & Flashcards",
-    desc: "A comprehensive DSM-5-TR reference, counseling theory modules, glossary, and spaced-repetition flashcards — all built in.",
+    title: "Learning library and flashcards",
+    desc: "Use the built-in DSM-5-TR library, counseling review modules, and flashcards to close content gaps fast.",
     badge: null,
   },
   {
     icon: Layers,
-    title: "Full-Length Practice Exams",
-    desc: "Timed, multi-narrative practice exams that simulate the real NCMHCE experience with auto-save and retake support.",
+    title: "Full-length practice exams",
+    desc: "Run the full exam experience across 11 narratives with one random case left ungraded, just like the actual test structure.",
     badge: null,
   },
 ];
@@ -45,10 +45,10 @@ const SolutionSection = () => (
       <div className="text-center mb-14">
         <p className="text-sm font-medium text-primary uppercase tracking-wider mb-3">The Platform</p>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-          Everything You Need to Pass the NCMHCE
+          Built to train the exact reasoning the exam rewards
         </h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          Every feature is designed to mirror exam-style decision making and help you prepare with confidence.
+          Every feature is designed to help you think like a careful, ethical, entry-level clinician under exam pressure.
         </p>
       </div>
 

@@ -1,35 +1,35 @@
-import { Ban, MonitorX, TrendingDown, MessageCircleOff, BarChart2, Users } from "lucide-react";
+import { Ban, MonitorX, TrendingDown, MessageCircleOff, BarChart2, CalendarClock } from "lucide-react";
 
 const painPoints = [
   {
     icon: Ban,
-    title: "Static Question Banks",
-    desc: "Most platforms offer rigid, unchanging question sets with no way to ask why an answer is correct or explore concepts deeper.",
+    title: "You learn content, not case thinking",
+    desc: "A lot of prep tools teach facts without training you to choose the safest, most clinically appropriate next step under pressure.",
   },
   {
     icon: MonitorX,
-    title: "Outdated Interfaces",
-    desc: "Prep tools rarely replicate the actual Pearson VUE exam experience, leaving you underprepared for test-day navigation.",
+    title: "The interface feels nothing like exam day",
+    desc: "If the pacing, layout, and locked-section feel are missing, the real exam still feels unfamiliar when it counts.",
   },
   {
     icon: TrendingDown,
-    title: "No Adaptive Guidance",
-    desc: "You get a score, but no real direction on what to study next. Weak areas stay weak because nobody tells you where to focus.",
+    title: "Scores don’t tell you why you missed it",
+    desc: "A raw percentage doesn’t show where your reasoning breaks down or which domain habits are keeping you below passing.",
   },
   {
     icon: MessageCircleOff,
-    title: "No Follow-Up Learning",
-    desc: "When you don't understand an explanation, there's no way to ask a follow-up question. You're stuck Googling on your own.",
+    title: "Explanations stop too early",
+    desc: "When an answer still doesn’t click, most platforms leave you stuck between vague rationales and your own guesswork.",
   },
   {
     icon: BarChart2,
-    title: "Weak Analytics",
-    desc: "Basic pass/fail scoring doesn't help you understand domain-level performance or track real progress over time.",
+    title: "Weak areas stay hidden too long",
+    desc: "Without domain-level patterns and review feedback, candidates repeat the same misses until late in the study cycle.",
   },
   {
-    icon: Users,
-    title: "Studying in Isolation",
-    desc: "Most platforms offer no community, no accountability, and no sense that anyone else is going through the same struggle.",
+    icon: CalendarClock,
+    title: "Content gets stale fast",
+    desc: "When no new narratives are added, you memorize old cases instead of building flexible clinical judgment week after week.",
   },
 ];
 
@@ -39,10 +39,10 @@ const PainPointsSection = () => (
       <div className="text-center mb-14">
         <p className="text-sm font-medium text-primary uppercase tracking-wider mb-3">The Problem</p>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-          Why Current NCMHCE Prep Feels Frustrating
+          Why smart candidates still feel shaky going into the NCMHCE
         </h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          You're putting in the hours, but your study tools aren't keeping up. Here's what's holding most candidates back.
+          The biggest issue usually is not effort. It’s using prep tools that never fully train the way the exam actually thinks.
         </p>
       </div>
 

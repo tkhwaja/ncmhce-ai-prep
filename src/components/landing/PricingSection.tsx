@@ -4,15 +4,15 @@ import { Check } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 const features = [
-  "14+ Clinical Case Narratives",
-  "Full-Length Timed Practice Exams",
+  "20+ Clinical Case Narratives",
+  "11-case Full-Length Practice Exam",
   "Optional In-Session Tutor Support",
   "Personalized Study Plan",
   "DSM-5-TR Reference Library",
   "60+ Flashcards with Spaced Repetition",
-  "Score Tracking & Domain Analytics",
-  "Pomodoro Timer & Note-Taking",
-  "Auto-Save & Resume Progress",
+  "Score Tracking and Domain Analytics",
+  "Auto-Save and Resume Progress",
+  "New narratives added weekly",
   "Cancel anytime",
 ];
 
@@ -24,10 +24,10 @@ const PricingSection = () => {
       <div className="container max-w-4xl mx-auto text-center">
         <p className="text-sm font-medium text-primary uppercase tracking-wider mb-3">Pricing</p>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-          Simple Monthly Pricing. No Commitment.
+          Full access when you’re ready.
         </h2>
         <p className="text-muted-foreground mb-10 max-w-lg mx-auto">
-          Full access to the complete exam-style prep experience for $79/month. Cancel anytime with no commitment.
+          Start with the Free Diagnostic Case, then move into the full exam-prep platform for $79/month when you want every narrative, exam, and analytics feature unlocked.
         </p>
 
         <Card className="card-elevated border-primary/30 max-w-md mx-auto">

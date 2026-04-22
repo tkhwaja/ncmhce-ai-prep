@@ -9,8 +9,8 @@ export interface TemplateEntry {
   previewData?: Record<string, any>
 }
 
-import { template as waitlistConfirmation } from './waitlist-confirmation.tsx'
+import { template as freeDiagnosticBreakdown } from './free-diagnostic-breakdown.tsx'
 
 export const TEMPLATES: Record<string, TemplateEntry> = {
-  'waitlist-confirmation': waitlistConfirmation,
+  'free-diagnostic-breakdown': freeDiagnosticBreakdown,
 }

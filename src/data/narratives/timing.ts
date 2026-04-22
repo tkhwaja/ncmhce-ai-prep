@@ -50,3 +50,19 @@ export const getNarrativeSectionMinutes = (narrative: Narrative) => {
 
   return getNarrativeTotalMinutes(narrative) >= 23 ? 8 : 7;
 };
+
+export const getNarrativeSectionMinutesAt = (narrative: Narrative, sectionIndex: number) => {
+  const manualMinutes = narrative.recommendedTimeBySectionMinutes?.[sectionIndex];
+
+  if (typeof manualMinutes === "number") {
+    return manualMinutes;
+  }
+
+  const sectionMinutes = narrative.sections[sectionIndex]?.recommendedTimeMinutes;
+
+  if (typeof sectionMinutes === "number") {
+    return sectionMinutes;
+  }
+
+  return getNarrativeSectionMinutes(narrative);
+};
