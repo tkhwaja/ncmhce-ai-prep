@@ -4,7 +4,6 @@ import { getNarrativeById, getNarrativeSectionMinutes, totalQuestionCount, NARRA
 import type { NarrativeQuestion } from "@/data/narratives";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
-import { isNarrativeUngradedForAttempt } from "@/lib/practice-exams";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -36,9 +35,6 @@ const NarrativePage = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
   const narrative = getNarrativeById(id);
-  const practiceExamId = narrative?.id.startsWith("practice-exam-01-case-") || narrative?.id === "exam-01-02-danielle-mdd"
-    ? "practice-exam-1"
-    : null;
 
   const minutesPerSection = narrative ? getNarrativeSectionMinutes(narrative) : 7;
   const sectionDuration = minutesPerSection * 60;
@@ -239,17 +235,12 @@ const NarrativePage = () => {
 
     if (user) {
       const completedAt = new Date().toISOString();
-      const gradingAttemptKey = attemptId ?? `${user.id}:${narrative.id}:${completedAt}`;
-      const isUngraded = practiceExamId
-        ? isNarrativeUngradedForAttempt(practiceExamId, gradingAttemptKey, narrative.id)
-        : false;
       const payload = {
         dm_answers: answers as any,
         domain_scores: domainScores as any,
-        total_score: isUngraded ? null : totalScore,
+        total_score: totalScore,
         time_spent: sectionDuration * narrative.sections.length - secondsRemaining,
         completed_at: completedAt,
-        feedback: isUngraded ? "practice_exam_ungraded_case" : null,
       };
 
       if (attemptId) {
