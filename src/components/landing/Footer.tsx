@@ -7,7 +7,7 @@ const Footer = () => (
             TheCounselorExam<span className="text-primary">.com</span>
           </p>
           <p className="text-sm text-muted-foreground mt-2">
-            AI-powered NCMHCE exam prep, built for clinical reasoning.
+            NCMHCE prep built for real clinical reasoning.
           </p>
         </div>
 
@@ -15,7 +15,7 @@ const Footer = () => (
           <a href="#features" className="hover:text-foreground transition-colors">Features</a>
           <a href="#compare" className="hover:text-foreground transition-colors">Compare</a>
           <a href="#faq" className="hover:text-foreground transition-colors">FAQ</a>
-          <a href="#waitlist" className="hover:text-foreground transition-colors">Join Waitlist</a>
+          <a href="#free-diagnostic" className="hover:text-foreground transition-colors">Free Diagnostic Case</a>
         </div>
 
         <div className="flex flex-col gap-2 text-sm text-muted-foreground">

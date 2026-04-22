@@ -1,4 +1,4 @@
-import type { Narrative } from "./types";
+import type { Narrative, NarrativeDomain } from "./types";
 import { priyaGad } from "./01-priya-gad";
 import { marcusMdd } from "./02-marcus-mdd";
 import { davidPtsd } from "./03-david-ptsd";
@@ -55,7 +55,15 @@ const freeDiagnosticNarrative: Narrative = {
   familyHistory: freeDiagnosticBundle.freeNarrative.familyHistory,
   workHistory: freeDiagnosticBundle.freeNarrative.workHistory,
   intakeSessionSummary: freeDiagnosticBundle.freeNarrative.intakeSessionSummary,
-  sections: freeDiagnosticBundle.freeNarrative.sections,
+  sections: freeDiagnosticBundle.freeNarrative.sections.map((section) => ({
+    sessionLabel: section.sessionLabel,
+    sectionNarrative: section.sectionNarrative,
+    recommendedTimeMinutes: section.recommendedTimeMinutes,
+    questions: section.questions.map((question) => ({
+      ...question,
+      domain: question.domain as NarrativeDomain,
+    })),
+  })),
 };
 
 export const narratives: Narrative[] = [
@@ -95,10 +103,9 @@ const practiceExamNarratives: Narrative[] = [
   jonahSchizophreniformPracticeExamNarrative,
 ];
 
-const allNarratives: Narrative[] = [...narratives, ...practiceExamNarratives];
-const publicNarratives: Narrative[] = [freeDiagnosticNarrative, ...allNarratives];
+const allNarratives: Narrative[] = [freeDiagnosticNarrative, ...narratives, ...practiceExamNarratives];
 
 export const getNarrativeById = (id: string | undefined): Narrative | undefined =>
-  publicNarratives.find((n) => n.id === id);
+  allNarratives.find((n) => n.id === id);
 
 export const freeDiagnosticCase = freeDiagnosticNarrative;

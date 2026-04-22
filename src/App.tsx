@@ -19,6 +19,7 @@ import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
 import Narratives from "./pages/Narratives";
 import NarrativePage from "./pages/NarrativePage";
+import FreeDiagnosticCase from "./pages/FreeDiagnosticCase";
 import { useParams } from "react-router-dom";
 import Analytics from "./pages/Analytics";
 import StudyPlan from "./pages/StudyPlan";
@@ -42,47 +43,43 @@ const RedirectSimulation = () => {
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <ThemeProvider>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <AuthProvider>
-          <Routes>
-            {/* Public routes */}
-            <Route path="/" element={<Index />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
-            <Route path="/unsubscribe" element={<Unsubscribe />} />
-            <Route path="/checkout" element={<CheckoutPage />} />
-            <Route path="/checkout/return" element={<CheckoutReturn />} />
-            <Route path="/icons-preview" element={<IconsPreview />} />
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <AuthProvider>
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/free-diagnostic-case" element={<FreeDiagnosticCase />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
+              <Route path="/unsubscribe" element={<Unsubscribe />} />
+              <Route path="/checkout" element={<CheckoutPage />} />
+              <Route path="/checkout/return" element={<CheckoutReturn />} />
+              <Route path="/icons-preview" element={<IconsPreview />} />
 
-            {/* Protected routes */}
-            <Route element={<ProtectedRoute><PomodoroProvider><AppLayout /></PomodoroProvider></ProtectedRoute>}>
-              <Route path="/dashboard" element={<Dashboard />} />
-              <Route path="/profile" element={<Profile />} />
-              <Route path="/exam-info" element={<ExamInfo />} />
-              {/* Premium features */}
-              <Route path="/narratives" element={<PaidFeatureGate feature="Narratives"><Narratives /></PaidFeatureGate>} />
-              <Route path="/narrative/:id" element={<PaidFeatureGate feature="Narratives"><NarrativePage /></PaidFeatureGate>} />
-              {/* Legacy redirects (old "Simulations" URLs) */}
-              <Route path="/simulations" element={<Navigate to="/narratives" replace />} />
-              <Route path="/simulation/:id" element={<RedirectSimulation />} />
-              <Route path="/study-plan" element={<PaidFeatureGate feature="Study Plan"><StudyPlan /></PaidFeatureGate>} />
-              <Route path="/analytics" element={<PaidFeatureGate feature="Analytics"><Analytics /></PaidFeatureGate>} />
-              <Route path="/flashcards" element={<PaidFeatureGate feature="Flashcards"><Flashcards /></PaidFeatureGate>} />
-              <Route path="/library" element={<PaidFeatureGate feature="Learning Library"><Library /></PaidFeatureGate>} />
-              {/* Community disabled — no users yet */}
-              <Route path="/tools" element={<PaidFeatureGate feature="Study Tools"><Tools /></PaidFeatureGate>} />
-            </Route>
+              <Route element={<ProtectedRoute><PomodoroProvider><AppLayout /></PomodoroProvider></ProtectedRoute>}>
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/profile" element={<Profile />} />
+                <Route path="/exam-info" element={<ExamInfo />} />
+                <Route path="/narratives" element={<PaidFeatureGate feature="Narratives"><Narratives /></PaidFeatureGate>} />
+                <Route path="/narrative/:id" element={<PaidFeatureGate feature="Narratives"><NarrativePage /></PaidFeatureGate>} />
+                <Route path="/simulations" element={<Navigate to="/narratives" replace />} />
+                <Route path="/simulation/:id" element={<RedirectSimulation />} />
+                <Route path="/study-plan" element={<PaidFeatureGate feature="Study Plan"><StudyPlan /></PaidFeatureGate>} />
+                <Route path="/analytics" element={<PaidFeatureGate feature="Analytics"><Analytics /></PaidFeatureGate>} />
+                <Route path="/flashcards" element={<PaidFeatureGate feature="Flashcards"><Flashcards /></PaidFeatureGate>} />
+                <Route path="/library" element={<PaidFeatureGate feature="Learning Library"><Library /></PaidFeatureGate>} />
+                <Route path="/tools" element={<PaidFeatureGate feature="Study Tools"><Tools /></PaidFeatureGate>} />
+              </Route>
 
-            <Route path="*" element={<NotFound />} />
-          </Routes>
-        </AuthProvider>
-      </BrowserRouter>
-    </TooltipProvider>
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </AuthProvider>
+        </BrowserRouter>
+      </TooltipProvider>
     </ThemeProvider>
   </QueryClientProvider>
 );

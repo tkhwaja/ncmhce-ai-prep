@@ -49,10 +49,10 @@ const Navbar = () => {
             Sign In
           </Link>
           <Link
-            to="/signup"
+            to="/free-diagnostic-case"
             className="inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
           >
-            Get Started
+            Take Free Case
           </Link>
         </div>
 
@@ -77,13 +77,13 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
-          <a
-            href="#waitlist"
+          <Link
+            to="/free-diagnostic-case"
             onClick={() => setMobileOpen(false)}
             className="mt-2 inline-flex w-full items-center justify-center rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground"
           >
-            Join the Waitlist
-          </a>
+            Take the Free Diagnostic Case
+          </Link>
         </div>
       )}
     </nav>

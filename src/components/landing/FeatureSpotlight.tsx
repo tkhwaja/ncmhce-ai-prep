@@ -1,8 +1,8 @@
 const spotlights = [
   {
     label: "In-Session Support",
-    title: "Get Help Without Breaking Exam Momentum",
-    desc: "When you want clarification, you can ask follow-up questions and get grounded explanations right inside the case you're working through — without turning the platform into an AI gimmick.",
+    title: "Get help without breaking exam momentum",
+    desc: "When you want clarification, you can ask follow-up questions and get grounded explanations right inside the case you’re working through.",
     mockup: (
       <div className="space-y-3">
         <div className="rounded-lg bg-primary/10 border border-primary/20 p-3 text-sm text-foreground/80">
@@ -19,8 +19,8 @@ const spotlights = [
   },
   {
     label: "Clinical Case Narratives",
-    title: "14+ Realistic Cases Across Every Difficulty Level",
-    desc: "Practice with cases covering GAD, MDD, PTSD, Bipolar, Substance Use, OCD, Hoarding, Anorexia, BPD, and more. Each narrative includes three clinical sessions with continuous question numbering — just like the real exam.",
+    title: "20+ realistic cases, with new narratives added weekly",
+    desc: "Practice across anxiety, mood, trauma, personality, substance use, OCD-spectrum, grief, and more. Every case uses the same three-session structure and question flow the real exam expects.",
     mockup: (
       <div className="space-y-3">
         <div className="flex items-center justify-between text-xs text-muted-foreground mb-2">
@@ -41,9 +41,9 @@ const spotlights = [
     ),
   },
   {
-    label: "Study Tools & Analytics",
-    title: "Track Your Progress Across Every Domain",
-    desc: "Your performance dashboard highlights scores across all five NCMHCE domains so you can spot patterns, review weaker areas, and prep more like the real test demands.",
+    label: "Study Tools and Analytics",
+    title: "See exactly where your reasoning breaks down",
+    desc: "Your performance dashboard highlights all five domains so you can spot the difference between a content problem, a pacing problem, and a clinical judgment problem.",
     mockup: (
       <div className="space-y-4">
         <div className="text-xs font-semibold text-foreground">Domain Performance</div>
@@ -79,10 +79,10 @@ const FeatureSpotlight = () => (
       <div className="text-center mb-14">
         <p className="text-sm font-medium text-primary uppercase tracking-wider mb-3">Inside the Platform</p>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-          A Closer Look at Your Study Experience
+          A closer look at the study experience
         </h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          Built to feel familiar on exam day.
+          Everything is built to feel familiar on exam day.
         </p>
       </div>
 
