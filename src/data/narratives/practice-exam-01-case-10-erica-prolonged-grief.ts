@@ -1,0 +1,247 @@
+import type { Narrative } from "./types";
+
+export const ericaProlongedGriefPracticeExamNarrative: Narrative = {
+  id: 'practice-exam-01-case-10-erica-prolonged-grief',
+  title: 'Erica — Prolonged Grief Disorder',
+  category: 'Prolonged Grief Disorder',
+  difficulty: "Intermediate",
+  minutesPerSection: 7,
+
+  clientInfo: {
+    age: 44,
+    sexAssignedAtBirth: 'Female',
+    genderIdentity: 'Cisgender Female',
+    pronouns: 'She/her',
+    sexualOrientation: 'Lesbian',
+    raceEthnicity: 'Black/African American',
+    relationshipStatus: 'Widowed',
+    setting: 'Outpatient bereavement counseling program within a community hospital',
+    payment: 'Private insurance',
+    typeOfCounseling: 'Individual',
+    provisionalDiagnosis: 'Prolonged Grief Disorder: F43.8',
+  },
+
+  presentingProblem: `You are a licensed mental health counselor in an outpatient bereavement program housed within a large community hospital. Your client was referred by her primary care physician after several visits over the past four months for insomnia, fatigue, poor appetite, and headaches. Medical workup has been unremarkable. The client stated, "I know grief isn't a disease. But whatever this is, it is not just missing somebody anymore. It runs the whole house."
+
+The client's wife, Monique, died suddenly 19 months ago from a pulmonary embolism four days after what had been described to the family as a routine knee surgery. The death was unexpected. The client stated, "We were texting about what soup she wanted when she got home. Three days later I was picking out a casket." She reported that in the first several months after the death she felt numb, practical, and focused on helping their then-eight-year-old son, Malik, get through the immediate aftermath. She returned to work after two weeks because, in her words, "People needed me to function, and functioning is the one thing I know how to do."
+
+The client reported that over time the practical numbness gave way not to adaptation, but to persistent, disabling yearning. She described thinking about her wife "every hour, whether I want to or not." She keeps Monique's voice mails saved and listens to one particular message nearly every night before bed. She has not changed the arrangement of the bedroom and has left Monique's shoes by the front door, stating, "If I move them, it feels like I'm agreeing she's not coming back." She has avoided attending their son's Saturday basketball games because Monique used to coach his drills in the driveway afterward. She stated, "I can get him there. I can clap when I need to. But I can't do the parking lot after, because that's where it hits me that she should be there too."
+
+The client reported marked difficulty re-engaging with friends, church, and previously meaningful routines. She and her wife had hosted Sunday dinners twice a month for friends and family; she has not hosted anyone since the funeral. She stopped singing in the church choir, something she had done for more than a decade. She stated, "Everybody says, 'Take your time,' but I can feel people wondering why I still look like my life ended. The problem is, my life as I knew it did end." She described feeling detached when coworkers talk about future plans and said she has become "a person who does only what cannot be avoided." 
+
+The client is particularly distressed by the impact on her son. Malik recently asked whether laughing too hard at school meant he was "forgetting Mama." The client reported that this question "broke something open" in her. She stated, "I'm supposed to help him hold this, and some days I can't even hold it myself." She described tension with her mother-in-law, who wants Monique's belongings preserved exactly as they were, and who has implied that any changes in the house would be disrespectful.
+
+The client endorsed occasional thoughts such as, "If I didn't wake up tomorrow, at least I would get to rest," but denied wanting to kill herself. She denied plan, intent, preparatory behavior, and access to firearms. She denied substance misuse, mania, psychosis, and trauma history outside the loss itself. She stated, "I do not want to die. I just don't want to keep doing this version of living forever."`,
+
+  mentalStatusObservation: `Your client presented in neat work clothing and appeared fatigued. She was alert and oriented to person, place, time, and situation. Grooming and hygiene were good. Eye contact was steady but often dropped when discussing her wife or son. Speech was soft, coherent, and slowed at times by emotion. Mood was reported as "tired and heavy." Affect was constricted but reactive, with visible tearfulness when describing the night messages she replays from her wife and her son's questions about forgetting his mother. Psychomotor activity was slowed; she sat with her hands clasped tightly in her lap for much of the session. Thought processes were linear and organized. Thought content was notable for persistent yearning, preoccupation with the deceased, avoidance of reminders that intensify grief, guilt about parenting while grieving, and ambivalence about making environmental changes in the home. No delusions or hallucinations were evident. She denied current suicidal intent or plan and denied homicidal ideation. Insight was fair to good; she recognized that the intensity and functional impairment of her grief have not improved over time. Judgment was intact. She denied problematic substance use. Recent physical examination through primary care was within normal limits aside from sleep disruption, low appetite, and tension headaches likely related to stress.`,
+
+  familyHistory: `The client is the second of three sisters and described her family of origin as close, church-centered, and emotionally restrained. Her mother, age 71, lives nearby and helps with after-school pickup for Malik twice a week. Her father died of congestive heart failure nine years ago. The client reported that her family eventually accepted her marriage, though acceptance was "warmer in actions than in words" at first. Her wife's family was immediately affirming and remains highly involved with Malik. The client stated that her mother-in-law's grief is "real and valid" but that it often spills into pressure about how the client should grieve. No known family history of bipolar disorder, psychosis, or completed suicide. The client reported that one maternal aunt had recurrent depression after a divorce and was treated with medication and counseling.`,
+
+  workHistory: `The client is an assistant principal at a public middle school and has worked in education for 19 years. She described herself as highly competent and dependable, and said her colleagues often praise her ability to remain calm during crises. She returned to work quickly after the death and continued meeting expectations, but with increasing emotional and interpersonal cost. She stated that she can manage logistics, parent emails, and disciplinary meetings while "feeling like none of it is happening to a real person." Her supervisor has informally encouraged her to use more leave time, but the client has resisted because routine feels safer than unstructured time at home. She is financially stable and remains the sole parent and primary provider for her household.`,
+
+  intakeSessionSummary: `You administered the PG-13 and the client scored in the clinical range for prolonged grief symptoms. You also administered the PHQ-9, on which she scored 12, indicating moderate depressive symptoms that appear substantially intertwined with grief-related impairment. You completed a thorough risk assessment in response to her statement about not wanting to continue this version of living; she denied active suicidal ideation, plan, or intent, and identified her son, faith, and sense of responsibility as strong protective factors. You provided psychoeducation on the difference between acute grief, integrated grief, depression, and prolonged grief disorder. You collaboratively framed treatment as helping her maintain a continuing bond with her wife while re-engaging with a life that can still include love, purpose, and parenting. You discussed gradual restoration of meaningful routines, grief-focused processing, and helping her respond to her son's questions in developmentally appropriate ways. Weekly sessions were scheduled.` ,
+
+  sections: [
+    {
+      sessionLabel: 'First session',
+      // Recommended pacing: ~6 minutes
+      sectionNarrative: '',
+      questions: [
+        {
+          id: 'erica-q1',
+          questionNumber: 1,
+          domain: 'Intake/assessment/diagnosis',
+          stem: 'Which feature most strongly supports Prolonged Grief Disorder rather than expected bereavement?',
+          options: [
+            'She misses her wife every day',
+            'She continues to feel sadness 19 months after the death',
+            'Her grief remains persistent, functionally impairing, and centered on intense longing and preoccupation well beyond the expected period',
+            'She has saved her wife\'s voice mails',
+          ],
+          correctAnswer: 2,
+          explanation: 'Prolonged Grief Disorder involves persistent, impairing grief characterized by intense yearning and preoccupation with the deceased that extends beyond expected cultural and developmental norms. Missing a loved one, ongoing sadness, or keeping sentimental items alone do not establish the disorder.',
+        },
+        {
+          id: 'erica-q2',
+          questionNumber: 2,
+          domain: 'Professional practice and ethics',
+          stem: 'The client says, "If I didn\'t wake up tomorrow, at least I would get to rest." What is the most appropriate response?',
+          options: [
+            'Assume this is normal grief and move on',
+            'Initiate immediate hospitalization',
+            'Conduct a thorough suicide risk assessment including intent, plan, means, and protective factors',
+            'Refer her to psychiatry before continuing counseling',
+          ],
+          correctAnswer: 2,
+          explanation: 'Passive death wishes in grief still require direct and careful risk assessment. Automatic hospitalization is not indicated without active intent or plan, but dismissal is unsafe. Referral may be appropriate later, but assessment comes first.',
+        },
+        {
+          id: 'erica-q3',
+          questionNumber: 3,
+          domain: 'Core counseling attributes',
+          stem: 'The client says, "People wonder why I still look like my life ended. The problem is, my life as I knew it did end." What is the most therapeutic response?',
+          options: [
+            '"They mean well. Try not to take it personally."',
+            '"What is it like to feel that other people want your grief to move faster than it can?"',
+            '"You may be focusing too much on what others think."',
+            '"At some point you will need to move forward."',
+          ],
+          correctAnswer: 1,
+          explanation: 'The most therapeutic response honors the client\'s felt experience of social pressure and invites deeper exploration rather than minimizing, correcting, or rushing adaptation. This strengthens the alliance and respects the reality of disenfranchised aspects of grief.',
+        },
+        {
+          id: 'erica-q4',
+          questionNumber: 4,
+          domain: 'Treatment planning',
+          stem: 'What is the most appropriate overall treatment frame for this client?',
+          options: [
+            'Help her detach from her wife in order to recover',
+            'Support a continuing bond with her wife while gradually restoring functioning and meaningful engagement',
+            'Focus only on parenting skills until her grief decreases',
+            'Encourage immediate removal of all of her wife\'s belongings',
+          ],
+          correctAnswer: 1,
+          explanation: 'Contemporary grief treatment does not require emotional detachment from the deceased. A clinically sound plan supports continuing bonds while helping the client re-engage with life, roles, and routines. Forcing rapid environmental changes or narrowing treatment too much would be counterproductive.',
+        },
+      ],
+    },
+    {
+      sessionLabel: 'Seventh session',
+      // Recommended pacing: ~7 minutes
+      sectionNarrative: `Your client arrived for her seventh session appearing less physically depleted than at intake. Her PG-13 score has improved modestly, and her PHQ-9 score is now 9. She reported that she has resumed one Sunday dinner per month, though in a scaled-down form. She invited only her sister and nephew the first time. She stated, "It felt wrong and right at the same time. Wrong because it was not how Monique and I did it. Right because Malik laughed in our kitchen again."
+
+She described a difficult moment from the previous week. Malik had a family-tree assignment at school and asked whether he should put his mother's photo on it "even though she's dead." The client reported that she froze and felt a surge of panic and sadness. She stated, "I heard myself say, 'Of course you put her there,' but afterward I went into the bathroom and cried so hard I had to sit on the floor." Malik later asked whether talking about his mother makes other adults uncomfortable because "Grandma gets quiet and changes the subject."
+
+The client also disclosed increasing tension with her mother-in-law. After seeing that the client had donated several of Monique's winter coats to a local shelter, her mother-in-law accused her of "erasing" Monique. The client stated, "I know she is grieving too. I also felt furious. Donating three coats is not erasing a whole human being." She reported feeling guilty for her anger and unsure how to respond without escalating family conflict.
+
+A meaningful shift did occur this week: the client attended one of Malik's basketball games and stayed through the parking-lot conversation afterward. She stated, "I cried on the drive home. But I stayed. I did not disappear from my own son's life to avoid my feelings." She asked you, "How do I help him remember his mom without teaching him that remembering means falling apart?"`,
+      questions: [
+        {
+          id: 'erica-q5',
+          questionNumber: 5,
+          domain: 'Counseling skills and interventions',
+          stem: 'How should the counselor best respond to the client\'s question about helping her son remember his mother?',
+          options: [
+            'Advise her to avoid discussing the death unless he asks direct questions',
+            'Support age-appropriate ongoing conversation that allows remembrance without requiring either of them to suppress emotion',
+            'Recommend immediate family therapy before she says anything further',
+            'Tell her to emphasize positive memories and avoid painful ones',
+          ],
+          correctAnswer: 1,
+          explanation: 'Children benefit from honest, age-appropriate conversation that normalizes remembering, missing, and talking about the deceased parent. The goal is not to eliminate sadness but to teach that grief can be borne and shared. Avoidance and emotional overcontrol can increase confusion and anxiety for the child.',
+        },
+        {
+          id: 'erica-q6',
+          questionNumber: 6,
+          domain: 'Core counseling attributes',
+          stem: 'The client says donating three coats does not mean erasing her wife. What is the most therapeutic response?',
+          options: [
+            '"Then your mother-in-law is wrong."',
+            '"What did donating them mean to you, apart from what it meant to her?"',
+            '"You should not make more changes until the family agrees."',
+            '"That sounds like a boundary issue, not a grief issue."',
+          ],
+          correctAnswer: 1,
+          explanation: 'Exploring the meaning of the client\'s action helps her clarify her own grief process rather than centering the mother-in-law\'s reaction. The counselor should not take sides, overdirect, or oversimplify the moment into a generic boundary issue without first understanding its emotional significance.',
+        },
+        {
+          id: 'erica-q7',
+          questionNumber: 7,
+          domain: 'Treatment planning',
+          stem: 'The client attended her son\'s basketball game despite the grief trigger. How should this be understood clinically?',
+          options: [
+            'As evidence that grief treatment is complete',
+            'As a meaningful restoration-of-life step that can be reinforced and built upon',
+            'As avoidance because she cried later in the car',
+            'As proof that her symptoms were primarily depressive',
+          ],
+          correctAnswer: 1,
+          explanation: 'Re-engaging in valued roles despite grief is a core sign of progress. The fact that emotion followed does not negate the success; it shows that the client remained present while tolerating grief rather than organizing her life around avoidance.',
+        },
+        {
+          id: 'erica-q8',
+          questionNumber: 8,
+          domain: 'Professional practice and ethics',
+          stem: 'The client asks whether the counselor can speak directly with her son\'s teacher about the family-tree assignment. What is the most appropriate response?',
+          options: [
+            'Agree because the issue directly affects treatment',
+            'Decline because school communication is never appropriate',
+            'Discuss the purpose of contact, obtain written authorization if needed, and consider whether empowering the client to communicate first is clinically preferable',
+            'Contact the teacher without authorization because no diagnosis would be shared',
+          ],
+          correctAnswer: 2,
+          explanation: 'Any collateral contact with a school requires a clear clinical purpose and appropriate authorization. The counselor should also consider whether supporting the client to communicate herself better serves treatment and autonomy. Direct contact without consent is not appropriate.',
+        },
+      ],
+    },
+    {
+      sessionLabel: 'Fifteenth session',
+      // Recommended pacing: ~7 minutes
+      sectionNarrative: `Your client arrived for her fifteenth session approximately four months after intake. Her PG-13 score is now below the clinical threshold, though she continues to describe grief as "present, just not driving every hour anymore." She has resumed choir rehearsal twice per month, hosted family for her son's birthday, and created a memory box with Malik that includes photographs, recipes, and short written stories about Monique. She stated, "For the first time, remembering her and building a life without her did not feel like opposite loyalties."
+
+She reported a recent challenge. The anniversary of the surgery that preceded Monique's death was last week, and the client noticed a spike in insomnia, irritability, and urges to isolate. She used coping strategies discussed in therapy, took the next day off work, and spent part of the evening with her sister rather than withdrawing completely. She stated, "It was still hard. It just did not own the whole week."
+
+The client also described a meaningful parenting moment. Malik recently told a classmate, "My mom died, but she's still part of my family," and then told the client, "I think missing her and having fun can happen on the same day." The client cried as she recounted this and said, "That may be the wisest thing anybody in this family has said in two years."
+
+She asked a practical question about treatment: "How do I know whether it makes sense to taper therapy? I do not feel done grieving. I do feel more like myself."`,
+      questions: [
+        {
+          id: 'erica-q9',
+          questionNumber: 9,
+          domain: 'Counseling skills and interventions',
+          stem: 'The client reports a spike in grief symptoms around the surgery anniversary. What is the most accurate clinical understanding?',
+          options: [
+            'It indicates treatment failure',
+            'It is a common anniversary reaction that can occur even with meaningful overall progress',
+            'It means the diagnosis is more likely PTSD than grief',
+            'It shows she is becoming dependent on therapy',
+          ],
+          correctAnswer: 1,
+          explanation: 'Anniversary reactions are common in grief and do not imply treatment failure. The more important marker is how the client responds: in this case, she used coping strategies, sought support, and prevented a short-term increase from taking over her entire functioning.',
+        },
+        {
+          id: 'erica-q10',
+          questionNumber: 10,
+          domain: 'Intake/assessment/diagnosis',
+          stem: 'Malik says, "Missing her and having fun can happen on the same day." Clinically, this most strongly reflects:',
+          options: [
+            'denial of the death',
+            'adaptive grief integration and continuing bonds',
+            'premature emotional suppression',
+            'avoidance of deeper grief work',
+          ],
+          correctAnswer: 1,
+          explanation: 'Being able to hold grief and pleasure at the same time is a marker of adaptive grief integration. It reflects a continuing bond with the deceased that coexists with ongoing life rather than replacing or denying the relationship.',
+        },
+        {
+          id: 'erica-q11',
+          questionNumber: 11,
+          domain: 'Treatment planning',
+          stem: 'The client asks whether it makes sense to taper therapy. What is the most appropriate response?',
+          options: [
+            'Recommend immediate termination since her score is below threshold',
+            'State that grief counseling should continue until she no longer feels grief',
+            'Collaboratively review gains, current supports, likely trigger periods, and whether a reduced frequency with relapse-prevention planning fits this phase',
+            'Refer her to a support group and end individual therapy',
+          ],
+          correctAnswer: 2,
+          explanation: 'Tapering should be collaborative and based on symptom change, functional restoration, support systems, and a clear plan for future triggers. The goal is not the absence of grief but increased flexibility, meaning, and capacity. Abrupt termination or indefinite treatment are both poor fits here.',
+        },
+        {
+          id: 'erica-q12',
+          questionNumber: 12,
+          domain: 'Counseling skills and interventions',
+          stem: 'What should be the primary clinical focus of the final phase of treatment for this client?',
+          options: [
+            'Encouraging her to remove the remaining belongings quickly',
+            'Relapse-prevention planning, support for future grief triggers, and consolidation of restored routines and meaning',
+            'Exploring unrelated childhood family dynamics in depth',
+            'Transitioning immediately to couples counseling if she dates again',
+          ],
+          correctAnswer: 1,
+          explanation: 'The final phase of grief treatment focuses on consolidation: maintaining restored roles, identifying predictable trigger points, strengthening supports, and planning for future waves of grief. Forcing more environmental changes or abruptly shifting to unrelated treatment goals would be premature.',
+        },
+      ],
+    },
+  ],
+};
