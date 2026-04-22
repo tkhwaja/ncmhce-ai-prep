@@ -24,22 +24,20 @@ const PricingSection = () => {
       <div className="container max-w-4xl mx-auto text-center">
         <p className="text-sm font-medium text-primary uppercase tracking-wider mb-3">Pricing</p>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-          Simple Monthly Pricing. Pass Your Exam.
+          Simple Monthly Pricing. No Commitment.
         </h2>
         <p className="text-muted-foreground mb-10 max-w-lg mx-auto">
-          Full access to the complete exam-style prep experience. Cancel anytime — no long-term commitment.
+          Full access to the complete exam-style prep experience for $79/month. Cancel anytime with no commitment.
         </p>
 
         <Card className="card-elevated border-primary/30 max-w-md mx-auto">
           <CardHeader className="pb-2">
             <CardTitle className="text-lg text-primary">NCMHCE Full Access</CardTitle>
             <div className="flex items-baseline justify-center gap-1 mt-2">
-              <span className="text-5xl font-extrabold text-foreground">$129.95</span>
+              <span className="text-5xl font-extrabold text-foreground">$79</span>
               <span className="text-muted-foreground text-sm">/month</span>
             </div>
-            <p className="text-xs text-muted-foreground mt-2">
-              Use code <span className="font-semibold text-primary">FIRST10</span> for 10% off your first month
-            </p>
+            <p className="text-xs text-muted-foreground mt-2">Cancel anytime. No commitment.</p>
           </CardHeader>
           <CardContent className="space-y-4 pt-4">
             <ul className="space-y-2 text-left">
@@ -51,7 +49,7 @@ const PricingSection = () => {
               ))}
             </ul>
             <Button className="w-full" size="lg" onClick={() => navigate("/checkout")}>
-              Subscribe — $129.95/month
+              Subscribe — $79/month
             </Button>
           </CardContent>
         </Card>
