@@ -14,8 +14,17 @@ export const practiceExams: PracticeExam[] = [
     title: "Practice Exam 1",
     description: "11 clinical narratives • ~4 hours",
     narrativeIds: [
+      "01-priya-gad",
+      "02-marcus-mdd",
+      "03-david-ptsd",
+      "04-elena-bipolar",
+      "05-james-aud",
+      "exam-01-02-danielle-mdd",
+      "practice-exam-01-case-03-neha-gad",
+      "practice-exam-01-case-04-luis-panic",
+      "practice-exam-01-case-05-rachel-aud",
       "13-marisol-ptsd",
-      // More narratives will be added as they are created
+      "14-claudette-hoarding",
     ],
   },
 ];
