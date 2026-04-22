@@ -3,7 +3,7 @@ import { Brain, BookOpen, Sparkles, FileText } from "lucide-react";
 const items = [
   { icon: Brain, text: "14+ clinical case narratives" },
   { icon: FileText, text: "Full-length practice exam" },
-  { icon: Sparkles, text: "AI tutor in every session" },
+  { icon: Sparkles, text: "Exam-style support when needed" },
   { icon: BookOpen, text: "DSM-5-TR reference library" },
 ];
 

@@ -3,8 +3,8 @@ import { MessageSquare, Monitor, CalendarClock, BarChart3, BookOpen, Layers } fr
 const features = [
   {
     icon: MessageSquare,
-    title: "AI Tutor in Every Study Session",
-    desc: "Ask questions, get DSM-5-TR-grounded explanations, and explore clinical concepts in real time — right inside your study flow.",
+    title: "Support When You Need It",
+    desc: "Get optional in-context help, explanations, and clarification without interrupting the flow of exam-style practice.",
     badge: null,
   },
   {
@@ -16,7 +16,7 @@ const features = [
   {
     icon: CalendarClock,
     title: "Personalized Study Plans",
-    desc: "AI-generated study plans that adapt to your schedule, target exam date, and available study hours each week.",
+    desc: "Build a study plan around your exam date, weekly availability, and weaker domains so your prep stays focused and realistic.",
     badge: null,
   },
   {
@@ -48,7 +48,7 @@ const SolutionSection = () => (
           Everything You Need to Pass the NCMHCE
         </h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          Every feature is designed around clinical reasoning and real outcomes — not just checking boxes.
+          Every feature is designed to mirror exam-style decision making and help you prepare with confidence.
         </p>
       </div>
 
