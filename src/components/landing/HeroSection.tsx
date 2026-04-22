@@ -19,8 +19,8 @@ const HeroSection = () => {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-foreground mb-6">
-              The NCMHCE Prep Platform That Feels Like the
-              <span className="text-gradient"> Real Exam</span>
+              Realistic NCMHCE simulations.
+              <span className="text-gradient"> Real exam confidence.</span>
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-8 leading-relaxed">
