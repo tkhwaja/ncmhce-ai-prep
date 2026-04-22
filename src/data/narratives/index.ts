@@ -30,10 +30,33 @@ import { kiaraBPDPracticeExamNarrative } from "./practice-exam-01-case-08-kiara-
 import { emilyBulimiaPracticeExamNarrative } from "./practice-exam-01-case-09-emily-bulimia";
 import { ericaProlongedGriefPracticeExamNarrative } from "./practice-exam-01-case-10-erica-prolonged-grief";
 import { jonahSchizophreniformPracticeExamNarrative } from "./practice-exam-01-case-11-jonah-schizophreniform";
+import freeDiagnosticBundle from "@/data/free-diagnostic-bundle.json";
 
 export type { Narrative, NarrativeSection, NarrativeQuestion, NarrativeDomain, NarrativeClientInfo } from "./types";
 export { NARRATIVE_DOMAINS, totalQuestionCount } from "./types";
-export { getNarrativeSectionMinutes, getNarrativeTotalMinutes } from "./timing";
+export { getNarrativeSectionMinutes, getNarrativeSectionMinutesAt, getNarrativeTotalMinutes } from "./timing";
+
+const freeDiagnosticNarrative: Narrative = {
+  id: freeDiagnosticBundle.freeNarrative.id,
+  title: freeDiagnosticBundle.freeNarrative.title,
+  category: "Free Diagnostic Case",
+  difficulty:
+    freeDiagnosticBundle.freeNarrative.difficulty === "advanced"
+      ? "Advanced"
+      : freeDiagnosticBundle.freeNarrative.difficulty === "beginner"
+        ? "Beginner"
+        : "Intermediate",
+  recommendedTimeBySectionMinutes: freeDiagnosticBundle.freeNarrative.sections.map(
+    (section) => section.recommendedTimeMinutes ?? 7,
+  ),
+  clientInfo: freeDiagnosticBundle.freeNarrative.clientInfo,
+  presentingProblem: freeDiagnosticBundle.freeNarrative.presentingProblem,
+  mentalStatusObservation: freeDiagnosticBundle.freeNarrative.mentalStatusObservation,
+  familyHistory: freeDiagnosticBundle.freeNarrative.familyHistory,
+  workHistory: freeDiagnosticBundle.freeNarrative.workHistory,
+  intakeSessionSummary: freeDiagnosticBundle.freeNarrative.intakeSessionSummary,
+  sections: freeDiagnosticBundle.freeNarrative.sections,
+};
 
 export const narratives: Narrative[] = [
   priyaGad,
@@ -73,6 +96,9 @@ const practiceExamNarratives: Narrative[] = [
 ];
 
 const allNarratives: Narrative[] = [...narratives, ...practiceExamNarratives];
+const publicNarratives: Narrative[] = [freeDiagnosticNarrative, ...allNarratives];
 
 export const getNarrativeById = (id: string | undefined): Narrative | undefined =>
-  allNarratives.find((n) => n.id === id);
+  publicNarratives.find((n) => n.id === id);
+
+export const freeDiagnosticCase = freeDiagnosticNarrative;
