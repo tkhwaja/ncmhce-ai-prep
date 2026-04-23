@@ -9,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ArrowLeft, Search, BookOpen, Sparkles, ClipboardCheck, FileText, Lightbulb, Scale, AlertTriangle, Heart } from "lucide-react";
 import ModuleRenderer from "@/components/library/ModuleRenderer";
 import ExamOverviewRenderer from "@/components/library/ExamOverviewRenderer";
+import AssessmentTestingRenderer from "@/components/library/AssessmentTestingRenderer";
 import GlossaryView from "@/components/library/GlossaryView";
 import type { AppLayoutOutletContext } from "@/components/app/AppLayout";
 
