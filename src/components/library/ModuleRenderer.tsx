@@ -580,6 +580,10 @@ const MSEDeepDive = ({ section }: { section: any }) => {
                   {block.items?.map((item: any, itemIndex: number) => (
                     <CollapsibleSection key={itemIndex} title={item.title} defaultOpen={itemIndex === 0}>
                       <div className="space-y-4 pt-1">
+                        {item.purpose && (
+                          <p className="text-sm leading-relaxed text-muted-foreground">{item.purpose}</p>
+                        )}
+
                         <div className="grid gap-4 lg:grid-cols-2">
                           {item.whatToAssess?.length > 0 && (
                             <Card className="card-elevated">
@@ -602,7 +606,61 @@ const MSEDeepDive = ({ section }: { section: any }) => {
                               </CardContent>
                             </Card>
                           )}
+
+                          {item.bestUsedWhen?.length > 0 && (
+                            <Card className="card-elevated">
+                              <CardContent className="p-4">
+                                <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-2">Best Used When</p>
+                                <ul className="space-y-1">
+                                  {item.bestUsedWhen.map((entry: string, entryIndex: number) => (
+                                    <li key={entryIndex} className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-0.5">•</span>{entry}</li>
+                                  ))}
+                                </ul>
+                              </CardContent>
+                            </Card>
+                          )}
+
+                          {item.examUse && (
+                            <Card className="card-elevated">
+                              <CardContent className="p-4">
+                                <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-2">Exam Use</p>
+                                <p className="text-sm text-muted-foreground leading-relaxed">{item.examUse}</p>
+                              </CardContent>
+                            </Card>
+                          )}
                         </div>
+
+                        {item.instruments?.length > 0 && (
+                          <div className="space-y-2">
+                            <p className="text-xs font-semibold text-primary uppercase tracking-wide">Key Instruments</p>
+                            <div className="grid gap-3 md:grid-cols-2">
+                              {item.instruments.map((inst: any, iIdx: number) => (
+                                <Card key={iIdx} className="card-elevated">
+                                  <CardContent className="p-4 space-y-2">
+                                    <div className="flex items-start justify-between gap-2">
+                                      <div className="min-w-0">
+                                        <p className="text-sm font-semibold text-foreground">{inst.name}</p>
+                                        {inst.fullName && <p className="text-xs text-muted-foreground">{inst.fullName}</p>}
+                                      </div>
+                                      {inst.ageRange && (
+                                        <Badge variant="outline" className="text-xs whitespace-nowrap">{inst.ageRange}</Badge>
+                                      )}
+                                    </div>
+                                    {inst.format && (
+                                      <p className="text-xs text-muted-foreground"><span className="font-medium text-foreground">Format:</span> {inst.format}</p>
+                                    )}
+                                    {inst.whatItMeasures && (
+                                      <p className="text-sm text-muted-foreground leading-relaxed">{inst.whatItMeasures}</p>
+                                    )}
+                                    {inst.examRelevance && (
+                                      <p className="text-xs text-muted-foreground italic"><span className="font-medium not-italic text-foreground">Exam relevance: </span>{inst.examRelevance}</p>
+                                    )}
+                                  </CardContent>
+                                </Card>
+                              ))}
+                            </div>
+                          </div>
+                        )}
 
                         <div className="grid gap-4 lg:grid-cols-2">
                           {item.normalIndicators?.length > 0 && (
@@ -632,11 +690,40 @@ const MSEDeepDive = ({ section }: { section: any }) => {
                           )}
                         </div>
 
+                        {item.caution && (
+                          <Alert className="border-destructive/30 bg-destructive/5">
+                            <AlertTriangle className="h-4 w-4 text-destructive" />
+                            <AlertDescription className="text-sm text-foreground">{item.caution}</AlertDescription>
+                          </Alert>
+                        )}
+
                         {item.examPearl ? <ExamPearls pearls={[item.examPearl]} /> : null}
                       </div>
                     </CollapsibleSection>
                   ))}
                 </div>
+              );
+            }
+
+            if (block.type === "instrument_cards") {
+              return (
+                <Card key={index} className="card-elevated">
+                  <CardContent className="p-4 space-y-3">
+                    <p className="text-sm font-semibold text-foreground">{block.title}</p>
+                    <div className="grid gap-3 md:grid-cols-2">
+                      {block.cards?.map((card: any, cardIndex: number) => (
+                        <div key={cardIndex} className="rounded-lg border border-border bg-background p-3 space-y-1">
+                          <div className="flex items-start justify-between gap-2">
+                            <p className="text-sm font-semibold text-foreground">{card.name}</p>
+                            {card.category && <Badge variant="outline" className="text-xs whitespace-nowrap">{card.category}</Badge>}
+                          </div>
+                          {card.whatItHelpsWith && <p className="text-sm text-muted-foreground">{card.whatItHelpsWith}</p>}
+                          {card.examPearl && <p className="text-xs text-muted-foreground italic">{card.examPearl}</p>}
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
               );
             }
 
