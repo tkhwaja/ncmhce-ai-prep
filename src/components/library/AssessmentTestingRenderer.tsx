@@ -432,38 +432,38 @@ const InstrumentsTab = ({ data }: { data: any }) => {
         {filtered.map((cat) => (
           <div key={cat.title}>
             <div className="mb-2">
-              <p className="text-sm font-semibold text-foreground">
+              <p className="text-base font-semibold text-foreground">
                 {cat.title.replace(/^(Adult|Youth)\s*[—-]\s*/i, "")}
               </p>
-              {cat.examUse && <p className="text-xs text-muted-foreground">{cat.examUse}</p>}
+              {cat.examUse && <p className="text-sm text-muted-foreground leading-relaxed">{cat.examUse}</p>}
             </div>
             <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
               {cat.instruments.map((inst) => (
                 <Card key={inst.name + (inst.fullName ?? "")} className="card-elevated">
                   <CardContent className="space-y-1.5 p-4">
                     <div className="flex items-baseline justify-between gap-2">
-                      <p className="text-sm font-semibold text-foreground">{inst.name}</p>
+                      <p className="text-base font-semibold text-foreground">{inst.name}</p>
                       {inst.ageRange && (
-                        <Badge variant="outline" className="shrink-0 text-[10px]">
+                        <Badge variant="outline" className="shrink-0 text-[11px]">
                           {inst.ageRange}
                         </Badge>
                       )}
                     </div>
-                    {inst.fullName && <p className="text-xs italic text-muted-foreground">{inst.fullName}</p>}
+                    {inst.fullName && <p className="text-sm italic text-muted-foreground leading-relaxed">{inst.fullName}</p>}
                     {inst.format && (
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-sm text-muted-foreground leading-relaxed">
                         <span className="font-medium text-foreground">Format: </span>
                         {inst.format}
                       </p>
                     )}
                     {inst.whatItMeasures && (
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-sm text-muted-foreground leading-relaxed">
                         <span className="font-medium text-foreground">Measures: </span>
                         {inst.whatItMeasures}
                       </p>
                     )}
                     {inst.examRelevance && (
-                      <p className="rounded bg-primary/5 px-2 py-1 text-xs text-foreground">
+                      <p className="rounded bg-primary/5 px-2 py-1 text-sm text-foreground leading-relaxed">
                         <span className="font-semibold text-primary">Exam: </span>
                         {inst.examRelevance}
                       </p>
