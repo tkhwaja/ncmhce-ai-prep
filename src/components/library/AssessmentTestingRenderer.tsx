@@ -67,11 +67,11 @@ const Callout = ({
 };
 
 const KVList = ({ items }: { items: { label: string; text: string }[] }) => (
-  <dl className="space-y-2">
+  <dl className="space-y-3">
     {items.map((it, i) => (
-      <div key={i} className="text-sm">
-        <dt className="font-medium text-foreground">{it.label}</dt>
-        <dd className="text-muted-foreground">{it.text}</dd>
+      <div key={i} className="text-base">
+        <dt className="font-semibold text-foreground">{it.label}</dt>
+        <dd className="text-sm text-muted-foreground leading-relaxed">{it.text}</dd>
       </div>
     ))}
   </dl>
@@ -145,7 +145,7 @@ const OverviewTab = ({ data }: { data: any }) => {
 /* ------------------------------------------------------------------ */
 
 const MseTab = ({ data }: { data: any }) => {
-  const mse = data.mentalStatusExaminationSection;
+  const mse = data.mseDeepDive;
   const content: any[] = mse?.content ?? [];
 
   const domains = content.find((c) => c.type === "section_group" && c.title?.includes("Core Domains"))?.items ?? [];
@@ -730,7 +730,7 @@ const RiskTab = ({ data }: { data: any }) => {
 /* ------------------------------------------------------------------ */
 
 const PsychometricsTab = ({ data }: { data: any }) => {
-  const psy = data.psychometricsSection;
+  const psy = data.psychometrics;
   const content: any[] = psy?.content ?? [];
 
   const termCards = content.find((c) => c.type === "term_cards");
@@ -787,7 +787,7 @@ const PsychometricsTab = ({ data }: { data: any }) => {
         <div className="grid gap-3 md:grid-cols-2">
           <Card className="card-elevated">
             <CardContent className="space-y-3 p-4">
-              <p className="text-sm font-semibold text-foreground">Reliability types</p>
+              <p className="text-base font-semibold text-foreground">Reliability types</p>
               <KVList
                 items={reliabilityTypes.map((r: any) => ({
                   label: r.title.replace(/^\d+\.\s*/, ""),
@@ -798,7 +798,7 @@ const PsychometricsTab = ({ data }: { data: any }) => {
           </Card>
           <Card className="card-elevated">
             <CardContent className="space-y-3 p-4">
-              <p className="text-sm font-semibold text-foreground">Validity ideas</p>
+              <p className="text-base font-semibold text-foreground">Validity ideas</p>
               <KVList
                 items={validityIdeas.map((r: any) => ({
                   label: r.title.replace(/^\d+\.\s*/, ""),
