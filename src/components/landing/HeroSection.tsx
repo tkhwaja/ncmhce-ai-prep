@@ -19,13 +19,13 @@ const HeroSection = () => {
             </div>
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-foreground mb-6">
-                See where you stand before the exam.
-                <span className="text-gradient"> Think through one real case first.</span>
+                The modern way to study
+                <span className="text-gradient"> for the NCMHCE.</span>
             </h1>
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-8 leading-relaxed">
-                Most people miss the NCMHCE because they never learn how to reason through cases under pressure.
-                Take a full diagnostic case, get your breakdown after you finish, and see exactly what to tighten before test day.
+                AI tutoring, narrative simulations, and smart study tools — built for how you actually learn.
+                Start with a free diagnostic case and see exactly where you stand before test day.
             </p>
 
               <FreeDiagnosticCTA className="mb-4" />
