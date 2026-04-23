@@ -883,10 +883,10 @@ const PsychometricsTab = ({ data }: { data: any }) => {
           <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
             {framework.steps.map((s: any) => (
               <Card key={s.step} className="card-elevated">
-                <CardContent className="space-y-1 p-4">
+                <CardContent className="space-y-1.5 p-4">
                   <Badge className="mb-1 bg-primary text-primary-foreground">Step {s.step}</Badge>
-                  <p className="text-sm font-semibold text-foreground">{s.title}</p>
-                  <p className="text-xs text-muted-foreground">{s.description}</p>
+                  <p className="text-base font-semibold text-foreground">{s.title}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{s.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -905,12 +905,12 @@ const PsychometricsTab = ({ data }: { data: any }) => {
           )}
           {selPatterns.length > 0 && (
             <Card className="card-elevated">
-              <CardContent className="space-y-2 p-4">
-                <p className="text-sm font-semibold text-foreground">Common case patterns</p>
+              <CardContent className="space-y-3 p-4">
+                <p className="text-base font-semibold text-foreground">Common case patterns</p>
                 {selPatterns.map((p: any, i: number) => (
-                  <div key={i} className="text-xs">
+                  <div key={i} className="text-sm">
                     <p className="font-medium text-foreground">{p.title}</p>
-                    <p className="text-muted-foreground">
+                    <p className="text-muted-foreground leading-relaxed">
                       <span className="font-medium text-primary">Best move: </span>
                       {p.bestMove}
                     </p>
