@@ -144,7 +144,7 @@ const AIChatSidebar = ({ open, onClose, context, width = 380, onWidthChange }: A
 
   return (
     <div
-      className="border-l border-border bg-background flex flex-col h-full shrink-0 max-md:fixed max-md:inset-0 max-md:w-full max-md:z-50"
+      className="relative border-l border-border bg-background flex flex-col shrink-0 md:sticky md:top-0 md:self-start md:h-screen max-md:fixed max-md:inset-0 max-md:w-full max-md:z-50"
       style={{ width: `${width}px` }}
     >
       {/* Drag handle — visible grip on left edge */}
