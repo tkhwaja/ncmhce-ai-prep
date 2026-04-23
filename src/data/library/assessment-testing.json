@@ -82,6 +82,25 @@
   ],
   "assessmentFramework": {
     "title": "Major Types of Assessment",
+    "overview": "On the exam, 'assessment' does not mean one test. It means selecting the most appropriate way to gather clinically useful information for the specific question in front of you. Counselors should know what each assessment type is designed to do, what it cannot do well, and when a positive result must be followed by a more targeted evaluation or immediate intervention.",
+    "selectionPrinciples": [
+      {
+        "title": "Match the method to the question",
+        "description": "If you need a broad understanding of history, context, and differential clues, start with interviewing. If you need current symptom severity, use a focused measure. If safety is in question, use a risk-specific assessment rather than a routine screener."
+      },
+      {
+        "title": "Do not over-test when a focused tool is enough",
+        "description": "The exam usually rewards the most targeted next step. A broad personality inventory is rarely the best first move when the case clearly asks about depression, PTSD, alcohol misuse, or suicide risk."
+      },
+      {
+        "title": "Do not under-assess when stakes are high",
+        "description": "A positive screener is not the end of the assessment process. If the client endorses psychosis, mania, suicidal thoughts, severe substance use, or major functional decline, counselors must expand the assessment and think about urgency and level of care."
+      },
+      {
+        "title": "Assessment should change treatment decisions",
+        "description": "Every assessment type should help the counselor do something better: refine diagnosis, guide case conceptualization, monitor progress, document risk, or determine whether outpatient care is sufficient."
+      }
+    ],
     "types": [
       {
         "id": "clinical_interview",
@@ -97,6 +116,27 @@
           "Flexible and comprehensive",
           "Allows follow-up questions and contextual understanding",
           "Supports rapport and alliance-building"
+        ],
+        "commonExamples": [
+          "intake interview",
+          "biopsychosocial interview",
+          "diagnostic intake",
+          "follow-up reassessment"
+        ],
+        "notEnoughByItself": [
+          "acute suicide or violence concerns require targeted risk assessment",
+          "suspected cognitive impairment may require formal cognitive testing or medical workup",
+          "unclear personality or diagnostic complexity may require more standardized tools"
+        ],
+        "counselorShouldRemember": [
+          "A good interview covers symptom onset, duration, severity, impairment, stressors, trauma, substance use, medical factors, family history, strengths, supports, and cultural context.",
+          "Structured or semi-structured interviews improve consistency and reduce the chance of skipping important diagnostic areas.",
+          "Interview data should be integrated with MSE findings, collateral information when available, and any focused measures you administer."
+        ],
+        "commonExamMistakes": [
+          "stopping at rapport-building without clarifying timeline, impairment, or rule-outs",
+          "forgetting to ask about safety, substances, and medical contributors",
+          "assuming the interview alone settles a diagnosis when a more focused assessment is still needed"
         ],
         "limitations": [
           "Subject to interviewer skill and bias",
@@ -120,6 +160,31 @@
           "Useful for detecting acute disorganization, mood shifts, and perceptual disturbance",
           "Embedded in nearly every full diagnostic interview"
         ],
+        "commonExamples": [
+          "appearance",
+          "behavior",
+          "speech",
+          "mood and affect",
+          "thought process and content",
+          "perception",
+          "orientation",
+          "insight and judgment"
+        ],
+        "notEnoughByItself": [
+          "current presentation does not replace symptom history",
+          "a normal MSE does not rule out disorders that are episodic or internally experienced",
+          "it should not be mistaken for a full neuropsychological or diagnostic evaluation"
+        ],
+        "counselorShouldRemember": [
+          "The MSE tells you how the client is functioning right now, which is why it matters so much for psychosis, mania, intoxication, delirium, and severe depression.",
+          "The exam often hides crucial clues inside behavioral descriptions like pressured speech, flight of ideas, flat affect, tangentiality, poor insight, or impaired judgment.",
+          "Documenting change over time can help determine whether risk is escalating or whether treatment is helping."
+        ],
+        "commonExamMistakes": [
+          "confusing mood with affect",
+          "missing signs of psychosis or mania because the case does not explicitly name them",
+          "treating orientation or concentration issues as purely psychiatric without considering medical causes"
+        ],
         "limitations": [
           "Captures current presentation, not full history",
           "Can be affected by stress, culture, language, medical issues, and setting"
@@ -140,6 +205,29 @@
           "Easy to repeat over time",
           "Useful for tracking treatment progress"
         ],
+        "commonExamples": [
+          "PHQ-9",
+          "GAD-7",
+          "PCL-5",
+          "BDI-II",
+          "BAI",
+          "DAST-10"
+        ],
+        "notEnoughByItself": [
+          "a positive score does not equal a DSM diagnosis",
+          "low insight, denial, literacy issues, or impression management can distort results",
+          "safety concerns still require direct clinical questioning"
+        ],
+        "counselorShouldRemember": [
+          "Self-report tools are strongest when you need efficient screening or repeated measurement across sessions.",
+          "They are especially useful in measurement-based care because they help quantify change over time.",
+          "A good counselor interprets the score in context rather than treating the number as a stand-alone conclusion."
+        ],
+        "commonExamMistakes": [
+          "calling a screener a diagnostic interview",
+          "choosing a broad tool when the case asks for a brief repeatable symptom measure",
+          "ignoring a suicidal response because the rest of the score seems mild"
+        ],
         "limitations": [
           "Can be influenced by insight, defensiveness, exaggeration, literacy, and motivation",
           "Not diagnostic by themselves"
@@ -159,6 +247,27 @@
         "strengths": [
           "More guided and systematic than unstructured interviewing",
           "Often clearer for high-risk domains"
+        ],
+        "commonExamples": [
+          "C-SSRS",
+          "ASQ",
+          "HAM-D",
+          "structured alcohol or withdrawal ratings"
+        ],
+        "notEnoughByItself": [
+          "structured ratings do not replace professional judgment",
+          "positive findings often require follow-up questioning, safety planning, consultation, or referral",
+          "they are not substitutes for a full intake when diagnostic picture is broad or unclear"
+        ],
+        "counselorShouldRemember": [
+          "These tools are especially valuable when the counselor needs consistency across raters or across high-stakes areas such as suicide risk.",
+          "The point is not only to get a score but to organize questions you must not forget to ask.",
+          "On the exam, when risk is present, a structured risk tool plus clinical interviewing is often the strongest answer."
+        ],
+        "commonExamMistakes": [
+          "using a depression screener instead of a suicide-specific assessment after suicidal ideation is disclosed",
+          "assuming a structured tool answers the intervention question without considering level of care",
+          "forgetting that risk can change quickly and requires reassessment"
         ],
         "limitations": [
           "Still require clinical interpretation",
@@ -181,6 +290,28 @@
           "Norm-referenced interpretation",
           "Often stronger psychometric support"
         ],
+        "commonExamples": [
+          "MMPI-2 or MMPI-3",
+          "WAIS-IV",
+          "WISC-V",
+          "Strong Interest Inventory",
+          "Self-Directed Search"
+        ],
+        "notEnoughByItself": [
+          "they may be unnecessary when a focused brief screener answers the question better",
+          "results should still be integrated with history, observation, and clinical judgment",
+          "some tools require specialized training and are not first-line in routine counseling settings"
+        ],
+        "counselorShouldRemember": [
+          "Standardized tests are most useful when you need comparison to norms or clearer measurement of a broad construct like cognitive ability, personality patterns, or career interests.",
+          "The NCMHCE often expects you to recognize when a broad standardized test is appropriate versus when it is excessive.",
+          "Norm-referenced results tell you how a client compares with a reference group, not automatically why the client is struggling."
+        ],
+        "commonExamMistakes": [
+          "choosing MMPI when the case really asks for a focused PTSD, depression, or substance screener",
+          "confusing intelligence testing with achievement or symptom measures",
+          "over-interpreting personality or career tools as if they diagnose mental disorders"
+        ],
         "limitations": [
           "Need training to administer or interpret appropriately",
           "Not always necessary in routine outpatient cases"
@@ -201,6 +332,27 @@
           "Captures actual behavior rather than only reported behavior",
           "Useful for antecedent-behavior-consequence analysis"
         ],
+        "commonExamples": [
+          "Functional Behavioral Assessment",
+          "classroom observation",
+          "parent-child interaction observation",
+          "session behavior tracking"
+        ],
+        "notEnoughByItself": [
+          "behavior in one setting may not generalize to all settings",
+          "observation does not automatically reveal internal states like guilt, intrusive thoughts, or trauma memories",
+          "it should be paired with interviews and collateral data when possible"
+        ],
+        "counselorShouldRemember": [
+          "Behavioral observation shines when the key question is what triggers a behavior, what maintains it, and what intervention could change it.",
+          "This is especially useful with children, school cases, developmental concerns, and externalizing behavior.",
+          "The exam often rewards FBA when a repeated behavior seems to serve a clear function such as escape, attention, or sensory regulation."
+        ],
+        "commonExamMistakes": [
+          "choosing a broad psychopathology test when the case is really about behavior function",
+          "assuming the child is simply oppositional without analyzing antecedents and consequences",
+          "ignoring parent, teacher, or environmental input"
+        ],
         "limitations": [
           "Context-specific",
           "Requires careful recording and interpretation"
@@ -217,6 +369,25 @@
         ],
         "strengths": [
           "Can generate rich material"
+        ],
+        "commonExamples": [
+          "Rorschach",
+          "Thematic Apperception Test (TAT)"
+        ],
+        "notEnoughByItself": [
+          "they are rarely the best first-line answer for a straightforward counseling case",
+          "they should not replace more targeted, better-validated tools when the question is clear",
+          "results are especially dependent on examiner expertise and theoretical orientation"
+        ],
+        "counselorShouldRemember": [
+          "Projective methods aim to elicit themes, conflicts, and personality dynamics through ambiguous stimuli.",
+          "For exam purposes, they are usually less favored than more direct, psychometrically stronger instruments.",
+          "If the exam stem asks for the best next assessment in a routine outpatient case, projective tests are usually not the strongest answer."
+        ],
+        "commonExamMistakes": [
+          "thinking older or more complex automatically means better",
+          "using a projective measure when a targeted symptom or risk tool is clearly indicated",
+          "forgetting the exam prioritizes clinical usefulness and safety over theoretical depth"
         ],
         "limitations": [
           "More controversial psychometrically",
@@ -977,6 +1148,86 @@
       "answer": "Genogram"
     }
   ],
+  "assessmentTerminologyMatch": {
+    "title": "Match the Assessment Term",
+    "instructions": "Match each assessment term to its best definition. This helps separate brief screeners from full diagnostic methods and from broader standardized testing concepts.",
+    "options": [
+      {
+        "id": "opt_screener",
+        "definition": "A brief tool used to quickly flag whether a problem may be present and whether more assessment is needed."
+      },
+      {
+        "id": "opt_diagnostic_interview",
+        "definition": "A structured or semi-structured clinical interview used to determine whether symptoms meet criteria for a mental disorder."
+      },
+      {
+        "id": "opt_symptom_inventory",
+        "definition": "A measure that estimates the severity or frequency of symptoms and is often useful for monitoring change over time."
+      },
+      {
+        "id": "opt_mse",
+        "definition": "A systematic description of the client's current presentation, including appearance, behavior, speech, mood, thought process, perception, cognition, insight, and judgment."
+      },
+      {
+        "id": "opt_norm_referenced",
+        "definition": "A standardized test interpreted by comparing the client's score with a reference group or normative sample."
+      },
+      {
+        "id": "opt_behavioral_observation",
+        "definition": "Direct observation of what the client actually does in context, often to identify patterns, triggers, and consequences."
+      },
+      {
+        "id": "opt_projective",
+        "definition": "An assessment method that uses ambiguous stimuli to elicit themes, conflicts, or underlying personality dynamics."
+      },
+      {
+        "id": "opt_risk_assessment",
+        "definition": "A focused evaluation of immediate safety concerns such as suicide, homicide, self-harm, intent, plan, means, and protective factors."
+      }
+    ],
+    "prompts": [
+      {
+        "term": "Screener",
+        "correctOptionId": "opt_screener",
+        "whyItMatters": "A screener tells you whether to look closer; it does not finalize a diagnosis."
+      },
+      {
+        "term": "Diagnostic interview",
+        "correctOptionId": "opt_diagnostic_interview",
+        "whyItMatters": "This is how counselors move from symptom clues toward diagnostic clarification."
+      },
+      {
+        "term": "Symptom inventory",
+        "correctOptionId": "opt_symptom_inventory",
+        "whyItMatters": "These are especially useful when you want baseline severity and repeated outcome tracking."
+      },
+      {
+        "term": "Mental Status Examination (MSE)",
+        "correctOptionId": "opt_mse",
+        "whyItMatters": "The MSE captures what is happening in the room right now and can reveal high-risk or high-acuity clues."
+      },
+      {
+        "term": "Norm-referenced test",
+        "correctOptionId": "opt_norm_referenced",
+        "whyItMatters": "This matters when interpretation depends on comparing the client with a standardization sample."
+      },
+      {
+        "term": "Behavioral observation",
+        "correctOptionId": "opt_behavioral_observation",
+        "whyItMatters": "This is often the best fit when the real question is what maintains a behavior."
+      },
+      {
+        "term": "Projective test",
+        "correctOptionId": "opt_projective",
+        "whyItMatters": "The exam may reference these, but they are usually not the first-line answer in routine counseling cases."
+      },
+      {
+        "term": "Risk assessment",
+        "correctOptionId": "opt_risk_assessment",
+        "whyItMatters": "When safety is on the line, this takes priority over routine symptom measurement."
+      }
+    ]
+  },
   "sourceBasis": {
     "derivedFromUploadedMaterials": [
       "Study Library",
