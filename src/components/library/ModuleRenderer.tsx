@@ -47,6 +47,68 @@ const CollapsibleSection = ({ title, children, defaultOpen = false }: { title: s
   );
 };
 
+const slugifySectionId = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+
+const GuidedSection = ({
+  id,
+  title,
+  summary,
+  defaultOpen = false,
+  children,
+}: {
+  id: string;
+  title: string;
+  summary?: string;
+  defaultOpen?: boolean;
+  children: React.ReactNode;
+}) => (
+  <section id={id} className="scroll-mt-24">
+    <CollapsibleSection title={title} defaultOpen={defaultOpen}>
+      <div className="space-y-4 pt-1">
+        {summary ? <p className="text-sm leading-relaxed text-muted-foreground">{summary}</p> : null}
+        {children}
+      </div>
+    </CollapsibleSection>
+  </section>
+);
+
+const StudyFlowGuide = ({
+  sections,
+}: {
+  sections: Array<{ id: string; label: string; detail: string }>;
+}) => {
+  if (!sections.length) return null;
+
+  return (
+    <Card className="card-elevated border-primary/20 bg-primary/5">
+      <CardContent className="p-4 space-y-4">
+        <div className="space-y-1">
+          <p className="text-sm font-semibold text-foreground">Start here</p>
+          <p className="text-sm text-muted-foreground">Move through the module in order and open only the section you want to study next.</p>
+        </div>
+
+        <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-3">
+          {sections.map((section, index) => (
+            <a
+              key={section.id}
+              href={`#${section.id}`}
+              className="rounded-lg border border-border bg-background px-3 py-3 transition-colors hover:bg-accent"
+            >
+              <p className="text-xs font-semibold uppercase tracking-wide text-primary">Step {index + 1}</p>
+              <p className="mt-1 text-sm font-medium text-foreground">{section.label}</p>
+              <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{section.detail}</p>
+            </a>
+          ))}
+        </div>
+      </CardContent>
+    </Card>
+  );
+};
+
 /* ---- Intro ---- */
 const IntroSection = ({ intro }: { intro: any }) => (
   <div className="space-y-4">
