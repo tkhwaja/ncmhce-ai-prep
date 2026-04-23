@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -20,6 +21,60 @@ serve(async (req) => {
   if (req.method === "OPTIONS") return new Response(null, { headers: corsHeaders });
 
   try {
+    // Auth check
+    const authHeader = req.headers.get("Authorization");
+    if (!authHeader) {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), {
+        status: 401,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+
+    const supabaseUrl = Deno.env.get("SUPABASE_URL")!;
+    const supabaseAnon = Deno.env.get("SUPABASE_ANON_KEY")!;
+    const serviceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
+
+    const userClient = createClient(supabaseUrl, supabaseAnon, {
+      global: { headers: { Authorization: authHeader } },
+    });
+    const { data: userData, error: userErr } = await userClient.auth.getUser();
+    if (userErr || !userData?.user) {
+      return new Response(JSON.stringify({ error: "Unauthorized" }), {
+        status: 401,
+        headers: { ...corsHeaders, "Content-Type": "application/json" },
+      });
+    }
+    const user = userData.user;
+
+    // Subscription check (service role to bypass RLS for the RPC + legacy paid check)
+    const admin = createClient(supabaseUrl, serviceKey);
+    const { data: profile } = await admin
+      .from("profiles")
+      .select("payment_status")
+      .eq("id", user.id)
+      .maybeSingle();
+    const legacyPaid = profile?.payment_status === "paid";
+
+    let hasActive = legacyPaid;
+    if (!hasActive) {
+      const { data: sandboxActive } = await admin.rpc("has_active_subscription", {
+        user_uuid: user.id,
+        check_env: "sandbox",
+      });
+      const { data: liveActive } = await admin.rpc("has_active_subscription", {
+        user_uuid: user.id,
+        check_env: "live",
+      });
+      hasActive = !!sandboxActive || !!liveActive;
+    }
+
+    if (!hasActive) {
+      return new Response(
+        JSON.stringify({ error: "Active subscription required to use CounselorAI." }),
+        { status: 403, headers: { ...corsHeaders, "Content-Type": "application/json" } },
+      );
+    }
+
     const { messages, context } = await req.json();
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
