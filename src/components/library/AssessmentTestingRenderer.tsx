@@ -552,15 +552,15 @@ const RiskTab = ({ data }: { data: any }) => {
         {domains.map((d: any, i: number) => (
           <Card key={i} className="card-elevated">
             <CardContent className="space-y-2 p-4">
-              <p className="text-sm font-semibold text-foreground">{d.title}</p>
+              <p className="text-base font-semibold text-foreground">{d.title}</p>
               {d.mustAssess && (
-                <p className="text-xs text-muted-foreground">
+                <p className="text-sm text-muted-foreground leading-relaxed">
                   <span className="font-medium text-foreground">Must assess: </span>
                   {d.mustAssess.join(", ")}
                 </p>
               )}
               {d.examPearl && (
-                <p className="rounded bg-primary/5 px-2 py-1 text-xs text-foreground">
+                <p className="rounded bg-primary/5 px-2 py-1 text-sm text-foreground leading-relaxed">
                   <span className="font-semibold text-primary">Exam pearl: </span>
                   {d.examPearl}
                 </p>
@@ -584,17 +584,17 @@ const RiskTab = ({ data }: { data: any }) => {
         {passiveActive && (
           <Card className="card-elevated">
             <CardContent className="p-4">
-              <p className="text-sm font-semibold text-foreground">{passiveActive.title}</p>
+              <p className="text-base font-semibold text-foreground">{passiveActive.title}</p>
               <div className="mt-2 grid grid-cols-2 gap-3 text-sm">
                 {passiveActive.items.map((it: any, j: number) => (
                   <div key={j}>
                     <p className="font-medium text-foreground">{it.term}</p>
-                    <p className="text-muted-foreground">{it.definition}</p>
+                    <p className="text-muted-foreground leading-relaxed">{it.definition}</p>
                   </div>
                 ))}
               </div>
               {passiveActive.keyTakeaway && (
-                <p className="mt-3 rounded bg-muted px-3 py-2 text-xs text-foreground">{passiveActive.keyTakeaway}</p>
+                <p className="mt-3 rounded bg-muted px-3 py-2 text-sm text-foreground leading-relaxed">{passiveActive.keyTakeaway}</p>
               )}
             </CardContent>
           </Card>
@@ -606,8 +606,8 @@ const RiskTab = ({ data }: { data: any }) => {
         {amplifiers.map((a: any, i: number) => (
           <Card key={i} className="card-elevated">
             <CardContent className="p-4">
-              <p className="text-sm font-semibold text-foreground">{a.title}</p>
-              <ul className="mt-2 grid grid-cols-1 gap-1 text-xs text-muted-foreground sm:grid-cols-2">
+              <p className="text-base font-semibold text-foreground">{a.title}</p>
+              <ul className="mt-2 grid grid-cols-1 gap-1.5 text-sm text-muted-foreground sm:grid-cols-2 leading-relaxed">
                 {a.points.map((p: string, j: number) => (
                   <li key={j} className="flex items-start gap-1.5">
                     <span className="mt-0.5 text-primary">•</span>
@@ -624,11 +624,11 @@ const RiskTab = ({ data }: { data: any }) => {
       <div className="grid gap-3 lg:grid-cols-3">
         <Card className="card-elevated lg:col-span-1">
           <CardContent className="space-y-3 p-4">
-            <p className="text-sm font-semibold text-foreground">What strong exam answers look like</p>
+            <p className="text-base font-semibold text-foreground">What strong exam answers look like</p>
             {examMoves.map((m: any, i: number) => (
               <div key={i}>
-                <p className="text-xs font-medium text-foreground">{m.title}</p>
-                <ul className="mt-1 list-disc space-y-0.5 pl-4 text-xs text-muted-foreground">
+                <p className="text-sm font-medium text-foreground">{m.title}</p>
+                <ul className="mt-1 list-disc space-y-0.5 pl-4 text-sm text-muted-foreground leading-relaxed">
                   {m.guidance.map((g: string, j: number) => (
                     <li key={j}>{g}</li>
                   ))}
@@ -700,9 +700,9 @@ const RiskTab = ({ data }: { data: any }) => {
             {loc.levels.map((lv: any, i: number) => (
               <Card key={i} className="card-elevated">
                 <CardContent className="space-y-1.5 p-4">
-                  <p className="text-sm font-semibold text-foreground">{lv.level}</p>
-                  <p className="text-xs text-muted-foreground">{lv.description}</p>
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-base font-semibold text-foreground">{lv.level}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{lv.description}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     <span className="font-medium text-foreground">Best fit: </span>
                     {lv.bestFit.join("; ")}
                   </p>
