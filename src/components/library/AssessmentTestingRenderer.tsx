@@ -169,17 +169,17 @@ const MseTab = ({ data }: { data: any }) => {
           {compares.map((c: any, i: number) => (
             <Card key={i} className="card-elevated">
               <CardContent className="p-4">
-                <p className="text-sm font-semibold text-foreground">{c.title}</p>
+                <p className="text-base font-semibold text-foreground">{c.title}</p>
                 <div className="mt-2 grid grid-cols-2 gap-3 text-sm">
                   {c.items.map((it: any, j: number) => (
                     <div key={j}>
                       <p className="font-medium text-foreground">{it.term}</p>
-                      <p className="text-muted-foreground">{it.definition}</p>
+                      <p className="text-muted-foreground leading-relaxed">{it.definition}</p>
                     </div>
                   ))}
                 </div>
                 {c.keyTakeaway && (
-                  <p className="mt-3 rounded bg-muted px-3 py-2 text-xs text-foreground">{c.keyTakeaway}</p>
+                  <p className="mt-3 rounded bg-muted px-3 py-2 text-sm text-foreground leading-relaxed">{c.keyTakeaway}</p>
                 )}
               </CardContent>
             </Card>
