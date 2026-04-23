@@ -8,29 +8,86 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { StudyVisuals } from "@/components/library/StudyVisuals";
 import ModuleSectionNavigator from "@/components/library/ModuleSectionNavigator";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { ChevronDown, ChevronRight, Lightbulb, AlertTriangle, BookOpen, Target, HelpCircle } from "lucide-react";
+import { ChevronDown, ChevronRight, Lightbulb, AlertTriangle, BookOpen, Target, HelpCircle, Sparkles } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
 /*  Generic section renderers for the structured JSON module format    */
+/*  Visual primitives mirror the Assessment & Testing renderer so all  */
+/*  modules share one cohesive look.                                   */
 /* ------------------------------------------------------------------ */
 
-const SectionHeading = ({ children }: { children: React.ReactNode }) => (
-  <h2 className="text-lg font-semibold text-foreground mt-8 mb-3 first:mt-0">{children}</h2>
+/* SectionHeading — used as the top-of-section title throughout.
+   Now styled like A&T's SectionTitle: icon chip + larger heading. */
+const SectionHeading = ({
+  children,
+  icon: Icon = Sparkles,
+  subtitle,
+}: {
+  children: React.ReactNode;
+  icon?: React.ElementType;
+  subtitle?: string;
+}) => (
+  <div className="flex items-start gap-3 mt-8 mb-4 first:mt-0">
+    <div className="rounded-lg bg-primary/10 p-2 text-primary shrink-0">
+      <Icon className="h-5 w-5" />
+    </div>
+    <div className="min-w-0">
+      <h2 className="text-xl font-semibold text-foreground leading-tight">{children}</h2>
+      {subtitle && <p className="text-sm text-muted-foreground mt-0.5">{subtitle}</p>}
+    </div>
+  </div>
 );
+
+/* Callout — tip / warn / rule, matches A&T styling */
+const Callout = ({
+  variant,
+  title,
+  children,
+}: {
+  variant: "tip" | "warn" | "rule";
+  title: string;
+  children: React.ReactNode;
+}) => {
+  const map = {
+    tip: { Icon: Lightbulb, cls: "border-primary/30 bg-primary/5 text-foreground", iconCls: "text-primary" },
+    warn: { Icon: AlertTriangle, cls: "border-destructive/30 bg-destructive/5 text-foreground", iconCls: "text-destructive" },
+    rule: { Icon: Target, cls: "border-accent bg-accent/30 text-foreground", iconCls: "text-foreground" },
+  } as const;
+  const { Icon, cls, iconCls } = map[variant];
+  return (
+    <div className={`rounded-lg border p-4 ${cls}`}>
+      <div className="mb-2 flex items-center gap-2">
+        <Icon className={`h-4 w-4 ${iconCls}`} />
+        <p className="text-sm font-semibold">{title}</p>
+      </div>
+      <div className="text-sm leading-relaxed">{children}</div>
+    </div>
+  );
+};
 
 const ExamPearl = ({ text }: { text: string }) => (
   <Alert className="border-primary/30 bg-primary/5 my-2">
     <Lightbulb className="h-4 w-4 text-primary" />
-    <AlertDescription className="text-sm text-foreground">{text}</AlertDescription>
+    <AlertDescription className="text-sm text-foreground leading-relaxed">{text}</AlertDescription>
   </Alert>
 );
 
 const ExamPearls = ({ pearls }: { pearls?: string[] }) => {
   if (!pearls?.length) return null;
+  if (pearls.length === 1) {
+    return (
+      <div className="mt-3">
+        <Callout variant="tip" title="Exam Pearl">{pearls[0]}</Callout>
+      </div>
+    );
+  }
   return (
-    <div className="space-y-1 mt-3">
-      <p className="text-xs font-semibold text-primary uppercase tracking-wide">Exam Pearls</p>
-      {pearls.map((p, i) => <ExamPearl key={i} text={p} />)}
+    <div className="mt-3">
+      <Callout variant="tip" title="Exam Pearls">
+        <ul className="list-disc space-y-1 pl-4">
+          {pearls.map((p, i) => <li key={i}>{p}</li>)}
+        </ul>
+      </Callout>
     </div>
   );
 };
@@ -38,9 +95,9 @@ const ExamPearls = ({ pearls }: { pearls?: string[] }) => {
 const CollapsibleSection = ({ title, children, defaultOpen = false }: { title: string; children: React.ReactNode; defaultOpen?: boolean }) => {
   const [open, setOpen] = useState(defaultOpen);
   return (
-    <Collapsible open={open} onOpenChange={setOpen} className="border border-border rounded-lg mt-4">
-      <CollapsibleTrigger className="flex items-center justify-between w-full p-4 hover:bg-accent/50 rounded-lg transition-colors">
-        <span className="font-semibold text-foreground text-left">{title}</span>
+    <Collapsible open={open} onOpenChange={setOpen} className="border border-border rounded-lg mt-4 card-elevated">
+      <CollapsibleTrigger className="flex items-center justify-between w-full p-4 hover:bg-accent/40 rounded-lg transition-colors">
+        <span className="font-semibold text-foreground text-left text-base">{title}</span>
         {open ? <ChevronDown className="h-4 w-4 text-muted-foreground" /> : <ChevronRight className="h-4 w-4 text-muted-foreground" />}
       </CollapsibleTrigger>
       <CollapsibleContent className="px-4 pb-4">{children}</CollapsibleContent>
