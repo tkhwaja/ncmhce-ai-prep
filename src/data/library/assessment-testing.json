@@ -159,7 +159,7 @@
       {
         "id": "4_mental_status_assessment",
         "title": "4. Mental Status Assessment",
-        "purpose": "Assess the client\u2019s current psychological presentation and observable functioning.",
+        "purpose": "Assess the client’s current psychological presentation and observable functioning.",
         "includes": [
           "appearance",
           "behavior",
@@ -236,7 +236,7 @@
         "title": "8. Cultural Assessment",
         "purpose": "Understand how culture shapes the meaning, expression, and context of distress.",
         "includes": [
-          "client\u2019s explanation of the problem",
+          "client’s explanation of the problem",
           "cultural identity",
           "family/community expectations",
           "spiritual meaning",
@@ -296,7 +296,7 @@
           "legal system records when relevant"
         ],
         "examUse": "Important when the client is a minor, cognitively impaired, psychotic, manic, inconsistent, or part of a systems-based case.",
-        "commonMistake": "Ignoring the need for collateral information when the client\u2019s report is incomplete or unreliable."
+        "commonMistake": "Ignoring the need for collateral information when the client’s report is incomplete or unreliable."
       },
       {
         "id": "12_outcome_progress_monitoring_assessment",
@@ -462,7 +462,7 @@
         "type": "overview",
         "title": "Why This Topic Matters",
         "body": [
-          "The mental status examination is the structured clinical snapshot of a client\u2019s current psychological functioning at the time of evaluation.",
+          "The mental status examination is the structured clinical snapshot of a client’s current psychological functioning at the time of evaluation.",
           "On the NCMHCE, MSE findings are often built into the case narrative rather than labeled directly. The exam expects the learner to recognize what those observations mean and how they affect diagnosis, risk assessment, treatment planning, and disposition.",
           "If a case mentions pressured speech, flat affect, tangential thought process, poor hygiene, or impaired insight, the test taker should immediately recognize these as mental status findings with clinical significance."
         ]
@@ -483,7 +483,7 @@
         "body": [
           {
             "label": "Definition",
-            "text": "A structured assessment of a client\u2019s current behavioral, emotional, and cognitive functioning based on observation, interview, and selected brief tasks when needed."
+            "text": "A structured assessment of a client’s current behavioral, emotional, and cognitive functioning based on observation, interview, and selected brief tasks when needed."
           },
           {
             "label": "Why clinicians use it",
@@ -494,7 +494,7 @@
             "text": "Partly through direct questioning, but also through ongoing observation during the interview."
           }
         ],
-        "keyTakeaway": "The MSE is the counselor\u2019s organized description of what the client looks like, sounds like, feels like, thinks like, perceives, understands, and can currently manage."
+        "keyTakeaway": "The MSE is the counselor’s organized description of what the client looks like, sounds like, feels like, thinks like, perceives, understands, and can currently manage."
       },
       {
         "type": "section_group",
@@ -588,7 +588,7 @@
           {
             "title": "4. Mood",
             "whatToAssess": [
-              "the client\u2019s sustained emotional state as self-reported"
+              "the client’s sustained emotional state as self-reported"
             ],
             "normalIndicators": [
               "euthymic",
@@ -604,7 +604,7 @@
               "angry",
               "apathetic"
             ],
-            "whyItMatters": "Mood is the client\u2019s subjective emotional experience and helps distinguish mood, anxiety, trauma-related, personality, and psychotic presentations.",
+            "whyItMatters": "Mood is the client’s subjective emotional experience and helps distinguish mood, anxiety, trauma-related, personality, and psychotic presentations.",
             "examPearl": "Mood is what the client says they feel; affect is what the clinician observes emotionally."
           },
           {
@@ -805,12 +805,12 @@
         "items": [
           {
             "term": "Mood",
-            "definition": "The client\u2019s sustained internal emotional state, usually reported by the client.",
-            "example": "\"I\u2019ve felt really down and hopeless all week.\""
+            "definition": "The client’s sustained internal emotional state, usually reported by the client.",
+            "example": "\"I’ve felt really down and hopeless all week.\""
           },
           {
             "term": "Affect",
-            "definition": "The clinician\u2019s observation of the client\u2019s emotional expression in session.",
+            "definition": "The clinician’s observation of the client’s emotional expression in session.",
             "example": "Tearful, flat, constricted, labile, or incongruent presentation."
           }
         ],
@@ -933,7 +933,7 @@
           ],
           [
             "Mood",
-            "Client\u2019s reported emotional state",
+            "Client’s reported emotional state",
             "depressed, anxious, irritable, elevated",
             "supports mood and anxiety formulation"
           ],
@@ -1051,305 +1051,773 @@
     "moduleTitle": "Assessment",
     "sectionId": "major-instruments",
     "sectionTitle": "Major Instruments",
-    "version": "1.0",
+    "version": "2.0",
     "audience": "NCMHCE exam candidates",
     "lastUpdated": "2026-04-23",
     "uiRecommendation": {
       "component": "accordion_dropdown",
       "defaultOpen": false,
-      "estimatedReadTimeMinutes": 18,
+      "estimatedReadTimeMinutes": 25,
       "includeDiagram": true,
-      "includeQuickReferenceTable": true,
       "includeMiniQuiz": true,
-      "includeInstrumentCards": true
+      "includeInstrumentCards": false
     },
     "learningObjectives": [
-      "Recognize the major categories of assessment instruments relevant to counseling practice and the NCMHCE.",
-      "Understand what common instruments are used for and when they are appropriate.",
-      "Know that instruments support clinical decision-making but do not replace a full assessment.",
-      "Distinguish screening tools from broader diagnostic or outcome-monitoring measures.",
-      "Match the clinical scenario to the best instrument category on the exam."
+      "Recognize the major adult and child/adolescent assessment instruments named on the NCMHCE.",
+      "Know what each instrument actually measures, who it is designed for, and how it is administered.",
+      "Match the clinical scenario to the most appropriate instrument by purpose and population.",
+      "Distinguish brief screeners from full diagnostic, intelligence, personality, and projective tests."
     ],
     "content": [
       {
         "type": "overview",
-        "title": "Why This Section Matters",
+        "title": "How To Use This Section",
         "body": [
-          "Counselors do not use instruments just to collect numbers. Instruments help identify risk, clarify symptom patterns, screen for concerns that need further evaluation, track progress over time, and support more accurate clinical decisions.",
-          "On the NCMHCE, the learner is more likely to be tested on whether they can choose the right kind of instrument for the situation than on memorizing long lists of cut scores.",
-          "The strongest exam thinking is: what do I need to know next, and which instrument or measure can help me know it?"
+          "Instruments are organized first by population (adult vs. child/adolescent) and then by purpose (symptom screening, intelligence, personality, projective, behavioral, career, etc.).",
+          "Focus on what each tool measures, the population it was built for, and the clinical question it answers — not on memorizing cut scores.",
+          "On the exam, the right answer is usually the instrument that most directly answers the specific clinical question in the case."
         ]
       },
       {
         "type": "high_yield_alert",
         "title": "Core Rule",
         "body": [
-          "An instrument is a tool, not a diagnosis.",
-          "Even well-established measures should not be used as the sole basis for diagnosis or disposition.",
-          "They are most helpful when integrated with interview data, observation, history, culture, risk assessment, and clinical judgment."
+          "An instrument is a tool, not a diagnosis. Even gold-standard tests like the MMPI-3 or WAIS-IV must be integrated with interview, history, observation, culture, and clinical judgment before any diagnostic or placement decision is made."
         ]
       },
       {
         "type": "section_group",
-        "title": "Major Instrument Categories",
+        "title": "Adult Instruments",
         "items": [
           {
-            "title": "1. Cross-Cutting Symptom Measures",
-            "purpose": "Screen across broad psychiatric symptom domains to identify areas needing further inquiry.",
-            "examples": [
-              "DSM-5-TR Level 1 Cross-Cutting Symptom Measures",
-              "DSM-5-TR Level 2 symptom measures"
-            ],
-            "bestUsedWhen": [
-              "the presentation is broad or unclear",
-              "multiple symptom domains may be relevant",
-              "you want a structured starting point for further assessment",
-              "you want to track symptom change over time"
-            ],
-            "examUse": "Helpful when the case is complex, the diagnosis is not yet clear, or you need a broad symptom screen before choosing deeper assessment.",
-            "caution": "These measures help identify areas for further evaluation and progress monitoring; they should not be used as the sole basis for diagnosis."
+            "title": "Adult — Symptom Screeners (Depression, Anxiety, PTSD, Substance Use)",
+            "purpose": "Brief, focused self-report measures used to screen for and track common adult psychiatric symptoms.",
+            "examUse": "Best when the case clearly points to one symptom cluster and you want a structured severity number to support assessment, treatment planning, or progress monitoring.",
+            "instruments": [
+              {
+                "name": "PHQ-9",
+                "fullName": "Patient Health Questionnaire-9",
+                "ageRange": "Adult",
+                "format": "9-item self-report",
+                "whatItMeasures": "Depression symptom severity over the past 2 weeks; includes a suicidal ideation item.",
+                "examRelevance": "Most-cited depression screener; positive screen prompts diagnostic interview, not a diagnosis."
+              },
+              {
+                "name": "BDI-II",
+                "fullName": "Beck Depression Inventory-II",
+                "ageRange": "13+",
+                "format": "21-item self-report",
+                "whatItMeasures": "Severity of depressive symptoms in adolescents and adults.",
+                "examRelevance": "Classic depression severity measure; recognize it as a Beck-family inventory."
+              },
+              {
+                "name": "GAD-7",
+                "fullName": "Generalized Anxiety Disorder-7",
+                "ageRange": "Adult",
+                "format": "7-item self-report",
+                "whatItMeasures": "Severity of generalized anxiety symptoms over the past 2 weeks.",
+                "examRelevance": "Anxiety counterpart to PHQ-9; high score does not by itself identify which anxiety disorder."
+              },
+              {
+                "name": "BAI",
+                "fullName": "Beck Anxiety Inventory",
+                "ageRange": "17+",
+                "format": "21-item self-report",
+                "whatItMeasures": "Severity of physiological and cognitive anxiety symptoms; emphasizes somatic features.",
+                "examRelevance": "Helpful when somatic anxiety is prominent; less specific to worry than GAD-7."
+              },
+              {
+                "name": "PCL-5",
+                "fullName": "PTSD Checklist for DSM-5",
+                "ageRange": "Adult",
+                "format": "20-item self-report",
+                "whatItMeasures": "PTSD symptom severity aligned with DSM-5 criteria.",
+                "examRelevance": "Best adult PTSD severity measure; supports diagnosis but does not replace clinical interview."
+              },
+              {
+                "name": "PC-PTSD-5",
+                "fullName": "Primary Care PTSD Screen for DSM-5",
+                "ageRange": "Adult",
+                "format": "5-item screener",
+                "whatItMeasures": "Brief screen for probable PTSD in primary care settings.",
+                "examRelevance": "Use as a quick screen; positive result triggers a fuller PTSD assessment such as the PCL-5 or CAPS-5."
+              },
+              {
+                "name": "CAPS-5",
+                "fullName": "Clinician-Administered PTSD Scale for DSM-5",
+                "ageRange": "Adult",
+                "format": "Structured clinical interview",
+                "whatItMeasures": "Gold-standard PTSD diagnosis and severity.",
+                "examRelevance": "Considered the diagnostic standard for PTSD; clinician-administered, not self-report."
+              },
+              {
+                "name": "AUDIT / AUDIT-C",
+                "fullName": "Alcohol Use Disorders Identification Test",
+                "ageRange": "Adult",
+                "format": "10-item (AUDIT) or 3-item (AUDIT-C) self-report",
+                "whatItMeasures": "Hazardous and harmful alcohol use.",
+                "examRelevance": "First-line alcohol screener; AUDIT-C is the brief version often used at intake."
+              },
+              {
+                "name": "DAST-10",
+                "fullName": "Drug Abuse Screening Test",
+                "ageRange": "Adult",
+                "format": "10-item self-report",
+                "whatItMeasures": "Problems related to non-alcohol drug use over the past year.",
+                "examRelevance": "Pair with AUDIT for full substance screening in adults."
+              },
+              {
+                "name": "C-SSRS",
+                "fullName": "Columbia-Suicide Severity Rating Scale",
+                "ageRange": "All ages",
+                "format": "Structured interview / brief screen",
+                "whatItMeasures": "Suicidal ideation severity, intensity, and behavior.",
+                "examRelevance": "High-yield safety tool; the right answer when a case asks how to structure suicide risk assessment."
+              },
+              {
+                "name": "ASQ",
+                "fullName": "Ask Suicide-Screening Questions",
+                "ageRange": "10+",
+                "format": "4-item screener",
+                "whatItMeasures": "Brief suicide risk screen for medical and behavioral health settings.",
+                "examRelevance": "Use as a rapid screen; a positive result requires a fuller risk assessment."
+              }
+            ]
           },
           {
-            "title": "2. Depression Instruments",
-            "purpose": "Screen for or measure depressive symptom severity.",
-            "examples": [
-              "PHQ-9",
-              "Beck Depression Inventory (BDI) family",
-              "DSM-5-TR depression severity measures"
-            ],
-            "bestUsedWhen": [
-              "depression is suspected",
-              "depressive symptoms need severity tracking",
-              "you want baseline and follow-up symptom measurement"
-            ],
-            "examUse": "Good when sadness, hopelessness, anhedonia, appetite or sleep disturbance, guilt, or low energy are prominent and the clinician needs structured severity information.",
-            "caution": "Do not use a depression instrument alone to establish major depressive disorder without full diagnostic assessment."
+            "title": "Adult — Intelligence and Cognitive Tests",
+            "purpose": "Standardized, individually administered tests of intellectual and cognitive functioning.",
+            "examUse": "Use when the question is about IQ, intellectual disability, learning differences, or cognitive impairment — never for personality or mood.",
+            "instruments": [
+              {
+                "name": "WAIS-IV",
+                "fullName": "Wechsler Adult Intelligence Scale – Fourth Edition",
+                "ageRange": "16–90",
+                "format": "Individually administered",
+                "whatItMeasures": "Full Scale IQ plus four indices: Verbal Comprehension, Perceptual Reasoning, Working Memory, Processing Speed.",
+                "examRelevance": "Gold-standard adult IQ test; the right choice when an adult cognitive evaluation is needed."
+              },
+              {
+                "name": "Stanford-Binet 5",
+                "fullName": "Stanford-Binet Intelligence Scales, Fifth Edition",
+                "ageRange": "2–85+",
+                "format": "Individually administered",
+                "whatItMeasures": "Verbal and nonverbal intelligence across five cognitive factors.",
+                "examRelevance": "Strong choice when an examinee has limited verbal skills or spans a wide age range."
+              },
+              {
+                "name": "MMSE",
+                "fullName": "Mini-Mental State Examination",
+                "ageRange": "Adult / older adult",
+                "format": "Brief clinician-administered screen (~10 min)",
+                "whatItMeasures": "Orientation, recall, attention, language, and visuospatial skills as a cognitive screen.",
+                "examRelevance": "Cognitive screen — not a full mental status exam (MSE) and not an IQ test."
+              },
+              {
+                "name": "MoCA",
+                "fullName": "Montreal Cognitive Assessment",
+                "ageRange": "Adult / older adult",
+                "format": "30-point clinician screen (~10 min)",
+                "whatItMeasures": "Cognitive screen sensitive to mild cognitive impairment, including executive function.",
+                "examRelevance": "More sensitive than the MMSE for early/mild cognitive impairment."
+              }
+            ]
           },
           {
-            "title": "3. Anxiety Instruments",
-            "purpose": "Screen for or measure anxiety severity.",
-            "examples": [
-              "GAD-7",
-              "Beck Anxiety Inventory (BAI)",
-              "DSM-5-TR anxiety-related measures"
-            ],
-            "bestUsedWhen": [
-              "generalized anxiety, worry, somatic tension, or panic-like symptoms are present",
-              "you want symptom monitoring across treatment"
-            ],
-            "examUse": "Useful when the case clearly centers on anxiety symptoms and the clinician wants a structured measure to clarify severity or change over time.",
-            "caution": "A high anxiety score does not by itself determine whether the presentation is GAD, panic disorder, trauma-related, substance-related, or medically driven."
+            "title": "Adult — Personality and Diagnostic Clarification (Objective)",
+            "purpose": "Standardized, norm-referenced personality inventories used to clarify personality structure, psychopathology, and diagnostic questions.",
+            "examUse": "Use later in assessment, after acute risk and substance use are addressed, when the question is about enduring traits or differential diagnosis.",
+            "instruments": [
+              {
+                "name": "MMPI-3",
+                "fullName": "Minnesota Multiphasic Personality Inventory-3",
+                "ageRange": "18+",
+                "format": "335-item self-report, true/false",
+                "whatItMeasures": "Broad psychopathology and personality across clinical, validity, and specific problem scales.",
+                "examRelevance": "Most widely cited objective personality test; recognize the MMPI family (MMPI-2, MMPI-2-RF, MMPI-3) and that it has built-in validity scales."
+              },
+              {
+                "name": "MMPI-A-RF",
+                "fullName": "Minnesota Multiphasic Personality Inventory – Adolescent, Restructured Form",
+                "ageRange": "14–18",
+                "format": "Self-report",
+                "whatItMeasures": "Adolescent version of the MMPI for personality and psychopathology.",
+                "examRelevance": "When the question involves adolescent personality assessment, this is the developmentally appropriate MMPI form."
+              },
+              {
+                "name": "MCMI-IV",
+                "fullName": "Millon Clinical Multiaxial Inventory-IV",
+                "ageRange": "18+",
+                "format": "195-item self-report",
+                "whatItMeasures": "Personality patterns and clinical syndromes mapped to DSM-aligned constructs.",
+                "examRelevance": "Often the answer when the case emphasizes personality disorder clarification."
+              },
+              {
+                "name": "PAI",
+                "fullName": "Personality Assessment Inventory",
+                "ageRange": "18+",
+                "format": "344-item self-report",
+                "whatItMeasures": "Clinical syndromes, treatment considerations, and interpersonal style with validity scales.",
+                "examRelevance": "Alternative to MMPI when a shorter administration with clinical and treatment scales is needed."
+              },
+              {
+                "name": "NEO-PI-R / NEO-PI-3",
+                "fullName": "Revised NEO Personality Inventory",
+                "ageRange": "Adult (NEO-PI-3 from 12+)",
+                "format": "240-item self-report",
+                "whatItMeasures": "The Five Factor Model traits: Neuroticism, Extraversion, Openness, Agreeableness, Conscientiousness.",
+                "examRelevance": "A 'normal personality' measure — recognize it is not a psychopathology test."
+              },
+              {
+                "name": "PID-5",
+                "fullName": "Personality Inventory for DSM-5",
+                "ageRange": "18+",
+                "format": "220-item self-report",
+                "whatItMeasures": "Five maladaptive personality trait domains aligned with the DSM-5 alternative model.",
+                "examRelevance": "Pair with the DSM-5 alternative model for personality disorders."
+              }
+            ]
           },
           {
-            "title": "4. Suicide Risk Screening and Follow-Up Tools",
-            "purpose": "Briefly identify suicide risk and determine whether more detailed safety assessment is needed.",
-            "examples": [
-              "Ask Suicide-Screening Questions (ASQ)",
-              "Columbia-Suicide Severity Rating Scale (C-SSRS)"
-            ],
-            "bestUsedWhen": [
-              "the client reports suicidal thoughts, hopelessness, self-harm, or severe distress",
-              "a quick safety screen is needed",
-              "the clinician needs a structured follow-up format"
-            ],
-            "examUse": "This category becomes high priority whenever the narrative suggests suicidal ideation, plan, intent, recent attempt, self-harm, or unclear safety.",
-            "caution": "A screening tool supports the risk assessment process but never replaces direct clinical safety evaluation."
+            "title": "Adult — Projective Tests",
+            "purpose": "Less-structured tests in which the client responds to ambiguous stimuli; interpretation focuses on themes, defenses, and inner experience.",
+            "examUse": "Recognize the names and what they elicit; on the NCMHCE these are usually the wrong first-line choice when a structured measure is available.",
+            "instruments": [
+              {
+                "name": "Rorschach (R-PAS)",
+                "fullName": "Rorschach Inkblot Test / Rorschach Performance Assessment System",
+                "ageRange": "5+",
+                "format": "Clinician-administered, 10 inkblot cards",
+                "whatItMeasures": "Perceptual organization, thought processes, and personality dynamics.",
+                "examRelevance": "Classic projective; high training requirement and limited as a stand-alone diagnostic tool."
+              },
+              {
+                "name": "TAT",
+                "fullName": "Thematic Apperception Test",
+                "ageRange": "Adolescent–Adult",
+                "format": "Client tells stories about ambiguous picture cards",
+                "whatItMeasures": "Interpersonal themes, motivations, and underlying needs and conflicts.",
+                "examRelevance": "Recognize as projective; weak psychometrics — not a diagnosis-confirming tool."
+              },
+              {
+                "name": "Sentence Completion Tests",
+                "fullName": "e.g., Rotter Incomplete Sentences Blank",
+                "ageRange": "Adolescent–Adult",
+                "format": "Client completes sentence stems",
+                "whatItMeasures": "Attitudes, conflicts, and concerns across life domains.",
+                "examRelevance": "Used as a supplementary projective; not stand-alone."
+              },
+              {
+                "name": "House-Tree-Person (HTP)",
+                "fullName": "House-Tree-Person Drawing Test",
+                "ageRange": "3+",
+                "format": "Client draws specified figures",
+                "whatItMeasures": "Personality features, self-concept, and emotional functioning through drawings.",
+                "examRelevance": "Projective drawing test; weak validity, used adjunctively."
+              },
+              {
+                "name": "DAP / KFD",
+                "fullName": "Draw-A-Person / Kinetic Family Drawing",
+                "ageRange": "Child–Adult",
+                "format": "Drawing tasks",
+                "whatItMeasures": "Self-concept, family dynamics, and emotional themes.",
+                "examRelevance": "Often used with children; interpret cautiously and never as the sole basis for diagnosis."
+              }
+            ]
           },
           {
-            "title": "5. Substance Use Instruments",
-            "purpose": "Screen for risky alcohol or drug use and identify the need for fuller substance use assessment.",
-            "examples": [
-              "AUDIT",
-              "AUDIT-C",
-              "DAST-10",
-              "CRAFFT for adolescents"
-            ],
-            "bestUsedWhen": [
-              "alcohol or drug use is suspected",
-              "the client minimizes use",
-              "substance use may explain or worsen psychiatric symptoms",
-              "you need a quick structured screen before a full SUD assessment"
-            ],
-            "examUse": "Especially helpful when depression, anxiety, trauma, or behavioral issues may be complicated by substance use.",
-            "caution": "Do not diagnose a primary mental disorder before checking whether intoxication, withdrawal, or substance-induced symptoms may explain the presentation."
+            "title": "Adult — Substance Use Diagnostic Tools",
+            "purpose": "Structured tools that go beyond screening to support diagnosis, severity, and level-of-care decisions for substance use disorders.",
+            "examUse": "Use when alcohol or drug use is the central issue and you need formal SUD diagnosis or placement guidance.",
+            "instruments": [
+              {
+                "name": "ASI",
+                "fullName": "Addiction Severity Index",
+                "ageRange": "Adult",
+                "format": "Semi-structured interview (~50–60 min)",
+                "whatItMeasures": "Severity across seven domains: medical, employment, alcohol, drug, legal, family/social, psychiatric.",
+                "examRelevance": "Treatment planning and progress monitoring in SUD settings."
+              },
+              {
+                "name": "SASSI-4",
+                "fullName": "Substance Abuse Subtle Screening Inventory-4",
+                "ageRange": "Adult",
+                "format": "Self-report",
+                "whatItMeasures": "Probability of a substance use disorder, including subtle (less defensiveness-vulnerable) items.",
+                "examRelevance": "Useful when minimization or denial is suspected."
+              },
+              {
+                "name": "MAST",
+                "fullName": "Michigan Alcoholism Screening Test",
+                "ageRange": "Adult",
+                "format": "22-item self-report",
+                "whatItMeasures": "Lifetime alcohol-related problems.",
+                "examRelevance": "Older but still recognized alcohol screener."
+              },
+              {
+                "name": "CAGE",
+                "fullName": "CAGE Questionnaire",
+                "ageRange": "Adult",
+                "format": "4-item screener",
+                "whatItMeasures": "Brief screen for alcohol misuse: Cut down, Annoyed, Guilty, Eye-opener.",
+                "examRelevance": "Quick screen; less sensitive than AUDIT."
+              },
+              {
+                "name": "ASAM Criteria",
+                "fullName": "ASAM Patient Placement Criteria (current edition)",
+                "ageRange": "Adolescent–Adult",
+                "format": "Multidimensional clinical assessment",
+                "whatItMeasures": "Six dimensions used to determine level of care for substance use treatment.",
+                "examRelevance": "Right answer when the case asks about appropriate level of care for SUD."
+              }
+            ]
           },
           {
-            "title": "6. Trauma and PTSD Measures",
-            "purpose": "Screen for trauma exposure and trauma-related symptoms or measure PTSD symptom severity.",
-            "examples": [
-              "Primary Care PTSD Screen (PC-PTSD-5)",
-              "PCL-5"
-            ],
-            "bestUsedWhen": [
-              "trauma exposure is known or suspected",
-              "the client reports nightmares, hypervigilance, avoidance, or intrusive memories",
-              "you want to track trauma symptom burden over time"
-            ],
-            "examUse": "Useful when trauma is likely but the clinician needs structured symptom information before concluding PTSD or designing trauma-focused treatment.",
-            "caution": "Trauma measures do not replace trauma-informed interviewing, stabilization, or differential diagnosis."
+            "title": "Adult — Career and Vocational Assessments",
+            "purpose": "Standardized inventories used in career counseling to clarify interests, values, aptitudes, and personality fit with work environments.",
+            "examUse": "Use when the case clearly involves career exploration, job change, or vocational planning rather than mental health diagnosis.",
+            "instruments": [
+              {
+                "name": "Strong Interest Inventory",
+                "fullName": "Strong Interest Inventory",
+                "ageRange": "14+",
+                "format": "Self-report",
+                "whatItMeasures": "Interest patterns mapped onto Holland's RIASEC themes and matched to occupations.",
+                "examRelevance": "Most-cited interest inventory; pairs with Holland's typology."
+              },
+              {
+                "name": "SDS",
+                "fullName": "Self-Directed Search",
+                "ageRange": "Adolescent–Adult",
+                "format": "Self-administered, self-scored",
+                "whatItMeasures": "RIASEC interest code linked to compatible occupations.",
+                "examRelevance": "Holland-based; client-friendly and self-scoring."
+              },
+              {
+                "name": "MBTI",
+                "fullName": "Myers-Briggs Type Indicator",
+                "ageRange": "Adolescent–Adult",
+                "format": "Self-report",
+                "whatItMeasures": "Personality 'type' across four dichotomies (E/I, S/N, T/F, J/P).",
+                "examRelevance": "Career and self-understanding tool; not a clinical or diagnostic instrument."
+              },
+              {
+                "name": "CISS",
+                "fullName": "Campbell Interest and Skill Survey",
+                "ageRange": "15+",
+                "format": "Self-report",
+                "whatItMeasures": "Both interests and self-rated skill in occupational areas.",
+                "examRelevance": "Useful when both interest and perceived ability matter."
+              },
+              {
+                "name": "O*NET Interest Profiler",
+                "fullName": "O*NET Interest Profiler",
+                "ageRange": "Adolescent–Adult",
+                "format": "Free online self-report",
+                "whatItMeasures": "RIASEC interest profile linked to O*NET occupational database.",
+                "examRelevance": "Accessible career exploration tool."
+              }
+            ]
           },
           {
-            "title": "7. Child and Adolescent Screening Instruments",
-            "purpose": "Identify emotional, behavioral, and developmental concerns in youth.",
-            "examples": [
-              "Pediatric Symptom Checklist",
-              "CRAFFT",
-              "parent- and teacher-report behavior rating scales"
-            ],
-            "bestUsedWhen": [
-              "the client is a child or adolescent",
-              "multiple settings may show different symptoms",
-              "collateral data from caregivers or school matters"
-            ],
-            "examUse": "Important in youth cases where teacher, parent, and child reports may all contribute to a more accurate picture.",
-            "caution": "Youth instruments are strongest when interpreted with development, family context, school functioning, and collateral input in mind."
+            "title": "Adult — Couples, Family, and Relationship Assessments",
+            "purpose": "Standardized measures used in couples and family counseling to evaluate relationship satisfaction, conflict, and family functioning.",
+            "examUse": "Use when the presenting concern is relational rather than individual symptoms.",
+            "instruments": [
+              {
+                "name": "DAS",
+                "fullName": "Dyadic Adjustment Scale",
+                "ageRange": "Adult couples",
+                "format": "32-item self-report",
+                "whatItMeasures": "Relationship adjustment, satisfaction, cohesion, and consensus.",
+                "examRelevance": "Most-cited couples measure."
+              },
+              {
+                "name": "MSI-R",
+                "fullName": "Marital Satisfaction Inventory – Revised",
+                "ageRange": "Adult couples",
+                "format": "150-item self-report",
+                "whatItMeasures": "Multiple dimensions of marital distress including communication, conflict, and sexual satisfaction.",
+                "examRelevance": "Use when a more detailed marital evaluation is needed."
+              },
+              {
+                "name": "FACES-IV",
+                "fullName": "Family Adaptability and Cohesion Evaluation Scales-IV",
+                "ageRange": "Adolescent / Adult family members",
+                "format": "Self-report",
+                "whatItMeasures": "Family cohesion, flexibility, communication, and satisfaction within Olson's Circumplex Model.",
+                "examRelevance": "Right answer when the case asks about family system functioning."
+              }
+            ]
           },
           {
-            "title": "8. Functional and Disability Measures",
-            "purpose": "Assess how much symptoms interfere with daily life and role functioning.",
-            "examples": [
-              "WHODAS 2.0",
-              "structured functioning checklists"
-            ],
-            "bestUsedWhen": [
-              "you need to assess impairment",
-              "level of care is being considered",
-              "symptoms alone do not explain severity"
-            ],
-            "examUse": "Very useful when the case asks how serious the presentation is in real life or whether outpatient treatment is enough.",
-            "caution": "Symptom count and functional impairment are both important; neither should be ignored."
+            "title": "Adult — Functional and Outcome Measures",
+            "purpose": "Tools that quantify real-world functioning, disability, and treatment progress.",
+            "examUse": "Use when the case asks about impairment, level of care, or whether treatment is working.",
+            "instruments": [
+              {
+                "name": "WHODAS 2.0",
+                "fullName": "WHO Disability Assessment Schedule 2.0",
+                "ageRange": "18+",
+                "format": "12- or 36-item self-report",
+                "whatItMeasures": "Functioning and disability across cognition, mobility, self-care, getting along, life activities, and participation.",
+                "examRelevance": "DSM-5-TR–endorsed measure of overall functioning."
+              },
+              {
+                "name": "OQ-45",
+                "fullName": "Outcome Questionnaire-45",
+                "ageRange": "18+",
+                "format": "45-item self-report",
+                "whatItMeasures": "Symptom distress, interpersonal relations, and social role functioning across treatment.",
+                "examRelevance": "Common progress-monitoring tool in outpatient settings."
+              },
+              {
+                "name": "BHM-20",
+                "fullName": "Behavioral Health Measure-20",
+                "ageRange": "Adult",
+                "format": "20-item self-report",
+                "whatItMeasures": "Well-being, symptoms, and life functioning for routine outcome tracking.",
+                "examRelevance": "Recognize as a brief routine outcome monitor."
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "type": "section_group",
+        "title": "Child & Adolescent Instruments",
+        "items": [
+          {
+            "title": "Youth — Behavior Rating Scales (Multi-Informant)",
+            "purpose": "Broadband instruments completed by parents, teachers, and (often) the youth that screen for emotional, behavioral, and social functioning across settings.",
+            "examUse": "Right answer when a child/adolescent case mentions concerns at home AND school, or when collateral input is essential.",
+            "instruments": [
+              {
+                "name": "BASC-3",
+                "fullName": "Behavior Assessment System for Children, Third Edition",
+                "ageRange": "2–21",
+                "format": "Parent, teacher, and self-report forms",
+                "whatItMeasures": "Internalizing, externalizing, school problems, adaptive skills, and behavioral symptom indices.",
+                "examRelevance": "Most widely used multi-informant youth behavior rating system."
+              },
+              {
+                "name": "CBCL / TRF / YSR (ASEBA)",
+                "fullName": "Child Behavior Checklist / Teacher Report Form / Youth Self-Report",
+                "ageRange": "1.5–18",
+                "format": "Parent, teacher, and self-report forms",
+                "whatItMeasures": "Internalizing and externalizing problems, competencies, and DSM-oriented scales.",
+                "examRelevance": "Achenbach system — standard alternative to BASC-3."
+              },
+              {
+                "name": "Conners-4",
+                "fullName": "Conners Rating Scales, 4th Edition",
+                "ageRange": "6–18",
+                "format": "Parent, teacher, and self-report forms",
+                "whatItMeasures": "ADHD symptoms and common comorbid concerns including anxiety, depression, and conduct problems.",
+                "examRelevance": "The default answer when ADHD assessment in youth is the question."
+              },
+              {
+                "name": "SDQ",
+                "fullName": "Strengths and Difficulties Questionnaire",
+                "ageRange": "2–17",
+                "format": "Brief parent, teacher, self-report",
+                "whatItMeasures": "Emotional symptoms, conduct, hyperactivity, peer problems, and prosocial behavior.",
+                "examRelevance": "Brief multi-informant screen; widely used internationally."
+              }
+            ]
           },
           {
-            "title": "9. Personality and Diagnostic Clarification Measures",
-            "purpose": "Help clarify enduring personality patterns or certain diagnostic dimensions when clinically indicated.",
-            "examples": [
-              "PID-5",
-              "structured personality-focused inventories"
-            ],
-            "bestUsedWhen": [
-              "personality features may complicate treatment",
-              "the case suggests enduring maladaptive traits rather than only acute symptoms",
-              "diagnostic clarification is needed after broader assessment"
-            ],
-            "examUse": "This is usually a later-stage assessment choice, not the first tool used in an acute or safety-driven situation.",
-            "caution": "Do not reach for personality instruments before addressing acute symptoms, risk, substance use, or stabilization needs."
+            "title": "Youth — Symptom-Specific Screeners",
+            "purpose": "Targeted self-report or caregiver-report measures for specific youth concerns: depression, anxiety, trauma, suicide risk, and substance use.",
+            "examUse": "Best when one symptom area clearly dominates a child/adolescent case.",
+            "instruments": [
+              {
+                "name": "PHQ-A",
+                "fullName": "Patient Health Questionnaire for Adolescents",
+                "ageRange": "11–17",
+                "format": "9-item self-report",
+                "whatItMeasures": "Adolescent depression severity, including a suicide item.",
+                "examRelevance": "Adolescent counterpart to the PHQ-9."
+              },
+              {
+                "name": "CDI 2",
+                "fullName": "Children's Depression Inventory, Second Edition",
+                "ageRange": "7–17",
+                "format": "Self-report and parent/teacher forms",
+                "whatItMeasures": "Depressive symptom severity in youth.",
+                "examRelevance": "Recognize as the leading child depression measure."
+              },
+              {
+                "name": "RCADS",
+                "fullName": "Revised Children's Anxiety and Depression Scale",
+                "ageRange": "8–18",
+                "format": "Self-report and parent forms",
+                "whatItMeasures": "Anxiety subtypes (separation, social, panic, GAD, OCD) plus depression.",
+                "examRelevance": "Useful for differentiating anxiety subtypes in youth."
+              },
+              {
+                "name": "SCARED",
+                "fullName": "Screen for Child Anxiety Related Emotional Disorders",
+                "ageRange": "8–18",
+                "format": "41-item self-report and parent form",
+                "whatItMeasures": "Panic, generalized anxiety, separation anxiety, social anxiety, school avoidance.",
+                "examRelevance": "Widely used youth anxiety screen with parent-report."
+              },
+              {
+                "name": "MASC-2",
+                "fullName": "Multidimensional Anxiety Scale for Children, Second Edition",
+                "ageRange": "8–19",
+                "format": "Self-report and parent form",
+                "whatItMeasures": "Physical, harm-avoidance, social, and separation anxiety dimensions.",
+                "examRelevance": "Strong choice for multi-dimensional youth anxiety assessment."
+              },
+              {
+                "name": "UCLA PTSD Reaction Index",
+                "fullName": "UCLA PTSD Reaction Index for DSM-5",
+                "ageRange": "7–18",
+                "format": "Child, adolescent, and parent versions",
+                "whatItMeasures": "Trauma exposure and PTSD symptom severity in youth.",
+                "examRelevance": "Most widely used youth PTSD measure."
+              },
+              {
+                "name": "TSCC / TSCYC",
+                "fullName": "Trauma Symptom Checklist for Children / for Young Children",
+                "ageRange": "8–16 / 3–12 (caregiver)",
+                "format": "Self-report (TSCC) / caregiver-report (TSCYC)",
+                "whatItMeasures": "Posttraumatic stress, anxiety, depression, anger, dissociation, and (TSCC) sexual concerns.",
+                "examRelevance": "Often used in child trauma evaluations."
+              },
+              {
+                "name": "CRAFFT",
+                "fullName": "CRAFFT Substance Use Screening",
+                "ageRange": "12–21",
+                "format": "Brief self-report",
+                "whatItMeasures": "Risky alcohol and drug use in adolescents (Car, Relax, Alone, Forget, Family/Friends, Trouble).",
+                "examRelevance": "Default adolescent substance use screen."
+              },
+              {
+                "name": "ASQ",
+                "fullName": "Ask Suicide-Screening Questions",
+                "ageRange": "10+",
+                "format": "4-item screener",
+                "whatItMeasures": "Brief suicide risk screen for youth and adults.",
+                "examRelevance": "Recommended pediatric ED and clinic suicide screen."
+              },
+              {
+                "name": "C-SSRS (Pediatric)",
+                "fullName": "Columbia-Suicide Severity Rating Scale, pediatric version",
+                "ageRange": "Child / Adolescent",
+                "format": "Structured interview / brief screen",
+                "whatItMeasures": "Suicidal ideation severity, intensity, and behavior in youth.",
+                "examRelevance": "Right structured tool for follow-up after a positive youth suicide screen."
+              }
+            ]
           },
           {
-            "title": "10. Cognitive Screening Instruments",
-            "purpose": "Briefly identify possible cognitive impairment that may require fuller neurocognitive or medical evaluation.",
-            "examples": [
-              "Mini-Mental State Examination (MMSE)",
-              "Montreal Cognitive Assessment (MoCA)"
-            ],
-            "bestUsedWhen": [
-              "memory, orientation, attention, or executive functioning concerns are present",
-              "the client appears confused or cognitively slowed",
-              "neurocognitive change is suspected"
-            ],
-            "examUse": "Appropriate when cognitive concerns appear and the clinician must consider medical, neurological, or neurocognitive explanations.",
-            "caution": "These are cognitive screens, not full mental status examinations and not stand-alone diagnostic tools."
+            "title": "Youth — Intelligence and Cognitive Tests",
+            "purpose": "Standardized, individually administered intelligence and developmental tests for children and adolescents.",
+            "examUse": "Use when the question concerns intellectual disability, giftedness, learning disorders, or developmental level — never for personality or emotion.",
+            "instruments": [
+              {
+                "name": "WISC-V",
+                "fullName": "Wechsler Intelligence Scale for Children, Fifth Edition",
+                "ageRange": "6–16",
+                "format": "Individually administered",
+                "whatItMeasures": "Full Scale IQ plus indices for verbal comprehension, visual spatial, fluid reasoning, working memory, and processing speed.",
+                "examRelevance": "Standard child IQ test; recognize the Wechsler family (WPPSI → WISC → WAIS by age)."
+              },
+              {
+                "name": "WPPSI-IV",
+                "fullName": "Wechsler Preschool and Primary Scale of Intelligence, Fourth Edition",
+                "ageRange": "2:6–7:7",
+                "format": "Individually administered",
+                "whatItMeasures": "Cognitive abilities in young children.",
+                "examRelevance": "The Wechsler test for preschool/early elementary ages."
+              },
+              {
+                "name": "Stanford-Binet 5",
+                "fullName": "Stanford-Binet Intelligence Scales, Fifth Edition",
+                "ageRange": "2–85+",
+                "format": "Individually administered",
+                "whatItMeasures": "Verbal and nonverbal intelligence; useful at very low and very high ability levels.",
+                "examRelevance": "Strong choice when the youth has limited verbal skills or is at the tails of the distribution."
+              },
+              {
+                "name": "KABC-II",
+                "fullName": "Kaufman Assessment Battery for Children, Second Edition",
+                "ageRange": "3–18",
+                "format": "Individually administered",
+                "whatItMeasures": "Cognitive ability with options for both Cattell-Horn-Carroll and neuropsychological models; reduced cultural/linguistic loading on some scales.",
+                "examRelevance": "Often selected when cultural or linguistic fairness is emphasized."
+              },
+              {
+                "name": "Bayley-4",
+                "fullName": "Bayley Scales of Infant and Toddler Development, Fourth Edition",
+                "ageRange": "16 days–42 months",
+                "format": "Individually administered + caregiver forms",
+                "whatItMeasures": "Cognitive, language, motor, social-emotional, and adaptive development in infants/toddlers.",
+                "examRelevance": "Default developmental assessment for very young children."
+              }
+            ]
+          },
+          {
+            "title": "Youth — Adaptive Functioning and Developmental Screening",
+            "purpose": "Measures of how a child manages real-world demands and developmental milestones; central to intellectual disability and autism evaluations.",
+            "examUse": "Use when intellectual disability or developmental delay is being considered, or when adaptive skills are part of the diagnostic question.",
+            "instruments": [
+              {
+                "name": "Vineland-3",
+                "fullName": "Vineland Adaptive Behavior Scales, Third Edition",
+                "ageRange": "Birth–90+",
+                "format": "Caregiver / teacher interview or rating form",
+                "whatItMeasures": "Communication, daily living, socialization, and motor skills as adaptive behavior.",
+                "examRelevance": "Required complement to IQ testing in intellectual disability evaluations."
+              },
+              {
+                "name": "ABAS-3",
+                "fullName": "Adaptive Behavior Assessment System, Third Edition",
+                "ageRange": "Birth–89",
+                "format": "Parent, teacher, self-report forms",
+                "whatItMeasures": "Conceptual, social, and practical adaptive skills.",
+                "examRelevance": "Common alternative to the Vineland."
+              },
+              {
+                "name": "ASQ-3",
+                "fullName": "Ages & Stages Questionnaires, Third Edition",
+                "ageRange": "1–66 months",
+                "format": "Parent-completed developmental screen",
+                "whatItMeasures": "Communication, gross/fine motor, problem-solving, and personal-social development.",
+                "examRelevance": "Standard early-childhood developmental screener."
+              },
+              {
+                "name": "M-CHAT-R/F",
+                "fullName": "Modified Checklist for Autism in Toddlers, Revised with Follow-Up",
+                "ageRange": "16–30 months",
+                "format": "Parent-completed screen + structured follow-up",
+                "whatItMeasures": "Risk for autism spectrum disorder in toddlers.",
+                "examRelevance": "First-line autism screen at well-child visits."
+              },
+              {
+                "name": "ADOS-2",
+                "fullName": "Autism Diagnostic Observation Schedule, Second Edition",
+                "ageRange": "12 months–Adult",
+                "format": "Standardized observational assessment",
+                "whatItMeasures": "Communication, social interaction, play, and restricted/repetitive behaviors.",
+                "examRelevance": "Gold-standard autism diagnostic observation tool."
+              },
+              {
+                "name": "ADI-R",
+                "fullName": "Autism Diagnostic Interview – Revised",
+                "ageRange": "Mental age 2+",
+                "format": "Structured caregiver interview",
+                "whatItMeasures": "Developmental history and current symptoms relevant to autism.",
+                "examRelevance": "Often paired with the ADOS-2 in comprehensive ASD evaluations."
+              }
+            ]
+          },
+          {
+            "title": "Youth — Personality and Projective Tests",
+            "purpose": "Personality and projective measures developed for or commonly used with children and adolescents.",
+            "examUse": "Recognize the names; on the exam, structured behavior rating scales usually beat projective tests for diagnostic clarity.",
+            "instruments": [
+              {
+                "name": "MMPI-A-RF",
+                "fullName": "MMPI – Adolescent, Restructured Form",
+                "ageRange": "14–18",
+                "format": "Self-report",
+                "whatItMeasures": "Adolescent personality and psychopathology with built-in validity scales.",
+                "examRelevance": "Adolescent answer when an MMPI-style measure is needed."
+              },
+              {
+                "name": "MACI-II",
+                "fullName": "Millon Adolescent Clinical Inventory-II",
+                "ageRange": "13–19",
+                "format": "Self-report",
+                "whatItMeasures": "Personality patterns and clinical concerns in adolescents.",
+                "examRelevance": "Adolescent counterpart to the MCMI."
+              },
+              {
+                "name": "Roberts-2",
+                "fullName": "Roberts Apperception Test for Children, Second Edition",
+                "ageRange": "6–18",
+                "format": "Story-telling about picture cards",
+                "whatItMeasures": "Social perception, problem solving, and emotional themes in youth.",
+                "examRelevance": "Child/adolescent thematic projective."
+              },
+              {
+                "name": "CAT",
+                "fullName": "Children's Apperception Test",
+                "ageRange": "3–10",
+                "format": "Story-telling about animal/human picture cards",
+                "whatItMeasures": "Themes related to family, peers, and developmental concerns.",
+                "examRelevance": "Child equivalent of the TAT."
+              },
+              {
+                "name": "KFD / HTP",
+                "fullName": "Kinetic Family Drawing / House-Tree-Person",
+                "ageRange": "Child–Adolescent",
+                "format": "Drawing tasks",
+                "whatItMeasures": "Family dynamics, self-concept, and emotional themes.",
+                "examRelevance": "Common in child work; interpret cautiously and adjunctively."
+              }
+            ]
+          },
+          {
+            "title": "Youth — Academic and Achievement Testing",
+            "purpose": "Standardized tests of academic skills used in school settings, often paired with cognitive testing for learning disorder evaluations.",
+            "examUse": "Use when the case mentions academic underperformance, suspected learning disorder, or special-education eligibility.",
+            "instruments": [
+              {
+                "name": "WIAT-4",
+                "fullName": "Wechsler Individual Achievement Test, Fourth Edition",
+                "ageRange": "4–50:11",
+                "format": "Individually administered",
+                "whatItMeasures": "Reading, written expression, mathematics, and oral language achievement.",
+                "examRelevance": "Pairs with the WISC/WAIS in learning disorder evaluations."
+              },
+              {
+                "name": "WJ-IV ACH",
+                "fullName": "Woodcock-Johnson IV Tests of Achievement",
+                "ageRange": "2–90+",
+                "format": "Individually administered",
+                "whatItMeasures": "Reading, math, written language, and academic skill clusters.",
+                "examRelevance": "Common alternative to the WIAT."
+              },
+              {
+                "name": "KTEA-3",
+                "fullName": "Kaufman Test of Educational Achievement, Third Edition",
+                "ageRange": "4–25",
+                "format": "Individually administered",
+                "whatItMeasures": "Reading, math, writing, and oral language across subtests.",
+                "examRelevance": "Recognize as a third major achievement battery."
+              }
+            ]
           }
         ]
       },
       {
         "type": "diagram",
-        "title": "Simple Instrument Selection Logic",
+        "title": "Choosing the Right Instrument",
         "format": "text_flowchart",
         "content": [
-          "1. Is there an immediate safety concern?",
-          "-> Use risk screening/follow-up tools and complete direct clinical risk assessment.",
-          "2. Is the presentation broad or unclear?",
-          "-> Use a broad symptom or cross-cutting measure.",
-          "3. Is a specific symptom cluster dominant?",
-          "-> Use a targeted instrument such as depression, anxiety, trauma, or substance use screening.",
-          "4. Do you need to understand functioning or disability?",
-          "-> Add a functional assessment measure.",
-          "5. Are you tracking progress over time?",
-          "-> Re-administer the same validated measure when appropriate."
-        ]
-      },
-      {
-        "type": "instrument_cards",
-        "title": "High-Yield Instruments to Recognize",
-        "cards": [
-          {
-            "name": "PHQ-9",
-            "category": "Depression",
-            "whatItHelpsWith": "Screens for depressive symptoms and tracks severity over time.",
-            "examPearl": "Good when depression is suspected, but it does not replace diagnostic assessment."
-          },
-          {
-            "name": "GAD-7",
-            "category": "Anxiety",
-            "whatItHelpsWith": "Screens for generalized anxiety symptoms and tracks severity.",
-            "examPearl": "Helpful when worry and tension are central, but it does not by itself identify the exact anxiety disorder."
-          },
-          {
-            "name": "AUDIT / AUDIT-C",
-            "category": "Alcohol Use",
-            "whatItHelpsWith": "Screens for risky alcohol use.",
-            "examPearl": "Useful when the client minimizes drinking or when alcohol may worsen mood or behavior."
-          },
-          {
-            "name": "DAST-10",
-            "category": "Drug Use",
-            "whatItHelpsWith": "Screens for problems related to drug use.",
-            "examPearl": "Helpful when drug use may complicate diagnosis or functioning."
-          },
-          {
-            "name": "CRAFFT",
-            "category": "Adolescent Substance Use",
-            "whatItHelpsWith": "Screens adolescents for substance-related risk.",
-            "examPearl": "High-yield for youth cases."
-          },
-          {
-            "name": "ASQ",
-            "category": "Suicide Screening",
-            "whatItHelpsWith": "Brief suicide screening to identify whether further safety assessment is needed.",
-            "examPearl": "A positive result should lead to more direct risk evaluation, not passive documentation."
-          },
-          {
-            "name": "C-SSRS",
-            "category": "Suicide Severity Follow-Up",
-            "whatItHelpsWith": "Structures assessment of suicidal ideation and behavior severity.",
-            "examPearl": "Useful when you need a more detailed follow-up after concern is identified."
-          },
-          {
-            "name": "PC-PTSD-5",
-            "category": "Trauma Screening",
-            "whatItHelpsWith": "Brief screen for PTSD-related symptoms.",
-            "examPearl": "Good for identifying whether deeper trauma assessment is warranted."
-          },
-          {
-            "name": "PCL-5",
-            "category": "PTSD Symptom Severity",
-            "whatItHelpsWith": "Measures PTSD symptom burden.",
-            "examPearl": "Helpful for both initial assessment support and progress monitoring."
-          },
-          {
-            "name": "WHODAS 2.0",
-            "category": "Functioning",
-            "whatItHelpsWith": "Assesses disability and functioning across life domains.",
-            "examPearl": "Useful when symptom severity alone does not answer the level-of-care question."
-          },
-          {
-            "name": "MMSE / MoCA",
-            "category": "Cognitive Screening",
-            "whatItHelpsWith": "Briefly screens for cognitive impairment.",
-            "examPearl": "Do not confuse these with the broader MSE."
-          }
+          "1. Is there an immediate safety concern? -> Use C-SSRS or ASQ + direct clinical risk assessment.",
+          "2. Is the client a child or adolescent? -> Start with multi-informant tools (BASC-3, CBCL, Conners-4) and add symptom-specific or developmental measures as needed.",
+          "3. Is one symptom cluster dominant in an adult? -> Use a targeted measure (PHQ-9, GAD-7, PCL-5, AUDIT, DAST-10).",
+          "4. Is the question about IQ, developmental level, or learning disorder? -> Use Wechsler scales, Stanford-Binet, Bayley-4, WIAT-4, or WJ-IV.",
+          "5. Is the question about personality structure or differential diagnosis? -> Use MMPI-3, PAI, MCMI-IV, or PID-5 — after acute issues are addressed.",
+          "6. Is the case about career, couples, or family functioning? -> Use Strong Interest Inventory / SDS, DAS, or FACES-IV."
         ]
       },
       {
         "type": "high_yield_points",
         "title": "High-Yield Exam Rules",
         "items": [
-          "Choose instruments based on the clinical question, not because they are popular.",
-          "Safety-related tools take priority when suicide or violence risk is possible.",
-          "Broad measures are useful when the presentation is unclear.",
-          "Targeted measures are useful when one symptom cluster clearly stands out.",
-          "Validated instruments can support progress monitoring across treatment.",
-          "No instrument should be treated as the sole basis for diagnosis."
+          "Match the instrument to the population: WPPSI < WISC < WAIS by age; PHQ-9 vs PHQ-A; MMPI-3 vs MMPI-A-RF.",
+          "Multi-informant rating scales (BASC-3, CBCL, Conners-4) beat single-source data in youth cases.",
+          "Structured measures generally outperform projective tests as the first answer choice.",
+          "Cognitive screens (MMSE, MoCA) are not the same as the broader Mental Status Exam (MSE).",
+          "ASAM Criteria — not a symptom screener — answers level-of-care questions in substance use.",
+          "Adaptive behavior measures (Vineland-3, ABAS-3) are required alongside IQ for intellectual disability."
         ]
       },
       {
@@ -1357,97 +1825,21 @@
         "title": "Common Exam Traps",
         "items": [
           {
-            "trap": "Using a symptom scale as a final diagnosis",
-            "explanation": "A score may support concern or severity, but diagnosis still requires full clinical assessment."
+            "trap": "Confusing the MSE with the MMSE",
+            "explanation": "The MSE is a full clinical examination of current functioning; the MMSE is a brief cognitive screen."
           },
           {
             "trap": "Choosing a personality test before addressing acute risk or substance use",
-            "explanation": "Stabilization and urgent concerns come first."
+            "explanation": "Stabilize and screen for safety and substance use before reaching for the MMPI-3 or PAI."
           },
           {
-            "trap": "Ignoring developmental fit",
-            "explanation": "Adult instruments are not always appropriate for children or adolescents."
+            "trap": "Using an adult instrument for a youth case",
+            "explanation": "Pick the developmentally appropriate version: WISC-V instead of WAIS-IV, PHQ-A instead of PHQ-9, MMPI-A-RF instead of MMPI-3."
           },
           {
-            "trap": "Confusing the MSE with MMSE",
-            "explanation": "The MSE is a broad clinical exam; the MMSE is a brief cognitive screen."
-          },
-          {
-            "trap": "Switching instruments too often during treatment",
-            "explanation": "Repeated use of the same validated measure often gives the clearest progress picture."
+            "trap": "Treating a positive screen as a diagnosis",
+            "explanation": "Screeners flag concern; diagnosis requires DSM criteria and clinical interview."
           }
-        ]
-      },
-      {
-        "type": "quick_reference_table",
-        "title": "Quick Reference",
-        "columns": [
-          "Instrument Category",
-          "Main Use",
-          "Good When",
-          "Caution"
-        ],
-        "rows": [
-          [
-            "Cross-Cutting Measures",
-            "Broad symptom screening",
-            "presentation is unclear or multi-domain",
-            "not a stand-alone diagnosis"
-          ],
-          [
-            "Depression Measures",
-            "Depression screening/severity",
-            "depression is suspected or progress needs tracking",
-            "do not diagnose from a score alone"
-          ],
-          [
-            "Anxiety Measures",
-            "Anxiety screening/severity",
-            "worry, tension, panic, somatic anxiety are central",
-            "must still differentiate anxiety types"
-          ],
-          [
-            "Suicide Tools",
-            "Safety screening/follow-up",
-            "SI, self-harm, hopelessness, recent attempt, unclear safety",
-            "must be paired with direct clinical risk assessment"
-          ],
-          [
-            "Substance Use Tools",
-            "Alcohol/drug screening",
-            "substance use may complicate symptoms",
-            "screening is not the full SUD evaluation"
-          ],
-          [
-            "Trauma/PTSD Measures",
-            "Trauma symptom screening/severity",
-            "trauma exposure or PTSD symptoms are likely",
-            "do not replace trauma-informed interviewing"
-          ],
-          [
-            "Youth Measures",
-            "Child/adolescent emotional-behavioral screening",
-            "school, caregiver, or developmental concerns are relevant",
-            "interpret developmentally"
-          ],
-          [
-            "Functional Measures",
-            "Impairment/disability assessment",
-            "level of care or real-world severity is unclear",
-            "symptoms and impairment both matter"
-          ],
-          [
-            "Personality Measures",
-            "Trait/personality clarification",
-            "enduring patterns need later-stage clarification",
-            "not first-line in acute cases"
-          ],
-          [
-            "Cognitive Screens",
-            "Brief cognitive concern identification",
-            "memory/orientation/attention issues exist",
-            "not the same as full MSE"
-          ]
         ]
       },
       {
@@ -1455,30 +1847,25 @@
         "title": "Mini Quiz",
         "questions": [
           {
-            "question": "A client presents with low mood, poor sleep, guilt, and low energy. Which instrument category is most reasonable if the clinician wants structured severity information?",
-            "answer": "A depression measure such as the PHQ-9 category.",
-            "rationale": "It can support symptom quantification and progress monitoring, though full diagnostic assessment is still required."
+            "question": "A 9-year-old shows behavior problems at home and school. Which instrument is most appropriate first?",
+            "answer": "A multi-informant behavior rating scale such as the BASC-3 or CBCL/TRF.",
+            "rationale": "Concerns across settings call for parent and teacher report, not single-source self-report."
           },
           {
-            "question": "A teenager denies regular substance use, but the parent and school have concerns. Which instrument category is especially relevant?",
-            "answer": "A youth-focused substance use screening instrument such as the CRAFFT category.",
-            "rationale": "The case calls for a developmentally appropriate adolescent substance use screen."
+            "question": "An adult is referred for a possible learning concern affecting work. Which test best evaluates intellectual functioning?",
+            "answer": "WAIS-IV.",
+            "rationale": "It is the gold-standard adult IQ test."
           },
           {
-            "question": "A client is confused, forgetful, and disoriented. Which instrument category best fits if the clinician wants a brief structured cognitive screen?",
-            "answer": "A cognitive screening instrument such as the MMSE or MoCA category.",
-            "rationale": "These tools help identify cognitive concerns that may require broader medical or neurocognitive evaluation."
+            "question": "A 14-year-old is being evaluated for ADHD. Which is the most targeted instrument?",
+            "answer": "Conners-4 (parent, teacher, and self-report forms).",
+            "rationale": "It is purpose-built for ADHD with multi-informant input across the youth age range."
+          },
+          {
+            "question": "A client with severe alcohol use needs help determining the appropriate level of care. Which tool fits best?",
+            "answer": "The ASAM Criteria.",
+            "rationale": "ASAM is designed specifically for substance use level-of-care decisions."
           }
-        ]
-      },
-      {
-        "type": "implementation_notes",
-        "title": "Implementation Notes for Lovable",
-        "items": [
-          "Display instrument categories first, then the high-yield instrument cards.",
-          "Keep the tool names recognizable but emphasize use-cases over memorization of cut scores.",
-          "Use callout styling for cautions because overreliance on instruments is a major learner mistake.",
-          "Allow the quick-reference table to collapse on smaller screens."
         ]
       }
     ],
@@ -1956,7 +2343,7 @@
           },
           {
             "term": "Measurement Error",
-            "meaning": "The difference between a person\u2019s observed score and their true standing on what is being measured.",
+            "meaning": "The difference between a person’s observed score and their true standing on what is being measured.",
             "examPearl": "No test score is perfectly exact."
           }
         ]
@@ -2277,7 +2664,7 @@
           {
             "step": 7,
             "title": "Choose the simplest clinically appropriate next step",
-            "description": "On the exam, the best answer is often the most immediate, necessary, and clinically grounded move\u2014not the fanciest one."
+            "description": "On the exam, the best answer is often the most immediate, necessary, and clinically grounded move—not the fanciest one."
           }
         ]
       },
@@ -2384,7 +2771,7 @@
             "points": [
               "directly addresses the most urgent clinical question",
               "fits the case stage",
-              "matches the client\u2019s age and context",
+              "matches the client’s age and context",
               "provides information that can guide next decisions",
               "is realistic for what a counselor would do next"
             ]
