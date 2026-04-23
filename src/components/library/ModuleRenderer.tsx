@@ -6,6 +6,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { StudyVisuals } from "@/components/library/StudyVisuals";
+import ModuleSectionNavigator from "@/components/library/ModuleSectionNavigator";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { ChevronDown, ChevronRight, Lightbulb, AlertTriangle, BookOpen, Target, HelpCircle } from "lucide-react";
 
@@ -75,39 +76,6 @@ const GuidedSection = ({
     </CollapsibleSection>
   </section>
 );
-
-const StudyFlowGuide = ({
-  sections,
-}: {
-  sections: Array<{ id: string; label: string; detail: string }>;
-}) => {
-  if (!sections.length) return null;
-
-  return (
-    <Card className="card-elevated border-primary/20 bg-primary/5">
-      <CardContent className="p-4 space-y-4">
-        <div className="space-y-1">
-          <p className="text-sm font-semibold text-foreground">Start here</p>
-          <p className="text-sm text-muted-foreground">Move through the module in order and open only the section you want to study next.</p>
-        </div>
-
-        <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-3">
-          {sections.map((section, index) => (
-            <a
-              key={section.id}
-              href={`#${section.id}`}
-              className="rounded-lg border border-border bg-background px-3 py-3 transition-colors hover:bg-accent"
-            >
-              <p className="text-xs font-semibold uppercase tracking-wide text-primary">Step {index + 1}</p>
-              <p className="mt-1 text-sm font-medium text-foreground">{section.label}</p>
-              <p className="mt-1 text-xs leading-relaxed text-muted-foreground">{section.detail}</p>
-            </a>
-          ))}
-        </div>
-      </CardContent>
-    </Card>
-  );
-};
 
 /* ---- Intro ---- */
 const IntroSection = ({ intro }: { intro: any }) => (
@@ -1117,117 +1085,144 @@ const ModuleRenderer = ({ data }: ModuleRendererProps) => {
     ([key]) => !skipTopLevel.has(key)
   );
 
-  const flowSections: Array<{ id: string; label: string; detail: string }> = [];
+  const flowSections: Array<{ id: string; label: string }> = [];
 
-  if (data.intro) {
-    flowSections.push({ id: "module-overview", label: "Module overview", detail: "Start with the big picture, learning goals, and how to use this section." });
-  }
-  if (data.coreDecisionRules || data.coreDiagnosticReasoningRules) {
-    flowSections.push({ id: "decision-rules", label: "Core decision rules", detail: "Learn the clinical rules that guide assessment choices on the exam." });
-  }
-  if (data.assessmentFramework) {
-    flowSections.push({ id: "assessment-framework", label: "Major types of assessment", detail: "Review the main categories before diving into details and tools." });
-  }
-  if (data.mseDeepDive) {
-    flowSections.push({ id: "mse-deep-dive", label: "Mental status exam", detail: "Study the MSE as a separate deep dive when you are ready." });
-  }
-  if (data.globalDifferentialTables || otherSections.length) {
-    flowSections.push({ id: "deep-study-sections", label: "Deep study sections", detail: "Open specific reference sections only when you need them." });
-  }
-  if (data.commonExamTraps || data.miniCaseDrills || data.quickReview || data.checkpointQuestions || data.assessmentTerminologyMatch) {
-    flowSections.push({ id: "practice-review", label: "Practice and review", detail: "Finish with traps, drills, matching, and quick review." });
-  }
+  if (data.intro) flowSections.push({ id: "module-overview", label: "Overview" });
+  if (data.coreDecisionRules || data.coreDiagnosticReasoningRules) flowSections.push({ id: "decision-rules", label: "Decision rules" });
+  if (data.assessmentFramework) flowSections.push({ id: "assessment-framework", label: "Assessment types" });
+  if (data.mseDeepDive) flowSections.push({ id: "mse-deep-dive", label: "MSE" });
+  if (data.diagnosticCategories) flowSections.push({ id: "diagnostic-categories", label: "Diagnostic categories" });
+  if (data.globalDifferentialTables) flowSections.push({ id: "differential-tables", label: "Differentials" });
+  if (data.redFlagAlerts) flowSections.push({ id: "red-flag-alerts", label: "Red flags" });
+  if (data.studyAids) flowSections.push({ id: "study-aids", label: "Visual aids" });
+  otherSections.forEach(([key]) => {
+    flowSections.push({ id: slugifySectionId(key), label: formatKey(key) });
+  });
+  if (data.commonExamTraps) flowSections.push({ id: "exam-traps", label: "Exam traps" });
+  if (data.miniCaseDrills) flowSections.push({ id: "mini-case-drills", label: "Case drills" });
+  if (data.quickReview) flowSections.push({ id: "quick-review", label: "Quick review" });
+  if (data.checkpointQuestions) flowSections.push({ id: "checkpoint-questions", label: "Checkpoint quiz" });
+  if (data.assessmentTerminologyMatch) flowSections.push({ id: "terminology-match", label: "Term matching" });
 
   return (
     <div className="space-y-6">
-      <StudyFlowGuide sections={flowSections} />
+      <ModuleSectionNavigator sections={flowSections} />
 
       {data.intro && (
-        <GuidedSection id="module-overview" title="Module overview" summary="Begin here to understand what this module covers and what to focus on first." defaultOpen>
+        <GuidedSection id="module-overview" title="Module overview" summary="Begin here to understand the full topic before opening the later sections." defaultOpen>
           <IntroSection intro={data.intro} />
         </GuidedSection>
       )}
 
       {(data.coreDecisionRules || data.coreDiagnosticReasoningRules) && (
-        <GuidedSection id="decision-rules" title="Core decision rules" summary="These are the decision-making rules to anchor before you study the detailed content.">
+        <GuidedSection id="decision-rules" title="Core decision rules" summary="This section contains the core logic you should know before applying any assessment or diagnostic content.">
           {data.coreDecisionRules && <DecisionRules rules={data.coreDecisionRules} />}
           {data.coreDiagnosticReasoningRules && <DecisionRules rules={data.coreDiagnosticReasoningRules} />}
         </GuidedSection>
       )}
 
       {data.assessmentFramework && (
-        <GuidedSection id="assessment-framework" title="Major types of assessment" summary="Use this section first when you want the overall map of assessment categories.">
+        <GuidedSection id="assessment-framework" title="Major types of assessment" summary="This section is the full deep dive for assessment categories, not a preview. Open it when you want everything about assessment types in one place.">
           <AssessmentFramework framework={data.assessmentFramework} />
         </GuidedSection>
       )}
 
       {data.mseDeepDive && (
-        <GuidedSection id="mse-deep-dive" title="Mental status exam deep dive" summary="Open this after the overview when you want a focused study session on MSE.">
+        <GuidedSection id="mse-deep-dive" title="Mental status examination (MSE)" summary="This section now stands on its own as the full MSE deep dive with structure, comparisons, clues, and review built into it.">
           <MSEDeepDive section={data.mseDeepDive} />
         </GuidedSection>
       )}
 
       {data.diagnosticCategories && (
-        <GuidedSection id="diagnostic-categories" title="Diagnostic categories" summary="Use this as a reference section when you need category-specific diagnostic distinctions.">
+        <GuidedSection id="diagnostic-categories" title="Diagnostic categories" summary="This is the full reference section for diagnosis-focused distinctions and disorders within this module.">
           <DiagnosticCategories categories={data.diagnosticCategories} />
         </GuidedSection>
       )}
 
-      {(data.globalDifferentialTables || data.redFlagAlerts || data.studyAids || otherSections.length) && (
-        <GuidedSection id="deep-study-sections" title="Deep study sections" summary="These are supporting reference sections. Open only the one you need instead of reading everything in one pass.">
-          {data.globalDifferentialTables && (
-            <div>
-              <SectionHeading>Differential Diagnosis Tables</SectionHeading>
-              {data.globalDifferentialTables.map((table: any, i: number) => (
-                <CollapsibleSection key={i} title={table.title}>
-                  <div className="space-y-2">
-                    {table.rows?.map((row: any, j: number) => (
-                      <Card key={j} className="card-elevated">
-                        <CardContent className="p-3">{renderObjectContent(row)}</CardContent>
-                      </Card>
-                    ))}
-                  </div>
-                </CollapsibleSection>
-              ))}
-            </div>
-          )}
-
-          {data.redFlagAlerts && (
-            <div>
-              <SectionHeading>Red Flag Alerts</SectionHeading>
-              {data.redFlagAlerts.map((alert: any, i: number) => (
-                <Alert key={i} className="border-destructive/30 bg-destructive/5 mb-2">
-                  <AlertTriangle className="h-4 w-4 text-destructive" />
-                  <AlertDescription className="text-sm">
-                    <span className="font-medium text-foreground">{alert.title}</span>
-                    {alert.whenToThinkOfIt && <span className="text-muted-foreground"> — {alert.whenToThinkOfIt}</span>}
-                    {alert.clinicalPriority && <p className="text-xs text-muted-foreground mt-1">{alert.clinicalPriority}</p>}
-                  </AlertDescription>
-                </Alert>
-              ))}
-            </div>
-          )}
-
-          {data.studyAids && (
-            <div>
-              <SectionHeading>Visual Study Aids</SectionHeading>
-              <StudyVisuals aids={data.studyAids} />
-            </div>
-          )}
-
-          {otherSections.map(([key, value]) => (
-            <GenericSection key={key} title={formatKey(key)} data={value} />
-          ))}
+      {data.globalDifferentialTables && (
+        <GuidedSection id="differential-tables" title="Differential diagnosis tables" summary="This section holds the full differential reference content for side-by-side comparison.">
+          <div>
+            <SectionHeading>Differential Diagnosis Tables</SectionHeading>
+            {data.globalDifferentialTables.map((table: any, i: number) => (
+              <CollapsibleSection key={i} title={table.title}>
+                <div className="space-y-2">
+                  {table.rows?.map((row: any, j: number) => (
+                    <Card key={j} className="card-elevated">
+                      <CardContent className="p-3">{renderObjectContent(row)}</CardContent>
+                    </Card>
+                  ))}
+                </div>
+              </CollapsibleSection>
+            ))}
+          </div>
         </GuidedSection>
       )}
 
-      {(data.commonExamTraps || data.miniCaseDrills || data.quickReview || data.checkpointQuestions || data.assessmentTerminologyMatch) && (
-        <GuidedSection id="practice-review" title="Practice and review" summary="Come here after studying the content to test recall and reinforce key distinctions.">
-          {data.commonExamTraps && <ExamTraps traps={data.commonExamTraps} />}
-          {data.miniCaseDrills && <MiniCaseDrills drills={data.miniCaseDrills} />}
-          {data.quickReview && <QuickReview review={data.quickReview} />}
-          {data.checkpointQuestions && <CheckpointQuestions questions={data.checkpointQuestions} />}
-          {data.assessmentTerminologyMatch && <MatchingExercise exercise={data.assessmentTerminologyMatch} />}
+      {data.redFlagAlerts && (
+        <GuidedSection id="red-flag-alerts" title="Red flag alerts" summary="This section contains the warning signs that should change urgency, safety planning, or level-of-care decisions.">
+          <div>
+            <SectionHeading>Red Flag Alerts</SectionHeading>
+            {data.redFlagAlerts.map((alert: any, i: number) => (
+              <Alert key={i} className="border-destructive/30 bg-destructive/5 mb-2">
+                <AlertTriangle className="h-4 w-4 text-destructive" />
+                <AlertDescription className="text-sm">
+                  <span className="font-medium text-foreground">{alert.title}</span>
+                  {alert.whenToThinkOfIt && <span className="text-muted-foreground"> — {alert.whenToThinkOfIt}</span>}
+                  {alert.clinicalPriority && <p className="text-xs text-muted-foreground mt-1">{alert.clinicalPriority}</p>}
+                </AlertDescription>
+              </Alert>
+            ))}
+          </div>
+        </GuidedSection>
+      )}
+
+      {data.studyAids && (
+        <GuidedSection id="study-aids" title="Visual study aids" summary="This section contains charts, tables, comparisons, and visual organizers for quick review.">
+          <div>
+            <SectionHeading>Visual Study Aids</SectionHeading>
+            <StudyVisuals aids={data.studyAids} />
+          </div>
+        </GuidedSection>
+      )}
+
+      {otherSections.map(([key, value]) => (
+        <GuidedSection
+          key={key}
+          id={slugifySectionId(key)}
+          title={formatKey(key)}
+          summary={`This section contains the full deep-dive content for ${formatKey(key).toLowerCase()}.`}
+        >
+          <GenericSection title={formatKey(key)} data={value} />
+        </GuidedSection>
+      ))}
+
+      {data.commonExamTraps && (
+        <GuidedSection id="exam-traps" title="Common exam traps" summary="Use this section to study the mistakes the exam expects you to avoid.">
+          <ExamTraps traps={data.commonExamTraps} />
+        </GuidedSection>
+      )}
+
+      {data.miniCaseDrills && (
+        <GuidedSection id="mini-case-drills" title="Practice case drills" summary="Use these case drills to apply the section content in a more exam-like way.">
+          <MiniCaseDrills drills={data.miniCaseDrills} />
+        </GuidedSection>
+      )}
+
+      {data.quickReview && (
+        <GuidedSection id="quick-review" title="Quick review" summary="Use this section when you want a shorter recap after studying the full content.">
+          <QuickReview review={data.quickReview} />
+        </GuidedSection>
+      )}
+
+      {data.checkpointQuestions && (
+        <GuidedSection id="checkpoint-questions" title="Checkpoint questions" summary="Open this section to test recall after working through the main material.">
+          <CheckpointQuestions questions={data.checkpointQuestions} />
+        </GuidedSection>
+      )}
+
+      {data.assessmentTerminologyMatch && (
+        <GuidedSection id="terminology-match" title="Match the terms" summary="Use the matching activity to reinforce the major terms and definitions from the module.">
+          <MatchingExercise exercise={data.assessmentTerminologyMatch} />
         </GuidedSection>
       )}
     </div>
