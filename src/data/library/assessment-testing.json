@@ -776,8 +776,11 @@
             "whyItMatters": "Judgment is closely tied to safety, risk, need for supervision, and level of care.",
             "examPearl": "A client may be oriented and verbal yet still have dangerously impaired judgment."
           }
+        ]
       },
       {
+        "type": "compare_block",
+        "title": "Mood vs Affect",
         "items": [
           {
             "term": "Mood",
