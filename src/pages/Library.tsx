@@ -28,6 +28,10 @@ const LibraryModuleDetail = ({ module, onBack }: { module: LibraryModule; onBack
     openChatWithPrompt(`Quiz me on the ${module.title} module. Create 5 NCMHCE-style multiple choice questions based on the exact material in this section, ask them one at a time, wait for my answer after each, then explain why the correct answer is right.`);
   };
 
+  const handleFlashcardsClick = () => {
+    openChatWithPrompt(`Generate 10 high-yield flashcards for the ${module.title} module based on the material in this section. Format them in markdown as a numbered list where each item has **Front:** and **Back:**. Prioritize exam-relevant facts, distinctions, stages, red flags, and counselor decision points.`);
+  };
+
   return (
     <div className="p-6 max-w-4xl mx-auto space-y-6">
       <Button variant="ghost" onClick={onBack} className="mb-2">
@@ -90,7 +94,7 @@ const LibraryModuleDetail = ({ module, onBack }: { module: LibraryModule; onBack
           <Button variant="outline" onClick={handleQuizClick}>
             <Sparkles className="mr-2 h-4 w-4" /> Quiz Me on This
           </Button>
-          <Button variant="outline">
+          <Button variant="outline" onClick={handleFlashcardsClick}>
             <Layers className="mr-2 h-4 w-4" /> Generate Flashcards
           </Button>
         </div>
