@@ -8,29 +8,86 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { StudyVisuals } from "@/components/library/StudyVisuals";
 import ModuleSectionNavigator from "@/components/library/ModuleSectionNavigator";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { ChevronDown, ChevronRight, Lightbulb, AlertTriangle, BookOpen, Target, HelpCircle } from "lucide-react";
+import { ChevronDown, ChevronRight, Lightbulb, AlertTriangle, BookOpen, Target, HelpCircle, Sparkles, ListChecks, Brain, Repeat, ShieldAlert, Compass } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
 /*  Generic section renderers for the structured JSON module format    */
+/*  Visual primitives mirror the Assessment & Testing renderer so all  */
+/*  modules share one cohesive look.                                   */
 /* ------------------------------------------------------------------ */
 
-const SectionHeading = ({ children }: { children: React.ReactNode }) => (
-  <h2 className="text-lg font-semibold text-foreground mt-8 mb-3 first:mt-0">{children}</h2>
+/* SectionHeading — used as the top-of-section title throughout.
+   Now styled like A&T's SectionTitle: icon chip + larger heading. */
+const SectionHeading = ({
+  children,
+  icon: Icon = Sparkles,
+  subtitle,
+}: {
+  children: React.ReactNode;
+  icon?: React.ElementType;
+  subtitle?: string;
+}) => (
+  <div className="flex items-start gap-3 mt-8 mb-4 first:mt-0">
+    <div className="rounded-lg bg-primary/10 p-2 text-primary shrink-0">
+      <Icon className="h-5 w-5" />
+    </div>
+    <div className="min-w-0">
+      <h2 className="text-xl font-semibold text-foreground leading-tight">{children}</h2>
+      {subtitle && <p className="text-sm text-muted-foreground mt-0.5">{subtitle}</p>}
+    </div>
+  </div>
 );
+
+/* Callout — tip / warn / rule, matches A&T styling */
+const Callout = ({
+  variant,
+  title,
+  children,
+}: {
+  variant: "tip" | "warn" | "rule";
+  title: string;
+  children: React.ReactNode;
+}) => {
+  const map = {
+    tip: { Icon: Lightbulb, cls: "border-primary/30 bg-primary/5 text-foreground", iconCls: "text-primary" },
+    warn: { Icon: AlertTriangle, cls: "border-destructive/30 bg-destructive/5 text-foreground", iconCls: "text-destructive" },
+    rule: { Icon: Target, cls: "border-accent bg-accent/30 text-foreground", iconCls: "text-foreground" },
+  } as const;
+  const { Icon, cls, iconCls } = map[variant];
+  return (
+    <div className={`rounded-lg border p-4 ${cls}`}>
+      <div className="mb-2 flex items-center gap-2">
+        <Icon className={`h-4 w-4 ${iconCls}`} />
+        <p className="text-sm font-semibold">{title}</p>
+      </div>
+      <div className="text-sm leading-relaxed">{children}</div>
+    </div>
+  );
+};
 
 const ExamPearl = ({ text }: { text: string }) => (
   <Alert className="border-primary/30 bg-primary/5 my-2">
     <Lightbulb className="h-4 w-4 text-primary" />
-    <AlertDescription className="text-sm text-foreground">{text}</AlertDescription>
+    <AlertDescription className="text-sm text-foreground leading-relaxed">{text}</AlertDescription>
   </Alert>
 );
 
 const ExamPearls = ({ pearls }: { pearls?: string[] }) => {
   if (!pearls?.length) return null;
+  if (pearls.length === 1) {
+    return (
+      <div className="mt-3">
+        <Callout variant="tip" title="Exam Pearl">{pearls[0]}</Callout>
+      </div>
+    );
+  }
   return (
-    <div className="space-y-1 mt-3">
-      <p className="text-xs font-semibold text-primary uppercase tracking-wide">Exam Pearls</p>
-      {pearls.map((p, i) => <ExamPearl key={i} text={p} />)}
+    <div className="mt-3">
+      <Callout variant="tip" title="Exam Pearls">
+        <ul className="list-disc space-y-1 pl-4">
+          {pearls.map((p, i) => <li key={i}>{p}</li>)}
+        </ul>
+      </Callout>
     </div>
   );
 };
@@ -38,9 +95,9 @@ const ExamPearls = ({ pearls }: { pearls?: string[] }) => {
 const CollapsibleSection = ({ title, children, defaultOpen = false }: { title: string; children: React.ReactNode; defaultOpen?: boolean }) => {
   const [open, setOpen] = useState(defaultOpen);
   return (
-    <Collapsible open={open} onOpenChange={setOpen} className="border border-border rounded-lg mt-4">
-      <CollapsibleTrigger className="flex items-center justify-between w-full p-4 hover:bg-accent/50 rounded-lg transition-colors">
-        <span className="font-semibold text-foreground text-left">{title}</span>
+    <Collapsible open={open} onOpenChange={setOpen} className="border border-border rounded-lg mt-4 card-elevated">
+      <CollapsibleTrigger className="flex items-center justify-between w-full p-4 hover:bg-accent/40 rounded-lg transition-colors">
+        <span className="font-semibold text-foreground text-left text-base">{title}</span>
         {open ? <ChevronDown className="h-4 w-4 text-muted-foreground" /> : <ChevronRight className="h-4 w-4 text-muted-foreground" />}
       </CollapsibleTrigger>
       <CollapsibleContent className="px-4 pb-4">{children}</CollapsibleContent>
@@ -114,13 +171,13 @@ const IntroSection = ({ intro }: { intro: any }) => (
 /* ---- Decision Rules ---- */
 const DecisionRules = ({ rules }: { rules: any[] }) => (
   <div>
-    <SectionHeading>Core Decision Rules</SectionHeading>
-    <div className="space-y-3">
+    <SectionHeading icon={Target} subtitle="Quick rules to anchor your reasoning on exam items.">Core Decision Rules</SectionHeading>
+    <div className="grid gap-3 md:grid-cols-2">
       {rules.map((r, i) => (
         <Card key={i} className="card-elevated">
           <CardContent className="p-4">
-            <p className="text-sm font-medium text-foreground">{r.rule}</p>
-            {r.example && <p className="text-xs text-muted-foreground mt-1 italic">Example: {r.example}</p>}
+            <p className="text-sm font-semibold text-foreground leading-relaxed">{r.rule}</p>
+            {r.example && <p className="text-xs text-muted-foreground mt-2 italic">e.g. {r.example}</p>}
           </CardContent>
         </Card>
       ))}
@@ -131,7 +188,7 @@ const DecisionRules = ({ rules }: { rules: any[] }) => (
 /* ---- Mini Case Drills ---- */
 const MiniCaseDrills = ({ drills }: { drills: any[] }) => (
   <div>
-    <SectionHeading>Practice Case Drills</SectionHeading>
+    <SectionHeading icon={Brain} subtitle="Short cases — try to answer before revealing.">Practice Case Drills</SectionHeading>
     <div className="space-y-3">
       {drills.map((d, i) => (
         <MiniCaseCard key={i} drill={d} index={i} />
@@ -169,7 +226,7 @@ const MiniCaseCard = ({ drill, index }: { drill: any; index: number }) => {
 /* ---- Checkpoint Questions ---- */
 const CheckpointQuestions = ({ questions }: { questions: any[] }) => (
   <div>
-    <SectionHeading>Checkpoint Questions</SectionHeading>
+    <SectionHeading icon={HelpCircle} subtitle="Test recall before moving on.">Checkpoint Questions</SectionHeading>
     <div className="space-y-2">
       {questions.map((q, i) => (
         <CheckpointCard key={i} q={q} />
@@ -200,7 +257,7 @@ const CheckpointCard = ({ q }: { q: any }) => {
 /* ---- Quick Review ---- */
 const QuickReview = ({ review }: { review: any }) => (
   <div>
-    <SectionHeading>Quick Review</SectionHeading>
+    <SectionHeading icon={Repeat} subtitle="Memory hooks and final takeaways for fast review.">Quick Review</SectionHeading>
     <Card className="card-elevated">
       <CardContent className="p-4 space-y-3">
         {review.memoryHooks?.length > 0 && (
@@ -231,24 +288,23 @@ const QuickReview = ({ review }: { review: any }) => (
 /* ---- Common Exam Traps ---- */
 const ExamTraps = ({ traps }: { traps: Array<string | { trap: string; explanation?: string }> }) => (
   <div>
-    <SectionHeading>Common Exam Traps</SectionHeading>
-    <div className="space-y-2">
-      {traps.map((t, i) => (
-        <Alert key={i} className="border-destructive/30 bg-destructive/5">
-          <AlertTriangle className="h-4 w-4 text-destructive" />
-          <AlertDescription className="text-sm text-foreground">
+    <SectionHeading icon={ShieldAlert} subtitle="Mistakes the exam baits you into making.">Common Exam Traps</SectionHeading>
+    <Callout variant="warn" title="Watch out for">
+      <ul className="space-y-2">
+        {traps.map((t, i) => (
+          <li key={i} className="leading-relaxed">
             {typeof t === "string" ? (
               t
             ) : (
-              <div className="space-y-1">
-                <p className="font-medium">{t.trap}</p>
-                {t.explanation && <p className="text-muted-foreground">{t.explanation}</p>}
-              </div>
+              <>
+                <span className="font-semibold">{t.trap}</span>
+                {t.explanation && <span className="text-muted-foreground"> — {t.explanation}</span>}
+              </>
             )}
-          </AlertDescription>
-        </Alert>
-      ))}
-    </div>
+          </li>
+        ))}
+      </ul>
+    </Callout>
   </div>
 );
 
@@ -258,8 +314,8 @@ const AssessmentFramework = ({ framework }: { framework: any }) => {
 
   return (
     <div>
-      <SectionHeading>{framework.title || "Major Types of Assessment"}</SectionHeading>
-      {framework.overview && <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{framework.overview}</p>}
+      <SectionHeading icon={ListChecks} subtitle={framework.overview}>{framework.title || "Major Types of Assessment"}</SectionHeading>
+      {!framework.overview && false}
 
       {framework.learningObjectives?.length > 0 && (
         <Card className="card-elevated mb-5">
@@ -510,7 +566,7 @@ const MSEDeepDive = ({ section }: { section: any }) => {
   if (section.content?.length) {
     return (
       <div>
-        <SectionHeading>{section.sectionTitle || section.title || "Mental Status Examination (MSE) Breakdown"}</SectionHeading>
+        <SectionHeading icon={Brain}>{section.sectionTitle || section.title || "Mental Status Examination (MSE) Breakdown"}</SectionHeading>
 
         {section.learningObjectives?.length > 0 && (
           <Card className="card-elevated mb-5">
@@ -852,8 +908,8 @@ const MSEDeepDive = ({ section }: { section: any }) => {
 
   return (
     <div>
-      <SectionHeading>{section.title || "Mental Status Examination (MSE) Breakdown"}</SectionHeading>
-      {section.overview && <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{section.overview}</p>}
+      <SectionHeading icon={Brain} subtitle={section.overview}>{section.title || "Mental Status Examination (MSE) Breakdown"}</SectionHeading>
+      {!section.overview && false}
       <div className="grid gap-3 md:grid-cols-2">
         {section.domains.map((domain: any, index: number) => (
           <Card key={index} className="card-elevated">
@@ -1066,7 +1122,7 @@ const formatKey = (key: string) =>
 /* ---- DSM Diagnostic Categories ---- */
 const DiagnosticCategories = ({ categories }: { categories: any[] }) => (
   <div>
-    <SectionHeading>Diagnostic Categories</SectionHeading>
+    <SectionHeading icon={BookOpen} subtitle="Conditions you must recognize and differentiate.">Diagnostic Categories</SectionHeading>
     <div className="space-y-4">
       {categories.map((cat, i) => (
         <CollapsibleSection key={i} title={cat.title} defaultOpen={i === 0}>
@@ -1265,7 +1321,7 @@ const ModuleRenderer = ({ data }: ModuleRendererProps) => {
       {data.globalDifferentialTables && (
         <GuidedSection id="differential-tables" title="Differential diagnosis tables" summary="This section holds the full differential reference content for side-by-side comparison.">
           <div>
-            <SectionHeading>Differential Diagnosis Tables</SectionHeading>
+            <SectionHeading icon={Compass} subtitle="Side-by-side comparisons for fast disambiguation.">Differential Diagnosis Tables</SectionHeading>
             {data.globalDifferentialTables.map((table: any, i: number) => (
               <CollapsibleSection key={i} title={table.title}>
                 <div className="space-y-2">
@@ -1284,7 +1340,7 @@ const ModuleRenderer = ({ data }: ModuleRendererProps) => {
       {data.redFlagAlerts && (
         <GuidedSection id="red-flag-alerts" title="Red flag alerts" summary="This section contains the warning signs that should change urgency, safety planning, or level-of-care decisions.">
           <div>
-            <SectionHeading>Red Flag Alerts</SectionHeading>
+            <SectionHeading icon={ShieldAlert} subtitle="Signs that escalate urgency, safety planning, or level of care.">Red Flag Alerts</SectionHeading>
             {data.redFlagAlerts.map((alert: any, i: number) => (
               <Alert key={i} className="border-destructive/30 bg-destructive/5 mb-2">
                 <AlertTriangle className="h-4 w-4 text-destructive" />
@@ -1302,7 +1358,7 @@ const ModuleRenderer = ({ data }: ModuleRendererProps) => {
       {data.studyAids && (
         <GuidedSection id="study-aids" title="Visual study aids" summary="This section contains charts, tables, comparisons, and visual organizers for quick review.">
           <div>
-            <SectionHeading>Visual Study Aids</SectionHeading>
+            <SectionHeading icon={Sparkles} subtitle="Charts, tables, and organizers for quick review.">Visual Study Aids</SectionHeading>
             <StudyVisuals aids={data.studyAids} />
           </div>
         </GuidedSection>
