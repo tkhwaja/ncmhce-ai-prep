@@ -3,6 +3,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
+import { Button } from "@/components/ui/button";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { StudyVisuals } from "@/components/library/StudyVisuals";
 import { ChevronDown, ChevronRight, Lightbulb, AlertTriangle, BookOpen, Target, HelpCircle } from "lucide-react";
 
@@ -207,6 +209,213 @@ const ExamTraps = ({ traps }: { traps: string[] }) => (
   </div>
 );
 
+/* ---- Assessment Framework ---- */
+const AssessmentFramework = ({ framework }: { framework: any }) => {
+  if (!framework?.types?.length) return null;
+
+  return (
+    <div>
+      <SectionHeading>{framework.title || "Major Types of Assessment"}</SectionHeading>
+      {framework.overview && <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{framework.overview}</p>}
+
+      {framework.selectionPrinciples?.length > 0 && (
+        <div className="grid gap-3 md:grid-cols-2 mb-5">
+          {framework.selectionPrinciples.map((principle: any, index: number) => (
+            <Card key={index} className="card-elevated">
+              <CardContent className="p-4 space-y-2">
+                <p className="text-sm font-semibold text-foreground">{principle.title}</p>
+                <p className="text-sm text-muted-foreground">{principle.description}</p>
+              </CardContent>
+            </Card>
+          ))}
+        </div>
+      )}
+
+      <div className="space-y-4">
+        {framework.types.map((type: any, index: number) => (
+          <CollapsibleSection key={type.id || index} title={type.title} defaultOpen={index === 0}>
+            <div className="space-y-4">
+              {type.purpose && <p className="text-sm text-muted-foreground leading-relaxed">{type.purpose}</p>}
+
+              <div className="grid gap-4 lg:grid-cols-2">
+                {type.bestFor?.length > 0 && (
+                  <Card className="card-elevated">
+                    <CardContent className="p-4">
+                      <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-2">Best Used For</p>
+                      <ul className="space-y-1">
+                        {type.bestFor.map((item: string, i: number) => (
+                          <li key={i} className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-0.5">•</span>{item}</li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                )}
+
+                {type.notEnoughByItself?.length > 0 && (
+                  <Card className="card-elevated">
+                    <CardContent className="p-4">
+                      <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-2">Not Enough By Itself When</p>
+                      <ul className="space-y-1">
+                        {type.notEnoughByItself.map((item: string, i: number) => (
+                          <li key={i} className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-0.5">•</span>{item}</li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                )}
+              </div>
+
+              <div className="grid gap-4 lg:grid-cols-2">
+                {type.strengths?.length > 0 && (
+                  <Card className="card-elevated">
+                    <CardContent className="p-4">
+                      <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-2">Strengths</p>
+                      <ul className="space-y-1">
+                        {type.strengths.map((item: string, i: number) => (
+                          <li key={i} className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-0.5">•</span>{item}</li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                )}
+
+                {type.limitations?.length > 0 && (
+                  <Card className="card-elevated">
+                    <CardContent className="p-4">
+                      <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-2">Limitations</p>
+                      <ul className="space-y-1">
+                        {type.limitations.map((item: string, i: number) => (
+                          <li key={i} className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-0.5">•</span>{item}</li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                )}
+              </div>
+
+              {type.commonExamples?.length > 0 && (
+                <div>
+                  <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-2">Common Examples</p>
+                  <div className="flex flex-wrap gap-2">
+                    {type.commonExamples.map((example: string, i: number) => (
+                      <Badge key={i} variant="secondary" className="text-xs">{example}</Badge>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              <div className="grid gap-4 lg:grid-cols-2">
+                {type.counselorShouldRemember?.length > 0 && (
+                  <Card className="card-elevated">
+                    <CardContent className="p-4">
+                      <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-2">Counselor Should Remember</p>
+                      <ul className="space-y-1">
+                        {type.counselorShouldRemember.map((item: string, i: number) => (
+                          <li key={i} className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-0.5">•</span>{item}</li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                )}
+
+                {type.commonExamMistakes?.length > 0 && (
+                  <Card className="card-elevated">
+                    <CardContent className="p-4">
+                      <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-2">Common Exam Mistakes</p>
+                      <ul className="space-y-1">
+                        {type.commonExamMistakes.map((item: string, i: number) => (
+                          <li key={i} className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-0.5">•</span>{item}</li>
+                        ))}
+                      </ul>
+                    </CardContent>
+                  </Card>
+                )}
+              </div>
+
+              {type.examClue && <ExamPearls pearls={[type.examClue]} />}
+            </div>
+          </CollapsibleSection>
+        ))}
+      </div>
+    </div>
+  );
+};
+
+/* ---- Matching Exercise ---- */
+const MatchingExercise = ({ exercise }: { exercise: any }) => {
+  const prompts = exercise?.prompts || [];
+  const options = exercise?.options || [];
+  const [answers, setAnswers] = useState<Record<string, string>>({});
+  const [submitted, setSubmitted] = useState(false);
+
+  if (!prompts.length || !options.length) return null;
+
+  const correctCount = prompts.filter((prompt: any) => answers[prompt.term] === prompt.correctOptionId).length;
+
+  return (
+    <div>
+      <SectionHeading>{exercise.title || "Match the Terms"}</SectionHeading>
+      {exercise.instructions && <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{exercise.instructions}</p>}
+
+      <Card className="card-elevated">
+        <CardContent className="p-5 space-y-5">
+          {prompts.map((prompt: any, index: number) => {
+            const selected = answers[prompt.term];
+            const isCorrect = submitted && selected === prompt.correctOptionId;
+            const isWrong = submitted && selected && selected !== prompt.correctOptionId;
+
+            return (
+              <div key={prompt.term} className="space-y-2 rounded-lg border border-border p-4">
+                <div className="flex items-start justify-between gap-3">
+                  <p className="text-sm font-medium text-foreground">{index + 1}. {prompt.term}</p>
+                  {submitted && isCorrect && <Badge variant="secondary">Correct</Badge>}
+                  {submitted && isWrong && <Badge variant="outline">Review</Badge>}
+                </div>
+
+                <Select
+                  value={selected}
+                  onValueChange={(value) => setAnswers((prev) => ({ ...prev, [prompt.term]: value }))}
+                >
+                  <SelectTrigger>
+                    <SelectValue placeholder="Choose the matching definition" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {options.map((option: any) => (
+                      <SelectItem key={option.id} value={option.id}>{option.definition}</SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+
+                {submitted && (
+                  <div className="rounded-md border border-border bg-accent/40 p-3 space-y-1">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-primary">Correct Definition</p>
+                    <p className="text-sm text-foreground">{options.find((option: any) => option.id === prompt.correctOptionId)?.definition}</p>
+                    {prompt.whyItMatters && <p className="text-xs text-muted-foreground">Why it matters: {prompt.whyItMatters}</p>}
+                  </div>
+                )}
+              </div>
+            );
+          })}
+
+          <div className="flex flex-wrap items-center gap-3">
+            <Button onClick={() => setSubmitted(true)}>Check Answers</Button>
+            <Button
+              variant="outline"
+              onClick={() => {
+                setAnswers({});
+                setSubmitted(false);
+              }}
+            >
+              Reset
+            </Button>
+            {submitted && <p className="text-sm text-muted-foreground">Score: {correctCount} / {prompts.length}</p>}
+          </div>
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
+
 /* ---- Generic Key-Value Section ---- */
 const GenericSection = ({ title, data }: { title: string; data: any }) => {
   if (!data) return null;
@@ -408,7 +617,7 @@ const ModuleRenderer = ({ data }: ModuleRendererProps) => {
   const skipTopLevel = new Set([
     "moduleId", "moduleTitle", "moduleType", "version", "exam", "uiHints", "sourceBasis",
     "intro", "coreDecisionRules", "coreDiagnosticReasoningRules", "commonExamTraps", "miniCaseDrills", "quickReview", "checkpointQuestions",
-    "diagnosticCategories", "globalDifferentialTables", "redFlagAlerts", "studyAids",
+    "diagnosticCategories", "globalDifferentialTables", "redFlagAlerts", "studyAids", "assessmentFramework", "assessmentTerminologyMatch",
   ]);
 
   // Collect all "other" sections
@@ -427,6 +636,9 @@ const ModuleRenderer = ({ data }: ModuleRendererProps) => {
 
       {/* DSM Diagnostic Categories */}
       {data.diagnosticCategories && <DiagnosticCategories categories={data.diagnosticCategories} />}
+
+      {/* Assessment Framework */}
+      {data.assessmentFramework && <AssessmentFramework framework={data.assessmentFramework} />}
 
       {/* Global Differential Tables */}
       {data.globalDifferentialTables && (
@@ -487,6 +699,9 @@ const ModuleRenderer = ({ data }: ModuleRendererProps) => {
 
       {/* Checkpoint Questions */}
       {data.checkpointQuestions && <CheckpointQuestions questions={data.checkpointQuestions} />}
+
+      {/* Matching Exercise */}
+      {data.assessmentTerminologyMatch && <MatchingExercise exercise={data.assessmentTerminologyMatch} />}
     </div>
   );
 };
