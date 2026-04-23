@@ -46,6 +46,8 @@ const LibraryModuleDetail = ({ module, onBack }: { module: LibraryModule; onBack
 
       {isGlossary && module.data?.terms ? (
         <GlossaryView terms={module.data.terms} />
+      ) : module.id === "exam-overview-and-blueprint" && module.data ? (
+        <ExamOverviewRenderer data={module.data} />
       ) : hasStructuredData ? (
         <ModuleRenderer data={module.data} />
       ) : (
