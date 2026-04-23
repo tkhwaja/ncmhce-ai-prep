@@ -169,17 +169,17 @@ const MseTab = ({ data }: { data: any }) => {
           {compares.map((c: any, i: number) => (
             <Card key={i} className="card-elevated">
               <CardContent className="p-4">
-                <p className="text-sm font-semibold text-foreground">{c.title}</p>
+                <p className="text-base font-semibold text-foreground">{c.title}</p>
                 <div className="mt-2 grid grid-cols-2 gap-3 text-sm">
                   {c.items.map((it: any, j: number) => (
                     <div key={j}>
                       <p className="font-medium text-foreground">{it.term}</p>
-                      <p className="text-muted-foreground">{it.definition}</p>
+                      <p className="text-muted-foreground leading-relaxed">{it.definition}</p>
                     </div>
                   ))}
                 </div>
                 {c.keyTakeaway && (
-                  <p className="mt-3 rounded bg-muted px-3 py-2 text-xs text-foreground">{c.keyTakeaway}</p>
+                  <p className="mt-3 rounded bg-muted px-3 py-2 text-sm text-foreground leading-relaxed">{c.keyTakeaway}</p>
                 )}
               </CardContent>
             </Card>
@@ -432,38 +432,38 @@ const InstrumentsTab = ({ data }: { data: any }) => {
         {filtered.map((cat) => (
           <div key={cat.title}>
             <div className="mb-2">
-              <p className="text-sm font-semibold text-foreground">
+              <p className="text-base font-semibold text-foreground">
                 {cat.title.replace(/^(Adult|Youth)\s*[—-]\s*/i, "")}
               </p>
-              {cat.examUse && <p className="text-xs text-muted-foreground">{cat.examUse}</p>}
+              {cat.examUse && <p className="text-sm text-muted-foreground leading-relaxed">{cat.examUse}</p>}
             </div>
             <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-3">
               {cat.instruments.map((inst) => (
                 <Card key={inst.name + (inst.fullName ?? "")} className="card-elevated">
                   <CardContent className="space-y-1.5 p-4">
                     <div className="flex items-baseline justify-between gap-2">
-                      <p className="text-sm font-semibold text-foreground">{inst.name}</p>
+                      <p className="text-base font-semibold text-foreground">{inst.name}</p>
                       {inst.ageRange && (
-                        <Badge variant="outline" className="shrink-0 text-[10px]">
+                        <Badge variant="outline" className="shrink-0 text-[11px]">
                           {inst.ageRange}
                         </Badge>
                       )}
                     </div>
-                    {inst.fullName && <p className="text-xs italic text-muted-foreground">{inst.fullName}</p>}
+                    {inst.fullName && <p className="text-sm italic text-muted-foreground leading-relaxed">{inst.fullName}</p>}
                     {inst.format && (
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-sm text-muted-foreground leading-relaxed">
                         <span className="font-medium text-foreground">Format: </span>
                         {inst.format}
                       </p>
                     )}
                     {inst.whatItMeasures && (
-                      <p className="text-xs text-muted-foreground">
+                      <p className="text-sm text-muted-foreground leading-relaxed">
                         <span className="font-medium text-foreground">Measures: </span>
                         {inst.whatItMeasures}
                       </p>
                     )}
                     {inst.examRelevance && (
-                      <p className="rounded bg-primary/5 px-2 py-1 text-xs text-foreground">
+                      <p className="rounded bg-primary/5 px-2 py-1 text-sm text-foreground leading-relaxed">
                         <span className="font-semibold text-primary">Exam: </span>
                         {inst.examRelevance}
                       </p>
@@ -771,11 +771,11 @@ const PsychometricsTab = ({ data }: { data: any }) => {
           <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
             {termCards.cards.map((c: any, i: number) => (
               <Card key={i} className="card-elevated">
-                <CardContent className="space-y-1 p-4">
-                  <p className="text-sm font-semibold text-foreground">{c.term}</p>
-                  <p className="text-xs text-muted-foreground">{c.meaning}</p>
+                <CardContent className="space-y-1.5 p-4">
+                  <p className="text-base font-semibold text-foreground">{c.term}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{c.meaning}</p>
                   {c.examPearl && (
-                    <p className="rounded bg-primary/5 px-2 py-1 text-xs text-foreground">
+                    <p className="rounded bg-primary/5 px-2 py-1 text-sm text-foreground leading-relaxed">
                       <span className="font-semibold text-primary">Pearl: </span>
                       {c.examPearl}
                     </p>
@@ -883,10 +883,10 @@ const PsychometricsTab = ({ data }: { data: any }) => {
           <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
             {framework.steps.map((s: any) => (
               <Card key={s.step} className="card-elevated">
-                <CardContent className="space-y-1 p-4">
+                <CardContent className="space-y-1.5 p-4">
                   <Badge className="mb-1 bg-primary text-primary-foreground">Step {s.step}</Badge>
-                  <p className="text-sm font-semibold text-foreground">{s.title}</p>
-                  <p className="text-xs text-muted-foreground">{s.description}</p>
+                  <p className="text-base font-semibold text-foreground">{s.title}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{s.description}</p>
                 </CardContent>
               </Card>
             ))}
@@ -905,12 +905,12 @@ const PsychometricsTab = ({ data }: { data: any }) => {
           )}
           {selPatterns.length > 0 && (
             <Card className="card-elevated">
-              <CardContent className="space-y-2 p-4">
-                <p className="text-sm font-semibold text-foreground">Common case patterns</p>
+              <CardContent className="space-y-3 p-4">
+                <p className="text-base font-semibold text-foreground">Common case patterns</p>
                 {selPatterns.map((p: any, i: number) => (
-                  <div key={i} className="text-xs">
+                  <div key={i} className="text-sm">
                     <p className="font-medium text-foreground">{p.title}</p>
-                    <p className="text-muted-foreground">
+                    <p className="text-muted-foreground leading-relaxed">
                       <span className="font-medium text-primary">Best move: </span>
                       {p.bestMove}
                     </p>
