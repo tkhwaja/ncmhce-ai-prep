@@ -194,19 +194,19 @@ const MseTab = ({ data }: { data: any }) => {
           {domains.map((d: any, i: number) => (
             <Card key={i} className="card-elevated">
               <CardContent className="space-y-2 p-4">
-                <p className="text-sm font-semibold text-foreground">{d.title}</p>
+                <p className="text-base font-semibold text-foreground">{d.title}</p>
                 {d.whatToAssess && (
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     <span className="font-medium text-foreground">Assess:</span> {d.whatToAssess.join(", ")}
                   </p>
                 )}
                 {d.abnormalIndicators && (
-                  <p className="text-xs text-muted-foreground">
+                  <p className="text-sm text-muted-foreground leading-relaxed">
                     <span className="font-medium text-foreground">Watch for:</span> {d.abnormalIndicators.join(", ")}
                   </p>
                 )}
                 {d.examPearl && (
-                  <p className="rounded bg-primary/5 px-2 py-1 text-xs text-foreground">
+                  <p className="rounded bg-primary/5 px-2 py-1 text-sm text-foreground leading-relaxed">
                     <span className="font-semibold text-primary">Exam pearl: </span>
                     {d.examPearl}
                   </p>
