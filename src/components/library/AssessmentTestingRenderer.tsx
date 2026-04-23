@@ -787,7 +787,7 @@ const PsychometricsTab = ({ data }: { data: any }) => {
         <div className="grid gap-3 md:grid-cols-2">
           <Card className="card-elevated">
             <CardContent className="space-y-3 p-4">
-              <p className="text-sm font-semibold text-foreground">Reliability types</p>
+              <p className="text-base font-semibold text-foreground">Reliability types</p>
               <KVList
                 items={reliabilityTypes.map((r: any) => ({
                   label: r.title.replace(/^\d+\.\s*/, ""),
@@ -798,7 +798,7 @@ const PsychometricsTab = ({ data }: { data: any }) => {
           </Card>
           <Card className="card-elevated">
             <CardContent className="space-y-3 p-4">
-              <p className="text-sm font-semibold text-foreground">Validity ideas</p>
+              <p className="text-base font-semibold text-foreground">Validity ideas</p>
               <KVList
                 items={validityIdeas.map((r: any) => ({
                   label: r.title.replace(/^\d+\.\s*/, ""),
