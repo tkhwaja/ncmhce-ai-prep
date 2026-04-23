@@ -15,6 +15,7 @@ interface AIChatSidebarProps {
   open: boolean;
   onClose: () => void;
   context: string;
+  queuedPrompt?: { id: number; text: string } | null;
   width?: number;
   onWidthChange?: (w: number) => void;
 }
@@ -28,13 +29,14 @@ const quickActions = [
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/counselor-chat`;
 
-const AIChatSidebar = ({ open, onClose, context, width = 380, onWidthChange }: AIChatSidebarProps) => {
+const AIChatSidebar = ({ open, onClose, context, queuedPrompt, width = 380, onWidthChange }: AIChatSidebarProps) => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const scrollRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const dragRef = useRef<{ startX: number; startW: number } | null>(null);
+  const lastQueuedPromptId = useRef<number | null>(null);
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -132,6 +134,12 @@ const AIChatSidebar = ({ open, onClose, context, width = 380, onWidthChange }: A
       setIsLoading(false);
     }
   };
+
+  useEffect(() => {
+    if (!open || !queuedPrompt || queuedPrompt.id === lastQueuedPromptId.current || isLoading) return;
+    lastQueuedPromptId.current = queuedPrompt.id;
+    sendMessage(queuedPrompt.text);
+  }, [open, queuedPrompt, isLoading]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" && !e.shiftKey) {
