@@ -8,6 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ArrowLeft, Search, BookOpen, Sparkles, ClipboardCheck, FileText, Lightbulb, Scale, AlertTriangle, Heart } from "lucide-react";
 import ModuleRenderer from "@/components/library/ModuleRenderer";
+import ExamOverviewRenderer from "@/components/library/ExamOverviewRenderer";
 import GlossaryView from "@/components/library/GlossaryView";
 import type { AppLayoutOutletContext } from "@/components/app/AppLayout";
 
@@ -45,6 +46,8 @@ const LibraryModuleDetail = ({ module, onBack }: { module: LibraryModule; onBack
 
       {isGlossary && module.data?.terms ? (
         <GlossaryView terms={module.data.terms} />
+      ) : module.id === "exam-overview-and-blueprint" && module.data ? (
+        <ExamOverviewRenderer data={module.data} />
       ) : hasStructuredData ? (
         <ModuleRenderer data={module.data} />
       ) : (
