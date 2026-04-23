@@ -1078,6 +1078,7 @@ const ModuleRenderer = ({ data }: ModuleRendererProps) => {
     "moduleId", "moduleTitle", "moduleType", "version", "exam", "uiHints", "sourceBasis",
     "intro", "coreDecisionRules", "coreDiagnosticReasoningRules", "commonExamTraps", "miniCaseDrills", "quickReview", "checkpointQuestions",
     "diagnosticCategories", "globalDifferentialTables", "redFlagAlerts", "studyAids", "assessmentFramework", "assessmentTerminologyMatch", "mseDeepDive",
+    "majorInstruments", "riskAssessmentSection", "psychometrics", "assessmentSelectionGuide", "levelOfCareSection",
   ]);
 
   // Collect all "other" sections
@@ -1091,6 +1092,11 @@ const ModuleRenderer = ({ data }: ModuleRendererProps) => {
   if (data.coreDecisionRules || data.coreDiagnosticReasoningRules) flowSections.push({ id: "decision-rules", label: "Decision rules" });
   if (data.assessmentFramework) flowSections.push({ id: "assessment-framework", label: "Assessment types" });
   if (data.mseDeepDive) flowSections.push({ id: "mse-deep-dive", label: "MSE" });
+  if (data.majorInstruments) flowSections.push({ id: "major-instruments", label: "Major instruments" });
+  if (data.riskAssessmentSection) flowSections.push({ id: "risk-assessment", label: "Risk assessment" });
+  if (data.psychometrics) flowSections.push({ id: "psychometrics", label: "Psychometrics" });
+  if (data.assessmentSelectionGuide) flowSections.push({ id: "assessment-selection", label: "Choosing assessments" });
+  if (data.levelOfCareSection) flowSections.push({ id: "level-of-care", label: "Level of care" });
   if (data.diagnosticCategories) flowSections.push({ id: "diagnostic-categories", label: "Diagnostic categories" });
   if (data.globalDifferentialTables) flowSections.push({ id: "differential-tables", label: "Differentials" });
   if (data.redFlagAlerts) flowSections.push({ id: "red-flag-alerts", label: "Red flags" });
@@ -1128,8 +1134,38 @@ const ModuleRenderer = ({ data }: ModuleRendererProps) => {
       )}
 
       {data.mseDeepDive && (
-        <GuidedSection id="mse-deep-dive" title="Mental status examination (MSE)" summary="This section now stands on its own as the full MSE deep dive with structure, comparisons, clues, and review built into it.">
+        <GuidedSection id="mse-deep-dive" title="Mental status examination (MSE)" summary="The full MSE deep dive — domain-by-domain structure, normal vs. abnormal indicators, clues, and review.">
           <MSEDeepDive section={data.mseDeepDive} />
+        </GuidedSection>
+      )}
+
+      {data.majorInstruments && (
+        <GuidedSection id="major-instruments" title="Major instruments" summary="A comprehensive reference of the assessment tools you must know — depression, anxiety, trauma, suicide risk, substance use, personality, cognitive, career, family, and behavioral measures.">
+          <MSEDeepDive section={data.majorInstruments} />
+        </GuidedSection>
+      )}
+
+      {data.riskAssessmentSection && (
+        <GuidedSection id="risk-assessment" title="Risk assessment priorities" summary="How to triage risk on the exam — suicide, homicide, abuse, and safety decisions in the right clinical order.">
+          <MSEDeepDive section={data.riskAssessmentSection} />
+        </GuidedSection>
+      )}
+
+      {data.psychometrics && (
+        <GuidedSection id="psychometrics" title="Psychometric foundations" summary="Reliability, validity, standardization, norms, and score types — the testing concepts the exam tests directly.">
+          <MSEDeepDive section={data.psychometrics} />
+        </GuidedSection>
+      )}
+
+      {data.assessmentSelectionGuide && (
+        <GuidedSection id="assessment-selection" title="Choosing the best assessment" summary="A step-by-step decision framework for picking the right tool when the question gives you several plausible options.">
+          <MSEDeepDive section={data.assessmentSelectionGuide} />
+        </GuidedSection>
+      )}
+
+      {data.levelOfCareSection && (
+        <GuidedSection id="level-of-care" title="Assessment and level of care" summary="How assessment data drives placement decisions across the continuum of care, including ASAM-style criteria for substance use.">
+          <GenericSection title="Assessment and Level of Care" data={data.levelOfCareSection} />
         </GuidedSection>
       )}
 
