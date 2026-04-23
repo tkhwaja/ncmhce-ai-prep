@@ -159,7 +159,7 @@
       {
         "id": "4_mental_status_assessment",
         "title": "4. Mental Status Assessment",
-        "purpose": "Assess the client\u2019s current psychological presentation and observable functioning.",
+        "purpose": "Assess the client’s current psychological presentation and observable functioning.",
         "includes": [
           "appearance",
           "behavior",
@@ -236,7 +236,7 @@
         "title": "8. Cultural Assessment",
         "purpose": "Understand how culture shapes the meaning, expression, and context of distress.",
         "includes": [
-          "client\u2019s explanation of the problem",
+          "client’s explanation of the problem",
           "cultural identity",
           "family/community expectations",
           "spiritual meaning",
@@ -296,7 +296,7 @@
           "legal system records when relevant"
         ],
         "examUse": "Important when the client is a minor, cognitively impaired, psychotic, manic, inconsistent, or part of a systems-based case.",
-        "commonMistake": "Ignoring the need for collateral information when the client\u2019s report is incomplete or unreliable."
+        "commonMistake": "Ignoring the need for collateral information when the client’s report is incomplete or unreliable."
       },
       {
         "id": "12_outcome_progress_monitoring_assessment",
@@ -434,184 +434,616 @@
     }
   },
   "mseDeepDive": {
-    "title": "Mental Status Examination (MSE) Breakdown",
-    "overview": "The MSE is not a separate interview after the interview. It is the observational and descriptive framework that runs throughout the clinical interaction.",
-    "domains": [
+    "moduleId": "assessment",
+    "moduleTitle": "Assessment",
+    "sectionId": "mental-status-examination-breakdown",
+    "sectionTitle": "Mental Status Examination (MSE) Breakdown",
+    "version": "1.0",
+    "audience": "NCMHCE exam candidates",
+    "lastUpdated": "2026-04-23",
+    "uiRecommendation": {
+      "component": "accordion_dropdown",
+      "defaultOpen": false,
+      "estimatedReadTimeMinutes": 14,
+      "includeDiagram": true,
+      "includeQuickReferenceTable": true,
+      "includeMiniQuiz": true,
+      "includeClinicalPearls": true
+    },
+    "learningObjectives": [
+      "Explain what the mental status examination is and why it matters on the NCMHCE.",
+      "Identify the major domains of the MSE and what each domain assesses.",
+      "Recognize common abnormal MSE findings and connect them to likely clinical meaning.",
+      "Distinguish the MSE from cognitive screening tools such as the MMSE or MoCA.",
+      "Use MSE findings to support assessment, differential diagnosis, risk evaluation, and level-of-care decisions."
+    ],
+    "content": [
       {
-        "domain": "Appearance",
-        "whatToObserve": [
-          "grooming",
-          "hygiene",
-          "dress",
-          "apparent age",
-          "eye contact"
-        ],
-        "examples": [
-          "well-groomed",
-          "disheveled",
-          "appears stated age",
-          "poor hygiene"
+        "type": "overview",
+        "title": "Why This Topic Matters",
+        "body": [
+          "The mental status examination is the structured clinical snapshot of a client’s current psychological functioning at the time of evaluation.",
+          "On the NCMHCE, MSE findings are often built into the case narrative rather than labeled directly. The exam expects the learner to recognize what those observations mean and how they affect diagnosis, risk assessment, treatment planning, and disposition.",
+          "If a case mentions pressured speech, flat affect, tangential thought process, poor hygiene, or impaired insight, the test taker should immediately recognize these as mental status findings with clinical significance."
         ]
       },
       {
-        "domain": "Behavior/Psychomotor Activity",
-        "whatToObserve": [
-          "agitation",
-          "retardation",
-          "tics",
-          "tremor",
-          "restlessness",
-          "posture"
-        ],
-        "examples": [
-          "psychomotor agitation",
-          "psychomotor retardation",
-          "restless",
-          "calm/cooperative"
+        "type": "high_yield_alert",
+        "title": "Critical Clarification",
+        "body": [
+          "The MSE is not the same as the MMSE.",
+          "The Mental Status Examination (MSE) is the broad clinical evaluation of current mental functioning.",
+          "The Mini-Mental State Examination (MMSE) is a specific cognitive screening tool.",
+          "For exam purposes, do not confuse a full MSE with a brief cognitive screen."
         ]
       },
       {
-        "domain": "Attitude",
-        "whatToObserve": [
-          "cooperation",
-          "guardedness",
-          "hostility",
-          "engagement"
+        "type": "concept_block",
+        "title": "What the MSE Is",
+        "body": [
+          {
+            "label": "Definition",
+            "text": "A structured assessment of a client’s current behavioral, emotional, and cognitive functioning based on observation, interview, and selected brief tasks when needed."
+          },
+          {
+            "label": "Why clinicians use it",
+            "text": "To identify, describe, diagnose, and monitor signs and symptoms of mental illness; to detect changes in functioning; and to inform treatment planning and disposition."
+          },
+          {
+            "label": "How it is gathered",
+            "text": "Partly through direct questioning, but also through ongoing observation during the interview."
+          }
         ],
-        "examples": [
-          "cooperative",
-          "guarded",
-          "hostile",
-          "evasive"
+        "keyTakeaway": "The MSE is the counselor’s organized description of what the client looks like, sounds like, feels like, thinks like, perceives, understands, and can currently manage."
+      },
+      {
+        "type": "section_group",
+        "title": "Core Domains of the Mental Status Examination",
+        "items": [
+          {
+            "title": "1. Appearance",
+            "whatToAssess": [
+              "apparent age",
+              "dress",
+              "grooming",
+              "hygiene",
+              "posture",
+              "eye contact",
+              "distinguishing features",
+              "overall presentation"
+            ],
+            "normalIndicators": [
+              "age-appropriate appearance",
+              "adequate hygiene",
+              "appropriate dress for setting/weather",
+              "steady or typical eye contact"
+            ],
+            "abnormalIndicators": [
+              "disheveled appearance",
+              "poor hygiene",
+              "bizarre clothing",
+              "markedly avoidant or intense eye contact",
+              "appears older or younger than stated age in clinically relevant ways"
+            ],
+            "whyItMatters": "Appearance can offer clues about depression, psychosis, mania, substance use, cognitive impairment, trauma, neglect, or self-care capacity.",
+            "examPearl": "Poor hygiene or bizarre dress can raise concern for severe depression, psychosis, mania, cognitive decline, or inability to care for self."
+          },
+          {
+            "title": "2. Behavior and Attitude",
+            "whatToAssess": [
+              "cooperative vs guarded",
+              "calm vs agitated",
+              "engaged vs withdrawn",
+              "hostile vs pleasant",
+              "psychomotor behavior",
+              "response to examiner",
+              "appropriateness of interaction"
+            ],
+            "normalIndicators": [
+              "cooperative",
+              "engaged",
+              "behavior appropriate to context"
+            ],
+            "abnormalIndicators": [
+              "guardedness",
+              "hostility",
+              "withdrawal",
+              "disinhibition",
+              "psychomotor agitation",
+              "psychomotor retardation",
+              "catatonic-like behavior"
+            ],
+            "whyItMatters": "Behavior helps identify acuity, rapport barriers, risk, psychosis, intoxication, mania, depression, trauma responses, or neurological problems.",
+            "examPearl": "Psychomotor agitation can point toward anxiety, akathisia, mania, intoxication, or severe distress; psychomotor retardation commonly appears in major depression."
+          },
+          {
+            "title": "3. Speech",
+            "whatToAssess": [
+              "rate",
+              "volume",
+              "tone",
+              "fluency",
+              "latency",
+              "coherence",
+              "spontaneity"
+            ],
+            "normalIndicators": [
+              "normal rate",
+              "normal volume",
+              "clear articulation",
+              "appropriate spontaneity"
+            ],
+            "abnormalIndicators": [
+              "pressured speech",
+              "rapid speech",
+              "slow speech",
+              "soft or impoverished speech",
+              "monotone speech",
+              "slurred speech",
+              "long response latency"
+            ],
+            "whyItMatters": "Speech abnormalities can suggest mania, depression, psychosis, intoxication, neurological impairment, anxiety, or negative symptoms.",
+            "examPearl": "Pressured speech is a classic clue for mania or severe agitation; slowed sparse speech often supports depression or cognitive slowing."
+          },
+          {
+            "title": "4. Mood",
+            "whatToAssess": [
+              "the client’s sustained emotional state as self-reported"
+            ],
+            "normalIndicators": [
+              "euthymic",
+              "stable",
+              "reports mood consistent with context"
+            ],
+            "abnormalIndicators": [
+              "depressed",
+              "anxious",
+              "irritable",
+              "elevated",
+              "expansive",
+              "angry",
+              "apathetic"
+            ],
+            "whyItMatters": "Mood is the client’s subjective emotional experience and helps distinguish mood, anxiety, trauma-related, personality, and psychotic presentations.",
+            "examPearl": "Mood is what the client says they feel; affect is what the clinician observes emotionally."
+          },
+          {
+            "title": "5. Affect",
+            "whatToAssess": [
+              "observed emotional expression",
+              "range",
+              "intensity",
+              "stability",
+              "appropriateness",
+              "congruence with stated mood and content"
+            ],
+            "normalIndicators": [
+              "full or appropriate range",
+              "stable",
+              "congruent with discussion"
+            ],
+            "abnormalIndicators": [
+              "flat affect",
+              "blunted affect",
+              "restricted affect",
+              "labile affect",
+              "incongruent affect",
+              "tearful but detached presentation"
+            ],
+            "whyItMatters": "Affect can point toward depression, psychosis, trauma, neurological change, or emotional dysregulation.",
+            "examPearl": "Flat or blunted affect often appears in psychotic disorders, severe depression, or certain neurological conditions; labile affect may suggest mania, trauma dysregulation, or neurological impairment."
+          },
+          {
+            "title": "6. Thought Process",
+            "whatToAssess": [
+              "organization and flow of thinking",
+              "logic",
+              "goal direction",
+              "coherence"
+            ],
+            "normalIndicators": [
+              "linear",
+              "logical",
+              "goal-directed"
+            ],
+            "abnormalIndicators": [
+              "tangential",
+              "circumstantial",
+              "flight of ideas",
+              "loose associations",
+              "thought blocking",
+              "disorganized thinking"
+            ],
+            "whyItMatters": "Thought process findings are central for identifying psychosis, mania, severe anxiety, delirium, intoxication, or cognitive disturbance.",
+            "examPearl": "Flight of ideas strongly suggests mania; loose associations and severely disorganized thought raise concern for psychosis."
+          },
+          {
+            "title": "7. Thought Content",
+            "whatToAssess": [
+              "what the person is thinking about",
+              "delusions",
+              "obsessions",
+              "ruminations",
+              "preoccupations",
+              "guilt",
+              "hopelessness",
+              "suicidal ideation",
+              "homicidal ideation"
+            ],
+            "normalIndicators": [
+              "no delusions",
+              "no suicidal or homicidal content",
+              "content reality-based"
+            ],
+            "abnormalIndicators": [
+              "delusional beliefs",
+              "paranoia",
+              "grandiosity",
+              "obsessions",
+              "violent ideation",
+              "suicidal ideation",
+              "morbid preoccupation"
+            ],
+            "whyItMatters": "Thought content is essential for risk assessment, psychosis assessment, OCD-like presentations, mood disorders, and trauma-related cognitions.",
+            "examPearl": "Any suicidal or homicidal content should immediately trigger further risk assessment rather than passive documentation."
+          },
+          {
+            "title": "8. Perception",
+            "whatToAssess": [
+              "hallucinations",
+              "illusions",
+              "depersonalization",
+              "derealization",
+              "response to internal stimuli"
+            ],
+            "normalIndicators": [
+              "no perceptual disturbance reported or observed"
+            ],
+            "abnormalIndicators": [
+              "auditory hallucinations",
+              "visual hallucinations",
+              "command hallucinations",
+              "appears to respond to unseen stimuli",
+              "derealization or depersonalization experiences"
+            ],
+            "whyItMatters": "Perceptual findings can signal psychosis, trauma-related dissociation, delirium, substance effects, neurological disorder, or acute medical problems.",
+            "examPearl": "Command hallucinations dramatically increase concern when they relate to self-harm or violence."
+          },
+          {
+            "title": "9. Cognition",
+            "whatToAssess": [
+              "orientation",
+              "attention",
+              "concentration",
+              "memory",
+              "language",
+              "fund of knowledge",
+              "abstraction when relevant"
+            ],
+            "normalIndicators": [
+              "oriented to person, place, time, and situation when appropriate",
+              "attentive",
+              "intact recent and remote memory"
+            ],
+            "abnormalIndicators": [
+              "disorientation",
+              "poor attention",
+              "impaired memory",
+              "difficulty following questions",
+              "concrete thinking when higher abstraction is expected"
+            ],
+            "whyItMatters": "Cognitive findings can indicate delirium, dementia, intoxication, developmental limitations, psychosis, severe mood disorder, or neurological disease.",
+            "examPearl": "When cognition is noticeably impaired, think beyond primary psychiatric diagnosis and consider medical or neurocognitive causes too."
+          },
+          {
+            "title": "10. Insight",
+            "whatToAssess": [
+              "awareness of symptoms",
+              "understanding of illness",
+              "recognition of need for help"
+            ],
+            "normalIndicators": [
+              "acknowledges symptoms",
+              "shows realistic understanding",
+              "accepts need for support or treatment"
+            ],
+            "abnormalIndicators": [
+              "denies obvious illness",
+              "grossly misattributes symptoms",
+              "minimal awareness of consequences",
+              "poor recognition of need for care"
+            ],
+            "whyItMatters": "Insight affects treatment engagement, adherence, risk management, and feasibility of outpatient care.",
+            "examPearl": "Poor insight is common in psychosis, mania, some personality presentations, substance use disorders, and neurocognitive conditions."
+          },
+          {
+            "title": "11. Judgment",
+            "whatToAssess": [
+              "decision-making",
+              "problem-solving",
+              "capacity for safe and realistic choices"
+            ],
+            "normalIndicators": [
+              "can describe reasonable choices",
+              "demonstrates practical decision-making"
+            ],
+            "abnormalIndicators": [
+              "repeated unsafe behavior",
+              "grossly poor decisions",
+              "impulsivity",
+              "inability to appreciate consequences"
+            ],
+            "whyItMatters": "Judgment is closely tied to safety, risk, need for supervision, and level of care.",
+            "examPearl": "A client may be oriented and verbal yet still have dangerously impaired judgment."
+          }
         ]
       },
       {
-        "domain": "Speech",
-        "whatToObserve": [
-          "rate",
-          "volume",
-          "fluency",
-          "latency",
-          "coherence"
-        ],
-        "examples": [
-          "pressured",
-          "slow",
-          "monotone",
-          "normal rate and volume"
+        "type": "diagram",
+        "title": "How to Think Through the MSE on the Exam",
+        "format": "text_flowchart",
+        "content": [
+          "Step 1: What do I notice immediately?",
+          "-> appearance, hygiene, eye contact, cooperation, motor behavior",
+          "Step 2: How does the client sound?",
+          "-> speech rate, tone, spontaneity, coherence",
+          "Step 3: How do they feel and appear emotionally?",
+          "-> mood and affect",
+          "Step 4: How are they thinking?",
+          "-> thought process, thought content, perception",
+          "Step 5: Can they track reality and function cognitively?",
+          "-> orientation, attention, memory, concentration, abstraction",
+          "Step 6: Do they understand their situation and make safe decisions?",
+          "-> insight and judgment",
+          "Step 7: Do any findings change risk, diagnosis, or level of care?",
+          "-> if yes, act on that clinically"
         ]
       },
       {
-        "domain": "Mood",
-        "whatToObserve": [
-          "the client's subjective report of emotional state"
+        "type": "compare_block",
+        "title": "Mood vs Affect",
+        "items": [
+          {
+            "term": "Mood",
+            "definition": "The client’s sustained internal emotional state, usually reported by the client.",
+            "example": "\"I’ve felt really down and hopeless all week.\""
+          },
+          {
+            "term": "Affect",
+            "definition": "The clinician’s observation of the client’s emotional expression in session.",
+            "example": "Tearful, flat, constricted, labile, or incongruent presentation."
+          }
         ],
-        "examples": [
-          "\"sad\"",
-          "\"anxious\"",
-          "\"fine\"",
-          "\"angry\""
+        "keyTakeaway": "Mood is reported. Affect is observed."
+      },
+      {
+        "type": "compare_block",
+        "title": "Thought Process vs Thought Content",
+        "items": [
+          {
+            "term": "Thought Process",
+            "definition": "How thoughts are organized and connected.",
+            "example": "Linear, tangential, circumstantial, flight of ideas, loose associations."
+          },
+          {
+            "term": "Thought Content",
+            "definition": "What the person is actually thinking about.",
+            "example": "Delusions, obsessions, guilt, hopelessness, suicidal ideation, paranoia."
+          }
+        ],
+        "keyTakeaway": "Process is the form of thinking. Content is the substance of thinking."
+      },
+      {
+        "type": "clinical_pearls",
+        "title": "Clinical Meaning of Common MSE Findings",
+        "items": [
+          {
+            "finding": "Pressured speech + flight of ideas + expansive affect",
+            "suggests": "Mania or severe activation"
+          },
+          {
+            "finding": "Flat affect + poor hygiene + social withdrawal",
+            "suggests": "Psychosis, severe depression, or negative symptoms"
+          },
+          {
+            "finding": "Tangential thought process + paranoid thought content",
+            "suggests": "Psychosis-spectrum concern"
+          },
+          {
+            "finding": "Psychomotor retardation + slow speech + depressed mood",
+            "suggests": "Major depressive presentation"
+          },
+          {
+            "finding": "Disorientation + fluctuating attention",
+            "suggests": "Possible delirium or medical issue rather than routine outpatient psychotherapy alone"
+          },
+          {
+            "finding": "Command hallucinations + poor judgment",
+            "suggests": "Urgent safety evaluation"
+          }
         ]
       },
       {
-        "domain": "Affect",
-        "whatToObserve": [
-          "observable emotional expression",
-          "range",
-          "intensity",
-          "stability",
-          "congruence with mood/content"
-        ],
-        "examples": [
-          "flat",
-          "blunted",
-          "constricted",
-          "labile",
-          "congruent"
+        "type": "high_yield_points",
+        "title": "High-Yield Exam Rules",
+        "items": [
+          "The MSE is often tested indirectly through narrative details.",
+          "Not every abnormal MSE finding equals psychosis; context matters.",
+          "Thought process and thought content are not the same thing.",
+          "Mood and affect are not the same thing.",
+          "Cognitive impairment should raise medical and neurocognitive questions, not just psychiatric ones.",
+          "Poor insight and poor judgment can change level-of-care decisions.",
+          "Suicidal or homicidal thought content always requires follow-up risk assessment.",
+          "The MSE supports diagnosis, but it does not replace full assessment and history."
         ]
       },
       {
-        "domain": "Thought Process",
-        "whatToObserve": [
-          "organization and flow of thought"
-        ],
-        "examples": [
-          "linear",
-          "goal-directed",
-          "tangential",
-          "circumstantial",
-          "flight of ideas",
-          "loose associations"
+        "type": "common_traps",
+        "title": "Common Exam Traps",
+        "items": [
+          {
+            "trap": "Confusing MSE with MMSE",
+            "explanation": "The MSE is a broad clinical exam; the MMSE is a brief cognitive screen."
+          },
+          {
+            "trap": "Calling all unusual beliefs psychosis",
+            "explanation": "Evaluate cultural context, trauma, grief, spirituality, substance use, and reality testing before concluding delusion."
+          },
+          {
+            "trap": "Missing the safety implications of thought content",
+            "explanation": "SI, HI, paranoia, or command hallucinations are not just descriptive details; they may change urgency and disposition."
+          },
+          {
+            "trap": "Using only self-report",
+            "explanation": "The MSE depends heavily on clinician observation throughout the interview."
+          },
+          {
+            "trap": "Ignoring cognition",
+            "explanation": "Disorientation, major memory problems, or fluctuating attention may suggest delirium, neurocognitive disorder, intoxication, or another medical issue."
+          }
         ]
       },
       {
-        "domain": "Thought Content",
-        "whatToObserve": [
-          "themes and beliefs occupying thought"
+        "type": "quick_reference_table",
+        "title": "Quick Reference",
+        "columns": [
+          "Domain",
+          "What It Assesses",
+          "Common Abnormal Clues",
+          "Why It Matters"
         ],
-        "examples": [
-          "delusions",
-          "obsessions",
-          "suicidal ideation",
-          "homicidal ideation",
-          "rumination"
+        "rows": [
+          [
+            "Appearance",
+            "How the client presents visually",
+            "disheveled, bizarre dress, poor hygiene",
+            "self-care, psychosis, depression, mania, cognitive decline"
+          ],
+          [
+            "Behavior/Attitude",
+            "Interaction style and motor behavior",
+            "guarded, hostile, agitated, withdrawn",
+            "rapport, acuity, risk, psychosis, trauma, mania"
+          ],
+          [
+            "Speech",
+            "Rate, volume, fluency, spontaneity",
+            "pressured, slowed, slurred, sparse",
+            "mania, depression, intoxication, psychosis, neurological issues"
+          ],
+          [
+            "Mood",
+            "Client’s reported emotional state",
+            "depressed, anxious, irritable, elevated",
+            "supports mood and anxiety formulation"
+          ],
+          [
+            "Affect",
+            "Observed emotional expression",
+            "flat, blunted, labile, incongruent",
+            "psychosis, depression, trauma, dysregulation"
+          ],
+          [
+            "Thought Process",
+            "Organization of thinking",
+            "tangential, circumstantial, flight of ideas, loose associations",
+            "mania, psychosis, delirium, intoxication"
+          ],
+          [
+            "Thought Content",
+            "Themes and beliefs in thinking",
+            "delusions, obsessions, SI/HI, hopelessness",
+            "risk, psychosis, OCD, mood disorders"
+          ],
+          [
+            "Perception",
+            "Sensory experience and reality processing",
+            "hallucinations, responding to internal stimuli",
+            "psychosis, delirium, trauma, substance effects"
+          ],
+          [
+            "Cognition",
+            "Orientation, attention, memory, concentration",
+            "disorientation, memory deficits, poor attention",
+            "delirium, dementia, intoxication, medical causes"
+          ],
+          [
+            "Insight",
+            "Awareness of illness and need for help",
+            "denial of obvious problems, minimal awareness",
+            "engagement, adherence, outpatient feasibility"
+          ],
+          [
+            "Judgment",
+            "Ability to make safe choices",
+            "unsafe decisions, impulsivity",
+            "risk and level of care"
+          ]
         ]
       },
       {
-        "domain": "Perception",
-        "whatToObserve": [
-          "hallucinations",
-          "illusions",
-          "derealization",
-          "depersonalization"
-        ],
-        "examples": [
-          "auditory hallucinations denied",
-          "reports visual hallucinations"
+        "type": "mini_quiz",
+        "title": "Mini Quiz",
+        "questions": [
+          {
+            "question": "A client says, 'I feel fine,' but presents as tearful with restricted affect and minimal eye contact. Which MSE distinction matters most?",
+            "answer": "Mood vs affect.",
+            "rationale": "Mood is self-reported, while affect is observed by the clinician."
+          },
+          {
+            "question": "A client jumps rapidly from one topic to another, is difficult to interrupt, and appears euphoric. Which MSE domains are most abnormal?",
+            "answer": "Speech, affect/mood, and thought process.",
+            "rationale": "Rapid pressured speech and flight of ideas strongly suggest mania-like activation."
+          },
+          {
+            "question": "A client is oriented to person but not date, cannot sustain attention, and seems to drift in and out during the interview. What should the clinician consider?",
+            "answer": "Possible delirium, intoxication, or another medical/neurocognitive issue requiring broader assessment.",
+            "rationale": "Fluctuating attention and disorientation are not routine outpatient findings and may indicate a medical cause."
+          }
         ]
       },
       {
-        "domain": "Cognition",
-        "whatToObserve": [
-          "orientation",
-          "attention",
-          "memory",
-          "concentration",
-          "fund of knowledge"
-        ],
-        "examples": [
-          "alert and oriented x4",
-          "impaired recent memory",
-          "attention intact"
+        "type": "implementation_notes",
+        "title": "Implementation Notes for Lovable",
+        "items": [
+          "Render each MSE domain as its own card or nested accordion for easier studying.",
+          "Highlight the compare blocks for Mood vs Affect and Thought Process vs Thought Content.",
+          "Use badge colors or icons for 'exam pearl' and 'common trap' callouts.",
+          "Make the quick-reference table horizontally scrollable on mobile.",
+          "Place the MSE flowchart near the top so users get a simple mental model before the detailed breakdown."
         ]
       },
       {
-        "domain": "Insight",
-        "whatToObserve": [
-          "awareness of illness/problems"
-        ],
-        "examples": [
-          "good insight",
-          "limited insight",
-          "poor insight"
-        ]
-      },
-      {
-        "domain": "Judgment",
-        "whatToObserve": [
-          "decision-making and capacity for safe, appropriate choices"
-        ],
-        "examples": [
-          "intact judgment",
-          "impaired judgment"
+        "type": "future_topics_to_add",
+        "title": "Recommended Add-Ons for This Section",
+        "items": [
+          "Sample written MSE note templates",
+          "How MSE findings support differential diagnosis",
+          "MSE clues for psychosis vs mania vs severe depression",
+          "When abnormal cognition suggests medical referral",
+          "Child and adolescent MSE considerations"
         ]
       }
     ],
-    "examPearls": [
-      "Mood is what the client says they feel. Affect is what you observe.",
-      "Congruent affect means expression fits the stated mood or content.",
-      "Pressured speech, flight of ideas, decreased need for sleep, and grandiosity should trigger bipolar screening.",
-      "Hallucinations and delusions belong under perception and thought content respectively, not mood."
+    "sourceReferences": [
+      {
+        "title": "Candidate Handbook for State Licensure National Clinical Mental Health Counseling Examination (NCMHCE)",
+        "organization": "National Board for Certified Counselors",
+        "purpose": "Exam structure and application-based case format",
+        "url": "https://nbcc.org/assets/exam/handbooks/ncmhce.pdf"
+      },
+      {
+        "title": "Mental Status Examination",
+        "organization": "NCBI Bookshelf / StatPearls",
+        "purpose": "Current overview of core MSE domains and clinical use",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK546682/"
+      },
+      {
+        "title": "The Mental Status Examination",
+        "organization": "NCBI Bookshelf / Clinical Methods",
+        "purpose": "Classic structured description of MSE technique and domains",
+        "url": "https://www.ncbi.nlm.nih.gov/books/NBK320/"
+      }
     ]
   },
   "majorInstruments": [
