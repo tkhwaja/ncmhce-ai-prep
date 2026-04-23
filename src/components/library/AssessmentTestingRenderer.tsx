@@ -771,11 +771,11 @@ const PsychometricsTab = ({ data }: { data: any }) => {
           <div className="grid gap-3 md:grid-cols-2 lg:grid-cols-4">
             {termCards.cards.map((c: any, i: number) => (
               <Card key={i} className="card-elevated">
-                <CardContent className="space-y-1 p-4">
-                  <p className="text-sm font-semibold text-foreground">{c.term}</p>
-                  <p className="text-xs text-muted-foreground">{c.meaning}</p>
+                <CardContent className="space-y-1.5 p-4">
+                  <p className="text-base font-semibold text-foreground">{c.term}</p>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{c.meaning}</p>
                   {c.examPearl && (
-                    <p className="rounded bg-primary/5 px-2 py-1 text-xs text-foreground">
+                    <p className="rounded bg-primary/5 px-2 py-1 text-sm text-foreground leading-relaxed">
                       <span className="font-semibold text-primary">Pearl: </span>
                       {c.examPearl}
                     </p>
