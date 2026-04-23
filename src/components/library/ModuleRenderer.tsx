@@ -8,7 +8,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { StudyVisuals } from "@/components/library/StudyVisuals";
 import ModuleSectionNavigator from "@/components/library/ModuleSectionNavigator";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { ChevronDown, ChevronRight, Lightbulb, AlertTriangle, BookOpen, Target, HelpCircle, Sparkles } from "lucide-react";
+import { ChevronDown, ChevronRight, Lightbulb, AlertTriangle, BookOpen, Target, HelpCircle, Sparkles, ListChecks, Brain, Repeat, ShieldAlert, Compass } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
 /*  Generic section renderers for the structured JSON module format    */
@@ -171,13 +171,13 @@ const IntroSection = ({ intro }: { intro: any }) => (
 /* ---- Decision Rules ---- */
 const DecisionRules = ({ rules }: { rules: any[] }) => (
   <div>
-    <SectionHeading>Core Decision Rules</SectionHeading>
-    <div className="space-y-3">
+    <SectionHeading icon={Target} subtitle="Quick rules to anchor your reasoning on exam items.">Core Decision Rules</SectionHeading>
+    <div className="grid gap-3 md:grid-cols-2">
       {rules.map((r, i) => (
         <Card key={i} className="card-elevated">
           <CardContent className="p-4">
-            <p className="text-sm font-medium text-foreground">{r.rule}</p>
-            {r.example && <p className="text-xs text-muted-foreground mt-1 italic">Example: {r.example}</p>}
+            <p className="text-sm font-semibold text-foreground leading-relaxed">{r.rule}</p>
+            {r.example && <p className="text-xs text-muted-foreground mt-2 italic">e.g. {r.example}</p>}
           </CardContent>
         </Card>
       ))}
@@ -188,7 +188,7 @@ const DecisionRules = ({ rules }: { rules: any[] }) => (
 /* ---- Mini Case Drills ---- */
 const MiniCaseDrills = ({ drills }: { drills: any[] }) => (
   <div>
-    <SectionHeading>Practice Case Drills</SectionHeading>
+    <SectionHeading icon={Brain} subtitle="Short cases — try to answer before revealing.">Practice Case Drills</SectionHeading>
     <div className="space-y-3">
       {drills.map((d, i) => (
         <MiniCaseCard key={i} drill={d} index={i} />
@@ -226,7 +226,7 @@ const MiniCaseCard = ({ drill, index }: { drill: any; index: number }) => {
 /* ---- Checkpoint Questions ---- */
 const CheckpointQuestions = ({ questions }: { questions: any[] }) => (
   <div>
-    <SectionHeading>Checkpoint Questions</SectionHeading>
+    <SectionHeading icon={HelpCircle} subtitle="Test recall before moving on.">Checkpoint Questions</SectionHeading>
     <div className="space-y-2">
       {questions.map((q, i) => (
         <CheckpointCard key={i} q={q} />
@@ -257,7 +257,7 @@ const CheckpointCard = ({ q }: { q: any }) => {
 /* ---- Quick Review ---- */
 const QuickReview = ({ review }: { review: any }) => (
   <div>
-    <SectionHeading>Quick Review</SectionHeading>
+    <SectionHeading icon={Repeat} subtitle="Memory hooks and final takeaways for fast review.">Quick Review</SectionHeading>
     <Card className="card-elevated">
       <CardContent className="p-4 space-y-3">
         {review.memoryHooks?.length > 0 && (
@@ -288,24 +288,23 @@ const QuickReview = ({ review }: { review: any }) => (
 /* ---- Common Exam Traps ---- */
 const ExamTraps = ({ traps }: { traps: Array<string | { trap: string; explanation?: string }> }) => (
   <div>
-    <SectionHeading>Common Exam Traps</SectionHeading>
-    <div className="space-y-2">
-      {traps.map((t, i) => (
-        <Alert key={i} className="border-destructive/30 bg-destructive/5">
-          <AlertTriangle className="h-4 w-4 text-destructive" />
-          <AlertDescription className="text-sm text-foreground">
+    <SectionHeading icon={ShieldAlert} subtitle="Mistakes the exam baits you into making.">Common Exam Traps</SectionHeading>
+    <Callout variant="warn" title="Watch out for">
+      <ul className="space-y-2">
+        {traps.map((t, i) => (
+          <li key={i} className="leading-relaxed">
             {typeof t === "string" ? (
               t
             ) : (
-              <div className="space-y-1">
-                <p className="font-medium">{t.trap}</p>
-                {t.explanation && <p className="text-muted-foreground">{t.explanation}</p>}
-              </div>
+              <>
+                <span className="font-semibold">{t.trap}</span>
+                {t.explanation && <span className="text-muted-foreground"> — {t.explanation}</span>}
+              </>
             )}
-          </AlertDescription>
-        </Alert>
-      ))}
-    </div>
+          </li>
+        ))}
+      </ul>
+    </Callout>
   </div>
 );
 
