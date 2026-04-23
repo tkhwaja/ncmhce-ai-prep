@@ -473,6 +473,304 @@ const AssessmentFramework = ({ framework }: { framework: any }) => {
   );
 };
 
+/* ---- Mental Status Examination ---- */
+const MSEDeepDive = ({ section }: { section: any }) => {
+  if (!section) return null;
+
+  if (section.content?.length) {
+    return (
+      <div>
+        <SectionHeading>{section.sectionTitle || section.title || "Mental Status Examination (MSE) Breakdown"}</SectionHeading>
+
+        {section.learningObjectives?.length > 0 && (
+          <Card className="card-elevated mb-5">
+            <CardContent className="p-4">
+              <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-2">Learning Objectives</p>
+              <ul className="space-y-1">
+                {section.learningObjectives.map((objective: string, index: number) => (
+                  <li key={index} className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-0.5">•</span>{objective}</li>
+                ))}
+              </ul>
+            </CardContent>
+          </Card>
+        )}
+
+        <div className="space-y-4">
+          {section.content.map((block: any, index: number) => {
+            if (block.type === "overview") {
+              return (
+                <Card key={index} className="card-elevated">
+                  <CardContent className="p-4 space-y-3">
+                    <p className="text-sm font-semibold text-foreground">{block.title}</p>
+                    {block.body?.map((paragraph: string, paragraphIndex: number) => (
+                      <p key={paragraphIndex} className="text-sm leading-relaxed text-muted-foreground">{paragraph}</p>
+                    ))}
+                  </CardContent>
+                </Card>
+              );
+            }
+
+            if (block.type === "high_yield_alert") {
+              return (
+                <Alert key={index} className="border-primary/30 bg-primary/5">
+                  <Lightbulb className="h-4 w-4 text-primary" />
+                  <AlertDescription className="space-y-2">
+                    <p className="text-sm font-semibold text-foreground">{block.title}</p>
+                    {block.body?.map((line: string, lineIndex: number) => (
+                      <p key={lineIndex} className="text-sm text-foreground">{line}</p>
+                    ))}
+                  </AlertDescription>
+                </Alert>
+              );
+            }
+
+            if (block.type === "concept_block") {
+              return (
+                <Card key={index} className="card-elevated">
+                  <CardContent className="p-4 space-y-4">
+                    <p className="text-sm font-semibold text-foreground">{block.title}</p>
+                    <div className="grid gap-3 md:grid-cols-2">
+                      {block.body?.map((item: any, itemIndex: number) => (
+                        <div key={itemIndex} className="rounded-lg border border-border bg-background p-3 space-y-1">
+                          <p className="text-xs font-semibold uppercase tracking-wide text-primary">{item.label}</p>
+                          <p className="text-sm text-muted-foreground leading-relaxed">{item.text}</p>
+                        </div>
+                      ))}
+                    </div>
+                    {block.keyTakeaway ? <ExamPearls pearls={[block.keyTakeaway]} /> : null}
+                  </CardContent>
+                </Card>
+              );
+            }
+
+            if (block.type === "section_group") {
+              return (
+                <div key={index} className="space-y-3">
+                  <p className="text-sm font-semibold text-foreground">{block.title}</p>
+                  {block.items?.map((item: any, itemIndex: number) => (
+                    <CollapsibleSection key={itemIndex} title={item.title} defaultOpen={itemIndex === 0}>
+                      <div className="space-y-4 pt-1">
+                        <div className="grid gap-4 lg:grid-cols-2">
+                          {item.whatToAssess?.length > 0 && (
+                            <Card className="card-elevated">
+                              <CardContent className="p-4">
+                                <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-2">What to Assess</p>
+                                <ul className="space-y-1">
+                                  {item.whatToAssess.map((entry: string, entryIndex: number) => (
+                                    <li key={entryIndex} className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-0.5">•</span>{entry}</li>
+                                  ))}
+                                </ul>
+                              </CardContent>
+                            </Card>
+                          )}
+
+                          {item.whyItMatters && (
+                            <Card className="card-elevated">
+                              <CardContent className="p-4">
+                                <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-2">Why It Matters</p>
+                                <p className="text-sm text-muted-foreground leading-relaxed">{item.whyItMatters}</p>
+                              </CardContent>
+                            </Card>
+                          )}
+                        </div>
+
+                        <div className="grid gap-4 lg:grid-cols-2">
+                          {item.normalIndicators?.length > 0 && (
+                            <Card className="card-elevated">
+                              <CardContent className="p-4">
+                                <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-2">Typical / Expected Signs</p>
+                                <ul className="space-y-1">
+                                  {item.normalIndicators.map((entry: string, entryIndex: number) => (
+                                    <li key={entryIndex} className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-0.5">•</span>{entry}</li>
+                                  ))}
+                                </ul>
+                              </CardContent>
+                            </Card>
+                          )}
+
+                          {item.abnormalIndicators?.length > 0 && (
+                            <Card className="card-elevated">
+                              <CardContent className="p-4">
+                                <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-2">Abnormal / Concerning Clues</p>
+                                <ul className="space-y-1">
+                                  {item.abnormalIndicators.map((entry: string, entryIndex: number) => (
+                                    <li key={entryIndex} className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-0.5">•</span>{entry}</li>
+                                  ))}
+                                </ul>
+                              </CardContent>
+                            </Card>
+                          )}
+                        </div>
+
+                        {item.examPearl ? <ExamPearls pearls={[item.examPearl]} /> : null}
+                      </div>
+                    </CollapsibleSection>
+                  ))}
+                </div>
+              );
+            }
+
+            if (block.type === "diagram") {
+              return (
+                <Card key={index} className="card-elevated">
+                  <CardContent className="p-4 space-y-3">
+                    <p className="text-sm font-semibold text-foreground">{block.title}</p>
+                    <div className="space-y-2">
+                      {block.content?.map((step: string, stepIndex: number) => (
+                        <div key={stepIndex} className="rounded-md border border-border bg-background px-3 py-2">
+                          <p className="text-sm text-muted-foreground whitespace-pre-line">{step}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            }
+
+            if (block.type === "compare_block") {
+              return (
+                <Card key={index} className="card-elevated">
+                  <CardContent className="p-4 space-y-4">
+                    <p className="text-sm font-semibold text-foreground">{block.title}</p>
+                    <div className="grid gap-3 md:grid-cols-2">
+                      {block.items?.map((item: any, itemIndex: number) => (
+                        <div key={itemIndex} className="rounded-lg border border-border bg-background p-4 space-y-2">
+                          <p className="text-sm font-semibold text-foreground">{item.term}</p>
+                          <p className="text-sm text-muted-foreground">{item.definition}</p>
+                          {item.example ? <p className="text-xs text-muted-foreground italic">Example: {item.example}</p> : null}
+                        </div>
+                      ))}
+                    </div>
+                    {block.keyTakeaway ? <ExamPearls pearls={[block.keyTakeaway]} /> : null}
+                  </CardContent>
+                </Card>
+              );
+            }
+
+            if (block.type === "clinical_pearls") {
+              return (
+                <Card key={index} className="card-elevated">
+                  <CardContent className="p-4 space-y-3">
+                    <p className="text-sm font-semibold text-foreground">{block.title}</p>
+                    <div className="grid gap-3 md:grid-cols-2">
+                      {block.items?.map((item: any, itemIndex: number) => (
+                        <div key={itemIndex} className="rounded-lg border border-border bg-background p-3 space-y-1">
+                          <p className="text-sm font-medium text-foreground">{item.finding}</p>
+                          <p className="text-sm text-muted-foreground"><span className="font-medium text-foreground">Suggests:</span> {item.suggests}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              );
+            }
+
+            if (block.type === "high_yield_points") {
+              return (
+                <div key={index}>
+                  <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-2">{block.title}</p>
+                  <div className="space-y-1">
+                    {block.items?.map((item: string, itemIndex: number) => <ExamPearl key={itemIndex} text={item} />)}
+                  </div>
+                </div>
+              );
+            }
+
+            if (block.type === "common_traps") {
+              return <ExamTraps key={index} traps={block.items || []} />;
+            }
+
+            if (block.type === "quick_reference_table") {
+              return (
+                <Card key={index} className="card-elevated">
+                  <CardContent className="p-4 space-y-3">
+                    <p className="text-sm font-semibold text-foreground">{block.title}</p>
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          {block.columns?.map((column: string) => (
+                            <TableHead key={column}>{column}</TableHead>
+                          ))}
+                        </TableRow>
+                      </TableHeader>
+                      <TableBody>
+                        {block.rows?.map((row: string[], rowIndex: number) => (
+                          <TableRow key={rowIndex}>
+                            {row.map((cell: string, cellIndex: number) => (
+                              <TableCell key={cellIndex} className="align-top text-sm text-muted-foreground">{cell}</TableCell>
+                            ))}
+                          </TableRow>
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </CardContent>
+                </Card>
+              );
+            }
+
+            if (block.type === "mini_quiz") {
+              return <CheckpointQuestions key={index} questions={block.questions || []} />;
+            }
+
+            if (block.type === "implementation_notes" || block.type === "future_topics_to_add") {
+              return (
+                <CollapsibleSection key={index} title={block.title}>
+                  <ul className="space-y-1">
+                    {block.items?.map((item: string, itemIndex: number) => (
+                      <li key={itemIndex} className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-0.5">•</span>{item}</li>
+                    ))}
+                  </ul>
+                </CollapsibleSection>
+              );
+            }
+
+            return null;
+          })}
+        </div>
+      </div>
+    );
+  }
+
+  if (!section.domains?.length) return null;
+
+  return (
+    <div>
+      <SectionHeading>{section.title || "Mental Status Examination (MSE) Breakdown"}</SectionHeading>
+      {section.overview && <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{section.overview}</p>}
+      <div className="grid gap-3 md:grid-cols-2">
+        {section.domains.map((domain: any, index: number) => (
+          <Card key={index} className="card-elevated">
+            <CardContent className="p-4 space-y-3">
+              <p className="text-sm font-semibold text-foreground">{domain.domain}</p>
+              {domain.whatToObserve?.length > 0 && (
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-primary mb-2">What to Observe</p>
+                  <ul className="space-y-1">
+                    {domain.whatToObserve.map((item: string, itemIndex: number) => (
+                      <li key={itemIndex} className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-0.5">•</span>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              )}
+              {domain.examples?.length > 0 && (
+                <div>
+                  <p className="text-xs font-semibold uppercase tracking-wide text-primary mb-2">Examples</p>
+                  <div className="flex flex-wrap gap-2">
+                    {domain.examples.map((example: string, exampleIndex: number) => (
+                      <Badge key={exampleIndex} variant="outline" className="text-xs">{example}</Badge>
+                    ))}
+                  </div>
+                </div>
+              )}
+            </CardContent>
+          </Card>
+        ))}
+      </div>
+      <ExamPearls pearls={section.examPearls} />
+    </div>
+  );
+};
+
 /* ---- Matching Exercise ---- */
 const MatchingExercise = ({ exercise }: { exercise: any }) => {
   const prompts = exercise?.prompts || [];
@@ -749,7 +1047,7 @@ const ModuleRenderer = ({ data }: ModuleRendererProps) => {
   const skipTopLevel = new Set([
     "moduleId", "moduleTitle", "moduleType", "version", "exam", "uiHints", "sourceBasis",
     "intro", "coreDecisionRules", "coreDiagnosticReasoningRules", "commonExamTraps", "miniCaseDrills", "quickReview", "checkpointQuestions",
-    "diagnosticCategories", "globalDifferentialTables", "redFlagAlerts", "studyAids", "assessmentFramework", "assessmentTerminologyMatch",
+    "diagnosticCategories", "globalDifferentialTables", "redFlagAlerts", "studyAids", "assessmentFramework", "assessmentTerminologyMatch", "mseDeepDive",
   ]);
 
   // Collect all "other" sections
@@ -771,6 +1069,9 @@ const ModuleRenderer = ({ data }: ModuleRendererProps) => {
 
       {/* Assessment Framework */}
       {data.assessmentFramework && <AssessmentFramework framework={data.assessmentFramework} />}
+
+      {/* Mental Status Examination */}
+      {data.mseDeepDive && <MSEDeepDive section={data.mseDeepDive} />}
 
       {/* Global Differential Tables */}
       {data.globalDifferentialTables && (
