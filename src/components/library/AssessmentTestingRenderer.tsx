@@ -692,7 +692,7 @@ const RiskTab = ({ data }: { data: any }) => {
 
       {/* Level of care */}
       {loc && (
-        <div>
+        <div className="space-y-4">
           <h3 className="mb-2 text-sm font-semibold uppercase tracking-wide text-muted-foreground">
             Level of Care Continuum
           </h3>
@@ -711,13 +711,15 @@ const RiskTab = ({ data }: { data: any }) => {
             ))}
           </div>
           {loc.examPearls && (
-            <Callout variant="tip" title="Level-of-care exam pearls">
-              <ul className="list-disc space-y-1 pl-4">
-                {loc.examPearls.map((p: string, i: number) => (
-                  <li key={i}>{p}</li>
-                ))}
-              </ul>
-            </Callout>
+            <div className="pt-2">
+              <Callout variant="tip" title="Level-of-care exam pearls">
+                <ul className="list-disc space-y-1 pl-4">
+                  {loc.examPearls.map((p: string, i: number) => (
+                    <li key={i}>{p}</li>
+                  ))}
+                </ul>
+              </Callout>
+            </div>
           )}
         </div>
       )}
