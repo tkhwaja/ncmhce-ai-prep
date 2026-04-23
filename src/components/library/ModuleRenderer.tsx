@@ -314,8 +314,8 @@ const AssessmentFramework = ({ framework }: { framework: any }) => {
 
   return (
     <div>
-      <SectionHeading>{framework.title || "Major Types of Assessment"}</SectionHeading>
-      {framework.overview && <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{framework.overview}</p>}
+      <SectionHeading icon={ListChecks} subtitle={framework.overview}>{framework.title || "Major Types of Assessment"}</SectionHeading>
+      {!framework.overview && false}
 
       {framework.learningObjectives?.length > 0 && (
         <Card className="card-elevated mb-5">
@@ -566,7 +566,7 @@ const MSEDeepDive = ({ section }: { section: any }) => {
   if (section.content?.length) {
     return (
       <div>
-        <SectionHeading>{section.sectionTitle || section.title || "Mental Status Examination (MSE) Breakdown"}</SectionHeading>
+        <SectionHeading icon={Brain}>{section.sectionTitle || section.title || "Mental Status Examination (MSE) Breakdown"}</SectionHeading>
 
         {section.learningObjectives?.length > 0 && (
           <Card className="card-elevated mb-5">
@@ -908,8 +908,8 @@ const MSEDeepDive = ({ section }: { section: any }) => {
 
   return (
     <div>
-      <SectionHeading>{section.title || "Mental Status Examination (MSE) Breakdown"}</SectionHeading>
-      {section.overview && <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{section.overview}</p>}
+      <SectionHeading icon={Brain} subtitle={section.overview}>{section.title || "Mental Status Examination (MSE) Breakdown"}</SectionHeading>
+      {!section.overview && false}
       <div className="grid gap-3 md:grid-cols-2">
         {section.domains.map((domain: any, index: number) => (
           <Card key={index} className="card-elevated">
@@ -1122,7 +1122,7 @@ const formatKey = (key: string) =>
 /* ---- DSM Diagnostic Categories ---- */
 const DiagnosticCategories = ({ categories }: { categories: any[] }) => (
   <div>
-    <SectionHeading>Diagnostic Categories</SectionHeading>
+    <SectionHeading icon={BookOpen} subtitle="Conditions you must recognize and differentiate.">Diagnostic Categories</SectionHeading>
     <div className="space-y-4">
       {categories.map((cat, i) => (
         <CollapsibleSection key={i} title={cat.title} defaultOpen={i === 0}>
@@ -1321,7 +1321,7 @@ const ModuleRenderer = ({ data }: ModuleRendererProps) => {
       {data.globalDifferentialTables && (
         <GuidedSection id="differential-tables" title="Differential diagnosis tables" summary="This section holds the full differential reference content for side-by-side comparison.">
           <div>
-            <SectionHeading>Differential Diagnosis Tables</SectionHeading>
+            <SectionHeading icon={Compass} subtitle="Side-by-side comparisons for fast disambiguation.">Differential Diagnosis Tables</SectionHeading>
             {data.globalDifferentialTables.map((table: any, i: number) => (
               <CollapsibleSection key={i} title={table.title}>
                 <div className="space-y-2">
@@ -1340,7 +1340,7 @@ const ModuleRenderer = ({ data }: ModuleRendererProps) => {
       {data.redFlagAlerts && (
         <GuidedSection id="red-flag-alerts" title="Red flag alerts" summary="This section contains the warning signs that should change urgency, safety planning, or level-of-care decisions.">
           <div>
-            <SectionHeading>Red Flag Alerts</SectionHeading>
+            <SectionHeading icon={ShieldAlert} subtitle="Signs that escalate urgency, safety planning, or level of care.">Red Flag Alerts</SectionHeading>
             {data.redFlagAlerts.map((alert: any, i: number) => (
               <Alert key={i} className="border-destructive/30 bg-destructive/5 mb-2">
                 <AlertTriangle className="h-4 w-4 text-destructive" />
@@ -1358,7 +1358,7 @@ const ModuleRenderer = ({ data }: ModuleRendererProps) => {
       {data.studyAids && (
         <GuidedSection id="study-aids" title="Visual study aids" summary="This section contains charts, tables, comparisons, and visual organizers for quick review.">
           <div>
-            <SectionHeading>Visual Study Aids</SectionHeading>
+            <SectionHeading icon={Sparkles} subtitle="Charts, tables, and organizers for quick review.">Visual Study Aids</SectionHeading>
             <StudyVisuals aids={data.studyAids} />
           </div>
         </GuidedSection>
