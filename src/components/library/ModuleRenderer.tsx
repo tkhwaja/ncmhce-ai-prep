@@ -6,6 +6,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { StudyVisuals } from "@/components/library/StudyVisuals";
+import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { ChevronDown, ChevronRight, Lightbulb, AlertTriangle, BookOpen, Target, HelpCircle } from "lucide-react";
 
 /* ------------------------------------------------------------------ */
@@ -156,7 +157,10 @@ const CheckpointCard = ({ q }: { q: any }) => {
         {!show ? (
           <button onClick={() => setShow(true)} className="text-xs text-primary hover:underline mt-2">Reveal Answer</button>
         ) : (
-          <p className="text-sm text-muted-foreground mt-2 p-2 bg-accent/50 rounded">{q.answer}</p>
+          <div className="mt-2 rounded bg-accent/50 p-3 space-y-1">
+            <p className="text-sm text-muted-foreground">{q.answer}</p>
+            {q.rationale && <p className="text-xs text-muted-foreground">Why: {q.rationale}</p>}
+          </div>
         )}
       </CardContent>
     </Card>
@@ -202,7 +206,16 @@ const ExamTraps = ({ traps }: { traps: string[] }) => (
       {traps.map((t, i) => (
         <Alert key={i} className="border-destructive/30 bg-destructive/5">
           <AlertTriangle className="h-4 w-4 text-destructive" />
-          <AlertDescription className="text-sm text-foreground">{t}</AlertDescription>
+          <AlertDescription className="text-sm text-foreground">
+            {typeof t === "string" ? (
+              t
+            ) : (
+              <div className="space-y-1">
+                <p className="font-medium">{t.trap}</p>
+                {t.explanation && <p className="text-muted-foreground">{t.explanation}</p>}
+              </div>
+            )}
+          </AlertDescription>
         </Alert>
       ))}
     </div>
@@ -218,6 +231,40 @@ const AssessmentFramework = ({ framework }: { framework: any }) => {
       <SectionHeading>{framework.title || "Major Types of Assessment"}</SectionHeading>
       {framework.overview && <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{framework.overview}</p>}
 
+      {framework.learningObjectives?.length > 0 && (
+        <Card className="card-elevated mb-5">
+          <CardContent className="p-4">
+            <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-2">Learning Objectives</p>
+            <ul className="space-y-1">
+              {framework.learningObjectives.map((objective: string, index: number) => (
+                <li key={index} className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-0.5">•</span>{objective}</li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
+      )}
+
+      {framework.coreDistinction && (
+        <div className="mb-5 space-y-3">
+          <p className="text-xs font-semibold text-primary uppercase tracking-wide">Core Distinction</p>
+          <div className="grid gap-3 md:grid-cols-2">
+            <Card className="card-elevated">
+              <CardContent className="p-4 space-y-2">
+                <p className="text-sm font-semibold text-foreground">Screening</p>
+                <p className="text-sm text-muted-foreground">{framework.coreDistinction.screening}</p>
+              </CardContent>
+            </Card>
+            <Card className="card-elevated">
+              <CardContent className="p-4 space-y-2">
+                <p className="text-sm font-semibold text-foreground">Assessment</p>
+                <p className="text-sm text-muted-foreground">{framework.coreDistinction.assessment}</p>
+              </CardContent>
+            </Card>
+          </div>
+          {framework.coreDistinction.keyTakeaway && <ExamPearls pearls={[framework.coreDistinction.keyTakeaway]} />}
+        </div>
+      )}
+
       {framework.selectionPrinciples?.length > 0 && (
         <div className="grid gap-3 md:grid-cols-2 mb-5">
           {framework.selectionPrinciples.map((principle: any, index: number) => (
@@ -231,11 +278,96 @@ const AssessmentFramework = ({ framework }: { framework: any }) => {
         </div>
       )}
 
+      {framework.decisionLadder?.steps?.length > 0 && (
+        <Card className="card-elevated mb-5">
+          <CardContent className="p-4">
+            <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-3">{framework.decisionLadder.title || "Assessment Decision Ladder"}</p>
+            <div className="space-y-3">
+              {framework.decisionLadder.steps.map((step: string, index: number) => (
+                <div key={index} className="flex items-start gap-3 rounded-md border border-border bg-background px-3 py-2">
+                  <Badge variant="secondary" className="mt-0.5 text-xs">{index + 1}</Badge>
+                  <p className="text-sm text-muted-foreground whitespace-pre-line">{step}</p>
+                </div>
+              ))}
+            </div>
+          </CardContent>
+        </Card>
+      )}
+
+      {framework.quickReference?.rows?.length > 0 && (
+        <Card className="card-elevated mb-5">
+          <CardContent className="p-4 space-y-3">
+            <p className="text-xs font-semibold text-primary uppercase tracking-wide">{framework.quickReference.title || "Quick Reference"}</p>
+            <Table>
+              <TableHeader>
+                <TableRow>
+                  {framework.quickReference.columns?.map((column: string) => (
+                    <TableHead key={column}>{column}</TableHead>
+                  ))}
+                </TableRow>
+              </TableHeader>
+              <TableBody>
+                {framework.quickReference.rows.map((row: string[], index: number) => (
+                  <TableRow key={`${framework.quickReference.title || "reference"}-${index}`}>
+                    {row.map((cell: string, cellIndex: number) => (
+                      <TableCell key={`${index}-${cellIndex}`} className="align-top text-sm text-muted-foreground">{cell}</TableCell>
+                    ))}
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </CardContent>
+        </Card>
+      )}
+
+      {framework.highYieldPoints?.items?.length > 0 && (
+        <div className="mb-5">
+          <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-2">{framework.highYieldPoints.title || "High-Yield Exam Rules"}</p>
+          <div className="space-y-1">
+            {framework.highYieldPoints.items.map((item: string, index: number) => <ExamPearl key={index} text={item} />)}
+          </div>
+        </div>
+      )}
+
       <div className="space-y-4">
         {framework.types.map((type: any, index: number) => (
           <CollapsibleSection key={type.id || index} title={type.title} defaultOpen={index === 0}>
             <div className="space-y-4">
               {type.purpose && <p className="text-sm text-muted-foreground leading-relaxed">{type.purpose}</p>}
+
+              {(type.examUse || type.commonMistake) && (
+                <div className="grid gap-3 lg:grid-cols-2">
+                  {type.examUse && (
+                    <Alert className="border-primary/30 bg-primary/5">
+                      <BookOpen className="h-4 w-4 text-primary" />
+                      <AlertDescription className="text-sm text-foreground">
+                        <span className="font-medium">Exam Use:</span> {type.examUse}
+                      </AlertDescription>
+                    </Alert>
+                  )}
+                  {type.commonMistake && (
+                    <Alert className="border-destructive/30 bg-destructive/5">
+                      <AlertTriangle className="h-4 w-4 text-destructive" />
+                      <AlertDescription className="text-sm text-foreground">
+                        <span className="font-medium">Common Mistake:</span> {type.commonMistake}
+                      </AlertDescription>
+                    </Alert>
+                  )}
+                </div>
+              )}
+
+              {type.includes?.length > 0 && (
+                <Card className="card-elevated">
+                  <CardContent className="p-4">
+                    <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-2">What It Includes</p>
+                    <div className="flex flex-wrap gap-2">
+                      {type.includes.map((item: string, i: number) => (
+                        <Badge key={i} variant="outline" className="text-xs">{item}</Badge>
+                      ))}
+                    </div>
+                  </CardContent>
+                </Card>
+              )}
 
               <div className="grid gap-4 lg:grid-cols-2">
                 {type.bestFor?.length > 0 && (
