@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ArrowLeft, Search, BookOpen, Sparkles, Layers, ClipboardCheck, FileText, Lightbulb, Scale, AlertTriangle, Heart } from "lucide-react";
+import { ArrowLeft, Search, BookOpen, Sparkles, ClipboardCheck, FileText, Lightbulb, Scale, AlertTriangle, Heart } from "lucide-react";
 import ModuleRenderer from "@/components/library/ModuleRenderer";
 import GlossaryView from "@/components/library/GlossaryView";
 import type { AppLayoutOutletContext } from "@/components/app/AppLayout";
@@ -26,10 +26,6 @@ const LibraryModuleDetail = ({ module, onBack }: { module: LibraryModule; onBack
 
   const handleQuizClick = () => {
     openChatWithPrompt(`Quiz me on the ${module.title} module. Create 5 NCMHCE-style multiple choice questions based on the exact material in this section, ask them one at a time, wait for my answer after each, then explain why the correct answer is right.`);
-  };
-
-  const handleFlashcardsClick = () => {
-    openChatWithPrompt(`Generate 10 high-yield flashcards for the ${module.title} module based on the material in this section. Format them in markdown as a numbered list where each item has **Front:** and **Back:**. Prioritize exam-relevant facts, distinctions, stages, red flags, and counselor decision points.`);
   };
 
   return (
@@ -93,9 +89,6 @@ const LibraryModuleDetail = ({ module, onBack }: { module: LibraryModule; onBack
         <div className="flex gap-3">
           <Button variant="outline" onClick={handleQuizClick}>
             <Sparkles className="mr-2 h-4 w-4" /> Quiz Me on This
-          </Button>
-          <Button variant="outline" onClick={handleFlashcardsClick}>
-            <Layers className="mr-2 h-4 w-4" /> Generate Flashcards
           </Button>
         </div>
       )}
