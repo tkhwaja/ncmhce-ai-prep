@@ -1,5 +1,5 @@
-import { useState, useMemo } from "react";
-import { useOutletContext } from "react-router-dom";
+import { useState, useMemo, useEffect } from "react";
+import { useOutletContext, useLocation } from "react-router-dom";
 import { libraryModules, LibraryModule, LibraryCategory, categoryOrder } from "@/data/library-modules";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -105,7 +105,14 @@ const LibraryModuleDetail = ({ module, onBack }: { module: LibraryModule; onBack
 
 const Library = () => {
   const [selectedModule, setSelectedModule] = useState<LibraryModule | null>(null);
+  const location = useLocation();
   const [search, setSearch] = useState("");
+
+  // Reset to library index whenever the user re-navigates to /library
+  // (e.g. clicking "Learning Library" in the sidebar while viewing a module)
+  useEffect(() => {
+    setSelectedModule(null);
+  }, [location.key]);
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
   const [sort, setSort] = useState<"default" | "az" | "za">("default");
 
