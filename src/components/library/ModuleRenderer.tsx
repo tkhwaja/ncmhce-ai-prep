@@ -199,7 +199,7 @@ const QuickReview = ({ review }: { review: any }) => (
 );
 
 /* ---- Common Exam Traps ---- */
-const ExamTraps = ({ traps }: { traps: string[] }) => (
+const ExamTraps = ({ traps }: { traps: Array<string | { trap: string; explanation?: string }> }) => (
   <div>
     <SectionHeading>Common Exam Traps</SectionHeading>
     <div className="space-y-2">

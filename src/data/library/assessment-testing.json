@@ -82,7 +82,7 @@
   ],
   "assessmentFramework": {
     "title": "Major Types of Assessment",
-    "overview": "On the exam, 'assessment' does not mean one test. It means selecting the most appropriate way to gather clinically useful information for the specific question in front of you. Counselors should know what each assessment type is designed to do, what it cannot do well, and when a positive result must be followed by a more targeted evaluation or immediate intervention.",
+    "overview": "On the NCMHCE, assessment is not just about naming a tool. It is about knowing what information is still missing, what must be evaluated first, and which assessment approach fits the clinical situation best. Because the exam follows cases over time, test takers must often decide whether the counselor needs a brief screen, a full clinical assessment, a risk evaluation, a cultural assessment, or a formal symptom measure before moving toward diagnosis or treatment planning. The goal is not memorizing definitions in isolation. The goal is learning how to think like a clinician under exam conditions.",
     "selectionPrinciples": [
       {
         "title": "Match the method to the question",
@@ -103,299 +103,335 @@
     ],
     "types": [
       {
-        "id": "clinical_interview",
-        "title": "Clinical Interview",
-        "purpose": "Gather presenting problem, symptom history, psychosocial context, diagnostic clues, and treatment needs.",
-        "bestFor": [
-          "initial intake",
-          "biopsychosocial formulation",
-          "diagnostic clarification",
-          "ongoing reassessment"
+        "id": "1_initial_clinical_assessment_intake_assessment",
+        "title": "1. Initial Clinical Assessment / Intake Assessment",
+        "purpose": "Build a broad picture of the client and determine what is happening overall.",
+        "includes": [
+          "presenting problem",
+          "symptom history",
+          "onset, duration, and severity",
+          "psychiatric history",
+          "substance use history",
+          "medical history",
+          "trauma history",
+          "family and social background",
+          "current stressors and supports",
+          "basic risk review",
+          "initial mental status observations"
         ],
-        "strengths": [
-          "Flexible and comprehensive",
-          "Allows follow-up questions and contextual understanding",
-          "Supports rapport and alliance-building"
-        ],
-        "commonExamples": [
-          "intake interview",
-          "biopsychosocial interview",
-          "diagnostic intake",
-          "follow-up reassessment"
-        ],
-        "notEnoughByItself": [
-          "acute suicide or violence concerns require targeted risk assessment",
-          "suspected cognitive impairment may require formal cognitive testing or medical workup",
-          "unclear personality or diagnostic complexity may require more standardized tools"
-        ],
-        "counselorShouldRemember": [
-          "A good interview covers symptom onset, duration, severity, impairment, stressors, trauma, substance use, medical factors, family history, strengths, supports, and cultural context.",
-          "Structured or semi-structured interviews improve consistency and reduce the chance of skipping important diagnostic areas.",
-          "Interview data should be integrated with MSE findings, collateral information when available, and any focused measures you administer."
-        ],
-        "commonExamMistakes": [
-          "stopping at rapport-building without clarifying timeline, impairment, or rule-outs",
-          "forgetting to ask about safety, substances, and medical contributors",
-          "assuming the interview alone settles a diagnosis when a more focused assessment is still needed"
-        ],
-        "limitations": [
-          "Subject to interviewer skill and bias",
-          "Less standardized unless structured",
-          "May miss important domains if not systematic"
-        ],
-        "examClue": "If the exam asks for the first step in assessment, a thorough clinical interview is often the correct answer unless acute safety issues require immediate risk assessment."
+        "examUse": "Best when the case is early, the picture is incomplete, and you still need broad clinical understanding before diagnosing or planning treatment.",
+        "commonMistake": "Jumping to a diagnosis too early from a limited symptom snapshot."
       },
       {
-        "id": "mse",
-        "title": "Mental Status Examination (MSE)",
-        "purpose": "Systematic observation of the client's current mental functioning during the interview.",
-        "bestFor": [
-          "all clinical intakes",
-          "psychosis screening",
-          "cognitive and behavioral observation",
-          "documenting baseline and changes over time"
+        "id": "2_screening_assessment",
+        "title": "2. Screening Assessment",
+        "purpose": "Quickly detect whether a specific problem may be present and whether deeper evaluation is needed.",
+        "includes": [
+          "depression screening",
+          "anxiety screening",
+          "suicide screening",
+          "substance use screening",
+          "trauma symptom screening",
+          "cross-cutting symptom screening"
         ],
-        "strengths": [
-          "Essential for case formulation",
-          "Useful for detecting acute disorganization, mood shifts, and perceptual disturbance",
-          "Embedded in nearly every full diagnostic interview"
+        "examUse": "Best when a problem is suspected but not yet established.",
+        "commonMistake": "Treating a positive screen as a final diagnosis."
+      },
+      {
+        "id": "3_risk_assessment",
+        "title": "3. Risk Assessment",
+        "purpose": "Evaluate immediate or potential danger to self or others.",
+        "includes": [
+          "suicidal ideation",
+          "plan",
+          "intent",
+          "means/access",
+          "past attempts",
+          "homicidal ideation",
+          "violence risk",
+          "self-harm",
+          "grave disability",
+          "acute psychosis or mania affecting safety"
         ],
-        "commonExamples": [
+        "examUse": "This takes priority when danger may be present. Safety comes before routine counseling, diagnosis, or rapport-focused exploration.",
+        "commonMistake": "Choosing supportive or exploratory responses before first clarifying safety."
+      },
+      {
+        "id": "4_mental_status_assessment",
+        "title": "4. Mental Status Assessment",
+        "purpose": "Assess the client\u2019s current psychological presentation and observable functioning.",
+        "includes": [
           "appearance",
           "behavior",
           "speech",
-          "mood and affect",
-          "thought process and content",
+          "mood",
+          "affect",
+          "thought process",
+          "thought content",
           "perception",
-          "orientation",
-          "insight and judgment"
+          "cognition",
+          "insight",
+          "judgment",
+          "orientation"
         ],
-        "notEnoughByItself": [
-          "current presentation does not replace symptom history",
-          "a normal MSE does not rule out disorders that are episodic or internally experienced",
-          "it should not be mistaken for a full neuropsychological or diagnostic evaluation"
-        ],
-        "counselorShouldRemember": [
-          "The MSE tells you how the client is functioning right now, which is why it matters so much for psychosis, mania, intoxication, delirium, and severe depression.",
-          "The exam often hides crucial clues inside behavioral descriptions like pressured speech, flight of ideas, flat affect, tangentiality, poor insight, or impaired judgment.",
-          "Documenting change over time can help determine whether risk is escalating or whether treatment is helping."
-        ],
-        "commonExamMistakes": [
-          "confusing mood with affect",
-          "missing signs of psychosis or mania because the case does not explicitly name them",
-          "treating orientation or concentration issues as purely psychiatric without considering medical causes"
-        ],
-        "limitations": [
-          "Captures current presentation, not full history",
-          "Can be affected by stress, culture, language, medical issues, and setting"
-        ],
-        "examClue": "The NCMHCE often gives subtle MSE details such as 'affect constricted' or 'oriented x4' and expects you to understand their significance."
+        "examUse": "Useful when the case suggests psychosis, mania, cognitive disturbance, intoxication, or severe dysregulation.",
+        "commonMistake": "Missing that exam stem descriptions like tangential speech or flat affect are assessment findings with diagnostic implications."
       },
       {
-        "id": "self_report",
-        "title": "Self-Report Measures",
-        "purpose": "Have clients rate their own symptoms, thoughts, or functioning.",
-        "bestFor": [
-          "brief screening",
-          "symptom monitoring",
-          "measurement-based care"
+        "id": "5_diagnostic_assessment",
+        "title": "5. Diagnostic Assessment",
+        "purpose": "Determine whether DSM criteria are met and which differential diagnoses must be considered.",
+        "includes": [
+          "symptom pattern",
+          "duration",
+          "severity",
+          "frequency",
+          "functional impairment",
+          "rule-outs",
+          "medical or substance-related explanations",
+          "cultural context"
         ],
-        "strengths": [
-          "Efficient",
-          "Easy to repeat over time",
-          "Useful for tracking treatment progress"
-        ],
-        "commonExamples": [
-          "PHQ-9",
-          "GAD-7",
-          "PCL-5",
-          "BDI-II",
-          "BAI",
-          "DAST-10"
-        ],
-        "notEnoughByItself": [
-          "a positive score does not equal a DSM diagnosis",
-          "low insight, denial, literacy issues, or impression management can distort results",
-          "safety concerns still require direct clinical questioning"
-        ],
-        "counselorShouldRemember": [
-          "Self-report tools are strongest when you need efficient screening or repeated measurement across sessions.",
-          "They are especially useful in measurement-based care because they help quantify change over time.",
-          "A good counselor interprets the score in context rather than treating the number as a stand-alone conclusion."
-        ],
-        "commonExamMistakes": [
-          "calling a screener a diagnostic interview",
-          "choosing a broad tool when the case asks for a brief repeatable symptom measure",
-          "ignoring a suicidal response because the rest of the score seems mild"
-        ],
-        "limitations": [
-          "Can be influenced by insight, defensiveness, exaggeration, literacy, and motivation",
-          "Not diagnostic by themselves"
-        ],
-        "examClue": "PHQ-9, GAD-7, BAI, BDI-II, PCL-5, and DAST-10 are common self-report examples."
+        "examUse": "Best when symptoms are present but the exact diagnosis remains unclear.",
+        "commonMistake": "Diagnosing from one symptom instead of using pattern + duration + impairment + exclusion logic."
       },
       {
-        "id": "clinician_rated",
-        "title": "Clinician-Rated / Structured Screening Tools",
-        "purpose": "Provide structured questions and ratings for specific clinical risks or symptom areas.",
-        "bestFor": [
-          "suicide risk",
-          "alcohol use",
-          "depression severity in some settings",
-          "diagnostic consistency"
+        "id": "6_substance_use_assessment",
+        "title": "6. Substance Use Assessment",
+        "purpose": "Clarify the role, severity, and consequences of alcohol or drug use.",
+        "includes": [
+          "what substance is used",
+          "quantity and frequency",
+          "last use",
+          "tolerance",
+          "withdrawal",
+          "cravings",
+          "consequences",
+          "loss of control",
+          "co-occurring symptoms",
+          "readiness for change"
         ],
-        "strengths": [
-          "More guided and systematic than unstructured interviewing",
-          "Often clearer for high-risk domains"
-        ],
-        "commonExamples": [
-          "C-SSRS",
-          "ASQ",
-          "HAM-D",
-          "structured alcohol or withdrawal ratings"
-        ],
-        "notEnoughByItself": [
-          "structured ratings do not replace professional judgment",
-          "positive findings often require follow-up questioning, safety planning, consultation, or referral",
-          "they are not substitutes for a full intake when diagnostic picture is broad or unclear"
-        ],
-        "counselorShouldRemember": [
-          "These tools are especially valuable when the counselor needs consistency across raters or across high-stakes areas such as suicide risk.",
-          "The point is not only to get a score but to organize questions you must not forget to ask.",
-          "On the exam, when risk is present, a structured risk tool plus clinical interviewing is often the strongest answer."
-        ],
-        "commonExamMistakes": [
-          "using a depression screener instead of a suicide-specific assessment after suicidal ideation is disclosed",
-          "assuming a structured tool answers the intervention question without considering level of care",
-          "forgetting that risk can change quickly and requires reassessment"
-        ],
-        "limitations": [
-          "Still require clinical interpretation",
-          "Cannot replace clinical judgment"
-        ],
-        "examClue": "C-SSRS, HAM-D, and some alcohol measures fall here."
+        "examUse": "Critical when use may explain, worsen, or mimic psychiatric symptoms.",
+        "commonMistake": "Diagnosing a primary mood or anxiety disorder before clarifying intoxication, withdrawal, or substance-induced symptoms."
       },
       {
-        "id": "standardized_tests",
-        "title": "Standardized Tests",
-        "purpose": "Measure constructs under standardized conditions using norms and psychometric data.",
-        "bestFor": [
-          "personality assessment",
-          "cognitive testing",
-          "career exploration",
-          "broad psychopathology screening"
+        "id": "7_trauma_assessment",
+        "title": "7. Trauma Assessment",
+        "purpose": "Identify trauma exposure, trauma-related symptoms, and stabilization needs.",
+        "includes": [
+          "trauma history",
+          "intrusions",
+          "avoidance",
+          "hyperarousal",
+          "negative mood/cognition shifts",
+          "dissociation",
+          "triggers",
+          "functional impact",
+          "current safety"
         ],
-        "strengths": [
-          "Standardized administration",
-          "Norm-referenced interpretation",
-          "Often stronger psychometric support"
-        ],
-        "commonExamples": [
-          "MMPI-2 or MMPI-3",
-          "WAIS-IV",
-          "WISC-V",
-          "Strong Interest Inventory",
-          "Self-Directed Search"
-        ],
-        "notEnoughByItself": [
-          "they may be unnecessary when a focused brief screener answers the question better",
-          "results should still be integrated with history, observation, and clinical judgment",
-          "some tools require specialized training and are not first-line in routine counseling settings"
-        ],
-        "counselorShouldRemember": [
-          "Standardized tests are most useful when you need comparison to norms or clearer measurement of a broad construct like cognitive ability, personality patterns, or career interests.",
-          "The NCMHCE often expects you to recognize when a broad standardized test is appropriate versus when it is excessive.",
-          "Norm-referenced results tell you how a client compares with a reference group, not automatically why the client is struggling."
-        ],
-        "commonExamMistakes": [
-          "choosing MMPI when the case really asks for a focused PTSD, depression, or substance screener",
-          "confusing intelligence testing with achievement or symptom measures",
-          "over-interpreting personality or career tools as if they diagnose mental disorders"
-        ],
-        "limitations": [
-          "Need training to administer or interpret appropriately",
-          "Not always necessary in routine outpatient cases"
-        ],
-        "examClue": "MMPI-2/MMPI-3, WAIS-IV, WISC-V, MBTI, and SDS are classic examples."
+        "examUse": "Important when trauma is suspected, but the assessment should remain trauma-informed and paced appropriately.",
+        "commonMistake": "Pushing detailed trauma exploration before stabilization or safety is established."
       },
       {
-        "id": "behavioral_observation",
-        "title": "Behavioral Observation",
-        "purpose": "Observe behavior in naturalistic or structured contexts.",
-        "bestFor": [
-          "children",
-          "school/behavioral concerns",
-          "functional behavior patterns",
-          "situations where verbal report may be incomplete"
+        "id": "8_cultural_assessment",
+        "title": "8. Cultural Assessment",
+        "purpose": "Understand how culture shapes the meaning, expression, and context of distress.",
+        "includes": [
+          "client\u2019s explanation of the problem",
+          "cultural identity",
+          "family/community expectations",
+          "spiritual meaning",
+          "stigma",
+          "migration or acculturation stress",
+          "barriers to care",
+          "help-seeking patterns"
         ],
-        "strengths": [
-          "Captures actual behavior rather than only reported behavior",
-          "Useful for antecedent-behavior-consequence analysis"
-        ],
-        "commonExamples": [
-          "Functional Behavioral Assessment",
-          "classroom observation",
-          "parent-child interaction observation",
-          "session behavior tracking"
-        ],
-        "notEnoughByItself": [
-          "behavior in one setting may not generalize to all settings",
-          "observation does not automatically reveal internal states like guilt, intrusive thoughts, or trauma memories",
-          "it should be paired with interviews and collateral data when possible"
-        ],
-        "counselorShouldRemember": [
-          "Behavioral observation shines when the key question is what triggers a behavior, what maintains it, and what intervention could change it.",
-          "This is especially useful with children, school cases, developmental concerns, and externalizing behavior.",
-          "The exam often rewards FBA when a repeated behavior seems to serve a clear function such as escape, attention, or sensory regulation."
-        ],
-        "commonExamMistakes": [
-          "choosing a broad psychopathology test when the case is really about behavior function",
-          "assuming the child is simply oppositional without analyzing antecedents and consequences",
-          "ignoring parent, teacher, or environmental input"
-        ],
-        "limitations": [
-          "Context-specific",
-          "Requires careful recording and interpretation"
-        ],
-        "examClue": "Functional Behavioral Assessment is a key example."
+        "examUse": "Essential whenever culture, language, religion, migration, identity, or family norms may shape the presentation.",
+        "commonMistake": "Pathologizing culturally shaped beliefs or norms without first exploring meaning and context."
       },
       {
-        "id": "projective",
-        "title": "Projective Tests",
-        "purpose": "Use ambiguous stimuli to elicit underlying themes or dynamics.",
-        "bestFor": [
-          "specialized assessment contexts",
-          "depth-oriented personality exploration"
+        "id": "9_functional_assessment",
+        "title": "9. Functional Assessment",
+        "purpose": "Evaluate how symptoms affect real-life functioning.",
+        "includes": [
+          "work or school functioning",
+          "relationships",
+          "self-care",
+          "daily living",
+          "parenting",
+          "sleep",
+          "concentration",
+          "social functioning",
+          "legal or financial consequences"
         ],
-        "strengths": [
-          "Can generate rich material"
+        "examUse": "Useful for severity judgments, diagnosis, and level-of-care decisions.",
+        "commonMistake": "Ignoring impairment and focusing only on symptom labels."
+      },
+      {
+        "id": "10_behavioral_observational_assessment",
+        "title": "10. Behavioral / Observational Assessment",
+        "purpose": "Use observed behavior and context to understand patterns, triggers, and interpersonal style.",
+        "includes": [
+          "avoidance patterns",
+          "emotional regulation",
+          "nonverbal behavior",
+          "compulsions",
+          "agitation",
+          "interpersonal behavior",
+          "consistency between report and presentation"
         ],
-        "commonExamples": [
-          "Rorschach",
-          "Thematic Apperception Test (TAT)"
+        "examUse": "Especially relevant in child cases, family cases, ADHD-like presentations, and situations where observation adds meaning beyond self-report.",
+        "commonMistake": "Relying only on client verbal report when behavior offers clinically important information."
+      },
+      {
+        "id": "11_collateral_assessment",
+        "title": "11. Collateral Assessment",
+        "purpose": "Gather relevant information from other sources when clinically appropriate and ethically permitted.",
+        "includes": [
+          "caregiver report",
+          "school input",
+          "medical providers",
+          "prior records",
+          "treatment team communication",
+          "partner or family input",
+          "legal system records when relevant"
         ],
-        "notEnoughByItself": [
-          "they are rarely the best first-line answer for a straightforward counseling case",
-          "they should not replace more targeted, better-validated tools when the question is clear",
-          "results are especially dependent on examiner expertise and theoretical orientation"
+        "examUse": "Important when the client is a minor, cognitively impaired, psychotic, manic, inconsistent, or part of a systems-based case.",
+        "commonMistake": "Ignoring the need for collateral information when the client\u2019s report is incomplete or unreliable."
+      },
+      {
+        "id": "12_outcome_progress_monitoring_assessment",
+        "title": "12. Outcome / Progress Monitoring Assessment",
+        "purpose": "Track whether treatment is working over time.",
+        "includes": [
+          "repeat symptom measures",
+          "risk reassessment",
+          "functioning review",
+          "treatment response tracking",
+          "need for plan adjustment"
         ],
-        "counselorShouldRemember": [
-          "Projective methods aim to elicit themes, conflicts, and personality dynamics through ambiguous stimuli.",
-          "For exam purposes, they are usually less favored than more direct, psychometrically stronger instruments.",
-          "If the exam stem asks for the best next assessment in a routine outpatient case, projective tests are usually not the strongest answer."
-        ],
-        "commonExamMistakes": [
-          "thinking older or more complex automatically means better",
-          "using a projective measure when a targeted symptom or risk tool is clearly indicated",
-          "forgetting the exam prioritizes clinical usefulness and safety over theoretical depth"
-        ],
-        "limitations": [
-          "More controversial psychometrically",
-          "Less likely to be the best answer for routine screening or straightforward symptom assessment"
-        ],
-        "examClue": "Rorschach and TAT are classic projective examples, but the exam more often prioritizes clearer, more targeted tools."
+        "examUse": "Best when treatment is underway and the clinician must judge progress or determine whether the current plan should change.",
+        "commonMistake": "Continuing treatment unchanged without reassessing response."
       }
-    ]
+    ],
+    "learningObjectives": [
+      "Differentiate screening from full assessment.",
+      "Identify the major categories of assessment commonly tested on the NCMHCE.",
+      "Match the clinical situation to the most appropriate assessment approach.",
+      "Recognize when safety assessment must take priority over all other clinical tasks.",
+      "Avoid common exam mistakes such as diagnosing too early or ignoring cultural and substance-related factors."
+    ],
+    "coreDistinction": {
+      "screening": "A brief process used to identify whether a possible problem may be present and whether more evaluation is needed.",
+      "assessment": "A broader, deeper process used to gather enough information to support case conceptualization, diagnosis, treatment planning, referral, or level-of-care decisions.",
+      "keyTakeaway": "Screening asks, 'Could this be present?' Assessment asks, 'What exactly is happening, how severe is it, what is contributing to it, and what should happen next?'"
+    },
+    "decisionLadder": {
+      "title": "Assessment Decision Ladder",
+      "steps": [
+        "1. Is there immediate danger?",
+        "   -> If yes, complete risk assessment first.",
+        "2. If no immediate danger, do you need a quick screen or a full clinical picture?",
+        "   -> Use screening when the issue is suspected but not yet clear.",
+        "   -> Use a comprehensive assessment when broad understanding is needed.",
+        "3. Do you need to clarify diagnosis?",
+        "   -> Use diagnostic assessment.",
+        "4. Do culture, trauma, substance use, or functioning affect the picture?",
+        "   -> Add targeted assessment in those areas.",
+        "5. Is treatment already underway and you need to measure change?",
+        "   -> Use outcome or progress monitoring assessment."
+      ]
+    },
+    "highYieldPoints": {
+      "title": "High-Yield Exam Rules",
+      "items": [
+        "Safety before diagnosis.",
+        "Screening is brief; assessment is deeper.",
+        "A positive screen is not the final diagnosis.",
+        "Substance use can mimic or worsen psychiatric symptoms.",
+        "Cultural context should be explored before pathologizing.",
+        "Trauma assessment should be trauma-informed and paced appropriately.",
+        "Functional impairment matters.",
+        "Collateral information can be clinically essential.",
+        "Assessment is ongoing, not a one-time event."
+      ]
+    },
+    "quickReference": {
+      "title": "Quick Reference",
+      "columns": [
+        "Assessment Type",
+        "Main Purpose",
+        "Best Used When",
+        "Common Exam Clue"
+      ],
+      "rows": [
+        [
+          "Screening",
+          "Briefly detect possible concern",
+          "A problem is suspected but not yet established",
+          "Need to see whether further evaluation is needed"
+        ],
+        [
+          "Comprehensive Intake",
+          "Build broad clinical picture",
+          "Early case stage or incomplete history",
+          "Need more history before deciding"
+        ],
+        [
+          "Risk Assessment",
+          "Evaluate danger to self or others",
+          "Any safety red flag is present",
+          "SI, plan, intent, means, recent attempt, command hallucinations"
+        ],
+        [
+          "Mental Status Assessment",
+          "Describe current functioning",
+          "Psychosis, mania, cognitive change, severe dysregulation suspected",
+          "Pressured speech, flat affect, tangential thought process"
+        ],
+        [
+          "Diagnostic Assessment",
+          "Clarify DSM diagnosis and differential diagnoses",
+          "Symptoms are present but diagnosis remains unclear",
+          "What diagnosis best fits?"
+        ],
+        [
+          "Substance Use Assessment",
+          "Clarify pattern and severity of use",
+          "Use may explain or complicate symptoms",
+          "Alcohol/drug use, relapse, withdrawal, cravings"
+        ],
+        [
+          "Trauma Assessment",
+          "Identify trauma symptoms and stabilization needs",
+          "Trauma exposure or trauma symptoms appear relevant",
+          "Nightmares, avoidance, hypervigilance, dissociation"
+        ],
+        [
+          "Cultural Assessment",
+          "Understand sociocultural meaning and context",
+          "Culture, migration, religion, identity, or stigma are relevant",
+          "Explore cultural meaning before pathologizing"
+        ],
+        [
+          "Functional Assessment",
+          "Measure real-life impairment",
+          "Severity or level of care must be judged",
+          "Work failure, school decline, ADL impairment"
+        ],
+        [
+          "Collateral Assessment",
+          "Add outside information",
+          "Client history is incomplete, unreliable, or systems-based",
+          "Records, caregivers, school, treatment team"
+        ],
+        [
+          "Outcome Monitoring",
+          "Track change over time",
+          "Treatment is already in progress",
+          "Reassess progress and adjust plan"
+        ]
+      ]
+    }
   },
   "mseDeepDive": {
     "title": "Mental Status Examination (MSE) Breakdown",
@@ -1071,12 +1107,30 @@
     ]
   },
   "commonExamTraps": [
-    "Picking a broad personality inventory when the case asks for a focused screener",
-    "Using a depression tool alone after suicidality is disclosed instead of a suicide-specific assessment",
-    "Confusing a trauma history screen like ACES with a PTSD symptom measure like PCL-5",
-    "Treating self-report scores as a final diagnosis without clinical integration",
-    "Forgetting that MSE findings can signal bipolar disorder, psychosis, intoxication, delirium, or cognitive impairment",
-    "Overlooking level-of-care implications after identifying risk"
+    {
+      "trap": "Picking rapport over safety",
+      "explanation": "When suicide, violence, command hallucinations, or severe inability to care for self is suggested, safety assessment comes first."
+    },
+    {
+      "trap": "Diagnosing from one symptom",
+      "explanation": "Use symptom pattern, duration, severity, impairment, and rule-outs before selecting a diagnosis."
+    },
+    {
+      "trap": "Using a full assessment when a screen is enough",
+      "explanation": "When a problem is only suspected, a screening step may be the most efficient and clinically appropriate next move."
+    },
+    {
+      "trap": "Ignoring culture",
+      "explanation": "Cultural meaning, stigma, identity, and family norms can shape presentation and should be assessed directly."
+    },
+    {
+      "trap": "Ignoring substance use",
+      "explanation": "Alcohol and drug use can create, worsen, or imitate mental health symptoms."
+    },
+    {
+      "trap": "Forcing trauma processing too early",
+      "explanation": "Stabilization and safety may be more appropriate than deep trauma exploration in early work."
+    }
   ],
   "miniCaseDrills": [
     {
@@ -1128,111 +1182,105 @@
   },
   "checkpointQuestions": [
     {
-      "question": "A counselor wants a brief, repeatable measure of depression severity during outpatient treatment. Which tool best fits?",
-      "answer": "PHQ-9"
+      "question": "A client reports occasional hopelessness and recent social withdrawal but gives unclear answers about suicidality. What principle matters most?",
+      "answer": "Clarify safety through risk assessment before assuming the risk is low.",
+      "rationale": "Ambiguous responses about suicidality require direct follow-up rather than reassurance or premature treatment planning."
     },
     {
-      "question": "A client reports suicidal thoughts during intake. Which assessment should be prioritized next?",
-      "answer": "A suicide-specific risk assessment such as the C-SSRS or ASQ, along with direct clinical questioning"
+      "question": "A client reports increased alcohol use and depressed mood. What is the key assessment principle?",
+      "answer": "Clarify the substance use pattern before assuming a primary mood disorder.",
+      "rationale": "Substance use may worsen, imitate, or cause mood symptoms."
     },
     {
-      "question": "A case asks for the best tool to assess trauma-related symptoms consistent with DSM PTSD criteria. Which tool best fits?",
-      "answer": "PCL-5"
-    },
-    {
-      "question": "A school-based clinician wants to determine what reinforces a child's repeated classroom outbursts. Which assessment best fits?",
-      "answer": "Functional Behavioral Assessment"
-    },
-    {
-      "question": "A counselor wants to map multigenerational family patterns and relational roles. Which assessment best fits?",
-      "answer": "Genogram"
+      "question": "A refugee client explains distress through spiritual and cultural beliefs unfamiliar to the counselor. What is the best next step?",
+      "answer": "Use culturally responsive assessment to explore meaning before pathologizing.",
+      "rationale": "Cultural context may shape both symptom expression and help-seeking."
     }
   ],
   "assessmentTerminologyMatch": {
-    "title": "Match the Assessment Term",
-    "instructions": "Match each assessment term to its best definition. This helps separate brief screeners from full diagnostic methods and from broader standardized testing concepts.",
+    "title": "Match the Assessment Terms",
+    "instructions": "Match each assessment term to the best definition from this section.",
     "options": [
       {
         "id": "opt_screener",
-        "definition": "A brief tool used to quickly flag whether a problem may be present and whether more assessment is needed."
+        "definition": "A brief process used to identify whether a possible problem may be present and whether more evaluation is needed."
       },
       {
-        "id": "opt_diagnostic_interview",
-        "definition": "A structured or semi-structured clinical interview used to determine whether symptoms meet criteria for a mental disorder."
+        "id": "opt_diagnostic",
+        "definition": "A deeper evaluation used to determine whether DSM criteria are met and which differential diagnoses should be considered."
       },
       {
-        "id": "opt_symptom_inventory",
-        "definition": "A measure that estimates the severity or frequency of symptoms and is often useful for monitoring change over time."
+        "id": "opt_risk",
+        "definition": "A focused evaluation of immediate or potential danger to self or others, including ideation, plan, intent, means, and past behavior."
       },
       {
         "id": "opt_mse",
-        "definition": "A systematic description of the client's current presentation, including appearance, behavior, speech, mood, thought process, perception, cognition, insight, and judgment."
+        "definition": "An assessment of the client's current psychological presentation and observable functioning, including speech, affect, thought process, cognition, insight, and judgment."
       },
       {
-        "id": "opt_norm_referenced",
-        "definition": "A standardized test interpreted by comparing the client's score with a reference group or normative sample."
+        "id": "opt_cultural",
+        "definition": "An exploration of how culture, identity, spirituality, migration, family norms, stigma, and context shape the meaning and expression of distress."
       },
       {
-        "id": "opt_behavioral_observation",
-        "definition": "Direct observation of what the client actually does in context, often to identify patterns, triggers, and consequences."
+        "id": "opt_functional",
+        "definition": "An evaluation of how symptoms affect daily life, such as work, school, relationships, self-care, and other real-world functioning."
       },
       {
-        "id": "opt_projective",
-        "definition": "An assessment method that uses ambiguous stimuli to elicit themes, conflicts, or underlying personality dynamics."
+        "id": "opt_collateral",
+        "definition": "Clinically appropriate information gathered from outside sources such as caregivers, schools, providers, records, or family members."
       },
       {
-        "id": "opt_risk_assessment",
-        "definition": "A focused evaluation of immediate safety concerns such as suicide, homicide, self-harm, intent, plan, means, and protective factors."
+        "id": "opt_outcome",
+        "definition": "Repeated assessment used to monitor whether treatment is working and whether the plan needs to change over time."
       }
     ],
     "prompts": [
       {
         "term": "Screener",
         "correctOptionId": "opt_screener",
-        "whyItMatters": "A screener tells you whether to look closer; it does not finalize a diagnosis."
+        "whyItMatters": "A positive screen suggests you should look further, not that you already have a final diagnosis."
       },
       {
-        "term": "Diagnostic interview",
-        "correctOptionId": "opt_diagnostic_interview",
-        "whyItMatters": "This is how counselors move from symptom clues toward diagnostic clarification."
-      },
-      {
-        "term": "Symptom inventory",
-        "correctOptionId": "opt_symptom_inventory",
-        "whyItMatters": "These are especially useful when you want baseline severity and repeated outcome tracking."
-      },
-      {
-        "term": "Mental Status Examination (MSE)",
-        "correctOptionId": "opt_mse",
-        "whyItMatters": "The MSE captures what is happening in the room right now and can reveal high-risk or high-acuity clues."
-      },
-      {
-        "term": "Norm-referenced test",
-        "correctOptionId": "opt_norm_referenced",
-        "whyItMatters": "This matters when interpretation depends on comparing the client with a standardization sample."
-      },
-      {
-        "term": "Behavioral observation",
-        "correctOptionId": "opt_behavioral_observation",
-        "whyItMatters": "This is often the best fit when the real question is what maintains a behavior."
-      },
-      {
-        "term": "Projective test",
-        "correctOptionId": "opt_projective",
-        "whyItMatters": "The exam may reference these, but they are usually not the first-line answer in routine counseling cases."
+        "term": "Diagnostic assessment",
+        "correctOptionId": "opt_diagnostic",
+        "whyItMatters": "This helps move from a symptom list to diagnostic clarification and differential diagnosis."
       },
       {
         "term": "Risk assessment",
-        "correctOptionId": "opt_risk_assessment",
-        "whyItMatters": "When safety is on the line, this takes priority over routine symptom measurement."
+        "correctOptionId": "opt_risk",
+        "whyItMatters": "When safety concerns appear, this takes priority over routine rapport-building or symptom review."
+      },
+      {
+        "term": "Mental status assessment",
+        "correctOptionId": "opt_mse",
+        "whyItMatters": "It captures what is happening in the room right now and may reveal psychosis, mania, intoxication, or cognitive disturbance."
+      },
+      {
+        "term": "Cultural assessment",
+        "correctOptionId": "opt_cultural",
+        "whyItMatters": "It prevents counselors from pathologizing experiences without first understanding their cultural meaning and context."
+      },
+      {
+        "term": "Functional assessment",
+        "correctOptionId": "opt_functional",
+        "whyItMatters": "Severity is not just about symptoms; it is also about how much the client's life is actually impaired."
+      },
+      {
+        "term": "Collateral assessment",
+        "correctOptionId": "opt_collateral",
+        "whyItMatters": "This can be essential when the client is a minor, unreliable historian, highly symptomatic, or part of a systems-based case."
+      },
+      {
+        "term": "Outcome monitoring",
+        "correctOptionId": "opt_outcome",
+        "whyItMatters": "Good assessment continues after intake so treatment can be adjusted based on real response."
       }
     ]
   },
   "sourceBasis": {
     "derivedFromUploadedMaterials": [
-      "Study Library",
-      "Assessment & Testing"
+      "major_types_of_assessment_learning_library.json"
     ],
-    "notes": "Expanded into a production-ready module emphasizing assessment selection, MSE interpretation, psychometrics, risk assessment, and level-of-care reasoning."
+    "notes": "Major Types of Assessment section updated from uploaded structured content and adapted to the library renderer."
   }
 }
