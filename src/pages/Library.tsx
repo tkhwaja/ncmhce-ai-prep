@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { useOutletContext } from "react-router-dom";
 import { libraryModules, LibraryModule, LibraryCategory, categoryOrder } from "@/data/library-modules";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -8,6 +9,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { ArrowLeft, Search, BookOpen, Sparkles, Layers, ClipboardCheck, FileText, Lightbulb, Scale, AlertTriangle, Heart } from "lucide-react";
 import ModuleRenderer from "@/components/library/ModuleRenderer";
 import GlossaryView from "@/components/library/GlossaryView";
+import type { AppLayoutOutletContext } from "@/components/app/AppLayout";
 
 const iconMap: Record<string, React.ElementType> = {
   ClipboardCheck, FileText, Lightbulb, Scale, AlertTriangle, Heart,
@@ -20,6 +22,11 @@ const iconMap: Record<string, React.ElementType> = {
 const LibraryModuleDetail = ({ module, onBack }: { module: LibraryModule; onBack: () => void }) => {
   const isGlossary = module.moduleType === "glossary";
   const hasStructuredData = !!module.data;
+  const { openChatWithPrompt } = useOutletContext<AppLayoutOutletContext>();
+
+  const handleQuizClick = () => {
+    openChatWithPrompt(`Quiz me on the ${module.title} module. Create 5 NCMHCE-style multiple choice questions based on the exact material in this section, ask them one at a time, wait for my answer after each, then explain why the correct answer is right.`);
+  };
 
   return (
     <div className="p-6 max-w-4xl mx-auto space-y-6">
@@ -80,7 +87,7 @@ const LibraryModuleDetail = ({ module, onBack }: { module: LibraryModule; onBack
 
       {!isGlossary && (
         <div className="flex gap-3">
-          <Button variant="outline">
+          <Button variant="outline" onClick={handleQuizClick}>
             <Sparkles className="mr-2 h-4 w-4" /> Quiz Me on This
           </Button>
           <Button variant="outline">
