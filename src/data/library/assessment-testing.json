@@ -779,27 +779,6 @@
         ]
       },
       {
-        "type": "diagram",
-        "title": "How to Think Through the MSE on the Exam",
-        "format": "text_flowchart",
-        "content": [
-          "Step 1: What do I notice immediately?",
-          "-> appearance, hygiene, eye contact, cooperation, motor behavior",
-          "Step 2: How does the client sound?",
-          "-> speech rate, tone, spontaneity, coherence",
-          "Step 3: How do they feel and appear emotionally?",
-          "-> mood and affect",
-          "Step 4: How are they thinking?",
-          "-> thought process, thought content, perception",
-          "Step 5: Can they track reality and function cognitively?",
-          "-> orientation, attention, memory, concentration, abstraction",
-          "Step 6: Do they understand their situation and make safe decisions?",
-          "-> insight and judgment",
-          "Step 7: Do any findings change risk, diagnosis, or level of care?",
-          "-> if yes, act on that clinically"
-        ]
-      },
-      {
         "type": "compare_block",
         "title": "Mood vs Affect",
         "items": [
