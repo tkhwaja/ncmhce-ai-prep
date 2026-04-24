@@ -107,7 +107,7 @@
   },
   "acaCodeSection": {
     "title": "ACA Code of Ethics Overview",
-    "overview": "The ACA Code of Ethics provides the main professional framework for counseling ethics. The exam does not require verbatim memorization of every subsection, but it does expect working familiarity with the major sections and their practical meaning.",
+    "overview": "The ACA Code of Ethics is the main professional framework for counseling ethics. The NCMHCE does not test rote memorization of every subsection, but it does expect you to recognize which ethical theme is controlling the case: counseling relationship, confidentiality, competence, assessment, supervision, research, technology, or resolving ethical issues.",
     "sections": [
       {
         "section": "A",
@@ -158,6 +158,23 @@
     "examPearls": [
       "You do not need to quote section numbers to answer well, but you should know the themes.",
       "Many exam answers can be improved by recognizing whether the issue is mainly confidentiality, boundaries, supervision, or technology-related."
+    ],
+    "howToUseOnExam": [
+      "Identify the ethical category first: confidentiality, informed consent, boundaries, competence, assessment, supervision, technology, or legal duty.",
+      "Pair the code theme with applicable law and agency policy; do not treat the code as a substitute for mandated reporting or court requirements.",
+      "Choose the answer that protects client welfare, uses the least intrusive appropriate action, and includes consultation/documentation when the situation is complex.",
+      "Remember that ACA should be read as professional guidance for counselors, not as a guarantee that state laws are identical."
+    ],
+    "highYieldCodeThemes": [
+      "A: Counseling relationship — client welfare, informed consent, boundaries, termination, referral, avoiding harm.",
+      "B: Confidentiality and privacy — privacy protection, releases, exceptions, records, group/family/minor complications.",
+      "C: Professional responsibility — competence, impairment, advertising, public statements, self-care, nondiscrimination.",
+      "D: Relationships with other professionals — collaboration, consultation, interdisciplinary care, appropriate information sharing.",
+      "E: Evaluation and assessment — proper tool selection, informed consent for assessment, cultural fairness, interpretation limits.",
+      "F: Supervision, training, teaching — supervisee competence, disclosure of trainee status, gatekeeping, role boundaries.",
+      "G: Research and publication — consent, participant protection, avoiding deception or misuse of data.",
+      "H: Distance counseling, technology, social media — telehealth consent, security, location, emergency planning, online boundaries.",
+      "I: Resolving ethical issues — ethical decision-making, consultation, addressing violations, documentation."
     ]
   },
   "foundationalPrinciples": {
@@ -194,7 +211,22 @@
         "examUse": "Relevant to informed consent, documentation, representation, and supervision"
       }
     ],
-    "examPearl": "When two answers seem close, the better one is usually the one that best preserves safety, trust, and fairness without creating avoidable harm."
+    "examPearl": "When two answers seem close, the better one is usually the one that best preserves safety, trust, and fairness without creating avoidable harm.",
+    "overview": "Foundational principles are the reasoning tools behind ethical answers. The exam often gives two tempting responses; principles help you decide which response protects the client while respecting rights, fairness, honesty, and professional trust.",
+    "howTheyShowUpOnExam": [
+      "Autonomy supports informed consent, client choice, right to refuse treatment, and collaborative planning.",
+      "Beneficence supports active steps that help the client, especially when safety or functioning is at stake.",
+      "Nonmaleficence blocks actions that create avoidable harm, exploitation, abandonment, or boundary violations.",
+      "Justice requires fair access, nondiscrimination, cultural humility, and consistent standards.",
+      "Fidelity supports keeping professional commitments, maintaining trust, and following through on roles.",
+      "Veracity supports honest documentation, accurate credentials, truthful informed consent, and clear communication."
+    ],
+    "examApplication": [
+      "If safety is urgent, beneficence and nonmaleficence usually outweigh routine confidentiality.",
+      "If no urgent risk exists, autonomy and fidelity often favor clarifying consent before acting.",
+      "If the counselor’s bias or values are central, justice and nonmaleficence point toward supervision, consultation, and avoiding value imposition.",
+      "If records, billing, credentials, or reports are involved, veracity becomes a major principle."
+    ]
   },
   "informedConsentSection": {
     "title": "Informed Consent",
@@ -237,6 +269,19 @@
       "Assuming informed consent happened once at intake and never needs review",
       "Overpromising absolute confidentiality",
       "Ignoring the minor's understanding and participation entirely"
+    ],
+    "clientRights": [
+      "right to understand the nature and purpose of counseling",
+      "right to know risks, benefits, alternatives, fees, cancellation policies, and limits of confidentiality",
+      "right to ask questions and participate in treatment planning",
+      "right to refuse or withdraw from services when legally permitted",
+      "right to understand record access, privacy limits, and how information may be shared"
+    ],
+    "ncmhceDecisionPoints": [
+      "Review informed consent at intake, when treatment changes, when a new service is introduced, and when confidentiality questions arise.",
+      "For minors, distinguish parent/guardian legal rights from the minor’s clinical need for privacy and assent.",
+      "For court-ordered or mandated clients, clarify what information may be reported and to whom before treatment proceeds.",
+      "For telehealth, include technology risks, emergency procedures, backup contact methods, and client location."
     ]
   },
   "confidentialitySection": {
@@ -290,6 +335,18 @@
       "The exam often rewards clarifying and limiting disclosure rather than disclosing broadly.",
       "Minimum necessary disclosure is a key concept.",
       "A spouse, parent, employer, or school does not automatically get access without the proper legal/ethical basis."
+    ],
+    "confidentialityVsPrivilege": [
+      "Confidentiality is the ethical/professional duty to protect client information.",
+      "Privilege is a legal protection against compelled disclosure in legal proceedings and may have exceptions or be waived.",
+      "A subpoena does not automatically mean the counselor releases everything; the counselor should follow law, agency policy, and legal consultation.",
+      "A court order carries more legal force than a routine request, but disclosure should still be limited to what is required."
+    ],
+    "recordsAccessRules": [
+      "Payment by a spouse, parent, employer, or school does not automatically grant access to counseling records.",
+      "A signed ROI should specify what can be shared, with whom, for what purpose, and for what time period.",
+      "Share the minimum necessary information even when disclosure is allowed or required.",
+      "Group, couple, family, and minor counseling require extra clarity because more than one person may have privacy interests."
     ]
   },
   "hipaaFerpaSection": {
@@ -312,7 +369,13 @@
         "Health and safety emergencies can affect disclosure rules"
       ],
       "examPearl": "FERPA applies to educational records, while HIPAA applies in healthcare contexts; the setting matters."
-    }
+    },
+    "examDistinctions": [
+      "HIPAA is usually healthcare privacy; FERPA is usually educational records in school settings.",
+      "The setting matters: a counselor in a school may face different record rules than a counselor in a clinic.",
+      "Neither HIPAA nor FERPA eliminates duties related to safety, mandated reporting, or valid legal process.",
+      "When unsure in a vignette, the safest answer often includes consultation and minimum necessary disclosure."
+    ]
   },
   "dutyToProtectSection": {
     "title": "Duty to Warn / Duty to Protect",
@@ -339,6 +402,20 @@
       "Treating all violent thoughts as equally serious without evaluating specificity",
       "Ignoring access to means",
       "Forgetting consultation and documentation"
+    ],
+    "assessmentQuestions": [
+      "Who is the target, and is the person identifiable?",
+      "How specific is the threat?",
+      "Does the client have means, access, intent, plan, or recent escalation?",
+      "Is substance use, psychosis, domestic violence, or weapon access increasing danger?",
+      "What does state law, agency policy, supervision, or legal consultation require?"
+    ],
+    "documentationFocus": [
+      "risk facts assessed",
+      "consultations completed",
+      "protective actions taken",
+      "rationale for disclosure or nondisclosure",
+      "follow-up plan"
     ]
   },
   "mandatedReportingSection": {
@@ -366,6 +443,18 @@
       "Waiting for confirmation",
       "Treating disclosure as a family problem rather than a reportable legal issue",
       "Confusing adult domestic conflict with automatic mandated reporting when a child is not implicated"
+    ],
+    "whatNotToDo": [
+      "Do not investigate to prove the abuse before reporting.",
+      "Do not promise secrecy when reporting laws apply.",
+      "Do not delay a required report while trying to persuade the alleged abuser or family.",
+      "Do not treat reasonable suspicion as needing courtroom-level certainty."
+    ],
+    "afterReporting": [
+      "Document the facts, report made, time, agency/contact, and consultation.",
+      "Continue clinical support when appropriate and safe.",
+      "Explain the report to the client or guardian when clinically appropriate without increasing danger.",
+      "Coordinate with supervisors or agency policy while keeping the client’s welfare central."
     ]
   },
   "boundariesSection": {
@@ -390,7 +479,10 @@
       "exploitative financial arrangements",
       "dual roles that impair objectivity or harm the client",
       "social media relationships that blur professional boundaries",
-      "using the client relationship for personal gain"
+      "using the client relationship for personal gain",
+      "imposing counselor personal values on client choices",
+      "inappropriate gift exchange that creates pressure or exploitation",
+      "self-disclosure that serves the counselor rather than the client"
     ],
     "caseFactorsToEvaluate": [
       "likelihood of harm",
@@ -409,6 +501,20 @@
       "Assuming all boundary crossings are automatically ethical",
       "Assuming all departures from standard practice are automatically unethical without context",
       "Ignoring client vulnerability and power imbalance"
+    ],
+    "commonVignettes": [
+      "A client sends a friend request or direct message on social media.",
+      "A client offers an expensive gift or asks the counselor to attend a personal event.",
+      "A counselor in a rural area encounters unavoidable community overlap.",
+      "A counselor considers self-disclosure to meet their own emotional need rather than the client’s treatment goal.",
+      "A former client seeks a business, social, romantic, or financial relationship."
+    ],
+    "decisionChecklist": [
+      "Does this primarily benefit the client or the counselor?",
+      "Could it impair objectivity, create dependency, or exploit the power difference?",
+      "Is the client vulnerable because of trauma, crisis, diagnosis, age, culture, or setting?",
+      "Can the boundary crossing be avoided or handled more safely?",
+      "Was the decision discussed, documented, and consulted on when needed?"
     ]
   },
   "supervisionSection": {
@@ -423,6 +529,18 @@
     "examPearls": [
       "If a supervisee is unsafe or impaired, the supervisor must intervene rather than avoid conflict.",
       "Client welfare outranks trainee comfort."
+    ],
+    "supervisionVsConsultation": [
+      "Supervision includes evaluative responsibility and oversight of clinical work.",
+      "Consultation is usually advice-seeking among professionals and does not automatically transfer responsibility.",
+      "Supervisors must monitor competence, documentation, risk decisions, and ethical practice.",
+      "Supervisees should disclose limits, seek help early, and not practice beyond training."
+    ],
+    "gatekeepingDuties": [
+      "address unsafe or impaired practice",
+      "protect clients from supervisee incompetence",
+      "document remediation or corrective action",
+      "avoid exploitative supervision relationships"
     ]
   },
   "documentationSection": {
@@ -432,7 +550,9 @@
       "clinical records typically belong to the practice or agency, but clients often have rights of access",
       "psychotherapy/process notes may have greater protection than standard progress notes",
       "records must be secure, accurate, and timely",
-      "retention periods vary by law and setting"
+      "retention periods vary by law and setting",
+      "documentation should cover intake, assessment, treatment planning, progress, crisis response, consultation, discharge, and referral",
+      "record storage and release practices must follow law, agency policy, and informed consent"
     ],
     "bestPractices": [
       "document facts, not speculation",
@@ -454,6 +574,20 @@
       "Charting broad unnecessary details when only minimum necessary disclosure is appropriate",
       "Failing to document risk-related decisions and consultations",
       "Confusing psychotherapy notes with general progress notes"
+    ],
+    "whatToDocumentBySituation": [
+      "Intake: presenting concern, consent, risk screen, relevant history, diagnosis impressions, plan.",
+      "Progress: client response, interventions, clinical reasoning, homework, next steps.",
+      "Risk: ideation, plan, intent, means, protective factors, safety plan, consultation, level-of-care decision.",
+      "Ethics/legal: facts, standards consulted, supervision/legal consultation, decision rationale, actions taken.",
+      "Discharge: reason for ending, progress, referrals, continuity plan, risk status."
+    ],
+    "badDocumentationPatterns": [
+      "emotional or judgmental language",
+      "unnecessary third-party details",
+      "copy-paste notes that do not match the session",
+      "missing risk rationale",
+      "late or altered records without explanation"
     ]
   },
   "telehealthSection": {
@@ -484,6 +618,20 @@
       "Starting telehealth without location verification",
       "Using insecure platforms casually",
       "Ignoring crisis planning because the client is remote"
+    ],
+    "appropriatenessFactors": [
+      "client risk level and ability to use remote care safely",
+      "privacy at the client’s location",
+      "technology access, literacy, and reliability",
+      "licensure/jurisdiction rules",
+      "emergency contacts and local crisis resources",
+      "clinical fit for the presenting problem and treatment modality"
+    ],
+    "socialMediaExamRules": [
+      "Maintain a professional social media policy and discuss it in informed consent when relevant.",
+      "Do not search for client information online casually unless there is a clinically justified safety reason and policy support.",
+      "Do not respond to crisis disclosures through public or insecure social media channels; move to appropriate emergency procedures.",
+      "Avoid online interactions that blur the counseling relationship or reveal client status."
     ]
   },
   "assessmentAndEthicsSection": {
@@ -498,6 +646,13 @@
     "examPearls": [
       "A technically valid tool can still be misused if it is not appropriate for that client or purpose.",
       "Assessment ethics often intersect with informed consent and multicultural competence."
+    ],
+    "misuseExamples": [
+      "using a test outside the counselor’s competence",
+      "interpreting scores without considering culture/language/disability",
+      "using outdated or nonvalidated tools",
+      "making a diagnosis from one screening score alone",
+      "sharing raw results without appropriate explanation or consent"
     ]
   },
   "terminationSection": {
@@ -518,6 +673,20 @@
       "Terminating in anger after conflict",
       "Ending services because the client is difficult rather than because care is appropriately transferred",
       "Refusing referral or coverage planning when the counselor becomes unavailable"
+    ],
+    "appropriateReasonsToTerminateOrRefer": [
+      "goals have been met",
+      "client needs a higher or different level of care",
+      "counselor lacks competence for the needed service",
+      "client is not benefiting despite appropriate efforts",
+      "agency/service limits require transfer with continuity planning"
+    ],
+    "abandonmentWarningSigns": [
+      "ending because the counselor is frustrated",
+      "no referral despite ongoing need",
+      "no crisis coverage or transition plan",
+      "sudden termination after missed payment without ethical review",
+      "failure to respond to foreseeable risk during transition"
     ]
   },
   "ethicalDecisionMakingSection": {
@@ -563,7 +732,17 @@
       "take action",
       "document the reasoning and result"
     ],
-    "examPearl": "If the situation is complex and not urgent, consultation is often part of the best answer."
+    "examPearl": "If the situation is complex and not urgent, consultation is often part of the best answer.",
+    "ncmhceStepByStep": [
+      "Define the exact ethical/legal problem.",
+      "Assess urgency and safety first.",
+      "Identify who is affected.",
+      "Review ACA standards, law, agency policy, and informed consent.",
+      "Generate options and likely consequences.",
+      "Consult when complex or high-risk.",
+      "Choose the least harmful ethically defensible action.",
+      "Document rationale, consultation, action, and follow-up."
+    ]
   },
   "commonExamTraps": [
     "Choosing a harsh or punitive response instead of a protective one",
@@ -649,5 +828,46 @@
       "Ethics & Legal Issues"
     ],
     "notes": "Expanded into a production-ready module emphasizing ethical principles, ACA Code themes, confidentiality, informed consent, protective duties, mandated reporting, boundaries, documentation, telehealth, and exam-style decision-making."
+  },
+  "competenceScopeReferralSection": {
+    "title": "Competence, Scope of Practice, and Referral",
+    "overview": "Competence questions test whether the counselor recognizes the limits of their training, credentials, supervision, and setting. The safest exam answer usually protects client welfare by seeking consultation, supervision, additional training, referral, or a higher level of care when the client need exceeds the counselor’s role.",
+    "mustKnowConcepts": [
+      {
+        "term": "Scope of practice",
+        "definition": "The services a counselor is trained, credentialed, supervised, and legally permitted to provide."
+      },
+      {
+        "term": "Competence",
+        "definition": "Actual ability to provide a service safely and effectively, not merely interest in the topic."
+      },
+      {
+        "term": "Referral",
+        "definition": "Connecting the client with a more appropriate provider or service when the counselor cannot meet the client’s needs."
+      },
+      {
+        "term": "Impairment",
+        "definition": "A counselor condition such as burnout, substance use, illness, grief, or countertransference that interferes with safe practice."
+      }
+    ],
+    "whenToConsultOrRefer": [
+      "The client presents with a specialty need outside the counselor’s training or supervision.",
+      "Risk level, psychosis, medical instability, or substance withdrawal requires a higher level of care.",
+      "The counselor’s values, bias, countertransference, or impairment may harm objectivity.",
+      "The setting cannot provide the service intensity, language access, accessibility, or cultural responsiveness the client needs.",
+      "A legal or ethical issue is complex enough that supervision, legal consultation, or agency policy review is needed."
+    ],
+    "examCues": [
+      "New counselor + high-risk specialty presentation = consult/supervise before acting independently.",
+      "Personal discomfort alone is not an ethical reason to abandon or refer a client.",
+      "Referral should include continuity planning; the counselor does not simply end services abruptly.",
+      "Advocacy may be required when barriers, discrimination, or system issues interfere with client welfare."
+    ],
+    "examTraps": [
+      "Assuming a license automatically makes the counselor competent for every population or technique.",
+      "Referring only because the counselor dislikes the client’s values or identity.",
+      "Continuing beyond competence without consultation because the counselor wants to help.",
+      "Ignoring counselor impairment, burnout, or countertransference when it affects care."
+    ]
   }
 }
