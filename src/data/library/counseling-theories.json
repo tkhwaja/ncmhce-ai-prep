@@ -173,6 +173,302 @@
       ]
     },
     {
+      "id": "behaviorism",
+      "title": "Behaviorism / Behavioral Therapy",
+      "founder": "B. F. Skinner, John Watson, Joseph Wolpe, and other behavioral theorists",
+      "examPriority": "high",
+      "overview": "Behavioral approaches focus on observable behavior, learning history, reinforcement, exposure, conditioning, and skill rehearsal rather than insight alone.",
+      "corePremise": [
+        "Behavior is learned and maintained through reinforcement, avoidance, modeling, and consequences.",
+        "Changing contingencies and practicing new behaviors can reduce symptoms and improve functioning.",
+        "Avoidance often maintains anxiety, phobias, trauma symptoms, and compulsive patterns."
+      ],
+      "goals": [
+        "Increase adaptive behavior",
+        "Reduce avoidance and maladaptive reinforcement cycles",
+        "Build skills through practice and shaping",
+        "Use exposure or behavioral rehearsal when clinically appropriate"
+      ],
+      "mustKnowConcepts": [
+        {
+          "term": "Classical conditioning",
+          "definition": "Learning through association, often relevant to fear and trauma cues."
+        },
+        {
+          "term": "Operant conditioning",
+          "definition": "Behavior shaped by reinforcement, punishment, and consequences."
+        },
+        {
+          "term": "Exposure",
+          "definition": "Planned contact with feared cues while reducing avoidance or safety behaviors."
+        },
+        {
+          "term": "Behavioral activation",
+          "definition": "Increasing meaningful activity to counter depressive withdrawal."
+        }
+      ],
+      "signatureTechniques": [
+        "exposure",
+        "systematic desensitization",
+        "reinforcement plans",
+        "behavioral activation",
+        "skills rehearsal",
+        "modeling",
+        "token economies"
+      ],
+      "bestFitPresentations": [
+        "phobias",
+        "panic avoidance",
+        "OCD-related avoidance when paired with ERP",
+        "depression with withdrawal",
+        "behavioral concerns",
+        "skills deficits"
+      ],
+      "watchForOnExam": [
+        "Behavioral answers often focus on what maintains the behavior and what consequence or exposure plan should change it.",
+        "For anxiety, behavioral logic often targets avoidance through gradual exposure rather than reassurance alone."
+      ],
+      "examTraps": [
+        "Choosing insight work when the question asks for behavior change",
+        "Reassuring a client in a way that reinforces avoidance",
+        "Ignoring reinforcement patterns"
+      ],
+      "miniCase": {
+        "prompt": "A client avoids elevators after a panic attack and now takes stairs in every building.",
+        "bestApproach": "Assess avoidance patterns and use gradual exposure with coping skills.",
+        "why": "Behavioral treatment targets avoidance that maintains fear."
+      },
+      "quickReview": [
+        "Behaviorism = learning, reinforcement, exposure, and observable change.",
+        "Ask what maintains the behavior and what practice changes it."
+      ]
+    },
+    {
+      "id": "mbct",
+      "title": "Mindfulness-Based Cognitive Therapy (MBCT)",
+      "founder": "Zindel Segal, Mark Williams, and John Teasdale",
+      "examPriority": "medium_high",
+      "overview": "MBCT integrates cognitive therapy with mindfulness practices to help clients notice thoughts and mood shifts without becoming fused with them, especially in relapse prevention.",
+      "corePremise": [
+        "Clients can learn to observe thoughts and feelings as passing mental events.",
+        "Mindful awareness can interrupt relapse patterns and automatic negative rumination."
+      ],
+      "goals": [
+        "Reduce rumination",
+        "Increase present-moment awareness",
+        "Prevent depressive relapse",
+        "Improve nonjudgmental observation of thoughts"
+      ],
+      "mustKnowConcepts": [
+        {
+          "term": "Decentering",
+          "definition": "Seeing thoughts as mental events rather than facts."
+        },
+        {
+          "term": "Mindful awareness",
+          "definition": "Nonjudgmental attention to present experience."
+        }
+      ],
+      "signatureTechniques": [
+        "body scan",
+        "mindful breathing",
+        "thought observation",
+        "decentering",
+        "relapse prevention planning"
+      ],
+      "bestFitPresentations": [
+        "recurrent depression",
+        "rumination",
+        "stress reactivity",
+        "relapse prevention"
+      ],
+      "watchForOnExam": [
+        "MBCT answers often help the client notice thoughts without arguing with or obeying them."
+      ],
+      "examTraps": [
+        "Treating MBCT as simple relaxation",
+        "Using cognitive disputation when the stem emphasizes mindful observation"
+      ],
+      "miniCase": {
+        "prompt": "A client with recurrent depression notices early self-critical thoughts and fears relapse.",
+        "bestApproach": "Use mindful noticing and decentering so thoughts are observed rather than treated as facts.",
+        "why": "MBCT is commonly tied to relapse prevention and rumination."
+      },
+      "quickReview": [
+        "MBCT = mindfulness plus cognitive relapse prevention.",
+        "Think observing thoughts, not wrestling with every thought."
+      ]
+    },
+    {
+      "id": "tf_cbt",
+      "title": "Trauma-Focused Cognitive Behavioral Therapy (TF-CBT)",
+      "founder": "Judith Cohen, Anthony Mannarino, and Esther Deblinger",
+      "examPriority": "high",
+      "overview": "TF-CBT is a structured trauma treatment, especially for children and adolescents, that combines psychoeducation, coping skills, gradual trauma processing, caregiver involvement, and safety planning.",
+      "corePremise": [
+        "Trauma symptoms improve when clients build coping skills and process trauma memories safely and gradually.",
+        "Caregiver support and safety planning are central when working with children and adolescents."
+      ],
+      "goals": [
+        "Reduce trauma symptoms",
+        "Build coping and affect regulation",
+        "Develop a trauma narrative safely",
+        "Strengthen caregiver support",
+        "Improve safety and future protection"
+      ],
+      "mustKnowConcepts": [
+        {
+          "term": "PRACTICE components",
+          "definition": "Psychoeducation, relaxation, affect modulation, cognitive coping, trauma narrative, in vivo mastery, conjoint sessions, enhancement of safety."
+        }
+      ],
+      "signatureTechniques": [
+        "psychoeducation",
+        "relaxation",
+        "affect modulation",
+        "cognitive coping",
+        "trauma narrative",
+        "conjoint caregiver sessions",
+        "safety planning"
+      ],
+      "bestFitPresentations": [
+        "child trauma",
+        "adolescent trauma",
+        "PTSD symptoms",
+        "abuse-related trauma",
+        "caregiver-supported treatment"
+      ],
+      "watchForOnExam": [
+        "TF-CBT is especially likely when the vignette involves a child or adolescent with trauma symptoms and caregiver participation."
+      ],
+      "examTraps": [
+        "Starting trauma narrative before stabilization",
+        "Ignoring caregiver involvement in child trauma work",
+        "Using unstructured supportive talk only"
+      ],
+      "miniCase": {
+        "prompt": "A 12-year-old has nightmares and avoidance after abuse disclosure; a supportive caregiver is involved.",
+        "bestApproach": "Begin TF-CBT with psychoeducation, coping skills, caregiver support, and gradual trauma narrative work when ready.",
+        "why": "TF-CBT is designed for trauma symptoms in youth with structured caregiver-supported phases."
+      },
+      "quickReview": [
+        "TF-CBT = structured trauma treatment for youth.",
+        "Stabilize and teach coping before deeper trauma narrative work."
+      ]
+    },
+    {
+      "id": "cpt",
+      "title": "Cognitive Processing Therapy (CPT)",
+      "founder": "Patricia Resick and colleagues",
+      "examPriority": "medium_high",
+      "overview": "CPT is a trauma-focused cognitive therapy that helps clients identify and modify stuck points related to trauma, guilt, safety, trust, power, esteem, and intimacy.",
+      "corePremise": [
+        "PTSD can be maintained by rigid or distorted trauma-related beliefs.",
+        "Modifying stuck points helps clients integrate the trauma without overgeneralized guilt, danger, or shame."
+      ],
+      "goals": [
+        "Identify stuck points",
+        "Reduce trauma-related guilt and shame",
+        "Modify overgeneralized beliefs",
+        "Improve functioning after trauma"
+      ],
+      "mustKnowConcepts": [
+        {
+          "term": "Stuck points",
+          "definition": "Rigid trauma-related beliefs that keep clients trapped in PTSD symptoms."
+        }
+      ],
+      "signatureTechniques": [
+        "impact statement",
+        "stuck point log",
+        "Socratic questioning",
+        "challenging beliefs worksheets",
+        "trauma-related cognitive restructuring"
+      ],
+      "bestFitPresentations": [
+        "PTSD",
+        "trauma-related guilt",
+        "military trauma",
+        "sexual assault trauma",
+        "stuck beliefs after trauma"
+      ],
+      "watchForOnExam": [
+        "CPT answers often focus on identifying and challenging trauma-related stuck points rather than general coping only."
+      ],
+      "examTraps": [
+        "Doing exposure-only work when the stem asks about stuck beliefs",
+        "Challenging beliefs before adequate safety and stabilization"
+      ],
+      "miniCase": {
+        "prompt": "A trauma survivor says, 'The assault was my fault because I should have known better.'",
+        "bestApproach": "Identify this as a stuck point and use Socratic questioning to evaluate responsibility and evidence.",
+        "why": "CPT targets trauma-related stuck beliefs."
+      },
+      "quickReview": [
+        "CPT = PTSD cognitive work around stuck points.",
+        "Listen for guilt, shame, safety, trust, power, esteem, and intimacy beliefs."
+      ]
+    },
+    {
+      "id": "cbt_sp",
+      "title": "Cognitive Behavioral Therapy for Suicide Prevention (CBT-SP)",
+      "founder": "Aaron Beck, Gregory Brown, Amy Wenzel, and colleagues",
+      "examPriority": "medium_high",
+      "overview": "CBT-SP applies cognitive-behavioral principles to suicidal crises by analyzing the suicidal episode, strengthening coping, creating safety plans, and reducing future risk.",
+      "corePremise": [
+        "Suicidal crises can be understood through triggers, thoughts, emotions, behaviors, and access to means.",
+        "Treatment emphasizes safety, coping, reasons for living, and relapse prevention."
+      ],
+      "goals": [
+        "Reduce suicide risk",
+        "Build a safety plan",
+        "Identify crisis triggers",
+        "Strengthen coping and support",
+        "Prevent relapse into suicidal behavior"
+      ],
+      "mustKnowConcepts": [
+        {
+          "term": "Chain analysis",
+          "definition": "Reviewing the sequence leading to suicidal thoughts or behavior."
+        },
+        {
+          "term": "Safety planning",
+          "definition": "Concrete steps, supports, and means restriction used during crisis escalation."
+        }
+      ],
+      "signatureTechniques": [
+        "risk assessment",
+        "safety planning",
+        "means restriction",
+        "coping cards",
+        "chain analysis",
+        "relapse prevention"
+      ],
+      "bestFitPresentations": [
+        "suicidal ideation",
+        "recent suicide attempt",
+        "crisis relapse prevention",
+        "hopelessness with risk factors"
+      ],
+      "watchForOnExam": [
+        "Safety always comes first; CBT-SP is relevant after or alongside risk assessment and safety planning."
+      ],
+      "examTraps": [
+        "Doing insight work while imminent risk is unresolved",
+        "Skipping means restriction",
+        "Treating passive and active suicidal ideation as identical without assessment"
+      ],
+      "miniCase": {
+        "prompt": "A client reports a recent suicide attempt and describes the thoughts that escalated before it.",
+        "bestApproach": "Assess current risk, create a safety plan, restrict means, and analyze the crisis chain for relapse prevention.",
+        "why": "CBT-SP combines safety response with CBT analysis of suicidal crises."
+      },
+      "quickReview": [
+        "CBT-SP = suicide risk, safety planning, crisis chain, relapse prevention.",
+        "Never let theory override immediate safety."
+      ]
+    },
+    {
       "id": "dbt",
       "title": "Dialectical Behavior Therapy (DBT)",
       "founder": "Marsha Linehan",
@@ -926,6 +1222,61 @@
       ]
     },
     {
+      "id": "krumboltz_social_learning",
+      "title": "Krumboltz's Social Learning Theory of Career Decision Making",
+      "founder": "John Krumboltz",
+      "examPriority": "medium",
+      "overview": "Krumboltz's theory explains career development through learning experiences, modeling, reinforcement, self-observation, and chance events.",
+      "corePremise": [
+        "Career choices are influenced by genetics, environment, learning experiences, and task-approach skills.",
+        "Counselors help clients expand options, challenge limiting beliefs, and use planned happenstance."
+      ],
+      "goals": [
+        "Increase career exploration",
+        "Challenge limiting career beliefs",
+        "Use learning experiences to build confidence",
+        "Help clients respond flexibly to chance events"
+      ],
+      "mustKnowConcepts": [
+        {
+          "term": "Planned happenstance",
+          "definition": "Using curiosity, persistence, flexibility, optimism, and risk-taking to turn chance events into opportunities."
+        }
+      ],
+      "signatureTechniques": [
+        "career belief exploration",
+        "behavioral experiments",
+        "occupational research",
+        "modeling",
+        "skills practice",
+        "planned happenstance exercises"
+      ],
+      "bestFitPresentations": [
+        "career indecision",
+        "limited career exposure",
+        "career anxiety",
+        "transition concerns",
+        "self-efficacy barriers"
+      ],
+      "watchForOnExam": [
+        "Krumboltz is most likely in career cases involving learning history, modeling, happenstance, or limiting career beliefs."
+      ],
+      "examTraps": [
+        "Treating career choice as fixed trait matching only",
+        "Ignoring environmental and learning experiences",
+        "Missing planned happenstance cues"
+      ],
+      "miniCase": {
+        "prompt": "A client says they never considered healthcare careers until volunteering unexpectedly sparked interest.",
+        "bestApproach": "Use planned happenstance and exploration to turn the chance event into informed career action.",
+        "why": "Krumboltz emphasizes learning experiences and chance opportunities."
+      },
+      "quickReview": [
+        "Krumboltz = career learning, modeling, reinforcement, happenstance.",
+        "It belongs with career theory but is officially listed as a theoretical framework."
+      ]
+    },
+    {
       "id": "gottman",
       "title": "Gottman Method",
       "founders": [
@@ -1079,6 +1430,72 @@
         "Bowen = differentiation, triangles, genograms, reactivity.",
         "More differentiation means more ability to stay connected without losing self.",
         "Do not confuse cutoff with health."
+      ]
+    },
+    {
+      "id": "attachment_theory",
+      "title": "Attachment Theory",
+      "founder": "John Bowlby and Mary Ainsworth",
+      "examPriority": "medium_high",
+      "overview": "Attachment theory explains how early relational patterns shape emotion regulation, safety, intimacy, separation distress, and expectations in later relationships.",
+      "corePremise": [
+        "Early caregiver relationships contribute to internal working models of self and others.",
+        "Attachment insecurity may show up as anxiety, avoidance, fear of abandonment, or difficulty trusting."
+      ],
+      "goals": [
+        "Recognize relational patterns",
+        "Increase secure functioning",
+        "Improve emotion regulation in relationships",
+        "Strengthen safe connection and boundaries"
+      ],
+      "mustKnowConcepts": [
+        {
+          "term": "Secure attachment",
+          "definition": "Comfort with closeness and autonomy."
+        },
+        {
+          "term": "Anxious attachment",
+          "definition": "Fear of abandonment and heightened reassurance seeking."
+        },
+        {
+          "term": "Avoidant attachment",
+          "definition": "Discomfort with dependence and emotional closeness."
+        },
+        {
+          "term": "Disorganized attachment",
+          "definition": "Fearful or inconsistent strategies often linked to frightening caregiving or trauma."
+        }
+      ],
+      "signatureTechniques": [
+        "attachment pattern assessment",
+        "emotion-focused reflection",
+        "corrective relational experience",
+        "relationship mapping",
+        "repair work"
+      ],
+      "bestFitPresentations": [
+        "relationship insecurity",
+        "abandonment fears",
+        "couples conflict",
+        "family-of-origin themes",
+        "trauma-related relational patterns"
+      ],
+      "watchForOnExam": [
+        "Attachment answers often connect current relational distress to patterns of safety, closeness, abandonment, or avoidance."
+      ],
+      "examTraps": [
+        "Pathologizing attachment needs",
+        "Ignoring current safety or abuse concerns",
+        "Treating all dependency as unhealthy"
+      ],
+      "miniCase": {
+        "prompt": "A client becomes panicked when a partner takes longer than usual to respond and assumes abandonment.",
+        "bestApproach": "Explore attachment fears and current relational triggers while building regulation and secure communication.",
+        "why": "Attachment theory focuses on relational safety and internal working models."
+      },
+      "quickReview": [
+        "Attachment = secure base, internal working models, closeness and separation patterns.",
+        "Know secure, anxious, avoidant, and disorganized patterns."
       ]
     }
   ],
