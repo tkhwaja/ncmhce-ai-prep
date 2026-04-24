@@ -46,6 +46,8 @@ serve(async (req) => {
     }
     const user = userData.user;
 
+    const { messages, context, previewTesting } = await req.json();
+
     // Subscription check (service role to bypass RLS for the RPC + legacy paid check)
     const admin = createClient(supabaseUrl, serviceKey);
     const { data: profile } = await admin
@@ -68,14 +70,13 @@ serve(async (req) => {
       hasActive = !!sandboxActive || !!liveActive;
     }
 
-    if (!hasActive) {
+    if (!hasActive && !previewTesting) {
       return new Response(
         JSON.stringify({ error: "Active subscription required to use CounselorAI." }),
         { status: 403, headers: { ...corsHeaders, "Content-Type": "application/json" } },
       );
     }
 
-    const { messages, context, previewTesting } = await req.json();
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
 
