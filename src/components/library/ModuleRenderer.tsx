@@ -111,6 +111,30 @@ const slugifySectionId = (value: string) =>
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
 
+const formatKey = (key: string) =>
+  key
+    .replace(/_/g, " ")
+    .replace(/([A-Z])/g, " $1")
+    .replace(/^./, (s) => s.toUpperCase())
+    .replace(/Section$/, "")
+    .trim();
+
+const formatValue = (value: string) =>
+  value
+    .replace(/_/g, " ")
+    .replace(/\s+/g, " ")
+    .trim()
+    .replace(/^./, (s) => s.toUpperCase());
+
+const pillListKeys = new Set([
+  "commonDistortions",
+  "signatureTechniques",
+  "interventions",
+  "bestFor",
+  "examClues",
+  "quickReview",
+]);
+
 const GuidedSection = ({
   id,
   title,
