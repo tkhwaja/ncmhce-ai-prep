@@ -1129,10 +1129,18 @@ const DiagnosticCategories = ({ categories }: { categories: any[] }) => (
           {cat.overview && <p className="text-sm text-muted-foreground mb-3">{cat.overview}</p>}
           {cat.highYieldDisorders?.map((disorder: any, j: number) => (
             <CollapsibleSection key={j} title={disorder.title}>
+              {disorder.description && (
+                <div className="mb-4 rounded-lg border border-border bg-card p-4">
+                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-1.5">What it is</p>
+                  <p className="text-base text-foreground leading-relaxed">{disorder.description}</p>
+                </div>
+              )}
               {disorder.hallmark && (
                 <Alert className="border-primary/30 bg-primary/5 mb-3">
                   <Target className="h-4 w-4 text-primary" />
-                  <AlertDescription className="text-sm text-foreground">{disorder.hallmark}</AlertDescription>
+                  <AlertDescription className="text-sm text-foreground">
+                    <span className="font-semibold">Hallmark: </span>{disorder.hallmark}
+                  </AlertDescription>
                 </Alert>
               )}
               {disorder.coreCriteria && (
