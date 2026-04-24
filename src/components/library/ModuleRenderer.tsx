@@ -1048,6 +1048,10 @@ const MatchingExercise = ({ exercise }: { exercise: any }) => {
 const GenericSection = ({ title, data }: { title: string; data: any }) => {
   if (!data) return null;
 
+  if (title === "Theories" && Array.isArray(data)) {
+    return <TheoryCards theories={data} />;
+  }
+
   // Handle array of objects with various structures
   if (Array.isArray(data)) {
     return (
@@ -1140,9 +1144,6 @@ const renderObjectContent = (obj: any): React.ReactNode => {
     </div>
   );
 };
-
-const formatKey = (key: string) =>
-  key.replace(/([A-Z])/g, " $1").replace(/^./, (s) => s.toUpperCase()).replace(/Section$/, "").trim();
 
 /* ---- DSM Diagnostic Categories ---- */
 const DiagnosticCategories = ({ categories }: { categories: any[] }) => (
