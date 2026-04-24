@@ -1202,7 +1202,9 @@ const DiagnosticCategories = ({ categories }: { categories: any[] }) => (
                   <AlertTriangle className="h-4 w-4 text-destructive" />
                   <AlertDescription className="text-sm">
                     <span className="font-medium text-foreground">{rf.title || rf}</span>
-                    {rf.whenToThinkOfIt && <span className="text-muted-foreground"> — {rf.whenToThinkOfIt}</span>}
+                    {rf.whenToThinkOfIt && (
+                      <span className="text-muted-foreground"> — {Array.isArray(rf.whenToThinkOfIt) ? rf.whenToThinkOfIt.join(", ") : rf.whenToThinkOfIt}</span>
+                    )}
                   </AlertDescription>
                 </Alert>
               ))}
