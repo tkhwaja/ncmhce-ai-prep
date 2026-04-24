@@ -210,7 +210,7 @@ const AIChatSidebar = ({ open, onClose, context, queuedPrompt, width = 380, onWi
 
       {/* Messages — flex-1 + overflow so input stays pinned */}
       <div className="flex-1 overflow-y-auto p-4" ref={scrollRef}>
-        {!accessLoading && !hasAccess ? (
+        {!accessLoading && !canUseChat ? (
           <div className="min-h-full flex items-center justify-center py-8">
             <div className="text-center max-w-sm space-y-4">
               <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
@@ -276,7 +276,7 @@ const AIChatSidebar = ({ open, onClose, context, queuedPrompt, width = 380, onWi
             size="sm"
             className="text-xs h-7"
             onClick={() => sendMessage(action.prompt)}
-            disabled={isLoading || accessLoading || !hasAccess}
+            disabled={isLoading || accessLoading || !canUseChat}
           >
             <action.icon className="h-3 w-3 mr-1" />
             {action.label}
@@ -294,9 +294,9 @@ const AIChatSidebar = ({ open, onClose, context, queuedPrompt, width = 380, onWi
             onKeyDown={handleKeyDown}
             placeholder="Ask CounselorAI..."
             className="flex-1"
-            disabled={isLoading || accessLoading || !hasAccess}
+            disabled={isLoading || accessLoading || !canUseChat}
           />
-          <Button size="icon" onClick={() => sendMessage(input)} disabled={isLoading || accessLoading || !hasAccess || !input.trim()}>
+          <Button size="icon" onClick={() => sendMessage(input)} disabled={isLoading || accessLoading || !canUseChat || !input.trim()}>
             <Send className="h-4 w-4" />
           </Button>
         </div>
