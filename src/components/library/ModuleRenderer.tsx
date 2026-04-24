@@ -1044,6 +1044,67 @@ const MatchingExercise = ({ exercise }: { exercise: any }) => {
   );
 };
 
+const TheoryCards = ({ theories }: { theories: any[] }) => (
+  <div>
+    <SectionHeading icon={Brain} subtitle="Theory-by-theory reference with clear exam cues and techniques.">Theories</SectionHeading>
+    <div className="grid gap-4 lg:grid-cols-2">
+      {theories.map((theory, index) => (
+        <Card key={theory.id || index} className="card-elevated overflow-hidden">
+          <CardContent className="p-5 space-y-4">
+            <div className="flex flex-wrap items-start justify-between gap-3">
+              <div className="min-w-0 space-y-1">
+                <h3 className="text-lg font-semibold leading-tight text-foreground">{theory.title}</h3>
+                {theory.founder && <p className="text-sm text-muted-foreground">Founder: {theory.founder}</p>}
+              </div>
+              {theory.examPriority && <Badge variant="secondary" className="shrink-0">{formatValue(theory.examPriority)} priority</Badge>}
+            </div>
+
+            {theory.overview && <p className="text-sm leading-relaxed text-muted-foreground">{theory.overview}</p>}
+
+            <div className="grid gap-3 sm:grid-cols-2">
+              {Object.entries(theory).map(([key, value]) => {
+                if (["id", "title", "founder", "examPriority", "overview", "sourceBasis"].includes(key) || value == null) return null;
+                if (Array.isArray(value) && value.length > 0 && typeof value[0] === "string") {
+                  return (
+                    <div key={key} className="rounded-lg border border-border bg-muted/30 p-3">
+                      <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-primary">{formatKey(key)}</p>
+                      {pillListKeys.has(key) ? (
+                        <div className="flex flex-wrap gap-1.5">
+                          {value.map((item: string, i: number) => <Badge key={i} variant="outline" className="text-xs">{formatValue(item)}</Badge>)}
+                        </div>
+                      ) : (
+                        <ul className="space-y-1">
+                          {value.slice(0, 5).map((item: string, i: number) => <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground"><span className="text-primary">•</span>{item}</li>)}
+                        </ul>
+                      )}
+                    </div>
+                  );
+                }
+                if (Array.isArray(value) && value.length > 0 && typeof value[0] === "object") {
+                  return (
+                    <div key={key} className="rounded-lg border border-border bg-muted/30 p-3">
+                      <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-primary">{formatKey(key)}</p>
+                      <div className="space-y-2">
+                        {value.slice(0, 4).map((item: any, i: number) => (
+                          <p key={i} className="text-sm text-muted-foreground"><span className="font-medium text-foreground">{item.term || item.module || item.title || item.trap || `Item ${i + 1}`}: </span>{item.definition || item.description || item.rationale || (Array.isArray(item.skills) ? item.skills.join(", ") : "")}</p>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                }
+                if (typeof value === "string") {
+                  return <p key={key} className="rounded-lg border border-border bg-muted/30 p-3 text-sm text-muted-foreground"><span className="font-medium text-foreground">{formatKey(key)}: </span>{formatValue(value)}</p>;
+                }
+                return null;
+              })}
+            </div>
+          </CardContent>
+        </Card>
+      ))}
+    </div>
+  </div>
+);
+
 /* ---- Generic Key-Value Section ---- */
 const GenericSection = ({ title, data }: { title: string; data: any }) => {
   if (!data) return null;
