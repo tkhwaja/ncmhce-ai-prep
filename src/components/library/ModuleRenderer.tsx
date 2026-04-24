@@ -1116,34 +1116,33 @@ const GenericSection = ({ title, data }: { title: string; data: any }) => {
   // Handle array of objects with various structures
   if (Array.isArray(data)) {
     return (
-      <CollapsibleSection title={title}>
-        <div className="space-y-2">
-          {data.map((item, i) => (
-            <div key={i} className="text-sm text-muted-foreground">
-              {typeof item === "string" ? (
-                <p className="flex items-start gap-2"><span className="text-primary">•</span>{item}</p>
-              ) : (
-                <Card className="card-elevated">
-                  <CardContent className="p-3">
-                    {renderObjectContent(item)}
-                  </CardContent>
-                </Card>
-              )}
-            </div>
-          ))}
-        </div>
-      </CollapsibleSection>
+      <div className="grid gap-3 md:grid-cols-2">
+        {data.map((item, i) => (
+          <div key={i} className="text-sm text-muted-foreground">
+            {typeof item === "string" ? (
+              <p className="flex items-start gap-2 rounded-lg border border-border bg-muted/30 p-3"><span className="text-primary">•</span>{item}</p>
+            ) : (
+              <Card className="card-elevated h-full">
+                <CardContent className="p-4 space-y-3">
+                  {item.title && <h3 className="text-base font-semibold text-foreground">{item.title}</h3>}
+                  {renderObjectContent(item)}
+                </CardContent>
+              </Card>
+            )}
+          </div>
+        ))}
+      </div>
     );
   }
 
   // Handle object with title + content
   if (typeof data === "object") {
     return (
-      <CollapsibleSection title={data.title || title}>
+      <div className="space-y-3">
         {data.overview && <p className="text-sm text-muted-foreground mb-3">{data.overview}</p>}
         {renderObjectContent(data)}
         <ExamPearls pearls={data.examPearls} />
-      </CollapsibleSection>
+      </div>
     );
   }
 
