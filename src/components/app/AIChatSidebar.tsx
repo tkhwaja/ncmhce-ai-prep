@@ -103,7 +103,7 @@ const AIChatSidebar = ({ open, onClose, context, queuedPrompt, width = 380, onWi
           "Content-Type": "application/json",
           Authorization: `Bearer ${session?.access_token ?? ""}`,
         },
-        body: JSON.stringify({ messages: newMessages, context }),
+        body: JSON.stringify({ messages: newMessages, context, previewTesting: isPreviewTesting }),
       });
 
       if (!resp.ok || !resp.body) {
