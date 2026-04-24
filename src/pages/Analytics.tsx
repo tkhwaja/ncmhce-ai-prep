@@ -50,7 +50,7 @@ const DOMAINS = [
 ];
 
 const Analytics = () => {
-  const { user } = useAuth();
+  const { user, session } = useAuth();
   const { toast } = useToast();
   const [attempts, setAttempts] = useState<Attempt[]>([]);
   const [loading, setLoading] = useState(true);
@@ -122,7 +122,7 @@ const Analytics = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+          Authorization: `Bearer ${session?.access_token ?? ""}`,
         },
         body: JSON.stringify({
           messages: [{

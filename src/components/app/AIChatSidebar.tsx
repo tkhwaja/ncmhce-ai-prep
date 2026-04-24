@@ -5,6 +5,7 @@ import { ScrollArea } from "@/components/ui/scroll-area";
 import { X, Send, Trash2, Sparkles, BookOpen, HelpCircle, GraduationCap, GripVertical } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/contexts/AuthContext";
 
 interface Message {
   role: "user" | "assistant";
@@ -30,6 +31,7 @@ const quickActions = [
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/counselor-chat`;
 
 const AIChatSidebar = ({ open, onClose, context, queuedPrompt, width = 380, onWidthChange }: AIChatSidebarProps) => {
+  const { session } = useAuth();
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -81,7 +83,7 @@ const AIChatSidebar = ({ open, onClose, context, queuedPrompt, width = 380, onWi
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+          Authorization: `Bearer ${session?.access_token ?? ""}`,
         },
         body: JSON.stringify({ messages: newMessages, context }),
       });

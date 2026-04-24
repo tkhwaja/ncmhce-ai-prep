@@ -7,6 +7,7 @@ import { Badge } from "@/components/ui/badge";
 import { Sparkles, Send, BookOpen, HelpCircle, GraduationCap } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { cn } from "@/lib/utils";
+import { useAuth } from "@/contexts/AuthContext";
 
 interface ReviewQuestion {
   id: string;
@@ -30,6 +31,7 @@ interface Props {
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/counselor-chat`;
 
 const NarrativeReviewChat = ({ narrativeTitle, questions }: Props) => {
+  const { session } = useAuth();
   const wrong = questions.filter((q) => q.userAnswerIndex !== q.correctIndex);
 
   const reviewContext =
@@ -75,7 +77,7 @@ const NarrativeReviewChat = ({ narrativeTitle, questions }: Props) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+          Authorization: `Bearer ${session?.access_token ?? ""}`,
         },
         body: JSON.stringify({
           messages: newMessages,

@@ -26,7 +26,7 @@ interface ProgressMap {
 }
 
 const Flashcards = () => {
-  const { user } = useAuth();
+  const { user, session } = useAuth();
   const { toast } = useToast();
   const [selectedDeck, setSelectedDeck] = useState<FlashcardDeck | null>(null);
   const [studyMode, setStudyMode] = useState(false);
@@ -114,7 +114,7 @@ const Flashcards = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+          Authorization: `Bearer ${session?.access_token ?? ""}`,
         },
         body: JSON.stringify({
           messages: [{
