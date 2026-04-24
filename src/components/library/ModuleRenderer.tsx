@@ -1183,7 +1183,7 @@ const renderObjectContent = (obj: any): React.ReactNode => {
                 {Object.entries(value as Record<string, any>).map(([k, v]) => (
                   <p key={k} className="text-sm text-muted-foreground">
                     <span className="font-medium text-foreground capitalize">{formatKey(k)}: </span>
-                    {typeof v === "string" ? v : JSON.stringify(v)}
+                    {typeof v === "string" ? formatValue(v) : JSON.stringify(v)}
                   </p>
                 ))}
               </div>
@@ -1195,7 +1195,7 @@ const renderObjectContent = (obj: any): React.ReactNode => {
           return (
             <div key={key}>
               <span className="text-xs font-medium text-foreground capitalize">{formatKey(key)}: </span>
-              <span className="text-sm text-muted-foreground">{value}</span>
+              <span className="text-sm text-muted-foreground">{formatValue(value)}</span>
             </div>
           );
         }
