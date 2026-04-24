@@ -453,6 +453,7 @@
         {
           "id": "acute_stress_disorder",
           "title": "Acute Stress Disorder",
+          "description": "Acute Stress Disorder presents with PTSD-like symptoms \u2014 intrusion, negative mood, dissociation, avoidance, and arousal \u2014 that begin within days of a traumatic event and last from 3 days to 1 month. If symptoms persist beyond one month, the diagnosis is reconsidered as PTSD. ASD identifies people in the early aftermath of trauma who may benefit from early intervention.",
           "hallmark": "Trauma-related symptoms lasting from 3 days to 1 month after the trauma.",
           "coreCriteria": [
             "Exposure to trauma",
@@ -467,6 +468,7 @@
         {
           "id": "adjustment_disorder",
           "title": "Adjustment Disorder",
+          "description": "Adjustment Disorder is the development of emotional or behavioral symptoms (depressed mood, anxiety, conduct disturbance) in response to an identifiable stressor \u2014 job loss, divorce, illness, relocation \u2014 within three months of the stressor's onset. Symptoms cause distress out of proportion to the stressor or significant impairment but do not meet criteria for another mental disorder and are not normal bereavement. Symptoms resolve within six months after the stressor (or its consequences) ends.",
           "hallmark": "Emotional or behavioral symptoms in response to an identifiable stressor occurring within 3 months of the stressor.",
           "coreCriteria": [
             "Symptoms begin within 3 months of the stressor",
@@ -639,6 +641,7 @@
         {
           "id": "brief_psychotic_disorder",
           "title": "Brief Psychotic Disorder",
+          "description": "Brief Psychotic Disorder involves the sudden onset of one or more positive psychotic symptoms (delusions, hallucinations, disorganized speech, or grossly disorganized/catatonic behavior) lasting more than one day but less than one month, with eventual full return to premorbid functioning. It is often triggered by a marked stressor and is the shortest-duration psychotic diagnosis.",
           "hallmark": "One or more psychotic symptoms lasting from at least 1 day to less than 1 month, with eventual full return to premorbid functioning.",
           "coreCriteria": [
             "One or more of delusions, hallucinations, disorganized speech, grossly disorganized or catatonic behavior",
@@ -897,6 +900,7 @@
         {
           "id": "substance_use_disorder",
           "title": "Substance Use Disorder (General Framework)",
+          "description": "Substance Use Disorder is a problematic pattern of substance use leading to clinically significant impairment or distress, manifested by at least 2 of 11 criteria within a 12-month period across four domains: impaired control (using more than intended, unable to cut down, time spent obtaining/using/recovering, craving), social impairment (failure in roles, social/interpersonal problems, giving up activities), risky use (use in hazardous situations, continued use despite problems), and pharmacological criteria (tolerance, withdrawal). Severity is mild (2\u20133), moderate (4\u20135), or severe (6+).",
           "hallmark": "Problematic pattern of use leading to clinically significant impairment or distress, with at least 2 criteria within 12 months.",
           "criteriaDomains": {
             "impairedControl": [
@@ -999,6 +1003,7 @@
         {
           "id": "asd",
           "title": "Autism Spectrum Disorder (ASD)",
+          "description": "Autism Spectrum Disorder is a neurodevelopmental disorder defined by persistent deficits in social communication and social interaction across multiple contexts (social-emotional reciprocity, nonverbal communication, developing/maintaining relationships) AND restricted, repetitive patterns of behavior, interests, or activities (stereotyped movements, insistence on sameness, highly restricted interests, sensory hyper- or hyporeactivity). Symptoms must be present in the early developmental period and cause clinically significant impairment. Severity is rated at three levels based on support needed.",
           "hallmark": "Persistent deficits in social communication/interaction plus restricted, repetitive behaviors or interests, with onset in the developmental period.",
           "coreCriteria": [
             "Deficits in social-emotional reciprocity",
@@ -1018,6 +1023,7 @@
         {
           "id": "intellectual_disability",
           "title": "Intellectual Disability",
+          "description": "Intellectual Disability (Intellectual Developmental Disorder) is characterized by deficits in intellectual functions (reasoning, problem solving, planning, abstract thinking, judgment) AND deficits in adaptive functioning (conceptual, social, and practical domains) that limit functioning in one or more activities of daily life. Onset is during the developmental period. Severity (mild, moderate, severe, profound) is determined primarily by adaptive functioning, not IQ alone.",
           "hallmark": "Deficits in intellectual functions and adaptive functioning with onset during the developmental period.",
           "coreCriteria": [
             "Deficits in intellectual functioning",
@@ -1118,6 +1124,7 @@
         {
           "id": "somatic_symptom_disorder",
           "title": "Somatic Symptom Disorder",
+          "description": "Somatic Symptom Disorder involves one or more somatic symptoms that are distressing or disrupt daily life, accompanied by excessive thoughts, feelings, or behaviors related to the symptoms \u2014 disproportionate and persistent thoughts about the seriousness of symptoms, persistently high anxiety about health, or excessive time and energy devoted to them. The state of being symptomatic is persistent (typically more than six months). The symptoms themselves may or may not be medically explained \u2014 what matters is the disproportionate response to them.",
           "hallmark": "One or more distressing somatic symptoms plus excessive thoughts, feelings, or behaviors related to those symptoms.",
           "coreCriteria": [
             "One or more somatic symptoms that are distressing or disruptive",
@@ -1145,6 +1152,7 @@
         {
           "id": "conduct_disorder",
           "title": "Conduct Disorder",
+          "description": "Conduct Disorder is a repetitive and persistent pattern of behavior in which the basic rights of others or major age-appropriate societal norms or rules are violated, evidenced by at least 3 of 15 criteria over the past 12 months across four categories: aggression to people and animals, destruction of property, deceitfulness or theft, and serious violations of rules. It is diagnosed in those under 18 (those over 18 would warrant Antisocial Personality Disorder consideration). Childhood-onset (before age 10) carries a worse prognosis than adolescent-onset.",
           "hallmark": "Repetitive and persistent pattern of violating rights of others or major age-appropriate norms/rules.",
           "coreFeatures": [
             "aggression to people or animals",
