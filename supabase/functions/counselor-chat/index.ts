@@ -47,6 +47,10 @@ serve(async (req) => {
     const user = userData.user;
 
     const { messages, context, previewTesting } = await req.json();
+    const requestOrigin = req.headers.get("Origin") || req.headers.get("Referer") || "";
+    const allowPreviewTesting =
+      previewTesting === true &&
+      (requestOrigin.includes("id-preview--") || requestOrigin.includes("localhost"));
 
     // Subscription check (service role to bypass RLS for the RPC + legacy paid check)
     const admin = createClient(supabaseUrl, serviceKey);
@@ -70,7 +74,7 @@ serve(async (req) => {
       hasActive = !!sandboxActive || !!liveActive;
     }
 
-    if (!hasActive && !previewTesting) {
+    if (!hasActive && !allowPreviewTesting) {
       return new Response(
         JSON.stringify({ error: "Active subscription required to use CounselorAI." }),
         { status: 403, headers: { ...corsHeaders, "Content-Type": "application/json" } },
