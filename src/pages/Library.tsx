@@ -31,7 +31,7 @@ const LibraryModuleDetail = ({ module, onBack }: { module: LibraryModule; onBack
   };
 
   return (
-    <div className="p-6 max-w-4xl mx-auto space-y-6">
+    <div className="w-full p-4 sm:p-6 space-y-6">
       <Button variant="ghost" onClick={onBack} className="mb-2">
         <ArrowLeft className="mr-2 h-4 w-4" /> Back to Library
       </Button>
