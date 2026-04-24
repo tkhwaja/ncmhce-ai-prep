@@ -1,5 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { ScrollArea, ScrollBar } from "@/components/ui/scroll-area";
+import type { MouseEvent } from "react";
 
 type ModuleSectionNavigatorProps = {
   sections: Array<{
@@ -11,7 +12,7 @@ type ModuleSectionNavigatorProps = {
 const ModuleSectionNavigator = ({ sections }: ModuleSectionNavigatorProps) => {
   if (!sections.length) return null;
 
-  const handleSectionClick = (event: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+  const handleSectionClick = (event: MouseEvent<HTMLAnchorElement>, id: string) => {
     event.preventDefault();
     document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
     window.history.replaceState(null, "", `#${id}`);
