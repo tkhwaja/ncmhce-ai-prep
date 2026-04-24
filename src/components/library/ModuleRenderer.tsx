@@ -117,6 +117,12 @@ const formatKey = (key: string) =>
     .replace(/([A-Z])/g, " $1")
     .replace(/^./, (s) => s.toUpperCase())
     .replace(/Section$/, "")
+    .replace(/\bAca\b/g, "ACA")
+    .replace(/\bDsm\b/g, "DSM")
+    .replace(/\bHipaa\b/g, "HIPAA")
+    .replace(/\bFerpa\b/g, "FERPA")
+    .replace(/\bMse\b/g, "MSE")
+    .replace(/\bRoi\b/g, "ROI")
     .trim();
 
 const formatValue = (value: string) =>
@@ -124,7 +130,13 @@ const formatValue = (value: string) =>
     .replace(/_/g, " ")
     .replace(/\s+/g, " ")
     .trim()
-    .replace(/^./, (s) => s.toUpperCase());
+    .replace(/^./, (s) => s.toUpperCase())
+    .replace(/\bAca\b/g, "ACA")
+    .replace(/\bDsm\b/g, "DSM")
+    .replace(/\bHipaa\b/g, "HIPAA")
+    .replace(/\bFerpa\b/g, "FERPA")
+    .replace(/\bMse\b/g, "MSE")
+    .replace(/\bRoi\b/g, "ROI");
 
 const pillListKeys = new Set([
   "commonDistortions",
