@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { useOutletContext, useLocation } from "react-router-dom";
 import { libraryModules, LibraryModule, LibraryCategory, categoryOrder } from "@/data/library-modules";
 import { Card, CardContent } from "@/components/ui/card";
@@ -109,13 +109,16 @@ const LibraryModuleDetail = ({ module, onBack }: { module: LibraryModule; onBack
 const Library = () => {
   const [selectedModule, setSelectedModule] = useState<LibraryModule | null>(null);
   const location = useLocation();
+  const previousPathname = useRef(location.pathname);
   const [search, setSearch] = useState("");
 
-  // Reset to library index whenever the user re-navigates to /library
-  // (e.g. clicking "Learning Library" in the sidebar while viewing a module)
+  // Reset to library index only on real /library re-navigation, not section hash jumps.
   useEffect(() => {
-    setSelectedModule(null);
-  }, [location.key]);
+    if (location.pathname === previousPathname.current && !location.hash) {
+      setSelectedModule(null);
+    }
+    previousPathname.current = location.pathname;
+  }, [location.key, location.pathname, location.hash]);
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
   const [sort, setSort] = useState<"default" | "az" | "za">("default");
 

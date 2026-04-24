@@ -2,7 +2,7 @@
   "moduleId": "dsm-5-tr-diagnoses",
   "moduleTitle": "DSM-5-TR Diagnoses",
   "moduleType": "learning_library",
-  "version": "1.0",
+  "version": "1.1",
   "exam": {
     "name": "NCMHCE",
     "formatAlignment": {
@@ -86,7 +86,7 @@
         {
           "id": "mdd",
           "title": "Major Depressive Disorder (MDD)",
-          "description": "Major Depressive Disorder is a mood disorder marked by one or more episodes of persistent sadness or loss of interest that lasts at least two weeks and significantly disrupts work, relationships, sleep, appetite, energy, and self-worth. It is more than ordinary sadness \u2014 symptoms are pervasive, nearly daily, and represent a clear change from how the person normally functions. MDD can occur as a single episode or recur throughout life, and it carries meaningful suicide risk that must always be assessed.",
+          "description": "Major Depressive Disorder is a mood disorder marked by one or more episodes of persistent sadness or loss of interest that lasts at least two weeks and significantly disrupts work, relationships, sleep, appetite, energy, and self-worth. It is more than ordinary sadness — symptoms are pervasive, nearly daily, and represent a clear change from how the person normally functions. MDD can occur as a single episode or recur throughout life, and it carries meaningful suicide risk that must always be assessed.",
           "hallmark": "At least 5 symptoms during the same 2-week period, with at least one being depressed mood or loss of interest/pleasure.",
           "coreCriteria": [
             "Depressed mood most of the day, nearly every day",
@@ -177,7 +177,7 @@
         {
           "id": "dmdd",
           "title": "Disruptive Mood Dysregulation Disorder (DMDD)",
-          "description": "Disruptive Mood Dysregulation Disorder is a childhood diagnosis (onset before age 10, diagnosed between ages 6\u201318) characterized by severe, recurrent temper outbursts that are grossly out of proportion to the situation, occurring three or more times per week, with a persistently irritable or angry mood between outbursts. It was created to reduce over-diagnosis of pediatric bipolar disorder in children with chronic irritability rather than discrete manic episodes.",
+          "description": "Disruptive Mood Dysregulation Disorder is a childhood diagnosis (onset before age 10, diagnosed between ages 6–18) characterized by severe, recurrent temper outbursts that are grossly out of proportion to the situation, occurring three or more times per week, with a persistently irritable or angry mood between outbursts. It was created to reduce over-diagnosis of pediatric bipolar disorder in children with chronic irritability rather than discrete manic episodes.",
           "hallmark": "Severe recurrent temper outbursts with persistent irritability in children and adolescents.",
           "coreCriteria": [
             "Severe verbal or behavioral temper outbursts grossly out of proportion to the situation",
@@ -194,6 +194,26 @@
           "examClues": [
             "Chronic irritability is the key, not episodic mania.",
             "Developed partly to reduce overdiagnosis of pediatric bipolar disorder."
+          ]
+        },
+        {
+          "id": "premenstrual_dysphoric_disorder",
+          "title": "Premenstrual Dysphoric Disorder (PMDD)",
+          "description": "PMDD is a cyclical mood disorder in which affective, cognitive, and physical symptoms occur in the final week before menses, improve shortly after onset of menses, and become minimal or absent postmenses. It is clinically significant because symptoms cause distress or impairment and are not simply an exacerbation of another disorder.",
+          "hallmark": "Mood lability, irritability, depressed mood, or anxiety tied predictably to the premenstrual phase.",
+          "coreCriteria": [
+            "At least 5 symptoms in most menstrual cycles",
+            "At least one core mood symptom: affective lability, irritability/anger, depressed mood, or anxiety/tension",
+            "Symptoms improve within a few days after menses begins",
+            "Clinically significant distress or impairment"
+          ],
+          "mustRuleOut": [
+            "MDD or anxiety disorder exacerbation",
+            "Substance/medication effects",
+            "Medical or gynecologic causes"
+          ],
+          "examClues": [
+            "Timing across the menstrual cycle is the exam clue."
           ]
         }
       ],
@@ -216,7 +236,7 @@
         {
           "id": "gad",
           "title": "Generalized Anxiety Disorder (GAD)",
-          "description": "Generalized Anxiety Disorder is characterized by excessive, hard-to-control worry about multiple everyday concerns (work, health, finances, family) occurring more days than not for at least six months. The worry is accompanied by physical and cognitive symptoms \u2014 restlessness, fatigue, muscle tension, irritability, sleep disturbance, and difficulty concentrating \u2014 and causes meaningful impairment. Unlike panic disorder, the anxiety is chronic and diffuse rather than episodic.",
+          "description": "Generalized Anxiety Disorder is characterized by excessive, hard-to-control worry about multiple everyday concerns (work, health, finances, family) occurring more days than not for at least six months. The worry is accompanied by physical and cognitive symptoms — restlessness, fatigue, muscle tension, irritability, sleep disturbance, and difficulty concentrating — and causes meaningful impairment. Unlike panic disorder, the anxiety is chronic and diffuse rather than episodic.",
           "hallmark": "Excessive anxiety and worry about multiple areas of life occurring more days than not for at least 6 months.",
           "coreCriteria": [
             "Excessive anxiety and worry occurring more days than not for 6 months or more",
@@ -245,7 +265,7 @@
         {
           "id": "panic_disorder",
           "title": "Panic Disorder",
-          "description": "Panic Disorder involves recurrent, unexpected panic attacks \u2014 sudden surges of intense fear or discomfort that peak within minutes and include physical symptoms such as racing heart, shortness of breath, chest pain, dizziness, sweating, trembling, and a sense of impending doom or losing control. To meet criteria, at least one attack must be followed by a month or more of persistent worry about additional attacks, fear of their consequences (e.g., 'having a heart attack,' 'going crazy'), or significant behavior change to avoid them. The attacks come 'out of the blue,' which distinguishes panic disorder from situationally-cued anxiety.",
+          "description": "Panic Disorder involves recurrent, unexpected panic attacks — sudden surges of intense fear or discomfort that peak within minutes and include physical symptoms such as racing heart, shortness of breath, chest pain, dizziness, sweating, trembling, and a sense of impending doom or losing control. To meet criteria, at least one attack must be followed by a month or more of persistent worry about additional attacks, fear of their consequences (e.g., 'having a heart attack,' 'going crazy'), or significant behavior change to avoid them. The attacks come 'out of the blue,' which distinguishes panic disorder from situationally-cued anxiety.",
           "hallmark": "Recurrent unexpected panic attacks plus persistent concern or maladaptive behavior change related to future attacks.",
           "coreCriteria": [
             "Recurrent unexpected panic attacks",
@@ -284,7 +304,7 @@
         {
           "id": "social_anxiety",
           "title": "Social Anxiety Disorder",
-          "description": "Social Anxiety Disorder (Social Phobia) is a persistent, intense fear of one or more social or performance situations in which the person may be scrutinized or judged by others \u2014 speaking, eating, meeting strangers, performing. The feared situations almost always provoke anxiety, are avoided or endured with distress, and the fear is out of proportion to the actual threat. Symptoms must last six months or more and cause meaningful impairment. A 'performance only' specifier exists for those whose fear is limited to public speaking or performance.",
+          "description": "Social Anxiety Disorder (Social Phobia) is a persistent, intense fear of one or more social or performance situations in which the person may be scrutinized or judged by others — speaking, eating, meeting strangers, performing. The feared situations almost always provoke anxiety, are avoided or endured with distress, and the fear is out of proportion to the actual threat. Symptoms must last six months or more and cause meaningful impairment. A 'performance only' specifier exists for those whose fear is limited to public speaking or performance.",
           "hallmark": "Marked fear of social situations involving possible scrutiny and fear of negative evaluation.",
           "coreCriteria": [
             "Marked fear or anxiety about one or more social situations where scrutiny is possible",
@@ -335,7 +355,7 @@
         {
           "id": "agoraphobia",
           "title": "Agoraphobia",
-          "description": "Agoraphobia is marked fear or anxiety about two or more situations where escape may be difficult or help unavailable if panic-like or incapacitating symptoms occur \u2014 using public transportation, being in open or enclosed spaces, standing in line or in crowds, or being outside the home alone. These situations are avoided, require a companion, or are endured with intense fear. Symptoms must last six months or more. It can occur with or without panic disorder.",
+          "description": "Agoraphobia is marked fear or anxiety about two or more situations where escape may be difficult or help unavailable if panic-like or incapacitating symptoms occur — using public transportation, being in open or enclosed spaces, standing in line or in crowds, or being outside the home alone. These situations are avoided, require a companion, or are endured with intense fear. Symptoms must last six months or more. It can occur with or without panic disorder.",
           "hallmark": "Fear or avoidance of situations where escape may be difficult or help unavailable if panic-like symptoms occur.",
           "coreCriteria": [
             "Marked fear or anxiety about 2 or more of the following: public transportation, open spaces, enclosed spaces, lines/crowds, being outside home alone",
@@ -360,6 +380,26 @@
             "Can occur in adults, not only children.",
             "In adults, the feared attachment figure may be a spouse, child, or partner."
           ]
+        },
+        {
+          "id": "selective_mutism",
+          "title": "Selective Mutism",
+          "description": "Selective Mutism is an anxiety disorder in which a child consistently fails to speak in specific social settings where speaking is expected, despite speaking in other settings. It interferes with school, social communication, or achievement and is not due to lack of language knowledge.",
+          "hallmark": "Speaks in some settings but persistently does not speak in expected social settings.",
+          "coreCriteria": [
+            "Consistent failure to speak in specific social situations",
+            "Speaking occurs in other situations",
+            "Interferes with educational, occupational, or social functioning",
+            "Duration at least 1 month, not limited to the first month of school"
+          ],
+          "mustRuleOut": [
+            "Communication disorder",
+            "Autism spectrum disorder",
+            "Lack of language knowledge"
+          ],
+          "examClues": [
+            "Child talks normally at home but not at school."
+          ]
         }
       ],
       "redFlags": [
@@ -383,7 +423,7 @@
         {
           "id": "ptsd",
           "title": "Posttraumatic Stress Disorder (PTSD)",
-          "description": "Posttraumatic Stress Disorder develops after exposure to actual or threatened death, serious injury, or sexual violence \u2014 through direct experience, witnessing, learning of a close other's traumatic event, or repeated exposure to aversive details (as in first responders). Symptoms last more than one month and fall into four clusters: intrusion (flashbacks, nightmares, intrusive memories), avoidance of trauma reminders, negative alterations in cognition and mood, and marked arousal and reactivity (hypervigilance, exaggerated startle, irritability, sleep disturbance). PTSD impairs daily functioning and often co-occurs with depression and substance use.",
+          "description": "Posttraumatic Stress Disorder develops after exposure to actual or threatened death, serious injury, or sexual violence — through direct experience, witnessing, learning of a close other's traumatic event, or repeated exposure to aversive details (as in first responders). Symptoms last more than one month and fall into four clusters: intrusion (flashbacks, nightmares, intrusive memories), avoidance of trauma reminders, negative alterations in cognition and mood, and marked arousal and reactivity (hypervigilance, exaggerated startle, irritability, sleep disturbance). PTSD impairs daily functioning and often co-occurs with depression and substance use.",
           "hallmark": "Symptoms following exposure to actual or threatened death, serious injury, or sexual violence, lasting more than 1 month.",
           "traumaExposureWays": [
             "direct exposure",
@@ -453,7 +493,7 @@
         {
           "id": "acute_stress_disorder",
           "title": "Acute Stress Disorder",
-          "description": "Acute Stress Disorder presents with PTSD-like symptoms \u2014 intrusion, negative mood, dissociation, avoidance, and arousal \u2014 that begin within days of a traumatic event and last from 3 days to 1 month. If symptoms persist beyond one month, the diagnosis is reconsidered as PTSD. ASD identifies people in the early aftermath of trauma who may benefit from early intervention.",
+          "description": "Acute Stress Disorder presents with PTSD-like symptoms — intrusion, negative mood, dissociation, avoidance, and arousal — that begin within days of a traumatic event and last from 3 days to 1 month. If symptoms persist beyond one month, the diagnosis is reconsidered as PTSD. ASD identifies people in the early aftermath of trauma who may benefit from early intervention.",
           "hallmark": "Trauma-related symptoms lasting from 3 days to 1 month after the trauma.",
           "coreCriteria": [
             "Exposure to trauma",
@@ -468,7 +508,7 @@
         {
           "id": "adjustment_disorder",
           "title": "Adjustment Disorder",
-          "description": "Adjustment Disorder is the development of emotional or behavioral symptoms (depressed mood, anxiety, conduct disturbance) in response to an identifiable stressor \u2014 job loss, divorce, illness, relocation \u2014 within three months of the stressor's onset. Symptoms cause distress out of proportion to the stressor or significant impairment but do not meet criteria for another mental disorder and are not normal bereavement. Symptoms resolve within six months after the stressor (or its consequences) ends.",
+          "description": "Adjustment Disorder is the development of emotional or behavioral symptoms (depressed mood, anxiety, conduct disturbance) in response to an identifiable stressor — job loss, divorce, illness, relocation — within three months of the stressor's onset. Symptoms cause distress out of proportion to the stressor or significant impairment but do not meet criteria for another mental disorder and are not normal bereavement. Symptoms resolve within six months after the stressor (or its consequences) ends.",
           "hallmark": "Emotional or behavioral symptoms in response to an identifiable stressor occurring within 3 months of the stressor.",
           "coreCriteria": [
             "Symptoms begin within 3 months of the stressor",
@@ -575,6 +615,45 @@
             "Living spaces become unusable.",
             "Family conflict and safety issues are common clues."
           ]
+        },
+        {
+          "id": "trichotillomania",
+          "title": "Trichotillomania (Hair-Pulling Disorder)",
+          "description": "Trichotillomania involves recurrent pulling out of one’s hair resulting in hair loss, with repeated attempts to decrease or stop the behavior. The behavior may be automatic or focused and often increases with tension or emotional distress.",
+          "hallmark": "Recurrent hair pulling causing hair loss plus attempts to stop.",
+          "coreCriteria": [
+            "Recurrent hair pulling resulting in hair loss",
+            "Repeated attempts to decrease or stop pulling",
+            "Distress or impairment",
+            "Not attributable to a medical condition or another mental disorder"
+          ],
+          "mustRuleOut": [
+            "Body dysmorphic disorder-driven hair removal",
+            "Medical dermatologic conditions"
+          ],
+          "examClues": [
+            "Patchy hair loss plus shame or attempts to hide it."
+          ]
+        },
+        {
+          "id": "excoriation",
+          "title": "Excoriation (Skin-Picking) Disorder",
+          "description": "Excoriation disorder involves recurrent skin picking that causes lesions, with repeated attempts to reduce or stop. It is grouped with OCD-related disorders because the behavior is repetitive and difficult to control.",
+          "hallmark": "Recurrent skin picking causing lesions plus unsuccessful attempts to stop.",
+          "coreCriteria": [
+            "Recurrent skin picking resulting in skin lesions",
+            "Repeated attempts to decrease or stop",
+            "Distress or impairment",
+            "Not due to substance, medical condition, or another mental disorder"
+          ],
+          "mustRuleOut": [
+            "Substance-induced picking",
+            "Medical dermatologic condition",
+            "Psychotic delusions or BDD-focused behavior"
+          ],
+          "examClues": [
+            "Look for repeated picking, lesions, and failed stopping attempts."
+          ]
         }
       ],
       "redFlags": [
@@ -596,7 +675,7 @@
         {
           "id": "schizophrenia",
           "title": "Schizophrenia",
-          "description": "Schizophrenia is a chronic psychotic disorder defined by the presence of two or more characteristic symptoms \u2014 delusions, hallucinations, disorganized speech, grossly disorganized or catatonic behavior, and negative symptoms \u2014 for a significant portion of one month, with continuous signs of disturbance lasting at least six months. At least one symptom must be delusions, hallucinations, or disorganized speech. Functioning in work, relationships, or self-care is markedly below the prior level. Onset is typically in late adolescence or early adulthood.",
+          "description": "Schizophrenia is a chronic psychotic disorder defined by the presence of two or more characteristic symptoms — delusions, hallucinations, disorganized speech, grossly disorganized or catatonic behavior, and negative symptoms — for a significant portion of one month, with continuous signs of disturbance lasting at least six months. At least one symptom must be delusions, hallucinations, or disorganized speech. Functioning in work, relationships, or self-care is markedly below the prior level. Onset is typically in late adolescence or early adulthood.",
           "hallmark": "Two or more core psychotic symptoms for at least 1 month, with continuous signs of disturbance for at least 6 months and functional decline.",
           "coreCriteria": [
             "Two or more of the following for a significant portion of 1 month: delusions, hallucinations, disorganized speech, grossly disorganized/catatonic behavior, negative symptoms",
@@ -667,6 +746,47 @@
             "The psychosis persists even when mood symptoms are absent.",
             "This is what separates it from mood disorder with psychotic features."
           ]
+        },
+        {
+          "id": "schizophreniform",
+          "title": "Schizophreniform Disorder",
+          "description": "Schizophreniform disorder has the same core symptom profile as schizophrenia but lasts at least 1 month and less than 6 months. It is often tested as a duration distinction between brief psychotic disorder and schizophrenia.",
+          "hallmark": "Schizophrenia-like symptoms lasting 1 to 6 months.",
+          "coreCriteria": [
+            "Two or more psychotic symptoms such as delusions, hallucinations, disorganized speech, grossly disorganized/catatonic behavior, or negative symptoms",
+            "At least one symptom is delusions, hallucinations, or disorganized speech",
+            "Episode lasts at least 1 month but less than 6 months"
+          ],
+          "mustRuleOut": [
+            "Brief psychotic disorder",
+            "Schizophrenia",
+            "Mood disorder with psychotic features",
+            "Substance/medical causes"
+          ],
+          "examClues": [
+            "Duration is the key."
+          ]
+        },
+        {
+          "id": "delusional_disorder",
+          "title": "Delusional Disorder",
+          "description": "Delusional disorder involves one or more delusions lasting at least 1 month without the broader disorganization, negative symptoms, or marked functional decline typical of schizophrenia. Functioning may appear relatively intact outside the delusional belief.",
+          "hallmark": "Persistent delusion(s) for at least 1 month with no full schizophrenia picture.",
+          "coreCriteria": [
+            "One or more delusions for 1 month or longer",
+            "Criterion A for schizophrenia has never been met",
+            "Functioning is not markedly impaired apart from impact of delusion",
+            "Behavior is not obviously bizarre or odd outside delusional theme"
+          ],
+          "mustRuleOut": [
+            "Schizophrenia",
+            "Mood disorder with psychotic features",
+            "Substance/medical causes",
+            "OCD or BDD with absent insight"
+          ],
+          "examClues": [
+            "A fixed false belief with otherwise organized presentation."
+          ]
         }
       ],
       "redFlags": [
@@ -688,7 +808,7 @@
         {
           "id": "bipolar_i",
           "title": "Bipolar I Disorder",
-          "description": "Bipolar I Disorder requires at least one lifetime manic episode \u2014 a distinct period of abnormally elevated, expansive, or irritable mood and increased energy lasting at least one week (or any duration if hospitalization is required), accompanied by symptoms such as decreased need for sleep, grandiosity, pressured speech, racing thoughts, distractibility, increased goal-directed activity, and excessive involvement in risky pleasurable activities. Depressive episodes are common but not required for the diagnosis.",
+          "description": "Bipolar I Disorder requires at least one lifetime manic episode — a distinct period of abnormally elevated, expansive, or irritable mood and increased energy lasting at least one week (or any duration if hospitalization is required), accompanied by symptoms such as decreased need for sleep, grandiosity, pressured speech, racing thoughts, distractibility, increased goal-directed activity, and excessive involvement in risky pleasurable activities. Depressive episodes are common but not required for the diagnosis.",
           "hallmark": "At least one manic episode, with or without major depressive episodes.",
           "manicEpisodeCriteria": [
             "Distinct period of abnormally elevated, expansive, or irritable mood and increased goal-directed activity or energy",
@@ -718,7 +838,7 @@
         {
           "id": "bipolar_ii",
           "title": "Bipolar II Disorder",
-          "description": "Bipolar II Disorder requires at least one hypomanic episode (lasting at least four consecutive days, with similar but less severe symptoms than mania, no psychosis, and no marked impairment or hospitalization) AND at least one major depressive episode. The person has never had a full manic episode \u2014 that would convert the diagnosis to Bipolar I. Depression is typically the more disabling and presenting feature.",
+          "description": "Bipolar II Disorder requires at least one hypomanic episode (lasting at least four consecutive days, with similar but less severe symptoms than mania, no psychosis, and no marked impairment or hospitalization) AND at least one major depressive episode. The person has never had a full manic episode — that would convert the diagnosis to Bipolar I. Depression is typically the more disabling and presenting feature.",
           "hallmark": "At least one hypomanic episode and at least one major depressive episode, with no history of mania.",
           "hypomaniaCriteria": [
             "Elevated, expansive, or irritable mood and increased energy/activity",
@@ -741,7 +861,7 @@
         {
           "id": "cyclothymic",
           "title": "Cyclothymic Disorder",
-          "description": "Cyclothymic Disorder is a chronic mood disorder in which the person experiences numerous periods of hypomanic symptoms and numerous periods of depressive symptoms \u2014 neither of which fully meet criteria for a hypomanic, manic, or major depressive episode \u2014 for at least two years in adults (one year in youth). Symptoms are present at least half the time, with no symptom-free interval longer than two months.",
+          "description": "Cyclothymic Disorder is a chronic mood disorder in which the person experiences numerous periods of hypomanic symptoms and numerous periods of depressive symptoms — neither of which fully meet criteria for a hypomanic, manic, or major depressive episode — for at least two years in adults (one year in youth). Symptoms are present at least half the time, with no symptom-free interval longer than two months.",
           "hallmark": "At least 2 years of numerous periods with hypomanic symptoms and depressive symptoms that never meet full criteria for episodes.",
           "coreCriteria": [
             "For at least 2 years, numerous periods of hypomanic symptoms and periods of depressive symptoms",
@@ -865,7 +985,7 @@
         {
           "id": "ocpd",
           "title": "Obsessive-Compulsive Personality Disorder (OCPD)",
-          "description": "Obsessive-Compulsive Personality Disorder is a pervasive pattern of preoccupation with orderliness, perfectionism, and mental and interpersonal control, at the expense of flexibility, openness, and efficiency. Unlike OCD, there are no true obsessions or compulsions \u2014 the rigidity is ego-syntonic, meaning the person sees their standards and control as appropriate rather than distressing.",
+          "description": "Obsessive-Compulsive Personality Disorder is a pervasive pattern of preoccupation with orderliness, perfectionism, and mental and interpersonal control, at the expense of flexibility, openness, and efficiency. Unlike OCD, there are no true obsessions or compulsions — the rigidity is ego-syntonic, meaning the person sees their standards and control as appropriate rather than distressing.",
           "hallmark": "Preoccupation with orderliness, perfectionism, and control at the expense of flexibility and efficiency.",
           "coreFeatures": [
             "preoccupation with rules and details",
@@ -878,6 +998,171 @@
           "examClues": [
             "OCPD is ego-syntonic; the person often sees the style as appropriate.",
             "Differentiate from OCD, where obsessions and compulsions are unwanted and distressing."
+          ]
+        },
+        {
+          "id": "paranoid_personality",
+          "title": "Paranoid Personality Disorder",
+          "description": "Paranoid Personality Disorder is a Cluster A disorder marked by pervasive distrust and suspiciousness such that others’ motives are interpreted as malevolent. The client may be guarded, unforgiving, and preoccupied with doubts about loyalty.",
+          "hallmark": "Pervasive distrust and suspicious interpretation of others.",
+          "coreCriteria": [
+            "Suspiciousness without sufficient basis",
+            "Doubts loyalty or trustworthiness",
+            "Reluctance to confide",
+            "Reads hidden threatening meanings into benign events",
+            "Bears grudges or perceives attacks"
+          ],
+          "mustRuleOut": [
+            "Delusional disorder",
+            "Schizophrenia spectrum disorders",
+            "PTSD-related hypervigilance"
+          ],
+          "examClues": [
+            "Distrust is pervasive and personality-based, not a single delusion."
+          ]
+        },
+        {
+          "id": "schizoid_personality",
+          "title": "Schizoid Personality Disorder",
+          "description": "Schizoid Personality Disorder is a Cluster A disorder involving detachment from social relationships and restricted emotional expression. The client often prefers solitary activities and appears indifferent to praise, criticism, or intimacy.",
+          "hallmark": "Detached, solitary, emotionally restricted interpersonal style.",
+          "coreCriteria": [
+            "Neither desires nor enjoys close relationships",
+            "Almost always chooses solitary activities",
+            "Little interest in sexual experiences",
+            "Few activities bring pleasure",
+            "Lacks close friends",
+            "Appears indifferent to praise or criticism",
+            "Emotional coldness or flattened affect"
+          ],
+          "mustRuleOut": [
+            "Autism spectrum disorder",
+            "Avoidant personality disorder",
+            "Depression"
+          ],
+          "examClues": [
+            "Not anxious avoidance; the person usually does not desire closeness."
+          ]
+        },
+        {
+          "id": "schizotypal_personality",
+          "title": "Schizotypal Personality Disorder",
+          "description": "Schizotypal Personality Disorder is a Cluster A disorder marked by social/interpersonal deficits plus cognitive or perceptual distortions and eccentric behavior. It may include ideas of reference, odd beliefs, unusual perceptual experiences, and suspiciousness without meeting criteria for a psychotic disorder.",
+          "hallmark": "Eccentric behavior plus odd beliefs/perceptions and social deficits.",
+          "coreCriteria": [
+            "Ideas of reference",
+            "Odd beliefs or magical thinking",
+            "Unusual perceptual experiences",
+            "Odd thinking and speech",
+            "Suspiciousness",
+            "Inappropriate or constricted affect",
+            "Odd appearance or behavior",
+            "Few close friends",
+            "Social anxiety related to paranoid fears"
+          ],
+          "mustRuleOut": [
+            "Schizophrenia",
+            "Autism spectrum disorder",
+            "Delusional disorder"
+          ],
+          "examClues": [
+            "Magical thinking and eccentricity are key clues."
+          ]
+        },
+        {
+          "id": "narcissistic_personality",
+          "title": "Narcissistic Personality Disorder",
+          "description": "Narcissistic Personality Disorder is a Cluster B disorder involving grandiosity, need for admiration, and lack of empathy. The client may appear entitled, exploitative, envious, or preoccupied with fantasies of success or power.",
+          "hallmark": "Grandiosity, admiration seeking, entitlement, and limited empathy.",
+          "coreCriteria": [
+            "Grandiose sense of self-importance",
+            "Fantasies of unlimited success, power, brilliance, beauty, or ideal love",
+            "Believes they are special",
+            "Requires excessive admiration",
+            "Sense of entitlement",
+            "Interpersonally exploitative",
+            "Lacks empathy",
+            "Envious or believes others envy them",
+            "Arrogant behaviors or attitudes"
+          ],
+          "mustRuleOut": [
+            "Bipolar mania",
+            "Antisocial personality disorder",
+            "Histrionic personality disorder"
+          ],
+          "examClues": [
+            "Grandiosity is enduring, not episodic mania."
+          ]
+        },
+        {
+          "id": "histrionic_personality",
+          "title": "Histrionic Personality Disorder",
+          "description": "Histrionic Personality Disorder is a Cluster B disorder marked by excessive emotionality and attention-seeking. Presentation may include dramatic expression, discomfort when not the center of attention, and impressionistic speech.",
+          "hallmark": "Pervasive attention-seeking and rapidly shifting, theatrical emotion.",
+          "coreCriteria": [
+            "Uncomfortable when not center of attention",
+            "Inappropriately seductive or provocative behavior",
+            "Rapidly shifting shallow emotions",
+            "Uses appearance to draw attention",
+            "Impressionistic speech lacking detail",
+            "Dramatic or theatrical expression",
+            "Suggestible",
+            "Considers relationships more intimate than they are"
+          ],
+          "mustRuleOut": [
+            "Borderline personality disorder",
+            "Narcissistic personality disorder",
+            "Substance intoxication or mania"
+          ],
+          "examClues": [
+            "Attention-seeking is central."
+          ]
+        },
+        {
+          "id": "avoidant_personality",
+          "title": "Avoidant Personality Disorder",
+          "description": "Avoidant Personality Disorder is a Cluster C disorder involving social inhibition, feelings of inadequacy, and hypersensitivity to negative evaluation. Unlike schizoid personality disorder, the person wants connection but avoids it due to fear of rejection or embarrassment.",
+          "hallmark": "Wants relationships but avoids them due to fear of criticism or rejection.",
+          "coreCriteria": [
+            "Avoids interpersonal contact due to fear of criticism",
+            "Unwilling to get involved unless certain of being liked",
+            "Restrained in intimate relationships",
+            "Preoccupied with criticism or rejection",
+            "Inhibited in new interpersonal situations",
+            "Views self as socially inept or inferior",
+            "Reluctant to take personal risks"
+          ],
+          "mustRuleOut": [
+            "Social anxiety disorder",
+            "Schizoid personality disorder",
+            "Dependent personality disorder"
+          ],
+          "examClues": [
+            "Desire for closeness differentiates it from schizoid."
+          ]
+        },
+        {
+          "id": "dependent_personality",
+          "title": "Dependent Personality Disorder",
+          "description": "Dependent Personality Disorder is a Cluster C disorder characterized by an excessive need to be taken care of, leading to submissive/clinging behavior and fears of separation. The person may struggle to make decisions without reassurance and tolerate poor treatment to avoid abandonment.",
+          "hallmark": "Excessive need to be cared for with submissive, clingy behavior.",
+          "coreCriteria": [
+            "Difficulty making everyday decisions without reassurance",
+            "Needs others to assume responsibility",
+            "Difficulty disagreeing due to fear of loss of support",
+            "Difficulty initiating projects independently",
+            "Goes to excessive lengths to obtain nurturance/support",
+            "Feels helpless when alone",
+            "Urgently seeks another relationship when one ends",
+            "Preoccupied with fears of being left to care for self"
+          ],
+          "mustRuleOut": [
+            "Borderline personality disorder",
+            "Separation anxiety disorder",
+            "Normative dependency in context"
+          ],
+          "examClues": [
+            "Decision paralysis and need for reassurance are common clues."
           ]
         }
       ],
@@ -900,7 +1185,7 @@
         {
           "id": "substance_use_disorder",
           "title": "Substance Use Disorder (General Framework)",
-          "description": "Substance Use Disorder is a problematic pattern of substance use leading to clinically significant impairment or distress, manifested by at least 2 of 11 criteria within a 12-month period across four domains: impaired control (using more than intended, unable to cut down, time spent obtaining/using/recovering, craving), social impairment (failure in roles, social/interpersonal problems, giving up activities), risky use (use in hazardous situations, continued use despite problems), and pharmacological criteria (tolerance, withdrawal). Severity is mild (2\u20133), moderate (4\u20135), or severe (6+).",
+          "description": "Substance Use Disorder is a problematic pattern of substance use leading to clinically significant impairment or distress, manifested by at least 2 of 11 criteria within a 12-month period across four domains: impaired control (using more than intended, unable to cut down, time spent obtaining/using/recovering, craving), social impairment (failure in roles, social/interpersonal problems, giving up activities), risky use (use in hazardous situations, continued use despite problems), and pharmacological criteria (tolerance, withdrawal). Severity is mild (2–3), moderate (4–5), or severe (6+).",
           "hallmark": "Problematic pattern of use leading to clinically significant impairment or distress, with at least 2 criteria within 12 months.",
           "criteriaDomains": {
             "impairedControl": [
@@ -1033,6 +1318,66 @@
           "examClues": [
             "Adaptive functioning is central, not IQ alone."
           ]
+        },
+        {
+          "id": "specific_learning_disorder",
+          "title": "Specific Learning Disorder",
+          "description": "Specific Learning Disorder involves persistent difficulties learning and using academic skills, such as reading, written expression, or mathematics, despite targeted support. It begins during school-age years and is not explained by intellectual disability, sensory problems, or inadequate instruction.",
+          "hallmark": "Persistent impairment in reading, writing, or math despite intervention.",
+          "coreCriteria": [
+            "Academic skill difficulty persists at least 6 months despite targeted help",
+            "Affected skills are substantially below age expectations",
+            "Begins during school-age years",
+            "Not better explained by intellectual disability, sensory deficits, or lack of instruction"
+          ],
+          "mustRuleOut": [
+            "Intellectual disability",
+            "ADHD alone",
+            "Insufficient instruction or language barriers"
+          ],
+          "examClues": [
+            "Specify reading, written expression, or mathematics."
+          ]
+        },
+        {
+          "id": "tic_disorders",
+          "title": "Tourette’s Disorder / Persistent Tic Disorders",
+          "description": "Tic disorders involve sudden, rapid, recurrent, nonrhythmic motor movements or vocalizations. Tourette’s disorder requires both multiple motor tics and at least one vocal tic, present for more than one year, with onset before age 18.",
+          "hallmark": "Motor and/or vocal tics, with Tourette’s requiring both types for over 1 year.",
+          "coreCriteria": [
+            "Sudden recurrent motor or vocal tics",
+            "Tourette’s: multiple motor tics and at least one vocal tic",
+            "Duration more than 1 year for Tourette’s or persistent tic disorder",
+            "Onset before age 18"
+          ],
+          "mustRuleOut": [
+            "Substance/medication effects",
+            "Medical neurological conditions",
+            "Compulsions in OCD"
+          ],
+          "examClues": [
+            "Tics are brief, sudden, and nonrhythmic."
+          ]
+        },
+        {
+          "id": "communication_disorders",
+          "title": "Communication Disorders",
+          "description": "Communication disorders include language disorder, speech sound disorder, childhood-onset fluency disorder, and social/pragmatic communication disorder. Exam questions usually test whether communication deficits are better explained by autism spectrum disorder, anxiety, hearing impairment, or language development problems.",
+          "hallmark": "Persistent deficits in language, speech, fluency, or social communication.",
+          "coreCriteria": [
+            "Deficits are developmentally inappropriate and impair communication, academics, work, or social participation",
+            "Onset in early developmental period",
+            "Not better explained by sensory impairment, neurological condition, or intellectual disability alone"
+          ],
+          "mustRuleOut": [
+            "Autism spectrum disorder",
+            "Selective mutism",
+            "Hearing impairment",
+            "Intellectual disability"
+          ],
+          "examClues": [
+            "Social pragmatic communication disorder lacks restricted/repetitive behaviors of ASD."
+          ]
         }
       ],
       "redFlags": [
@@ -1098,10 +1443,51 @@
         {
           "id": "arfid",
           "title": "Avoidant/Restrictive Food Intake Disorder (ARFID)",
-          "description": "Avoidant/Restrictive Food Intake Disorder is an eating or feeding disturbance \u2014 based on lack of interest in eating, sensory avoidance of food characteristics, or fear of aversive consequences (choking, vomiting) \u2014 that results in failure to meet nutritional or energy needs. Consequences include significant weight loss or failure to grow, nutritional deficiency, dependence on supplements or tube feeding, or marked psychosocial impairment. Unlike anorexia, there is no body image disturbance or fear of weight gain.",
+          "description": "Avoidant/Restrictive Food Intake Disorder is an eating or feeding disturbance — based on lack of interest in eating, sensory avoidance of food characteristics, or fear of aversive consequences (choking, vomiting) — that results in failure to meet nutritional or energy needs. Consequences include significant weight loss or failure to grow, nutritional deficiency, dependence on supplements or tube feeding, or marked psychosocial impairment. Unlike anorexia, there is no body image disturbance or fear of weight gain.",
           "hallmark": "Restricted intake causing nutritional or psychosocial impairment without body image distortion as the main driver.",
           "examClues": [
             "Often related to sensory aversion, fear of choking/vomiting, or low interest in eating, rather than weight/shape concerns."
+          ]
+        },
+        {
+          "id": "pica",
+          "title": "Pica",
+          "description": "Pica is a feeding and eating disorder involving persistent eating of nonnutritive, nonfood substances such as dirt, paper, paint, hair, or chalk for at least one month. It must be developmentally inappropriate and not culturally sanctioned. It may occur in children, pregnancy, intellectual disability, autism, or other clinical contexts and can create medical risks such as poisoning, obstruction, or infection.",
+          "hallmark": "Persistent eating of nonfood substances for at least 1 month.",
+          "coreCriteria": [
+            "Eating nonnutritive, nonfood substances for at least 1 month",
+            "Behavior is inappropriate to developmental level",
+            "Behavior is not culturally supported or socially normative",
+            "If occurring with another disorder or medical condition, it is severe enough to warrant separate clinical attention"
+          ],
+          "mustRuleOut": [
+            "Developmentally normal mouthing in infants/toddlers",
+            "Culturally sanctioned practices",
+            "OCD or psychosis-driven ingestion",
+            "Substance use or medical causes"
+          ],
+          "examClues": [
+            "The exam clue is nonfood ingestion plus developmental inappropriateness."
+          ]
+        },
+        {
+          "id": "rumination_disorder",
+          "title": "Rumination Disorder",
+          "description": "Rumination Disorder involves repeated regurgitation of food for at least one month. The food may be re-chewed, re-swallowed, or spit out, and the behavior is not due to a gastrointestinal or medical condition.",
+          "hallmark": "Repeated regurgitation of food for at least 1 month.",
+          "coreCriteria": [
+            "Repeated regurgitation of food over at least 1 month",
+            "Food may be re-chewed, re-swallowed, or spit out",
+            "Not attributable to gastrointestinal or other medical condition",
+            "Not occurring exclusively during anorexia, bulimia, binge eating disorder, or ARFID"
+          ],
+          "mustRuleOut": [
+            "GERD or medical GI disorder",
+            "Bulimia nervosa",
+            "ARFID"
+          ],
+          "examClues": [
+            "Regurgitation, not body-image-driven purging, is central."
           ]
         }
       ],
@@ -1124,7 +1510,7 @@
         {
           "id": "somatic_symptom_disorder",
           "title": "Somatic Symptom Disorder",
-          "description": "Somatic Symptom Disorder involves one or more somatic symptoms that are distressing or disrupt daily life, accompanied by excessive thoughts, feelings, or behaviors related to the symptoms \u2014 disproportionate and persistent thoughts about the seriousness of symptoms, persistently high anxiety about health, or excessive time and energy devoted to them. The state of being symptomatic is persistent (typically more than six months). The symptoms themselves may or may not be medically explained \u2014 what matters is the disproportionate response to them.",
+          "description": "Somatic Symptom Disorder involves one or more somatic symptoms that are distressing or disrupt daily life, accompanied by excessive thoughts, feelings, or behaviors related to the symptoms — disproportionate and persistent thoughts about the seriousness of symptoms, persistently high anxiety about health, or excessive time and energy devoted to them. The state of being symptomatic is persistent (typically more than six months). The symptoms themselves may or may not be medically explained — what matters is the disproportionate response to them.",
           "hallmark": "One or more distressing somatic symptoms plus excessive thoughts, feelings, or behaviors related to those symptoms.",
           "coreCriteria": [
             "One or more somatic symptoms that are distressing or disruptive",
@@ -1133,6 +1519,68 @@
           ],
           "examClues": [
             "The symptoms may or may not be medically explained. The key is the excessive psychological response."
+          ]
+        },
+        {
+          "id": "illness_anxiety_disorder",
+          "title": "Illness Anxiety Disorder",
+          "description": "Illness Anxiety Disorder involves preoccupation with having or acquiring a serious illness despite absent or mild somatic symptoms. Health anxiety remains high even after reassurance, and the person either excessively checks health status or avoids medical care.",
+          "hallmark": "High illness preoccupation with minimal or no somatic symptoms.",
+          "coreCriteria": [
+            "Preoccupation with having/acquiring serious illness",
+            "Somatic symptoms absent or mild",
+            "High anxiety about health",
+            "Excessive health behaviors or maladaptive avoidance",
+            "Illness preoccupation present at least 6 months"
+          ],
+          "mustRuleOut": [
+            "Somatic symptom disorder",
+            "Panic disorder",
+            "OCD",
+            "Delusional disorder"
+          ],
+          "examClues": [
+            "If symptoms are minimal but illness fear is high, think illness anxiety."
+          ]
+        },
+        {
+          "id": "functional_neurological_symptom_disorder",
+          "title": "Functional Neurological Symptom Disorder (Conversion Disorder)",
+          "description": "Functional Neurological Symptom Disorder involves neurological-like symptoms such as weakness, paralysis, seizures, sensory loss, or abnormal movement that are incompatible with recognized neurological or medical conditions. Symptoms are real to the client and cause distress or impairment.",
+          "hallmark": "Neurological symptoms inconsistent with medical disease patterns.",
+          "coreCriteria": [
+            "One or more symptoms of altered voluntary motor or sensory function",
+            "Clinical findings show incompatibility with recognized neurological or medical conditions",
+            "Not better explained by another medical or mental disorder",
+            "Causes distress, impairment, or warrants evaluation"
+          ],
+          "mustRuleOut": [
+            "Neurological disease",
+            "Malingering",
+            "Factitious disorder",
+            "Panic attacks"
+          ],
+          "examClues": [
+            "Do not imply the client is faking; symptoms are not intentionally produced."
+          ]
+        },
+        {
+          "id": "factitious_disorder",
+          "title": "Factitious Disorder",
+          "description": "Factitious Disorder involves falsification of physical or psychological symptoms, or induction of injury/disease, without obvious external rewards. The motivation is to assume the sick role, which differentiates it from malingering.",
+          "hallmark": "Intentional symptom falsification without clear external reward.",
+          "coreCriteria": [
+            "Falsification of symptoms or induction of illness/injury",
+            "Presents self or another as ill, impaired, or injured",
+            "Deceptive behavior occurs without obvious external rewards"
+          ],
+          "mustRuleOut": [
+            "Malingering",
+            "Somatic symptom disorder",
+            "Medical illness"
+          ],
+          "examClues": [
+            "No obvious external incentive = factitious; external gain = malingering."
           ]
         }
       ],
@@ -1163,6 +1611,92 @@
           "examClues": [
             "A history of conduct disorder before age 15 is necessary for later ASPD diagnosis."
           ]
+        },
+        {
+          "id": "oppositional_defiant_disorder",
+          "title": "Oppositional Defiant Disorder (ODD)",
+          "description": "Oppositional Defiant Disorder is a childhood/adolescent disorder involving a persistent pattern of angry/irritable mood, argumentative/defiant behavior, or vindictiveness toward authority figures. It does not include the serious violation of rights or major societal rules seen in conduct disorder.",
+          "hallmark": "Angry, defiant, argumentative pattern toward authority for at least 6 months.",
+          "coreCriteria": [
+            "Angry/irritable mood, argumentative/defiant behavior, or vindictiveness",
+            "At least 4 symptoms for at least 6 months",
+            "Occurs with at least one non-sibling individual",
+            "Causes distress or impairment in the individual or others"
+          ],
+          "mustRuleOut": [
+            "Conduct disorder",
+            "DMDD",
+            "ADHD-related impulsivity",
+            "Normative developmental defiance"
+          ],
+          "examClues": [
+            "ODD = defiance; conduct disorder = rights/rules violations."
+          ]
+        },
+        {
+          "id": "intermittent_explosive_disorder",
+          "title": "Intermittent Explosive Disorder",
+          "description": "Intermittent Explosive Disorder involves recurrent behavioral outbursts representing failure to control aggressive impulses. Outbursts are disproportionate to the provocation, impulsive rather than premeditated, and not committed for a tangible objective.",
+          "hallmark": "Recurrent disproportionate aggressive outbursts.",
+          "coreCriteria": [
+            "Recurrent verbal or physical aggression out of proportion to stressor",
+            "Outbursts are impulsive/anger-based, not premeditated",
+            "Not done to achieve money, power, intimidation, or other tangible goal",
+            "Causes distress, impairment, or legal/financial consequences"
+          ],
+          "mustRuleOut": [
+            "Conduct disorder",
+            "Antisocial personality disorder",
+            "Substance intoxication",
+            "Bipolar disorder"
+          ],
+          "examClues": [
+            "Impulsive explosive anger differentiates it from planned aggression."
+          ]
+        },
+        {
+          "id": "kleptomania",
+          "title": "Kleptomania",
+          "description": "Kleptomania involves recurrent failure to resist impulses to steal objects that are not needed for personal use or monetary value. Tension increases before the theft and relief or gratification follows.",
+          "hallmark": "Impulse-driven stealing of unneeded items with tension before and relief after.",
+          "coreCriteria": [
+            "Recurrent failure to resist stealing items not needed for use or value",
+            "Increasing tension before theft",
+            "Pleasure, gratification, or relief during theft",
+            "Not committed out of anger, vengeance, delusion, or hallucination"
+          ],
+          "mustRuleOut": [
+            "Antisocial behavior",
+            "Conduct disorder",
+            "Mania",
+            "Substance use"
+          ],
+          "examClues": [
+            "Stealing is not for practical gain."
+          ]
+        },
+        {
+          "id": "pyromania",
+          "title": "Pyromania",
+          "description": "Pyromania involves deliberate and purposeful fire setting on more than one occasion, with tension before the act and fascination, pleasure, or relief related to fire. It is not diagnosed when fire setting is for financial gain, revenge, ideology, concealment of crime, or impaired judgment from substances/mania/psychosis.",
+          "hallmark": "Purposeful fire setting with fascination and relief, not external gain.",
+          "coreCriteria": [
+            "Deliberate fire setting more than once",
+            "Tension or arousal before the act",
+            "Fascination with fire and its contexts",
+            "Pleasure, gratification, or relief when setting or witnessing fires",
+            "Not for external reward, ideology, revenge, concealment, or impaired judgment"
+          ],
+          "mustRuleOut": [
+            "Conduct disorder",
+            "Antisocial personality disorder",
+            "Mania",
+            "Substance intoxication",
+            "Psychosis"
+          ],
+          "examClues": [
+            "Ask why the fire was set. External motive rules out pyromania."
+          ]
         }
       ],
       "redFlags": [
@@ -1171,6 +1705,278 @@
       ],
       "categoryQuickReview": [
         "Conduct Disorder matters partly because it is a prerequisite history for ASPD."
+      ]
+    },
+    {
+      "id": "dissociative_disorders",
+      "title": "Dissociative Disorders",
+      "overview": "Dissociative disorders involve disruption in consciousness, memory, identity, emotion, perception, body representation, motor control, or behavior, often associated with trauma or severe stress.",
+      "highYieldDisorders": [
+        {
+          "id": "dissociative_identity_disorder",
+          "title": "Dissociative Identity Disorder (DID)",
+          "description": "DID involves disruption of identity with two or more distinct personality states or possession experiences, along with recurrent gaps in recall. It is associated with severe trauma histories but must be distinguished from psychosis, malingering, substances, and culturally normative possession practices.",
+          "hallmark": "Two or more identity states plus recurrent memory gaps.",
+          "coreCriteria": [
+            "Disruption of identity with two or more distinct personality states",
+            "Recurrent gaps in recall of everyday events, personal information, or traumatic events",
+            "Distress or impairment",
+            "Not a normal part of cultural/religious practice",
+            "Not attributable to substances or medical condition"
+          ],
+          "mustRuleOut": [
+            "Psychotic disorders",
+            "Substance/medical causes",
+            "Culturally sanctioned possession",
+            "Malingering"
+          ],
+          "examClues": [
+            "Memory gaps and identity discontinuity are central."
+          ]
+        },
+        {
+          "id": "dissociative_amnesia",
+          "title": "Dissociative Amnesia",
+          "description": "Dissociative Amnesia involves inability to recall important autobiographical information, usually traumatic or stressful, that is inconsistent with ordinary forgetting. It may occur with dissociative fugue, involving purposeful travel or bewildered wandering.",
+          "hallmark": "Trauma-related autobiographical memory gaps beyond ordinary forgetting.",
+          "coreCriteria": [
+            "Inability to recall important autobiographical information",
+            "Usually traumatic or stressful in nature",
+            "Inconsistent with ordinary forgetting",
+            "Distress or impairment"
+          ],
+          "mustRuleOut": [
+            "Substance blackout",
+            "Neurological condition",
+            "PTSD without amnesia",
+            "Malingering"
+          ],
+          "examClues": [
+            "May include fugue: travel/wandering with amnesia."
+          ]
+        },
+        {
+          "id": "depersonalization_derealization",
+          "title": "Depersonalization/Derealization Disorder",
+          "description": "This disorder involves persistent or recurrent depersonalization, derealization, or both, while reality testing remains intact. Clients may feel detached from their body, thoughts, emotions, or surroundings, but they know the experience is unusual rather than literally true.",
+          "hallmark": "Detachment from self or surroundings with intact reality testing.",
+          "coreCriteria": [
+            "Persistent or recurrent depersonalization and/or derealization",
+            "Reality testing remains intact",
+            "Distress or impairment",
+            "Not due to substances, medical condition, panic attacks alone, PTSD, or psychosis"
+          ],
+          "mustRuleOut": [
+            "Psychotic disorders",
+            "Panic disorder",
+            "PTSD",
+            "Substance intoxication"
+          ],
+          "examClues": [
+            "Intact reality testing distinguishes it from psychosis."
+          ]
+        }
+      ],
+      "categoryQuickReview": [
+        "Dissociative Identity Disorder",
+        "Dissociative Amnesia",
+        "Depersonalization/Derealization Disorder"
+      ]
+    },
+    {
+      "id": "elimination_disorders",
+      "title": "Elimination Disorders",
+      "overview": "Elimination disorders are primarily childhood diagnoses involving inappropriate elimination after the developmental age when continence is expected.",
+      "highYieldDisorders": [
+        {
+          "id": "enuresis",
+          "title": "Enuresis",
+          "description": "Enuresis involves repeated voiding of urine into bed or clothes, whether involuntary or intentional, after the child has reached a developmental age when bladder control is expected.",
+          "hallmark": "Repeated urination into bed/clothes after age 5.",
+          "coreCriteria": [
+            "Repeated voiding of urine into bed or clothes",
+            "At least twice weekly for 3 months or causes distress/impairment",
+            "Chronological or developmental age at least 5 years",
+            "Not due to substance or medical condition"
+          ],
+          "mustRuleOut": [
+            "UTI or medical condition",
+            "Developmentally normal accidents",
+            "Stress response without threshold"
+          ],
+          "examClues": [
+            "Age 5 is the key developmental cutoff."
+          ]
+        },
+        {
+          "id": "encopresis",
+          "title": "Encopresis",
+          "description": "Encopresis involves repeated passage of feces into inappropriate places after the child is developmentally expected to have bowel control. It may occur with constipation and overflow incontinence or without constipation.",
+          "hallmark": "Repeated feces passage into inappropriate places after age 4.",
+          "coreCriteria": [
+            "Repeated passage of feces into inappropriate places",
+            "At least once per month for 3 months",
+            "Chronological or developmental age at least 4 years",
+            "Not due to substance or medical condition except constipation mechanism"
+          ],
+          "mustRuleOut": [
+            "Medical GI condition",
+            "Developmentally normal toileting accidents"
+          ],
+          "examClues": [
+            "Age 4 cutoff; specify with or without constipation."
+          ]
+        }
+      ],
+      "categoryQuickReview": [
+        "Enuresis",
+        "Encopresis"
+      ]
+    },
+    {
+      "id": "sleep_wake_disorders",
+      "title": "Sleep-Wake Disorders",
+      "overview": "Sleep-wake disorders are tested mainly through recognition and rule-out reasoning, especially when sleep problems mimic mood, anxiety, trauma, substance, or medical disorders.",
+      "highYieldDisorders": [
+        {
+          "id": "insomnia_disorder",
+          "title": "Insomnia Disorder",
+          "description": "Insomnia Disorder involves dissatisfaction with sleep quantity or quality due to difficulty initiating sleep, maintaining sleep, or early-morning awakening, despite adequate opportunity for sleep. It causes distress or impairment and occurs at least 3 nights per week for at least 3 months.",
+          "hallmark": "Difficulty initiating or maintaining sleep at least 3 nights/week for 3 months.",
+          "coreCriteria": [
+            "Sleep difficulty despite adequate opportunity",
+            "At least 3 nights per week",
+            "At least 3 months",
+            "Distress or impairment"
+          ],
+          "mustRuleOut": [
+            "Substance/medication effects",
+            "Sleep apnea",
+            "Mood/anxiety/PTSD-related sleep disturbance"
+          ],
+          "examClues": [
+            "Do not diagnose as primary if another condition better explains it."
+          ]
+        },
+        {
+          "id": "narcolepsy",
+          "title": "Narcolepsy",
+          "description": "Narcolepsy involves recurrent periods of an irrepressible need to sleep or lapses into sleep, with features such as cataplexy, hypocretin deficiency, or REM sleep abnormalities.",
+          "hallmark": "Recurrent irresistible sleep attacks with cataplexy or REM-related evidence.",
+          "coreCriteria": [
+            "Recurrent need to sleep or lapses into sleep at least 3 times per week for 3 months",
+            "Cataplexy, hypocretin deficiency, or REM sleep latency findings may support diagnosis"
+          ],
+          "mustRuleOut": [
+            "Sleep deprivation",
+            "Substance/medication effects",
+            "Depression-related fatigue",
+            "Sleep apnea"
+          ],
+          "examClues": [
+            "Cataplexy is sudden muscle weakness triggered by emotion."
+          ]
+        },
+        {
+          "id": "nightmare_disorder",
+          "title": "Nightmare Disorder",
+          "description": "Nightmare Disorder involves repeated extended dysphoric dreams that are well remembered and usually involve threats to survival, security, or physical integrity. On awakening, the person is rapidly oriented and alert.",
+          "hallmark": "Repeated distressing remembered dreams with rapid orientation on awakening.",
+          "coreCriteria": [
+            "Repeated dysphoric dreams involving threat",
+            "Rapid orientation and alertness after awakening",
+            "Distress or impairment",
+            "Not due to substances or another disorder alone"
+          ],
+          "mustRuleOut": [
+            "PTSD nightmares",
+            "Sleep terrors",
+            "Substance effects"
+          ],
+          "examClues": [
+            "Sleep terrors involve confusion and poor recall; nightmares are remembered."
+          ]
+        }
+      ],
+      "categoryQuickReview": [
+        "Insomnia Disorder",
+        "Narcolepsy",
+        "Nightmare Disorder"
+      ]
+    },
+    {
+      "id": "neurocognitive_disorders",
+      "title": "Neurocognitive Disorders",
+      "overview": "Neurocognitive disorders involve acquired cognitive decline and are tested through differential diagnosis with depression, delirium, substance effects, and normal aging.",
+      "highYieldDisorders": [
+        {
+          "id": "delirium",
+          "title": "Delirium",
+          "description": "Delirium is an acute disturbance in attention, awareness, and cognition that develops over a short period and tends to fluctuate. It is a medical priority, not a counseling diagnosis to treat with routine psychotherapy alone.",
+          "hallmark": "Acute fluctuating confusion with impaired attention/awareness.",
+          "coreCriteria": [
+            "Disturbance in attention and awareness",
+            "Develops over hours to days and fluctuates",
+            "Additional cognitive disturbance such as memory, language, perception, or orientation changes",
+            "Evidence of medical, substance, or multiple causes"
+          ],
+          "mustRuleOut": [
+            "Major neurocognitive disorder",
+            "Psychosis",
+            "Depression",
+            "Substance intoxication/withdrawal"
+          ],
+          "examClues": [
+            "Acute onset + fluctuating attention = medical referral/urgent evaluation."
+          ]
+        },
+        {
+          "id": "major_neurocognitive_disorder",
+          "title": "Major Neurocognitive Disorder",
+          "description": "Major Neurocognitive Disorder involves significant cognitive decline from a previous level in one or more domains and interference with independence in everyday activities. Etiologies may include Alzheimer’s disease, vascular disease, traumatic brain injury, substance/medication causes, and others.",
+          "hallmark": "Significant acquired cognitive decline that interferes with independence.",
+          "coreCriteria": [
+            "Significant cognitive decline from previous performance",
+            "Deficits interfere with independence in everyday activities",
+            "Not exclusively during delirium",
+            "Not better explained by another mental disorder"
+          ],
+          "mustRuleOut": [
+            "Delirium",
+            "Mild neurocognitive disorder",
+            "Major depressive disorder/pseudodementia",
+            "Normal aging"
+          ],
+          "examClues": [
+            "Functional independence is the major vs mild distinction."
+          ]
+        },
+        {
+          "id": "mild_neurocognitive_disorder",
+          "title": "Mild Neurocognitive Disorder",
+          "description": "Mild Neurocognitive Disorder involves modest cognitive decline that does not interfere with independence, though greater effort, compensatory strategies, or accommodations may be needed.",
+          "hallmark": "Modest acquired cognitive decline without loss of independence.",
+          "coreCriteria": [
+            "Modest cognitive decline from previous level",
+            "Independence in everyday activities is preserved",
+            "May require more effort or compensatory strategies",
+            "Not exclusively during delirium"
+          ],
+          "mustRuleOut": [
+            "Major neurocognitive disorder",
+            "Normal aging",
+            "Depression",
+            "Anxiety-related concentration problems"
+          ],
+          "examClues": [
+            "Independence remains intact."
+          ]
+        }
+      ],
+      "categoryQuickReview": [
+        "Delirium",
+        "Major Neurocognitive Disorder",
+        "Mild Neurocognitive Disorder"
       ]
     }
   ],
@@ -1357,11 +2163,5 @@
       "answer": "Generalized Anxiety Disorder"
     }
   ],
-  "sourceBasis": {
-    "derivedFromUploadedMaterials": [
-      "Study Library",
-      "DSM-5-TR Diagnoses"
-    ],
-    "notes": "Expanded into a production-ready diagnostic learning module emphasizing duration, criteria, differential diagnosis, severity, specifiers, and exam-style case interpretation."
-  }
+  "sourceBasis": "Coverage is based on DSM-5-TR diagnostic categories and NCMHCE-style counseling exam relevance. It is an exam-prep reference, not a replacement for the DSM-5-TR text or supervised diagnosis."
 }
