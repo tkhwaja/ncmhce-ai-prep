@@ -11,6 +11,12 @@ type ModuleSectionNavigatorProps = {
 const ModuleSectionNavigator = ({ sections }: ModuleSectionNavigatorProps) => {
   if (!sections.length) return null;
 
+  const handleSectionClick = (event: React.MouseEvent<HTMLAnchorElement>, id: string) => {
+    event.preventDefault();
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth", block: "start" });
+    window.history.replaceState(null, "", `#${id}`);
+  };
+
   return (
     <div className="space-y-2">
       <Card className="card-elevated">
@@ -28,6 +34,7 @@ const ModuleSectionNavigator = ({ sections }: ModuleSectionNavigatorProps) => {
                 <li key={section.id}>
                   <a
                     href={`#${section.id}`}
+                    onClick={(event) => handleSectionClick(event, section.id)}
                     className="block whitespace-nowrap rounded-md border border-border bg-card px-3 py-2 text-sm font-medium text-foreground transition-colors hover:bg-accent"
                   >
                     {section.label}
