@@ -12,7 +12,7 @@
     "whyThisModuleMatters": "This module trains learners to select the right assessment for the right clinical question, interpret assessment purpose and limits, understand core psychometric concepts, and connect assessment findings to diagnosis, risk management, and level-of-care decisions."
   },
   "uiHints": {
-    "defaultView": "nested_accordion",
+    "defaultView": "guided_sections",
     "recommendedComponents": [
       "module_header",
       "assessment_type_cards",

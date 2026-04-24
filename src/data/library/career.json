@@ -12,7 +12,7 @@
     "whyThisModuleMatters": "This module helps learners understand how career development theories show up in counseling cases involving vocational indecision, unemployment, transitions, identity, retirement, workplace dissatisfaction, and social barriers. On the NCMHCE, career content is rarely isolated. It is usually embedded inside broader emotional, developmental, and life-adjustment cases."
   },
   "uiHints": {
-    "defaultView": "nested_accordion",
+    "defaultView": "guided_sections",
     "recommendedComponents": [
       "module_header",
       "career_theory_cards",

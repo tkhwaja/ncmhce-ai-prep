@@ -12,7 +12,7 @@
     "whyThisModuleMatters": "This module trains learners to think like the exam. The NCMHCE does not reward random fact recall alone. It rewards the ability to read a case, identify the presenting problem, recognize risk, organize relevant biopsychosocial data, choose a diagnosis, prioritize next steps, build a treatment plan, and document care in a clinically coherent way."
   },
   "uiHints": {
-    "defaultView": "nested_accordion",
+    "defaultView": "guided_sections",
     "recommendedComponents": [
       "module_header",
       "conceptualization_framework",

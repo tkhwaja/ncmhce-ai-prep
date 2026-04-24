@@ -12,7 +12,7 @@
     "whyThisModuleMatters": "This module trains learners to recognize and respond to crisis, trauma, suicide risk, violence risk, PTSD-related symptoms, and disaster mental health needs. On the NCMHCE, crisis and trauma content is highly applied: students are expected to prioritize safety, distinguish crisis stabilization from long-term treatment, and select interventions that match the client's current risk level and stage of recovery."
   },
   "uiHints": {
-    "defaultView": "nested_accordion",
+    "defaultView": "guided_sections",
     "recommendedComponents": [
       "module_header",
       "overview_cards",
