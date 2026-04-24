@@ -315,9 +315,9 @@ const ExamTraps = ({ traps }: { traps: Array<string | { trap: string; explanatio
   <div>
     <SectionHeading icon={ShieldAlert} subtitle="Mistakes the exam baits you into making.">Common Exam Traps</SectionHeading>
     <Callout variant="warn" title="Watch out for">
-      <ul className="space-y-2">
+      <ul className="list-disc space-y-2 pl-5">
         {traps.map((t, i) => (
-          <li key={i} className="leading-relaxed">
+          <li key={i} className="pl-1 leading-relaxed marker:text-destructive">
             {typeof t === "string" ? (
               t
             ) : (
