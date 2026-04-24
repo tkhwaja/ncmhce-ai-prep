@@ -124,6 +124,7 @@ const FeynmanTool = () => {
   const [feedback, setFeedback] = useState("");
   const [loading, setLoading] = useState(false);
   const { toast } = useToast();
+  const { session } = useAuth();
 
   const analyze = async () => {
     if (!concept || !explanation) return;
@@ -135,7 +136,7 @@ const FeynmanTool = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+          Authorization: `Bearer ${session?.access_token ?? ""}`,
         },
         body: JSON.stringify({
           messages: [{
