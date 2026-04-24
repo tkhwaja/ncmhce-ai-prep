@@ -629,11 +629,10 @@ const CheckpointCard = ({ q, index }: { q: any; index: number }) => {
           <span className="text-primary mr-2">Q{index + 1}.</span>
           {q.question}
         </p>
-        {!show ? (
-          <Button variant="ghost" size="sm" onClick={() => setShow(true)} className="mt-2 h-7 px-2 text-xs">
-            Reveal answer
-          </Button>
-        ) : (
+        <Button variant="ghost" size="sm" onClick={() => setShow((current) => !current)} className="mt-2 h-7 px-2 text-xs">
+          {show ? "Hide answer" : "Reveal answer"}
+        </Button>
+        {show && (
           <div className="mt-2 rounded-md bg-accent/50 p-3">
             <p className="text-sm text-foreground">{q.answer}</p>
           </div>

@@ -241,9 +241,10 @@ const CheckpointCard = ({ q }: { q: any }) => {
     <Card className="card-elevated">
       <CardContent className="p-4">
         <p className="text-sm font-medium text-foreground">{q.question}</p>
-        {!show ? (
-          <button onClick={() => setShow(true)} className="text-xs text-primary hover:underline mt-2">Reveal Answer</button>
-        ) : (
+        <button onClick={() => setShow((current) => !current)} className="text-xs text-primary hover:underline mt-2">
+          {show ? "Hide Answer" : "Reveal Answer"}
+        </button>
+        {show && (
           <div className="mt-2 rounded bg-accent/50 p-3 space-y-1">
             <p className="text-sm text-muted-foreground">{q.answer}</p>
             {q.rationale && <p className="text-xs text-muted-foreground">Why: {q.rationale}</p>}
