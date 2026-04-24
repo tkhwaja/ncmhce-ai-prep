@@ -1525,7 +1525,7 @@ const ModuleRenderer = ({ data }: ModuleRendererProps) => {
           key={key}
           id={slugifySectionId(key)}
           title={formatKey(key)}
-          summary={`This section contains the full deep-dive content for ${formatKey(key).toLowerCase()}.`}
+          summary={`Study the key rules, exam cues, and decision points for ${formatKey(key).toLowerCase()}.`}
         >
           <GenericSection title={formatKey(key)} data={value} />
         </GuidedSection>
