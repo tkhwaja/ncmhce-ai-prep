@@ -2,10 +2,12 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { X, Send, Trash2, Sparkles, BookOpen, HelpCircle, GraduationCap, GripVertical } from "lucide-react";
+import { X, Send, Trash2, Sparkles, BookOpen, HelpCircle, GraduationCap, Lock } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/contexts/AuthContext";
+import { useSubscription } from "@/hooks/useSubscription";
+import { useNavigate } from "react-router-dom";
 
 interface Message {
   role: "user" | "assistant";
@@ -32,6 +34,8 @@ const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/counselor-ch
 
 const AIChatSidebar = ({ open, onClose, context, queuedPrompt, width = 380, onWidthChange }: AIChatSidebarProps) => {
   const { session } = useAuth();
+  const { hasAccess, loading: accessLoading } = useSubscription();
+  const navigate = useNavigate();
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -70,6 +74,16 @@ const AIChatSidebar = ({ open, onClose, context, queuedPrompt, width = 380, onWi
 
   const sendMessage = async (text: string) => {
     if (!text.trim() || isLoading) return;
+    if (!hasAccess) {
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant",
+          content: "CounselorAI is included with an active subscription. You can unlock it from the subscription page.",
+        },
+      ]);
+      return;
+    }
     const userMsg: Message = { role: "user", content: text.trim() };
     const newMessages = [...messages, userMsg];
     setMessages(newMessages);
@@ -90,6 +104,9 @@ const AIChatSidebar = ({ open, onClose, context, queuedPrompt, width = 380, onWi
 
       if (!resp.ok || !resp.body) {
         const errData = await resp.json().catch(() => ({}));
+        if (resp.status === 403) {
+          throw new Error("CounselorAI is included with an active subscription. Please subscribe to unlock chat access.");
+        }
         throw new Error(errData.error || "Failed to get response");
       }
 
@@ -138,10 +155,10 @@ const AIChatSidebar = ({ open, onClose, context, queuedPrompt, width = 380, onWi
   };
 
   useEffect(() => {
-    if (!open || !queuedPrompt || queuedPrompt.id === lastQueuedPromptId.current || isLoading) return;
+    if (!open || !queuedPrompt || queuedPrompt.id === lastQueuedPromptId.current || isLoading || !hasAccess) return;
     lastQueuedPromptId.current = queuedPrompt.id;
     sendMessage(queuedPrompt.text);
-  }, [open, queuedPrompt, isLoading]);
+  }, [open, queuedPrompt, isLoading, hasAccess]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" && !e.shiftKey) {
