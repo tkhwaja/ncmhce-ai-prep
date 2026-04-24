@@ -31,10 +31,14 @@ const quickActions = [
 ];
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/counselor-chat`;
+const isPreviewTesting =
+  typeof window !== "undefined" &&
+  (window.location.hostname.includes("id-preview--") || window.location.hostname === "localhost");
 
 const AIChatSidebar = ({ open, onClose, context, queuedPrompt, width = 380, onWidthChange }: AIChatSidebarProps) => {
   const { session } = useAuth();
   const { hasAccess, loading: accessLoading } = useSubscription();
+  const canUseChat = hasAccess || isPreviewTesting;
   const navigate = useNavigate();
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
@@ -74,7 +78,7 @@ const AIChatSidebar = ({ open, onClose, context, queuedPrompt, width = 380, onWi
 
   const sendMessage = async (text: string) => {
     if (!text.trim() || isLoading) return;
-    if (!hasAccess) {
+    if (!canUseChat) {
       setMessages((prev) => [
         ...prev,
         {
@@ -155,10 +159,10 @@ const AIChatSidebar = ({ open, onClose, context, queuedPrompt, width = 380, onWi
   };
 
   useEffect(() => {
-    if (!open || !queuedPrompt || queuedPrompt.id === lastQueuedPromptId.current || isLoading || !hasAccess) return;
+    if (!open || !queuedPrompt || queuedPrompt.id === lastQueuedPromptId.current || isLoading || !canUseChat) return;
     lastQueuedPromptId.current = queuedPrompt.id;
     sendMessage(queuedPrompt.text);
-  }, [open, queuedPrompt, isLoading, hasAccess]);
+  }, [open, queuedPrompt, isLoading, canUseChat]);
 
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === "Enter" && !e.shiftKey) {
