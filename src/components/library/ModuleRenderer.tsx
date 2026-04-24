@@ -1149,10 +1149,18 @@ const GenericSection = ({ title, data }: { title: string; data: any }) => {
 
   // Handle object with title + content
   if (typeof data === "object") {
+    const nestedEntries = Object.entries(data).filter(([key, value]) => (
+      !["title", "overview", "examPearls", "examPearl", "sourceBasis", "moduleId", "moduleTitle", "moduleType", "version", "exam", "uiHints", "intro", "id"].includes(key)
+      && value !== null
+      && value !== undefined
+    ));
+
     return (
       <div className="space-y-3">
         {data.overview && <p className="text-sm text-muted-foreground mb-3">{data.overview}</p>}
-        {renderObjectContent(data)}
+        <div className={nestedEntries.length > 3 ? "grid gap-3 md:grid-cols-2" : "space-y-3"}>
+          {renderObjectContent(data)}
+        </div>
         <ExamPearls pearls={data.examPearls} />
       </div>
     );
@@ -1166,7 +1174,7 @@ const renderObjectContent = (obj: any): React.ReactNode => {
   const skipKeys = new Set(["title", "overview", "examPearls", "examPearl", "sourceBasis", "moduleId", "moduleTitle", "moduleType", "version", "exam", "uiHints", "intro", "id"]);
 
   return (
-    <div className="space-y-2">
+    <>
       {Object.entries(obj).map(([key, value]) => {
         if (skipKeys.has(key)) return null;
         if (value === null || value === undefined) return null;
@@ -1174,8 +1182,8 @@ const renderObjectContent = (obj: any): React.ReactNode => {
         // Render coreCriteria, mustRuleOut, specifiersToKnow, examClues etc as labeled lists
         if (Array.isArray(value) && value.length > 0 && typeof value[0] === "string") {
           return (
-            <div key={key}>
-              <span className="text-xs font-medium text-foreground capitalize">{formatKey(key)}</span>
+            <div key={key} className="rounded-lg border border-border bg-muted/30 p-3">
+              <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
               <ul className="ml-4 mt-1">
                 {value.map((v: string, i: number) => (
                   <li key={i} className="text-sm text-muted-foreground flex items-start gap-1"><span className="text-primary text-xs">•</span>{v}</li>
@@ -1188,8 +1196,8 @@ const renderObjectContent = (obj: any): React.ReactNode => {
         // Render severity object as key-value
         if (typeof value === "object" && !Array.isArray(value)) {
           return (
-            <div key={key}>
-              <span className="text-xs font-medium text-foreground capitalize">{formatKey(key)}</span>
+            <div key={key} className="rounded-lg border border-border bg-card p-3">
+              <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
               <div className="ml-4 mt-1 space-y-1">
                 {Object.entries(value as Record<string, any>).map(([k, v]) => (
                   <p key={k} className="text-sm text-muted-foreground">
@@ -1204,16 +1212,16 @@ const renderObjectContent = (obj: any): React.ReactNode => {
 
         if (typeof value === "string") {
           return (
-            <div key={key}>
-              <span className="text-xs font-medium text-foreground capitalize">{formatKey(key)}: </span>
-              <span className="text-sm text-muted-foreground">{formatValue(value)}</span>
+            <div key={key} className="rounded-lg border border-border bg-muted/30 p-3">
+              <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
+              <p className="mt-1 text-sm text-muted-foreground">{formatValue(value)}</p>
             </div>
           );
         }
 
         return null;
       })}
-    </div>
+    </>
   );
 };
 
