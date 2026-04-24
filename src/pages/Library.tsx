@@ -124,12 +124,29 @@ const Library = () => {
 
     if (search) {
       const q = search.toLowerCase();
+
+      // Recursively collect every string value inside any nested object/array.
+      const deepStringMatch = (value: unknown): boolean => {
+        if (value == null) return false;
+        if (typeof value === "string") return value.toLowerCase().includes(q);
+        if (typeof value === "number" || typeof value === "boolean") {
+          return String(value).toLowerCase().includes(q);
+        }
+        if (Array.isArray(value)) return value.some(deepStringMatch);
+        if (typeof value === "object") {
+          return Object.values(value as Record<string, unknown>).some(deepStringMatch);
+        }
+        return false;
+      };
+
       result = result.filter(
         (m) =>
           m.title.toLowerCase().includes(q) ||
           m.description.toLowerCase().includes(q) ||
           m.keyConcepts.some((c) => c.toLowerCase().includes(q)) ||
-          m.tags.some((t) => t.toLowerCase().includes(q))
+          m.tags.some((t) => t.toLowerCase().includes(q)) ||
+          (m.content ? m.content.toLowerCase().includes(q) : false) ||
+          (m.data ? deepStringMatch(m.data) : false),
       );
     }
 
