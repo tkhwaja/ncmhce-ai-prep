@@ -1194,8 +1194,38 @@ const DiagnosticCategories = ({ categories }: { categories: any[] }) => (
                 </div>
               )}
               {disorder.examClues && <ExamPearls pearls={disorder.examClues} />}
+              {disorder.differentialDiagnosis && (
+                <div className="mt-3 rounded-lg border border-border bg-muted/30 p-3">
+                  <p className="text-xs font-semibold text-foreground uppercase tracking-wide mb-2">Differential Diagnosis</p>
+                  <div className="space-y-2">
+                    {disorder.differentialDiagnosis.map((diff: any, k: number) => (
+                      <p key={k} className="text-sm text-muted-foreground leading-relaxed">
+                        <span className="font-medium text-foreground">vs. {diff.compareTo}: </span>{diff.keyDifference}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              )}
+              {disorder.miniCase && (
+                <div className="mt-3 rounded-lg border border-primary/20 bg-primary/5 p-3">
+                  <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-1">Mini Case</p>
+                  <p className="text-sm text-foreground leading-relaxed">{disorder.miniCase.prompt}</p>
+                  <p className="mt-2 text-sm text-muted-foreground"><span className="font-medium text-foreground">Best answer: </span>{disorder.miniCase.bestAnswer}</p>
+                  {disorder.miniCase.why && <p className="text-xs text-muted-foreground mt-1">Why: {disorder.miniCase.why}</p>}
+                </div>
+              )}
             </CollapsibleSection>
           ))}
+          {cat.categoryQuickReview && (
+            <div className="mt-3 rounded-lg border border-border bg-card p-3">
+              <p className="text-xs font-semibold text-foreground uppercase tracking-wide mb-2">Category Quick Review</p>
+              <div className="flex flex-wrap gap-1.5">
+                {cat.categoryQuickReview.map((item: string, k: number) => (
+                  <Badge key={k} variant="secondary" className="text-xs">{item}</Badge>
+                ))}
+              </div>
+            </div>
+          )}
           {cat.redFlags && (
             <div className="mt-3">
               {cat.redFlags.map((rf: any, k: number) => (
