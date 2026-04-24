@@ -1200,10 +1200,21 @@ const renderObjectContent = (obj: any): React.ReactNode => {
               <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
               <div className="ml-4 mt-1 space-y-1">
                 {Object.entries(value as Record<string, any>).map(([k, v]) => (
-                  <p key={k} className="text-sm text-muted-foreground">
-                    <span className="font-medium text-foreground capitalize">{formatKey(k)}: </span>
-                    {typeof v === "string" ? formatValue(v) : JSON.stringify(v)}
-                  </p>
+                  Array.isArray(v) ? (
+                    <div key={k} className="space-y-1">
+                      <p className="text-sm font-medium text-foreground">{formatKey(k)}</p>
+                      <ul className="ml-4 space-y-1">
+                        {v.map((item, itemIndex) => (
+                          <li key={itemIndex} className="flex items-start gap-1 text-sm text-muted-foreground"><span className="text-primary text-xs">•</span>{typeof item === "string" ? item : JSON.stringify(item)}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ) : (
+                    <p key={k} className="text-sm text-muted-foreground">
+                      <span className="font-medium text-foreground capitalize">{formatKey(k)}: </span>
+                      {typeof v === "string" ? formatValue(v) : JSON.stringify(v)}
+                    </p>
+                  )
                 ))}
               </div>
             </div>
