@@ -1356,7 +1356,17 @@ const ModuleRenderer = ({ data }: ModuleRendererProps) => {
                 <AlertTriangle className="h-4 w-4 text-destructive" />
                 <AlertDescription className="text-sm">
                   <span className="font-medium text-foreground">{alert.title}</span>
-                  {alert.whenToThinkOfIt && <span className="text-muted-foreground"> — {alert.whenToThinkOfIt}</span>}
+                  {alert.whenToThinkOfIt && (
+                    Array.isArray(alert.whenToThinkOfIt) ? (
+                      <ul className="mt-1 ml-4 list-disc space-y-0.5 text-muted-foreground">
+                        {alert.whenToThinkOfIt.map((item: string, k: number) => (
+                          <li key={k}>{item}</li>
+                        ))}
+                      </ul>
+                    ) : (
+                      <span className="text-muted-foreground"> — {alert.whenToThinkOfIt}</span>
+                    )
+                  )}
                   {alert.clinicalPriority && <p className="text-xs text-muted-foreground mt-1">{alert.clinicalPriority}</p>}
                 </AlertDescription>
               </Alert>
