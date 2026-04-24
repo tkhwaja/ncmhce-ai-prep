@@ -12,7 +12,7 @@
     "whyThisModuleMatters": "This module prepares learners to handle ethics and legal decision-making on the NCMHCE. Ethics items often test whether the counselor can prioritize client welfare, protect confidentiality, follow informed consent standards, recognize mandated reporting and duty-to-protect issues, maintain boundaries, document appropriately, and respond in the least harmful and most ethically defensible way."
   },
   "uiHints": {
-    "defaultView": "nested_accordion",
+    "defaultView": "guided_sections",
     "recommendedComponents": [
       "module_header",
       "ethics_overview_cards",

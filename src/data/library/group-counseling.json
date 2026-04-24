@@ -12,7 +12,7 @@
     "whyThisModuleMatters": "This module prepares learners to recognize how group counseling works, how groups develop over time, how leaders intervene skillfully, and how ethics, screening, and process issues affect outcomes. On the NCMHCE, group content often appears inside cases that test leadership responses, therapeutic factors, stages of group development, and group-specific ethical decision-making."
   },
   "uiHints": {
-    "defaultView": "nested_accordion",
+    "defaultView": "guided_sections",
     "recommendedComponents": [
       "module_header",
       "group_overview_cards",

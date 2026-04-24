@@ -12,7 +12,7 @@
     "whyThisModuleMatters": "This module helps learners understand psychopharmacology at the level expected on the NCMHCE. Counselors are not prescribers, but they are expected to recognize major medication classes, common indications, serious side effects, adherence issues, and when collaboration or urgent referral is needed."
   },
   "uiHints": {
-    "defaultView": "nested_accordion",
+    "defaultView": "guided_sections",
     "recommendedComponents": [
       "module_header",
       "counselor_role_panel",

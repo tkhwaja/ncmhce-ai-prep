@@ -12,7 +12,7 @@
     "whyThisModuleMatters": "Human development questions on the NCMHCE are rarely trivia-only. Development shows up inside school refusal, family conflict, attachment injuries, identity distress, relationship instability, grief, and aging cases. Strong performance comes from matching the intervention to the client's developmental, cognitive, relational, and cultural reality."
   },
   "uiHints": {
-    "defaultView": "nested_accordion",
+    "defaultView": "guided_sections",
     "recommendedComponents": [
       "module_header",
       "comparison_tables",
@@ -112,65 +112,158 @@
           "ageBand": "0-1",
           "title": "Trust vs Mistrust",
           "focus": "Reliable caregiving, safety, soothing, and predictability",
-          "expected": ["Comfort from caregiver return", "Growing sense that needs will be met"],
-          "risks": ["Chaotic care", "Inconsistent soothing", "Early mistrust and hypervigilance"],
-          "counselorMoves": ["Support caregiver attunement", "Assess attachment disruption", "Promote predictable routines"]
+          "expected": [
+            "Comfort from caregiver return",
+            "Growing sense that needs will be met"
+          ],
+          "risks": [
+            "Chaotic care",
+            "Inconsistent soothing",
+            "Early mistrust and hypervigilance"
+          ],
+          "counselorMoves": [
+            "Support caregiver attunement",
+            "Assess attachment disruption",
+            "Promote predictable routines"
+          ]
         },
         {
           "ageBand": "1-3",
           "title": "Autonomy vs Shame and Doubt",
           "focus": "Independence, self-control, early mastery",
-          "expected": ["Testing limits", "Wanting to do things alone", "Growing self-control"],
-          "risks": ["Harsh criticism", "Overcontrol", "Shame about mistakes or bodily functions"],
-          "counselorMoves": ["Coach caregivers on limit-setting without humiliation", "Reinforce safe choice-making"]
+          "expected": [
+            "Testing limits",
+            "Wanting to do things alone",
+            "Growing self-control"
+          ],
+          "risks": [
+            "Harsh criticism",
+            "Overcontrol",
+            "Shame about mistakes or bodily functions"
+          ],
+          "counselorMoves": [
+            "Coach caregivers on limit-setting without humiliation",
+            "Reinforce safe choice-making"
+          ]
         },
         {
           "ageBand": "3-6",
           "title": "Initiative vs Guilt",
           "focus": "Imagination, initiative, purpose, trying new roles",
-          "expected": ["Pretend play", "Questions", "Goal-directed behavior"],
-          "risks": ["Excessive guilt", "Fear of doing wrong", "Overinhibition"],
-          "counselorMoves": ["Use play-based work", "Normalize curiosity", "Address punitive family patterns"]
+          "expected": [
+            "Pretend play",
+            "Questions",
+            "Goal-directed behavior"
+          ],
+          "risks": [
+            "Excessive guilt",
+            "Fear of doing wrong",
+            "Overinhibition"
+          ],
+          "counselorMoves": [
+            "Use play-based work",
+            "Normalize curiosity",
+            "Address punitive family patterns"
+          ]
         },
         {
           "ageBand": "6-12",
           "title": "Industry vs Inferiority",
           "focus": "Competence, school success, peer comparison, mastery",
-          "expected": ["Pride in skills", "Motivation through mastery", "Growing task persistence"],
-          "risks": ["Academic failure", "Inferiority", "Low self-worth tied to performance"],
-          "counselorMoves": ["Assess learning mismatch", "Strengthen competence experiences", "Work with school and caregivers"]
+          "expected": [
+            "Pride in skills",
+            "Motivation through mastery",
+            "Growing task persistence"
+          ],
+          "risks": [
+            "Academic failure",
+            "Inferiority",
+            "Low self-worth tied to performance"
+          ],
+          "counselorMoves": [
+            "Assess learning mismatch",
+            "Strengthen competence experiences",
+            "Work with school and caregivers"
+          ]
         },
         {
           "ageBand": "12-18",
           "title": "Identity vs Role Confusion",
           "focus": "Who am I, what do I value, where do I belong?",
-          "expected": ["Exploration of values, roles, sexuality, vocation, worldview"],
-          "risks": ["Severe confusion", "Foreclosed identity", "Diffuse self-concept under pressure"],
-          "counselorMoves": ["Differentiate healthy exploration from impairment", "Support safe autonomy", "Assess family and cultural context"]
+          "expected": [
+            "Exploration of values, roles, sexuality, vocation, worldview"
+          ],
+          "risks": [
+            "Severe confusion",
+            "Foreclosed identity",
+            "Diffuse self-concept under pressure"
+          ],
+          "counselorMoves": [
+            "Differentiate healthy exploration from impairment",
+            "Support safe autonomy",
+            "Assess family and cultural context"
+          ]
         },
         {
           "ageBand": "18-40",
           "title": "Intimacy vs Isolation",
           "focus": "Mutual connection without losing self",
-          "expected": ["Capacity for closeness", "Vulnerability", "Reciprocity"],
-          "risks": ["Fear of commitment", "Chronic isolation", "Repeated unstable attachments"],
-          "counselorMoves": ["Integrate attachment history", "Address vulnerability fears", "Strengthen boundaries and reciprocity"]
+          "expected": [
+            "Capacity for closeness",
+            "Vulnerability",
+            "Reciprocity"
+          ],
+          "risks": [
+            "Fear of commitment",
+            "Chronic isolation",
+            "Repeated unstable attachments"
+          ],
+          "counselorMoves": [
+            "Integrate attachment history",
+            "Address vulnerability fears",
+            "Strengthen boundaries and reciprocity"
+          ]
         },
         {
           "ageBand": "40-65",
           "title": "Generativity vs Stagnation",
           "focus": "Contribution, mentoring, parenting, purpose, legacy",
-          "expected": ["Investment in others", "Meaning through work or care", "Future orientation"],
-          "risks": ["Burnout", "Emptiness", "Stagnation and self-absorption"],
-          "counselorMoves": ["Reconnect client with values", "Explore role strain", "Rebuild purpose and contribution"]
+          "expected": [
+            "Investment in others",
+            "Meaning through work or care",
+            "Future orientation"
+          ],
+          "risks": [
+            "Burnout",
+            "Emptiness",
+            "Stagnation and self-absorption"
+          ],
+          "counselorMoves": [
+            "Reconnect client with values",
+            "Explore role strain",
+            "Rebuild purpose and contribution"
+          ]
         },
         {
           "ageBand": "65+",
           "title": "Integrity vs Despair",
           "focus": "Life review, acceptance, coherence, wisdom",
-          "expected": ["Meaning-making", "Balanced reflection", "Acceptance of life course"],
-          "risks": ["Regret", "Despair", "Death anxiety", "Rigid bitterness"],
-          "counselorMoves": ["Facilitate life review", "Support grief processing", "Address isolation and meaning loss"]
+          "expected": [
+            "Meaning-making",
+            "Balanced reflection",
+            "Acceptance of life course"
+          ],
+          "risks": [
+            "Regret",
+            "Despair",
+            "Death anxiety",
+            "Rigid bitterness"
+          ],
+          "counselorMoves": [
+            "Facilitate life review",
+            "Support grief processing",
+            "Address isolation and meaning loss"
+          ]
         }
       ]
     },
@@ -178,12 +271,42 @@
       "type": "comparisonTable",
       "title": "Piaget Stages and Counseling Implications",
       "description": "High-yield summary of how children think and what kind of intervention fits that thinking style.",
-      "columns": ["Stage", "Approx. Age", "How They Think", "What Helps in Counseling", "Watch For"],
+      "columns": [
+        "Stage",
+        "Approx. Age",
+        "How They Think",
+        "What Helps in Counseling",
+        "Watch For"
+      ],
       "rows": [
-        ["Sensorimotor", "0-2", "Learns through sensation and action; object permanence develops", "Caregiver work, co-regulation, routine, sensory and attachment-focused support", "Severe failure to respond socially or major developmental regression"],
-        ["Preoperational", "2-7", "Egocentric, symbolic, intuitive, not yet logical about conservation", "Play therapy, visual tools, simple language, repetition, parent coaching", "Expecting adult-like insight or perspective-taking"],
-        ["Concrete Operational", "7-11", "Logical with concrete facts, better perspective-taking, understands rules and sequences", "Behavior plans, coping steps, role-play, concrete examples, school collaboration", "Abstract-only interventions that skip concrete rehearsal"],
-        ["Formal Operational", "12+", "Abstract, hypothetical, future-oriented reasoning becomes possible", "Insight work, values exploration, CBT thought testing, relational and identity processing", "Assuming all adolescents fully sustain abstract reasoning when stressed"]
+        [
+          "Sensorimotor",
+          "0-2",
+          "Learns through sensation and action; object permanence develops",
+          "Caregiver work, co-regulation, routine, sensory and attachment-focused support",
+          "Severe failure to respond socially or major developmental regression"
+        ],
+        [
+          "Preoperational",
+          "2-7",
+          "Egocentric, symbolic, intuitive, not yet logical about conservation",
+          "Play therapy, visual tools, simple language, repetition, parent coaching",
+          "Expecting adult-like insight or perspective-taking"
+        ],
+        [
+          "Concrete Operational",
+          "7-11",
+          "Logical with concrete facts, better perspective-taking, understands rules and sequences",
+          "Behavior plans, coping steps, role-play, concrete examples, school collaboration",
+          "Abstract-only interventions that skip concrete rehearsal"
+        ],
+        [
+          "Formal Operational",
+          "12+",
+          "Abstract, hypothetical, future-oriented reasoning becomes possible",
+          "Insight work, values exploration, CBT thought testing, relational and identity processing",
+          "Assuming all adolescents fully sustain abstract reasoning when stressed"
+        ]
       ]
     },
     {
@@ -195,25 +318,41 @@
           "style": "Secure",
           "childhoodPattern": "Uses caregiver as a safe base, shows distress with separation but can be soothed",
           "adultPattern": "Comfortable with closeness and autonomy, more able to repair conflict",
-          "interventionFocus": ["Build on existing strengths", "Support reflective functioning", "Use relationship as a stable base"]
+          "interventionFocus": [
+            "Build on existing strengths",
+            "Support reflective functioning",
+            "Use relationship as a stable base"
+          ]
         },
         {
           "style": "Anxious / Ambivalent",
           "childhoodPattern": "Clingy, intensely distressed, hard to soothe after separation",
           "adultPattern": "Fear of abandonment, reassurance-seeking, hypervigilance in relationships",
-          "interventionFocus": ["Increase self-soothing", "Name protest behaviors", "Build secure, predictable therapeutic boundaries"]
+          "interventionFocus": [
+            "Increase self-soothing",
+            "Name protest behaviors",
+            "Build secure, predictable therapeutic boundaries"
+          ]
         },
         {
           "style": "Avoidant",
           "childhoodPattern": "Minimizes need for closeness, appears detached",
           "adultPattern": "Discomfort with dependency, emotional distance, deactivates attachment needs",
-          "interventionFocus": ["Respect pacing", "Increase emotional awareness", "Avoid overwhelming demands for vulnerability too quickly"]
+          "interventionFocus": [
+            "Respect pacing",
+            "Increase emotional awareness",
+            "Avoid overwhelming demands for vulnerability too quickly"
+          ]
         },
         {
           "style": "Disorganized",
           "childhoodPattern": "Fearful, contradictory, confused responses to caregiver",
           "adultPattern": "Chaotic closeness patterns, trauma-linked mistrust, dysregulated approach-avoid cycles",
-          "interventionFocus": ["Stabilization first", "Trauma-informed pacing", "Consistency, safety, and co-regulation"]
+          "interventionFocus": [
+            "Stabilization first",
+            "Trauma-informed pacing",
+            "Consistency, safety, and co-regulation"
+          ]
         }
       ]
     },
@@ -225,27 +364,52 @@
         {
           "name": "Microsystem",
           "meaning": "Immediate environments the person directly experiences",
-          "caseExample": ["family climate", "classroom structure", "peer group", "religious community"]
+          "caseExample": [
+            "family climate",
+            "classroom structure",
+            "peer group",
+            "religious community"
+          ]
         },
         {
           "name": "Mesosystem",
           "meaning": "How microsystems interact",
-          "caseExample": ["parent-teacher conflict", "mixed home/school expectations", "peer issues affecting family stress"]
+          "caseExample": [
+            "parent-teacher conflict",
+            "mixed home/school expectations",
+            "peer issues affecting family stress"
+          ]
         },
         {
           "name": "Exosystem",
           "meaning": "Indirect forces that still affect the client",
-          "caseExample": ["caregiver job loss", "lack of transportation", "community violence", "service access"]
+          "caseExample": [
+            "caregiver job loss",
+            "lack of transportation",
+            "community violence",
+            "service access"
+          ]
         },
         {
           "name": "Macrosystem",
           "meaning": "Cultural values, laws, social structures, norms, oppression, privilege",
-          "caseExample": ["racism", "gender rules", "economic inequality", "immigration climate"]
+          "caseExample": [
+            "racism",
+            "gender rules",
+            "economic inequality",
+            "immigration climate"
+          ]
         },
         {
           "name": "Chronosystem",
           "meaning": "Time, transitions, and historical context",
-          "caseExample": ["divorce", "migration", "pandemic disruption", "puberty", "retirement"]
+          "caseExample": [
+            "divorce",
+            "migration",
+            "pandemic disruption",
+            "puberty",
+            "retirement"
+          ]
         }
       ]
     },
@@ -256,27 +420,74 @@
       "bands": [
         {
           "band": "Early Childhood",
-          "expected": ["Expanding language", "symbolic play", "basic co-regulation with caregiver help", "growing curiosity and independence"],
-          "concerning": ["loss of language or social engagement", "extreme aggression without pattern assessment", "no pretend play when broader concerns are present", "persistent inability to separate with severe distress beyond context"],
-          "clinicalMove": ["Assess attachment, trauma, neurodevelopment, routines, and caregiver interaction"]
+          "expected": [
+            "Expanding language",
+            "symbolic play",
+            "basic co-regulation with caregiver help",
+            "growing curiosity and independence"
+          ],
+          "concerning": [
+            "loss of language or social engagement",
+            "extreme aggression without pattern assessment",
+            "no pretend play when broader concerns are present",
+            "persistent inability to separate with severe distress beyond context"
+          ],
+          "clinicalMove": [
+            "Assess attachment, trauma, neurodevelopment, routines, and caregiver interaction"
+          ]
         },
         {
           "band": "School Age",
-          "expected": ["Skill-building", "rule-following", "peer comparison", "more logical thinking about concrete situations"],
-          "concerning": ["major academic decline", "persistent social isolation with communication mismatch", "extreme inferiority or refusal linked to school distress"],
-          "clinicalMove": ["Evaluate school fit, learning issues, bullying, family stress, and anxiety patterns"]
+          "expected": [
+            "Skill-building",
+            "rule-following",
+            "peer comparison",
+            "more logical thinking about concrete situations"
+          ],
+          "concerning": [
+            "major academic decline",
+            "persistent social isolation with communication mismatch",
+            "extreme inferiority or refusal linked to school distress"
+          ],
+          "clinicalMove": [
+            "Evaluate school fit, learning issues, bullying, family stress, and anxiety patterns"
+          ]
         },
         {
           "band": "Adolescence",
-          "expected": ["Identity exploration", "strong peer salience", "increasing abstract thinking", "conflict around autonomy"],
-          "concerning": ["identity distress with severe impairment", "self-harm or suicidality", "substance use escalation", "rigid role confusion with unsafe behavior"],
-          "clinicalMove": ["Normalize exploration while assessing risk, trauma, family rejection, supports, and coping"]
+          "expected": [
+            "Identity exploration",
+            "strong peer salience",
+            "increasing abstract thinking",
+            "conflict around autonomy"
+          ],
+          "concerning": [
+            "identity distress with severe impairment",
+            "self-harm or suicidality",
+            "substance use escalation",
+            "rigid role confusion with unsafe behavior"
+          ],
+          "clinicalMove": [
+            "Normalize exploration while assessing risk, trauma, family rejection, supports, and coping"
+          ]
         },
         {
           "band": "Older Adulthood",
-          "expected": ["Life review", "role shifts", "grief exposure", "mild slowing or retrieval changes"],
-          "concerning": ["acute confusion", "marked disorientation", "rapid decline", "depression dismissed as normal aging"],
-          "clinicalMove": ["Screen for delirium, depression, caregiver strain, grief burden, and neurocognitive change"]
+          "expected": [
+            "Life review",
+            "role shifts",
+            "grief exposure",
+            "mild slowing or retrieval changes"
+          ],
+          "concerning": [
+            "acute confusion",
+            "marked disorientation",
+            "rapid decline",
+            "depression dismissed as normal aging"
+          ],
+          "clinicalMove": [
+            "Screen for delirium, depression, caregiver strain, grief burden, and neurocognitive change"
+          ]
         }
       ]
     }
@@ -306,7 +517,11 @@
         "virtue": "Hope",
         "coreTask": "Experience the world as safe enough through reliable care",
         "counselingRelevance": "Attachment disruption, neglect, and trauma may create chronic mistrust or hypervigilance that appears later in therapy and relationships.",
-        "clinicalClues": ["caregiving inconsistency", "difficulty being soothed", "global suspicion or fear of dependence"]
+        "clinicalClues": [
+          "caregiving inconsistency",
+          "difficulty being soothed",
+          "global suspicion or fear of dependence"
+        ]
       },
       {
         "stage": 2,
@@ -315,7 +530,11 @@
         "virtue": "Will",
         "coreTask": "Develop independent action and bodily self-control without humiliation",
         "counselingRelevance": "Overly controlling or shaming caregiving can feed anxiety, perfectionism, and fear of mistakes.",
-        "clinicalClues": ["toilet training conflict", "excessive self-doubt", "caregiver overcontrol"]
+        "clinicalClues": [
+          "toilet training conflict",
+          "excessive self-doubt",
+          "caregiver overcontrol"
+        ]
       },
       {
         "stage": 3,
@@ -324,7 +543,11 @@
         "virtue": "Purpose",
         "coreTask": "Take initiative, imagine, try, and lead play or action",
         "counselingRelevance": "Punitive environments may produce inhibition, fearfulness, or guilt around wanting things.",
-        "clinicalClues": ["fear of making mistakes", "inhibited play", "excessive guilt about taking action"]
+        "clinicalClues": [
+          "fear of making mistakes",
+          "inhibited play",
+          "excessive guilt about taking action"
+        ]
       },
       {
         "stage": 4,
@@ -333,7 +556,12 @@
         "virtue": "Competence",
         "coreTask": "Build mastery through school, social comparison, and achievement",
         "counselingRelevance": "Learning differences, bullying, and chronic criticism often surface here as low self-worth or avoidance.",
-        "clinicalClues": ["school failure", "peer comparison", "achievement-linked self-esteem", "giving up quickly"]
+        "clinicalClues": [
+          "school failure",
+          "peer comparison",
+          "achievement-linked self-esteem",
+          "giving up quickly"
+        ]
       },
       {
         "stage": 5,
@@ -342,7 +570,12 @@
         "virtue": "Fidelity",
         "coreTask": "Create a coherent self across values, roles, sexuality, vocation, and belonging",
         "counselingRelevance": "This stage is central in adolescent cases involving family rejection, peer pressure, cultural conflict, or identity distress.",
-        "clinicalClues": ["role experimentation", "value confusion", "intense belonging concerns", "pressure to prematurely commit"]
+        "clinicalClues": [
+          "role experimentation",
+          "value confusion",
+          "intense belonging concerns",
+          "pressure to prematurely commit"
+        ]
       },
       {
         "stage": 6,
@@ -351,7 +584,12 @@
         "virtue": "Love",
         "coreTask": "Form close, mutual relationships without losing identity",
         "counselingRelevance": "Attachment injuries and unresolved identity problems often show up here in unstable, avoidant, or fearful relationships.",
-        "clinicalClues": ["fear of vulnerability", "loneliness", "serial unstable attachments", "emotional distancing"]
+        "clinicalClues": [
+          "fear of vulnerability",
+          "loneliness",
+          "serial unstable attachments",
+          "emotional distancing"
+        ]
       },
       {
         "stage": 7,
@@ -360,7 +598,12 @@
         "virtue": "Care",
         "coreTask": "Invest in others, work, family, community, and legacy",
         "counselingRelevance": "Midlife crisis material often reflects burnout, lost meaning, caretaking strain, or stalled contribution.",
-        "clinicalClues": ["emptiness", "career disillusionment", "parenting strain", "feeling replaceable or stuck"]
+        "clinicalClues": [
+          "emptiness",
+          "career disillusionment",
+          "parenting strain",
+          "feeling replaceable or stuck"
+        ]
       },
       {
         "stage": 8,
@@ -369,7 +612,12 @@
         "virtue": "Wisdom",
         "coreTask": "Review life with acceptance, coherence, and meaning",
         "counselingRelevance": "Late-life cases frequently center on grief, regret, mortality, identity after loss, and existential review.",
-        "clinicalClues": ["death anxiety", "bitterness", "meaning questions", "rumination on unfinished life tasks"]
+        "clinicalClues": [
+          "death anxiety",
+          "bitterness",
+          "meaning questions",
+          "rumination on unfinished life tasks"
+        ]
       }
     ],
     "examPearls": [
@@ -385,33 +633,64 @@
       {
         "name": "Sensorimotor",
         "ageRange": "0-2",
-        "keyCharacteristics": ["Learns through action and sensation", "Object permanence develops", "Self-other differentiation grows"],
+        "keyCharacteristics": [
+          "Learns through action and sensation",
+          "Object permanence develops",
+          "Self-other differentiation grows"
+        ],
         "clinicalUse": "Relevant for attachment, regulation, and early developmental concerns rather than insight-oriented therapy."
       },
       {
         "name": "Preoperational",
         "ageRange": "2-7",
-        "keyCharacteristics": ["Symbolic thought expands", "Egocentrism is expected", "Conservation is not yet solid", "Thinking is intuitive rather than logical"],
+        "keyCharacteristics": [
+          "Symbolic thought expands",
+          "Egocentrism is expected",
+          "Conservation is not yet solid",
+          "Thinking is intuitive rather than logical"
+        ],
         "clinicalUse": "Play-based work, parent coaching, stories, visuals, and repetitive coping rehearsal are more effective than abstract insight."
       },
       {
         "name": "Concrete Operational",
         "ageRange": "7-11",
-        "keyCharacteristics": ["Logical reasoning about concrete events", "Classification and sequencing improve", "Perspective-taking strengthens", "Rules and fairness become more understandable"],
+        "keyCharacteristics": [
+          "Logical reasoning about concrete events",
+          "Classification and sequencing improve",
+          "Perspective-taking strengthens",
+          "Rules and fairness become more understandable"
+        ],
         "clinicalUse": "Behavior charts, coping plans, stepwise CBT, school interventions, and concrete examples work well."
       },
       {
         "name": "Formal Operational",
         "ageRange": "12+",
-        "keyCharacteristics": ["Abstract reasoning", "Hypothetical thinking", "Future orientation", "Metacognition grows"],
+        "keyCharacteristics": [
+          "Abstract reasoning",
+          "Hypothetical thinking",
+          "Future orientation",
+          "Metacognition grows"
+        ],
         "clinicalUse": "Values work, cognitive restructuring, identity exploration, and long-range planning become more available."
       }
     ],
     "keyConcepts": [
-      { "term": "Schema", "definition": "A mental framework used to organize experience" },
-      { "term": "Assimilation", "definition": "Adding new information into an existing schema" },
-      { "term": "Accommodation", "definition": "Changing the schema because new information no longer fits" },
-      { "term": "Equilibration", "definition": "The balancing process that drives cognitive growth" }
+      {
+        "term": "Schema",
+        "definition": "A mental framework used to organize experience"
+      },
+      {
+        "term": "Assimilation",
+        "definition": "Adding new information into an existing schema"
+      },
+      {
+        "term": "Accommodation",
+        "definition": "Changing the schema because new information no longer fits"
+      },
+      {
+        "term": "Equilibration",
+        "definition": "The balancing process that drives cognitive growth"
+      }
     ],
     "examPearls": [
       "If a counselor answer assumes rich perspective-taking or abstract insight in a very young child, it is often the wrong choice.",
@@ -425,24 +704,42 @@
       {
         "level": "Pre-Conventional",
         "stages": [
-          { "name": "Obedience and Punishment", "reasoning": "Avoid punishment" },
-          { "name": "Individualism and Exchange", "reasoning": "Get reward or advantage" }
+          {
+            "name": "Obedience and Punishment",
+            "reasoning": "Avoid punishment"
+          },
+          {
+            "name": "Individualism and Exchange",
+            "reasoning": "Get reward or advantage"
+          }
         ],
         "clinicalUse": "Children or highly concrete thinkers may frame morality around consequences rather than shared values."
       },
       {
         "level": "Conventional",
         "stages": [
-          { "name": "Interpersonal Accord", "reasoning": "Be good in the eyes of others" },
-          { "name": "Authority and Social Order", "reasoning": "Maintain rules and social order" }
+          {
+            "name": "Interpersonal Accord",
+            "reasoning": "Be good in the eyes of others"
+          },
+          {
+            "name": "Authority and Social Order",
+            "reasoning": "Maintain rules and social order"
+          }
         ],
         "clinicalUse": "Common in adolescence and adulthood where belonging, approval, duty, or authority shape moral choices."
       },
       {
         "level": "Post-Conventional",
         "stages": [
-          { "name": "Social Contract", "reasoning": "Rules exist to serve people and can be revised" },
-          { "name": "Universal Ethical Principles", "reasoning": "Justice and human rights may outweigh rigid rules" }
+          {
+            "name": "Social Contract",
+            "reasoning": "Rules exist to serve people and can be revised"
+          },
+          {
+            "name": "Universal Ethical Principles",
+            "reasoning": "Justice and human rights may outweigh rigid rules"
+          }
         ],
         "clinicalUse": "Relevant when cases involve sophisticated ethical reflection, activism, or value conflict."
       }
@@ -464,27 +761,52 @@
       {
         "system": "Microsystem",
         "definition": "Immediate settings directly experienced by the person",
-        "examples": ["family", "school", "peers", "faith community"]
+        "examples": [
+          "family",
+          "school",
+          "peers",
+          "faith community"
+        ]
       },
       {
         "system": "Mesosystem",
         "definition": "Interactions between parts of the microsystem",
-        "examples": ["parent-teacher communication", "peer conflict spilling into home", "inconsistent rules across settings"]
+        "examples": [
+          "parent-teacher communication",
+          "peer conflict spilling into home",
+          "inconsistent rules across settings"
+        ]
       },
       {
         "system": "Exosystem",
         "definition": "Indirect contexts that still affect development",
-        "examples": ["caregiver work stress", "transportation barriers", "community violence", "service access"]
+        "examples": [
+          "caregiver work stress",
+          "transportation barriers",
+          "community violence",
+          "service access"
+        ]
       },
       {
         "system": "Macrosystem",
         "definition": "Culture, laws, social structures, privilege, oppression, and norms",
-        "examples": ["racism", "economic inequality", "gender expectations", "immigration policy"]
+        "examples": [
+          "racism",
+          "economic inequality",
+          "gender expectations",
+          "immigration policy"
+        ]
       },
       {
         "system": "Chronosystem",
         "definition": "Time-based life transitions and historical forces",
-        "examples": ["divorce", "migration", "puberty", "pandemic disruption", "retirement"]
+        "examples": [
+          "divorce",
+          "migration",
+          "puberty",
+          "pandemic disruption",
+          "retirement"
+        ]
       }
     ],
     "clinicalApplication": [
@@ -501,10 +823,22 @@
     "title": "Vygotsky's Sociocultural Theory",
     "overview": "Vygotsky is especially useful for psychoeducation, school-based counseling, parent guidance, and skill-building cases because it emphasizes socially supported development.",
     "keyConcepts": [
-      { "term": "Zone of Proximal Development", "definition": "What the learner cannot yet do alone but can do with support" },
-      { "term": "Scaffolding", "definition": "Temporary support that is gradually removed as competence grows" },
-      { "term": "Private Speech", "definition": "Self-talk that supports problem solving and self-regulation" },
-      { "term": "Cultural Tools", "definition": "Language, symbols, and practices that shape learning and development" }
+      {
+        "term": "Zone of Proximal Development",
+        "definition": "What the learner cannot yet do alone but can do with support"
+      },
+      {
+        "term": "Scaffolding",
+        "definition": "Temporary support that is gradually removed as competence grows"
+      },
+      {
+        "term": "Private Speech",
+        "definition": "Self-talk that supports problem solving and self-regulation"
+      },
+      {
+        "term": "Cultural Tools",
+        "definition": "Language, symbols, and practices that shape learning and development"
+      }
     ],
     "clinicalApplication": [
       "Counselors, teachers, and caregivers can function as scaffolds when introducing coping skills or emotional regulation routines.",
@@ -588,7 +922,14 @@
     ],
     "cassModel": {
       "title": "Cass Model of Homosexual Identity Formation",
-      "stages": ["Identity Confusion", "Identity Comparison", "Identity Tolerance", "Identity Acceptance", "Identity Pride", "Identity Synthesis"],
+      "stages": [
+        "Identity Confusion",
+        "Identity Comparison",
+        "Identity Tolerance",
+        "Identity Acceptance",
+        "Identity Pride",
+        "Identity Synthesis"
+      ],
       "clinicalMeaning": "Useful for understanding self-definition, disclosure stress, shame, belonging, and affirmative counseling needs in LGBTQ+ work."
     },
     "examPearls": [
@@ -601,20 +942,48 @@
     "overview": "Development happens inside culture, power, and social position. Exam cases increasingly expect counselors to think about racism, acculturation, privilege, and intersectionality as developmental forces.",
     "helmsModel": {
       "title": "Helms' White Racial Identity Development",
-      "stages": ["Contact", "Disintegration", "Reintegration", "Pseudo-Independence", "Immersion-Emersion", "Autonomy"],
+      "stages": [
+        "Contact",
+        "Disintegration",
+        "Reintegration",
+        "Pseudo-Independence",
+        "Immersion-Emersion",
+        "Autonomy"
+      ],
       "clinicalUse": "Helps conceptualize how race awareness, defensiveness, guilt, and genuine anti-racist development may appear in clients or counselors."
     },
     "crossModel": {
       "title": "Cross's Black Racial Identity Development",
-      "stages": ["Pre-Encounter", "Encounter", "Immersion-Emersion", "Internalization", "Internalization-Commitment"],
+      "stages": [
+        "Pre-Encounter",
+        "Encounter",
+        "Immersion-Emersion",
+        "Internalization",
+        "Internalization-Commitment"
+      ],
       "clinicalUse": "Useful for understanding racial awakening, identity transformation, belonging, pride, and responses to oppression."
     },
     "relatedConcepts": [
-      { "term": "Acculturation", "definition": "Adapting to a new culture while retaining, reshaping, or negotiating culture-of-origin identity" },
-      { "term": "Intersectionality", "definition": "How multiple identities and systems of advantage or oppression interact" },
-      { "term": "Cultural Humility", "definition": "A stance of ongoing self-reflection, openness, and respect rather than mastery claims" },
-      { "term": "Microaggressions", "definition": "Subtle, repeated slights or invalidations tied to identity" },
-      { "term": "Privilege", "definition": "Unearned social advantage linked to dominant-group status" }
+      {
+        "term": "Acculturation",
+        "definition": "Adapting to a new culture while retaining, reshaping, or negotiating culture-of-origin identity"
+      },
+      {
+        "term": "Intersectionality",
+        "definition": "How multiple identities and systems of advantage or oppression interact"
+      },
+      {
+        "term": "Cultural Humility",
+        "definition": "A stance of ongoing self-reflection, openness, and respect rather than mastery claims"
+      },
+      {
+        "term": "Microaggressions",
+        "definition": "Subtle, repeated slights or invalidations tied to identity"
+      },
+      {
+        "term": "Privilege",
+        "definition": "Unearned social advantage linked to dominant-group status"
+      }
     ],
     "examPearls": [
       "The culturally responsive answer often validates lived context and expands assessment beyond the individual.",
@@ -664,32 +1033,71 @@
       {
         "title": "Infancy and Toddlerhood",
         "overview": "Attachment, regulation, language beginnings, mobility, and trust-building dominate this period.",
-        "expectedPatterns": ["Separation distress with soothing by caregiver", "Rapid language growth", "Increasing autonomy and limit testing"],
-        "clinicalQuestions": ["Is caregiving stable enough?", "Is the child gaining or losing skills?", "Are routines, sleep, and sensory factors contributing?"]
+        "expectedPatterns": [
+          "Separation distress with soothing by caregiver",
+          "Rapid language growth",
+          "Increasing autonomy and limit testing"
+        ],
+        "clinicalQuestions": [
+          "Is caregiving stable enough?",
+          "Is the child gaining or losing skills?",
+          "Are routines, sleep, and sensory factors contributing?"
+        ]
       },
       {
         "title": "Preschool Years",
         "overview": "Imagination, symbolic play, initiative, and early self-concept grow quickly.",
-        "expectedPatterns": ["Pretend play", "Egocentric thinking", "Strong emotions with developing self-control"],
-        "clinicalQuestions": ["Is the behavior age-expected or extreme?", "Are caregivers responding with structure or shame?", "Would play-based work fit better than direct talk?"]
+        "expectedPatterns": [
+          "Pretend play",
+          "Egocentric thinking",
+          "Strong emotions with developing self-control"
+        ],
+        "clinicalQuestions": [
+          "Is the behavior age-expected or extreme?",
+          "Are caregivers responding with structure or shame?",
+          "Would play-based work fit better than direct talk?"
+        ]
       },
       {
         "title": "School Age",
         "overview": "Academic competence, peer comparison, fairness, and concrete logic become central.",
-        "expectedPatterns": ["Pride in competence", "Sensitivity to comparison", "Improved rule-following and sequencing"],
-        "clinicalQuestions": ["Is there a learning mismatch, bullying, or anxiety problem?", "Is inferiority driving withdrawal or acting out?"]
+        "expectedPatterns": [
+          "Pride in competence",
+          "Sensitivity to comparison",
+          "Improved rule-following and sequencing"
+        ],
+        "clinicalQuestions": [
+          "Is there a learning mismatch, bullying, or anxiety problem?",
+          "Is inferiority driving withdrawal or acting out?"
+        ]
       },
       {
         "title": "Adolescence",
         "overview": "Identity, belonging, autonomy, abstract thinking, and peer salience intensify.",
-        "expectedPatterns": ["Questioning values", "Peer focus", "Push-pull around independence"],
-        "clinicalQuestions": ["Is this healthy exploration or major impairment?", "What family, cultural, or community pressures shape identity?", "What are the safety risks?"]
+        "expectedPatterns": [
+          "Questioning values",
+          "Peer focus",
+          "Push-pull around independence"
+        ],
+        "clinicalQuestions": [
+          "Is this healthy exploration or major impairment?",
+          "What family, cultural, or community pressures shape identity?",
+          "What are the safety risks?"
+        ]
       },
       {
         "title": "Adulthood and Later Life",
         "overview": "Intimacy, generativity, legacy, loss, and meaning shift across adulthood.",
-        "expectedPatterns": ["Relational commitments", "Contribution and caregiving", "Later-life review and adaptation to loss"],
-        "clinicalQuestions": ["What role task is being disrupted?", "Is grief complicated by isolation or cognitive change?", "What sources of purpose remain available?"]
+        "expectedPatterns": [
+          "Relational commitments",
+          "Contribution and caregiving",
+          "Later-life review and adaptation to loss"
+        ],
+        "clinicalQuestions": [
+          "What role task is being disrupted?",
+          "Is grief complicated by isolation or cognitive change?",
+          "What sources of purpose remain available?"
+        ]
       }
     ],
     "examPearls": [

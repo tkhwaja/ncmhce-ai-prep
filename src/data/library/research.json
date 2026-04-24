@@ -12,7 +12,7 @@
     "whyThisModuleMatters": "This module prepares learners to handle the research and program evaluation concepts that show up on the NCMHCE. The exam typically does not expect graduate-level statistical computation. It expects practical understanding of research design, evidence-based practice, foundational statistics, ethics in research, and how counselors evaluate whether services are working."
   },
   "uiHints": {
-    "defaultView": "nested_accordion",
+    "defaultView": "guided_sections",
     "recommendedComponents": [
       "module_header",
       "research_design_cards",

@@ -12,7 +12,7 @@
     "whyThisModuleMatters": "This module trains learners to recognize diagnostic patterns in case vignettes, rule out competing diagnoses, apply duration and severity requirements, and distinguish primary diagnoses from specifiers and differential diagnoses."
   },
   "uiHints": {
-    "defaultView": "nested_accordion",
+    "defaultView": "guided_sections",
     "recommendedComponents": [
       "module_header",
       "diagnostic_category_tabs",
