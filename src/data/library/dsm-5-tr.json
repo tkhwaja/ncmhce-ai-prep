@@ -86,6 +86,7 @@
         {
           "id": "mdd",
           "title": "Major Depressive Disorder (MDD)",
+          "description": "Major Depressive Disorder is a mood disorder marked by one or more episodes of persistent sadness or loss of interest that lasts at least two weeks and significantly disrupts work, relationships, sleep, appetite, energy, and self-worth. It is more than ordinary sadness \u2014 symptoms are pervasive, nearly daily, and represent a clear change from how the person normally functions. MDD can occur as a single episode or recur throughout life, and it carries meaningful suicide risk that must always be assessed.",
           "hallmark": "At least 5 symptoms during the same 2-week period, with at least one being depressed mood or loss of interest/pleasure.",
           "coreCriteria": [
             "Depressed mood most of the day, nearly every day",
@@ -145,6 +146,7 @@
         {
           "id": "pdd",
           "title": "Persistent Depressive Disorder (Dysthymia)",
+          "description": "Persistent Depressive Disorder, formerly called dysthymia, is a chronic, lower-grade form of depression in which a depressed mood is present most of the day, more days than not, for at least two years in adults (one year in children/adolescents). Symptoms are less severe than MDD at any single moment but are far more enduring, often becoming part of how the person sees themselves ('I've always been this way'). Functional impairment accumulates over years of low energy, low self-esteem, and hopelessness.",
           "hallmark": "Chronically depressed mood for most of the day, more days than not, for at least 2 years.",
           "coreCriteria": [
             "Depressed mood most of the day, more days than not, for 2 years or more",
@@ -175,6 +177,7 @@
         {
           "id": "dmdd",
           "title": "Disruptive Mood Dysregulation Disorder (DMDD)",
+          "description": "Disruptive Mood Dysregulation Disorder is a childhood diagnosis (onset before age 10, diagnosed between ages 6\u201318) characterized by severe, recurrent temper outbursts that are grossly out of proportion to the situation, occurring three or more times per week, with a persistently irritable or angry mood between outbursts. It was created to reduce over-diagnosis of pediatric bipolar disorder in children with chronic irritability rather than discrete manic episodes.",
           "hallmark": "Severe recurrent temper outbursts with persistent irritability in children and adolescents.",
           "coreCriteria": [
             "Severe verbal or behavioral temper outbursts grossly out of proportion to the situation",
@@ -213,6 +216,7 @@
         {
           "id": "gad",
           "title": "Generalized Anxiety Disorder (GAD)",
+          "description": "Generalized Anxiety Disorder is characterized by excessive, hard-to-control worry about multiple everyday concerns (work, health, finances, family) occurring more days than not for at least six months. The worry is accompanied by physical and cognitive symptoms \u2014 restlessness, fatigue, muscle tension, irritability, sleep disturbance, and difficulty concentrating \u2014 and causes meaningful impairment. Unlike panic disorder, the anxiety is chronic and diffuse rather than episodic.",
           "hallmark": "Excessive anxiety and worry about multiple areas of life occurring more days than not for at least 6 months.",
           "coreCriteria": [
             "Excessive anxiety and worry occurring more days than not for 6 months or more",
@@ -241,6 +245,7 @@
         {
           "id": "panic_disorder",
           "title": "Panic Disorder",
+          "description": "Panic Disorder involves recurrent, unexpected panic attacks \u2014 sudden surges of intense fear or discomfort that peak within minutes and include physical symptoms such as racing heart, shortness of breath, chest pain, dizziness, sweating, trembling, and a sense of impending doom or losing control. To meet criteria, at least one attack must be followed by a month or more of persistent worry about additional attacks, fear of their consequences (e.g., 'having a heart attack,' 'going crazy'), or significant behavior change to avoid them. The attacks come 'out of the blue,' which distinguishes panic disorder from situationally-cued anxiety.",
           "hallmark": "Recurrent unexpected panic attacks plus persistent concern or maladaptive behavior change related to future attacks.",
           "coreCriteria": [
             "Recurrent unexpected panic attacks",
@@ -279,6 +284,7 @@
         {
           "id": "social_anxiety",
           "title": "Social Anxiety Disorder",
+          "description": "Social Anxiety Disorder (Social Phobia) is a persistent, intense fear of one or more social or performance situations in which the person may be scrutinized or judged by others \u2014 speaking, eating, meeting strangers, performing. The feared situations almost always provoke anxiety, are avoided or endured with distress, and the fear is out of proportion to the actual threat. Symptoms must last six months or more and cause meaningful impairment. A 'performance only' specifier exists for those whose fear is limited to public speaking or performance.",
           "hallmark": "Marked fear of social situations involving possible scrutiny and fear of negative evaluation.",
           "coreCriteria": [
             "Marked fear or anxiety about one or more social situations where scrutiny is possible",
@@ -305,6 +311,7 @@
         {
           "id": "specific_phobia",
           "title": "Specific Phobia",
+          "description": "Specific Phobia is a marked, persistent fear of a specific object or situation (animals, heights, blood/injection/injury, flying, enclosed spaces, etc.) that is out of proportion to the actual danger. The phobic stimulus almost always provokes immediate anxiety and is actively avoided or endured with intense distress. Symptoms must last six months or more and impair functioning. Unlike generalized anxiety, the fear is narrowly focused on a clearly identifiable trigger.",
           "hallmark": "Marked fear or anxiety about a specific object or situation.",
           "coreCriteria": [
             "Fear or anxiety about a specific object or situation",
@@ -328,6 +335,7 @@
         {
           "id": "agoraphobia",
           "title": "Agoraphobia",
+          "description": "Agoraphobia is marked fear or anxiety about two or more situations where escape may be difficult or help unavailable if panic-like or incapacitating symptoms occur \u2014 using public transportation, being in open or enclosed spaces, standing in line or in crowds, or being outside the home alone. These situations are avoided, require a companion, or are endured with intense fear. Symptoms must last six months or more. It can occur with or without panic disorder.",
           "hallmark": "Fear or avoidance of situations where escape may be difficult or help unavailable if panic-like symptoms occur.",
           "coreCriteria": [
             "Marked fear or anxiety about 2 or more of the following: public transportation, open spaces, enclosed spaces, lines/crowds, being outside home alone",
@@ -342,6 +350,7 @@
         {
           "id": "separation_anxiety",
           "title": "Separation Anxiety Disorder",
+          "description": "Separation Anxiety Disorder involves developmentally inappropriate, excessive fear or anxiety about separation from attachment figures (a parent, partner, or other primary attachment). Symptoms include persistent worry about losing the person or about harm befalling them, refusal to go to school or work, nightmares about separation, and physical complaints when separation is anticipated. Although classically thought of as a childhood disorder, it can occur in adults; duration must be at least four weeks in children and six months in adults.",
           "hallmark": "Developmentally inappropriate fear concerning separation from attachment figures.",
           "coreCriteria": [
             "Excessive fear or anxiety concerning separation from attachment figures",
@@ -374,6 +383,7 @@
         {
           "id": "ptsd",
           "title": "Posttraumatic Stress Disorder (PTSD)",
+          "description": "Posttraumatic Stress Disorder develops after exposure to actual or threatened death, serious injury, or sexual violence \u2014 through direct experience, witnessing, learning of a close other's traumatic event, or repeated exposure to aversive details (as in first responders). Symptoms last more than one month and fall into four clusters: intrusion (flashbacks, nightmares, intrusive memories), avoidance of trauma reminders, negative alterations in cognition and mood, and marked arousal and reactivity (hypervigilance, exaggerated startle, irritability, sleep disturbance). PTSD impairs daily functioning and often co-occurs with depression and substance use.",
           "hallmark": "Symptoms following exposure to actual or threatened death, serious injury, or sexual violence, lasting more than 1 month.",
           "traumaExposureWays": [
             "direct exposure",
@@ -506,6 +516,7 @@
         {
           "id": "ocd",
           "title": "Obsessive-Compulsive Disorder (OCD)",
+          "description": "Obsessive-Compulsive Disorder is characterized by obsessions (recurrent, intrusive, unwanted thoughts, urges, or images that cause marked anxiety) and/or compulsions (repetitive behaviors or mental acts performed in response to an obsession or rigid rules, aimed at reducing anxiety or preventing a feared outcome). The obsessions and compulsions are time-consuming (typically more than one hour per day) or cause significant distress or impairment. The person usually recognizes the thoughts and behaviors as excessive, though insight varies.",
           "hallmark": "Obsessions, compulsions, or both that are time-consuming or cause significant distress/impairment.",
           "coreCriteria": [
             "Obsessions: recurrent, intrusive, unwanted thoughts, urges, or images that cause anxiety/distress",
@@ -535,6 +546,7 @@
         {
           "id": "bdd",
           "title": "Body Dysmorphic Disorder (BDD)",
+          "description": "Body Dysmorphic Disorder involves preoccupation with one or more perceived defects or flaws in physical appearance that are not observable or appear slight to others. The person performs repetitive behaviors (mirror checking, grooming, skin picking, reassurance seeking) or mental acts (comparing appearance with others) in response to the appearance concerns. The preoccupation causes significant distress or impairment and is not better explained by an eating disorder.",
           "hallmark": "Preoccupation with one or more perceived defects or flaws in appearance that are not observable or appear slight to others.",
           "coreCriteria": [
             "Appearance preoccupation",
@@ -549,6 +561,7 @@
         {
           "id": "hoarding",
           "title": "Hoarding Disorder",
+          "description": "Hoarding Disorder is persistent difficulty discarding or parting with possessions, regardless of their actual value, due to a perceived need to save them and distress associated with discarding. The accumulation results in clutter that congests living areas and substantially compromises their intended use. It causes significant distress or impairment, including unsafe living conditions or family/occupational problems.",
           "hallmark": "Persistent difficulty discarding possessions regardless of actual value due to a perceived need to save them and distress associated with discarding.",
           "coreCriteria": [
             "Persistent difficulty discarding possessions",
@@ -581,6 +594,7 @@
         {
           "id": "schizophrenia",
           "title": "Schizophrenia",
+          "description": "Schizophrenia is a chronic psychotic disorder defined by the presence of two or more characteristic symptoms \u2014 delusions, hallucinations, disorganized speech, grossly disorganized or catatonic behavior, and negative symptoms \u2014 for a significant portion of one month, with continuous signs of disturbance lasting at least six months. At least one symptom must be delusions, hallucinations, or disorganized speech. Functioning in work, relationships, or self-care is markedly below the prior level. Onset is typically in late adolescence or early adulthood.",
           "hallmark": "Two or more core psychotic symptoms for at least 1 month, with continuous signs of disturbance for at least 6 months and functional decline.",
           "coreCriteria": [
             "Two or more of the following for a significant portion of 1 month: delusions, hallucinations, disorganized speech, grossly disorganized/catatonic behavior, negative symptoms",
@@ -639,6 +653,7 @@
         {
           "id": "schizoaffective",
           "title": "Schizoaffective Disorder",
+          "description": "Schizoaffective Disorder is diagnosed when an uninterrupted period of illness includes a major mood episode (depressive or manic) concurrent with the active-phase symptoms of schizophrenia, AND there are delusions or hallucinations for two or more weeks in the absence of a major mood episode during the lifetime of the illness. Mood symptoms are present for the majority of the total illness duration. It bridges the line between schizophrenia and mood disorders.",
           "hallmark": "An uninterrupted period of illness during which there is a major mood episode concurrent with schizophrenia symptoms, plus at least 2 weeks of psychosis without mood symptoms.",
           "coreCriteria": [
             "Schizophrenia symptoms present",
@@ -670,6 +685,7 @@
         {
           "id": "bipolar_i",
           "title": "Bipolar I Disorder",
+          "description": "Bipolar I Disorder requires at least one lifetime manic episode \u2014 a distinct period of abnormally elevated, expansive, or irritable mood and increased energy lasting at least one week (or any duration if hospitalization is required), accompanied by symptoms such as decreased need for sleep, grandiosity, pressured speech, racing thoughts, distractibility, increased goal-directed activity, and excessive involvement in risky pleasurable activities. Depressive episodes are common but not required for the diagnosis.",
           "hallmark": "At least one manic episode, with or without major depressive episodes.",
           "manicEpisodeCriteria": [
             "Distinct period of abnormally elevated, expansive, or irritable mood and increased goal-directed activity or energy",
@@ -699,6 +715,7 @@
         {
           "id": "bipolar_ii",
           "title": "Bipolar II Disorder",
+          "description": "Bipolar II Disorder requires at least one hypomanic episode (lasting at least four consecutive days, with similar but less severe symptoms than mania, no psychosis, and no marked impairment or hospitalization) AND at least one major depressive episode. The person has never had a full manic episode \u2014 that would convert the diagnosis to Bipolar I. Depression is typically the more disabling and presenting feature.",
           "hallmark": "At least one hypomanic episode and at least one major depressive episode, with no history of mania.",
           "hypomaniaCriteria": [
             "Elevated, expansive, or irritable mood and increased energy/activity",
@@ -721,6 +738,7 @@
         {
           "id": "cyclothymic",
           "title": "Cyclothymic Disorder",
+          "description": "Cyclothymic Disorder is a chronic mood disorder in which the person experiences numerous periods of hypomanic symptoms and numerous periods of depressive symptoms \u2014 neither of which fully meet criteria for a hypomanic, manic, or major depressive episode \u2014 for at least two years in adults (one year in youth). Symptoms are present at least half the time, with no symptom-free interval longer than two months.",
           "hallmark": "At least 2 years of numerous periods with hypomanic symptoms and depressive symptoms that never meet full criteria for episodes.",
           "coreCriteria": [
             "For at least 2 years, numerous periods of hypomanic symptoms and periods of depressive symptoms",
@@ -782,6 +800,7 @@
         {
           "id": "bpd",
           "title": "Borderline Personality Disorder (BPD)",
+          "description": "Borderline Personality Disorder is a pervasive pattern of instability in interpersonal relationships, self-image, and emotions, plus marked impulsivity, beginning by early adulthood. Hallmark features include frantic efforts to avoid abandonment, intense and unstable relationships alternating between idealization and devaluation, identity disturbance, impulsive self-damaging behaviors, recurrent suicidal behavior or self-harm, affective instability, chronic emptiness, intense anger, and stress-related paranoid ideation or dissociation.",
           "hallmark": "Instability in relationships, self-image, affect, and impulse control, often with fear of abandonment and recurrent self-harm or suicidality.",
           "coreFeatures": [
             "frantic efforts to avoid real or imagined abandonment",
@@ -818,6 +837,7 @@
         {
           "id": "aspd",
           "title": "Antisocial Personality Disorder (ASPD)",
+          "description": "Antisocial Personality Disorder is a pervasive pattern of disregard for and violation of the rights of others occurring since age 15, in a person at least 18 years old, with evidence of conduct disorder before age 15. Features include unlawful behavior, deceitfulness, impulsivity, irritability and aggressiveness, reckless disregard for safety, consistent irresponsibility, and lack of remorse.",
           "hallmark": "Pervasive disregard for and violation of the rights of others since age 15, with diagnosis only at age 18 or older and evidence of conduct disorder before age 15.",
           "coreFeatures": [
             "failure to conform to lawful behavior",
@@ -842,6 +862,7 @@
         {
           "id": "ocpd",
           "title": "Obsessive-Compulsive Personality Disorder (OCPD)",
+          "description": "Obsessive-Compulsive Personality Disorder is a pervasive pattern of preoccupation with orderliness, perfectionism, and mental and interpersonal control, at the expense of flexibility, openness, and efficiency. Unlike OCD, there are no true obsessions or compulsions \u2014 the rigidity is ego-syntonic, meaning the person sees their standards and control as appropriate rather than distressing.",
           "hallmark": "Preoccupation with orderliness, perfectionism, and control at the expense of flexibility and efficiency.",
           "coreFeatures": [
             "preoccupation with rules and details",
@@ -951,6 +972,7 @@
         {
           "id": "adhd",
           "title": "Attention-Deficit/Hyperactivity Disorder (ADHD)",
+          "description": "Attention-Deficit/Hyperactivity Disorder is a neurodevelopmental disorder marked by a persistent pattern of inattention and/or hyperactivity-impulsivity that interferes with functioning or development. Several symptoms must be present before age 12, occur in two or more settings (e.g., home and school/work), and cause clear impairment. Three presentations exist: predominantly inattentive, predominantly hyperactive-impulsive, and combined.",
           "hallmark": "Persistent pattern of inattention and/or hyperactivity-impulsivity that interferes with functioning or development.",
           "coreCriteria": [
             "At least 6 inattentive symptoms and/or 6 hyperactive-impulsive symptoms in children (5+ for older adolescents/adults in many settings)",
@@ -1025,6 +1047,7 @@
         {
           "id": "anorexia",
           "title": "Anorexia Nervosa",
+          "description": "Anorexia Nervosa is characterized by restriction of energy intake leading to significantly low body weight relative to age, sex, and developmental trajectory; intense fear of gaining weight or persistent behavior that interferes with weight gain; and disturbance in the way one's body weight or shape is experienced (or denial of the seriousness of the low weight). Two subtypes: restricting and binge-eating/purging. Carries the highest mortality rate of any psychiatric disorder.",
           "hallmark": "Restriction of energy intake leading to significantly low body weight, intense fear of gaining weight, and disturbance in body image.",
           "coreCriteria": [
             "Restriction of intake leading to significantly low body weight",
@@ -1039,6 +1062,7 @@
         {
           "id": "bulimia",
           "title": "Bulimia Nervosa",
+          "description": "Bulimia Nervosa is defined by recurrent episodes of binge eating (eating an objectively large amount with a sense of loss of control) accompanied by recurrent inappropriate compensatory behaviors to prevent weight gain (self-induced vomiting, laxative/diuretic misuse, fasting, or excessive exercise). Binge eating and compensatory behaviors both occur, on average, at least once a week for three months. Self-evaluation is unduly influenced by body shape and weight. Body weight is typically in the normal or overweight range.",
           "hallmark": "Recurrent binge eating with compensatory behaviors such as vomiting, laxative misuse, fasting, or excessive exercise.",
           "coreCriteria": [
             "Recurrent binge eating",
@@ -1053,6 +1077,7 @@
         {
           "id": "bed",
           "title": "Binge Eating Disorder",
+          "description": "Binge Eating Disorder involves recurrent episodes of binge eating (large amount of food, sense of loss of control) at least once a week for three months, associated with marked distress and at least three of: eating rapidly, eating until uncomfortably full, eating large amounts when not hungry, eating alone due to embarrassment, or feeling disgusted/depressed/guilty afterward. Unlike bulimia, there are no regular compensatory behaviors.",
           "hallmark": "Recurrent binge eating without regular compensatory behaviors.",
           "coreCriteria": [
             "Recurrent binge episodes",
@@ -1067,6 +1092,7 @@
         {
           "id": "arfid",
           "title": "Avoidant/Restrictive Food Intake Disorder (ARFID)",
+          "description": "Avoidant/Restrictive Food Intake Disorder is an eating or feeding disturbance \u2014 based on lack of interest in eating, sensory avoidance of food characteristics, or fear of aversive consequences (choking, vomiting) \u2014 that results in failure to meet nutritional or energy needs. Consequences include significant weight loss or failure to grow, nutritional deficiency, dependence on supplements or tube feeding, or marked psychosocial impairment. Unlike anorexia, there is no body image disturbance or fear of weight gain.",
           "hallmark": "Restricted intake causing nutritional or psychosocial impairment without body image distortion as the main driver.",
           "examClues": [
             "Often related to sensory aversion, fear of choking/vomiting, or low interest in eating, rather than weight/shape concerns."
