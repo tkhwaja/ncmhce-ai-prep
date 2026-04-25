@@ -111,533 +111,1828 @@
     ]
   },
   "biopsychosocialFramework": {
+    "section_id": "biopsychosocial_framework",
     "title": "Biopsychosocial Framework",
-    "overview": "The biopsychosocial model organizes clinical understanding into interacting biological, psychological, and social domains. It helps counselors avoid oversimplifying a client into just a diagnosis.",
-    "domains": [
+    "description": "Comprehensive framework for understanding the whole client and building clinically sound case conceptualizations.",
+    "learning_objectives": [
+      "Use biopsychosocial-spiritual thinking to organize client information",
+      "Apply the 5 Ps to clinical narratives",
+      "Differentiate risk factors, protective factors, triggers, and maintaining factors",
+      "Use context to guide diagnosis and treatment planning"
+    ],
+    "recommended_visual": {
+      "type": "diagram",
+      "title": "Whole Client Assessment Map",
+      "description": "A circular diagram with the client in the center and six surrounding domains: Biological, Psychological, Social, Cultural, Spiritual/Meaning, Strengths/Protective Factors."
+    },
+    "lessons": [
       {
-        "domain": "Biological",
-        "keyAreas": [
-          "medical history",
-          "medications",
-          "neurological issues",
-          "sleep",
-          "appetite",
-          "physical health",
-          "pain",
-          "family medical history",
-          "substance use",
-          "genetic vulnerability"
-        ],
-        "questionsToAsk": [
-          "Do you have any medical conditions that affect your mood, energy, or functioning?",
-          "What medications, supplements, or substances are you currently using?",
-          "How have your sleep, appetite, and energy been lately?"
-        ],
-        "whyItMatters": "Biological factors can contribute to symptoms, mimic psychiatric conditions, or affect treatment choices."
-      },
-      {
-        "domain": "Psychological",
-        "keyAreas": [
-          "mental health history",
-          "coping skills",
-          "trauma history",
-          "cognitive patterns",
-          "self-concept",
-          "emotion regulation",
-          "personality traits",
-          "prior treatment response"
-        ],
-        "questionsToAsk": [
-          "Have you experienced similar symptoms before?",
-          "How do you usually cope when distressed?",
-          "What thoughts tend to show up when things get worse?"
-        ],
-        "whyItMatters": "Psychological processes often explain how symptoms are maintained and what interventions are likely to work."
-      },
-      {
-        "domain": "Social",
-        "keyAreas": [
-          "family relationships",
-          "social support",
+        "lesson_id": "bps_core_model",
+        "title": "Biopsychosocial-Spiritual Framework",
+        "why_it_matters_for_ncmhce": "The NCMHCE often presents clients with layered problems. Strong answers integrate biological, psychological, social, cultural, and spiritual factors instead of reducing the client to one diagnosis.",
+        "key_terms": [
+          "biological factors",
+          "psychological factors",
+          "social factors",
           "cultural context",
-          "housing",
-          "employment",
-          "education",
-          "legal issues",
-          "spirituality",
-          "financial stress",
-          "community resources"
+          "spiritual/religious factors",
+          "protective factors",
+          "risk factors",
+          "case conceptualization"
         ],
-        "questionsToAsk": [
-          "Who do you rely on for support?",
-          "What stressors are happening in your family, work, or living situation?",
-          "Are there cultural, spiritual, or community factors that are important for me to understand?"
+        "content_blocks": [
+          {
+            "type": "overview",
+            "content": "The biopsychosocial-spiritual framework is a structured way to understand the whole client. It asks: What is happening in the body, mind, relationships, environment, culture, and meaning system that contributes to the presenting problem?"
+          },
+          {
+            "type": "table",
+            "title": "Framework Domains",
+            "columns": [
+              "Domain",
+              "What to assess",
+              "NCMHCE examples"
+            ],
+            "rows": [
+              [
+                "Biological",
+                "Sleep, appetite, pain, medical conditions, medications, substance use, pregnancy/postpartum, neurological concerns, family psychiatric history",
+                "Client with panic-like symptoms may need assessment of caffeine, thyroid concerns, medications, cardiac symptoms, and substance use."
+              ],
+              [
+                "Psychological",
+                "Mood, anxiety, trauma, cognition, coping, identity, attachment, insight, thought process, self-esteem",
+                "Client reports hopelessness, rumination, avoidance, intrusive memories, poor distress tolerance."
+              ],
+              [
+                "Social",
+                "Family, partners, peers, work/school, housing, finances, legal issues, caregiving, community support",
+                "Client's depression worsens after job loss and isolation; adolescent conflict may be linked to family dynamics."
+              ],
+              [
+                "Cultural",
+                "Race, ethnicity, immigration, language, religion, gender identity, sexual orientation, disability, power/oppression, cultural meanings of symptoms",
+                "Do not assume a symptom means the same thing across cultures; ask how client understands the problem."
+              ],
+              [
+                "Spiritual/Meaning",
+                "Faith, values, moral injury, existential concerns, purpose, rituals, community, spiritual supports or conflicts",
+                "Grief, trauma, guilt, and major life transitions often involve meaning-making."
+              ],
+              [
+                "Strengths/Protective Factors",
+                "Supportive people, reasons for living, coping skills, motivation, treatment history, resilience, values",
+                "Protective factors reduce risk and guide treatment planning."
+              ]
+            ]
+          },
+          {
+            "type": "exam_tip",
+            "content": "On exam items, strong responses often gather missing biopsychosocial data before diagnosing or intervening, unless safety requires immediate action."
+          },
+          {
+            "type": "clinical_application",
+            "content": "A good conceptualization connects the presenting problem to maintaining factors. Example: panic symptoms may be maintained by avoidance, catastrophic misinterpretation of body sensations, caffeine use, work stress, and family accommodation."
+          }
         ],
-        "whyItMatters": "Symptoms do not happen in a vacuum. Social context can intensify distress or serve as a major protective factor."
+        "exam_cues": [
+          "Question asks what to assess next",
+          "Case includes medical/substance/cultural/family factors",
+          "Client has complex symptoms that do not fit one simple diagnosis"
+        ],
+        "common_traps": [
+          "Ignoring medical/substance contributors",
+          "Overdiagnosing based on one symptom",
+          "Skipping culture and protective factors",
+          "Treating spirituality as pathology"
+        ],
+        "memory_anchors": [
+          "B-P-S-S: Body, Psyche, Social system, Spiritual/meaning",
+          "Symptoms + context + impairment + duration + rule-outs = stronger clinical reasoning"
+        ],
+        "mini_practice_questions": [
+          {
+            "question": "A client reports panic attacks, insomnia, heavy caffeine use, and recent thyroid medication changes. What should the counselor prioritize?",
+            "answer": "Assess biological/medical and substance-related contributors while also evaluating anxiety symptoms and risk. Do not immediately diagnose panic disorder without rule-outs."
+          }
+        ]
+      },
+      {
+        "lesson_id": "bps_5ps_case_conceptualization",
+        "title": "The 5 Ps Case Conceptualization",
+        "why_it_matters_for_ncmhce": "The exam rewards organized clinical reasoning. The 5 Ps help students understand why the client is struggling and what should be targeted in treatment.",
+        "key_terms": [
+          "presenting problem",
+          "predisposing factors",
+          "precipitating factors",
+          "perpetuating factors",
+          "protective factors"
+        ],
+        "content_blocks": [
+          {
+            "type": "overview",
+            "content": "The 5 Ps are a practical case conceptualization structure: Presenting problem, Predisposing factors, Precipitating factors, Perpetuating factors, and Protective factors."
+          },
+          {
+            "type": "table",
+            "title": "The 5 Ps",
+            "columns": [
+              "P",
+              "Meaning",
+              "Example"
+            ],
+            "rows": [
+              [
+                "Presenting problem",
+                "The current concern and symptoms causing distress or impairment",
+                "Client seeks help for panic attacks and avoidance of driving."
+              ],
+              [
+                "Predisposing factors",
+                "Background vulnerabilities that increase risk",
+                "Family history of anxiety, childhood instability, insecure attachment, chronic illness."
+              ],
+              [
+                "Precipitating factors",
+                "Recent triggers that started or worsened the issue",
+                "Car accident three weeks ago, breakup, job loss, new baby."
+              ],
+              [
+                "Perpetuating factors",
+                "Maintaining factors that keep the issue going",
+                "Avoidance, reassurance seeking, alcohol use, sleep deprivation, family conflict."
+              ],
+              [
+                "Protective factors",
+                "Strengths that reduce risk and support recovery",
+                "Supportive spouse, willingness for treatment, religious community, coping skills."
+              ]
+            ]
+          },
+          {
+            "type": "flowchart",
+            "title": "5 Ps Flow",
+            "steps": [
+              "Identify current symptoms and impairment",
+              "Look backward for vulnerabilities",
+              "Identify recent trigger",
+              "Identify what keeps the problem alive",
+              "Identify strengths and supports",
+              "Use this to guide diagnosis and treatment plan"
+            ]
+          },
+          {
+            "type": "exam_tip",
+            "content": "When answer choices include both a symptom label and a contextual assessment, the better answer often collects or integrates context unless the question has enough diagnostic detail already."
+          }
+        ],
+        "exam_cues": [
+          "Question asks for case conceptualization",
+          "Client has multiple interacting stressors",
+          "Treatment planning question requires target selection"
+        ],
+        "common_traps": [
+          "Only listing symptoms without explaining maintaining factors",
+          "Ignoring protective factors in risk questions",
+          "Confusing precipitating and perpetuating factors"
+        ],
+        "memory_anchors": [
+          "Predisposing = vulnerability; precipitating = trigger; perpetuating = keeps it going; protective = helps recovery"
+        ],
+        "mini_practice_questions": []
       }
     ],
-    "integrativePrompt": "A strong conceptualization asks not just 'What diagnosis fits?' but 'How are biological, psychological, and social forces interacting to create or maintain this problem?'",
-    "examTraps": [
-      "Overfocusing on symptoms while ignoring context",
-      "Missing substance use or medical contributors",
-      "Ignoring strengths and supports while focusing only on deficits"
+    "section_exam_mastery_checklist": [
+      "Can explain the purpose of Biopsychosocial Framework in NCMHCE decision-making.",
+      "Can identify common exam cues and distractors.",
+      "Can choose the best next counseling action based on risk, ethics, assessment, diagnosis, and treatment phase.",
+      "Can apply the concept to a short clinical vignette.",
+      "Can document or justify the decision in clear clinical language when relevant."
     ]
   },
   "intakeProcess": {
-    "title": "Intake and Initial Case Formulation",
-    "overview": "The first session is not just about gathering data. It is about building rapport, clarifying the problem, assessing risk, and beginning to organize the case.",
-    "sequence": [
+    "section_id": "intake_process",
+    "title": "Intake Process",
+    "description": "Step-by-step exam-focused intake process including consent, confidentiality, assessment, MSE, screening, and first-session decision-making.",
+    "learning_objectives": [
+      "Know the proper sequence of intake tasks",
+      "Identify when risk interrupts routine intake",
+      "Apply informed consent and confidentiality principles",
+      "Use MSE and screening to guide diagnosis and level of care"
+    ],
+    "recommended_visual": {
+      "type": "flowchart",
+      "title": "First Session Decision Flow",
+      "description": "Start -> informed consent -> presenting concern -> safety screen -> biopsychosocial history -> MSE/screening -> diagnostic impression -> plan/referral/documentation."
+    },
+    "lessons": [
       {
-        "step": 1,
-        "title": "Establish rapport and explain the counseling process",
-        "tasks": [
-          "begin alliance building",
-          "review informed consent",
-          "clarify confidentiality and limits",
-          "set a collaborative tone"
-        ]
+        "lesson_id": "intake_purpose_sequence",
+        "title": "Purpose and Sequence of Intake",
+        "why_it_matters_for_ncmhce": "Many NCMHCE items test whether the counselor knows what to do first. Intake is not just paperwork; it establishes safety, informed consent, presenting problem, diagnostic direction, and treatment fit.",
+        "key_terms": [
+          "informed consent",
+          "presenting problem",
+          "confidentiality",
+          "assessment",
+          "clinical interview",
+          "screening",
+          "rapport"
+        ],
+        "content_blocks": [
+          {
+            "type": "overview",
+            "content": "The intake process establishes the counseling relationship, clarifies the reason for services, explains informed consent and confidentiality, screens for safety, gathers biopsychosocial history, and determines appropriate level of care."
+          },
+          {
+            "type": "ordered_list",
+            "title": "Ideal Intake Sequence",
+            "items": [
+              "Welcome and orient the client to the process.",
+              "Review informed consent, confidentiality, limits of confidentiality, fees, telehealth policies if relevant, records, and client rights.",
+              "Clarify presenting problem in the client's own words.",
+              "Screen for immediate safety concerns: suicidal ideation, homicidal ideation, abuse/neglect, psychosis/mania, intoxication/withdrawal, domestic violence, medical emergency.",
+              "Gather symptom history: onset, duration, frequency, intensity, impairment, triggers, coping, previous episodes.",
+              "Gather biopsychosocial history: medical, psychiatric, family, social, cultural, substance use, trauma, legal, school/work, strengths.",
+              "Conduct MSE and relevant screening measures.",
+              "Form initial diagnostic impressions and differential diagnoses.",
+              "Collaboratively establish initial goals or next-step plan.",
+              "Document findings and follow-up actions."
+            ]
+          },
+          {
+            "type": "exam_tip",
+            "content": "If the client presents with risk, risk assessment overrides routine intake flow. If there is no immediate risk, informed consent and assessment are usually early priorities."
+          },
+          {
+            "type": "warning",
+            "content": "Do not jump into deep trauma processing during intake unless clinically necessary. First establish safety, stabilization, consent, and readiness."
+          }
+        ],
+        "exam_cues": [
+          "First session",
+          "initial appointment",
+          "new client",
+          "what should counselor do first",
+          "client reveals risk during intake"
+        ],
+        "common_traps": [
+          "Starting treatment techniques before consent and assessment",
+          "Ignoring limits of confidentiality",
+          "Failing to assess immediate risk",
+          "Diagnosing before collecting duration/impairment/rule-outs"
+        ],
+        "memory_anchors": [
+          "Intake = Consent + Concern + Safety + History + MSE + Plan"
+        ],
+        "mini_practice_questions": []
       },
       {
-        "step": 2,
-        "title": "Clarify the presenting problem",
-        "tasks": [
-          "identify chief complaint",
-          "ask what brought the client now",
-          "understand onset, duration, frequency, and severity"
-        ]
+        "lesson_id": "intake_informed_consent_confidentiality",
+        "title": "Informed Consent and Confidentiality at Intake",
+        "why_it_matters_for_ncmhce": "Ethics questions commonly test whether the counselor can explain rights, responsibilities, and limits of confidentiality.",
+        "key_terms": [
+          "informed consent",
+          "limits of confidentiality",
+          "client rights",
+          "records",
+          "mandated reporting",
+          "duty to protect",
+          "privacy"
+        ],
+        "content_blocks": [
+          {
+            "type": "overview",
+            "content": "Informed consent is an ongoing process, not a one-time form. Clients should understand the counseling process, risks/benefits, alternatives, confidentiality, limits, fees, emergency procedures, records, counselor credentials, supervision if applicable, and how to ask questions."
+          },
+          {
+            "type": "table",
+            "title": "Confidentiality Limits Commonly Tested",
+            "columns": [
+              "Limit",
+              "Counselor action",
+              "Exam trap"
+            ],
+            "rows": [
+              [
+                "Imminent risk to self",
+                "Assess risk, create safety plan, involve emergency supports or higher level of care when needed",
+                "Promising secrecy or only exploring feelings when danger is imminent."
+              ],
+              [
+                "Imminent risk to others",
+                "Assess threat, follow law/agency policy, consult, protect identifiable potential victims when required",
+                "Ignoring a specific credible threat."
+              ],
+              [
+                "Child/elder/vulnerable adult abuse or neglect",
+                "Report to appropriate protective authority according to law",
+                "Waiting for proof instead of reasonable suspicion when mandated."
+              ],
+              [
+                "Court order/subpoena",
+                "Consult, respond appropriately, disclose only required information when legally compelled",
+                "Releasing full records casually without review or consent."
+              ],
+              [
+                "Client authorization",
+                "Release only what is authorized and clinically appropriate",
+                "Assuming family can access records without consent."
+              ]
+            ]
+          },
+          {
+            "type": "exam_tip",
+            "content": "When confidentiality must be broken, choose the least-disclosing, legally/ethically appropriate action and document the rationale."
+          }
+        ],
+        "exam_cues": [
+          "client asks if everything is secret",
+          "family member requests information",
+          "court or school requests records",
+          "client reports abuse or danger"
+        ],
+        "common_traps": [
+          "Absolute confidentiality",
+          "Over-disclosure",
+          "Failure to consult",
+          "Confusing ethical guidance with state-specific law"
+        ],
+        "memory_anchors": [
+          "Confidentiality is strong, not absolute."
+        ],
+        "mini_practice_questions": []
       },
       {
-        "step": 3,
-        "title": "Assess functioning and impairment",
-        "tasks": [
-          "work/school functioning",
-          "relationships",
-          "daily responsibilities",
-          "sleep, appetite, self-care"
-        ]
-      },
-      {
-        "step": 4,
-        "title": "Gather relevant history",
-        "tasks": [
-          "psychiatric history",
-          "medical history",
-          "substance use history",
-          "family history",
-          "trauma and developmental history",
-          "social and cultural background"
-        ]
-      },
-      {
-        "step": 5,
-        "title": "Conduct MSE and risk assessment",
-        "tasks": [
-          "observe affect, speech, thought process, cognition, insight, judgment",
-          "screen for suicidal ideation, homicidal ideation, psychosis, self-harm, and safety issues"
-        ]
-      },
-      {
-        "step": 6,
-        "title": "Begin diagnostic thinking and treatment planning",
-        "tasks": [
-          "identify likely diagnosis or differential",
-          "determine level of care",
-          "identify immediate priorities and next steps"
-        ]
+        "lesson_id": "intake_mse_screening",
+        "title": "MSE and Screening During Intake",
+        "why_it_matters_for_ncmhce": "The MSE helps identify acute clinical concerns, diagnostic clues, and level-of-care needs.",
+        "key_terms": [
+          "mental status exam",
+          "appearance",
+          "behavior",
+          "speech",
+          "mood",
+          "affect",
+          "thought process",
+          "thought content",
+          "orientation",
+          "insight",
+          "judgment"
+        ],
+        "content_blocks": [
+          {
+            "type": "overview",
+            "content": "The Mental Status Exam is a snapshot of current functioning. It supports diagnosis and risk assessment but does not replace a full clinical history."
+          },
+          {
+            "type": "table",
+            "title": "MSE Domains",
+            "columns": [
+              "Domain",
+              "What to observe/ask",
+              "Clinical clues"
+            ],
+            "rows": [
+              [
+                "Appearance/behavior",
+                "Grooming, eye contact, psychomotor agitation/retardation, cooperation",
+                "Depression, mania, psychosis, intoxication, anxiety."
+              ],
+              [
+                "Speech",
+                "Rate, volume, pressure, latency, coherence",
+                "Pressured speech may suggest mania; slowed speech may suggest depression or intoxication."
+              ],
+              [
+                "Mood/affect",
+                "Client's reported mood; observed emotional expression",
+                "Flat, labile, restricted, incongruent, anxious, depressed."
+              ],
+              [
+                "Thought process",
+                "Linear, tangential, circumstantial, loose associations, flight of ideas",
+                "Disorganization may indicate psychosis, mania, substance use, or neurological concern."
+              ],
+              [
+                "Thought content",
+                "Delusions, obsessions, suicidal/homicidal ideation, guilt, paranoia",
+                "Risk and psychosis assessment."
+              ],
+              [
+                "Perception",
+                "Hallucinations, dissociation, depersonalization/derealization",
+                "Psychosis, trauma, substances, medical causes."
+              ],
+              [
+                "Cognition",
+                "Orientation, attention, memory, concentration",
+                "Delirium, neurocognitive concerns, intoxication."
+              ],
+              [
+                "Insight/judgment",
+                "Awareness of problem and decision-making capacity",
+                "Risk management and treatment engagement."
+              ]
+            ]
+          },
+          {
+            "type": "screening_tools",
+            "content": "Common screening domains include depression, anxiety, trauma, substance use, suicide risk, domestic violence, eating concerns, sleep, and functional impairment. Exact tools vary by setting."
+          }
+        ],
+        "exam_cues": [
+          "client appears disorganized",
+          "psychotic symptoms",
+          "mania symptoms",
+          "risk question",
+          "diagnostic uncertainty"
+        ],
+        "common_traps": [
+          "Treating the MSE as a diagnosis by itself",
+          "Ignoring intoxication/withdrawal or medical causes",
+          "Missing affect-mood incongruence"
+        ],
+        "memory_anchors": [
+          "MSE = what you see now; history = what has been happening over time."
+        ],
+        "mini_practice_questions": []
       }
     ],
-    "openingQuestions": [
-      "What brings you in today?",
-      "What has been hardest lately?",
-      "When did this begin, and what seems to have triggered it?",
-      "How is this affecting your day-to-day life?"
-    ],
-    "examPearls": [
-      "The best early-session responses are usually exploratory, empathic, and structured.",
-      "You do not jump straight from the opening statement to a final diagnosis without fuller assessment.",
-      "Risk assessment belongs early whenever relevant clues are present."
+    "section_exam_mastery_checklist": [
+      "Can explain the purpose of Intake Process in NCMHCE decision-making.",
+      "Can identify common exam cues and distractors.",
+      "Can choose the best next counseling action based on risk, ethics, assessment, diagnosis, and treatment phase.",
+      "Can apply the concept to a short clinical vignette.",
+      "Can document or justify the decision in clear clinical language when relevant."
     ]
   },
   "clinicalDomainsToAssess": {
-    "title": "Core Domains to Assess in a Case",
-    "domains": [
+    "section_id": "clinical_domains_to_assess",
+    "title": "Clinical Domains To Assess",
+    "description": "High-yield domains counselors must assess across intake, diagnosis, risk, and treatment planning.",
+    "learning_objectives": [
+      "Use a repeatable assessment checklist",
+      "Recognize which domain is missing in a case",
+      "Apply differential diagnosis logic",
+      "Avoid common assessment omissions"
+    ],
+    "recommended_visual": {
+      "type": "checklist",
+      "title": "Clinical Domain Assessment Grid",
+      "description": "A grid with mood, mania, anxiety, trauma, psychosis, substance use, medical, risk, culture, functioning, and strengths."
+    },
+    "lessons": [
       {
-        "domain": "Presenting Problem",
-        "questions": [
-          "What is the main complaint?",
-          "What does the client want help with?",
-          "Why now?"
-        ]
+        "lesson_id": "domains_core_assessment",
+        "title": "Core Clinical Domains to Assess",
+        "why_it_matters_for_ncmhce": "NCMHCE narratives often hide key data across domains. Students need a reliable checklist to avoid missing important cues.",
+        "key_terms": [
+          "mood",
+          "anxiety",
+          "trauma",
+          "psychosis",
+          "substance use",
+          "sleep",
+          "functioning",
+          "relationships",
+          "medical",
+          "culture",
+          "risk"
+        ],
+        "content_blocks": [
+          {
+            "type": "overview",
+            "content": "Clinical domains are categories of information counselors assess to understand symptoms, risk, diagnosis, impairment, and treatment needs."
+          },
+          {
+            "type": "table",
+            "title": "High-Yield Clinical Domains",
+            "columns": [
+              "Domain",
+              "Assess for",
+              "Why it matters"
+            ],
+            "rows": [
+              [
+                "Mood",
+                "Depressed mood, anhedonia, irritability, guilt, energy, appetite, sleep, concentration, psychomotor changes, suicidal ideation",
+                "Differentiates depressive disorders, bipolar disorders, grief, trauma, substance/medical causes."
+              ],
+              [
+                "Mania/hypomania",
+                "Elevated/irritable mood, increased energy, decreased need for sleep, grandiosity, pressured speech, risky behavior, duration, impairment/hospitalization/psychosis",
+                "Prevents misdiagnosing bipolar disorder as unipolar depression or ADHD."
+              ],
+              [
+                "Anxiety",
+                "Worry, panic, avoidance, phobias, social fear, obsessions/compulsions, somatic symptoms",
+                "Guides differential between GAD, panic, social anxiety, OCD, trauma, medical causes."
+              ],
+              [
+                "Trauma/stressor",
+                "Exposure, intrusion, avoidance, negative mood/cognition, arousal, dissociation, duration, functional impact",
+                "Differentiates ASD, PTSD, adjustment disorder, grief, depression, anxiety."
+              ],
+              [
+                "Psychosis",
+                "Hallucinations, delusions, disorganization, negative symptoms, insight, duration, substances/medical causes",
+                "Determines risk, level of care, referral, and diagnosis."
+              ],
+              [
+                "Substance use",
+                "Substances, frequency, amount, route, tolerance, withdrawal, consequences, attempts to cut down, treatment history",
+                "Substance use can mimic or worsen many symptoms and may change level of care."
+              ],
+              [
+                "Risk",
+                "Suicide, homicide, self-harm, abuse/neglect, domestic violence, grave disability, impulsivity, access to means",
+                "Safety and legal duties always matter."
+              ],
+              [
+                "Medical/medications",
+                "Medical diagnoses, pain, sleep apnea, thyroid, neurological issues, medications, pregnancy/postpartum",
+                "Rule-outs and referrals."
+              ],
+              [
+                "Functioning",
+                "Work/school, relationships, ADLs, parenting, legal/financial functioning",
+                "Diagnosis and severity require impairment assessment."
+              ],
+              [
+                "Culture/identity",
+                "Cultural meaning, language, immigration, discrimination, spirituality, gender/sexuality, family norms",
+                "Prevents biased assumptions and improves fit."
+              ],
+              [
+                "Strengths",
+                "Support, coping skills, motivation, values, reasons for living, past success",
+                "Risk reduction and treatment planning."
+              ]
+            ]
+          },
+          {
+            "type": "exam_tip",
+            "content": "If a question asks what additional information is needed, choose the domain that resolves diagnosis, risk, level of care, or treatment direction."
+          }
+        ],
+        "exam_cues": [
+          "what information is most important to gather",
+          "which area should be assessed next",
+          "differential diagnosis question"
+        ],
+        "common_traps": [
+          "Assessing interesting but nonessential data while missing safety or diagnosis-critical data",
+          "Ignoring mania when client presents with depression",
+          "Ignoring substances in anxiety/mood presentations"
+        ],
+        "memory_anchors": [
+          "Assess domains that change what you do next."
+        ],
+        "mini_practice_questions": []
       },
       {
-        "domain": "Symptom Profile",
-        "questions": [
-          "What symptoms are present?",
-          "How long have they been present?",
-          "How severe and frequent are they?"
-        ]
-      },
-      {
-        "domain": "Precipitating Factors",
-        "questions": [
-          "What triggered or worsened the current episode?",
-          "Was there a recent loss, trauma, transition, or conflict?"
-        ]
-      },
-      {
-        "domain": "Maintaining Factors",
-        "questions": [
-          "What keeps the problem going?",
-          "Are avoidance, substance use, distorted beliefs, family conflict, or unstable housing involved?"
-        ]
-      },
-      {
-        "domain": "Risk and Safety",
-        "questions": [
-          "Is there suicidal ideation, homicidal ideation, self-harm, abuse, psychosis, intoxication, or inability to maintain safety?"
-        ]
-      },
-      {
-        "domain": "Strengths and Protective Factors",
-        "questions": [
-          "What internal strengths, supports, beliefs, or prior successes can help treatment?"
-        ]
-      },
-      {
-        "domain": "Barriers",
-        "questions": [
-          "What may interfere with treatment progress? Transportation, childcare, cost, stigma, unstable housing, cognitive limitations?"
-        ]
+        "lesson_id": "domains_differential_diagnosis",
+        "title": "Differential Diagnosis Decision Points",
+        "why_it_matters_for_ncmhce": "The exam often tests diagnosis through subtle details: duration, impairment, exclusion criteria, and symptom clusters.",
+        "key_terms": [
+          "differential diagnosis",
+          "duration",
+          "impairment",
+          "rule-outs",
+          "comorbidity",
+          "primary diagnosis"
+        ],
+        "content_blocks": [
+          {
+            "type": "overview",
+            "content": "Differential diagnosis means comparing possible diagnoses and identifying the best fit. For NCMHCE-style questions, students should look for symptom cluster, duration, impairment, exclusion/rule-out factors, and whether symptoms are better explained by another condition."
+          },
+          {
+            "type": "table",
+            "title": "Common Differentials",
+            "columns": [
+              "Presentation",
+              "Consider",
+              "Key decision points"
+            ],
+            "rows": [
+              [
+                "Depression + episodes of high energy",
+                "MDD vs Bipolar II vs Bipolar I",
+                "History of mania/hypomania, duration, impairment, psychosis, hospitalization."
+              ],
+              [
+                "Worry + physical tension",
+                "GAD vs adjustment disorder vs trauma vs substance/medical",
+                "Duration, range of worries, trigger, trauma exposure, medical/substance contributors."
+              ],
+              [
+                "Panic attacks",
+                "Panic disorder vs PTSD vs social anxiety vs substance/medical",
+                "Unexpected vs cued, avoidance, trauma triggers, caffeine/stimulants/medical issues."
+              ],
+              [
+                "Inattention",
+                "ADHD vs anxiety vs depression vs trauma vs substance/sleep",
+                "Childhood onset, settings, episodic vs chronic, mood/anxiety context."
+              ],
+              [
+                "Hallucinations",
+                "Psychotic disorder vs mood disorder with psychotic features vs substance/medical vs trauma/dissociation",
+                "Timing, mood congruence, substances, medical, duration, insight."
+              ],
+              [
+                "Trauma symptoms",
+                "ASD vs PTSD vs adjustment disorder vs acute grief",
+                "Trauma exposure, symptom clusters, duration, functional impairment."
+              ],
+              [
+                "Relationship instability/self-harm",
+                "Borderline personality disorder vs bipolar disorder vs PTSD",
+                "Episodic mood elevation vs pervasive interpersonal/identity/emotion patterns."
+              ]
+            ]
+          },
+          {
+            "type": "exam_tip",
+            "content": "Do not diagnose based on one symptom. The correct answer often reflects the pattern, timeline, and impairment."
+          }
+        ],
+        "exam_cues": [
+          "best diagnosis",
+          "most likely diagnosis",
+          "additional information to confirm",
+          "rule out"
+        ],
+        "common_traps": [
+          "Mistaking grief for MDD automatically",
+          "Missing bipolar history",
+          "Diagnosing PTSD without trauma exposure and required symptom pattern",
+          "Confusing hypomania with normal happiness"
+        ],
+        "memory_anchors": [
+          "Cluster + duration + impairment + rule-outs."
+        ],
+        "mini_practice_questions": []
       }
     ],
-    "examPearl": "When the exam asks for the next best step, it is often really asking which domain has not yet been adequately assessed."
+    "section_exam_mastery_checklist": [
+      "Can explain the purpose of Clinical Domains To Assess in NCMHCE decision-making.",
+      "Can identify common exam cues and distractors.",
+      "Can choose the best next counseling action based on risk, ethics, assessment, diagnosis, and treatment phase.",
+      "Can apply the concept to a short clinical vignette.",
+      "Can document or justify the decision in clear clinical language when relevant."
+    ]
   },
   "riskPrioritySection": {
-    "title": "Risk Priorities in Case Conceptualization",
-    "overview": "Risk is not a side note. It is a central organizing factor. If present, it changes the treatment sequence and sometimes the level of care.",
-    "priorityRisks": [
+    "section_id": "risk_priority",
+    "title": "Risk Priority",
+    "description": "Safety-first decision-making for suicide, homicide, abuse/neglect, domestic violence, psychosis, intoxication, and level of care.",
+    "learning_objectives": [
+      "Prioritize imminent risk over routine counseling",
+      "Differentiate low, moderate, and high risk responses",
+      "Apply mandated reporting and duty-to-protect logic",
+      "Choose least restrictive safe interventions"
+    ],
+    "recommended_visual": {
+      "type": "decision_tree",
+      "title": "Risk Priority Tree",
+      "description": "Risk screen -> imminent danger? -> emergency/higher level of care; mandated report? -> report; moderate risk? -> safety plan/supports/monitoring; low risk? -> document and continue treatment."
+    },
+    "lessons": [
       {
-        "risk": "Suicide risk",
-        "whatChanges": "Requires further risk assessment, safety planning, means review, and possibly emergency intervention"
+        "lesson_id": "risk_safety_hierarchy",
+        "title": "Risk Priority and Safety Hierarchy",
+        "why_it_matters_for_ncmhce": "Risk questions are among the most important NCMHCE items. The safest answer is not always the most restrictive answer; it is the most appropriate level of response based on assessed risk.",
+        "key_terms": [
+          "suicide risk",
+          "homicide risk",
+          "self-harm",
+          "abuse",
+          "neglect",
+          "safety planning",
+          "level of care",
+          "mandated reporting"
+        ],
+        "content_blocks": [
+          {
+            "type": "overview",
+            "content": "Risk priority means identifying what must be addressed immediately before routine therapy continues. The counselor first determines whether there is imminent danger, then chooses the least restrictive intervention that adequately protects safety."
+          },
+          {
+            "type": "ordered_list",
+            "title": "Safety Hierarchy",
+            "items": [
+              "Medical emergency, severe intoxication/withdrawal, delirium, or immediate physical danger: emergency response.",
+              "Imminent suicide/homicide risk with intent, plan, means, inability/unwillingness to maintain safety: emergency evaluation/higher level of care.",
+              "Abuse or neglect of child, elder, or vulnerable adult: mandated report according to law/policy.",
+              "Domestic violence or coercive control: assess safety carefully, avoid interventions that increase danger, plan discreetly.",
+              "Moderate risk without imminent intent: collaborative safety plan, means restriction, supports, increased monitoring, consultation/referral as needed.",
+              "Low risk: document assessment, protective factors, coping plan, follow-up."
+            ]
+          },
+          {
+            "type": "table",
+            "title": "Suicide Risk Assessment Elements",
+            "columns": [
+              "Element",
+              "Ask/assess",
+              "Why it matters"
+            ],
+            "rows": [
+              [
+                "Ideation",
+                "Frequency, intensity, duration, controllability",
+                "Determines severity and urgency."
+              ],
+              [
+                "Plan",
+                "Specificity, timing, location",
+                "Specific plan increases risk."
+              ],
+              [
+                "Intent",
+                "Desire and expectation to act",
+                "Intent separates thoughts from imminent danger."
+              ],
+              [
+                "Means/access",
+                "Firearms, medications, ropes, vehicles, other lethal means",
+                "Access to lethal means raises urgency."
+              ],
+              [
+                "Past attempts",
+                "Number, lethality, recency, rescue likelihood",
+                "Strong risk indicator."
+              ],
+              [
+                "Protective factors",
+                "Reasons for living, supports, children, faith, goals, treatment alliance",
+                "May reduce but does not erase risk."
+              ],
+              [
+                "Substance use/impulsivity",
+                "Intoxication, withdrawal, impulsive behavior",
+                "Increases risk and lowers inhibition."
+              ],
+              [
+                "Psychosis/command hallucinations",
+                "Commands, delusions, agitation",
+                "May require higher level of care."
+              ],
+              [
+                "Safety capacity",
+                "Willingness and ability to use plan and supports",
+                "Guides level of care."
+              ]
+            ]
+          },
+          {
+            "type": "exam_tip",
+            "content": "If suicidal ideation includes plan, intent, and access to lethal means, do not choose a routine outpatient intervention as the next step."
+          }
+        ],
+        "exam_cues": [
+          "client says life is not worth living",
+          "access to gun/pills",
+          "specific threat",
+          "command hallucinations",
+          "child abuse disclosure",
+          "domestic violence"
+        ],
+        "common_traps": [
+          "Using a no-suicide contract as sufficient safety intervention",
+          "Ignoring means access",
+          "Jumping to hospitalization for passive ideation with strong protective factors without assessment",
+          "Conducting couples therapy when intimate partner violence is unsafe"
+        ],
+        "memory_anchors": [
+          "Ideation + plan + intent + means + past attempts + protective factors + safety capacity."
+        ],
+        "mini_practice_questions": []
       },
       {
-        "risk": "Homicide / violence risk",
-        "whatChanges": "Requires evaluation of target, intent, means, protective duties, and possible emergency response"
-      },
-      {
-        "risk": "Psychosis",
-        "whatChanges": "May affect reality testing, judgment, and level-of-care decisions"
-      },
-      {
-        "risk": "Substance intoxication or withdrawal",
-        "whatChanges": "May complicate diagnosis and create medical or behavioral danger"
-      },
-      {
-        "risk": "Abuse / neglect",
-        "whatChanges": "May trigger protective action or mandated reporting"
+        "lesson_id": "risk_mandated_reporting_and_consultation",
+        "title": "Mandated Reporting, Duty to Protect, and Consultation",
+        "why_it_matters_for_ncmhce": "Ethics/legal items often test whether the counselor knows when confidentiality must yield to safety or law.",
+        "key_terms": [
+          "mandated reporting",
+          "duty to warn/protect",
+          "consultation",
+          "documentation",
+          "minimal disclosure"
+        ],
+        "content_blocks": [
+          {
+            "type": "overview",
+            "content": "Counselors must know the difference between protecting confidentiality and responding to exceptions. When uncertain, consultation and documentation are key, but consultation should not delay action when imminent danger or mandated reporting is clear."
+          },
+          {
+            "type": "table",
+            "title": "Risk/Ethics Decision Rules",
+            "columns": [
+              "Situation",
+              "Likely priority",
+              "Exam-focused response"
+            ],
+            "rows": [
+              [
+                "Child reports ongoing abuse",
+                "Mandated reporting",
+                "Report to child protective services or appropriate authority; document; support client."
+              ],
+              [
+                "Adult reports past abuse as a child with no current minors at risk",
+                "Assess current risk and legal requirements",
+                "Do not assume mandated report unless current risk or law requires; explore clinically."
+              ],
+              [
+                "Client makes specific threat toward identifiable person",
+                "Duty to protect/warn depending on jurisdiction",
+                "Assess credibility, consult/supervisor/legal as appropriate, take protective action."
+              ],
+              [
+                "Client reports vague anger with no target/intent/plan",
+                "Further assessment",
+                "Assess homicidal ideation, target, plan, intent, means, history."
+              ],
+              [
+                "Subpoena for records",
+                "Consult and respond legally/ethically",
+                "Do not automatically release everything; protect confidentiality as allowed."
+              ],
+              [
+                "Client asks to involve family",
+                "Authorization/release",
+                "Obtain written consent and clarify what can be shared."
+              ]
+            ]
+          },
+          {
+            "type": "exam_tip",
+            "content": "When an answer includes consultation, it is strong when the issue is complex and not emergent. It is weak if it delays a clearly mandated safety action."
+          }
+        ],
+        "exam_cues": [
+          "abuse disclosure",
+          "threat toward someone",
+          "records request",
+          "supervision/consultation option"
+        ],
+        "common_traps": [
+          "Breaking confidentiality for non-imminent discomfort",
+          "Not reporting child/vulnerable adult abuse",
+          "Waiting for proof of abuse",
+          "Sharing more than necessary"
+        ],
+        "memory_anchors": [
+          "Safety exceptions: self, others, abuse/neglect, court/legal, client authorization."
+        ],
+        "mini_practice_questions": []
       }
     ],
-    "examPearls": [
-      "If a client mentions suicidal ideation mid-case, the next priority usually shifts immediately.",
-      "Case conceptualization is never complete without understanding current safety.",
-      "A client can have both a long-term conceptualization and an urgent immediate safety need."
+    "section_exam_mastery_checklist": [
+      "Can explain the purpose of Risk Priority in NCMHCE decision-making.",
+      "Can identify common exam cues and distractors.",
+      "Can choose the best next counseling action based on risk, ethics, assessment, diagnosis, and treatment phase.",
+      "Can apply the concept to a short clinical vignette.",
+      "Can document or justify the decision in clear clinical language when relevant."
     ]
   },
   "treatmentPlanningSection": {
+    "section_id": "treatment_planning",
     "title": "Treatment Planning",
-    "overview": "A treatment plan translates conceptualization into action. It should explain what the counselor and client are working on, how progress will be measured, and which interventions fit the case.",
-    "coreComponents": [
+    "description": "Detailed treatment planning content including goals, objectives, interventions, matching methods, level of care, and discharge criteria.",
+    "learning_objectives": [
+      "Write and recognize SMART treatment objectives",
+      "Match interventions to diagnosis and clinical phase",
+      "Choose level-of-care responses",
+      "Avoid vague or mismatched treatment plans"
+    ],
+    "recommended_visual": {
+      "type": "template",
+      "title": "Treatment Plan Builder",
+      "description": "Interactive fields: presenting problem, diagnosis, goal, objective, intervention, frequency, progress measure, discharge criteria."
+    },
+    "lessons": [
       {
-        "component": "Diagnosis",
-        "description": "DSM-5-TR diagnosis or working diagnosis"
+        "lesson_id": "treatment_plan_foundations",
+        "title": "Treatment Planning Foundations",
+        "why_it_matters_for_ncmhce": "NCMHCE items frequently ask what treatment goal, objective, or intervention best matches the case.",
+        "key_terms": [
+          "treatment plan",
+          "goal",
+          "objective",
+          "intervention",
+          "SMART goal",
+          "medical necessity",
+          "level of care"
+        ],
+        "content_blocks": [
+          {
+            "type": "overview",
+            "content": "A treatment plan translates assessment and diagnosis into a collaborative roadmap. It should connect presenting problems, diagnosis, goals, measurable objectives, interventions, frequency, and discharge criteria."
+          },
+          {
+            "type": "table",
+            "title": "Treatment Plan Components",
+            "columns": [
+              "Component",
+              "Definition",
+              "Example"
+            ],
+            "rows": [
+              [
+                "Problem statement",
+                "Clinical issue causing distress/impairment",
+                "Client experiences panic attacks and avoids driving, impairing work attendance."
+              ],
+              [
+                "Long-term goal",
+                "Broad desired outcome",
+                "Client will reduce panic-related impairment and resume routine driving."
+              ],
+              [
+                "Objective",
+                "Specific measurable step",
+                "Client will identify three panic triggers and use paced breathing during anxiety episodes at least four times per week for four weeks."
+              ],
+              [
+                "Intervention",
+                "Counselor action or method",
+                "Provide psychoeducation on panic cycle; teach breathing; introduce gradual exposure plan."
+              ],
+              [
+                "Frequency/duration",
+                "How often and for how long",
+                "Weekly individual counseling for 12 weeks, reassess monthly."
+              ],
+              [
+                "Discharge criteria",
+                "Observable indicators treatment can end/step down",
+                "Client reports reduced panic severity, drives to work consistently, and uses coping plan independently."
+              ]
+            ]
+          },
+          {
+            "type": "exam_tip",
+            "content": "The best treatment objective is measurable and tied directly to the presenting problem, not vague growth language."
+          }
+        ],
+        "exam_cues": [
+          "best treatment goal",
+          "first treatment objective",
+          "treatment plan should include",
+          "discharge criteria"
+        ],
+        "common_traps": [
+          "Choosing goals that are not measurable",
+          "Choosing interventions that do not match the diagnosis or client readiness",
+          "Ignoring client collaboration",
+          "Setting counselor-centered goals"
+        ],
+        "memory_anchors": [
+          "Problem -> Goal -> Objective -> Intervention -> Discharge."
+        ],
+        "mini_practice_questions": []
       },
       {
-        "component": "Presenting Problem",
-        "description": "Behavioral description of the client's main concerns"
-      },
-      {
-        "component": "Long-Term Goals",
-        "description": "Broad outcomes expected by the end of treatment"
-      },
-      {
-        "component": "Short-Term Objectives",
-        "description": "Specific measurable steps toward the goals"
-      },
-      {
-        "component": "Interventions",
-        "description": "What the counselor will do and which approach will be used"
-      },
-      {
-        "component": "Strengths",
-        "description": "Client resources, motivation, supports, or protective factors"
-      },
-      {
-        "component": "Barriers",
-        "description": "Obstacles that may interfere with progress"
-      },
-      {
-        "component": "Level of Care",
-        "description": "Outpatient, IOP, PHP, residential, inpatient, or other appropriate setting"
-      },
-      {
-        "component": "Review Date",
-        "description": "When progress and goals will be reassessed"
+        "lesson_id": "treatment_matching_interventions",
+        "title": "Matching Interventions to Presenting Problems",
+        "why_it_matters_for_ncmhce": "The exam tests whether students can choose clinically appropriate interventions for the phase and problem.",
+        "key_terms": [
+          "CBT",
+          "DBT",
+          "exposure",
+          "motivational interviewing",
+          "psychoeducation",
+          "trauma-informed care",
+          "family therapy",
+          "crisis intervention"
+        ],
+        "content_blocks": [
+          {
+            "type": "table",
+            "title": "High-Yield Treatment Matching",
+            "columns": [
+              "Presentation",
+              "Often appropriate",
+              "Be careful with"
+            ],
+            "rows": [
+              [
+                "Panic disorder",
+                "CBT, psychoeducation, interoceptive exposure, breathing skills, cognitive restructuring",
+                "Avoid reassurance-only approach; rule out medical/substance contributors."
+              ],
+              [
+                "GAD",
+                "CBT, worry awareness, cognitive restructuring, relaxation, problem-solving, mindfulness",
+                "Do not treat all worry as trauma; assess duration and impairment."
+              ],
+              [
+                "Depression",
+                "Behavioral activation, CBT, interpersonal work, safety assessment, referral if severe",
+                "Do not ignore suicidality or bipolar rule-out."
+              ],
+              [
+                "Bipolar disorder",
+                "Psychoeducation, mood monitoring, routine stabilization, medication referral/coordination, relapse prevention",
+                "Do not use antidepressant framing without bipolar assessment/referral."
+              ],
+              [
+                "PTSD",
+                "Stabilization, trauma-informed care, coping skills, evidence-based trauma therapy when ready",
+                "Do not force immediate detailed trauma processing during crisis/early intake."
+              ],
+              [
+                "OCD",
+                "Exposure and response prevention, CBT, psychoeducation",
+                "Do not encourage compulsive reassurance or avoidance."
+              ],
+              [
+                "Substance use",
+                "Motivational interviewing, relapse prevention, harm reduction, referral/coordination, stage-of-change matching",
+                "Do not confront/shame; assess withdrawal risk."
+              ],
+              [
+                "Borderline traits",
+                "DBT skills, safety planning, emotion regulation, boundaries, consistent structure",
+                "Do not respond punitively or abandon client."
+              ],
+              [
+                "Grief",
+                "Supportive counseling, meaning-making, normalization, assess complications/risk",
+                "Do not pathologize normal grief automatically."
+              ],
+              [
+                "Couples/family conflict",
+                "Systems assessment, communication skills, boundaries, family patterns",
+                "Do not conduct conjoint sessions when coercive IPV makes it unsafe."
+              ]
+            ]
+          },
+          {
+            "type": "exam_tip",
+            "content": "If the client is in acute danger, stabilization comes before insight, exposure, or long-term processing."
+          }
+        ],
+        "exam_cues": [
+          "best intervention",
+          "next step in counseling",
+          "treatment approach",
+          "client is not ready"
+        ],
+        "common_traps": [
+          "Using exposure without preparation",
+          "Using insight-oriented work during crisis",
+          "Ignoring stage of change in substance use",
+          "Selecting a technique because it sounds familiar rather than clinically indicated"
+        ],
+        "memory_anchors": [
+          "Match intervention to diagnosis + phase + risk + readiness."
+        ],
+        "mini_practice_questions": []
       }
     ],
-    "smartGoalsSection": {
-      "title": "SMART Goals",
-      "definition": "Goals and objectives should be Specific, Measurable, Attainable, Realistic, and Timely.",
-      "weakVsStrong": [
-        {
-          "weak": "Client will feel better.",
-          "strong": "Client will reduce panic attacks from four times weekly to one or fewer times weekly within 8 weeks using CBT coping skills."
-        },
-        {
-          "weak": "Client will improve mood.",
-          "strong": "Client will lower PHQ-9 score from 18 to below 10 within 10 weeks and resume two previously valued activities each week."
-        }
-      ],
-      "examPearls": [
-        "Vague goals sound nice but are weak clinical planning.",
-        "The exam increasingly favors measurable, behaviorally anchored objectives."
-      ]
-    },
-    "exampleTreatmentPlan": {
-      "clientProblem": "Client reports daily sadness, anhedonia, fatigue, poor concentration, and social withdrawal after job loss and divorce.",
-      "diagnosis": "Major Depressive Disorder, Moderate",
-      "longTermGoal": "Client will report improved mood and functioning sufficient to resume stable daily routines and occupational engagement.",
-      "shortTermObjectives": [
-        "Client will identify and challenge three recurring negative automatic thoughts each week for 6 weeks.",
-        "Client will complete two planned behavioral activation activities weekly for 8 weeks.",
-        "Client will reduce PHQ-9 score from 17 to below 10 within 10 weeks."
-      ],
-      "interventions": [
-        "CBT thought records",
-        "behavioral activation scheduling",
-        "weekly symptom monitoring",
-        "supportive exploration of divorce-related grief"
-      ],
-      "strengths": [
-        "motivated for treatment",
-        "prior stable work history",
-        "supportive sibling"
-      ],
-      "barriers": [
-        "financial stress",
-        "low energy",
-        "social isolation"
-      ],
-      "levelOfCare": "Outpatient individual therapy"
-    }
+    "section_exam_mastery_checklist": [
+      "Can explain the purpose of Treatment Planning in NCMHCE decision-making.",
+      "Can identify common exam cues and distractors.",
+      "Can choose the best next counseling action based on risk, ethics, assessment, diagnosis, and treatment phase.",
+      "Can apply the concept to a short clinical vignette.",
+      "Can document or justify the decision in clear clinical language when relevant."
+    ]
   },
   "theoryLensSection": {
-    "title": "Using Theory to Shape Conceptualization",
-    "overview": "Different theories can organize the same case in different ways. The theory does not replace the facts. It helps explain the facts and guide intervention choice.",
-    "exampleCase": "A 35-year-old client presents with depression following divorce and job loss, along with withdrawal, self-criticism, hopelessness, and fear of abandonment.",
-    "lenses": [
+    "section_id": "theory_lens",
+    "title": "Theory Lens",
+    "description": "Counseling theories, common factors, exam clue words, and intervention matching.",
+    "learning_objectives": [
+      "Recognize major counseling theories by language and technique",
+      "Match interventions to theory",
+      "Use timing and alliance principles",
+      "Avoid theory-mismatched answers"
+    ],
+    "recommended_visual": {
+      "type": "comparison_table",
+      "title": "Theory-to-Intervention Matching Table",
+      "description": "A sortable table with theory, view of problem, counselor role, techniques, exam cues, and common traps."
+    },
+    "lessons": [
       {
-        "theory": "CBT",
-        "conceptualization": "Loss events activated negative core beliefs such as 'I am a failure' and 'I will always be abandoned.' Avoidance and inactivity reduce positive reinforcement and maintain depression.",
-        "likelyInterventions": [
-          "cognitive restructuring",
-          "behavioral activation",
-          "thought monitoring"
-        ]
+        "lesson_id": "theory_core_lenses",
+        "title": "Major Counseling Theory Lenses",
+        "why_it_matters_for_ncmhce": "Theory questions often test whether the student recognizes the counselor's conceptual lens and matching intervention.",
+        "key_terms": [
+          "CBT",
+          "DBT",
+          "person-centered",
+          "psychodynamic",
+          "solution-focused",
+          "narrative therapy",
+          "REBT",
+          "ACT",
+          "Adlerian",
+          "Gestalt",
+          "family systems"
+        ],
+        "content_blocks": [
+          {
+            "type": "overview",
+            "content": "A theory lens shapes how the counselor understands the problem and selects interventions. On the NCMHCE, theory is usually embedded in answer choices through language and techniques."
+          },
+          {
+            "type": "table",
+            "title": "Theory Recognition Chart",
+            "columns": [
+              "Theory",
+              "Core focus",
+              "Exam clue language",
+              "Common interventions"
+            ],
+            "rows": [
+              [
+                "CBT",
+                "Thoughts, behaviors, emotions interact",
+                "Cognitive distortions, automatic thoughts, behavioral activation",
+                "Thought records, cognitive restructuring, exposure, behavioral experiments."
+              ],
+              [
+                "REBT",
+                "Irrational beliefs create emotional disturbance",
+                "Musts, shoulds, awfulizing, low frustration tolerance",
+                "Disputation, ABC model, rational coping statements."
+              ],
+              [
+                "DBT",
+                "Emotion dysregulation and dialectical balance",
+                "Acceptance and change, mindfulness, distress tolerance",
+                "Mindfulness, emotion regulation, interpersonal effectiveness, distress tolerance."
+              ],
+              [
+                "ACT",
+                "Psychological flexibility and values-based action",
+                "Fusion, avoidance, values, acceptance",
+                "Defusion, acceptance, values clarification, committed action."
+              ],
+              [
+                "Person-centered",
+                "Growth through empathy, congruence, unconditional positive regard",
+                "Reflect feelings, therapeutic conditions",
+                "Accurate empathy, reflection, genuineness, nonjudgmental stance."
+              ],
+              [
+                "Solution-focused",
+                "Solutions, exceptions, strengths, preferred future",
+                "Miracle question, scaling, exceptions",
+                "Scaling questions, exception questions, coping questions."
+              ],
+              [
+                "Narrative",
+                "Problems are shaped by stories and social context",
+                "Externalize the problem, re-authoring",
+                "Externalization, unique outcomes, re-storying."
+              ],
+              [
+                "Psychodynamic",
+                "Unconscious patterns, defenses, early relationships",
+                "Transference, defenses, insight",
+                "Interpretation, exploration of patterns, working through."
+              ],
+              [
+                "Adlerian",
+                "Social interest, lifestyle, goals of behavior, inferiority",
+                "Family constellation, mistaken beliefs",
+                "Lifestyle assessment, encouragement, acting as if."
+              ],
+              [
+                "Gestalt",
+                "Present awareness and unfinished business",
+                "Here-and-now, empty chair, awareness",
+                "Empty-chair, experiments, body awareness."
+              ],
+              [
+                "Family systems",
+                "Symptoms in relational system",
+                "Boundaries, roles, triangles, homeostasis",
+                "Genogram, reframing, structural interventions, communication patterns."
+              ]
+            ]
+          },
+          {
+            "type": "exam_tip",
+            "content": "When the question asks from a specific theory, choose the technique consistent with that theory even if another technique might also be clinically reasonable."
+          }
+        ],
+        "exam_cues": [
+          "counselor is using CBT/DBT/etc.",
+          "which intervention is consistent with",
+          "the counselor conceptualizes the problem as"
+        ],
+        "common_traps": [
+          "Mixing theories incorrectly",
+          "Choosing advice-giving instead of counseling skill",
+          "Using advanced confrontation before rapport"
+        ],
+        "memory_anchors": [
+          "Theory clue words reveal the answer."
+        ],
+        "mini_practice_questions": []
       },
       {
-        "theory": "Psychodynamic",
-        "conceptualization": "Current losses may reactivate unresolved earlier relational wounds, internalized anger, and unconscious expectations of abandonment or unworthiness.",
-        "likelyInterventions": [
-          "pattern exploration",
-          "transference awareness",
-          "interpretation of recurring themes"
-        ]
-      },
-      {
-        "theory": "Adlerian",
-        "conceptualization": "The client's lifestyle and striving for significance may have been organized around perfection or external validation, and the loss has intensified inferiority feelings and social discouragement.",
-        "likelyInterventions": [
-          "encouragement",
-          "lifestyle assessment",
-          "exploration of early recollections"
-        ]
-      },
-      {
-        "theory": "Person-Centered",
-        "conceptualization": "The client may be struggling with incongruence between real self and ideal self, shaped by conditions of worth and self-judgment.",
-        "likelyInterventions": [
-          "empathic reflection",
-          "unconditional positive regard",
-          "support for self-acceptance"
-        ]
-      },
-      {
-        "theory": "Attachment Lens",
-        "conceptualization": "The divorce may have activated insecure attachment patterns, especially fear of abandonment and difficulty self-soothing after relational loss.",
-        "likelyInterventions": [
-          "attachment-focused exploration",
-          "emotion regulation",
-          "relational pattern work"
-        ]
+        "lesson_id": "theory_timing_and_common_factors",
+        "title": "Theory Timing and Common Factors",
+        "why_it_matters_for_ncmhce": "The exam does not only test named theories; it also tests basic counselor attributes and timing.",
+        "key_terms": [
+          "therapeutic alliance",
+          "empathy",
+          "rapport",
+          "collaboration",
+          "timing",
+          "common factors",
+          "cultural humility"
+        ],
+        "content_blocks": [
+          {
+            "type": "overview",
+            "content": "Before specialized techniques work, counselors need alliance, empathy, collaboration, and cultural responsiveness. In early sessions or emotionally charged moments, reflective and validating responses often outrank technical interventions."
+          },
+          {
+            "type": "table",
+            "title": "Timing Rules",
+            "columns": [
+              "Clinical moment",
+              "Better response",
+              "Weaker response"
+            ],
+            "rows": [
+              [
+                "Client is highly emotional in session",
+                "Reflect feeling, validate, assess safety if needed",
+                "Move immediately to homework or interpretation."
+              ],
+              [
+                "Client is ambivalent about change",
+                "Use motivational interviewing, explore ambivalence",
+                "Confront, lecture, or prescribe action."
+              ],
+              [
+                "Client has trauma history and is unstable",
+                "Stabilization, grounding, safety, pacing",
+                "Detailed exposure/trauma processing immediately."
+              ],
+              [
+                "Client asks for advice",
+                "Clarify, explore options, support autonomy",
+                "Tell client exactly what to do unless safety requires directive action."
+              ],
+              [
+                "Cultural difference is relevant",
+                "Ask respectful, open questions about meaning/context",
+                "Assume based on group membership."
+              ]
+            ]
+          },
+          {
+            "type": "exam_tip",
+            "content": "When answer choices include empathy/reflection vs technique, choose based on phase. Early or emotionally intense moments often require alliance-building first, unless risk requires action."
+          }
+        ],
+        "exam_cues": [
+          "client begins crying",
+          "client is angry at counselor",
+          "client unsure about change",
+          "cultural difference appears"
+        ],
+        "common_traps": [
+          "Overusing technique at the expense of alliance",
+          "Assuming reflection is always enough even when risk is present",
+          "Being overly directive without safety need"
+        ],
+        "memory_anchors": [
+          "Alliance first, unless safety first."
+        ],
+        "mini_practice_questions": []
       }
     ],
-    "examPearls": [
-      "The exam may explicitly name a theory or imply it through the answer choices.",
-      "You do not need one final universal explanation. You need the explanation that best guides action in the current clinical context."
+    "section_exam_mastery_checklist": [
+      "Can explain the purpose of Theory Lens in NCMHCE decision-making.",
+      "Can identify common exam cues and distractors.",
+      "Can choose the best next counseling action based on risk, ethics, assessment, diagnosis, and treatment phase.",
+      "Can apply the concept to a short clinical vignette.",
+      "Can document or justify the decision in clear clinical language when relevant."
     ]
   },
   "documentationSection": {
-    "title": "Documentation in Case Conceptualization",
-    "overview": "Documentation translates conceptualization into a clear, clinically useful record. It shows what the client reported, what you observed, what you concluded, and what the plan is.",
-    "soapFormat": {
-      "title": "SOAP Notes",
-      "components": [
-        {
-          "label": "S - Subjective",
-          "content": "Client's self-report, symptoms, concerns, notable quotes, and perceived progress or setbacks"
-        },
-        {
-          "label": "O - Objective",
-          "content": "Counselor observations, MSE findings, behavior, attendance, measurable data, and any observed changes"
-        },
-        {
-          "label": "A - Assessment",
-          "content": "Clinical interpretation, progress toward goals, risk formulation, symptom picture, diagnostic thinking"
-        },
-        {
-          "label": "P - Plan",
-          "content": "Interventions used, homework, referrals, safety steps, next session focus, and follow-up plan"
-        }
-      ],
-      "example": {
-        "S": "Client stated, 'I still feel empty most mornings, but I got myself out for a walk twice this week.'",
-        "O": "Client arrived on time, appropriately groomed, affect constricted but brighter than prior session, speech normal rate, denied current SI.",
-        "A": "Client shows modest progress with behavioral activation and mild improvement in hopelessness. Depression symptoms remain clinically significant.",
-        "P": "Continue CBT and behavioral activation. Assign thought record for self-critical beliefs. Reassess PHQ-9 next session."
-      }
-    },
-    "dapFormat": {
-      "title": "DAP Notes",
-      "components": [
-        {
-          "label": "D - Data",
-          "content": "Relevant subjective and objective information from session"
-        },
-        {
-          "label": "A - Assessment",
-          "content": "Clinical meaning, progress, barriers, diagnostic/risk update"
-        },
-        {
-          "label": "P - Plan",
-          "content": "Next steps, interventions, follow-up"
-        }
-      ]
-    },
-    "documentationBestPractices": [
-      "Be specific and clinically relevant",
-      "Document risk assessment and response clearly",
-      "Tie progress notes back to treatment goals when possible",
-      "Avoid vague statements like 'doing better' without evidence",
-      "Document consultation, referrals, or safety decisions when relevant"
+    "section_id": "documentation",
+    "title": "Documentation",
+    "description": "Clinical documentation rules, SOAP/DAP structure, records ethics, risk documentation, and exam-oriented documentation decisions.",
+    "learning_objectives": [
+      "Differentiate note sections",
+      "Know what must be documented",
+      "Use objective nonjudgmental language",
+      "Apply documentation to risk, consent, and treatment planning"
     ],
-    "examPearls": [
-      "The assessment section is where you show your conceptualization, not just repeat what happened.",
-      "Good documentation reflects movement over time, not isolated facts."
+    "recommended_visual": {
+      "type": "template",
+      "title": "SOAP/DAP Note Builder",
+      "description": "Interactive note builder with examples of strong vs weak documentation language."
+    },
+    "lessons": [
+      {
+        "lesson_id": "documentation_core_rules",
+        "title": "Clinical Documentation Core Rules",
+        "why_it_matters_for_ncmhce": "Documentation questions test ethics, continuity of care, risk management, and clinical accountability.",
+        "key_terms": [
+          "progress note",
+          "SOAP",
+          "DAP",
+          "risk documentation",
+          "informed consent documentation",
+          "treatment plan",
+          "records"
+        ],
+        "content_blocks": [
+          {
+            "type": "overview",
+            "content": "Clinical documentation should be accurate, timely, objective, clinically relevant, and consistent with ethical/legal standards and agency policy. It supports continuity of care and records the rationale for clinical decisions."
+          },
+          {
+            "type": "table",
+            "title": "What to Document",
+            "columns": [
+              "Area",
+              "Document"
+            ],
+            "rows": [
+              [
+                "Informed consent",
+                "That consent was reviewed, client questions, limits of confidentiality, telehealth/emergency policies if applicable."
+              ],
+              [
+                "Assessment",
+                "Presenting problem, symptom history, MSE, risk assessment, screening results, relevant biopsychosocial data."
+              ],
+              [
+                "Diagnosis",
+                "Diagnostic impression, supporting symptoms, rule-outs, changes over time."
+              ],
+              [
+                "Treatment plan",
+                "Goals, objectives, interventions, frequency, client involvement, review dates."
+              ],
+              [
+                "Progress notes",
+                "Client presentation, interventions used, client response, progress toward goals, plan."
+              ],
+              [
+                "Risk",
+                "Ideation/plan/intent/means, protective factors, consultation, safety plan, referrals, emergency actions."
+              ],
+              [
+                "Consultation/supervision",
+                "Who was consulted, issue discussed, recommendation, action taken."
+              ],
+              [
+                "Referrals/coordination",
+                "Client consent, provider contacted, information shared, follow-up."
+              ],
+              [
+                "Termination",
+                "Reason, progress, referrals, relapse prevention, client response."
+              ]
+            ]
+          },
+          {
+            "type": "exam_tip",
+            "content": "Risk decisions that are not documented can look clinically weak. In exam logic, assessment + action + documentation is often the safest trio."
+          }
+        ],
+        "exam_cues": [
+          "what should counselor document",
+          "client record request",
+          "risk assessment occurred",
+          "consultation happened"
+        ],
+        "common_traps": [
+          "Including judgmental language",
+          "Documenting irrelevant personal details",
+          "Failing to document risk rationale",
+          "Changing records improperly"
+        ],
+        "memory_anchors": [
+          "Document facts, clinical reasoning, actions, and plan."
+        ],
+        "mini_practice_questions": []
+      },
+      {
+        "lesson_id": "documentation_soap_dap_examples",
+        "title": "SOAP/DAP Note Structure",
+        "why_it_matters_for_ncmhce": "Students should recognize what belongs in each part of a note and avoid mixing subjective, objective, assessment, and plan content.",
+        "key_terms": [
+          "SOAP note",
+          "DAP note",
+          "subjective",
+          "objective",
+          "assessment",
+          "plan"
+        ],
+        "content_blocks": [
+          {
+            "type": "table",
+            "title": "SOAP Structure",
+            "columns": [
+              "Section",
+              "Content",
+              "Example"
+            ],
+            "rows": [
+              [
+                "S - Subjective",
+                "Client-reported symptoms, experiences, concerns, quotes when clinically relevant",
+                "Client reported anxiety increased after conflict with spouse and rated it 8/10."
+              ],
+              [
+                "O - Objective",
+                "Observable behavior and MSE data",
+                "Client appeared tearful, speech coherent, oriented x4, no psychomotor agitation observed."
+              ],
+              [
+                "A - Assessment",
+                "Clinical interpretation, progress, diagnosis/risk impressions",
+                "Symptoms remain consistent with generalized anxiety; no current SI/HI reported; moderate progress using coping skills."
+              ],
+              [
+                "P - Plan",
+                "Next steps, homework, referrals, follow-up",
+                "Continue weekly CBT; client will track worry triggers; reassess sleep next session."
+              ]
+            ]
+          },
+          {
+            "type": "table",
+            "title": "DAP Structure",
+            "columns": [
+              "Section",
+              "Content"
+            ],
+            "rows": [
+              [
+                "D - Data",
+                "Subjective and objective information."
+              ],
+              [
+                "A - Assessment",
+                "Clinical meaning, progress, risk, diagnosis."
+              ],
+              [
+                "P - Plan",
+                "Next steps."
+              ]
+            ]
+          },
+          {
+            "type": "exam_tip",
+            "content": "Objective documentation should describe observable facts, not unsupported interpretations."
+          }
+        ],
+        "exam_cues": [
+          "SOAP note section",
+          "which statement belongs in objective",
+          "records and documentation"
+        ],
+        "common_traps": [
+          "Writing 'client was manipulative' instead of objective behavior",
+          "Putting treatment plan in subjective section",
+          "Failing to include plan after risk disclosure"
+        ],
+        "memory_anchors": [
+          "SOAP: Says, See, Sense-making, Steps."
+        ],
+        "mini_practice_questions": []
+      }
+    ],
+    "section_exam_mastery_checklist": [
+      "Can explain the purpose of Documentation in NCMHCE decision-making.",
+      "Can identify common exam cues and distractors.",
+      "Can choose the best next counseling action based on risk, ethics, assessment, diagnosis, and treatment phase.",
+      "Can apply the concept to a short clinical vignette.",
+      "Can document or justify the decision in clear clinical language when relevant."
     ]
   },
   "terminationSection": {
-    "title": "Termination and Continuity of Care",
-    "overview": "Termination is part of conceptualization because it reflects whether treatment goals were met, whether the client is ready, and whether continuity of care is needed.",
-    "ethicalTerminationIncludes": [
-      "review of progress toward goals",
-      "discussion of gains and remaining needs",
-      "relapse prevention or maintenance planning",
-      "referrals when needed",
-      "processing the ending therapeutically"
+    "section_id": "termination",
+    "title": "Termination",
+    "description": "Ethical and clinical termination, referral, continuity of care, abandonment prevention, relapse planning, and documentation.",
+    "learning_objectives": [
+      "Distinguish planned termination from abandonment",
+      "Know ethical referral and continuity rules",
+      "Create relapse prevention/discharge plans",
+      "Handle no-shows, nonpayment, and counselor transitions appropriately"
     ],
-    "prematureTermination": {
-      "definition": "Treatment ends before goals are met, either by client disengagement or other disruption",
-      "bestPractice": [
-        "attempt outreach when appropriate",
-        "offer final session if possible",
-        "provide referrals/resources",
-        "document efforts and status"
-      ]
+    "recommended_visual": {
+      "type": "flowchart",
+      "title": "Termination Safety Flow",
+      "description": "Reason for ending -> risk level -> continuity needs -> referral/resources -> process ending -> document."
     },
-    "abandonmentWarning": "Ending treatment without appropriate transition, referral, or continuity planning can become an ethical problem.",
-    "examPearls": [
-      "The exam often rewards continuity-of-care thinking.",
-      "Termination is not just stopping sessions. It is part of responsible treatment planning."
+    "lessons": [
+      {
+        "lesson_id": "termination_types_process",
+        "title": "Termination Types and Process",
+        "why_it_matters_for_ncmhce": "Termination is tested through planned endings, client dropout, referral, abandonment, and counselor transitions.",
+        "key_terms": [
+          "termination",
+          "referral",
+          "abandonment",
+          "discharge",
+          "relapse prevention",
+          "continuity of care"
+        ],
+        "content_blocks": [
+          {
+            "type": "overview",
+            "content": "Termination is a clinical process, not just stopping sessions. Ethical termination includes planning, reviewing progress, addressing feelings about ending, relapse prevention, referrals when needed, and documentation."
+          },
+          {
+            "type": "table",
+            "title": "Types of Termination",
+            "columns": [
+              "Type",
+              "Counselor task",
+              "Exam trap"
+            ],
+            "rows": [
+              [
+                "Planned successful termination",
+                "Review goals/progress, consolidate skills, relapse prevention, future resources",
+                "Ending abruptly without processing."
+              ],
+              [
+                "Client-initiated termination",
+                "Explore reasons, respect autonomy, offer referrals, document",
+                "Pressuring client to continue."
+              ],
+              [
+                "Counselor leaving/relocating",
+                "Provide notice, referrals, transfer plan, continuity of care",
+                "Abandoning client without reasonable options."
+              ],
+              [
+                "Lack of progress/needs exceed competence",
+                "Discuss concerns, consult, refer appropriately",
+                "Continuing outside competence or terminating without referral."
+              ],
+              [
+                "Nonpayment/no-shows",
+                "Follow policy, discuss clinically, provide referrals/emergency resources",
+                "Abrupt abandonment of high-risk client."
+              ],
+              [
+                "Higher level of care needed",
+                "Coordinate referral, safety plan, document",
+                "Keeping client in outpatient care when unsafe."
+              ]
+            ]
+          },
+          {
+            "type": "ordered_list",
+            "title": "Planned Termination Steps",
+            "items": [
+              "Raise termination early enough to process.",
+              "Review original goals and progress.",
+              "Identify remaining concerns and relapse warning signs.",
+              "Create maintenance and coping plan.",
+              "Discuss feelings about ending.",
+              "Provide referrals/resources if needed.",
+              "Document summary and discharge criteria."
+            ]
+          },
+          {
+            "type": "exam_tip",
+            "content": "The ethical concern in termination questions is often abandonment. The counselor must protect continuity of care."
+          }
+        ],
+        "exam_cues": [
+          "counselor moving",
+          "client stops attending",
+          "client no longer benefits",
+          "therapy ending"
+        ],
+        "common_traps": [
+          "Abruptly ending without referral",
+          "Ignoring client's feelings about termination",
+          "Continuing treatment despite lack of competence",
+          "Terminating high-risk client without safety plan"
+        ],
+        "memory_anchors": [
+          "Termination = review, process, plan, refer, document."
+        ],
+        "mini_practice_questions": []
+      }
+    ],
+    "section_exam_mastery_checklist": [
+      "Can explain the purpose of Termination in NCMHCE decision-making.",
+      "Can identify common exam cues and distractors.",
+      "Can choose the best next counseling action based on risk, ethics, assessment, diagnosis, and treatment phase.",
+      "Can apply the concept to a short clinical vignette.",
+      "Can document or justify the decision in clear clinical language when relevant."
     ]
   },
   "simulationStrategySection": {
-    "title": "NCMHCE Case Simulation Strategy",
-    "overview": "The exam presents case information in stages. Strong performance depends on noticing what is most important, what changes over time, and what kind of decision the question is actually asking for.",
-    "steps": [
+    "section_id": "simulation_strategy",
+    "title": "Simulation Strategy",
+    "description": "Exam-specific strategy for NCMHCE case simulations, question types, prioritization, and answer elimination.",
+    "learning_objectives": [
+      "Use a repeatable case simulation method",
+      "Identify question type and clinical phase",
+      "Eliminate common distractors",
+      "Choose best next action under exam conditions"
+    ],
+    "recommended_visual": {
+      "type": "decision_tree",
+      "title": "NCMHCE Case Simulation Strategy Tree",
+      "description": "Question type -> safety/legal check -> missing data -> phase match -> eliminate distractors -> best next step."
+    },
+    "lessons": [
       {
-        "step": 1,
-        "title": "Anchor yourself in the client basics",
-        "actions": [
-          "note age, context, relationship status, culture, living situation, and presenting complaint"
-        ]
+        "lesson_id": "simulation_strategy_ncmhce_method",
+        "title": "NCMHCE Simulation Strategy Method",
+        "why_it_matters_for_ncmhce": "Students need a reliable method for answering case simulation questions without overthinking or reacting impulsively.",
+        "key_terms": [
+          "case simulation",
+          "clinical decision-making",
+          "exam strategy",
+          "answer rationale",
+          "prioritization"
+        ],
+        "content_blocks": [
+          {
+            "type": "overview",
+            "content": "The NCMHCE uses clinical case simulations to test applied decision-making. The strongest approach is to identify the phase of care, assess safety, determine missing information, and choose the most clinically appropriate next step."
+          },
+          {
+            "type": "ordered_list",
+            "title": "7-Step Simulation Strategy",
+            "items": [
+              "Read the client snapshot for age, setting, presenting concern, risk clues, and stage of care.",
+              "Identify the question type: assessment, diagnosis, treatment planning, intervention, ethics, documentation, or termination.",
+              "Ask: Is there immediate risk or mandated reporting?",
+              "Ask: What information is missing that would change the decision?",
+              "Match the answer to the clinical phase. Do not treat before assessing; do not process trauma before stabilizing.",
+              "Eliminate answers that are premature, outside scope, too passive for risk, too restrictive without evidence, culturally assumptive, or not measurable.",
+              "Choose the best next clinical action, not merely a true statement."
+            ]
+          },
+          {
+            "type": "table",
+            "title": "Question Type Strategy",
+            "columns": [
+              "Question type",
+              "Best thinking"
+            ],
+            "rows": [
+              [
+                "What should the counselor assess?",
+                "Pick the missing domain that affects risk, diagnosis, level of care, or treatment."
+              ],
+              [
+                "Most likely diagnosis?",
+                "Use symptom cluster, duration, impairment, and rule-outs."
+              ],
+              [
+                "Best treatment goal/objective?",
+                "Choose measurable goal tied to presenting problem."
+              ],
+              [
+                "Best intervention?",
+                "Match diagnosis, theory, phase, readiness, and risk."
+              ],
+              [
+                "Ethical next step?",
+                "Follow ACA principles, law/policy, consent, confidentiality limits, consultation, documentation."
+              ],
+              [
+                "Documentation?",
+                "Document clinically relevant facts, risk rationale, client response, intervention, plan."
+              ],
+              [
+                "Termination/referral?",
+                "Protect continuity of care and avoid abandonment."
+              ]
+            ]
+          },
+          {
+            "type": "exam_tip",
+            "content": "The correct answer is often the best next step, not the most advanced intervention."
+          }
+        ],
+        "exam_cues": [
+          "best next step",
+          "most appropriate action",
+          "what should counselor do first",
+          "case simulation"
+        ],
+        "common_traps": [
+          "Choosing what sounds clinically impressive rather than what is next",
+          "Ignoring the phase of treatment",
+          "Overweighting one dramatic symptom",
+          "Not reading for duration and impairment"
+        ],
+        "memory_anchors": [
+          "Phase + safety + missing data + best next step."
+        ],
+        "mini_practice_questions": []
       },
       {
-        "step": 2,
-        "title": "Identify the precipitating event",
-        "actions": [
-          "what triggered the current episode?",
-          "is this acute, chronic, or recurrent?"
-        ]
-      },
-      {
-        "step": 3,
-        "title": "Track symptoms and severity",
-        "actions": [
-          "what symptoms are clearly present?",
-          "how long have they lasted?",
-          "how much impairment is there?"
-        ]
-      },
-      {
-        "step": 4,
-        "title": "Read the MSE and safety cues carefully",
-        "actions": [
-          "look for affect, thought content, behavior, orientation, psychosis, suicidality, self-harm, or violence risk"
-        ]
-      },
-      {
-        "step": 5,
-        "title": "Decide what stage of treatment this is",
-        "actions": [
-          "intake?",
-          "early treatment?",
-          "mid-treatment?",
-          "termination?"
-        ]
-      },
-      {
-        "step": 6,
-        "title": "Match the answer to the stage and need",
-        "actions": [
-          "assessment before intervention when information is missing",
-          "safety before insight when risk is present",
-          "support and structure before confrontation when alliance is early"
-        ]
-      },
-      {
-        "step": 7,
-        "title": "Choose the most clinically appropriate next step",
-        "actions": [
-          "not the fanciest answer",
-          "not the most aggressive answer",
-          "the answer that best fits this client right now"
-        ]
+        "lesson_id": "simulation_answer_elimination",
+        "title": "Answer Elimination Rules",
+        "why_it_matters_for_ncmhce": "NCMHCE answer choices are often tempting. Students must learn patterns that make an answer weaker.",
+        "key_terms": [
+          "elimination strategy",
+          "distractors",
+          "best answer",
+          "clinical reasoning"
+        ],
+        "content_blocks": [
+          {
+            "type": "table",
+            "title": "Distractor Patterns",
+            "columns": [
+              "Distractor type",
+              "Why it is weak",
+              "Example"
+            ],
+            "rows": [
+              [
+                "Premature intervention",
+                "Acts before assessment or consent",
+                "Starting exposure therapy before assessing trauma stability and risk."
+              ],
+              [
+                "Too passive",
+                "Fails to respond to safety/legal need",
+                "Only reflecting feelings after client reveals plan and intent to die."
+              ],
+              [
+                "Too restrictive",
+                "Uses hospitalization/reporting without enough risk/legal basis",
+                "Hospitalizing for vague sadness without SI/HI or inability to function."
+              ],
+              [
+                "Scope violation",
+                "Counselor acts like physician, attorney, or judge",
+                "Telling client to stop medication."
+              ],
+              [
+                "Culturally assumptive",
+                "Applies stereotypes or ignores client meaning",
+                "Assuming family involvement is helpful or harmful based only on ethnicity."
+              ],
+              [
+                "Vague treatment planning",
+                "Not measurable or connected to symptoms",
+                "Client will feel better and improve self-esteem."
+              ],
+              [
+                "Theory mismatch",
+                "Technique does not fit named theory",
+                "Using empty-chair as CBT technique."
+              ],
+              [
+                "Confidentiality error",
+                "Shares too much or refuses required disclosure",
+                "Calling spouse without consent; refusing mandated report."
+              ]
+            ]
+          },
+          {
+            "type": "exam_tip",
+            "content": "Eliminate answers that would create liability, harm safety, ignore client autonomy, or skip a required clinical step."
+          }
+        ],
+        "exam_cues": [
+          "two answers seem good",
+          "best vs first",
+          "ethics/risk/treatment planning"
+        ],
+        "common_traps": [
+          "Choosing all true statements instead of best next action",
+          "Being attracted to long answer choices",
+          "Assuming more intense intervention is more correct"
+        ],
+        "memory_anchors": [
+          "Best answer = safest, ethical, phase-matched, clinically useful."
+        ],
+        "mini_practice_questions": []
       }
     ],
-    "examPearls": [
-      "Safety always outranks routine progress.",
-      "The best answer is often the one that matches both the client's condition and the stage of treatment.",
-      "Watch for the difference between what the client says and what the case evidence supports."
+    "section_exam_mastery_checklist": [
+      "Can explain the purpose of Simulation Strategy in NCMHCE decision-making.",
+      "Can identify common exam cues and distractors.",
+      "Can choose the best next counseling action based on risk, ethics, assessment, diagnosis, and treatment phase.",
+      "Can apply the concept to a short clinical vignette.",
+      "Can document or justify the decision in clear clinical language when relevant."
     ]
   },
   "commonExamTraps": [
@@ -721,5 +2016,35 @@
       "Clinical Case Conceptualization"
     ],
     "notes": "Expanded into a production-ready module emphasizing biopsychosocial formulation, intake sequencing, risk prioritization, treatment planning, theory-based conceptualization, documentation, termination, and exam-style case reasoning."
+  },
+  "globalExamPrinciples": {
+    "ncmhce_thinking_model": [
+      "Safety first: assess and stabilize imminent risk before deeper exploration or long-term planning.",
+      "Assessment before intervention: gather enough clinically relevant information before choosing a treatment direction.",
+      "Least intrusive, most clinically appropriate response: do not overreact or underreact.",
+      "Ethics and legal duties override preference when there is imminent risk, abuse/neglect reporting duty, court order, or mandated disclosure.",
+      "Client-centered and culturally responsive care: avoid assumptions, clarify meaning, respect autonomy, and collaborate.",
+      "Use diagnosis carefully: identify symptom pattern, duration, impairment, exclusion/rule-outs, and differential diagnosis.",
+      "Treatment plans should match the presenting problem, diagnosis, risk level, stage of change, and client goals.",
+      "Document clinically significant decisions, especially risk assessment, informed consent, consultations, treatment plans, progress, referrals, and termination."
+    ],
+    "common_wrong_answer_patterns": [
+      "Acting before assessing risk or collecting key clinical data.",
+      "Choosing a technique that does not match the theory, problem, or phase of treatment.",
+      "Breaking confidentiality without a valid exception.",
+      "Failing to break confidentiality when mandated by risk or law.",
+      "Making assumptions about culture, religion, family structure, sexuality, gender identity, or socioeconomic status.",
+      "Focusing only on symptoms while ignoring impairment, duration, and differential diagnosis.",
+      "Jumping to medication recommendations instead of counseling-appropriate actions such as referral, consultation, assessment, or coordination.",
+      "Using vague goals instead of measurable, client-centered objectives.",
+      "Choosing long-term insight work during acute crisis."
+    ],
+    "recommended_answer_sequence": [
+      "Identify the clinical phase: intake, assessment, diagnosis, treatment planning, intervention, crisis, documentation, referral, or termination.",
+      "Scan for safety/legal/ethical concerns.",
+      "Determine what information is missing.",
+      "Choose the option that is most immediate, ethical, culturally responsive, and clinically appropriate.",
+      "Avoid options that are too directive, premature, punitive, vague, or outside counselor scope."
+    ]
   }
 }
