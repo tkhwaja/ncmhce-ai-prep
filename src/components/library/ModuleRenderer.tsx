@@ -169,7 +169,7 @@ const CompactObjectBrowser = ({ title, items }: { title: string; items: any[] })
   const selectedTitle = getObjectTitle(selected, selectedIndex, title);
 
   return (
-    <div className="rounded-lg border border-border bg-muted/30 p-3">
+    <div className="mb-3 break-inside-avoid rounded-lg border border-border bg-muted/30 p-3">
       <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
         <span className="text-xs font-semibold text-primary uppercase tracking-wide">{title}</span>
         <Badge variant="outline" className="text-xs">{items.length} topics</Badge>
@@ -1345,7 +1345,7 @@ const GenericSection = ({ title, data }: { title: string; data: any }) => {
     return (
       <div className="space-y-3">
         {data.overview && <p className="text-sm text-muted-foreground mb-3">{data.overview}</p>}
-        <div className={nestedEntries.length > 3 ? "grid items-start gap-3 md:grid-cols-2" : "space-y-3"}>
+        <div className={nestedEntries.length > 3 ? "space-y-3 md:columns-2 md:gap-3 md:space-y-0" : "space-y-3"}>
           {renderObjectContent(data)}
         </div>
         <ExamPearls pearls={data.examPearls} />
@@ -1369,7 +1369,7 @@ const renderObjectContent = (obj: any, extraSkipKeys: Set<string> = new Set()): 
         // Render coreCriteria, mustRuleOut, specifiersToKnow, examClues etc as labeled lists
         if (Array.isArray(value) && value.length > 0 && typeof value[0] === "string") {
           return (
-            <div key={key} className="self-start rounded-lg border border-border bg-muted/30 p-3">
+            <div key={key} className="mb-3 break-inside-avoid self-start rounded-lg border border-border bg-muted/30 p-3">
               <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
               <ul className="ml-4 mt-1">
                 {value.map((v: string, i: number) => (
@@ -1388,7 +1388,7 @@ const renderObjectContent = (obj: any, extraSkipKeys: Set<string> = new Set()): 
         // Render severity object as key-value
         if (typeof value === "object" && !Array.isArray(value)) {
           return (
-            <div key={key} className="self-start rounded-lg border border-border bg-card p-3">
+            <div key={key} className="mb-3 break-inside-avoid self-start rounded-lg border border-border bg-card p-3">
               <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
               <div className="mt-2 grid gap-2">
                 {Object.entries(value as Record<string, any>).map(([k, v]) => (
@@ -1421,7 +1421,7 @@ const renderObjectContent = (obj: any, extraSkipKeys: Set<string> = new Set()): 
 
         if (typeof value === "string") {
           return (
-            <div key={key} className="self-start rounded-lg border border-border bg-muted/30 p-3">
+            <div key={key} className="mb-3 break-inside-avoid self-start rounded-lg border border-border bg-muted/30 p-3">
               <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
               <p className="mt-1 text-sm text-muted-foreground">{formatValue(value)}</p>
             </div>
