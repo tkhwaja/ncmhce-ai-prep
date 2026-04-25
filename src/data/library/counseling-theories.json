@@ -106,7 +106,7 @@
         },
         {
           "term": "Behavioral activation",
-          "definition": "Deliberately increasing rewarding, meaningful activity to counter depression and withdrawal."
+          "definition": "A structured CBT intervention for depression and withdrawal that deliberately schedules values-based, mastery-building, or pleasurable activities so the client has contact with reinforcement again. It is not simply telling the client to stay busy; it starts with mood/activity monitoring, identifies avoidance patterns, selects realistic activities, anticipates barriers, and reviews outcomes."
         },
         {
           "term": "Socratic questioning",
@@ -170,6 +170,24 @@
         "CBT is one of the most heavily tested approaches.",
         "Focus on distortions, automatic thoughts, schemas, and behavior change.",
         "Counselor responses are usually collaborative and skill-focused."
+      ],
+      "behavioralActivationDeepDive": [
+        {
+          "title": "When it is most appropriate",
+          "description": "Behavioral activation is especially relevant when a narrative shows depression, anhedonia, isolation, low motivation, disrupted routines, avoidance, or loss of reinforcement after stress, grief, unemployment, relationship disruption, illness, or academic failure."
+        },
+        {
+          "title": "How it appears in NCMHCE-style narratives",
+          "description": "Look for clients who say they stopped seeing friends, stopped exercising, remain in bed, miss class or work, avoid previously meaningful activities, or wait to feel motivated before acting. The behavioral activation answer usually asks the client to track the mood-behavior cycle and schedule small, specific, achievable activities before motivation returns."
+        },
+        {
+          "title": "Counselor response",
+          "description": "Collaboratively identify one or two meaningful activities, break them into manageable steps, schedule them, problem-solve barriers, and review mood before and after the activity. Pair activation with cognitive work when negative predictions or hopeless thoughts block action."
+        },
+        {
+          "title": "Common exam trap",
+          "description": "Do not choose vague advice such as “try to get out more.” A strong CBT answer is structured, collaborative, measurable, and tied to the client’s symptoms, values, routine, and reinforcement patterns."
+        }
       ]
     },
     {
@@ -177,7 +195,7 @@
       "title": "Behaviorism / Behavioral Therapy",
       "founder": "B. F. Skinner, John Watson, Joseph Wolpe, and other behavioral theorists",
       "examPriority": "high",
-      "overview": "Behavioral approaches focus on observable behavior, learning history, reinforcement, exposure, conditioning, and skill rehearsal rather than insight alone.",
+      "overview": "Behavioral approaches focus on observable behavior, learning history, reinforcement, punishment, extinction, exposure, conditioning, and skill rehearsal rather than insight alone. For the NCMHCE, the key skill is identifying what is maintaining a behavior and selecting the intervention that changes the contingency in an ethical, developmentally appropriate, clinically safe way.",
       "corePremise": [
         "Behavior is learned and maintained through reinforcement, avoidance, modeling, and consequences.",
         "Changing contingencies and practicing new behaviors can reduce symptoms and improve functioning.",
@@ -192,29 +210,68 @@
       "mustKnowConcepts": [
         {
           "term": "Classical conditioning",
-          "definition": "Learning through association, often relevant to fear and trauma cues."
+          "definition": "Learning through association. A neutral cue becomes linked with fear, distress, or physiological arousal, which is why trauma reminders, phobic objects, or panic sensations can trigger symptoms."
         },
         {
           "term": "Operant conditioning",
-          "definition": "Behavior shaped by reinforcement, punishment, and consequences."
+          "definition": "Learning through consequences. Behaviors are more likely to continue when reinforced and less likely to continue when punished or no longer reinforced."
         },
         {
-          "term": "Exposure",
-          "definition": "Planned contact with feared cues while reducing avoidance or safety behaviors."
+          "term": "Positive reinforcement",
+          "definition": "Adding something desirable after a behavior to increase that behavior. Example: a parent praises a child for using coping skills, making skill use more likely."
+        },
+        {
+          "term": "Negative reinforcement",
+          "definition": "Removing or escaping something unpleasant after a behavior to increase that behavior. Example: a client avoids a crowded store and anxiety drops, so avoidance becomes more likely. Negative reinforcement is not punishment."
+        },
+        {
+          "term": "Positive punishment",
+          "definition": "Adding an unpleasant consequence after a behavior to decrease that behavior. Example: assigning an extra chore after aggression. On the exam, punishment is usually less preferred than reinforcement-based, collaborative, skill-building approaches unless the context is behavioral parent training or a structured plan."
+        },
+        {
+          "term": "Negative punishment",
+          "definition": "Removing something desirable after a behavior to decrease that behavior. Example: loss of phone privileges after repeated rule-breaking."
+        },
+        {
+          "term": "Extinction",
+          "definition": "Withholding the reinforcement that previously maintained a behavior so the behavior gradually decreases. An extinction burst may happen first, meaning the behavior temporarily gets stronger before it fades."
+        },
+        {
+          "term": "Shaping",
+          "definition": "Reinforcing successive approximations toward a target behavior. Example: praising a socially anxious client first for entering a group room, then for making eye contact, then for initiating one comment."
         },
         {
           "term": "Behavioral activation",
-          "definition": "Increasing meaningful activity to counter depressive withdrawal."
+          "definition": "Increasing planned, meaningful, reinforcing activity to counter depressive withdrawal and avoidance. It is structured, monitored, and tied to mood/functioning rather than generic encouragement."
+        },
+        {
+          "term": "Token economy",
+          "definition": "A structured reinforcement system in which tokens, points, or credits are earned for target behaviors and exchanged for meaningful rewards. Often appears in child, school, inpatient, residential, or group settings."
+        },
+        {
+          "term": "Contingency management",
+          "definition": "A structured plan that links clearly defined behaviors to predictable reinforcers or consequences. In substance use treatment, it often means incentives for verified abstinence, attendance, medication adherence, or recovery behaviors."
+        },
+        {
+          "term": "Exposure",
+          "definition": "Planned contact with feared cues while reducing avoidance or safety behaviors. Exposure works partly by reducing avoidance-based negative reinforcement."
         }
       ],
       "signatureTechniques": [
+        "functional behavioral assessment",
+        "ABC analysis",
+        "positive reinforcement plans",
+        "negative reinforcement analysis",
+        "extinction with replacement behavior reinforcement",
+        "shaping",
+        "token economies",
+        "contingency management",
+        "behavioral activation",
+        "activity scheduling",
         "exposure",
         "systematic desensitization",
-        "reinforcement plans",
-        "behavioral activation",
         "skills rehearsal",
-        "modeling",
-        "token economies"
+        "modeling"
       ],
       "bestFitPresentations": [
         "phobias",
@@ -225,22 +282,107 @@
         "skills deficits"
       ],
       "watchForOnExam": [
-        "Behavioral answers often focus on what maintains the behavior and what consequence or exposure plan should change it.",
-        "For anxiety, behavioral logic often targets avoidance through gradual exposure rather than reassurance alone."
+        "Behavioral answers often focus on what maintains the behavior and what consequence, exposure plan, reinforcement schedule, or replacement behavior should change it.",
+        "For anxiety, behavioral logic often targets avoidance through gradual exposure because avoidance is negatively reinforced by short-term relief.",
+        "When the narrative includes children, schools, residential settings, substance use programs, or behavior plans, look for precise target behaviors and consistent contingencies.",
+        "If a client is depressed and inactive, behavioral activation may be the best CBT/behavioral response when it is structured and connected to mood monitoring.",
+        "If a behavior gets worse right after reinforcement is withdrawn, consider an extinction burst rather than assuming the plan failed immediately."
       ],
       "examTraps": [
-        "Choosing insight work when the question asks for behavior change",
-        "Reassuring a client in a way that reinforces avoidance",
-        "Ignoring reinforcement patterns"
+        "Confusing negative reinforcement with punishment: negative reinforcement increases behavior by removing something unpleasant; punishment decreases behavior.",
+        "Thinking “positive” means good and “negative” means bad. Positive means added; negative means removed.",
+        "Choosing insight work when the question asks for behavior change, exposure, reinforcement, or a functional assessment.",
+        "Reassuring a client in a way that reinforces avoidance.",
+        "Ignoring the function of behavior and focusing only on the behavior’s appearance.",
+        "Using punishment without teaching or reinforcing a replacement behavior.",
+        "Stopping an extinction plan during the extinction burst, which can make the behavior stronger.",
+        "Calling a token economy effective when target behaviors, reinforcers, exchange rules, and consistency are unclear.",
+        "Using behavioral activation as vague encouragement rather than a specific, scheduled, monitored intervention."
       ],
       "miniCase": {
-        "prompt": "A client avoids elevators after a panic attack and now takes stairs in every building.",
-        "bestApproach": "Assess avoidance patterns and use gradual exposure with coping skills.",
-        "why": "Behavioral treatment targets avoidance that maintains fear."
+        "prompt": "A client avoids elevators after a panic attack and now takes stairs in every building. Each time the client avoids the elevator, anxiety drops quickly.",
+        "bestApproach": "Identify avoidance as negatively reinforced, assess the avoidance cycle, and collaboratively plan gradual exposure with coping skills and response prevention.",
+        "why": "The short-term relief from anxiety reinforces avoidance, which maintains the fear over time. Behavioral treatment targets the maintaining contingency rather than simply providing reassurance."
       },
       "quickReview": [
-        "Behaviorism = learning, reinforcement, exposure, and observable change.",
-        "Ask what maintains the behavior and what practice changes it."
+        "Behaviorism = learning, reinforcement, punishment, extinction, shaping, exposure, and observable change.",
+        "Reinforcement increases behavior; punishment decreases behavior.",
+        "Positive means added; negative means removed.",
+        "Negative reinforcement is a major NCMHCE trap because it sounds like punishment but actually increases behavior.",
+        "Ask what maintains the behavior, what replacement behavior should be reinforced, and what ethical plan changes the contingency."
+      ],
+      "operantConditioningQuickRule": "Reinforcement increases behavior; punishment decreases behavior. Positive means something is added; negative means something is removed. The words positive and negative do not mean good and bad.",
+      "reinforcementPunishmentComparison": [
+        {
+          "term": "Positive reinforcement",
+          "definition": "Add something desirable to increase a behavior. Counseling example: praise, privileges, points, attention, or access to a preferred activity follows coping skill use, session attendance, homework completion, or prosocial behavior."
+        },
+        {
+          "term": "Negative reinforcement",
+          "definition": "Remove something aversive to increase a behavior. Counseling example: a teenager completes homework and is excused from an extra chore; an anxious client avoids driving and anxiety immediately drops, which strengthens future avoidance."
+        },
+        {
+          "term": "Positive punishment",
+          "definition": "Add something unpleasant to decrease a behavior. Counseling example: a behavioral plan adds a brief, consistent corrective consequence after aggression. Exam caution: punishment alone does not teach replacement skills and can damage rapport if misused."
+        },
+        {
+          "term": "Negative punishment",
+          "definition": "Remove something desirable to decrease a behavior. Counseling example: loss of screen time after rule-breaking. Exam caution: use predictable, proportionate, pre-explained consequences rather than shaming or arbitrary control."
+        },
+        {
+          "term": "Extinction",
+          "definition": "Stop providing the reinforcer that maintains a behavior. Counseling example: planned ignoring of attention-seeking minor behavior while reinforcing appropriate requests for attention. Warn caregivers about extinction bursts."
+        },
+        {
+          "term": "Shaping",
+          "definition": "Reinforce small steps toward the final behavior. Counseling example: reward each closer step toward school attendance, group participation, exposure completion, hygiene routines, or communication skills."
+        }
+      ],
+      "ncmhceNarrativeCues": [
+        "If a behavior keeps happening, ask what consequence follows it and whether that consequence increases or decreases the behavior.",
+        "Avoidance that immediately reduces anxiety is often negatively reinforced, even though it worsens long-term functioning.",
+        "A child who escalates until a caregiver gives attention, removes demands, or gives access to a desired item may be showing a reinforcement-maintained behavior.",
+        "Substance use can be positively reinforced by pleasure/social reward and negatively reinforced by relief from withdrawal, trauma memories, depression, or anxiety.",
+        "Depressive withdrawal is maintained when staying in bed or avoiding people produces short-term relief but removes contact with mastery, pleasure, support, and routine.",
+        "In school, family, residential, or group settings, token economies and contingency management require specific target behaviors, immediate feedback, consistent reinforcement, and ethical safeguards."
+      ],
+      "applicationExamples": [
+        {
+          "title": "Avoidance and negative reinforcement",
+          "description": "A client with panic leaves the grocery store when symptoms begin. Anxiety drops immediately, so leaving is reinforced. The best behavioral answer is usually assessment of avoidance patterns plus gradual exposure and coping skills, not reassurance that stores are safe."
+        },
+        {
+          "title": "Positive reinforcement for coping behavior",
+          "description": "A child uses a breathing skill instead of hitting and receives specific praise and a point toward a reward. Because the desirable consequence follows the coping behavior, coping is more likely to recur."
+        },
+        {
+          "title": "Removing an aversive task after a desired behavior",
+          "description": "A teen completes homework and is excused from dish duty. The removal of an unpleasant chore increases homework completion, so this is negative reinforcement, not punishment."
+        },
+        {
+          "title": "Extinction burst",
+          "description": "Caregivers stop giving attention to whining and reinforce calm requests instead. The whining initially gets louder and more frequent before decreasing. The counselor should normalize the extinction burst and coach consistency."
+        },
+        {
+          "title": "Shaping participation",
+          "description": "A client with severe social anxiety first earns reinforcement for entering group, then for staying ten minutes, then for making one brief comment. Each step is reinforced as an approximation of the final goal."
+        },
+        {
+          "title": "Contingency management in substance use",
+          "description": "A client in recovery receives vouchers for negative drug screens and treatment attendance. The target behavior is clear, reinforcement is immediate and predictable, and the plan supports recovery rather than relying on confrontation."
+        },
+        {
+          "title": "Token economy in structured settings",
+          "description": "Clients earn points for medication adherence, attending skills groups, respectful communication, or completing activities of daily living, then exchange points for privileges. The counselor monitors fairness, consent, developmental fit, and whether the system reinforces clinically meaningful behavior."
+        }
+      ],
+      "counselorStance": [
+        "Operationalize the behavior: define what can be observed and measured.",
+        "Assess antecedents, behavior, and consequences before selecting an intervention.",
+        "Reinforce replacement behaviors rather than only suppressing unwanted behavior.",
+        "Use least-restrictive, ethical, collaborative, culturally responsive strategies.",
+        "Explain the plan clearly so clients/caregivers know what behavior earns what response.",
+        "Monitor data and adjust the plan when it is not working."
       ]
     },
     {
@@ -1547,7 +1689,15 @@
     "Confusing empathy with passivity; empathy can still be purposeful and strategic",
     "Forgetting that acute safety concerns override theory-specific technique",
     "Selecting confrontation when ambivalence, shame, or early alliance suggests a gentler approach",
-    "Treating family/systemic problems as though they exist only inside one identified patient"
+    "Treating family/systemic problems as though they exist only inside one identified patient",
+    {
+      "trap": "Confusing negative reinforcement with punishment",
+      "explanation": "Negative reinforcement removes something aversive and increases behavior; punishment decreases behavior. Avoidance that reduces anxiety is the classic exam example."
+    },
+    {
+      "trap": "Treating behavioral activation as generic advice",
+      "explanation": "Behavioral activation should include tracking, scheduling, graded tasks, values or mastery/pleasure targets, barrier planning, and review of outcomes."
+    }
   ],
   "miniCaseDrills": [
     {
@@ -1574,6 +1724,21 @@
       "case": "A highly reactive client with recurrent self-harm feels ashamed after every emotional crisis and cannot tolerate distress without impulsive action.",
       "bestTheory": "Dialectical Behavior Therapy",
       "rationale": "The core needs are safety, emotion regulation, distress tolerance, and interpersonal effectiveness."
+    },
+    {
+      "case": "A client with social anxiety cancels plans whenever anxiety rises. The cancellation immediately lowers anxiety, but the client becomes more isolated over time.",
+      "bestConcept": "Negative reinforcement maintaining avoidance",
+      "rationale": "The behavior increases because it removes anxiety in the short term. The behavioral intervention would target avoidance with graded exposure and coping practice."
+    },
+    {
+      "case": "A child earns points for using words instead of hitting and exchanges points for extra art time at the end of the week.",
+      "bestConcept": "Token economy using positive reinforcement",
+      "rationale": "A desirable consequence is added after the target behavior, increasing the replacement behavior."
+    },
+    {
+      "case": "A caregiver stops giving attention to whining and gives attention only when the child makes a calm request. Whining gets worse for several days before improving.",
+      "bestConcept": "Extinction burst",
+      "rationale": "The previously reinforced behavior temporarily escalates when reinforcement is withdrawn."
     }
   ],
   "quickReview": {

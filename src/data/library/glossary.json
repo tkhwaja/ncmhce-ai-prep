@@ -231,16 +231,18 @@
     {
       "term": "Behavioral Activation",
       "letter": "B",
-      "definition": "CBT intervention that increases rewarding or meaningful activity to reduce withdrawal and depression.",
-      "examRelevance": "High-yield CBT technique in depression cases.",
+      "definition": "A structured CBT/behavioral intervention that increases planned, meaningful, mastery-building, or pleasurable activity to counter depression, withdrawal, and avoidance. It includes activity/mood monitoring, scheduling, barrier planning, and review rather than vague encouragement.",
+      "examRelevance": "High-yield for depression narratives with anhedonia, isolation, low motivation, disrupted routines, or avoidance. A strong exam answer is specific, collaborative, measurable, and tied to mood/functioning.",
       "relatedTerms": [
         "CBT",
-        "Anhedonia",
-        "Thought Record"
+        "Depression",
+        "Reinforcement",
+        "Activity Scheduling"
       ],
       "tags": [
         "theories",
-        "depression"
+        "depression",
+        "behavioral"
       ]
     },
     {
@@ -325,6 +327,21 @@
       "tags": [
         "multicultural",
         "theories"
+      ]
+    },
+    {
+      "term": "C-SSRS",
+      "letter": "C",
+      "definition": "Columbia Suicide Severity Rating Scale, a structured tool for assessing suicidal ideation and behavior.",
+      "examRelevance": "High-yield suicide risk assessment tool.",
+      "relatedTerms": [
+        "Safety Plan",
+        "Suicidal Ideation",
+        "ASQ"
+      ],
+      "tags": [
+        "assessment",
+        "crisis"
       ]
     },
     {
@@ -512,6 +529,23 @@
       ]
     },
     {
+      "term": "Contingency Management",
+      "letter": "C",
+      "definition": "A behavioral intervention that links clearly defined target behaviors to predictable reinforcers or consequences. In substance use care, incentives may be provided for negative drug screens, attendance, medication adherence, or other recovery behaviors.",
+      "examRelevance": "Often appears in substance use, school, residential, and structured treatment settings. Look for clear target behaviors, immediate feedback, consistency, and ethical reinforcement.",
+      "relatedTerms": [
+        "Operant Conditioning",
+        "Positive Reinforcement",
+        "Token Economy",
+        "Substance Use Treatment"
+      ],
+      "tags": [
+        "theories",
+        "behavioral",
+        "substance-use"
+      ]
+    },
+    {
       "term": "Countertransference",
       "letter": "C",
       "definition": "Counselor emotional reactions to the client that may be shaped by the counselor's own unresolved material.",
@@ -524,21 +558,6 @@
       "tags": [
         "theories",
         "supervision"
-      ]
-    },
-    {
-      "term": "C-SSRS",
-      "letter": "C",
-      "definition": "Columbia Suicide Severity Rating Scale, a structured tool for assessing suicidal ideation and behavior.",
-      "examRelevance": "High-yield suicide risk assessment tool.",
-      "relatedTerms": [
-        "Safety Plan",
-        "Suicidal Ideation",
-        "ASQ"
-      ],
-      "tags": [
-        "assessment",
-        "crisis"
       ]
     },
     {
@@ -823,6 +842,22 @@
       ],
       "tags": [
         "theories"
+      ]
+    },
+    {
+      "term": "Extinction",
+      "letter": "E",
+      "definition": "A behavioral process in which the reinforcement maintaining a behavior is withheld so the behavior gradually decreases. An extinction burst may occur first, meaning the behavior temporarily intensifies before improving.",
+      "examRelevance": "Commonly tested in behavior plans. The exam may ask whether escalation after withdrawing reinforcement means the plan failed; often it is an extinction burst requiring consistency and reinforcement of replacement behavior.",
+      "relatedTerms": [
+        "Reinforcement",
+        "Extinction Burst",
+        "Functional Behavioral Assessment",
+        "Shaping"
+      ],
+      "tags": [
+        "theories",
+        "behavioral"
       ]
     },
     {
@@ -1293,6 +1328,39 @@
       ]
     },
     {
+      "term": "Negative Punishment",
+      "letter": "N",
+      "definition": "Removing something desirable after a behavior to decrease that behavior, such as loss of privileges after repeated rule-breaking.",
+      "examRelevance": "Differentiate from negative reinforcement. Negative punishment decreases behavior; negative reinforcement increases behavior by removing something aversive.",
+      "relatedTerms": [
+        "Punishment",
+        "Negative Reinforcement",
+        "Operant Conditioning"
+      ],
+      "tags": [
+        "theories",
+        "behavioral",
+        "exam-trap"
+      ]
+    },
+    {
+      "term": "Negative Reinforcement",
+      "letter": "N",
+      "definition": "Removing or escaping something unpleasant after a behavior, which increases that behavior. Avoidance that reduces anxiety is a classic example.",
+      "examRelevance": "One of the most common behavioral exam traps. It is not punishment; it increases behavior. Look for relief, escape, or removal of discomfort following the behavior.",
+      "relatedTerms": [
+        "Positive Reinforcement",
+        "Negative Punishment",
+        "Avoidance",
+        "Operant Conditioning"
+      ],
+      "tags": [
+        "theories",
+        "behavioral",
+        "exam-trap"
+      ]
+    },
+    {
       "term": "Negative Symptoms",
       "letter": "N",
       "definition": "Schizophrenia-related deficits such as flat affect, avolition, alogia, anhedonia, and asociality.",
@@ -1401,6 +1469,22 @@
       ]
     },
     {
+      "term": "Operant Conditioning",
+      "letter": "O",
+      "definition": "Learning in which behavior is shaped by consequences, including reinforcement, punishment, extinction, and shaping.",
+      "examRelevance": "High-yield for behavioral case conceptualization. Ask what consequence follows the behavior and whether the behavior is increasing or decreasing.",
+      "relatedTerms": [
+        "Reinforcement",
+        "Punishment",
+        "Extinction",
+        "Shaping"
+      ],
+      "tags": [
+        "theories",
+        "behavioral"
+      ]
+    },
+    {
       "term": "PCL-5",
       "letter": "P",
       "definition": "PTSD Checklist for DSM-5, a self-report measure of PTSD symptoms.",
@@ -1427,6 +1511,38 @@
       "tags": [
         "assessment",
         "depression"
+      ]
+    },
+    {
+      "term": "Positive Punishment",
+      "letter": "P",
+      "definition": "Adding an unpleasant consequence after a behavior to decrease that behavior, such as a brief corrective consequence after aggression.",
+      "examRelevance": "Know the definition, but be cautious on application questions: the best counseling answer often favors reinforcement of replacement behavior, skill-building, and ethical behavior planning over punishment alone.",
+      "relatedTerms": [
+        "Punishment",
+        "Negative Punishment",
+        "Operant Conditioning"
+      ],
+      "tags": [
+        "theories",
+        "behavioral",
+        "exam-trap"
+      ]
+    },
+    {
+      "term": "Positive Reinforcement",
+      "letter": "P",
+      "definition": "Adding something desirable after a behavior to increase that behavior, such as praise, privileges, tokens, attention, or access to preferred activities after a target behavior.",
+      "examRelevance": "High-yield in child, family, school, residential, group, and skills-training narratives. Look for a desirable consequence that makes the behavior more likely.",
+      "relatedTerms": [
+        "Negative Reinforcement",
+        "Token Economy",
+        "Contingency Management",
+        "Operant Conditioning"
+      ],
+      "tags": [
+        "theories",
+        "behavioral"
       ]
     },
     {
@@ -1645,6 +1761,21 @@
       ]
     },
     {
+      "term": "Shaping",
+      "letter": "S",
+      "definition": "Reinforcing successive approximations toward a target behavior rather than waiting for the final behavior to occur perfectly.",
+      "examRelevance": "Useful when the final goal is too difficult at first, such as school attendance, group participation, exposure steps, communication skills, hygiene routines, or social skills.",
+      "relatedTerms": [
+        "Reinforcement",
+        "Operant Conditioning",
+        "Behavioral Therapy"
+      ],
+      "tags": [
+        "theories",
+        "behavioral"
+      ]
+    },
+    {
       "term": "SMART Goals",
       "letter": "S",
       "definition": "Goals that are Specific, Measurable, Attainable, Realistic, and Timely.",
@@ -1822,6 +1953,21 @@
       ],
       "tags": [
         "theories"
+      ]
+    },
+    {
+      "term": "Token Economy",
+      "letter": "T",
+      "definition": "A structured reinforcement system in which tokens, points, or credits are earned for defined target behaviors and exchanged for meaningful rewards or privileges.",
+      "examRelevance": "Often appears in school, inpatient, residential, child/adolescent, group, or skills-training settings. Strong answers specify target behaviors, exchange rules, consistency, and ethical safeguards.",
+      "relatedTerms": [
+        "Positive Reinforcement",
+        "Contingency Management",
+        "Operant Conditioning"
+      ],
+      "tags": [
+        "theories",
+        "behavioral"
       ]
     },
     {

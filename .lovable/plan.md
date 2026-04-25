@@ -1,35 +1,66 @@
-I’ll fix the Learning Library so each major section has one dropdown only, instead of creating a second dropdown inside it for lessons/subsections.
+I’ll incorporate the behavioral learning concepts into the appropriate Learning Library areas, primarily the Counseling Theories & Techniques module, with supporting glossary updates.
 
 What I’ll change:
 
-1. Update the shared Learning Library renderer
-- In `ModuleRenderer.tsx`, change the lesson-based renderer so `lessons` are displayed as headings/cards inside the already-open major section.
-- Remove the inner `CollapsibleSection` wrapper currently used for each lesson.
-- Keep the outer module section dropdowns, such as:
-  - Biopsychosocial Framework
-  - Intake Process
-  - Clinical Domains to Assess
-  - Risk / Priority
-  - Treatment Planning
-  - Documentation
-- Inside each opened section, lesson titles like “Biopsychosocial-Spiritual Framework” will appear as normal subheadings, not separate dropdowns.
+1. Expand the Behaviorism / Behavioral Therapy section
+- Add comprehensive, exam-focused coverage of:
+  - Positive reinforcement
+  - Negative reinforcement
+  - Positive punishment
+  - Negative punishment
+  - Extinction
+  - Shaping
+  - Behavioral activation
+  - Token economy
+  - Contingency management
+  - Reinforcement patterns in NCMHCE-style narratives
+  - Common exam traps, especially negative reinforcement vs. punishment
+- Keep the content under the existing Behaviorism / Behavioral Therapy card/section so it is placed where students would naturally look for behavioral principles.
 
-2. Apply the same no-nested-dropdown rule across the Learning Library
-- Review all renderer areas that create dropdowns inside dropdowns.
-- Flatten nested dropdown patterns where content can reasonably live under the same opened section.
-- Preserve intentional single-level section dropdowns so the page is still organized and not one giant wall of text.
+2. Strengthen related CBT coverage
+- Behavioral activation is already mentioned in CBT, but I’ll expand it so it explains:
+  - what it is
+  - when it is appropriate
+  - how it appears in depression narratives
+  - how it differs from generic advice-giving or “just do activities”
 
-3. Fix formatting consistency while doing this
-- Keep tables, callouts, exam cues, common traps, memory anchors, and mini-practice questions formatted as readable cards/lists.
-- Avoid raw JSON-like display, unnecessary double quotes, or code-looking output.
-- Ensure `PTSD`, `DSM`, `NCMHCE`, `ACA`, etc. remain properly capitalized where renderer formatting touches text.
+3. Add high-yield comparison content
+- Add a clear comparison table or structured list explaining:
+  - reinforcement increases behavior
+  - punishment decreases behavior
+  - positive means something is added
+  - negative means something is removed
+- Include concrete counseling examples for each concept.
 
-4. Verify every Learning Library module at the code level
-- Check every module JSON file in `src/data/library/` for structures that produce nested dropdowns.
-- Verify the shared renderer no longer produces the “two dropdowns” experience in Clinical Case Conceptualization or other modules that use the same format.
-- Run a search after changes for nested `CollapsibleSection` usage in Learning Library rendering and remove/adjust remaining cases that cause the problem.
+4. Add NCMHCE-style application examples
+- Add mini-scenarios showing how these concepts appear in clinical narratives, such as:
+  - avoidance reducing anxiety and therefore being negatively reinforced
+  - praise or privileges increasing desired behavior
+  - removing chores after homework increasing homework completion
+  - extinction bursts when reinforcement is withdrawn
+  - shaping successive approximations toward a target behavior
+  - contingency management in substance use treatment
+
+5. Update glossary entries
+- Add or expand dedicated glossary entries for the missing terms so users can search them directly:
+  - Positive reinforcement
+  - Negative reinforcement
+  - Positive punishment
+  - Negative punishment
+  - Extinction
+  - Shaping
+  - Token economy
+  - Contingency management
+  - Operant conditioning
+- Expand the existing Behavioral Activation glossary entry if needed.
+
+6. Verify formatting and placement
+- Ensure the renderer displays the new content as clean cards/lists/tables, not raw JSON or quoted code-like text.
+- Preserve the no-nested-dropdown rule: these concepts should appear inside the existing module section/card layout, not as dropdowns inside dropdowns.
+- Search the updated library content to verify each requested term is present and located in an appropriate section.
 
 Technical details:
-- Primary file: `src/components/library/ModuleRenderer.tsx`
-- Likely approach: replace the lesson-level collapsible in `ComprehensiveLearningSection` with a non-collapsible `Card`/section layout.
-- Additional review: nested collapsibles in diagnostic categories, differential tables, and generic object rendering will be checked and flattened if they create dropdown-within-dropdown behavior in the Learning Library.
+- Primary content file: `src/data/library/counseling-theories.json`
+- Supporting file: `src/data/library/glossary.json`
+- Renderer review only if needed: `src/components/library/ModuleRenderer.tsx`
+- I’ll avoid changing autogenerated backend/client files and will not modify unrelated modules unless the content naturally belongs there.
