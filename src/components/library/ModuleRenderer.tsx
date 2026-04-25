@@ -1310,6 +1310,10 @@ const GenericSection = ({ title, data }: { title: string; data: any }) => {
 
   // Handle array of objects with various structures
   if (Array.isArray(data)) {
+    if (data.length > 0 && typeof data[0] === "object") {
+      return <CompactObjectBrowser title={title} items={data} />;
+    }
+
     return (
       <div className="grid gap-3 md:grid-cols-2">
         {data.map((item, i) => (
@@ -1376,24 +1380,9 @@ const renderObjectContent = (obj: any, extraSkipKeys: Set<string> = new Set()): 
           );
         }
 
-        // Render nested arrays of objects as a compact browser so dense modules avoid endless scrolling.
+        // Render nested arrays of objects as a compact browser so sections avoid stacked file-like cards.
         if (Array.isArray(value) && value.length > 0 && typeof value[0] === "object") {
-          if (value.length > 2) {
-            return <CompactObjectBrowser key={key} title={formatKey(key)} items={value} />;
-          }
-
-          return (
-            <div key={key} className="self-start rounded-lg border border-border bg-muted/30 p-3">
-              <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
-              <div className="mt-2 grid gap-2">
-                {value.map((item, itemIndex) => (
-                  <Card key={itemIndex} className="card-elevated">
-                    <CardContent className="p-3">{renderObjectContent(item)}</CardContent>
-                  </Card>
-                ))}
-              </div>
-            </div>
-          );
+          return <CompactObjectBrowser key={key} title={formatKey(key)} items={value} />;
         }
 
         // Render severity object as key-value
@@ -1403,7 +1392,9 @@ const renderObjectContent = (obj: any, extraSkipKeys: Set<string> = new Set()): 
               <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
               <div className="mt-2 grid gap-2">
                 {Object.entries(value as Record<string, any>).map(([k, v]) => (
-                  Array.isArray(v) ? (
+                  Array.isArray(v) && v.length > 0 && typeof v[0] === "object" ? (
+                    <CompactObjectBrowser key={k} title={formatKey(k)} items={v} />
+                  ) : Array.isArray(v) ? (
                     <div key={k} className="space-y-2">
                       <p className="text-sm font-medium text-foreground">{formatKey(k)}</p>
                       {v.map((item, itemIndex) => (
