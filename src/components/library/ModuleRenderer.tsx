@@ -1337,7 +1337,12 @@ const GenericSection = ({ title, data }: { title: string; data: any }) => {
             ) : (
               <Card className="card-elevated h-full">
                 <CardContent className="p-4 space-y-3">
-                  {item.title && <h3 className="text-base font-semibold text-foreground">{item.title}</h3>}
+                  {item.title && (
+                    <div className="flex flex-wrap items-center gap-2">
+                      <h3 className="text-base font-semibold text-foreground">{item.title}</h3>
+                      <ExamLikelihoodBadge topic={item.title} context={title} />
+                    </div>
+                  )}
                   {renderObjectContent(item)}
                 </CardContent>
               </Card>
