@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { StudyVisuals } from "@/components/library/StudyVisuals";
 import ModuleSectionNavigator from "@/components/library/ModuleSectionNavigator";
+import { ExamLikelihoodBadge } from "@/components/library/ExamLikelihoodBadge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { ChevronDown, ChevronRight, Lightbulb, AlertTriangle, BookOpen, Target, HelpCircle, Sparkles, ListChecks, Brain, Repeat, ShieldAlert, Compass } from "lucide-react";
 
@@ -97,7 +98,10 @@ const CollapsibleSection = ({ title, children, defaultOpen = false }: { title: s
   return (
     <Collapsible open={open} onOpenChange={setOpen} className="border border-border rounded-lg mt-4 card-elevated">
       <CollapsibleTrigger className="flex items-center justify-between w-full p-4 hover:bg-accent/40 rounded-lg transition-colors">
-        <span className="font-semibold text-foreground text-left text-base">{title}</span>
+        <span className="flex flex-wrap items-center gap-2 text-left">
+          <span className="font-semibold text-foreground text-base">{title}</span>
+          <ExamLikelihoodBadge topic={title} />
+        </span>
         {open ? <ChevronDown className="h-4 w-4 text-muted-foreground" /> : <ChevronRight className="h-4 w-4 text-muted-foreground" />}
       </CollapsibleTrigger>
       <CollapsibleContent className="px-4 pb-4">{children}</CollapsibleContent>
@@ -186,7 +190,10 @@ const CompactObjectBrowser = ({ title, items }: { title: string; items: any[] })
                 className="h-auto w-full justify-start whitespace-normal px-3 py-2 text-left text-sm"
                 onClick={() => setSelectedIndex(index)}
               >
-                {itemTitle}
+                <span className="flex w-full flex-wrap items-center gap-2">
+                  <span>{itemTitle}</span>
+                  <ExamLikelihoodBadge topic={itemTitle} context={title} compact />
+                </span>
               </Button>
             );
           })}
@@ -195,6 +202,7 @@ const CompactObjectBrowser = ({ title, items }: { title: string; items: any[] })
           <CardContent className="p-4 space-y-3">
             <div className="flex flex-wrap items-center gap-2">
               <h3 className="text-base font-semibold text-foreground">{selectedTitle.label}</h3>
+              <ExamLikelihoodBadge topic={selectedTitle.label} context={title} />
               <Badge variant="secondary" className="text-xs">{selectedIndex + 1} of {items.length}</Badge>
             </div>
             {renderObjectContent(selected, new Set(selectedTitle.key ? [selectedTitle.key] : []))}
