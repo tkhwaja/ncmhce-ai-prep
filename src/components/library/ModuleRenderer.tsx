@@ -1401,7 +1401,7 @@ const renderObjectContent = (obj: any, extraSkipKeys: Set<string> = new Set()): 
           return (
             <div key={key} className="rounded-lg border border-border bg-card p-3">
               <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
-              <div className="ml-4 mt-1 space-y-1">
+              <div className="mt-2 grid gap-2">
                 {Object.entries(value as Record<string, any>).map(([k, v]) => (
                   Array.isArray(v) ? (
                     <div key={k} className="space-y-2">
@@ -1417,7 +1417,7 @@ const renderObjectContent = (obj: any, extraSkipKeys: Set<string> = new Set()): 
                       ))}
                     </div>
                   ) : (
-                    <p key={k} className="text-sm text-muted-foreground">
+                    <p key={k} className="text-sm leading-relaxed text-muted-foreground">
                       <span className="font-medium text-foreground capitalize">{formatKey(k)}: </span>
                       {typeof v === "string" ? formatValue(v) : renderObjectContent(v)}
                     </p>
