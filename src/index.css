@@ -43,6 +43,11 @@
 
     --surface-elevated: 220 14% 96%;
 
+    --yield-highest: 0 84% 55%;
+    --yield-high: 35 92% 46%;
+    --yield-moderate: 186 72% 40%;
+    --yield-low: 215 16% 42%;
+
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 222 28% 12%;
     --sidebar-primary: 217 91% 50%;
@@ -89,6 +94,11 @@
     --glow-accent: 260 60% 55%;
 
     --surface-elevated: 222 22% 12%;
+
+    --yield-highest: 0 84% 65%;
+    --yield-high: 35 92% 58%;
+    --yield-moderate: 186 72% 55%;
+    --yield-low: 215 16% 62%;
   }
 }
 

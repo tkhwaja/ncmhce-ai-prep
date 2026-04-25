@@ -3,10 +3,10 @@ import { cn } from "@/lib/utils";
 import { getExamLikelihood } from "@/lib/exam-likelihood";
 
 const levelClass = {
-  highest: "border-primary/40 bg-primary/10 text-primary",
-  high: "border-primary/30 bg-primary/5 text-primary",
-  moderate: "border-border bg-muted/60 text-muted-foreground",
-  low: "border-border bg-background text-muted-foreground",
+  highest: "border-[hsl(var(--yield-highest)/0.45)] bg-[hsl(var(--yield-highest)/0.12)] text-[hsl(var(--yield-highest))]",
+  high: "border-[hsl(var(--yield-high)/0.45)] bg-[hsl(var(--yield-high)/0.12)] text-[hsl(var(--yield-high))]",
+  moderate: "border-[hsl(var(--yield-moderate)/0.45)] bg-[hsl(var(--yield-moderate)/0.12)] text-[hsl(var(--yield-moderate))]",
+  low: "border-[hsl(var(--yield-low)/0.35)] bg-[hsl(var(--yield-low)/0.10)] text-[hsl(var(--yield-low))]",
 } as const;
 
 export const ExamLikelihoodBadge = ({
