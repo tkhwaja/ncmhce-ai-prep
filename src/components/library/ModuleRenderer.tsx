@@ -1333,13 +1333,17 @@ const renderObjectContent = (obj: any): React.ReactNode => {
               <div className="ml-4 mt-1 space-y-1">
                 {Object.entries(value as Record<string, any>).map(([k, v]) => (
                   Array.isArray(v) ? (
-                    <div key={k} className="space-y-1">
+                    <div key={k} className="space-y-2">
                       <p className="text-sm font-medium text-foreground">{formatKey(k)}</p>
-                      <ul className="ml-4 space-y-1">
-                        {v.map((item, itemIndex) => (
-                          <li key={itemIndex} className="flex items-start gap-1 text-sm text-muted-foreground"><span className="text-primary text-xs">•</span>{typeof item === "string" ? item : renderObjectContent(item)}</li>
-                        ))}
-                      </ul>
+                      {v.map((item, itemIndex) => (
+                        typeof item === "string" ? (
+                          <p key={itemIndex} className="flex items-start gap-2 text-sm text-muted-foreground"><span className="text-primary text-xs">•</span>{item}</p>
+                        ) : (
+                          <Card key={itemIndex} className="card-elevated bg-background">
+                            <CardContent className="p-3">{renderObjectContent(item)}</CardContent>
+                          </Card>
+                        )
+                      ))}
                     </div>
                   ) : (
                     <p key={k} className="text-sm text-muted-foreground">
