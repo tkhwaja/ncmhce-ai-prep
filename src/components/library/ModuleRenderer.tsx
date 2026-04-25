@@ -138,6 +138,59 @@ const formatValue = (value: string) =>
     .replace(/\bMse\b/g, "MSE")
     .replace(/\bRoi\b/g, "ROI");
 
+const getObjectTitle = (item: any, index: number) => {
+  const titleKey = ["title", "name", "context", "class", "type", "format", "stage", "concept", "medication", "domain"].find(
+    (key) => typeof item?.[key] === "string" && item[key].trim().length > 0,
+  );
+
+  return {
+    key: titleKey,
+    label: titleKey ? formatValue(item[titleKey]) : `Item ${index + 1}`,
+  };
+};
+
+const CompactObjectBrowser = ({ title, items }: { title: string; items: any[] }) => {
+  const [selectedIndex, setSelectedIndex] = useState(0);
+  const selected = items[selectedIndex];
+  const selectedTitle = getObjectTitle(selected, selectedIndex);
+
+  return (
+    <div className="rounded-lg border border-border bg-muted/30 p-3">
+      <div className="mb-3 flex flex-wrap items-center justify-between gap-2">
+        <span className="text-xs font-semibold text-primary uppercase tracking-wide">{title}</span>
+        <Badge variant="outline" className="text-xs">{items.length} topics</Badge>
+      </div>
+      <div className="grid gap-3 md:grid-cols-[minmax(180px,260px)_1fr]">
+        <div className="max-h-80 space-y-1 overflow-y-auto pr-1">
+          {items.map((item, index) => {
+            const itemTitle = getObjectTitle(item, index).label;
+            return (
+              <Button
+                key={index}
+                type="button"
+                variant={selectedIndex === index ? "secondary" : "ghost"}
+                className="h-auto w-full justify-start whitespace-normal px-3 py-2 text-left text-sm"
+                onClick={() => setSelectedIndex(index)}
+              >
+                {itemTitle}
+              </Button>
+            );
+          })}
+        </div>
+        <Card className="card-elevated bg-background">
+          <CardContent className="p-4 space-y-3">
+            <div className="flex flex-wrap items-center gap-2">
+              <h3 className="text-base font-semibold text-foreground">{selectedTitle.label}</h3>
+              <Badge variant="secondary" className="text-xs">{selectedIndex + 1} of {items.length}</Badge>
+            </div>
+            {renderObjectContent(selected, new Set(selectedTitle.key ? [selectedTitle.key] : []))}
+          </CardContent>
+        </Card>
+      </div>
+    </div>
+  );
+};
+
 const pillListKeys = new Set([
   "commonDistortions",
   "signatureTechniques",
@@ -1286,8 +1339,8 @@ const GenericSection = ({ title, data }: { title: string; data: any }) => {
 };
 
 /* ---- Object content renderer ---- */
-const renderObjectContent = (obj: any): React.ReactNode => {
-  const skipKeys = new Set(["title", "overview", "examPearls", "examPearl", "sourceBasis", "moduleId", "moduleTitle", "moduleType", "version", "exam", "uiHints", "intro", "id"]);
+const renderObjectContent = (obj: any, extraSkipKeys: Set<string> = new Set()): React.ReactNode => {
+  const skipKeys = new Set(["title", "overview", "examPearls", "examPearl", "sourceBasis", "moduleId", "moduleTitle", "moduleType", "version", "exam", "uiHints", "intro", "id", ...extraSkipKeys]);
 
   return (
     <>
@@ -1309,8 +1362,12 @@ const renderObjectContent = (obj: any): React.ReactNode => {
           );
         }
 
-        // Render nested arrays of objects as readable cards instead of raw JSON strings.
+        // Render nested arrays of objects as a compact browser so dense modules avoid endless scrolling.
         if (Array.isArray(value) && value.length > 0 && typeof value[0] === "object") {
+          if (value.length > 2) {
+            return <CompactObjectBrowser key={key} title={formatKey(key)} items={value} />;
+          }
+
           return (
             <div key={key} className="rounded-lg border border-border bg-muted/30 p-3">
               <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
