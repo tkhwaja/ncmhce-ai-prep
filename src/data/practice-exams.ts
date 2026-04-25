@@ -27,10 +27,6 @@ export const practiceExams: PracticeExam[] = [
       "practice-exam-01-case-05-rachel-aud",
       "practice-exam-01-case-06-samuel-ocd",
       "practice-exam-01-case-07-monica-bipolar-ii",
-      "practice-exam-01-case-08-kiara-bpd",
-      "practice-exam-01-case-09-emily-bulimia",
-      "practice-exam-01-case-10-erica-prolonged-grief",
-      "practice-exam-01-case-11-jonah-schizophreniform",
     ],
   },
 ];
