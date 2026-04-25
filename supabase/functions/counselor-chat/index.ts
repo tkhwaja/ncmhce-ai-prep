@@ -48,9 +48,13 @@ serve(async (req) => {
 
     const { messages, context, previewTesting } = await req.json();
     const requestOrigin = req.headers.get("Origin") || req.headers.get("Referer") || "";
+    const host = req.headers.get("Host") || "";
     const allowPreviewTesting =
       previewTesting === true &&
-      (requestOrigin.includes("id-preview--") || requestOrigin.includes("localhost"));
+      (requestOrigin.includes("id-preview--") ||
+        requestOrigin.includes("lovable.app") ||
+        requestOrigin.includes("localhost") ||
+        host.includes("localhost"));
 
     // Subscription check (service role to bypass RLS for the RPC + legacy paid check)
     const admin = createClient(supabaseUrl, serviceKey);
