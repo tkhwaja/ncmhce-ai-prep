@@ -42,7 +42,7 @@ The NCMHCE is administered at **Pearson VUE testing centers** throughout the Uni
 2. **Always assess safety first** — If there's any indication of risk, suicide assessment should be your first priority. Missing critical safety items is the fastest way to fail a simulation.
 3. **Think systematically** — Use the biopsychosocial model as a framework. Gather biological (medical history, medications, substances), psychological (symptoms, cognitions, affect), and social (relationships, support, stressors) information.
 4. **Don't over-gather** — You don't need to click every item. Focus on clinically relevant information. Over-gathering wastes time and may indicate poor clinical judgment.
-5. **Prioritize assessment instruments** — When standardized tools are available (PHQ-9, GAD-7, AUDIT), selecting them demonstrates evidence-based practice.
+5. **Prioritize assessment instruments** — When standardized tools are available (PHQ-9, GAD-7, AUDIT), selecting them demonstrates Evidence-Based Practice (EBP).
 
 ### Decision Making Strategy
 1. **Use elimination** — Read all four options before selecting. Eliminate clearly wrong answers first.

@@ -46,6 +46,27 @@
   },
   "terms": [
     {
+      "term": "Abandonment",
+      "letter": "A",
+      "definition": "Inappropriately ending services or failing to provide reasonable care/referral when needed.",
+      "examRelevance": "Common ethics trap.",
+      "relatedTerms": [],
+      "tags": [
+        "ethics",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "ABC model",
+      "letter": "A",
+      "definition": "Activating event, beliefs, consequences.",
+      "examRelevance": "Useful cognitive conceptualization.",
+      "relatedTerms": [],
+      "tags": [
+        "rebt-cbt-concept"
+      ]
+    },
+    {
       "term": "Abreaction",
       "letter": "A",
       "definition": "Emotional release that occurs when a person revisits a repressed or traumatic experience.",
@@ -60,6 +81,16 @@
       ]
     },
     {
+      "term": "Acceptance and Commitment Therapy",
+      "letter": "A",
+      "definition": "Therapy focused on psychological flexibility, values, acceptance, defusion, and committed action.",
+      "examRelevance": "Useful for anxiety, depression, chronic pain.",
+      "relatedTerms": [],
+      "tags": [
+        "counseling-theory-intervention"
+      ]
+    },
+    {
       "term": "Acculturation",
       "letter": "A",
       "definition": "The process of adapting to a new culture while retaining, modifying, or losing aspects of the original culture.",
@@ -71,6 +102,49 @@
       "tags": [
         "multicultural",
         "development"
+      ]
+    },
+    {
+      "term": "ACE score",
+      "letter": "A",
+      "definition": "Adverse Childhood Experiences score reflecting childhood adversity exposure.",
+      "examRelevance": "Use trauma-informed, non-deterministic interpretation.",
+      "relatedTerms": [],
+      "tags": [
+        "assessment-tool-concept",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Action",
+      "letter": "A",
+      "definition": "Client is actively changing behavior.",
+      "examRelevance": "Support skills and relapse prevention.",
+      "relatedTerms": [],
+      "tags": [
+        "stages-of-change"
+      ]
+    },
+    {
+      "term": "Active listening",
+      "letter": "A",
+      "definition": "Attending, reflecting, clarifying, summarizing, and responding to the client.",
+      "examRelevance": "Core counseling skill.",
+      "relatedTerms": [],
+      "tags": [
+        "counseling-skill",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Active suicidal ideation",
+      "letter": "A",
+      "definition": "Thoughts of killing oneself, potentially with plan or intent.",
+      "examRelevance": "Higher priority response.",
+      "relatedTerms": [],
+      "tags": [
+        "risk-symptom",
+        "high-yield"
       ]
     },
     {
@@ -103,6 +177,47 @@
       ]
     },
     {
+      "term": "Adjustment Disorder",
+      "letter": "A",
+      "definition": "Emotional/behavioral symptoms in response to an identifiable stressor that do not meet another disorder.",
+      "examRelevance": "Common exam trap after life stressors.",
+      "relatedTerms": [],
+      "tags": [
+        "trauma--and-stressor-related-disorder",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Adlerian Therapy",
+      "letter": "A",
+      "definition": "Goal-oriented approach focused on social interest, lifestyle, inferiority, and encouragement.",
+      "examRelevance": "Know birth order and lifestyle assessment.",
+      "relatedTerms": [],
+      "tags": [
+        "counseling-theory-intervention"
+      ]
+    },
+    {
+      "term": "Advocacy",
+      "letter": "A",
+      "definition": "Actions addressing barriers and promoting client welfare/access.",
+      "examRelevance": "Relevant when systemic barriers affect care.",
+      "relatedTerms": [],
+      "tags": [
+        "professional-practice"
+      ]
+    },
+    {
+      "term": "Affect",
+      "letter": "A",
+      "definition": "Clinician’s observation of emotional expression.",
+      "examRelevance": "Assess range, intensity, stability, and congruence.",
+      "relatedTerms": [],
+      "tags": [
+        "mse"
+      ]
+    },
+    {
       "term": "Agoraphobia",
       "letter": "A",
       "definition": "Fear and avoidance of situations where escape may be difficult or help unavailable if panic-like symptoms occur.",
@@ -128,6 +243,27 @@
       ],
       "tags": [
         "psychopharmacology"
+      ]
+    },
+    {
+      "term": "Alcohol Use Disorder",
+      "letter": "A",
+      "definition": "Problematic alcohol use causing impairment or distress.",
+      "examRelevance": "Assess withdrawal risk and safety.",
+      "relatedTerms": [],
+      "tags": [
+        "substance-related-disorder",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Alogia",
+      "letter": "A",
+      "definition": "Reduced speech output or poverty of speech.",
+      "examRelevance": "Schizophrenia-spectrum clue.",
+      "relatedTerms": [],
+      "tags": [
+        "psychotic-negative-symptom"
       ]
     },
     {
@@ -172,6 +308,38 @@
       ]
     },
     {
+      "term": "Anorexia Nervosa",
+      "letter": "A",
+      "definition": "Eating disorder involving restriction leading to significantly low weight, fear of weight gain, and body-image disturbance.",
+      "examRelevance": "Assess medical risk and level of care.",
+      "relatedTerms": [],
+      "tags": [
+        "feeding-and-eating-disorder",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Answer rationale",
+      "letter": "A",
+      "definition": "Explanation of correct answer and why distractors are weaker.",
+      "examRelevance": "Should teach reasoning.",
+      "relatedTerms": [],
+      "tags": [
+        "learning-platform-term"
+      ]
+    },
+    {
+      "term": "Antisocial Personality Disorder",
+      "letter": "A",
+      "definition": "Disregard for and violation of others’ rights with conduct-disorder history before adulthood.",
+      "examRelevance": "Assess safety, legal, and ethical issues.",
+      "relatedTerms": [],
+      "tags": [
+        "personality-disorder",
+        "high-yield"
+      ]
+    },
+    {
       "term": "Anxious Attachment",
       "letter": "A",
       "definition": "Attachment pattern marked by fear of abandonment, clinginess, and hyperactivation of closeness needs.",
@@ -184,6 +352,27 @@
       "tags": [
         "development",
         "attachment"
+      ]
+    },
+    {
+      "term": "Appearance",
+      "letter": "A",
+      "definition": "Observed grooming, hygiene, dress, and physical presentation.",
+      "examRelevance": "Can indicate functioning, mood, psychosis, substances, or neglect.",
+      "relatedTerms": [],
+      "tags": [
+        "mse"
+      ]
+    },
+    {
+      "term": "Assessment before intervention",
+      "letter": "A",
+      "definition": "Gather enough information before diagnosis/treatment unless risk requires action.",
+      "examRelevance": "Prevents premature choices.",
+      "relatedTerms": [],
+      "tags": [
+        "ncmhce-strategy",
+        "high-yield"
       ]
     },
     {
@@ -201,6 +390,57 @@
       ]
     },
     {
+      "term": "Attention and concentration",
+      "letter": "A",
+      "definition": "Ability to sustain focus and mental effort.",
+      "examRelevance": "Relevant to ADHD, anxiety, depression, mania, delirium, trauma.",
+      "relatedTerms": [],
+      "tags": [
+        "mse"
+      ]
+    },
+    {
+      "term": "Attention-Deficit/Hyperactivity Disorder",
+      "letter": "A",
+      "definition": "Pattern of inattention and/or hyperactivity-impulsivity beginning in childhood and impairing functioning.",
+      "examRelevance": "Common exam diagnosis; assess settings, onset, and rule-outs.",
+      "relatedTerms": [],
+      "tags": [
+        "neurodevelopmental-disorder",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Atypical features",
+      "letter": "A",
+      "definition": "Mood reactivity with associated features such as increased sleep/appetite or rejection sensitivity.",
+      "examRelevance": "Useful specifier knowledge.",
+      "relatedTerms": [],
+      "tags": [
+        "specifier"
+      ]
+    },
+    {
+      "term": "AUDIT",
+      "letter": "A",
+      "definition": "Alcohol-use screening measure.",
+      "examRelevance": "Useful for SUD assessment.",
+      "relatedTerms": [],
+      "tags": [
+        "assessment-tool"
+      ]
+    },
+    {
+      "term": "Autism Spectrum Disorder",
+      "letter": "A",
+      "definition": "Persistent social communication deficits plus restricted/repetitive behaviors or interests.",
+      "examRelevance": "Differentiate from social anxiety, language disorder, and trauma.",
+      "relatedTerms": [],
+      "tags": [
+        "neurodevelopmental-disorder"
+      ]
+    },
+    {
       "term": "Autonomy",
       "letter": "A",
       "definition": "Ethical principle emphasizing the client's right to self-determination and informed decision-making.",
@@ -215,6 +455,16 @@
       ]
     },
     {
+      "term": "Avoidance",
+      "letter": "A",
+      "definition": "Efforts to avoid feared situations, memories, feelings, or cues.",
+      "examRelevance": "Maintains anxiety, PTSD, and phobias.",
+      "relatedTerms": [],
+      "tags": [
+        "anxiety-trauma-symptom"
+      ]
+    },
+    {
       "term": "Avoidant Attachment",
       "letter": "A",
       "definition": "Attachment pattern marked by suppression of closeness needs and discomfort with dependence or intimacy.",
@@ -226,6 +476,58 @@
       "tags": [
         "development",
         "attachment"
+      ]
+    },
+    {
+      "term": "Avoidant Personality Disorder",
+      "letter": "A",
+      "definition": "Social inhibition, inadequacy, and hypersensitivity to criticism.",
+      "examRelevance": "Differentiate from social anxiety disorder.",
+      "relatedTerms": [],
+      "tags": [
+        "personality-disorder"
+      ]
+    },
+    {
+      "term": "Avoidant/Restrictive Food Intake Disorder",
+      "letter": "A",
+      "definition": "Avoidance/restriction without body-image disturbance causing nutritional, weight, or psychosocial problems.",
+      "examRelevance": "Differentiate from anorexia.",
+      "relatedTerms": [],
+      "tags": [
+        "feeding-and-eating-disorder"
+      ]
+    },
+    {
+      "term": "Avolition",
+      "letter": "A",
+      "definition": "Reduced motivation or initiation of goal-directed activity.",
+      "examRelevance": "Negative symptom often confused with depression.",
+      "relatedTerms": [],
+      "tags": [
+        "psychotic-negative-symptom"
+      ]
+    },
+    {
+      "term": "Bartering",
+      "letter": "B",
+      "definition": "Accepting goods/services instead of money for counseling fees.",
+      "examRelevance": "Requires careful boundary and exploitation analysis.",
+      "relatedTerms": [],
+      "tags": [
+        "ethics",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Behavior",
+      "letter": "B",
+      "definition": "Observed activity, cooperation, eye contact, psychomotor movement, and interaction style.",
+      "examRelevance": "Useful diagnostic and alliance data.",
+      "relatedTerms": [],
+      "tags": [
+        "mse",
+        "high-yield"
       ]
     },
     {
@@ -260,6 +562,49 @@
       ]
     },
     {
+      "term": "Best next step",
+      "letter": "B",
+      "definition": "Most clinically appropriate immediate action based on case information.",
+      "examRelevance": "Requires prioritizing safety, assessment, ethics, rapport.",
+      "relatedTerms": [],
+      "tags": [
+        "ncmhce-strategy",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Binge eating",
+      "letter": "B",
+      "definition": "Eating a large amount with loss of control.",
+      "examRelevance": "Core bulimia and binge-eating disorder clue.",
+      "relatedTerms": [],
+      "tags": [
+        "eating-disorder-symptom",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Binge-Eating Disorder",
+      "letter": "B",
+      "definition": "Recurrent binge eating with distress and no regular compensatory behaviors.",
+      "examRelevance": "Assess shame, medical factors, and mood symptoms.",
+      "relatedTerms": [],
+      "tags": [
+        "feeding-and-eating-disorder"
+      ]
+    },
+    {
+      "term": "Biopsychosocial assessment",
+      "letter": "B",
+      "definition": "Assessment of biological, psychological, social, cultural, developmental, and environmental factors.",
+      "examRelevance": "Core NCMHCE case conceptualization framework.",
+      "relatedTerms": [],
+      "tags": [
+        "assessment",
+        "high-yield"
+      ]
+    },
+    {
       "term": "Biopsychosocial Model",
       "letter": "B",
       "definition": "Framework that explains mental health through interacting biological, psychological, and social factors.",
@@ -275,6 +620,27 @@
       ]
     },
     {
+      "term": "Bipolar I Disorder",
+      "letter": "B",
+      "definition": "Mood disorder defined by at least one manic episode.",
+      "examRelevance": "Mania is the defining feature.",
+      "relatedTerms": [],
+      "tags": [
+        "bipolar-disorder"
+      ]
+    },
+    {
+      "term": "Bipolar II Disorder",
+      "letter": "B",
+      "definition": "Mood disorder involving hypomanic and major depressive episodes, without mania.",
+      "examRelevance": "Commonly missed when client presents depressed.",
+      "relatedTerms": [],
+      "tags": [
+        "bipolar-disorder",
+        "high-yield"
+      ]
+    },
+    {
       "term": "Black Box Warning",
       "letter": "B",
       "definition": "The FDA's strongest medication warning, often highlighted for antidepressant-related suicidality risk in youth and young adults.",
@@ -285,6 +651,17 @@
       ],
       "tags": [
         "psychopharmacology"
+      ]
+    },
+    {
+      "term": "Blackout",
+      "letter": "B",
+      "definition": "Memory gap associated with substance use, often alcohol.",
+      "examRelevance": "Relevant to risk and SUD severity.",
+      "relatedTerms": [],
+      "tags": [
+        "substance-use-symptom",
+        "high-yield"
       ]
     },
     {
@@ -302,6 +679,47 @@
       ]
     },
     {
+      "term": "Blunted affect",
+      "letter": "B",
+      "definition": "Reduced intensity of emotional expression.",
+      "examRelevance": "Important MSE observation.",
+      "relatedTerms": [],
+      "tags": [
+        "mse"
+      ]
+    },
+    {
+      "term": "Body Dysmorphic Disorder",
+      "letter": "B",
+      "definition": "Preoccupation with perceived appearance defects plus repetitive behaviors or mental acts.",
+      "examRelevance": "Differentiate from eating disorders and social anxiety.",
+      "relatedTerms": [],
+      "tags": [
+        "obsessive-compulsive-disorder"
+      ]
+    },
+    {
+      "term": "Body image disturbance",
+      "letter": "B",
+      "definition": "Distorted or overly influential evaluation of body shape/weight.",
+      "examRelevance": "Differentiates anorexia/bulimia from ARFID.",
+      "relatedTerms": [],
+      "tags": [
+        "eating-disorder-symptom"
+      ]
+    },
+    {
+      "term": "Borderline Personality Disorder",
+      "letter": "B",
+      "definition": "Instability in relationships, self-image, affect, and impulsivity, often with abandonment fears or self-harm risk.",
+      "examRelevance": "High-yield for DBT, boundaries, and risk.",
+      "relatedTerms": [],
+      "tags": [
+        "personality-disorder",
+        "high-yield"
+      ]
+    },
+    {
       "term": "Boundaries",
       "letter": "B",
       "definition": "Professional limits that define and protect the therapeutic relationship.",
@@ -316,6 +734,38 @@
       ]
     },
     {
+      "term": "Boundary crossing",
+      "letter": "B",
+      "definition": "Departure from usual boundaries that may be benign or clinically justified.",
+      "examRelevance": "Assess impact and client welfare.",
+      "relatedTerms": [],
+      "tags": [
+        "ethics",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Boundary violation",
+      "letter": "B",
+      "definition": "Harmful or exploitative breach of professional boundaries.",
+      "examRelevance": "High-yield ethics concern.",
+      "relatedTerms": [],
+      "tags": [
+        "ethics",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Brief Psychotic Disorder",
+      "letter": "B",
+      "definition": "Short-duration psychotic disorder with sudden onset and return toward baseline.",
+      "examRelevance": "Duration is the key clue.",
+      "relatedTerms": [],
+      "tags": [
+        "schizophrenia-spectrum-disorder"
+      ]
+    },
+    {
       "term": "Broaching",
       "letter": "B",
       "definition": "Intentional counselor effort to bring up race, culture, or identity factors that may affect the counseling relationship.",
@@ -327,6 +777,16 @@
       "tags": [
         "multicultural",
         "theories"
+      ]
+    },
+    {
+      "term": "Bulimia Nervosa",
+      "letter": "B",
+      "definition": "Recurrent binge eating with compensatory behaviors and overvaluation of shape/weight.",
+      "examRelevance": "Differentiate from binge-eating disorder.",
+      "relatedTerms": [],
+      "tags": [
+        "feeding-and-eating-disorder"
       ]
     },
     {
@@ -345,6 +805,16 @@
       ]
     },
     {
+      "term": "Caffeine Intoxication",
+      "letter": "C",
+      "definition": "Clinically significant symptoms after excessive caffeine use.",
+      "examRelevance": "Can mimic anxiety/panic symptoms.",
+      "relatedTerms": [],
+      "tags": [
+        "substance-related-disorder"
+      ]
+    },
+    {
       "term": "CAGE",
       "letter": "C",
       "definition": "Brief alcohol screening tool: Cut down, Annoyed, Guilty, Eye-opener.",
@@ -356,6 +826,46 @@
       "tags": [
         "assessment",
         "substance-use"
+      ]
+    },
+    {
+      "term": "Cannabis Use Disorder",
+      "letter": "C",
+      "definition": "Problematic cannabis use causing impairment or distress.",
+      "examRelevance": "Differentiate from anxiety, psychosis, or motivation issues.",
+      "relatedTerms": [],
+      "tags": [
+        "substance-related-disorder"
+      ]
+    },
+    {
+      "term": "Capacity",
+      "letter": "C",
+      "definition": "Ability to understand, appreciate, reason about, and communicate decisions in a specific context.",
+      "examRelevance": "Relevant to consent and safety.",
+      "relatedTerms": [],
+      "tags": [
+        "legal-clinical-concept"
+      ]
+    },
+    {
+      "term": "Case conceptualization",
+      "letter": "C",
+      "definition": "Integrated explanation of symptoms, history, strengths, stressors, diagnosis, and treatment needs.",
+      "examRelevance": "Connects assessment to treatment plan.",
+      "relatedTerms": [],
+      "tags": [
+        "clinical-reasoning"
+      ]
+    },
+    {
+      "term": "Catatonia",
+      "letter": "C",
+      "definition": "Psychomotor syndrome involving abnormal movement, immobility, posturing, mutism, or agitation.",
+      "examRelevance": "May require urgent medical/psychiatric care.",
+      "relatedTerms": [],
+      "tags": [
+        "motor-behavioral-symptom"
       ]
     },
     {
@@ -388,6 +898,46 @@
       ]
     },
     {
+      "term": "Change talk",
+      "letter": "C",
+      "definition": "Client statements favoring change.",
+      "examRelevance": "Counselor should evoke and reinforce.",
+      "relatedTerms": [],
+      "tags": [
+        "mi-concept"
+      ]
+    },
+    {
+      "term": "Chief complaint",
+      "letter": "C",
+      "definition": "Client’s main stated reason for seeking help.",
+      "examRelevance": "Identifies presenting focus.",
+      "relatedTerms": [],
+      "tags": [
+        "assessment"
+      ]
+    },
+    {
+      "term": "Child abuse",
+      "letter": "C",
+      "definition": "Suspected abuse or neglect of a child.",
+      "examRelevance": "Report based on suspicion threshold.",
+      "relatedTerms": [],
+      "tags": [
+        "mandated-reporting"
+      ]
+    },
+    {
+      "term": "Childhood-Onset Fluency Disorder",
+      "letter": "C",
+      "definition": "Disturbance in speech fluency and timing, commonly called stuttering.",
+      "examRelevance": "Anxiety may worsen it but may not be primary.",
+      "relatedTerms": [],
+      "tags": [
+        "neurodevelopmental-disorder"
+      ]
+    },
+    {
       "term": "Circumscription",
       "letter": "C",
       "definition": "Linda Gottfredson concept describing how children narrow career options over time based on role expectations, prestige, and interests.",
@@ -399,6 +949,58 @@
       ],
       "tags": [
         "career"
+      ]
+    },
+    {
+      "term": "Circumstantiality",
+      "letter": "C",
+      "definition": "Overly detailed speech that eventually returns to the point.",
+      "examRelevance": "Differentiate from tangentiality.",
+      "relatedTerms": [],
+      "tags": [
+        "mse"
+      ]
+    },
+    {
+      "term": "Clarification",
+      "letter": "C",
+      "definition": "Asking or reflecting to understand unclear meaning.",
+      "examRelevance": "Use before interpreting/advising.",
+      "relatedTerms": [],
+      "tags": [
+        "counseling-skill"
+      ]
+    },
+    {
+      "term": "Clinical cutoff",
+      "letter": "C",
+      "definition": "Score threshold suggesting clinically significant symptoms or need for follow-up.",
+      "examRelevance": "Screening cutoffs are not diagnoses.",
+      "relatedTerms": [],
+      "tags": [
+        "psychometrics",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Clinical interview",
+      "letter": "C",
+      "definition": "Structured or semi-structured conversation to gather clinical information.",
+      "examRelevance": "Foundation of intake.",
+      "relatedTerms": [],
+      "tags": [
+        "assessment"
+      ]
+    },
+    {
+      "term": "Clinical significance",
+      "letter": "C",
+      "definition": "Meaningful distress, impairment, or functional disruption associated with symptoms.",
+      "examRelevance": "Prevents overdiagnosis of normal reactions.",
+      "relatedTerms": [],
+      "tags": [
+        "diagnostic-reasoning",
+        "high-yield"
       ]
     },
     {
@@ -414,6 +1016,58 @@
       "tags": [
         "ethics",
         "supervision"
+      ]
+    },
+    {
+      "term": "Closed-ended question",
+      "letter": "C",
+      "definition": "Focused question seeking specific information.",
+      "examRelevance": "Appropriate for risk/symptom assessment.",
+      "relatedTerms": [],
+      "tags": [
+        "counseling-skill",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Cluster A",
+      "letter": "C",
+      "definition": "Odd or eccentric personality disorders: paranoid, schizoid, schizotypal.",
+      "examRelevance": "Useful organizing category.",
+      "relatedTerms": [],
+      "tags": [
+        "personality-disorder-category"
+      ]
+    },
+    {
+      "term": "Cluster B",
+      "letter": "C",
+      "definition": "Dramatic, emotional, or erratic personality disorders: antisocial, borderline, histrionic, narcissistic.",
+      "examRelevance": "Useful organizing category.",
+      "relatedTerms": [],
+      "tags": [
+        "personality-disorder-category"
+      ]
+    },
+    {
+      "term": "Cluster C",
+      "letter": "C",
+      "definition": "Anxious or fearful personality disorders: avoidant, dependent, OCPD.",
+      "examRelevance": "Useful organizing category.",
+      "relatedTerms": [],
+      "tags": [
+        "personality-disorder-category"
+      ]
+    },
+    {
+      "term": "Cognitive Behavioral Therapy",
+      "letter": "C",
+      "definition": "Structured therapy focused on links between thoughts, emotions, behaviors, and physiology.",
+      "examRelevance": "High-yield for depression and anxiety.",
+      "relatedTerms": [],
+      "tags": [
+        "counseling-theory-intervention",
+        "high-yield"
       ]
     },
     {
@@ -442,6 +1096,17 @@
       ],
       "tags": [
         "theories"
+      ]
+    },
+    {
+      "term": "Cognitive restructuring",
+      "letter": "C",
+      "definition": "Identifying, evaluating, and modifying unhelpful thoughts.",
+      "examRelevance": "Common CBT intervention.",
+      "relatedTerms": [],
+      "tags": [
+        "cbt-technique",
+        "high-yield"
       ]
     },
     {
@@ -488,6 +1153,17 @@
       ]
     },
     {
+      "term": "Command hallucination",
+      "letter": "C",
+      "definition": "Hallucination instructing the person to act, sometimes harmfully.",
+      "examRelevance": "High-priority risk assessment cue.",
+      "relatedTerms": [],
+      "tags": [
+        "risk-symptom",
+        "high-yield"
+      ]
+    },
+    {
       "term": "Comorbidity",
       "letter": "C",
       "definition": "Presence of two or more diagnosable conditions at the same time.",
@@ -516,6 +1192,50 @@
       ]
     },
     {
+      "term": "Competence",
+      "letter": "C",
+      "definition": "Ability to provide services based on education, training, supervised experience, and preparation.",
+      "examRelevance": "Central to ethics and referrals.",
+      "relatedTerms": [],
+      "tags": [
+        "ethics-professional-practice",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Compulsions",
+      "letter": "C",
+      "definition": "Repetitive behaviors or mental acts performed to reduce distress or prevent feared outcomes.",
+      "examRelevance": "Core OCD clue.",
+      "relatedTerms": [],
+      "tags": [
+        "ocd-symptom",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Conduct Disorder",
+      "letter": "C",
+      "definition": "Repetitive violation of others’ rights or major rules in youth.",
+      "examRelevance": "Assess risk and differentiate from ODD/trauma/ADHD.",
+      "relatedTerms": [],
+      "tags": [
+        "disruptive-behavior-disorder",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Confidentiality",
+      "letter": "C",
+      "definition": "Ethical duty to protect client information from unauthorized disclosure.",
+      "examRelevance": "Know limits and exceptions.",
+      "relatedTerms": [],
+      "tags": [
+        "ethics",
+        "high-yield"
+      ]
+    },
+    {
       "term": "Congruence",
       "letter": "C",
       "definition": "Carl Rogers' term for genuineness and alignment between inner experience and outward expression.",
@@ -526,6 +1246,37 @@
       ],
       "tags": [
         "theories"
+      ]
+    },
+    {
+      "term": "Congruent affect",
+      "letter": "C",
+      "definition": "Emotional expression matches stated mood or content.",
+      "examRelevance": "Basic documentation term.",
+      "relatedTerms": [],
+      "tags": [
+        "mse"
+      ]
+    },
+    {
+      "term": "Consultation",
+      "letter": "C",
+      "definition": "Seeking professional input while maintaining responsibility for care.",
+      "examRelevance": "High-yield for ethics, risk, and uncertainty.",
+      "relatedTerms": [],
+      "tags": [
+        "clinical-decision-making",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Contemplation",
+      "letter": "C",
+      "definition": "Client is ambivalent about change.",
+      "examRelevance": "Use decisional balance and evoke change talk.",
+      "relatedTerms": [],
+      "tags": [
+        "stages-of-change"
       ]
     },
     {
@@ -546,6 +1297,16 @@
       ]
     },
     {
+      "term": "Conversion Disorder",
+      "letter": "C",
+      "definition": "Neurological-like symptoms incompatible with recognized medical/neurological conditions.",
+      "examRelevance": "Requires medical evaluation and careful framing.",
+      "relatedTerms": [],
+      "tags": [
+        "somatic-symptom-disorder"
+      ]
+    },
+    {
       "term": "Countertransference",
       "letter": "C",
       "definition": "Counselor emotional reactions to the client that may be shaped by the counselor's own unresolved material.",
@@ -558,6 +1319,81 @@
       "tags": [
         "theories",
         "supervision"
+      ]
+    },
+    {
+      "term": "Court order",
+      "letter": "C",
+      "definition": "Judge’s directive that may require action or disclosure.",
+      "examRelevance": "Disclose narrowly and consult as needed.",
+      "relatedTerms": [],
+      "tags": [
+        "legal-ethics",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Craving",
+      "letter": "C",
+      "definition": "Strong desire or urge to use a substance.",
+      "examRelevance": "Relapse-prevention target.",
+      "relatedTerms": [],
+      "tags": [
+        "substance-use-symptom"
+      ]
+    },
+    {
+      "term": "Crisis intervention",
+      "letter": "C",
+      "definition": "Immediate short-term intervention to stabilize safety, reduce distress, mobilize supports, and connect to care.",
+      "examRelevance": "Use in acute risk.",
+      "relatedTerms": [],
+      "tags": [
+        "risk-intervention",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Cultural bias",
+      "letter": "C",
+      "definition": "Distortion in assessment or judgment due to cultural assumptions or nonrepresentative norms.",
+      "examRelevance": "Important in testing and diagnosis.",
+      "relatedTerms": [],
+      "tags": [
+        "assessment-ethics-concept",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Cultural formulation",
+      "letter": "C",
+      "definition": "Assessment of cultural identity, explanatory model, stressors, supports, and clinician-client differences.",
+      "examRelevance": "Prevents culturally biased diagnosis.",
+      "relatedTerms": [],
+      "tags": [
+        "diagnostic-reasoning",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Cultural humility",
+      "letter": "C",
+      "definition": "Ongoing openness, self-reflection, and respect for client’s lived experience.",
+      "examRelevance": "High-yield in culturally responsive care.",
+      "relatedTerms": [],
+      "tags": [
+        "multicultural-counseling",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Cyclothymic Disorder",
+      "letter": "C",
+      "definition": "Chronic fluctuating hypomanic and depressive symptoms that do not meet full episode criteria.",
+      "examRelevance": "Duration and subthreshold symptoms matter.",
+      "relatedTerms": [],
+      "tags": [
+        "bipolar-disorder"
       ]
     },
     {
@@ -575,6 +1411,88 @@
       ]
     },
     {
+      "term": "DAST",
+      "letter": "D",
+      "definition": "Drug Abuse Screening Test for drug-related problems.",
+      "examRelevance": "Useful for SUD screening.",
+      "relatedTerms": [],
+      "tags": [
+        "assessment-tool"
+      ]
+    },
+    {
+      "term": "Defense mechanism",
+      "letter": "D",
+      "definition": "Unconscious strategy used to manage anxiety or conflict.",
+      "examRelevance": "Recognize common defenses.",
+      "relatedTerms": [],
+      "tags": [
+        "psychodynamic-concept",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Delirium",
+      "letter": "D",
+      "definition": "Acute disturbance in attention/awareness with fluctuating course, usually medical/substance-related.",
+      "examRelevance": "Urgent medical assessment is often priority.",
+      "relatedTerms": [],
+      "tags": [
+        "neurocognitive-disorder"
+      ]
+    },
+    {
+      "term": "Delusion",
+      "letter": "D",
+      "definition": "Fixed false belief not changed by evidence and not culturally accepted.",
+      "examRelevance": "Differentiate from obsessions, overvalued ideas, and cultural beliefs.",
+      "relatedTerms": [],
+      "tags": [
+        "psychotic-symptom"
+      ]
+    },
+    {
+      "term": "Delusional Disorder",
+      "letter": "D",
+      "definition": "Psychotic disorder dominated by fixed false beliefs with relatively preserved functioning.",
+      "examRelevance": "Differentiate from schizophrenia and personality disorders.",
+      "relatedTerms": [],
+      "tags": [
+        "schizophrenia-spectrum-disorder"
+      ]
+    },
+    {
+      "term": "Dementia",
+      "letter": "D",
+      "definition": "Common non-DSM shorthand for major neurocognitive disorder presentations.",
+      "examRelevance": "Use updated DSM language when possible.",
+      "relatedTerms": [],
+      "tags": [
+        "clinical-term"
+      ]
+    },
+    {
+      "term": "Denial",
+      "letter": "D",
+      "definition": "Refusing to acknowledge painful reality.",
+      "examRelevance": "Common in grief/addiction/illness.",
+      "relatedTerms": [],
+      "tags": [
+        "defense-mechanism",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Dependent Personality Disorder",
+      "letter": "D",
+      "definition": "Excessive need to be cared for, submissiveness, and fear of separation.",
+      "examRelevance": "Assess autonomy, boundaries, and safety.",
+      "relatedTerms": [],
+      "tags": [
+        "personality-disorder"
+      ]
+    },
+    {
       "term": "Depersonalization",
       "letter": "D",
       "definition": "Experience of feeling detached from oneself, as if observing from outside the body or mind.",
@@ -589,6 +1507,16 @@
       ]
     },
     {
+      "term": "Depersonalization/Derealization Disorder",
+      "letter": "D",
+      "definition": "Persistent or recurrent depersonalization or derealization with intact reality testing.",
+      "examRelevance": "Key distinction from psychosis.",
+      "relatedTerms": [],
+      "tags": [
+        "dissociative-disorder"
+      ]
+    },
+    {
       "term": "Derealization",
       "letter": "D",
       "definition": "Experience of feeling that surroundings are unreal, distant, or dreamlike.",
@@ -600,6 +1528,60 @@
       "tags": [
         "trauma",
         "diagnosis"
+      ]
+    },
+    {
+      "term": "Detoxification",
+      "letter": "D",
+      "definition": "Medically supervised management of withdrawal when indicated.",
+      "examRelevance": "May precede outpatient counseling.",
+      "relatedTerms": [],
+      "tags": [
+        "substance-use-treatment-term"
+      ]
+    },
+    {
+      "term": "Developmental appropriateness",
+      "letter": "D",
+      "definition": "Whether behavior fits the client’s age and developmental stage.",
+      "examRelevance": "Important in child/adolescent diagnosis.",
+      "relatedTerms": [],
+      "tags": [
+        "diagnostic-reasoning",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Diagnostic criteria",
+      "letter": "D",
+      "definition": "Required features used to determine whether a client meets a diagnosis.",
+      "examRelevance": "Exam questions often turn on symptoms, duration, impairment, and rule-outs.",
+      "relatedTerms": [],
+      "tags": [
+        "diagnostic-classification",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Dialectical Behavior Therapy",
+      "letter": "D",
+      "definition": "Skills-based treatment emphasizing mindfulness, distress tolerance, emotion regulation, and interpersonal effectiveness.",
+      "examRelevance": "High-yield for BPD and self-harm.",
+      "relatedTerms": [],
+      "tags": [
+        "counseling-theory-intervention",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Differential diagnosis",
+      "letter": "D",
+      "definition": "Process of distinguishing between disorders with overlapping symptoms.",
+      "examRelevance": "Central to NCMHCE case simulations.",
+      "relatedTerms": [],
+      "tags": [
+        "diagnostic-reasoning",
+        "high-yield"
       ]
     },
     {
@@ -618,6 +1600,57 @@
       ]
     },
     {
+      "term": "Direct questioning for risk",
+      "letter": "D",
+      "definition": "Ask clear specific questions about suicide, homicide, abuse, or safety when cues appear.",
+      "examRelevance": "Do not rely only on vague exploration.",
+      "relatedTerms": [],
+      "tags": [
+        "ncmhce-strategy",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Discharge planning",
+      "letter": "D",
+      "definition": "Planning transition, relapse prevention, continuity, and aftercare.",
+      "examRelevance": "Begins early.",
+      "relatedTerms": [],
+      "tags": [
+        "clinical-practice"
+      ]
+    },
+    {
+      "term": "Discrimination",
+      "letter": "D",
+      "definition": "Unfair treatment based on identity or group membership.",
+      "examRelevance": "Can contribute to trauma, depression, anxiety.",
+      "relatedTerms": [],
+      "tags": [
+        "multicultural-clinical-domain"
+      ]
+    },
+    {
+      "term": "Disengagement",
+      "letter": "D",
+      "definition": "Overly rigid boundaries and emotional distance.",
+      "examRelevance": "Contrast with enmeshment.",
+      "relatedTerms": [],
+      "tags": [
+        "family-systems-concept"
+      ]
+    },
+    {
+      "term": "Disinhibited Social Engagement Disorder",
+      "letter": "D",
+      "definition": "Childhood disorder linked to severe neglect and overly familiar behavior with unfamiliar adults.",
+      "examRelevance": "Assess caregiving context and safety.",
+      "relatedTerms": [],
+      "tags": [
+        "trauma--and-stressor-related-disorder"
+      ]
+    },
+    {
       "term": "Disorganized Attachment",
       "letter": "D",
       "definition": "Attachment pattern marked by inconsistent or fearful responses, often linked to trauma or frightening caregiving.",
@@ -630,6 +1663,47 @@
       "tags": [
         "development",
         "attachment"
+      ]
+    },
+    {
+      "term": "Disorganized behavior",
+      "letter": "D",
+      "definition": "Markedly odd, unpredictable, or non-goal-directed behavior.",
+      "examRelevance": "May suggest psychosis, mania, intoxication, or delirium.",
+      "relatedTerms": [],
+      "tags": [
+        "psychotic-symptom"
+      ]
+    },
+    {
+      "term": "Disorganized speech",
+      "letter": "D",
+      "definition": "Speech that is hard to follow due to derailment, tangentiality, or incoherence.",
+      "examRelevance": "Psychosis and MSE clue.",
+      "relatedTerms": [],
+      "tags": [
+        "psychotic-symptom"
+      ]
+    },
+    {
+      "term": "Displacement",
+      "letter": "D",
+      "definition": "Redirecting feelings from one target to safer target.",
+      "examRelevance": "Common in anger cases.",
+      "relatedTerms": [],
+      "tags": [
+        "defense-mechanism",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Disruptive Mood Dysregulation Disorder",
+      "letter": "D",
+      "definition": "Childhood disorder involving severe temper outbursts and persistent irritability.",
+      "examRelevance": "Differentiate from pediatric bipolar disorder and ODD.",
+      "relatedTerms": [],
+      "tags": [
+        "depressive-disorder"
       ]
     },
     {
@@ -648,6 +1722,101 @@
       ]
     },
     {
+      "term": "Dissociative Amnesia",
+      "letter": "D",
+      "definition": "Inability to recall important autobiographical information beyond ordinary forgetting.",
+      "examRelevance": "Differentiate from neurocognitive, substance, or medical causes.",
+      "relatedTerms": [],
+      "tags": [
+        "dissociative-disorder"
+      ]
+    },
+    {
+      "term": "Dissociative Identity Disorder",
+      "letter": "D",
+      "definition": "Identity disruption with recurrent gaps in recall.",
+      "examRelevance": "Assess carefully without leading.",
+      "relatedTerms": [],
+      "tags": [
+        "dissociative-disorder"
+      ]
+    },
+    {
+      "term": "Distractor",
+      "letter": "D",
+      "definition": "Plausible but incorrect answer choice.",
+      "examRelevance": "Understanding traps improves performance.",
+      "relatedTerms": [],
+      "tags": [
+        "test-taking-term"
+      ]
+    },
+    {
+      "term": "Distress tolerance",
+      "letter": "D",
+      "definition": "Skills for surviving crises without making things worse.",
+      "examRelevance": "Useful for self-harm urges and cravings.",
+      "relatedTerms": [],
+      "tags": [
+        "dbt-skill"
+      ]
+    },
+    {
+      "term": "Do not diagnose normal grief too quickly",
+      "letter": "D",
+      "definition": "Assess duration, impairment, context, risk, and symptom profile after loss.",
+      "examRelevance": "Common depression/grief trap.",
+      "relatedTerms": [],
+      "tags": [
+        "ncmhce-strategy",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Do not process trauma too early",
+      "letter": "D",
+      "definition": "Stabilize safety, coping, grounding, and readiness before intensive trauma processing.",
+      "examRelevance": "Trauma-informed sequencing.",
+      "relatedTerms": [],
+      "tags": [
+        "ncmhce-strategy",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Documentation",
+      "letter": "D",
+      "definition": "Clinical record of assessment, interventions, progress, risk, and plan.",
+      "examRelevance": "Protects continuity and legal/ethical practice.",
+      "relatedTerms": [],
+      "tags": [
+        "ethics-clinical-practice",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Domestic violence",
+      "letter": "D",
+      "definition": "Pattern of coercive control, intimidation, or violence in family/intimate relationship.",
+      "examRelevance": "Prioritize safety; avoid couples therapy in coercive control.",
+      "relatedTerms": [],
+      "tags": [
+        "clinical-domain-risk",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "DSM-5-TR",
+      "letter": "D",
+      "definition": "Official DSM text revision used to classify mental disorders in U.S. mental-health practice.",
+      "examRelevance": "Foundational source for diagnosis and differential diagnosis.",
+      "relatedTerms": [],
+      "tags": [
+        "diagnostic-classification",
+        "high-yield"
+      ]
+    },
+    {
       "term": "Dual Relationship",
       "letter": "D",
       "definition": "A second role with a client beyond counseling, such as friend, employer, teacher, or romantic partner.",
@@ -659,6 +1828,39 @@
       ],
       "tags": [
         "ethics"
+      ]
+    },
+    {
+      "term": "Duration criterion",
+      "letter": "D",
+      "definition": "Required symptom time frame for a diagnosis.",
+      "examRelevance": "One of the most common diagnostic traps.",
+      "relatedTerms": [],
+      "tags": [
+        "diagnostic-reasoning",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Duty to protect",
+      "letter": "D",
+      "definition": "Obligation to take reasonable steps to protect potential victim/client when serious risk is present.",
+      "examRelevance": "May include warning, hospitalization, police, or other steps.",
+      "relatedTerms": [],
+      "tags": [
+        "ethics-legal",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Duty to warn",
+      "letter": "D",
+      "definition": "Duty in some jurisdictions to warn identifiable potential victim of credible threat.",
+      "examRelevance": "State law matters.",
+      "relatedTerms": [],
+      "tags": [
+        "ethics-legal",
+        "high-yield"
       ]
     },
     {
@@ -677,6 +1879,26 @@
       ]
     },
     {
+      "term": "Dyscalculia",
+      "letter": "D",
+      "definition": "Common term for math-related learning difficulties.",
+      "examRelevance": "Useful in school-based narratives.",
+      "relatedTerms": [],
+      "tags": [
+        "learning-term"
+      ]
+    },
+    {
+      "term": "Dyslexia",
+      "letter": "D",
+      "definition": "Common term for reading-related learning difficulties.",
+      "examRelevance": "Useful in school-based narratives.",
+      "relatedTerms": [],
+      "tags": [
+        "learning-term"
+      ]
+    },
+    {
       "term": "Early Recollections",
       "letter": "E",
       "definition": "Adlerian assessment tool using earliest memories to reveal lifestyle patterns and beliefs.",
@@ -691,6 +1913,17 @@
       ]
     },
     {
+      "term": "Eating disorder medical risk",
+      "letter": "E",
+      "definition": "Risk from restriction, purging, electrolyte imbalance, low weight, syncope, or instability.",
+      "examRelevance": "Medical evaluation may be priority.",
+      "relatedTerms": [],
+      "tags": [
+        "clinical-priority",
+        "high-yield"
+      ]
+    },
+    {
       "term": "Effect Size",
       "letter": "E",
       "definition": "Statistic that shows the practical magnitude of a treatment effect or relationship.",
@@ -698,7 +1931,7 @@
       "relatedTerms": [
         "p-value",
         "Statistical Significance",
-        "EBP"
+        "Evidence-Based Practice (EBP)"
       ],
       "tags": [
         "research"
@@ -731,6 +1964,16 @@
       ]
     },
     {
+      "term": "Elder abuse",
+      "letter": "E",
+      "definition": "Suspected abuse, neglect, or exploitation of older adult.",
+      "examRelevance": "Know reporting and safety.",
+      "relatedTerms": [],
+      "tags": [
+        "mandated-reporting"
+      ]
+    },
+    {
       "term": "EMDR",
       "letter": "E",
       "definition": "Eye Movement Desensitization and Reprocessing, an evidence-based trauma treatment using bilateral stimulation during trauma processing.",
@@ -744,6 +1987,37 @@
       "tags": [
         "trauma",
         "theories"
+      ]
+    },
+    {
+      "term": "Emergency evaluation",
+      "letter": "E",
+      "definition": "Urgent assessment by emergency, mobile crisis, psychiatric, or medical services.",
+      "examRelevance": "Needed for imminent risk or medical instability.",
+      "relatedTerms": [],
+      "tags": [
+        "risk-intervention",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Emotion regulation",
+      "letter": "E",
+      "definition": "Skills to understand and modulate emotions.",
+      "examRelevance": "Useful for BPD, anger, anxiety, trauma.",
+      "relatedTerms": [],
+      "tags": [
+        "dbt-skill"
+      ]
+    },
+    {
+      "term": "Empathic reflection",
+      "letter": "E",
+      "definition": "Response accurately reflecting client feeling, meaning, or experience.",
+      "examRelevance": "Often best initial response.",
+      "relatedTerms": [],
+      "tags": [
+        "counseling-skill"
       ]
     },
     {
@@ -775,6 +2049,26 @@
       ]
     },
     {
+      "term": "Empty chair technique",
+      "letter": "E",
+      "definition": "Experiential dialogue with imagined person, part of self, or unresolved issue.",
+      "examRelevance": "Use when clinically appropriate.",
+      "relatedTerms": [],
+      "tags": [
+        "gestalt-technique"
+      ]
+    },
+    {
+      "term": "Encopresis",
+      "letter": "E",
+      "definition": "Repeated passage of feces in inappropriate places beyond expected age.",
+      "examRelevance": "Assess constipation, stressors, and family response.",
+      "relatedTerms": [],
+      "tags": [
+        "elimination-disorder"
+      ]
+    },
+    {
       "term": "Enmeshment",
       "letter": "E",
       "definition": "Structural family therapy concept describing overly diffuse boundaries and excessive involvement among family members.",
@@ -787,6 +2081,16 @@
       "tags": [
         "family",
         "theories"
+      ]
+    },
+    {
+      "term": "Enuresis",
+      "letter": "E",
+      "definition": "Repeated urination into bed/clothing beyond expected age.",
+      "examRelevance": "Consider medical rule-outs and development.",
+      "relatedTerms": [],
+      "tags": [
+        "elimination-disorder"
       ]
     },
     {
@@ -818,6 +2122,63 @@
       ]
     },
     {
+      "term": "Ethics over convenience",
+      "letter": "E",
+      "definition": "Ethical/legal obligations outrank client preference or counselor comfort when duties are clear.",
+      "examRelevance": "High-yield.",
+      "relatedTerms": [],
+      "tags": [
+        "ncmhce-strategy",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Evidence-Based Practice (EBP)",
+      "letter": "E",
+      "definition": "A counseling decision-making approach that integrates the best available research, the counselor's clinical expertise, and the client's values, preferences, culture, and context.",
+      "examRelevance": "High-yield for research, treatment planning, and intervention questions. Strong answers use research without ignoring clinical judgment or client fit.",
+      "relatedTerms": [
+        "Effect Size",
+        "Treatment Plan",
+        "Clinical Judgment"
+      ],
+      "tags": [
+        "research",
+        "treatment-planning",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Exaggerated startle response",
+      "letter": "E",
+      "definition": "Strong reaction to sudden stimuli.",
+      "examRelevance": "Arousal clue for trauma.",
+      "relatedTerms": [],
+      "tags": [
+        "trauma-anxiety-symptom"
+      ]
+    },
+    {
+      "term": "Exception question",
+      "letter": "E",
+      "definition": "Question exploring times the problem was absent or less severe.",
+      "examRelevance": "Builds solutions.",
+      "relatedTerms": [],
+      "tags": [
+        "sfbt-technique"
+      ]
+    },
+    {
+      "term": "Excoriation Disorder",
+      "letter": "E",
+      "definition": "Recurrent skin picking causing lesions with attempts to decrease or stop.",
+      "examRelevance": "Assess shame, impairment, and behavioral treatment.",
+      "relatedTerms": [],
+      "tags": [
+        "obsessive-compulsive-disorder"
+      ]
+    },
+    {
       "term": "Existential Factors",
       "letter": "E",
       "definition": "Irvin Yalom therapeutic factor involving confrontation with freedom, responsibility, mortality, isolation, and meaning.",
@@ -828,6 +2189,26 @@
       ],
       "tags": [
         "group"
+      ]
+    },
+    {
+      "term": "Exposure and response prevention",
+      "letter": "E",
+      "definition": "Exposure to triggers while preventing compulsive rituals.",
+      "examRelevance": "Gold-standard OCD concept.",
+      "relatedTerms": [],
+      "tags": [
+        "cbt-ocd-technique"
+      ]
+    },
+    {
+      "term": "Exposure therapy",
+      "letter": "E",
+      "definition": "Planned confrontation with feared stimuli to reduce avoidance and fear.",
+      "examRelevance": "Best for phobias, panic, OCD, trauma when appropriate.",
+      "relatedTerms": [],
+      "tags": [
+        "cbt-behavioral-technique"
       ]
     },
     {
@@ -858,6 +2239,26 @@
       "tags": [
         "theories",
         "behavioral"
+      ]
+    },
+    {
+      "term": "Factitious Disorder",
+      "letter": "F",
+      "definition": "Falsification or induction of symptoms without obvious external rewards.",
+      "examRelevance": "Differentiate from malingering.",
+      "relatedTerms": [],
+      "tags": [
+        "somatic-symptom-disorder"
+      ]
+    },
+    {
+      "term": "Family Systems Therapy",
+      "letter": "F",
+      "definition": "Approach viewing symptoms in relational/family-system context.",
+      "examRelevance": "Know roles, boundaries, triangles.",
+      "relatedTerms": [],
+      "tags": [
+        "counseling-theory-intervention"
       ]
     },
     {
@@ -901,6 +2302,47 @@
       ]
     },
     {
+      "term": "First response",
+      "letter": "F",
+      "definition": "Counselor response that should occur before deeper work.",
+      "examRelevance": "Often reflection, clarification, or safety assessment.",
+      "relatedTerms": [],
+      "tags": [
+        "ncmhce-strategy",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Flashback",
+      "letter": "F",
+      "definition": "Experience of feeling or acting as if a traumatic event is recurring.",
+      "examRelevance": "Important PTSD/acute stress clue.",
+      "relatedTerms": [],
+      "tags": [
+        "trauma-dissociative-symptom"
+      ]
+    },
+    {
+      "term": "Flat affect",
+      "letter": "F",
+      "definition": "Little or no outward emotional expression.",
+      "examRelevance": "May appear in schizophrenia, depression, trauma, neurological issues, or medication effects.",
+      "relatedTerms": [],
+      "tags": [
+        "mse"
+      ]
+    },
+    {
+      "term": "Flight of ideas",
+      "letter": "F",
+      "definition": "Rapid shifting of ideas with understandable links.",
+      "examRelevance": "Often associated with mania.",
+      "relatedTerms": [],
+      "tags": [
+        "mse"
+      ]
+    },
+    {
       "term": "Four Horsemen",
       "letter": "F",
       "definition": "Gottman predictors of relationship breakdown: criticism, contempt, defensiveness, and stonewalling.",
@@ -929,6 +2371,17 @@
       ]
     },
     {
+      "term": "Functional impairment",
+      "letter": "F",
+      "definition": "Difficulty in work, school, relationships, self-care, safety, or daily life.",
+      "examRelevance": "Key to diagnosis and treatment planning.",
+      "relatedTerms": [],
+      "tags": [
+        "diagnostic-reasoning",
+        "high-yield"
+      ]
+    },
+    {
       "term": "GAD-7",
       "letter": "G",
       "definition": "Brief self-report measure of generalized anxiety severity.",
@@ -943,6 +2396,17 @@
       ]
     },
     {
+      "term": "Gambling Disorder",
+      "letter": "G",
+      "definition": "Persistent problematic gambling behavior causing impairment or distress.",
+      "examRelevance": "DSM behavioral addiction; assess finances, relationships, risk.",
+      "relatedTerms": [],
+      "tags": [
+        "addictive-disorder",
+        "high-yield"
+      ]
+    },
+    {
       "term": "Gemeinschaftsgefühl",
       "letter": "G",
       "definition": "Adlerian concept often translated as social interest or community feeling.",
@@ -953,6 +2417,27 @@
       ],
       "tags": [
         "theories"
+      ]
+    },
+    {
+      "term": "Gender Dysphoria",
+      "letter": "G",
+      "definition": "Distress related to incongruence between experienced gender and assigned sex.",
+      "examRelevance": "Focus on distress, affirmation, safety, and ethics.",
+      "relatedTerms": [],
+      "tags": [
+        "gender-related-diagnosis",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Generalized Anxiety Disorder",
+      "letter": "G",
+      "definition": "Excessive broad worry that is difficult to control and associated with symptoms.",
+      "examRelevance": "Duration and broad worry are key clues.",
+      "relatedTerms": [],
+      "tags": [
+        "anxiety-disorder"
       ]
     },
     {
@@ -984,6 +2469,47 @@
       ]
     },
     {
+      "term": "Gestalt Therapy",
+      "letter": "G",
+      "definition": "Experiential therapy emphasizing present awareness, unfinished business, and integration.",
+      "examRelevance": "Know here-and-now and empty chair.",
+      "relatedTerms": [],
+      "tags": [
+        "counseling-theory-intervention"
+      ]
+    },
+    {
+      "term": "Global Developmental Delay",
+      "letter": "G",
+      "definition": "Developmental delay diagnosis for young children when reliable assessment is not yet possible.",
+      "examRelevance": "Relevant for early-childhood referral questions.",
+      "relatedTerms": [],
+      "tags": [
+        "neurodevelopmental-disorder"
+      ]
+    },
+    {
+      "term": "Gravely disabled",
+      "letter": "G",
+      "definition": "Unable to provide basic needs due to mental state under jurisdictional standards.",
+      "examRelevance": "May justify emergency evaluation.",
+      "relatedTerms": [],
+      "tags": [
+        "risk-legal-term",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Grounding",
+      "letter": "G",
+      "definition": "Techniques orienting client to present moment and reducing dissociation/panic.",
+      "examRelevance": "Useful during flashbacks and panic.",
+      "relatedTerms": [],
+      "tags": [
+        "trauma-anxiety-intervention"
+      ]
+    },
+    {
       "term": "Group Cohesion",
       "letter": "G",
       "definition": "Strong sense of group belonging, trust, and emotional connection.",
@@ -995,6 +2521,26 @@
       ],
       "tags": [
         "group"
+      ]
+    },
+    {
+      "term": "Hallucination",
+      "letter": "H",
+      "definition": "Perception-like experience without external stimulus.",
+      "examRelevance": "Assess type, command content, safety, substances, and medical causes.",
+      "relatedTerms": [],
+      "tags": [
+        "psychotic-symptom"
+      ]
+    },
+    {
+      "term": "Harm reduction",
+      "letter": "H",
+      "definition": "Strategies that reduce negative consequences of substance use without requiring immediate abstinence.",
+      "examRelevance": "Often clinically appropriate and client-centered.",
+      "relatedTerms": [],
+      "tags": [
+        "substance-use-treatment-approach"
       ]
     },
     {
@@ -1012,16 +2558,35 @@
       ]
     },
     {
-      "term": "John Holland Codes",
+      "term": "History of present illness",
       "letter": "H",
-      "definition": "RIASEC career typology: Realistic, Investigative, Artistic, Social, Enterprising, Conventional.",
-      "examRelevance": "High-yield career counseling framework.",
-      "relatedTerms": [
-        "SDS",
-        "Career Development"
-      ],
+      "definition": "Timeline of current concern, including onset, duration, triggers, and course.",
+      "examRelevance": "Needed for diagnosis.",
+      "relatedTerms": [],
       "tags": [
-        "career"
+        "assessment",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Histrionic Personality Disorder",
+      "letter": "H",
+      "definition": "Excessive emotionality and attention-seeking.",
+      "examRelevance": "Differentiate from borderline and narcissistic traits.",
+      "relatedTerms": [],
+      "tags": [
+        "personality-disorder"
+      ]
+    },
+    {
+      "term": "Hoarding Disorder",
+      "letter": "H",
+      "definition": "Persistent difficulty discarding possessions regardless of value, causing clutter and impairment.",
+      "examRelevance": "High-yield; assess insight and safety.",
+      "relatedTerms": [],
+      "tags": [
+        "obsessive-compulsive-disorder",
+        "high-yield"
       ]
     },
     {
@@ -1039,6 +2604,27 @@
       ]
     },
     {
+      "term": "Homicide risk assessment",
+      "letter": "H",
+      "definition": "Assessment of thoughts of harm to others, target, intent, plan, means, history, and protective factors.",
+      "examRelevance": "May trigger duty to protect/warn.",
+      "relatedTerms": [],
+      "tags": [
+        "risk-clinical-priority",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Hyperactivity",
+      "letter": "H",
+      "definition": "Excessive motor activity or restlessness beyond developmental expectations.",
+      "examRelevance": "Key ADHD symptom; distinguish from anxiety or mania.",
+      "relatedTerms": [],
+      "tags": [
+        "symptom"
+      ]
+    },
+    {
       "term": "Hypersomnia",
       "letter": "H",
       "definition": "Excessive sleepiness or sleeping for unusually long periods.",
@@ -1052,6 +2638,27 @@
       ]
     },
     {
+      "term": "Hypersomnolence Disorder",
+      "letter": "H",
+      "definition": "Excessive sleepiness despite adequate sleep opportunity.",
+      "examRelevance": "Assess medical, substance, and mood causes.",
+      "relatedTerms": [],
+      "tags": [
+        "sleep-wake-disorder"
+      ]
+    },
+    {
+      "term": "Hypervigilance",
+      "letter": "H",
+      "definition": "Excessive alertness to possible threat.",
+      "examRelevance": "Common in PTSD and anxiety.",
+      "relatedTerms": [],
+      "tags": [
+        "trauma-anxiety-symptom",
+        "high-yield"
+      ]
+    },
+    {
       "term": "Hypomania",
       "letter": "H",
       "definition": "Elevated or irritable mood with increased energy lasting at least 4 days, less severe than mania and without marked impairment or psychosis.",
@@ -1062,6 +2669,30 @@
       ],
       "tags": [
         "diagnosis"
+      ]
+    },
+    {
+      "term": "John Holland Codes",
+      "letter": "H",
+      "definition": "RIASEC career typology: Realistic, Investigative, Artistic, Social, Enterprising, Conventional.",
+      "examRelevance": "High-yield career counseling framework.",
+      "relatedTerms": [
+        "SDS",
+        "Career Development"
+      ],
+      "tags": [
+        "career"
+      ]
+    },
+    {
+      "term": "ICD-10-CM code",
+      "letter": "I",
+      "definition": "Standardized diagnostic code linked to DSM diagnoses for records and billing.",
+      "examRelevance": "Useful background for documentation and diagnostic labels.",
+      "relatedTerms": [],
+      "tags": [
+        "diagnostic-classification",
+        "high-yield"
       ]
     },
     {
@@ -1079,6 +2710,16 @@
       ]
     },
     {
+      "term": "Illness Anxiety Disorder",
+      "letter": "I",
+      "definition": "Preoccupation with having/acquiring serious illness with minimal or absent somatic symptoms.",
+      "examRelevance": "Differentiate from somatic symptom disorder.",
+      "relatedTerms": [],
+      "tags": [
+        "somatic-symptom-disorder"
+      ]
+    },
+    {
       "term": "Immediacy",
       "letter": "I",
       "definition": "Counselor skill of addressing what is happening in the therapeutic relationship in the present moment.",
@@ -1090,6 +2731,58 @@
       "tags": [
         "core-skills",
         "group"
+      ]
+    },
+    {
+      "term": "Imminent risk",
+      "letter": "I",
+      "definition": "Near-term risk requiring urgent action due to intent, plan, means, severe symptoms, or inability to stay safe.",
+      "examRelevance": "Triggers emergency response.",
+      "relatedTerms": [],
+      "tags": [
+        "risk-clinical-priority",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Impairment",
+      "letter": "I",
+      "definition": "Counselor condition interfering with professional judgment or care.",
+      "examRelevance": "Requires self-monitoring and remediation.",
+      "relatedTerms": [],
+      "tags": [
+        "ethics-professional-practice",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Impulsivity",
+      "letter": "I",
+      "definition": "Acting without adequate forethought or difficulty delaying responses.",
+      "examRelevance": "Relevant to ADHD, mania, substance use, and personality disorders.",
+      "relatedTerms": [],
+      "tags": [
+        "symptom"
+      ]
+    },
+    {
+      "term": "Inattention",
+      "letter": "I",
+      "definition": "Difficulty sustaining attention, organizing, following through, or avoiding distraction.",
+      "examRelevance": "Key ADHD symptom but also appears in anxiety, depression, trauma, and sleep problems.",
+      "relatedTerms": [],
+      "tags": [
+        "symptom"
+      ]
+    },
+    {
+      "term": "Incongruent affect",
+      "letter": "I",
+      "definition": "Emotional expression does not match stated mood or content.",
+      "examRelevance": "May suggest psychosis, dissociation, or defensive coping.",
+      "relatedTerms": [],
+      "tags": [
+        "mse"
       ]
     },
     {
@@ -1107,6 +2800,27 @@
       ]
     },
     {
+      "term": "Insight",
+      "letter": "I",
+      "definition": "Awareness of symptoms, condition, and need for help.",
+      "examRelevance": "Important in OCD-related disorders, psychosis, risk, and treatment engagement.",
+      "relatedTerms": [],
+      "tags": [
+        "diagnostic-mse-term",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Insomnia Disorder",
+      "letter": "I",
+      "definition": "Sleep dissatisfaction with difficulty initiating/maintaining sleep or early waking plus impairment.",
+      "examRelevance": "Differentiate from mood, anxiety, substance, medical causes.",
+      "relatedTerms": [],
+      "tags": [
+        "sleep-wake-disorder"
+      ]
+    },
+    {
       "term": "Instillation of Hope",
       "letter": "I",
       "definition": "Irvin Yalom therapeutic factor in which members gain hope by seeing that improvement is possible.",
@@ -1117,6 +2831,47 @@
       ],
       "tags": [
         "group"
+      ]
+    },
+    {
+      "term": "Intellectual Developmental Disorder",
+      "letter": "I",
+      "definition": "Deficits in intellectual and adaptive functioning beginning during development.",
+      "examRelevance": "Adaptive functioning matters, not only IQ.",
+      "relatedTerms": [],
+      "tags": [
+        "neurodevelopmental-disorder"
+      ]
+    },
+    {
+      "term": "Intent",
+      "letter": "I",
+      "definition": "Client’s desire or determination to act on harm thoughts.",
+      "examRelevance": "Key SI/HI distinction.",
+      "relatedTerms": [],
+      "tags": [
+        "risk-clinical-priority",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Intermittent Explosive Disorder",
+      "letter": "I",
+      "definition": "Recurrent impulsive aggressive outbursts disproportionate to provocation.",
+      "examRelevance": "Assess safety and rule-outs.",
+      "relatedTerms": [],
+      "tags": [
+        "disruptive-behavior-disorder"
+      ]
+    },
+    {
+      "term": "Interpersonal effectiveness",
+      "letter": "I",
+      "definition": "Skills for asking, saying no, boundaries, relationships, and self-respect.",
+      "examRelevance": "Useful in relationship conflict.",
+      "relatedTerms": [],
+      "tags": [
+        "dbt-skill"
       ]
     },
     {
@@ -1131,6 +2886,80 @@
       ],
       "tags": [
         "multicultural"
+      ]
+    },
+    {
+      "term": "Intervention",
+      "letter": "I",
+      "definition": "Specific counselor action or technique supporting objectives.",
+      "examRelevance": "Must match client needs and readiness.",
+      "relatedTerms": [],
+      "tags": [
+        "treatment-planning"
+      ]
+    },
+    {
+      "term": "Intimate partner violence",
+      "letter": "I",
+      "definition": "Abuse or coercive control by current/former intimate partner.",
+      "examRelevance": "Safety and empowerment first.",
+      "relatedTerms": [],
+      "tags": [
+        "clinical-domain-risk",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Intoxication",
+      "letter": "I",
+      "definition": "Substance-specific psychological or behavioral changes during/after use.",
+      "examRelevance": "Can mimic psychiatric symptoms.",
+      "relatedTerms": [],
+      "tags": [
+        "substance-use-symptom"
+      ]
+    },
+    {
+      "term": "Intrusion symptoms",
+      "letter": "I",
+      "definition": "Unwanted memories, dreams, flashbacks, or distress at trauma reminders.",
+      "examRelevance": "Core PTSD/acute stress clue.",
+      "relatedTerms": [],
+      "tags": [
+        "trauma-symptom",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Involuntary hospitalization",
+      "letter": "I",
+      "definition": "Hospitalization without consent when legal danger/grave disability criteria are met.",
+      "examRelevance": "State law varies; safety focus.",
+      "relatedTerms": [],
+      "tags": [
+        "risk-legal-intervention",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Irritability",
+      "letter": "I",
+      "definition": "Easily annoyed or angered mood state.",
+      "examRelevance": "Can appear in depression, anxiety, trauma, DMDD, mania, and ODD.",
+      "relatedTerms": [],
+      "tags": [
+        "mood-symptom"
+      ]
+    },
+    {
+      "term": "Judgment",
+      "letter": "J",
+      "definition": "Ability to make safe, reasonable decisions.",
+      "examRelevance": "Central in risk, mania, psychosis, SUD, crisis.",
+      "relatedTerms": [],
+      "tags": [
+        "mse",
+        "high-yield"
       ]
     },
     {
@@ -1157,6 +2986,59 @@
       ],
       "tags": [
         "career"
+      ]
+    },
+    {
+      "term": "Labile affect",
+      "letter": "L",
+      "definition": "Rapidly shifting emotional expression.",
+      "examRelevance": "Can appear in mood, personality, neurological, or substance-related conditions.",
+      "relatedTerms": [],
+      "tags": [
+        "mse"
+      ]
+    },
+    {
+      "term": "Language Disorder",
+      "letter": "L",
+      "definition": "Persistent difficulty acquiring or using language.",
+      "examRelevance": "Differentiate from autism, hearing issues, or anxiety.",
+      "relatedTerms": [],
+      "tags": [
+        "neurodevelopmental-disorder"
+      ]
+    },
+    {
+      "term": "Least assumptive answer",
+      "letter": "L",
+      "definition": "Answer that avoids overdiagnosis or jumping beyond data.",
+      "examRelevance": "Useful in diagnostic/cultural items.",
+      "relatedTerms": [],
+      "tags": [
+        "ncmhce-strategy",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Least restrictive alternative",
+      "letter": "L",
+      "definition": "Use safest level of care that adequately addresses risk while preserving autonomy when possible.",
+      "examRelevance": "Important in hospitalization decisions.",
+      "relatedTerms": [],
+      "tags": [
+        "risk-ethics-principle",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Lethality",
+      "letter": "L",
+      "definition": "Potential deadliness of method or behavior.",
+      "examRelevance": "Higher lethality increases urgency.",
+      "relatedTerms": [],
+      "tags": [
+        "risk-clinical-priority",
+        "high-yield"
       ]
     },
     {
@@ -1202,6 +3084,17 @@
       ]
     },
     {
+      "term": "Limits of confidentiality",
+      "letter": "L",
+      "definition": "Situations where disclosure may be permitted/required, such as danger, abuse/neglect, court order, supervision.",
+      "examRelevance": "High-yield ethics concept.",
+      "relatedTerms": [],
+      "tags": [
+        "ethics-legal",
+        "high-yield"
+      ]
+    },
+    {
       "term": "Linking",
       "letter": "L",
       "definition": "Group leader skill that connects themes or experiences across members.",
@@ -1213,6 +3106,67 @@
       ],
       "tags": [
         "group"
+      ]
+    },
+    {
+      "term": "Loose associations",
+      "letter": "L",
+      "definition": "Ideas connected in illogical or unclear ways.",
+      "examRelevance": "Psychosis clue.",
+      "relatedTerms": [],
+      "tags": [
+        "mse"
+      ]
+    },
+    {
+      "term": "Maintenance",
+      "letter": "M",
+      "definition": "Client works to sustain change.",
+      "examRelevance": "Focus on relapse prevention.",
+      "relatedTerms": [],
+      "tags": [
+        "stages-of-change"
+      ]
+    },
+    {
+      "term": "Major Depressive Disorder",
+      "letter": "M",
+      "definition": "Depressive disorder involving one or more major depressive episodes with distress or impairment.",
+      "examRelevance": "Assess suicide risk, bipolar history, substances, and medical causes.",
+      "relatedTerms": [],
+      "tags": [
+        "depressive-disorder",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Major depressive episode",
+      "letter": "M",
+      "definition": "Period of depressed mood or loss of interest with associated emotional, cognitive, and physical symptoms.",
+      "examRelevance": "Building block for MDD and bipolar disorders.",
+      "relatedTerms": [],
+      "tags": [
+        "mood-episode"
+      ]
+    },
+    {
+      "term": "Major Neurocognitive Disorder",
+      "letter": "M",
+      "definition": "Significant cognitive decline interfering with independence.",
+      "examRelevance": "Assess safety, supports, and medical evaluation.",
+      "relatedTerms": [],
+      "tags": [
+        "neurocognitive-disorder"
+      ]
+    },
+    {
+      "term": "Malingering",
+      "letter": "M",
+      "definition": "Intentional production or exaggeration of symptoms for external incentives.",
+      "examRelevance": "Not a DSM mental disorder but important differential.",
+      "relatedTerms": [],
+      "tags": [
+        "clinical-legal-term"
       ]
     },
     {
@@ -1230,6 +3184,17 @@
       ]
     },
     {
+      "term": "Mandated reporting",
+      "letter": "M",
+      "definition": "Legal requirement to report suspected abuse, neglect, or exploitation of protected populations.",
+      "examRelevance": "Report based on suspicion threshold, not proof.",
+      "relatedTerms": [],
+      "tags": [
+        "ethics-legal",
+        "high-yield"
+      ]
+    },
+    {
       "term": "Mania",
       "letter": "M",
       "definition": "Distinct period of elevated, expansive, or irritable mood with increased energy lasting at least 1 week or requiring hospitalization.",
@@ -1240,6 +3205,17 @@
       ],
       "tags": [
         "diagnosis"
+      ]
+    },
+    {
+      "term": "Mania risk",
+      "letter": "M",
+      "definition": "Risk from decreased sleep, impulsivity, grandiosity, risky behavior, psychosis, severe impairment.",
+      "examRelevance": "May require psychiatric referral/hospitalization.",
+      "relatedTerms": [],
+      "tags": [
+        "clinical-priority",
+        "high-yield"
       ]
     },
     {
@@ -1257,6 +3233,90 @@
       ]
     },
     {
+      "term": "Means",
+      "letter": "M",
+      "definition": "Access to method or tools needed for harm.",
+      "examRelevance": "Means safety is key.",
+      "relatedTerms": [],
+      "tags": [
+        "risk-clinical-priority",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Means restriction",
+      "letter": "M",
+      "definition": "Reducing access to lethal means.",
+      "examRelevance": "High-yield suicide prevention action.",
+      "relatedTerms": [],
+      "tags": [
+        "risk-intervention",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Medical rule-out",
+      "letter": "M",
+      "definition": "Considering whether symptoms are due to medical conditions or medications.",
+      "examRelevance": "High-yield before diagnosing mood, anxiety, psychosis, or cognitive symptoms.",
+      "relatedTerms": [],
+      "tags": [
+        "diagnostic-reasoning",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Medication-Assisted Treatment",
+      "letter": "M",
+      "definition": "Use of medication with counseling/supports for substance use disorders, especially opioid/alcohol use.",
+      "examRelevance": "Know referral and coordination role.",
+      "relatedTerms": [],
+      "tags": [
+        "substance-use-treatment-term"
+      ]
+    },
+    {
+      "term": "Melancholic features",
+      "letter": "M",
+      "definition": "Depressive presentation with profound loss of pleasure/reactivity and associated biological symptoms.",
+      "examRelevance": "Useful specifier knowledge.",
+      "relatedTerms": [],
+      "tags": [
+        "specifier"
+      ]
+    },
+    {
+      "term": "Memory",
+      "letter": "M",
+      "definition": "Immediate, recent, and remote recall.",
+      "examRelevance": "Relevant to trauma, neurocognitive, dissociation, substances, depression.",
+      "relatedTerms": [],
+      "tags": [
+        "mse"
+      ]
+    },
+    {
+      "term": "Mental Status Examination",
+      "letter": "M",
+      "definition": "Structured clinical observation of appearance, behavior, mood, affect, speech, thought, cognition, insight, and judgment.",
+      "examRelevance": "High-yield for intake, diagnosis, risk, and documentation.",
+      "relatedTerms": [],
+      "tags": [
+        "assessment-mse",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Microaggression",
+      "letter": "M",
+      "definition": "Subtle discriminatory or invalidating comment/action.",
+      "examRelevance": "Counselor should respond with humility and repair.",
+      "relatedTerms": [],
+      "tags": [
+        "multicultural-concept"
+      ]
+    },
+    {
       "term": "Microsystem",
       "letter": "M",
       "definition": "Urie Bronfenbrenner ecological systems level involving the person's immediate environment, such as family, school, and peers.",
@@ -1271,6 +3331,47 @@
       ]
     },
     {
+      "term": "Mild Neurocognitive Disorder",
+      "letter": "M",
+      "definition": "Modest cognitive decline not substantially interfering with independence.",
+      "examRelevance": "Differentiate from normal aging, depression, delirium.",
+      "relatedTerms": [],
+      "tags": [
+        "neurocognitive-disorder"
+      ]
+    },
+    {
+      "term": "Mindfulness",
+      "letter": "M",
+      "definition": "Nonjudgmental present-moment awareness.",
+      "examRelevance": "Used across DBT, ACT, trauma, relapse prevention.",
+      "relatedTerms": [],
+      "tags": [
+        "intervention-skill"
+      ]
+    },
+    {
+      "term": "Minimal disclosure",
+      "letter": "M",
+      "definition": "Share only information necessary when disclosure is required.",
+      "examRelevance": "Important for reporting and coordination.",
+      "relatedTerms": [],
+      "tags": [
+        "ethics",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Minority stress",
+      "letter": "M",
+      "definition": "Chronic stress experienced by stigmatized groups due to prejudice or rejection expectations.",
+      "examRelevance": "Relevant to LGBTQ+, racial/ethnic, disability cases.",
+      "relatedTerms": [],
+      "tags": [
+        "multicultural-clinical-concept"
+      ]
+    },
+    {
       "term": "Miracle Question",
       "letter": "M",
       "definition": "SFBT question inviting the client to imagine how life would look if the problem were solved.",
@@ -1282,6 +3383,57 @@
       ],
       "tags": [
         "theories"
+      ]
+    },
+    {
+      "term": "MMSE",
+      "letter": "M",
+      "definition": "Brief cognitive screening tool.",
+      "examRelevance": "Relevant to neurocognitive concerns.",
+      "relatedTerms": [],
+      "tags": [
+        "assessment-tool"
+      ]
+    },
+    {
+      "term": "MoCA",
+      "letter": "M",
+      "definition": "Cognitive screening measure often sensitive to mild cognitive concerns.",
+      "examRelevance": "Relevant to cognitive referral.",
+      "relatedTerms": [],
+      "tags": [
+        "assessment-tool"
+      ]
+    },
+    {
+      "term": "Mood",
+      "letter": "M",
+      "definition": "Client’s subjective emotional state.",
+      "examRelevance": "Document separately from affect.",
+      "relatedTerms": [],
+      "tags": [
+        "mse"
+      ]
+    },
+    {
+      "term": "Mood-congruent psychotic features",
+      "letter": "M",
+      "definition": "Psychotic content consistent with mood themes such as guilt, death, grandiosity, or deserved punishment.",
+      "examRelevance": "Helps specify mood disorders with psychosis.",
+      "relatedTerms": [],
+      "tags": [
+        "specifier"
+      ]
+    },
+    {
+      "term": "Mood-incongruent psychotic features",
+      "letter": "M",
+      "definition": "Psychotic content not consistent with mood themes.",
+      "examRelevance": "May influence diagnostic thinking and severity.",
+      "relatedTerms": [],
+      "tags": [
+        "specifier",
+        "high-yield"
       ]
     },
     {
@@ -1315,6 +3467,16 @@
       ]
     },
     {
+      "term": "Multicultural counseling",
+      "letter": "M",
+      "definition": "Counseling that considers culture, identity, power, oppression, values, and context.",
+      "examRelevance": "Prevents biased assessment and intervention.",
+      "relatedTerms": [],
+      "tags": [
+        "multicultural-counseling"
+      ]
+    },
+    {
       "term": "Multicultural Orientation",
       "letter": "M",
       "definition": "Approach emphasizing cultural humility, openness, and responsiveness in the counseling relationship.",
@@ -1325,6 +3487,57 @@
       ],
       "tags": [
         "multicultural"
+      ]
+    },
+    {
+      "term": "Multiple relationship",
+      "letter": "M",
+      "definition": "Professional and nonprofessional roles with same client or related people.",
+      "examRelevance": "Manage or avoid when harmful.",
+      "relatedTerms": [],
+      "tags": [
+        "ethics",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Naloxone",
+      "letter": "N",
+      "definition": "Medication used to reverse opioid overdose.",
+      "examRelevance": "Relevant for opioid-overdose safety planning.",
+      "relatedTerms": [],
+      "tags": [
+        "substance-use-harm-reduction-term"
+      ]
+    },
+    {
+      "term": "Narcissistic Personality Disorder",
+      "letter": "N",
+      "definition": "Grandiosity, need for admiration, and limited empathy.",
+      "examRelevance": "Watch alliance and countertransference.",
+      "relatedTerms": [],
+      "tags": [
+        "personality-disorder"
+      ]
+    },
+    {
+      "term": "Narcolepsy",
+      "letter": "N",
+      "definition": "Recurrent sleep attacks and REM-related features.",
+      "examRelevance": "Requires medical/sleep evaluation.",
+      "relatedTerms": [],
+      "tags": [
+        "sleep-wake-disorder"
+      ]
+    },
+    {
+      "term": "Narrative Therapy",
+      "letter": "N",
+      "definition": "Postmodern approach separating person from problem and re-authoring stories.",
+      "examRelevance": "Know externalizing and unique outcomes.",
+      "relatedTerms": [],
+      "tags": [
+        "counseling-theory-intervention"
       ]
     },
     {
@@ -1374,6 +3587,26 @@
       ]
     },
     {
+      "term": "Neglect",
+      "letter": "N",
+      "definition": "Failure to provide needed care, supervision, protection, or basic needs.",
+      "examRelevance": "Assess reporting obligations.",
+      "relatedTerms": [],
+      "tags": [
+        "mandated-reporting-clinical-domain"
+      ]
+    },
+    {
+      "term": "Neurodevelopmental Disorders",
+      "letter": "N",
+      "definition": "DSM category involving developmental conditions affecting cognition, communication, behavior, learning, or functioning.",
+      "examRelevance": "Important in child/adolescent cases.",
+      "relatedTerms": [],
+      "tags": [
+        "dsm-disorder-category"
+      ]
+    },
+    {
       "term": "Neurotransmitter",
       "letter": "N",
       "definition": "Chemical messenger that transmits signals between neurons.",
@@ -1386,6 +3619,16 @@
       ],
       "tags": [
         "psychopharmacology"
+      ]
+    },
+    {
+      "term": "Nightmare Disorder",
+      "letter": "N",
+      "definition": "Repeated dysphoric dreams causing distress or impairment.",
+      "examRelevance": "Differentiate from PTSD nightmares and sleep terrors.",
+      "relatedTerms": [],
+      "tags": [
+        "sleep-wake-disorder"
       ]
     },
     {
@@ -1403,6 +3646,17 @@
       ]
     },
     {
+      "term": "No-suicide contract",
+      "letter": "N",
+      "definition": "Client promise not to attempt suicide.",
+      "examRelevance": "Not sufficient risk management.",
+      "relatedTerms": [],
+      "tags": [
+        "risk-intervention",
+        "high-yield"
+      ]
+    },
+    {
       "term": "Nonmaleficence",
       "letter": "N",
       "definition": "Ethical principle of avoiding harm.",
@@ -1413,6 +3667,27 @@
       ],
       "tags": [
         "ethics"
+      ]
+    },
+    {
+      "term": "Nonsuicidal self-injury",
+      "letter": "N",
+      "definition": "Intentional self-injury without intent to die.",
+      "examRelevance": "Still requires risk assessment.",
+      "relatedTerms": [],
+      "tags": [
+        "risk-symptom",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Norms",
+      "letter": "N",
+      "definition": "Reference data used to interpret scores against a relevant population.",
+      "examRelevance": "Consider cultural limitations.",
+      "relatedTerms": [],
+      "tags": [
+        "psychometrics"
       ]
     },
     {
@@ -1455,6 +3730,46 @@
       ]
     },
     {
+      "term": "Objective",
+      "letter": "O",
+      "definition": "Measurable step toward a treatment goal.",
+      "examRelevance": "Avoid vague objectives.",
+      "relatedTerms": [],
+      "tags": [
+        "treatment-planning"
+      ]
+    },
+    {
+      "term": "Obsessions",
+      "letter": "O",
+      "definition": "Intrusive unwanted thoughts, urges, or images causing distress.",
+      "examRelevance": "Differentiate from delusions and worry.",
+      "relatedTerms": [],
+      "tags": [
+        "ocd-symptom"
+      ]
+    },
+    {
+      "term": "Obsessive-Compulsive Disorder",
+      "letter": "O",
+      "definition": "Disorder involving obsessions and/or compulsions that are time-consuming or impairing.",
+      "examRelevance": "ERP is a key treatment concept.",
+      "relatedTerms": [],
+      "tags": [
+        "obsessive-compulsive-disorder"
+      ]
+    },
+    {
+      "term": "Obsessive-Compulsive Personality Disorder",
+      "letter": "O",
+      "definition": "Preoccupation with orderliness, perfectionism, and control.",
+      "examRelevance": "Differentiate from OCD.",
+      "relatedTerms": [],
+      "tags": [
+        "personality-disorder"
+      ]
+    },
+    {
       "term": "OCPD",
       "letter": "O",
       "definition": "Obsessive-Compulsive Personality Disorder, an ego-syntonic pattern of perfectionism, rigidity, and control.",
@@ -1466,6 +3781,16 @@
       ],
       "tags": [
         "diagnosis"
+      ]
+    },
+    {
+      "term": "Open-ended question",
+      "letter": "O",
+      "definition": "Question inviting elaboration.",
+      "examRelevance": "Good for exploration.",
+      "relatedTerms": [],
+      "tags": [
+        "counseling-skill"
       ]
     },
     {
@@ -1485,6 +3810,121 @@
       ]
     },
     {
+      "term": "Opioid Use Disorder",
+      "letter": "O",
+      "definition": "Problematic opioid use causing impairment or distress.",
+      "examRelevance": "Assess overdose risk, withdrawal, MAT referral, and harm reduction.",
+      "relatedTerms": [],
+      "tags": [
+        "substance-related-disorder",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Oppositional Defiant Disorder",
+      "letter": "O",
+      "definition": "Angry/irritable mood, argumentative/defiant behavior, or vindictiveness.",
+      "examRelevance": "Differentiate from conduct disorder and DMDD.",
+      "relatedTerms": [],
+      "tags": [
+        "disruptive-behavior-disorder"
+      ]
+    },
+    {
+      "term": "Orientation",
+      "letter": "O",
+      "definition": "Awareness of person, place, time, and situation.",
+      "examRelevance": "Impairment may suggest delirium, intoxication, neurocognitive disorder.",
+      "relatedTerms": [],
+      "tags": [
+        "mse"
+      ]
+    },
+    {
+      "term": "Other specified disorder",
+      "letter": "O",
+      "definition": "Used when symptoms cause impairment but do not fully meet a specific disorder and the clinician states why.",
+      "examRelevance": "Important for subthreshold or atypical presentations.",
+      "relatedTerms": [],
+      "tags": [
+        "diagnostic-classification",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Overdose risk",
+      "letter": "O",
+      "definition": "Risk of fatal/nonfatal overdose, especially opioids, polysubstance use, relapse after abstinence.",
+      "examRelevance": "Naloxone and treatment referral matter.",
+      "relatedTerms": [],
+      "tags": [
+        "clinical-priority",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Panic Attack",
+      "letter": "P",
+      "definition": "Sudden surge of intense fear/discomfort with physical and cognitive symptoms.",
+      "examRelevance": "Can occur in many disorders.",
+      "relatedTerms": [],
+      "tags": [
+        "anxiety-symptom-specifier"
+      ]
+    },
+    {
+      "term": "Panic Disorder",
+      "letter": "P",
+      "definition": "Recurrent unexpected panic attacks plus persistent concern or maladaptive behavior change.",
+      "examRelevance": "Differentiate from panic attacks within other disorders.",
+      "relatedTerms": [],
+      "tags": [
+        "anxiety-disorder"
+      ]
+    },
+    {
+      "term": "Paranoid Personality Disorder",
+      "letter": "P",
+      "definition": "Pervasive distrust and suspiciousness.",
+      "examRelevance": "Differentiate from delusional disorder and trauma hypervigilance.",
+      "relatedTerms": [],
+      "tags": [
+        "personality-disorder"
+      ]
+    },
+    {
+      "term": "Paraphilic Disorder",
+      "letter": "P",
+      "definition": "Atypical sexual interest causing distress/impairment or involving harm/risk to others.",
+      "examRelevance": "Know consent, safety, reporting, and consultation.",
+      "relatedTerms": [],
+      "tags": [
+        "sexual-disorder"
+      ]
+    },
+    {
+      "term": "Passive suicidal ideation",
+      "letter": "P",
+      "definition": "Thoughts of death/not wanting to live without active plan or intent.",
+      "examRelevance": "Still requires assessment and safety planning.",
+      "relatedTerms": [],
+      "tags": [
+        "risk-symptom",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Past attempt",
+      "letter": "P",
+      "definition": "History of suicide attempt or serious self-harm behavior.",
+      "examRelevance": "Strong risk indicator.",
+      "relatedTerms": [],
+      "tags": [
+        "risk-clinical-priority",
+        "high-yield"
+      ]
+    },
+    {
       "term": "PCL-5",
       "letter": "P",
       "definition": "PTSD Checklist for DSM-5, a self-report measure of PTSD symptoms.",
@@ -1500,6 +3940,48 @@
       ]
     },
     {
+      "term": "Perception",
+      "letter": "P",
+      "definition": "Assessment of hallucinations, illusions, depersonalization, or derealization.",
+      "examRelevance": "Helps identify psychosis, trauma, substances, neurological issues.",
+      "relatedTerms": [],
+      "tags": [
+        "mse"
+      ]
+    },
+    {
+      "term": "Peripartum onset",
+      "letter": "P",
+      "definition": "Mood episode onset during pregnancy or soon after delivery.",
+      "examRelevance": "Important for postpartum risk and referral.",
+      "relatedTerms": [],
+      "tags": [
+        "specifier",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Persistent Depressive Disorder",
+      "letter": "P",
+      "definition": "Chronic depressive disorder with long-lasting depressed mood and associated symptoms.",
+      "examRelevance": "Duration distinguishes it from episodic MDD.",
+      "relatedTerms": [],
+      "tags": [
+        "depressive-disorder"
+      ]
+    },
+    {
+      "term": "Person-Centered Therapy",
+      "letter": "P",
+      "definition": "Humanistic therapy emphasizing empathy, congruence, and unconditional positive regard.",
+      "examRelevance": "Core counseling attributes.",
+      "relatedTerms": [],
+      "tags": [
+        "counseling-theory-intervention",
+        "high-yield"
+      ]
+    },
+    {
       "term": "PHQ-9",
       "letter": "P",
       "definition": "Nine-item self-report tool for depression severity screening and monitoring.",
@@ -1511,6 +3993,28 @@
       "tags": [
         "assessment",
         "depression"
+      ]
+    },
+    {
+      "term": "Pica",
+      "letter": "P",
+      "definition": "Persistent eating of nonfood substances beyond developmental/cultural expectations.",
+      "examRelevance": "Assess medical risk.",
+      "relatedTerms": [],
+      "tags": [
+        "feeding-and-eating-disorder",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Plan",
+      "letter": "P",
+      "definition": "Specific method or steps considered for harm.",
+      "examRelevance": "Plan plus intent and means increases risk.",
+      "relatedTerms": [],
+      "tags": [
+        "risk-clinical-priority",
+        "high-yield"
       ]
     },
     {
@@ -1559,6 +4063,100 @@
       ]
     },
     {
+      "term": "Posttraumatic Stress Disorder",
+      "letter": "P",
+      "definition": "Trauma-related disorder involving intrusion, avoidance, negative mood/cognition, and arousal symptoms after trauma exposure.",
+      "examRelevance": "High-yield diagnosis and differential.",
+      "relatedTerms": [],
+      "tags": [
+        "trauma--and-stressor-related-disorder",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Precontemplation",
+      "letter": "P",
+      "definition": "Client is not yet considering change or does not see problem.",
+      "examRelevance": "Use engagement and awareness.",
+      "relatedTerms": [],
+      "tags": [
+        "stages-of-change"
+      ]
+    },
+    {
+      "term": "Premenstrual Dysphoric Disorder",
+      "letter": "P",
+      "definition": "Cyclical mood disorder tied to the premenstrual phase with improvement after menses.",
+      "examRelevance": "Requires symptom timing across cycles.",
+      "relatedTerms": [],
+      "tags": [
+        "depressive-disorder"
+      ]
+    },
+    {
+      "term": "Preparation",
+      "letter": "P",
+      "definition": "Client intends to act soon and may be planning.",
+      "examRelevance": "Support planning.",
+      "relatedTerms": [],
+      "tags": [
+        "stages-of-change"
+      ]
+    },
+    {
+      "term": "Presenting problem",
+      "letter": "P",
+      "definition": "Main concern, symptoms, or situation bringing the client to counseling.",
+      "examRelevance": "Avoid jumping to treatment before assessing it.",
+      "relatedTerms": [],
+      "tags": [
+        "assessment"
+      ]
+    },
+    {
+      "term": "Pressured speech",
+      "letter": "P",
+      "definition": "Rapid, difficult-to-interrupt speech.",
+      "examRelevance": "Classic mania/hypomania clue.",
+      "relatedTerms": [],
+      "tags": [
+        "mse"
+      ]
+    },
+    {
+      "term": "Primary diagnosis",
+      "letter": "P",
+      "definition": "Main diagnosis explaining the presenting problem and treatment focus.",
+      "examRelevance": "Guides treatment priorities.",
+      "relatedTerms": [],
+      "tags": [
+        "diagnostic-reasoning",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Privacy",
+      "letter": "P",
+      "definition": "Client’s right to control access to personal information.",
+      "examRelevance": "Related to confidentiality.",
+      "relatedTerms": [],
+      "tags": [
+        "ethics",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Privilege",
+      "letter": "P",
+      "definition": "Legal protection that can prevent confidential communications from disclosure in court, with exceptions.",
+      "examRelevance": "Legal concept; consult when subpoenaed.",
+      "relatedTerms": [],
+      "tags": [
+        "legal-ethics",
+        "high-yield"
+      ]
+    },
+    {
       "term": "Privileged Communication",
       "letter": "P",
       "definition": "Legal protection that may prevent a counselor from being forced to testify about client disclosures without consent, depending on jurisdiction.",
@@ -1569,6 +4167,28 @@
       ],
       "tags": [
         "ethics"
+      ]
+    },
+    {
+      "term": "Progress note",
+      "letter": "P",
+      "definition": "Clinical note summarizing session content, interventions, response, risk, and plan.",
+      "examRelevance": "High-yield after risk or consultation.",
+      "relatedTerms": [],
+      "tags": [
+        "documentation",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Projection",
+      "letter": "P",
+      "definition": "Attributing one’s own unacceptable feelings/impulses to others.",
+      "examRelevance": "Common exam term.",
+      "relatedTerms": [],
+      "tags": [
+        "defense-mechanism",
+        "high-yield"
       ]
     },
     {
@@ -1585,6 +4205,48 @@
       ]
     },
     {
+      "term": "Protected health information",
+      "letter": "P",
+      "definition": "Individually identifiable health information protected by privacy law.",
+      "examRelevance": "Relevant to releases and technology.",
+      "relatedTerms": [],
+      "tags": [
+        "legal-privacy"
+      ]
+    },
+    {
+      "term": "Protective factors",
+      "letter": "P",
+      "definition": "Variables reducing risk or supporting safety.",
+      "examRelevance": "Do not let them cancel imminent risk.",
+      "relatedTerms": [],
+      "tags": [
+        "risk-clinical-priority",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Provisional diagnosis",
+      "letter": "P",
+      "definition": "Working diagnosis used when more information is needed for confirmation.",
+      "examRelevance": "Useful when evidence is strong but incomplete.",
+      "relatedTerms": [],
+      "tags": [
+        "diagnostic-reasoning",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Psychoanalytic/Psychodynamic Therapy",
+      "letter": "P",
+      "definition": "Approaches emphasizing unconscious processes, early relationships, defenses, and patterns.",
+      "examRelevance": "Know transference, defenses, insight.",
+      "relatedTerms": [],
+      "tags": [
+        "counseling-theory-intervention"
+      ]
+    },
+    {
       "term": "Psychoeducation",
       "letter": "P",
       "definition": "Providing information to help clients understand symptoms, treatment, coping, or diagnoses.",
@@ -1595,6 +4257,26 @@
       ],
       "tags": [
         "core-skills"
+      ]
+    },
+    {
+      "term": "Psychological testing",
+      "letter": "P",
+      "definition": "Use of standardized measures to assess symptoms, traits, abilities, or functioning.",
+      "examRelevance": "Use within competence.",
+      "relatedTerms": [],
+      "tags": [
+        "assessment"
+      ]
+    },
+    {
+      "term": "Psychomotor agitation",
+      "letter": "P",
+      "definition": "Observable restlessness or excessive motor activity.",
+      "examRelevance": "Can indicate anxiety, mania, intoxication, withdrawal, or akathisia.",
+      "relatedTerms": [],
+      "tags": [
+        "mse"
       ]
     },
     {
@@ -1612,6 +4294,28 @@
       ]
     },
     {
+      "term": "Psychosis risk",
+      "letter": "P",
+      "definition": "Risk associated with hallucinations, delusions, disorganization, impaired reality testing, or command content.",
+      "examRelevance": "Assess safety and level of care.",
+      "relatedTerms": [],
+      "tags": [
+        "clinical-priority",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Purging",
+      "letter": "P",
+      "definition": "Compensatory behavior such as vomiting or misuse of laxatives/diuretics.",
+      "examRelevance": "Medical-risk cue.",
+      "relatedTerms": [],
+      "tags": [
+        "eating-disorder-symptom",
+        "high-yield"
+      ]
+    },
+    {
       "term": "Radical Acceptance",
       "letter": "R",
       "definition": "DBT skill of fully accepting reality as it is, without approving of it or giving up on change.",
@@ -1623,6 +4327,99 @@
       ],
       "tags": [
         "theories"
+      ]
+    },
+    {
+      "term": "Rapport before confrontation",
+      "letter": "R",
+      "definition": "Use empathy and exploration before challenging unless safety requires direct action.",
+      "examRelevance": "Common with resistance/SUD/personality cases.",
+      "relatedTerms": [],
+      "tags": [
+        "ncmhce-strategy",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Rationalization",
+      "letter": "R",
+      "definition": "Creating reasonable-sounding explanations to avoid true motives or feelings.",
+      "examRelevance": "Common in SUD and conflict.",
+      "relatedTerms": [],
+      "tags": [
+        "defense-mechanism",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Reaction formation",
+      "letter": "R",
+      "definition": "Expressing opposite of unacceptable impulse/feeling.",
+      "examRelevance": "Classic psychodynamic term.",
+      "relatedTerms": [],
+      "tags": [
+        "defense-mechanism"
+      ]
+    },
+    {
+      "term": "Reactive Attachment Disorder",
+      "letter": "R",
+      "definition": "Childhood disorder linked to severe neglect and emotionally withdrawn behavior toward caregivers.",
+      "examRelevance": "Differentiate from autism.",
+      "relatedTerms": [],
+      "tags": [
+        "trauma--and-stressor-related-disorder"
+      ]
+    },
+    {
+      "term": "Reality Therapy/Choice Theory",
+      "letter": "R",
+      "definition": "Approach focused on choices, responsibility, needs, and effective behavior.",
+      "examRelevance": "Know WDEP.",
+      "relatedTerms": [],
+      "tags": [
+        "counseling-theory-intervention"
+      ]
+    },
+    {
+      "term": "REBT",
+      "letter": "R",
+      "definition": "Rational Emotive Behavior Therapy focuses on disputing irrational beliefs.",
+      "examRelevance": "Know ABC model.",
+      "relatedTerms": [],
+      "tags": [
+        "cbt-related-theory"
+      ]
+    },
+    {
+      "term": "Recovery",
+      "letter": "R",
+      "definition": "Process of improving health, wellness, and functioning while managing symptoms or substance use.",
+      "examRelevance": "Strength-based language.",
+      "relatedTerms": [],
+      "tags": [
+        "substance-use-mental-health-term"
+      ]
+    },
+    {
+      "term": "Refer when outside competence",
+      "letter": "R",
+      "definition": "Refer, supervise, or consult when needs exceed training/scope/setting.",
+      "examRelevance": "Ethics/professional practice rule.",
+      "relatedTerms": [],
+      "tags": [
+        "ncmhce-strategy",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Referral",
+      "letter": "R",
+      "definition": "Connecting client to another provider/service when clinically appropriate.",
+      "examRelevance": "Needed when outside scope or specialty care is indicated.",
+      "relatedTerms": [],
+      "tags": [
+        "clinical-decision-making"
       ]
     },
     {
@@ -1640,6 +4437,16 @@
       ]
     },
     {
+      "term": "Relapse",
+      "letter": "R",
+      "definition": "Return to substance use or target symptoms after improvement.",
+      "examRelevance": "Frame nonjudgmentally and update plan.",
+      "relatedTerms": [],
+      "tags": [
+        "substance-use-recovery-term"
+      ]
+    },
+    {
       "term": "Relapse Prevention",
       "letter": "R",
       "definition": "Planning for high-risk situations, triggers, and coping responses to reduce return to problematic behavior.",
@@ -1654,6 +4461,17 @@
       ]
     },
     {
+      "term": "Release of information",
+      "letter": "R",
+      "definition": "Authorization allowing disclosure to specified party for specified purpose.",
+      "examRelevance": "Needed for most collateral contacts.",
+      "relatedTerms": [],
+      "tags": [
+        "ethics-legal",
+        "high-yield"
+      ]
+    },
+    {
       "term": "Release of Information (ROI)",
       "letter": "R",
       "definition": "Signed authorization that allows the counselor to share specified information with a specified person or organization.",
@@ -1664,6 +4482,26 @@
       ],
       "tags": [
         "ethics"
+      ]
+    },
+    {
+      "term": "Reliability",
+      "letter": "R",
+      "definition": "Estimate of dependability of client report based on consistency and context.",
+      "examRelevance": "Use carefully and respectfully.",
+      "relatedTerms": [],
+      "tags": [
+        "assessment"
+      ]
+    },
+    {
+      "term": "Religion",
+      "letter": "R",
+      "definition": "Organized beliefs, practices, and community related to faith/worship.",
+      "examRelevance": "Can be protective or stressful.",
+      "relatedTerms": [],
+      "tags": [
+        "clinical-domain"
       ]
     },
     {
@@ -1694,6 +4532,94 @@
       ]
     },
     {
+      "term": "Risk assessment",
+      "letter": "R",
+      "definition": "Structured assessment of potential harm to self, others, or inability to care for basic needs.",
+      "examRelevance": "Priority when danger cues appear.",
+      "relatedTerms": [],
+      "tags": [
+        "risk-clinical-priority",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Risk comes first",
+      "letter": "R",
+      "definition": "Safety assessment and stabilization outrank routine counseling when danger cues appear.",
+      "examRelevance": "Core simulation rule.",
+      "relatedTerms": [],
+      "tags": [
+        "ncmhce-strategy",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Risk factors",
+      "letter": "R",
+      "definition": "Variables associated with increased likelihood of harm or worsening.",
+      "examRelevance": "Identify acute and chronic risks.",
+      "relatedTerms": [],
+      "tags": [
+        "risk-clinical-priority",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Rule-out",
+      "letter": "R",
+      "definition": "Condition being considered but not confirmed due to incomplete information or competing explanations.",
+      "examRelevance": "Helps avoid premature diagnosis.",
+      "relatedTerms": [],
+      "tags": [
+        "diagnostic-reasoning",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Rumination",
+      "letter": "R",
+      "definition": "Repetitive focus on distress, causes, or consequences, often past-oriented.",
+      "examRelevance": "Common in depression and anxiety.",
+      "relatedTerms": [],
+      "tags": [
+        "cognitive-symptom",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Rumination Disorder",
+      "letter": "R",
+      "definition": "Repeated regurgitation of food not due to medical condition.",
+      "examRelevance": "Often needs medical and behavioral assessment.",
+      "relatedTerms": [],
+      "tags": [
+        "feeding-and-eating-disorder"
+      ]
+    },
+    {
+      "term": "Rupture and repair",
+      "letter": "R",
+      "definition": "Identifying and addressing strain in the therapeutic relationship.",
+      "examRelevance": "Often better than ignoring dissatisfaction.",
+      "relatedTerms": [],
+      "tags": [
+        "clinical-relationship"
+      ]
+    },
+    {
+      "term": "Donald Super",
+      "letter": "S",
+      "definition": "Career theorist Donald Super, who described lifespan career development and the implementation of self-concept across life roles.",
+      "examRelevance": "High-yield career counseling theory.",
+      "relatedTerms": [
+        "Life-Space",
+        "Career Development"
+      ],
+      "tags": [
+        "career"
+      ]
+    },
+    {
       "term": "Safety Plan",
       "letter": "S",
       "definition": "Collaborative written plan identifying warning signs, coping strategies, supports, crisis resources, means restriction, and reasons for living.",
@@ -1705,6 +4631,17 @@
       ],
       "tags": [
         "crisis"
+      ]
+    },
+    {
+      "term": "Safety planning",
+      "letter": "S",
+      "definition": "Collaborative plan with warning signs, coping, supports, crisis contacts, and means safety.",
+      "examRelevance": "Preferred over no-suicide contracts.",
+      "relatedTerms": [],
+      "tags": [
+        "risk-intervention",
+        "high-yield"
       ]
     },
     {
@@ -1721,6 +4658,16 @@
       ]
     },
     {
+      "term": "Scaling question",
+      "letter": "S",
+      "definition": "Question asking client to rate progress, confidence, or severity numerically.",
+      "examRelevance": "Useful for goals and tracking.",
+      "relatedTerms": [],
+      "tags": [
+        "sfbt-technique"
+      ]
+    },
+    {
       "term": "Scaling Questions",
       "letter": "S",
       "definition": "SFBT questions that ask clients to rate progress, motivation, or distress on a numerical scale.",
@@ -1731,6 +4678,89 @@
       ],
       "tags": [
         "theories"
+      ]
+    },
+    {
+      "term": "Schizoaffective Disorder",
+      "letter": "S",
+      "definition": "Psychosis plus mood episodes, including psychosis occurring outside mood episodes.",
+      "examRelevance": "Differentiate from mood disorder with psychotic features.",
+      "relatedTerms": [],
+      "tags": [
+        "schizophrenia-spectrum-disorder"
+      ]
+    },
+    {
+      "term": "Schizoid Personality Disorder",
+      "letter": "S",
+      "definition": "Detachment from social relationships and restricted emotional expression.",
+      "examRelevance": "Differentiate from depression, autism, social anxiety.",
+      "relatedTerms": [],
+      "tags": [
+        "personality-disorder"
+      ]
+    },
+    {
+      "term": "Schizophrenia",
+      "letter": "S",
+      "definition": "Chronic psychotic disorder involving psychotic symptoms, disorganization, negative symptoms, and functional decline.",
+      "examRelevance": "High-yield for assessment, risk, referral, and coordination.",
+      "relatedTerms": [],
+      "tags": [
+        "schizophrenia-spectrum-disorder",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Schizophreniform Disorder",
+      "letter": "S",
+      "definition": "Schizophrenia-like symptoms lasting shorter than schizophrenia.",
+      "examRelevance": "Duration separates it from brief psychotic disorder and schizophrenia.",
+      "relatedTerms": [],
+      "tags": [
+        "schizophrenia-spectrum-disorder"
+      ]
+    },
+    {
+      "term": "Schizotypal Personality Disorder",
+      "letter": "S",
+      "definition": "Social deficits, cognitive/perceptual distortions, and eccentric behavior.",
+      "examRelevance": "Differentiate from schizophrenia.",
+      "relatedTerms": [],
+      "tags": [
+        "personality-disorder"
+      ]
+    },
+    {
+      "term": "Scope of practice",
+      "letter": "S",
+      "definition": "Services counselor is qualified and legally permitted to provide.",
+      "examRelevance": "Refer/consult outside competence.",
+      "relatedTerms": [],
+      "tags": [
+        "ethics-professional-practice",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Screening",
+      "letter": "S",
+      "definition": "Brief process to identify possible symptoms, risk, or need for fuller assessment.",
+      "examRelevance": "Often comes before diagnosis/intervention.",
+      "relatedTerms": [],
+      "tags": [
+        "assessment",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Seasonal pattern",
+      "letter": "S",
+      "definition": "Mood episodes showing regular seasonal timing.",
+      "examRelevance": "Useful in mood disorder narratives.",
+      "relatedTerms": [],
+      "tags": [
+        "specifier"
       ]
     },
     {
@@ -1748,6 +4778,27 @@
       ]
     },
     {
+      "term": "Sedative/Hypnotic/Anxiolytic Use Disorder",
+      "letter": "S",
+      "definition": "Problematic use of sedatives, hypnotics, or anxiolytics.",
+      "examRelevance": "Withdrawal risk can be medically dangerous.",
+      "relatedTerms": [],
+      "tags": [
+        "substance-related-disorder",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Selective Mutism",
+      "letter": "S",
+      "definition": "Consistent failure to speak in certain social settings despite speaking elsewhere.",
+      "examRelevance": "Differentiate from language disorder, autism, trauma, or defiance.",
+      "relatedTerms": [],
+      "tags": [
+        "anxiety-disorder"
+      ]
+    },
+    {
       "term": "Self-Actualization",
       "letter": "S",
       "definition": "Carl Rogers' concept of the natural drive toward growth, fulfillment, and becoming more fully oneself.",
@@ -1758,6 +4809,49 @@
       ],
       "tags": [
         "theories"
+      ]
+    },
+    {
+      "term": "Self-harm",
+      "letter": "S",
+      "definition": "Intentional self-injury that may or may not include intent to die.",
+      "examRelevance": "Assess function, lethality, intent, and safety.",
+      "relatedTerms": [],
+      "tags": [
+        "risk-symptom",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Self-neglect",
+      "letter": "S",
+      "definition": "Failure to meet own basic needs due to mental, cognitive, medical, or substance-related issues.",
+      "examRelevance": "Assess capacity, supports, protective services.",
+      "relatedTerms": [],
+      "tags": [
+        "clinical-risk-domain",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Separation Anxiety Disorder",
+      "letter": "S",
+      "definition": "Excessive developmentally inappropriate anxiety about separation from attachment figures.",
+      "examRelevance": "Can occur in children or adults.",
+      "relatedTerms": [],
+      "tags": [
+        "anxiety-disorder"
+      ]
+    },
+    {
+      "term": "Sexual assault",
+      "letter": "S",
+      "definition": "Nonconsensual sexual contact/activity.",
+      "examRelevance": "Prioritize safety, medical options, trauma-informed care.",
+      "relatedTerms": [],
+      "tags": [
+        "clinical-domain-risk",
+        "high-yield"
       ]
     },
     {
@@ -1773,6 +4867,27 @@
       "tags": [
         "theories",
         "behavioral"
+      ]
+    },
+    {
+      "term": "Sleep Terror Disorder",
+      "letter": "S",
+      "definition": "Abrupt terror arousals from sleep with limited recall.",
+      "examRelevance": "Differentiate from nightmares.",
+      "relatedTerms": [],
+      "tags": [
+        "sleep-wake-disorder"
+      ]
+    },
+    {
+      "term": "SMART goal",
+      "letter": "S",
+      "definition": "Specific, measurable, achievable, relevant, time-bound goal/objective.",
+      "examRelevance": "High-yield for treatment planning.",
+      "relatedTerms": [],
+      "tags": [
+        "treatment-planning",
+        "high-yield"
       ]
     },
     {
@@ -1803,6 +4918,26 @@
       ]
     },
     {
+      "term": "Social Anxiety Disorder",
+      "letter": "S",
+      "definition": "Fear of scrutiny, embarrassment, or negative evaluation in social situations.",
+      "examRelevance": "Differentiate from avoidant personality disorder and autism.",
+      "relatedTerms": [],
+      "tags": [
+        "anxiety-disorder"
+      ]
+    },
+    {
+      "term": "Social determinants of health",
+      "letter": "S",
+      "definition": "Social/environmental conditions affecting health such as income, housing, education, discrimination, safety, and access.",
+      "examRelevance": "Supports contextual case conceptualization.",
+      "relatedTerms": [],
+      "tags": [
+        "multicultural-clinical-domain"
+      ]
+    },
+    {
       "term": "Social Interest",
       "letter": "S",
       "definition": "Adlerian sense of connection to humanity and contribution to others; a marker of mental health.",
@@ -1813,6 +4948,16 @@
       ],
       "tags": [
         "theories"
+      ]
+    },
+    {
+      "term": "Social Pragmatic Communication Disorder",
+      "letter": "S",
+      "definition": "Difficulty with social use of verbal/nonverbal communication without autism-style restricted/repetitive behaviors.",
+      "examRelevance": "Differentiate from autism spectrum disorder.",
+      "relatedTerms": [],
+      "tags": [
+        "neurodevelopmental-disorder"
       ]
     },
     {
@@ -1830,6 +4975,98 @@
       ]
     },
     {
+      "term": "Solution-Focused Brief Therapy",
+      "letter": "S",
+      "definition": "Strengths-based, future-oriented approach focused on exceptions, goals, and small steps.",
+      "examRelevance": "Know miracle, scaling, exception questions.",
+      "relatedTerms": [],
+      "tags": [
+        "counseling-theory-intervention"
+      ]
+    },
+    {
+      "term": "Somatic Symptom Disorder",
+      "letter": "S",
+      "definition": "Distressing somatic symptoms plus excessive thoughts, feelings, or behaviors related to symptoms.",
+      "examRelevance": "Do not imply symptoms are fake.",
+      "relatedTerms": [],
+      "tags": [
+        "somatic-symptom-disorder"
+      ]
+    },
+    {
+      "term": "Specific Learning Disorder",
+      "letter": "S",
+      "definition": "Persistent difficulty learning academic skills such as reading, writing, or math.",
+      "examRelevance": "Often requires psychoeducational evaluation.",
+      "relatedTerms": [],
+      "tags": [
+        "neurodevelopmental-disorder"
+      ]
+    },
+    {
+      "term": "Specific Phobia",
+      "letter": "S",
+      "definition": "Marked fear or anxiety about a specific object or situation with avoidance/distress.",
+      "examRelevance": "Exposure-based treatment principles are important.",
+      "relatedTerms": [],
+      "tags": [
+        "anxiety-disorder"
+      ]
+    },
+    {
+      "term": "Specifier",
+      "letter": "S",
+      "definition": "Additional label describing severity, course, insight, symptom pattern, or presentation.",
+      "examRelevance": "Helps refine diagnoses in complex cases.",
+      "relatedTerms": [],
+      "tags": [
+        "diagnostic-classification",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Speech",
+      "letter": "S",
+      "definition": "Observed rate, volume, fluency, rhythm, and amount of speech.",
+      "examRelevance": "Pressured speech suggests mania; slowed speech suggests depression/medical issues.",
+      "relatedTerms": [],
+      "tags": [
+        "mse"
+      ]
+    },
+    {
+      "term": "Speech Sound Disorder",
+      "letter": "S",
+      "definition": "Difficulty producing expected speech sounds that interferes with communication.",
+      "examRelevance": "May require speech-language referral.",
+      "relatedTerms": [],
+      "tags": [
+        "neurodevelopmental-disorder"
+      ]
+    },
+    {
+      "term": "Spirituality",
+      "letter": "S",
+      "definition": "Sense of meaning, connection, values, or relationship to sacred/transcendent.",
+      "examRelevance": "Assess respectfully when relevant.",
+      "relatedTerms": [],
+      "tags": [
+        "clinical-domain"
+      ]
+    },
+    {
+      "term": "Stabilization",
+      "letter": "S",
+      "definition": "Reducing acute danger/distress enough for safe next steps.",
+      "examRelevance": "Precedes trauma processing.",
+      "relatedTerms": [],
+      "tags": [
+        "risk-intervention",
+        "high-yield"
+      ]
+    },
+    {
       "term": "Stages of Change",
       "letter": "S",
       "definition": "Model of behavior change: precontemplation, contemplation, preparation, action, maintenance, and relapse.",
@@ -1841,6 +5078,36 @@
       "tags": [
         "theories",
         "substance-use"
+      ]
+    },
+    {
+      "term": "Standardization",
+      "letter": "S",
+      "definition": "Consistent administration and scoring procedures.",
+      "examRelevance": "Important for fair assessment.",
+      "relatedTerms": [],
+      "tags": [
+        "psychometrics"
+      ]
+    },
+    {
+      "term": "Stimulant Use Disorder",
+      "letter": "S",
+      "definition": "Problematic stimulant use such as cocaine or amphetamines.",
+      "examRelevance": "Can mimic anxiety, mania, insomnia, or psychosis.",
+      "relatedTerms": [],
+      "tags": [
+        "substance-related-disorder"
+      ]
+    },
+    {
+      "term": "Strategic Family Therapy",
+      "letter": "S",
+      "definition": "Problem-focused family therapy emphasizing interaction patterns and directives.",
+      "examRelevance": "Know reframing and paradoxical interventions.",
+      "relatedTerms": [],
+      "tags": [
+        "family-therapy-model"
       ]
     },
     {
@@ -1873,6 +5140,70 @@
       ]
     },
     {
+      "term": "Sublimation",
+      "letter": "S",
+      "definition": "Channeling unacceptable impulses into acceptable activities.",
+      "examRelevance": "Adaptive defense.",
+      "relatedTerms": [],
+      "tags": [
+        "defense-mechanism"
+      ]
+    },
+    {
+      "term": "Subpoena",
+      "letter": "S",
+      "definition": "Legal demand for records or testimony.",
+      "examRelevance": "Do not automatically disclose everything; consult and protect confidentiality.",
+      "relatedTerms": [],
+      "tags": [
+        "legal-ethics",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Substance Use Disorder",
+      "letter": "S",
+      "definition": "Problematic substance use causing impairment or distress.",
+      "examRelevance": "High-yield for screening, MI, relapse prevention, and level of care.",
+      "relatedTerms": [],
+      "tags": [
+        "substance-related-disorder",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Substance-induced",
+      "letter": "S",
+      "definition": "Symptoms caused by intoxication, withdrawal, medication, or substance exposure.",
+      "examRelevance": "Common trap in psychosis, mood, and anxiety cases.",
+      "relatedTerms": [],
+      "tags": [
+        "diagnostic-reasoning",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Substance/Medication-Induced Psychotic Disorder",
+      "letter": "S",
+      "definition": "Psychosis caused by substances, withdrawal, medication, or toxin exposure.",
+      "examRelevance": "Assess timing of substance use.",
+      "relatedTerms": [],
+      "tags": [
+        "schizophrenia-spectrum-disorder"
+      ]
+    },
+    {
+      "term": "Subtype",
+      "letter": "S",
+      "definition": "Distinct presentation within a broader disorder when clinically meaningful.",
+      "examRelevance": "Useful for narrowing diagnosis.",
+      "relatedTerms": [],
+      "tags": [
+        "diagnostic-classification",
+        "high-yield"
+      ]
+    },
+    {
       "term": "Suicidal Ideation",
       "letter": "S",
       "definition": "Thoughts about suicide, ranging from passive wishes for death to active plans and intent.",
@@ -1887,16 +5218,54 @@
       ]
     },
     {
-      "term": "Donald Super",
+      "term": "Suicide risk assessment",
       "letter": "S",
-      "definition": "Career theorist Donald Super, who described lifespan career development and the implementation of self-concept across life roles.",
-      "examRelevance": "High-yield career counseling theory.",
-      "relatedTerms": [
-        "Life-Space",
-        "Career Development"
-      ],
+      "definition": "Assessment of suicidal thoughts, intent, plan, means, past attempts, protective factors, and supports.",
+      "examRelevance": "Direct questions are appropriate.",
+      "relatedTerms": [],
       "tags": [
-        "career"
+        "risk-clinical-priority",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Summarization",
+      "letter": "S",
+      "definition": "Pulling together key themes, feelings, and content.",
+      "examRelevance": "Useful for transitions and endings.",
+      "relatedTerms": [],
+      "tags": [
+        "counseling-skill"
+      ]
+    },
+    {
+      "term": "Supervision",
+      "letter": "S",
+      "definition": "Oversight/guidance from qualified professional.",
+      "examRelevance": "Important for limited-permit clinicians and complex cases.",
+      "relatedTerms": [],
+      "tags": [
+        "professional-practice"
+      ]
+    },
+    {
+      "term": "Sustain talk",
+      "letter": "S",
+      "definition": "Client statements favoring staying the same.",
+      "examRelevance": "Explore without arguing.",
+      "relatedTerms": [],
+      "tags": [
+        "mi-concept"
+      ]
+    },
+    {
+      "term": "Tangentiality",
+      "letter": "T",
+      "definition": "Speech goes off topic and does not return to original point.",
+      "examRelevance": "Thought-process clue.",
+      "relatedTerms": [],
+      "tags": [
+        "mse"
       ]
     },
     {
@@ -1942,6 +5311,37 @@
       ]
     },
     {
+      "term": "Thought blocking",
+      "letter": "T",
+      "definition": "Sudden interruption in train of thought.",
+      "examRelevance": "Can suggest psychosis, anxiety, trauma, or cognitive disruption.",
+      "relatedTerms": [],
+      "tags": [
+        "mse"
+      ]
+    },
+    {
+      "term": "Thought content",
+      "letter": "T",
+      "definition": "What client is thinking about, including delusions, obsessions, SI/HI, guilt, preoccupations.",
+      "examRelevance": "Critical for risk and psychosis assessment.",
+      "relatedTerms": [],
+      "tags": [
+        "mse",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Thought process",
+      "letter": "T",
+      "definition": "Organization and flow of thinking.",
+      "examRelevance": "Includes linear, tangential, circumstantial, loose, flight of ideas, thought blocking.",
+      "relatedTerms": [],
+      "tags": [
+        "mse"
+      ]
+    },
+    {
       "term": "Thought Record",
       "letter": "T",
       "definition": "CBT worksheet or strategy for identifying situations, thoughts, feelings, evidence, and alternative interpretations.",
@@ -1953,6 +5353,27 @@
       ],
       "tags": [
         "theories"
+      ]
+    },
+    {
+      "term": "Tic",
+      "letter": "T",
+      "definition": "Sudden, rapid, recurrent motor movement or vocalization.",
+      "examRelevance": "Relevant in tic disorders and differential diagnosis.",
+      "relatedTerms": [],
+      "tags": [
+        "symptom",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Tobacco Use Disorder",
+      "letter": "T",
+      "definition": "Problematic tobacco/nicotine use causing impairment or distress.",
+      "examRelevance": "Know behavior-change and relapse-prevention concepts.",
+      "relatedTerms": [],
+      "tags": [
+        "substance-related-disorder"
       ]
     },
     {
@@ -1971,6 +5392,26 @@
       ]
     },
     {
+      "term": "Tolerance",
+      "letter": "T",
+      "definition": "Need for more substance for same effect or reduced effect with same amount.",
+      "examRelevance": "Interpret in context of prescribed medication.",
+      "relatedTerms": [],
+      "tags": [
+        "substance-use-symptom"
+      ]
+    },
+    {
+      "term": "Tourette's Disorder",
+      "letter": "T",
+      "definition": "Tic disorder involving motor and vocal tics across time.",
+      "examRelevance": "Differentiate from compulsions and stereotypies.",
+      "relatedTerms": [],
+      "tags": [
+        "neurodevelopmental-disorder"
+      ]
+    },
+    {
       "term": "Transference",
       "letter": "T",
       "definition": "Client's unconscious redirection of feelings and expectations from past relationships onto the counselor.",
@@ -1981,6 +5422,16 @@
       ],
       "tags": [
         "theories"
+      ]
+    },
+    {
+      "term": "Trauma exposure",
+      "letter": "T",
+      "definition": "Exposure to actual/threatened death, serious injury, or sexual violence through direct, witnessed, learned, or repeated exposure contexts.",
+      "examRelevance": "Required consideration for PTSD and acute stress disorder.",
+      "relatedTerms": [],
+      "tags": [
+        "trauma-term"
       ]
     },
     {
@@ -2027,6 +5478,16 @@
       ]
     },
     {
+      "term": "Trichotillomania",
+      "letter": "T",
+      "definition": "Recurrent hair pulling with attempts to decrease or stop.",
+      "examRelevance": "Body-focused repetitive behavior.",
+      "relatedTerms": [],
+      "tags": [
+        "obsessive-compulsive-disorder"
+      ]
+    },
+    {
       "term": "Tuckman's Stages",
       "letter": "T",
       "definition": "Group development stages: forming, storming, norming, performing, and adjourning.",
@@ -2054,6 +5515,16 @@
       ]
     },
     {
+      "term": "Unique outcome",
+      "letter": "U",
+      "definition": "Moment when the problem did not dominate the client’s life/story.",
+      "examRelevance": "Supports re-authoring.",
+      "relatedTerms": [],
+      "tags": [
+        "narrative-technique"
+      ]
+    },
+    {
       "term": "Universality",
       "letter": "U",
       "definition": "Irvin Yalom therapeutic factor involving the realization that one is not alone in one's struggles.",
@@ -2064,6 +5535,17 @@
       ],
       "tags": [
         "group"
+      ]
+    },
+    {
+      "term": "Unspecified disorder",
+      "letter": "U",
+      "definition": "Used when symptoms cause impairment but information is insufficient or no reason is specified.",
+      "examRelevance": "Common in urgent or incomplete assessments.",
+      "relatedTerms": [],
+      "tags": [
+        "diagnostic-classification",
+        "high-yield"
       ]
     },
     {
@@ -2096,6 +5578,16 @@
       ]
     },
     {
+      "term": "Values clarification",
+      "letter": "V",
+      "definition": "Helping clients identify meaningful life directions.",
+      "examRelevance": "Useful for motivation and avoidance.",
+      "relatedTerms": [],
+      "tags": [
+        "act-intervention"
+      ]
+    },
+    {
       "term": "Vicarious Trauma",
       "letter": "V",
       "definition": "Cumulative transformation of the helper's worldview through repeated empathic exposure to trauma survivors.",
@@ -2107,6 +5599,16 @@
       "tags": [
         "trauma",
         "ethics"
+      ]
+    },
+    {
+      "term": "Vulnerable adult abuse",
+      "letter": "V",
+      "definition": "Suspected abuse, neglect, or exploitation of protected vulnerable adult.",
+      "examRelevance": "Report according to law.",
+      "relatedTerms": [],
+      "tags": [
+        "mandated-reporting"
       ]
     },
     {
@@ -2148,6 +5650,39 @@
       ],
       "tags": [
         "theories"
+      ]
+    },
+    {
+      "term": "Withdrawal",
+      "letter": "W",
+      "definition": "Symptoms after reducing or stopping substance use.",
+      "examRelevance": "Assess medical risk.",
+      "relatedTerms": [],
+      "tags": [
+        "substance-use-symptom",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Withdrawal risk",
+      "letter": "W",
+      "definition": "Risk of medically dangerous withdrawal, especially alcohol/benzodiazepines/opioids.",
+      "examRelevance": "Detox/medical referral may be needed.",
+      "relatedTerms": [],
+      "tags": [
+        "clinical-priority",
+        "high-yield"
+      ]
+    },
+    {
+      "term": "Worry",
+      "letter": "W",
+      "definition": "Future-oriented repetitive concern about possible negative outcomes.",
+      "examRelevance": "Central to GAD but appears across disorders.",
+      "relatedTerms": [],
+      "tags": [
+        "anxiety-symptom",
+        "high-yield"
       ]
     },
     {
