@@ -20,7 +20,7 @@
       "suicide_risk_tables",
       "safety_plan_builder",
       "trauma_concepts_cards",
-      "ptsd_treatment_comparison",
+      "PTSD_treatment_comparison",
       "disaster_phase_timeline",
       "exam_trap_callouts",
       "mini_case_cards",
@@ -31,7 +31,7 @@
       "trauma",
       "suicide-risk",
       "safety-planning",
-      "ptsd",
+      "PTSD",
       "disaster-mental-health",
       "ncmhce",
       "high-yield"
@@ -86,7 +86,7 @@
   ],
   "crisisFoundations": {
     "title": "Crisis Foundations",
-    "definition": "A crisis is a situation perceived as intolerable and beyond the person's current coping resources. It is typically time-limited, linked to a precipitating event, and associated with impaired functioning and significant subjective distress.",
+    "definition": "A crisis is a time-limited state of emotional disequilibrium in which a person perceives an event or condition as intolerable and beyond current coping resources. For NCMHCE purposes, a crisis is not automatically a diagnosis; it is a clinical situation requiring rapid assessment of safety, functioning, supports, coping capacity, and immediate next steps.",
     "keyFeatures": [
       "time-limited, often around 4 to 6 weeks",
       "usually triggered by an identifiable stressor",
@@ -136,10 +136,69 @@
       }
     ],
     "examPearls": [
-      "A crisis is not automatically a mental disorder.",
-      "The exam often tests whether you can identify the immediate crisis need rather than overpathologize the client.",
-      "Impaired functioning and overwhelmed coping are major clues."
-    ]
+      "A crisis is not automatically a mental disorder; the exam wants you to respond to current functioning and safety.",
+      "Do not skip risk assessment because the presenting problem sounds relational, academic, grief-related, or work-related.",
+      "The best first response is usually concrete and stabilizing: assess safety, regulate distress, activate supports, and plan next steps.",
+      "Crisis work is brief and focused. Save deep interpretation, trauma processing, or personality exploration until the client is stable.",
+      "Use the least restrictive safe option, but do not underreact when plan, intent, means, psychosis, intoxication, or severe agitation are present."
+    ],
+    "expandedFramework": {
+      "whatMakesSomethingACrisis": [
+        "The event is perceived as overwhelming, even if an outside observer might view it as manageable.",
+        "Usual coping skills are not working or are unavailable.",
+        "Functioning is impaired in one or more areas such as sleep, work, school, caregiving, judgment, impulse control, or relationships.",
+        "The person may show intense affect, numbness, confusion, agitation, helplessness, or narrowed problem-solving.",
+        "Risk can change quickly, so crisis assessment must be repeated as new information emerges."
+      ],
+      "primaryCounselorTasks": [
+        "Establish immediate physical and emotional safety.",
+        "Assess suicide risk, violence risk, abuse/neglect, psychosis, intoxication, medical instability, and access to lethal means.",
+        "Stabilize acute distress with grounding, calm presence, brief structure, and practical support.",
+        "Clarify the precipitating event and the client’s meaning of the event without turning the session into long-term insight therapy.",
+        "Identify current supports, coping strengths, cultural/community resources, and barriers to safety.",
+        "Create a concrete short-term plan with follow-up, documentation, and consultation when needed."
+      ],
+      "whatToAssessFirst": [
+        "Danger to self: ideation, plan, intent, means, preparatory behavior, past attempts, intoxication, psychosis, hopelessness.",
+        "Danger to others: target, threat specificity, intent, means, weapon access, command hallucinations, history of violence.",
+        "Basic safety and stabilization: housing, medical care, domestic violence, child/elder safety, food, transportation, supervision.",
+        "Level of functioning: ability to care for self/dependents, make decisions, use supports, and follow a safety plan.",
+        "Protective factors: reasons for living, relationships, beliefs, responsibilities, future orientation, treatment alliance."
+      ],
+      "levelsOfResponse": [
+        {
+          "level": "Supportive outpatient crisis response",
+          "useWhen": "Distress is high but the client can collaborate, denies imminent intent, has supports, and can follow a plan.",
+          "examples": [
+            "safety plan",
+            "means reduction",
+            "support activation",
+            "close follow-up",
+            "crisis line information"
+          ]
+        },
+        {
+          "level": "Urgent higher-level evaluation",
+          "useWhen": "Risk is unclear or elevated, supports are weak, symptoms are escalating, or the client’s ability to stay safe is questionable.",
+          "examples": [
+            "same-day crisis evaluation",
+            "mobile crisis",
+            "urgent psychiatric assessment",
+            "consultation/supervision"
+          ]
+        },
+        {
+          "level": "Emergency intervention",
+          "useWhen": "There is imminent danger, active plan and intent, access to lethal means, severe intoxication, psychosis, recent attempt, or inability/unwillingness to maintain safety.",
+          "examples": [
+            "emergency services",
+            "emergency department evaluation",
+            "hospitalization when indicated",
+            "duty to protect actions"
+          ]
+        }
+      ]
+    }
   },
   "crisisInterventionModels": {
     "title": "Crisis Intervention Models",
@@ -147,44 +206,122 @@
       {
         "name": "Roberts' 7-Stage Crisis Intervention Model",
         "stages": [
-          "Assess lethality and safety",
-          "Establish rapport rapidly",
-          "Identify the major problems",
-          "Deal with feelings and emotions",
-          "Explore alternatives",
-          "Develop an action plan",
-          "Follow up"
+          {
+            "stage": "1. Assess lethality and safety",
+            "whatItMeans": "Clarify danger to self/others, medical needs, psychosis, intoxication, abuse/neglect, and whether emergency action is needed before routine counseling continues."
+          },
+          {
+            "stage": "2. Establish rapport rapidly",
+            "whatItMeans": "Use calm, direct, respectful communication; convey safety and collaboration without minimizing the client’s distress."
+          },
+          {
+            "stage": "3. Identify the major problems",
+            "whatItMeans": "Focus on the immediate precipitating event and the problem that must be addressed today, rather than every historical issue."
+          },
+          {
+            "stage": "4. Deal with feelings and emotions",
+            "whatItMeans": "Allow expression, validate distress, use grounding, and reduce emotional flooding enough for problem-solving."
+          },
+          {
+            "stage": "5. Explore alternatives",
+            "whatItMeans": "Identify coping options, supports, resources, and barriers; avoid advice-giving before understanding risk and context."
+          },
+          {
+            "stage": "6. Develop an action plan",
+            "whatItMeans": "Create specific behavioral steps: who will do what, when, where, and how safety will be maintained."
+          },
+          {
+            "stage": "7. Follow up",
+            "whatItMeans": "Arrange timely contact, reassess risk, confirm referrals/supports, and document the rationale for the level of care."
+          }
         ],
-        "examUse": "Good framework for thinking through acute crisis response in sequence."
+        "examUse": "Use this model when the vignette asks what the counselor should do first or next in an acute crisis. Safety assessment comes before emotional processing or long-term interpretation."
       },
       {
         "name": "Gilliland & James 6-Step Model",
         "stages": [
-          "Define the problem",
-          "Ensure safety",
-          "Provide support",
-          "Examine alternatives",
-          "Make plans",
-          "Obtain commitment"
+          {
+            "stage": "Define the problem",
+            "whatItMeans": "Understand the crisis from the client’s perspective and identify the immediate issue."
+          },
+          {
+            "stage": "Ensure safety",
+            "whatItMeans": "Assess and manage danger to self/others, unsafe environments, lethal means, medical instability, and impaired judgment."
+          },
+          {
+            "stage": "Provide support",
+            "whatItMeans": "Offer empathic, active, nonjudgmental support and reduce isolation."
+          },
+          {
+            "stage": "Examine alternatives",
+            "whatItMeans": "Help the client generate realistic coping options, supports, and resources."
+          },
+          {
+            "stage": "Make plans",
+            "whatItMeans": "Translate options into a practical, immediate, step-by-step safety or coping plan."
+          },
+          {
+            "stage": "Obtain commitment",
+            "whatItMeans": "Confirm the client’s willingness and ability to follow the plan; if commitment is not credible and risk is high, increase the level of care."
+          }
         ],
-        "examUse": "Helpful when the exam asks for the next best step in a crisis interaction."
+        "examUse": "Helpful for distinguishing support from action. In crisis, empathy is necessary but not sufficient; the counselor must also ensure safety and create a concrete plan."
       },
       {
         "name": "Psychological First Aid (PFA)",
         "stages": [
-          "Prioritize safety",
-          "Promote calming",
-          "Support connectedness",
-          "Enhance self-efficacy",
-          "Instill hope"
+          {
+            "stage": "Contact and engagement",
+            "whatItMeans": "Approach respectfully and do not force interaction."
+          },
+          {
+            "stage": "Safety and comfort",
+            "whatItMeans": "Address immediate physical safety, basic needs, and emotional calming."
+          },
+          {
+            "stage": "Stabilization",
+            "whatItMeans": "Use grounding and supportive presence for people who are disoriented, panicked, or overwhelmed."
+          },
+          {
+            "stage": "Information gathering",
+            "whatItMeans": "Briefly identify current needs and concerns without requiring detailed trauma retelling."
+          },
+          {
+            "stage": "Practical assistance",
+            "whatItMeans": "Help with concrete needs such as shelter, medication access, family contact, transportation, or forms."
+          },
+          {
+            "stage": "Connection with social supports",
+            "whatItMeans": "Reunite family/support systems and reduce isolation."
+          },
+          {
+            "stage": "Coping information",
+            "whatItMeans": "Normalize common stress reactions and teach simple coping strategies."
+          },
+          {
+            "stage": "Linkage with services",
+            "whatItMeans": "Connect to ongoing care, crisis services, medical care, or community resources as needed."
+          }
         ],
-        "examUse": "Especially relevant for disaster and mass-trauma contexts. It does not involve forcing clients to recount trauma details."
+        "examUse": "Especially relevant after disasters, community violence, accidents, or mass trauma. PFA does not mean debriefing or forcing a trauma narrative."
       }
     ],
     "commonExamTraps": [
-      "Jumping into trauma processing before ensuring safety and stabilization",
-      "Trying to solve every long-term issue during the acute crisis encounter",
-      "Using confrontation when the client needs grounding, support, and structure"
+      "Jumping into trauma processing before ensuring safety and stabilization.",
+      "Exploring childhood causes while the client is acutely unsafe or unable to function.",
+      "Offering reassurance without assessing plan, intent, means, supports, and ability to follow a plan.",
+      "Treating a no-harm promise as adequate risk management.",
+      "Forcing disaster survivors to recount what happened instead of using PFA principles.",
+      "Failing to consult or escalate care when imminent risk, psychosis, intoxication, or weapon access is present."
+    ],
+    "overview": "Crisis models give the counselor a sequence for organizing urgent care. The NCMHCE usually tests whether you can choose the next safest and most clinically appropriate step, not whether you can recite a model. Across models, the sequence is similar: assess danger, make contact, define the problem, stabilize emotions, identify supports and alternatives, create a concrete plan, and follow up.",
+    "decisionSequence": [
+      "1. Is anyone in immediate danger? If yes, address safety and emergency needs first.",
+      "2. Is the client regulated enough to participate? If no, stabilize with grounding, calming, and simple structure.",
+      "3. What is the immediate precipitating problem? Define it narrowly enough to act on today.",
+      "4. What supports and resources can be activated now? Include natural supports, crisis services, medical resources, and supervision/consultation.",
+      "5. What is the concrete plan? Include means safety, coping steps, contacts, follow-up, and conditions for emergency help.",
+      "6. What documentation and consultation are needed? Record risk factors, protective factors, actions taken, and clinical rationale."
     ]
   },
   "suicideRiskSection": {
@@ -291,59 +428,140 @@
   },
   "safetyPlanningSection": {
     "title": "Safety Planning",
-    "overview": "A safety plan is a collaborative, practical document developed with the client to reduce acute suicide risk. It is evidence-based and action-oriented.",
+    "overview": "A safety plan is a collaborative, practical, personalized intervention used to reduce acute suicide risk and guide the client through moments of escalating danger. It should be written in the client’s own words when possible, rehearsed before the session ends, and paired with means safety and follow-up. It is not a liability form or a promise; it is a behavioral roadmap for surviving a crisis.",
     "coreComponents": [
       {
         "step": 1,
         "title": "Warning signs",
-        "description": "Identify personal signals that a crisis is escalating"
+        "description": "Identify the client’s personal cues that a crisis is building, such as thoughts, images, moods, body sensations, behaviors, anniversaries, interpersonal triggers, substance use, insomnia, or isolation.",
+        "examples": [
+          "I start pacing and checking my phone",
+          "I think everyone would be better off without me",
+          "I drink after an argument",
+          "I stop answering calls"
+        ]
       },
       {
         "step": 2,
         "title": "Internal coping strategies",
-        "description": "List activities the client can do alone to reduce distress"
+        "description": "List things the client can try alone before contacting others. These should be realistic, specific, and accessible during distress.",
+        "examples": [
+          "paced breathing",
+          "cold water/grounding",
+          "walk outside",
+          "music playlist",
+          "leave the bedroom and sit near the pet",
+          "delay action for 20 minutes"
+        ]
       },
       {
         "step": 3,
         "title": "Social settings or people for distraction",
-        "description": "Identify safe contacts or places that reduce isolation without requiring full disclosure"
+        "description": "Identify people or places that reduce isolation without requiring the client to disclose the full crisis immediately.",
+        "examples": [
+          "go to a coffee shop",
+          "sit with roommate",
+          "call cousin to talk about a neutral topic",
+          "attend recovery meeting"
+        ]
       },
       {
         "step": 4,
-        "title": "People to ask for help",
-        "description": "Specific supportive people the client can directly contact"
+        "title": "People to ask directly for help",
+        "description": "Name supportive people who can hear the truth and help the client stay safe. Include phone numbers and what the client will say.",
+        "examples": [
+          "I’m not safe alone tonight",
+          "Can you hold my medication?",
+          "Can I come sit with you for an hour?"
+        ]
       },
       {
         "step": 5,
         "title": "Professional and crisis resources",
-        "description": "Therapist, prescriber, clinic, 988, emergency services, local crisis options"
+        "description": "Include therapist/clinic contact, prescriber, local mobile crisis, 988, emergency department, emergency services, campus crisis line, veteran crisis line, or local domestic violence resources when relevant.",
+        "examples": [
+          "988 Suicide & Crisis Lifeline",
+          "local mobile crisis team",
+          "nearest emergency department",
+          "after-hours clinic number"
+        ]
       },
       {
         "step": 6,
         "title": "Means safety",
-        "description": "Reduce access to firearms, medications, sharp objects, or other lethal means"
+        "description": "Reduce access to lethal means during high-risk periods. This is one of the most important parts of the plan and should be specific, temporary when appropriate, and verified when possible.",
+        "examples": [
+          "firearms stored off-site or locked by another adult",
+          "medications held by spouse",
+          "limited medication quantities",
+          "remove ligatures/sharps when relevant",
+          "avoid driving to identified high-risk location"
+        ]
       },
       {
         "step": 7,
         "title": "Reasons for living",
-        "description": "Personally meaningful anchors that support survival"
+        "description": "Identify personally meaningful anchors that help the client delay action and reconnect with values, relationships, identity, faith, goals, responsibilities, or future events.",
+        "examples": [
+          "children",
+          "pet",
+          "graduation",
+          "faith commitment",
+          "promise to call sister first",
+          "wanting another chance at recovery"
+        ]
       }
     ],
     "safetyPlanVsNoHarmContract": [
       {
         "concept": "Safety Plan",
-        "description": "Collaborative, specific, behavioral, and evidence-based"
+        "description": "Collaborative, specific, behavioral, evidence-based, includes warning signs, coping steps, support contacts, professional resources, means safety, and follow-up."
       },
       {
         "concept": "No-Harm Contract",
-        "description": "Asks for a promise not to self-harm, but is not evidence-based and may create false reassurance"
+        "description": "Asks the client to promise not to self-harm. It is not a substitute for assessment, safety planning, means restriction, consultation, or higher level of care and can create false reassurance."
       }
     ],
     "examPearls": [
       "The exam strongly favors safety plans over no-harm contracts.",
       "Means restriction is often one of the most important and concrete interventions.",
-      "A safety plan should be personalized, not generic."
-    ]
+      "A safety plan should be personalized, not generic.",
+      "A safety plan is appropriate only when the client can collaborate and imminent danger is not overriding outpatient care.",
+      "If plan, intent, means, and inability to stay safe are present, choose emergency evaluation rather than routine safety planning alone."
+    ],
+    "whenToUse": [
+      "Any disclosure of suicidal ideation, even when passive, should prompt further risk assessment and consideration of a safety plan.",
+      "Use when the client is not at imminent risk but needs concrete steps for managing escalation.",
+      "Use after hospitalization or emergency evaluation as part of continuity of care.",
+      "Use with trauma, depression, substance use, grief, shame, or impulsivity when risk can increase during intense affect.",
+      "Do not use safety planning as a substitute for emergency intervention when the client has active intent, a specific lethal plan, access to means, recent attempt, severe intoxication/psychosis, or cannot collaborate."
+    ],
+    "qualityMarkers": [
+      "Specific: includes names, numbers, places, actions, and timing.",
+      "Personalized: uses the client’s actual triggers, words, supports, culture, and barriers.",
+      "Collaborative: developed with the client, not handed to the client as a generic worksheet.",
+      "Behavioral: tells the client exactly what to do when risk escalates.",
+      "Rehearsed: the counselor checks whether the client can realistically use each step.",
+      "Updated: revised when risk factors, supports, living situation, or access to means changes."
+    ],
+    "meansSafetyDetails": [
+      "Ask specifically about firearms, medications, knives/sharps, ropes/ligatures, vehicles, toxic substances, high places, and any method named in the plan.",
+      "Firearms require special attention because lethality is high and crises can be brief. Safe responses may include off-site storage where legal/appropriate, changing access, locking by another responsible adult, or involving family/supports with consent when possible.",
+      "Medication safety may include limited dispensing, blister packs, lockboxes controlled by another adult, prescriber coordination, or removing old medications.",
+      "Means safety should be framed as temporary crisis protection, not punishment or loss of autonomy.",
+      "If the client refuses means safety and imminent risk is present, the counselor should consider higher level of care or emergency intervention."
+    ],
+    "documentationAndFollowUp": [
+      "Document risk factors, protective factors, client statements, plan/intent/means findings, consultation, and the rationale for the chosen level of care.",
+      "Record the actual safety steps, means safety actions, crisis contacts, and follow-up interval.",
+      "Arrange closer follow-up when risk is elevated, after a recent attempt, after discharge, after major loss, or when supports are limited.",
+      "If working with minors, dependent adults, or situations involving abuse/neglect, consider mandated reporting and guardian/caregiver involvement consistent with law and ethics."
+    ],
+    "miniScenario": {
+      "prompt": "A client reports passive suicidal thoughts after a breakup, denies plan or intent, names two supportive friends, agrees to remove old medications from the apartment, and wants help getting through the next 48 hours.",
+      "bestResponse": "Complete a fuller suicide risk assessment, develop a personalized safety plan, reduce medication access, activate supports, provide crisis resources, and schedule close follow-up.",
+      "why": "The case shows meaningful risk but not clear imminent intent. The exam rewards structured safety planning plus means safety and follow-up."
+    }
   },
   "violenceRiskSection": {
     "title": "Homicidal / Violence Risk Assessment",
