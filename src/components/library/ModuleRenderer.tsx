@@ -138,21 +138,35 @@ const formatValue = (value: string) =>
     .replace(/\bMse\b/g, "MSE")
     .replace(/\bRoi\b/g, "ROI");
 
-const getObjectTitle = (item: any, index: number) => {
-  const titleKey = ["title", "name", "context", "class", "type", "format", "stage", "concept", "medication", "domain"].find(
-    (key) => typeof item?.[key] === "string" && item[key].trim().length > 0,
-  );
+const compactLabel = (value: string) => {
+  const formatted = formatValue(value);
+  return formatted.length > 72 ? `${formatted.slice(0, 69).trim()}…` : formatted;
+};
+
+const getObjectTitle = (item: any, index: number, sectionTitle = "Topic") => {
+  const titleKey = [
+    "title", "name", "context", "topic", "label", "principle", "factor", "stage", "phase", "category", "domain",
+    "class", "type", "format", "concept", "medication", "intervention", "strategy", "skill", "issue", "bestConcept",
+    "bestLeaderMove", "bestStage", "question", "case",
+  ].find((key) => typeof item?.[key] === "string" && item[key].trim().length > 0);
+
+  const fallbackEntry = Object.entries(item ?? {}).find(([, value]) => typeof value === "string" && value.trim().length > 0);
+  const fallbackLabel = formatKey(sectionTitle).replace(/s$/, "") || "Topic";
 
   return {
-    key: titleKey,
-    label: titleKey ? formatValue(item[titleKey]) : `Item ${index + 1}`,
+    key: titleKey ?? (fallbackEntry?.[0] as string | undefined),
+    label: titleKey
+      ? compactLabel(item[titleKey])
+      : fallbackEntry
+        ? compactLabel(fallbackEntry[1] as string)
+        : `${fallbackLabel} ${index + 1}`,
   };
 };
 
 const CompactObjectBrowser = ({ title, items }: { title: string; items: any[] }) => {
   const [selectedIndex, setSelectedIndex] = useState(0);
   const selected = items[selectedIndex];
-  const selectedTitle = getObjectTitle(selected, selectedIndex);
+  const selectedTitle = getObjectTitle(selected, selectedIndex, title);
 
   return (
     <div className="rounded-lg border border-border bg-muted/30 p-3">
@@ -160,10 +174,10 @@ const CompactObjectBrowser = ({ title, items }: { title: string; items: any[] })
         <span className="text-xs font-semibold text-primary uppercase tracking-wide">{title}</span>
         <Badge variant="outline" className="text-xs">{items.length} topics</Badge>
       </div>
-      <div className="grid gap-3 md:grid-cols-[minmax(180px,260px)_1fr]">
+      <div className="grid items-start gap-3 md:grid-cols-[minmax(180px,260px)_1fr]">
         <div className="max-h-80 space-y-1 overflow-y-auto pr-1">
           {items.map((item, index) => {
-            const itemTitle = getObjectTitle(item, index).label;
+            const itemTitle = getObjectTitle(item, index, title).label;
             return (
               <Button
                 key={index}
@@ -177,7 +191,7 @@ const CompactObjectBrowser = ({ title, items }: { title: string; items: any[] })
             );
           })}
         </div>
-        <Card className="card-elevated bg-background">
+        <Card className="card-elevated bg-background self-start">
           <CardContent className="p-4 space-y-3">
             <div className="flex flex-wrap items-center gap-2">
               <h3 className="text-base font-semibold text-foreground">{selectedTitle.label}</h3>
