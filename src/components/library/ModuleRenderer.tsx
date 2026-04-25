@@ -1094,7 +1094,7 @@ const TheoryCards = ({ theories }: { theories: any[] }) => (
                         </div>
                       ) : (
                         <ul className="space-y-1">
-                          {value.slice(0, 5).map((item: string, i: number) => <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground"><span className="text-primary">•</span>{item}</li>)}
+                          {value.map((item: string, i: number) => <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground"><span className="text-primary">•</span>{item}</li>)}
                         </ul>
                       )}
                     </div>
@@ -1105,7 +1105,7 @@ const TheoryCards = ({ theories }: { theories: any[] }) => (
                     <div key={key} className="rounded-lg border border-border bg-muted/30 p-3">
                       <p className="mb-2 text-xs font-semibold uppercase tracking-wide text-primary">{formatKey(key)}</p>
                       <div className="space-y-2">
-                        {value.slice(0, 4).map((item: any, i: number) => (
+                        {value.map((item: any, i: number) => (
                           <p key={i} className="text-sm text-muted-foreground"><span className="font-medium text-foreground">{item.term || item.module || item.title || item.trap || `Item ${i + 1}`}: </span>{item.definition || item.description || item.rationale || (Array.isArray(item.skills) ? item.skills.join(", ") : "")}</p>
                         ))}
                       </div>
