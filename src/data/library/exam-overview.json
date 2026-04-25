@@ -180,21 +180,21 @@
         "title": "Human Development & Lifespan",
         "whyItMatters": "Developmental expectations change assessment, diagnosis, family cases, and intervention style.",
         "highYieldFocus": [
-          "Erikson",
-          "Piaget",
+          "Erik Erikson - psychosocial development",
+          "Jean Piaget - cognitive development",
           "Attachment",
           "Identity development",
           "Aging",
-          "Bronfenbrenner"
+          "Urie Bronfenbrenner - ecological systems theory"
         ],
         "linkedModule": "human-development-and-lifespan"
       },
       {
         "domainId": "group-counseling",
         "title": "Group Counseling",
-        "whyItMatters": "Group items often test Yalom factors, stages of group development, leader skills, and group ethics.",
+        "whyItMatters": "Group items often test Irvin Yalom therapeutic factors, stages of group development, leader skills, and group ethics.",
         "highYieldFocus": [
-          "Yalom",
+          "Irvin Yalom - therapeutic factors",
           "Tuckman/Corey stages",
           "linking",
           "blocking",
@@ -222,9 +222,9 @@
         "whyItMatters": "Career concerns are often embedded in identity, transition, adjustment, and role-balance cases.",
         "highYieldFocus": [
           "RIASEC",
-          "Super",
-          "Krumboltz",
-          "Gottfredson",
+          "Donald Super - lifespan career theory",
+          "John Krumboltz - career social learning theory",
+          "Linda Gottfredson - circumscription and compromise",
           "career assessment tools"
         ],
         "linkedModule": "career-development"

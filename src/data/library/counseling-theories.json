@@ -835,8 +835,8 @@
       ],
       "examTraps": [
         "Giving advice in a supposedly person-centered response",
-        "Challenging irrational beliefs, which fits REBT/CBT more than Rogers",
-        "Interpreting unconscious motives, which fits psychodynamic work more than Rogers"
+        "Challenging irrational beliefs, which fits REBT/CBT more than Carl Rogers' person-centered therapy",
+        "Interpreting unconscious motives, which fits psychodynamic work more than Carl Rogers' person-centered therapy"
       ],
       "miniCase": {
         "prompt": "A client says, 'I feel like no matter what I do, I'll never be enough for my parents.'",
@@ -902,7 +902,7 @@
         "why": "Adlerian therapy links early recollections and family constellation to present beliefs and striving."
       },
       "quickReview": [
-        "Adler = belonging, significance, encouragement, early recollections.",
+        "Alfred Adler = belonging, significance, encouragement, early recollections.",
         "Behavior is purposeful, not random.",
         "Social interest is central."
       ]
@@ -1022,7 +1022,7 @@
         "why": "REBT specifically targets absolutistic and self-downing beliefs."
       },
       "quickReview": [
-        "REBT is more directive than Rogers.",
+        "REBT is more directive than Carl Rogers' person-centered therapy.",
         "Listen for musts, shoulds, and awfulizing.",
         "ABCDE is the memory anchor."
       ]
@@ -1409,7 +1409,7 @@
         "self-efficacy barriers"
       ],
       "watchForOnExam": [
-        "Krumboltz is most likely in career cases involving learning history, modeling, happenstance, or limiting career beliefs."
+        "John Krumboltz is most likely in career cases involving learning history, modeling, happenstance, or limiting career beliefs."
       ],
       "examTraps": [
         "Treating career choice as fixed trait matching only",
@@ -1419,10 +1419,10 @@
       "miniCase": {
         "prompt": "A client says they never considered healthcare careers until volunteering unexpectedly sparked interest.",
         "bestApproach": "Use planned happenstance and exploration to turn the chance event into informed career action.",
-        "why": "Krumboltz emphasizes learning experiences and chance opportunities."
+        "why": "John Krumboltz emphasizes learning experiences and chance opportunities."
       },
       "quickReview": [
-        "Krumboltz = career learning, modeling, reinforcement, happenstance.",
+        "John Krumboltz = career learning, modeling, reinforcement, happenstance.",
         "It belongs with career theory but is officially listed as a theoretical framework."
       ]
     },
@@ -1577,7 +1577,7 @@
         "why": "Bowenian therapy targets triangulated anxiety regulation."
       },
       "quickReview": [
-        "Bowen = differentiation, triangles, genograms, reactivity.",
+        "Murray Bowen = differentiation, triangles, genograms, reactivity.",
         "More differentiation means more ability to stay connected without losing self.",
         "Do not confuse cutoff with health."
       ]
@@ -1662,8 +1662,8 @@
       "title": "Person-Centered vs REBT",
       "points": [
         "Person-centered therapy is non-directive and empathic; REBT is more active and disputational.",
-        "Rogers emphasizes the relationship as curative; Ellis emphasizes challenging irrational beliefs.",
-        "If the answer reflects feeling, it may be Rogers; if it disputes a rigid belief, it may be REBT."
+        "Carl Rogers emphasizes the relationship as curative; Ellis emphasizes challenging irrational beliefs.",
+        "If the answer reflects feeling, it may be Carl Rogers' person-centered therapy; if it disputes a rigid belief, it may be REBT."
       ]
     },
     {
@@ -1687,7 +1687,7 @@
       "points": [
         "Structural therapy actively reorganizes family interactions in the present.",
         "Bowenian therapy emphasizes differentiation, anxiety, and multigenerational process.",
-        "Structural asks how the family is organized; Bowen asks how anxiety is transmitted and managed."
+        "Structural asks how the family is organized; Murray Bowen asks how anxiety is transmitted and managed."
       ]
     }
   ],
@@ -1754,14 +1754,14 @@
       "CBT = thoughts-feelings-behaviors",
       "DBT = acceptance + change",
       "ACT = accept + defuse + values + action",
-      "Rogers = empathy + UPR + congruence",
+      "Carl Rogers = empathy + UPR + congruence",
       "REBT = dispute irrational beliefs",
       "SFBT = exceptions and preferred future",
       "MI = explore ambivalence",
       "Gestalt = here-and-now + empty chair",
       "EFT = attachment cycle",
       "Structural = boundaries and hierarchy",
-      "Bowen = differentiation and triangles"
+      "Murray Bowen = differentiation and triangles"
     ],
     "finalTakeaways": [
       "The exam cares most about application, not trivia.",

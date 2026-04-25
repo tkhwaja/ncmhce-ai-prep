@@ -30,7 +30,7 @@
     "tags": [
       "group-counseling",
       "group-process",
-      "yalom",
+      "irvin-yalom",
       "group-stages",
       "group-ethics",
       "ncmhce",
@@ -38,10 +38,10 @@
     ]
   },
   "intro": {
-    "summary": "This module covers the major concepts in group counseling that appear on the NCMHCE, including Yalom's therapeutic factors, stages of group development, types of groups, group leader interventions, group ethics, screening and selection, and how group process differs from individual counseling.",
+    "summary": "This module covers the major concepts in group counseling that appear on the NCMHCE, including Irvin Yalom's therapeutic factors, stages of group development, types of groups, group leader interventions, group ethics, screening and selection, and how group process differs from individual counseling.",
     "learningObjectives": [
       "Explain why group counseling can be therapeutically powerful in ways individual counseling cannot fully replicate",
-      "Recognize Yalom's therapeutic factors in case vignettes",
+      "Recognize Irvin Yalom's therapeutic factors in case vignettes",
       "Identify stages of group development and the most appropriate leader response at each stage",
       "Differentiate psychotherapy, counseling, psychoeducational, task, and support groups",
       "Use key group leader interventions such as linking, blocking, drawing out, and here-and-now processing",
@@ -49,7 +49,7 @@
       "Recognize common group process problems and choose the best clinical next step"
     ],
     "howToUse": [
-      "Start with why group counseling works, then learn Yalom's factors thoroughly.",
+      "Start with why group counseling works, then learn Irvin Yalom's factors thoroughly.",
       "Study the group stages and leader role shifts together, because the exam often pairs them.",
       "Practice distinguishing supportive leader responses from strong process interventions like blocking or linking.",
       "Review group ethics separately from individual ethics, because the differences are high-yield."
@@ -100,8 +100,8 @@
     ]
   },
   "yalomSection": {
-    "title": "Yalom's 11 Therapeutic Factors",
-    "overview": "Yalom's factors explain why groups can be curative. These are among the most heavily tested group concepts on the exam.",
+    "title": "Irvin Yalom's 11 Therapeutic Factors",
+    "overview": "Irvin Yalom's factors explain why groups can be curative. These are among the most heavily tested group concepts on the exam.",
     "factors": [
       {
         "name": "Instillation of Hope",
@@ -661,7 +661,7 @@
     ]
   },
   "commonExamTraps": [
-    "Confusing Yalom's factors with general supportive statements",
+    "Confusing Irvin Yalom's factors with general supportive statements",
     "Treating storming as failure rather than a normal developmental phase",
     "Choosing a passive response when blocking is needed for safety",
     "Promising confidentiality as if the leader can guarantee member behavior",
@@ -698,7 +698,7 @@
   ],
   "quickReview": {
     "memoryHooks": [
-      "Yalom = why groups heal",
+      "Irvin Yalom = why groups heal",
       "Forming = structure",
       "Storming = conflict",
       "Norming = cohesion",
@@ -717,7 +717,7 @@
   },
   "checkpointQuestions": [
     {
-      "question": "Which Yalom factor is present when a member realizes others share the same struggle?",
+      "question": "Which Irvin Yalom therapeutic factor is present when a member realizes others share the same struggle?",
       "answer": "Universality"
     },
     {
@@ -742,6 +742,6 @@
       "Study Library",
       "Group Counseling"
     ],
-    "notes": "Expanded into a production-ready module emphasizing Yalom's therapeutic factors, stages of group development, leader interventions, group ethics, screening, and exam-style process decision-making."
+    "notes": "Expanded into a production-ready module emphasizing Irvin Yalom's therapeutic factors, stages of group development, leader interventions, group ethics, screening, and exam-style process decision-making."
   }
 }

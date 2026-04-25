@@ -133,7 +133,7 @@
     {
       "term": "Altruism",
       "letter": "A",
-      "definition": "Yalom therapeutic factor in which group members benefit from helping each other.",
+      "definition": "Irvin Yalom therapeutic factor in which group members benefit from helping each other.",
       "examRelevance": "Often tested in group scenarios.",
       "relatedTerms": [
         "Universality",
@@ -189,12 +189,12 @@
     {
       "term": "Assimilation",
       "letter": "A",
-      "definition": "Piaget concept describing how new information is fitted into existing mental schemas.",
+      "definition": "Jean Piaget concept describing how new information is fitted into existing mental schemas.",
       "examRelevance": "Appears in human development questions.",
       "relatedTerms": [
         "Accommodation",
         "Schema",
-        "Piaget"
+        "Jean Piaget"
       ],
       "tags": [
         "development"
@@ -390,11 +390,11 @@
     {
       "term": "Circumscription",
       "letter": "C",
-      "definition": "Gottfredson concept describing how children narrow career options over time based on role expectations, prestige, and interests.",
+      "definition": "Linda Gottfredson concept describing how children narrow career options over time based on role expectations, prestige, and interests.",
       "examRelevance": "High-yield in career development.",
       "relatedTerms": [
         "Compromise",
-        "Gottfredson",
+        "Linda Gottfredson",
         "Career Development"
       ],
       "tags": [
@@ -1012,7 +1012,7 @@
       ]
     },
     {
-      "term": "Holland Codes",
+      "term": "John Holland Codes",
       "letter": "H",
       "definition": "RIASEC career typology: Realistic, Investigative, Artistic, Social, Enterprising, Conventional.",
       "examRelevance": "High-yield career counseling framework.",
@@ -1147,9 +1147,9 @@
       ]
     },
     {
-      "term": "Krumboltz",
+      "term": "John Krumboltz",
       "letter": "K",
-      "definition": "Career theorist known for social learning theory of career development and planned happenstance.",
+      "definition": "Career theorist John Krumboltz, known for social learning theory of career development and planned happenstance.",
       "examRelevance": "High-yield career counseling theory.",
       "relatedTerms": [
         "Planned Happenstance",
@@ -1444,11 +1444,11 @@
     {
       "term": "Object Permanence",
       "letter": "O",
-      "definition": "Piaget concept that objects continue to exist even when out of sight.",
+      "definition": "Jean Piaget concept that objects continue to exist even when out of sight.",
       "examRelevance": "Human development concept in early childhood.",
       "relatedTerms": [
         "Sensorimotor Stage",
-        "Piaget"
+        "Jean Piaget"
       ],
       "tags": [
         "development"
@@ -1683,10 +1683,10 @@
     {
       "term": "RIASEC",
       "letter": "R",
-      "definition": "Holland's six career interest/environment types: Realistic, Investigative, Artistic, Social, Enterprising, Conventional.",
+      "definition": "John Holland's six career interest/environment types: Realistic, Investigative, Artistic, Social, Enterprising, Conventional.",
       "examRelevance": "High-yield career concept.",
       "relatedTerms": [
-        "Holland Codes",
+        "John Holland Codes",
         "SDS"
       ],
       "tags": [
@@ -1887,9 +1887,9 @@
       ]
     },
     {
-      "term": "Super",
+      "term": "Donald Super",
       "letter": "S",
-      "definition": "Career theorist who described lifespan career development and the implementation of self-concept across life roles.",
+      "definition": "Career theorist Donald Super, who described lifespan career development and the implementation of self-concept across life roles.",
       "examRelevance": "High-yield career counseling theory.",
       "relatedTerms": [
         "Life-Space",
