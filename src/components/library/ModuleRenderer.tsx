@@ -1339,8 +1339,8 @@ const GenericSection = ({ title, data }: { title: string; data: any }) => {
 };
 
 /* ---- Object content renderer ---- */
-const renderObjectContent = (obj: any): React.ReactNode => {
-  const skipKeys = new Set(["title", "overview", "examPearls", "examPearl", "sourceBasis", "moduleId", "moduleTitle", "moduleType", "version", "exam", "uiHints", "intro", "id"]);
+const renderObjectContent = (obj: any, extraSkipKeys: Set<string> = new Set()): React.ReactNode => {
+  const skipKeys = new Set(["title", "overview", "examPearls", "examPearl", "sourceBasis", "moduleId", "moduleTitle", "moduleType", "version", "exam", "uiHints", "intro", "id", ...extraSkipKeys]);
 
   return (
     <>
@@ -1362,8 +1362,12 @@ const renderObjectContent = (obj: any): React.ReactNode => {
           );
         }
 
-        // Render nested arrays of objects as readable cards instead of raw JSON strings.
+        // Render nested arrays of objects as a compact browser so dense modules avoid endless scrolling.
         if (Array.isArray(value) && value.length > 0 && typeof value[0] === "object") {
+          if (value.length > 2) {
+            return <CompactObjectBrowser key={key} title={formatKey(key)} items={value} />;
+          }
+
           return (
             <div key={key} className="rounded-lg border border-border bg-muted/30 p-3">
               <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
