@@ -1297,6 +1297,22 @@ const renderObjectContent = (obj: any): React.ReactNode => {
           );
         }
 
+        // Render nested arrays of objects as readable cards instead of raw JSON strings.
+        if (Array.isArray(value) && value.length > 0 && typeof value[0] === "object") {
+          return (
+            <div key={key} className="rounded-lg border border-border bg-muted/30 p-3">
+              <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
+              <div className="mt-2 grid gap-2">
+                {value.map((item, itemIndex) => (
+                  <Card key={itemIndex} className="card-elevated">
+                    <CardContent className="p-3">{renderObjectContent(item)}</CardContent>
+                  </Card>
+                ))}
+              </div>
+            </div>
+          );
+        }
+
         // Render severity object as key-value
         if (typeof value === "object" && !Array.isArray(value)) {
           return (
@@ -1309,14 +1325,14 @@ const renderObjectContent = (obj: any): React.ReactNode => {
                       <p className="text-sm font-medium text-foreground">{formatKey(k)}</p>
                       <ul className="ml-4 space-y-1">
                         {v.map((item, itemIndex) => (
-                          <li key={itemIndex} className="flex items-start gap-1 text-sm text-muted-foreground"><span className="text-primary text-xs">•</span>{typeof item === "string" ? item : JSON.stringify(item)}</li>
+                          <li key={itemIndex} className="flex items-start gap-1 text-sm text-muted-foreground"><span className="text-primary text-xs">•</span>{typeof item === "string" ? item : renderObjectContent(item)}</li>
                         ))}
                       </ul>
                     </div>
                   ) : (
                     <p key={k} className="text-sm text-muted-foreground">
                       <span className="font-medium text-foreground capitalize">{formatKey(k)}: </span>
-                      {typeof v === "string" ? formatValue(v) : JSON.stringify(v)}
+                      {typeof v === "string" ? formatValue(v) : renderObjectContent(v)}
                     </p>
                   )
                 ))}
