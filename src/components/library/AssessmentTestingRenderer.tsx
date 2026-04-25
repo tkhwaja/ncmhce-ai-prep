@@ -562,7 +562,10 @@ const RiskTab = ({ data }: { data: any }) => {
         {domains.map((d: any, i: number) => (
           <Card key={i} className="card-elevated">
             <CardContent className="space-y-2 p-4">
-              <p className="text-base font-semibold text-foreground">{d.title}</p>
+              <div className="flex flex-wrap items-center gap-2">
+                <p className="text-base font-semibold text-foreground">{d.title}</p>
+                <ExamLikelihoodBadge topic={d.title} context="risk safety assessment" compact />
+              </div>
               {d.mustAssess && (
                 <p className="text-sm text-muted-foreground leading-relaxed">
                   <span className="font-medium text-foreground">Must assess: </span>
@@ -710,7 +713,10 @@ const RiskTab = ({ data }: { data: any }) => {
             {loc.levels.map((lv: any, i: number) => (
               <Card key={i} className="card-elevated">
                 <CardContent className="space-y-1.5 p-4">
-                  <p className="text-base font-semibold text-foreground">{lv.level}</p>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <p className="text-base font-semibold text-foreground">{lv.level}</p>
+                    <ExamLikelihoodBadge topic={lv.level} context="level of care treatment planning" compact />
+                  </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">{lv.description}</p>
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     <span className="font-medium text-foreground">Best fit: </span>
@@ -782,7 +788,10 @@ const PsychometricsTab = ({ data }: { data: any }) => {
             {termCards.cards.map((c: any, i: number) => (
               <Card key={i} className="card-elevated">
                 <CardContent className="space-y-1 p-4">
-                  <p className="text-sm font-semibold text-foreground">{c.term}</p>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <p className="text-sm font-semibold text-foreground">{c.term}</p>
+                    <ExamLikelihoodBadge topic={c.term} context="psychometrics assessment" compact />
+                  </div>
                   <p className="text-xs text-muted-foreground leading-relaxed">{c.meaning}</p>
                   {c.examPearl && (
                     <p className="rounded bg-primary/5 px-2 py-1 text-xs text-foreground">
