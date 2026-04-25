@@ -193,13 +193,16 @@ const IntroSection = ({ intro }: { intro: any }) => (
       </div>
     )}
     {intro.howToUse?.length > 0 && (
-      <CollapsibleSection title="How to Use This Module">
-        <ul className="space-y-1">
-          {intro.howToUse.map((h: string, i: number) => (
-            <li key={i} className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-0.5">→</span>{h}</li>
-          ))}
-        </ul>
-      </CollapsibleSection>
+      <Card className="card-elevated">
+        <CardContent className="p-4">
+          <h3 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2"><BookOpen className="h-4 w-4 text-primary" /> How to Use This Module</h3>
+          <ul className="space-y-1">
+            {intro.howToUse.map((h: string, i: number) => (
+              <li key={i} className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-0.5">→</span>{h}</li>
+            ))}
+          </ul>
+        </CardContent>
+      </Card>
     )}
   </div>
 );
@@ -1371,121 +1374,128 @@ const DiagnosticCategories = ({ categories }: { categories: any[] }) => (
     <SectionHeading icon={BookOpen} subtitle="Conditions you must recognize and differentiate.">Diagnostic Categories</SectionHeading>
     <div className="space-y-4">
       {categories.map((cat, i) => (
-        <CollapsibleSection key={i} title={cat.title} defaultOpen={i === 0}>
-          {cat.overview && <p className="text-sm text-muted-foreground mb-3">{cat.overview}</p>}
-          {cat.highYieldDisorders?.map((disorder: any, j: number) => (
-            <CollapsibleSection key={j} title={disorder.title}>
-              {disorder.description && (
-                <div className="mb-4 rounded-lg border border-border bg-card p-4">
-                  <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-1.5">What it is</p>
-                  <p className="text-base text-foreground leading-relaxed">{disorder.description}</p>
-                </div>
-              )}
-              {disorder.hallmark && (
-                <Alert className="border-primary/30 bg-primary/5 mb-3">
-                  <Target className="h-4 w-4 text-primary" />
-                  <AlertDescription className="text-sm text-foreground">
-                    <span className="font-semibold">Hallmark: </span>{disorder.hallmark}
-                  </AlertDescription>
-                </Alert>
-              )}
-              {disorder.coreCriteria && (
-                <div className="mb-3">
-                  <p className="text-xs font-semibold text-foreground uppercase tracking-wide mb-1">Core Criteria</p>
-                  <ul className="space-y-1 ml-4">
-                    {disorder.coreCriteria.map((c: string, k: number) => (
-                      <li key={k} className="text-sm text-muted-foreground flex items-start gap-1">
-                        <span className="text-primary text-xs">•</span>{c}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              {disorder.minimumThreshold && (
-                <p className="text-sm text-muted-foreground mb-2">
-                  <span className="font-medium text-foreground">Minimum Threshold: </span>{disorder.minimumThreshold}
-                </p>
-              )}
-              {disorder.mustRuleOut && (
-                <div className="mb-3">
-                  <p className="text-xs font-semibold text-foreground uppercase tracking-wide mb-1">Must Rule Out</p>
-                  <ul className="space-y-1 ml-4">
-                    {disorder.mustRuleOut.map((r: string, k: number) => (
-                      <li key={k} className="text-sm text-muted-foreground flex items-start gap-1">
-                        <span className="text-destructive text-xs">✕</span>{r}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              )}
-              {disorder.severity && typeof disorder.severity === "object" && (
-                <div className="mb-3">
-                  <p className="text-xs font-semibold text-foreground uppercase tracking-wide mb-1">Severity Levels</p>
-                  {Object.entries(disorder.severity).map(([level, desc]) => (
-                    <p key={level} className="text-sm text-muted-foreground ml-4">
-                      <span className="font-medium text-foreground capitalize">{level}: </span>{desc as string}
-                    </p>
-                  ))}
-                </div>
-              )}
-              {disorder.specifiersToKnow && (
-                <div className="mb-3">
-                  <p className="text-xs font-semibold text-foreground uppercase tracking-wide mb-1">Specifiers to Know</p>
-                  <div className="flex flex-wrap gap-1 ml-4">
-                    {disorder.specifiersToKnow.map((s: string, k: number) => (
-                      <Badge key={k} variant="outline" className="text-xs">{s}</Badge>
-                    ))}
+        <Card key={i} className="card-elevated">
+          <CardContent className="p-4 space-y-4">
+            <div>
+              <h3 className="text-base font-semibold text-foreground">{cat.title}</h3>
+              {cat.overview && <p className="mt-2 text-sm text-muted-foreground">{cat.overview}</p>}
+            </div>
+
+            {cat.highYieldDisorders?.map((disorder: any, j: number) => (
+              <div key={j} className="rounded-lg border border-border bg-muted/30 p-4">
+                <h4 className="mb-3 text-sm font-semibold text-foreground">{disorder.title}</h4>
+                {disorder.description && (
+                  <div className="mb-4 rounded-lg border border-border bg-background p-4">
+                    <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-1.5">What it is</p>
+                    <p className="text-base text-foreground leading-relaxed">{disorder.description}</p>
                   </div>
-                </div>
-              )}
-              {disorder.examClues && <ExamPearls pearls={disorder.examClues} />}
-              {disorder.differentialDiagnosis && (
-                <div className="mt-3 rounded-lg border border-border bg-muted/30 p-3">
-                  <p className="text-xs font-semibold text-foreground uppercase tracking-wide mb-2">Differential Diagnosis</p>
-                  <div className="space-y-2">
-                    {disorder.differentialDiagnosis.map((diff: any, k: number) => (
-                      <p key={k} className="text-sm text-muted-foreground leading-relaxed">
-                        <span className="font-medium text-foreground">vs. {diff.compareTo}: </span>{diff.keyDifference}
+                )}
+                {disorder.hallmark && (
+                  <Alert className="border-primary/30 bg-primary/5 mb-3">
+                    <Target className="h-4 w-4 text-primary" />
+                    <AlertDescription className="text-sm text-foreground">
+                      <span className="font-semibold">Hallmark: </span>{disorder.hallmark}
+                    </AlertDescription>
+                  </Alert>
+                )}
+                {disorder.coreCriteria && (
+                  <div className="mb-3">
+                    <p className="text-xs font-semibold text-foreground uppercase tracking-wide mb-1">Core Criteria</p>
+                    <ul className="space-y-1 ml-4">
+                      {disorder.coreCriteria.map((c: string, k: number) => (
+                        <li key={k} className="text-sm text-muted-foreground flex items-start gap-1">
+                          <span className="text-primary text-xs">•</span>{c}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {disorder.minimumThreshold && (
+                  <p className="text-sm text-muted-foreground mb-2">
+                    <span className="font-medium text-foreground">Minimum Threshold: </span>{disorder.minimumThreshold}
+                  </p>
+                )}
+                {disorder.mustRuleOut && (
+                  <div className="mb-3">
+                    <p className="text-xs font-semibold text-foreground uppercase tracking-wide mb-1">Must Rule Out</p>
+                    <ul className="space-y-1 ml-4">
+                      {disorder.mustRuleOut.map((r: string, k: number) => (
+                        <li key={k} className="text-sm text-muted-foreground flex items-start gap-1">
+                          <span className="text-destructive text-xs">✕</span>{r}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {disorder.severity && typeof disorder.severity === "object" && (
+                  <div className="mb-3">
+                    <p className="text-xs font-semibold text-foreground uppercase tracking-wide mb-1">Severity Levels</p>
+                    {Object.entries(disorder.severity).map(([level, desc]) => (
+                      <p key={level} className="text-sm text-muted-foreground ml-4">
+                        <span className="font-medium text-foreground capitalize">{level}: </span>{desc as string}
                       </p>
                     ))}
                   </div>
+                )}
+                {disorder.specifiersToKnow && (
+                  <div className="mb-3">
+                    <p className="text-xs font-semibold text-foreground uppercase tracking-wide mb-1">Specifiers to Know</p>
+                    <div className="flex flex-wrap gap-1 ml-4">
+                      {disorder.specifiersToKnow.map((s: string, k: number) => (
+                        <Badge key={k} variant="outline" className="text-xs">{s}</Badge>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {disorder.examClues && <ExamPearls pearls={disorder.examClues} />}
+                {disorder.differentialDiagnosis && (
+                  <div className="mt-3 rounded-lg border border-border bg-background p-3">
+                    <p className="text-xs font-semibold text-foreground uppercase tracking-wide mb-2">Differential Diagnosis</p>
+                    <div className="space-y-2">
+                      {disorder.differentialDiagnosis.map((diff: any, k: number) => (
+                        <p key={k} className="text-sm text-muted-foreground leading-relaxed">
+                          <span className="font-medium text-foreground">vs. {diff.compareTo}: </span>{diff.keyDifference}
+                        </p>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {disorder.miniCase && (
+                  <div className="mt-3 rounded-lg border border-primary/20 bg-primary/5 p-3">
+                    <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-1">Mini Case</p>
+                    <p className="text-sm text-foreground leading-relaxed">{disorder.miniCase.prompt}</p>
+                    <p className="mt-2 text-sm text-muted-foreground"><span className="font-medium text-foreground">Best answer: </span>{disorder.miniCase.bestAnswer}</p>
+                    {disorder.miniCase.why && <p className="text-xs text-muted-foreground mt-1">Why: {disorder.miniCase.why}</p>}
+                  </div>
+                )}
+              </div>
+            ))}
+
+            {cat.categoryQuickReview && (
+              <div className="rounded-lg border border-border bg-background p-3">
+                <p className="text-xs font-semibold text-foreground uppercase tracking-wide mb-2">Category Quick Review</p>
+                <div className="flex flex-wrap gap-1.5">
+                  {cat.categoryQuickReview.map((item: string, k: number) => (
+                    <Badge key={k} variant="secondary" className="text-xs">{item}</Badge>
+                  ))}
                 </div>
-              )}
-              {disorder.miniCase && (
-                <div className="mt-3 rounded-lg border border-primary/20 bg-primary/5 p-3">
-                  <p className="text-xs font-semibold text-primary uppercase tracking-wide mb-1">Mini Case</p>
-                  <p className="text-sm text-foreground leading-relaxed">{disorder.miniCase.prompt}</p>
-                  <p className="mt-2 text-sm text-muted-foreground"><span className="font-medium text-foreground">Best answer: </span>{disorder.miniCase.bestAnswer}</p>
-                  {disorder.miniCase.why && <p className="text-xs text-muted-foreground mt-1">Why: {disorder.miniCase.why}</p>}
-                </div>
-              )}
-            </div>
-          ))}
-          {cat.categoryQuickReview && (
-            <div className="mt-3 rounded-lg border border-border bg-card p-3">
-              <p className="text-xs font-semibold text-foreground uppercase tracking-wide mb-2">Category Quick Review</p>
-              <div className="flex flex-wrap gap-1.5">
-                {cat.categoryQuickReview.map((item: string, k: number) => (
-                  <Badge key={k} variant="secondary" className="text-xs">{item}</Badge>
+              </div>
+            )}
+            {cat.redFlags && (
+              <div>
+                {cat.redFlags.map((rf: any, k: number) => (
+                  <Alert key={k} className="border-destructive/30 bg-destructive/5 mb-2">
+                    <AlertTriangle className="h-4 w-4 text-destructive" />
+                    <AlertDescription className="text-sm">
+                      <span className="font-medium text-foreground">{rf.title || rf}</span>
+                      {rf.whenToThinkOfIt && (
+                        <span className="text-muted-foreground"> — {Array.isArray(rf.whenToThinkOfIt) ? rf.whenToThinkOfIt.join(", ") : rf.whenToThinkOfIt}</span>
+                      )}
+                    </AlertDescription>
+                  </Alert>
                 ))}
               </div>
-            </div>
-          )}
-          {cat.redFlags && (
-            <div className="mt-3">
-              {cat.redFlags.map((rf: any, k: number) => (
-                <Alert key={k} className="border-destructive/30 bg-destructive/5 mb-2">
-                  <AlertTriangle className="h-4 w-4 text-destructive" />
-                  <AlertDescription className="text-sm">
-                    <span className="font-medium text-foreground">{rf.title || rf}</span>
-                    {rf.whenToThinkOfIt && (
-                      <span className="text-muted-foreground"> — {Array.isArray(rf.whenToThinkOfIt) ? rf.whenToThinkOfIt.join(", ") : rf.whenToThinkOfIt}</span>
-                    )}
-                  </AlertDescription>
-                </Alert>
-              ))}
-            </div>
-          )}
+            )}
           </CardContent>
         </Card>
       ))}
