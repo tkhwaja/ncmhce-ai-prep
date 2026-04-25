@@ -1148,7 +1148,10 @@ const TheoryCards = ({ theories }: { theories: any[] }) => (
           <CardContent className="p-5 space-y-4">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div className="min-w-0 space-y-1">
-                <h3 className="text-lg font-semibold leading-tight text-foreground">{theory.title}</h3>
+                <div className="flex flex-wrap items-center gap-2">
+                  <h3 className="text-lg font-semibold leading-tight text-foreground">{theory.title}</h3>
+                  <ExamLikelihoodBadge topic={theory.title} context="counseling theory intervention" />
+                </div>
                 {theory.founder && <p className="text-sm text-muted-foreground">Founder: {theory.founder}</p>}
               </div>
               {theory.examPriority && <Badge variant="secondary" className="shrink-0">{formatValue(theory.examPriority)} priority</Badge>}
@@ -1275,7 +1278,10 @@ const ComprehensiveLearningSection = ({ data }: { data: any }) => (
         <CardContent className="p-4 space-y-4">
           <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-primary">Lesson {index + 1}</p>
-            <h3 className="mt-1 text-lg font-semibold leading-tight text-foreground">{lesson.title}</h3>
+            <div className="mt-1 flex flex-wrap items-center gap-2">
+              <h3 className="text-lg font-semibold leading-tight text-foreground">{lesson.title}</h3>
+              <ExamLikelihoodBadge topic={lesson.title} context={lesson.why_it_matters_for_ncmhce} />
+            </div>
           </div>
           {lesson.why_it_matters_for_ncmhce && <Callout variant="rule" title="Why this matters for the NCMHCE">{lesson.why_it_matters_for_ncmhce}</Callout>}
           {lesson.key_terms?.length > 0 && (
@@ -1378,7 +1384,10 @@ const renderObjectContent = (obj: any, extraSkipKeys: Set<string> = new Set(), p
         if (Array.isArray(value) && value.length > 0 && typeof value[0] === "string") {
           return (
             <div key={key} className="mb-3 break-inside-avoid self-start rounded-lg border border-border bg-muted/30 p-3">
-              <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
+                <ExamLikelihoodBadge topic={formatKey(key)} context={parentLabel} compact />
+              </div>
               {parentLabel && <p className="mt-1 text-xs text-muted-foreground">Part of {parentLabel}</p>}
               <ul className="ml-4 mt-1">
                 {value.map((v: string, i: number) => (
@@ -1398,7 +1407,10 @@ const renderObjectContent = (obj: any, extraSkipKeys: Set<string> = new Set(), p
         if (typeof value === "object" && !Array.isArray(value)) {
           return (
             <div key={key} className="mb-3 break-inside-avoid self-start rounded-lg border border-border bg-card p-3">
-              <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
+                <ExamLikelihoodBadge topic={formatKey(key)} context={parentLabel} compact />
+              </div>
               {parentLabel && <p className="mt-1 text-xs text-muted-foreground">Part of {parentLabel}</p>}
               <div className="mt-2 grid gap-2">
                 {Object.entries(value as Record<string, any>).map(([k, v]) => (
@@ -1432,7 +1444,10 @@ const renderObjectContent = (obj: any, extraSkipKeys: Set<string> = new Set(), p
         if (typeof value === "string") {
           return (
             <div key={key} className="mb-3 break-inside-avoid self-start rounded-lg border border-border bg-muted/30 p-3">
-              <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
+                <ExamLikelihoodBadge topic={formatKey(key)} context={parentLabel} compact />
+              </div>
               {parentLabel && <p className="mt-1 text-xs text-muted-foreground">Part of {parentLabel}</p>}
               <p className="mt-1 text-sm text-muted-foreground">{formatValue(value)}</p>
             </div>
