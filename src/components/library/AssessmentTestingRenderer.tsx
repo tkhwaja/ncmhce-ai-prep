@@ -3,6 +3,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { Input } from "@/components/ui/input";
+import { ExamLikelihoodBadge } from "@/components/library/ExamLikelihoodBadge";
 import {
   AlertTriangle,
   Lightbulb,
@@ -34,7 +35,10 @@ const SectionTitle = ({
       <Icon className="h-5 w-5" />
     </div>
     <div>
-      <h2 className="text-xl font-semibold text-foreground">{title}</h2>
+      <div className="flex flex-wrap items-center gap-2">
+        <h2 className="text-xl font-semibold text-foreground">{title}</h2>
+        <ExamLikelihoodBadge topic={title} context={subtitle} />
+      </div>
       {subtitle && <p className="text-sm text-muted-foreground">{subtitle}</p>}
     </div>
   </div>
@@ -194,7 +198,10 @@ const MseTab = ({ data }: { data: any }) => {
           {domains.map((d: any, i: number) => (
             <Card key={i} className="card-elevated">
               <CardContent className="space-y-2 p-4">
-                <p className="text-base font-semibold text-foreground">{d.title}</p>
+                <div className="flex flex-wrap items-center gap-2">
+                  <p className="text-base font-semibold text-foreground">{d.title}</p>
+                  <ExamLikelihoodBadge topic={d.title} context="MSE assessment diagnosis" compact />
+                </div>
                 {d.whatToAssess && (
                   <p className="text-sm text-muted-foreground leading-relaxed">
                     <span className="font-medium text-foreground">Assess:</span> {d.whatToAssess.join(", ")}
@@ -442,7 +449,10 @@ const InstrumentsTab = ({ data }: { data: any }) => {
                 <Card key={inst.name + (inst.fullName ?? "")} className="card-elevated">
                   <CardContent className="space-y-1.5 p-4">
                     <div className="flex items-baseline justify-between gap-2">
-                      <p className="text-sm font-semibold text-foreground">{inst.name}</p>
+                      <div className="flex flex-wrap items-center gap-2">
+                        <p className="text-sm font-semibold text-foreground">{inst.name}</p>
+                        <ExamLikelihoodBadge topic={`${inst.name} ${inst.fullName ?? ""}`} context={cat.title} compact />
+                      </div>
                       {inst.ageRange && (
                         <Badge variant="outline" className="shrink-0 text-[10px]">
                           {inst.ageRange}
