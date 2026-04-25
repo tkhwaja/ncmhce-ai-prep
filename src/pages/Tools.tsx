@@ -418,7 +418,7 @@ const Tools = () => {
             <Brain className="h-4 w-4" /> Feynman
           </TabsTrigger>
           <TabsTrigger value="notes" className="flex items-center gap-1.5">
-            <FileText className="h-4 w-4" /> Notes
+            <FileText className="h-4 w-4" /> Quick Notes
           </TabsTrigger>
         </TabsList>
 
@@ -452,7 +452,7 @@ const Tools = () => {
           <Card className="card-elevated">
             <CardHeader>
               <CardTitle className="text-base flex items-center gap-2">
-                <FileText className="h-5 w-5 text-primary" /> Study Notes
+                <FileText className="h-5 w-5 text-primary" /> Quick Notes
               </CardTitle>
             </CardHeader>
             <CardContent>
