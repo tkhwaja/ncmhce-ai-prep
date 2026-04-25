@@ -88,6 +88,10 @@ export const narratives: Narrative[] = [
   darnellPanic,
   nadiaBulimia,
   safiyaSchizophreniform,
+  kiaraBPDPracticeExamNarrative,
+  emilyBulimiaPracticeExamNarrative,
+  ericaProlongedGriefPracticeExamNarrative,
+  jonahSchizophreniformPracticeExamNarrative,
 ];
 
 const practiceExamNarratives: Narrative[] = [
@@ -97,10 +101,6 @@ const practiceExamNarratives: Narrative[] = [
   rachelAUDNarrative,
   samuelOCDPracticeExamNarrative,
   monicaBipolarIIPracticeExamNarrative,
-  kiaraBPDPracticeExamNarrative,
-  emilyBulimiaPracticeExamNarrative,
-  ericaProlongedGriefPracticeExamNarrative,
-  jonahSchizophreniformPracticeExamNarrative,
 ];
 
 const allNarratives: Narrative[] = [freeDiagnosticNarrative, ...narratives, ...practiceExamNarratives];
