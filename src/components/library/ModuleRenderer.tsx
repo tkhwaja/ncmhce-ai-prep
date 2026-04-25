@@ -1469,13 +1469,19 @@ const DiagnosticCategories = ({ categories }: { categories: any[] }) => (
         <Card key={i} className="card-elevated">
           <CardContent className="p-4 space-y-4">
             <div>
-              <h3 className="text-base font-semibold text-foreground">{cat.title}</h3>
+              <div className="flex flex-wrap items-center gap-2">
+                <h3 className="text-base font-semibold text-foreground">{cat.title}</h3>
+                <ExamLikelihoodBadge topic={cat.title} context="diagnosis differential diagnosis" />
+              </div>
               {cat.overview && <p className="mt-2 text-sm text-muted-foreground">{cat.overview}</p>}
             </div>
 
             {cat.highYieldDisorders?.map((disorder: any, j: number) => (
               <div key={j} className="rounded-lg border border-border bg-muted/30 p-4">
-                <h4 className="mb-3 text-sm font-semibold text-foreground">{disorder.title}</h4>
+                <div className="mb-3 flex flex-wrap items-center gap-2">
+                  <h4 className="text-sm font-semibold text-foreground">{disorder.title}</h4>
+                  <ExamLikelihoodBadge topic={disorder.title} context={`${cat.title} DSM diagnosis`} />
+                </div>
                 {disorder.description && (
                   <div className="mb-4 rounded-lg border border-border bg-background p-4">
                     <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-1.5">What it is</p>
