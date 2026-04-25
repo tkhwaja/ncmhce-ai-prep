@@ -49,6 +49,17 @@ const DOMAINS = [
   "Counseling skills and interventions",
 ];
 
+const DOMAIN_ALIASES: Record<string, string> = {
+  "Assessment & Diagnosis": "Intake/assessment/diagnosis",
+  "Information Gathering": "Intake/assessment/diagnosis",
+  "Professional Practice & Ethics": "Professional practice and ethics",
+  "Counselor Attributes & Core Competencies": "Core counseling attributes",
+  "Treatment Planning": "Treatment planning",
+  "Counseling Skills & Interventions": "Counseling skills and interventions",
+};
+
+const normalizeDomain = (domain: string) => DOMAIN_ALIASES[domain] || domain;
+
 const Analytics = () => {
   const { user, session } = useAuth();
   const { toast } = useToast();
@@ -89,9 +100,10 @@ const Analytics = () => {
   completed.forEach((a) => {
     if (!a.domain_scores) return;
     Object.entries(a.domain_scores as Record<string, number>).forEach(([d, s]) => {
-      if (!domainTotals[d]) domainTotals[d] = { sum: 0, count: 0 };
-      domainTotals[d].sum += s;
-      domainTotals[d].count++;
+      const normalizedDomain = normalizeDomain(d);
+      if (!domainTotals[normalizedDomain]) domainTotals[normalizedDomain] = { sum: 0, count: 0 };
+      domainTotals[normalizedDomain].sum += s;
+      domainTotals[normalizedDomain].count++;
     });
   });
   const domainAvgs = DOMAINS.map((d) => ({
