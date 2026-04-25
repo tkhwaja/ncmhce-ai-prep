@@ -1346,7 +1346,7 @@ const GenericSection = ({ title, data }: { title: string; data: any }) => {
       <div className="space-y-3">
         {data.overview && <p className="text-sm text-muted-foreground mb-3">{data.overview}</p>}
         <div className={nestedEntries.length > 3 ? "space-y-3 md:columns-2 md:gap-3 md:space-y-0" : "space-y-3"}>
-          {renderObjectContent(data)}
+          {renderObjectContent(data, new Set(), data.title ?? title)}
         </div>
         <ExamPearls pearls={data.examPearls} />
       </div>
@@ -1357,7 +1357,7 @@ const GenericSection = ({ title, data }: { title: string; data: any }) => {
 };
 
 /* ---- Object content renderer ---- */
-const renderObjectContent = (obj: any, extraSkipKeys: Set<string> = new Set()): React.ReactNode => {
+const renderObjectContent = (obj: any, extraSkipKeys: Set<string> = new Set(), parentLabel?: string): React.ReactNode => {
   const skipKeys = new Set(["title", "overview", "examPearls", "examPearl", "sourceBasis", "moduleId", "moduleTitle", "moduleType", "version", "exam", "uiHints", "intro", "id", ...extraSkipKeys]);
 
   return (
@@ -1371,6 +1371,7 @@ const renderObjectContent = (obj: any, extraSkipKeys: Set<string> = new Set()): 
           return (
             <div key={key} className="mb-3 break-inside-avoid self-start rounded-lg border border-border bg-muted/30 p-3">
               <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
+              {parentLabel && <p className="mt-1 text-xs text-muted-foreground">Part of {parentLabel}</p>}
               <ul className="ml-4 mt-1">
                 {value.map((v: string, i: number) => (
                   <li key={i} className="text-sm text-muted-foreground flex items-start gap-1"><span className="text-primary text-xs">•</span>{v}</li>
@@ -1390,6 +1391,7 @@ const renderObjectContent = (obj: any, extraSkipKeys: Set<string> = new Set()): 
           return (
             <div key={key} className="mb-3 break-inside-avoid self-start rounded-lg border border-border bg-card p-3">
               <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
+              {parentLabel && <p className="mt-1 text-xs text-muted-foreground">Part of {parentLabel}</p>}
               <div className="mt-2 grid gap-2">
                 {Object.entries(value as Record<string, any>).map(([k, v]) => (
                   Array.isArray(v) && v.length > 0 && typeof v[0] === "object" ? (
@@ -1423,6 +1425,7 @@ const renderObjectContent = (obj: any, extraSkipKeys: Set<string> = new Set()): 
           return (
             <div key={key} className="mb-3 break-inside-avoid self-start rounded-lg border border-border bg-muted/30 p-3">
               <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
+              {parentLabel && <p className="mt-1 text-xs text-muted-foreground">Part of {parentLabel}</p>}
               <p className="mt-1 text-sm text-muted-foreground">{formatValue(value)}</p>
             </div>
           );
