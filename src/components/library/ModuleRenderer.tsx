@@ -454,8 +454,9 @@ const AssessmentFramework = ({ framework }: { framework: any }) => {
 
       <div className="space-y-4">
         {framework.types.map((type: any, index: number) => (
-          <CollapsibleSection key={type.id || index} title={type.title} defaultOpen={index === 0}>
-            <div className="space-y-4">
+          <Card key={type.id || index} className="card-elevated">
+            <CardContent className="p-4 space-y-4">
+              <h3 className="text-base font-semibold text-foreground">{type.title}</h3>
               {type.purpose && <p className="text-sm text-muted-foreground leading-relaxed">{type.purpose}</p>}
 
               {(type.examUse || type.commonMistake) && (
@@ -588,8 +589,8 @@ const AssessmentFramework = ({ framework }: { framework: any }) => {
               </div>
 
               {type.examClue && <ExamPearls pearls={[type.examClue]} />}
-            </div>
-          </CollapsibleSection>
+            </CardContent>
+          </Card>
         ))}
       </div>
     </div>
@@ -671,8 +672,9 @@ const MSEDeepDive = ({ section }: { section: any }) => {
                 <div key={index} className="space-y-3">
                   <p className="text-sm font-semibold text-foreground">{block.title}</p>
                   {block.items?.map((item: any, itemIndex: number) => (
-                    <CollapsibleSection key={itemIndex} title={item.title} defaultOpen={itemIndex === 0}>
-                      <div className="space-y-4 pt-1">
+                    <Card key={itemIndex} className="card-elevated">
+                      <CardContent className="p-4 space-y-4">
+                        <h4 className="text-base font-semibold text-foreground">{item.title}</h4>
                         {item.purpose && (
                           <p className="text-sm leading-relaxed text-muted-foreground">{item.purpose}</p>
                         )}
@@ -791,8 +793,8 @@ const MSEDeepDive = ({ section }: { section: any }) => {
                         )}
 
                         {item.examPearl ? <ExamPearls pearls={[item.examPearl]} /> : null}
-                      </div>
-                    </CollapsibleSection>
+                      </CardContent>
+                    </Card>
                   ))}
                 </div>
               );
@@ -924,13 +926,16 @@ const MSEDeepDive = ({ section }: { section: any }) => {
 
             if (block.type === "implementation_notes" || block.type === "future_topics_to_add") {
               return (
-                <CollapsibleSection key={index} title={block.title}>
-                  <ul className="space-y-1">
-                    {block.items?.map((item: string, itemIndex: number) => (
-                      <li key={itemIndex} className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-0.5">•</span>{item}</li>
-                    ))}
-                  </ul>
-                </CollapsibleSection>
+                <Card key={index} className="card-elevated">
+                  <CardContent className="p-4">
+                    <p className="text-sm font-semibold text-foreground mb-2">{block.title}</p>
+                    <ul className="space-y-1">
+                      {block.items?.map((item: string, itemIndex: number) => (
+                        <li key={itemIndex} className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-0.5">•</span>{item}</li>
+                      ))}
+                    </ul>
+                  </CardContent>
+                </Card>
               );
             }
 
@@ -1188,8 +1193,12 @@ const ComprehensiveLearningSection = ({ data }: { data: any }) => (
       </Card>
     )}
     {data.lessons?.map((lesson: any, index: number) => (
-      <CollapsibleSection key={lesson.lesson_id || index} title={lesson.title} defaultOpen={index === 0}>
-        <div className="space-y-4">
+      <Card key={lesson.lesson_id || index} className="card-elevated">
+        <CardContent className="p-4 space-y-4">
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-wide text-primary">Lesson {index + 1}</p>
+            <h3 className="mt-1 text-lg font-semibold leading-tight text-foreground">{lesson.title}</h3>
+          </div>
           {lesson.why_it_matters_for_ncmhce && <Callout variant="rule" title="Why this matters for the NCMHCE">{lesson.why_it_matters_for_ncmhce}</Callout>}
           {lesson.key_terms?.length > 0 && (
             <div className="flex flex-wrap gap-1.5">
@@ -1210,8 +1219,8 @@ const ComprehensiveLearningSection = ({ data }: { data: any }) => (
               ))}
             </div>
           )}
-        </div>
-      </CollapsibleSection>
+        </CardContent>
+      </Card>
     ))}
     {data.section_exam_mastery_checklist?.length > 0 && <Callout variant="tip" title="Mastery Checklist"><ul className="ml-4 list-disc space-y-1">{data.section_exam_mastery_checklist.map((item: string, index: number) => <li key={index}>{item}</li>)}</ul></Callout>}
   </div>
@@ -1450,7 +1459,7 @@ const DiagnosticCategories = ({ categories }: { categories: any[] }) => (
                   {disorder.miniCase.why && <p className="text-xs text-muted-foreground mt-1">Why: {disorder.miniCase.why}</p>}
                 </div>
               )}
-            </CollapsibleSection>
+            </div>
           ))}
           {cat.categoryQuickReview && (
             <div className="mt-3 rounded-lg border border-border bg-card p-3">
@@ -1477,7 +1486,8 @@ const DiagnosticCategories = ({ categories }: { categories: any[] }) => (
               ))}
             </div>
           )}
-        </CollapsibleSection>
+          </CardContent>
+        </Card>
       ))}
     </div>
   </div>
@@ -1600,15 +1610,18 @@ const ModuleRenderer = ({ data }: ModuleRendererProps) => {
           <div>
             <SectionHeading icon={Compass} subtitle="Side-by-side comparisons for fast disambiguation.">Differential Diagnosis Tables</SectionHeading>
             {data.globalDifferentialTables.map((table: any, i: number) => (
-              <CollapsibleSection key={i} title={table.title}>
-                <div className="space-y-2">
+              <Card key={i} className="card-elevated">
+                <CardContent className="p-4 space-y-3">
+                  <h3 className="text-base font-semibold text-foreground">{table.title}</h3>
+                  <div className="space-y-2">
                   {table.rows?.map((row: any, j: number) => (
                     <Card key={j} className="card-elevated">
                       <CardContent className="p-3">{renderObjectContent(row)}</CardContent>
                     </Card>
                   ))}
-                </div>
-              </CollapsibleSection>
+                  </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </GuidedSection>
