@@ -1117,9 +1117,113 @@ const TheoryCards = ({ theories }: { theories: any[] }) => (
   </div>
 );
 
+/* ---- Comprehensive lesson-based content from uploaded learning packs ---- */
+const ContentBlock = ({ block }: { block: any }) => {
+  if (!block) return null;
+
+  if (block.type === "table" && block.columns && block.rows) {
+    return (
+      <div className="rounded-lg border border-border overflow-hidden">
+        {block.title && <p className="px-3 py-2 text-sm font-semibold text-foreground bg-muted/30">{block.title}</p>}
+        <Table>
+          <TableHeader>
+            <TableRow>{block.columns.map((column: string) => <TableHead key={column}>{column}</TableHead>)}</TableRow>
+          </TableHeader>
+          <TableBody>
+            {block.rows.map((row: string[], rowIndex: number) => (
+              <TableRow key={rowIndex}>{row.map((cell, cellIndex) => <TableCell key={cellIndex} className="align-top text-sm text-muted-foreground">{cell}</TableCell>)}</TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </div>
+    );
+  }
+
+  if ((block.type === "ordered_list" || block.type === "flowchart") && block.items?.length) {
+    return (
+      <div className="rounded-lg border border-border bg-muted/30 p-3">
+        {block.title && <p className="text-sm font-semibold text-foreground mb-2">{block.title}</p>}
+        <ol className="ml-5 list-decimal space-y-1 text-sm text-muted-foreground">
+          {block.items.map((item: string, index: number) => <li key={index}>{item}</li>)}
+        </ol>
+      </div>
+    );
+  }
+
+  if (block.type === "flowchart" && block.steps?.length) {
+    return (
+      <div className="rounded-lg border border-border bg-muted/30 p-3">
+        {block.title && <p className="text-sm font-semibold text-foreground mb-2">{block.title}</p>}
+        <ol className="ml-5 list-decimal space-y-1 text-sm text-muted-foreground">
+          {block.steps.map((step: string, index: number) => <li key={index}>{step}</li>)}
+        </ol>
+      </div>
+    );
+  }
+
+  if (block.type === "exam_tip") return <Callout variant="tip" title="Exam Tip">{block.content}</Callout>;
+  if (block.type === "warning") return <Callout variant="warn" title="Watch Out">{block.content}</Callout>;
+
+  return (
+    <div className="rounded-lg border border-border bg-card p-3">
+      {block.title && <p className="text-sm font-semibold text-foreground mb-1">{block.title}</p>}
+      {block.content && <p className="text-sm leading-relaxed text-muted-foreground">{block.content}</p>}
+    </div>
+  );
+};
+
+const ComprehensiveLearningSection = ({ data }: { data: any }) => (
+  <div className="space-y-4">
+    {data.description && <p className="text-sm leading-relaxed text-muted-foreground">{data.description}</p>}
+    {data.learning_objectives?.length > 0 && (
+      <Card className="card-elevated">
+        <CardContent className="p-4">
+          <h3 className="text-sm font-semibold text-foreground mb-2 flex items-center gap-2"><Target className="h-4 w-4 text-primary" /> Learning Objectives</h3>
+          <ul className="space-y-1">
+            {data.learning_objectives.map((objective: string, index: number) => (
+              <li key={index} className="text-sm text-muted-foreground flex items-start gap-2"><span className="text-primary mt-0.5">•</span>{objective}</li>
+            ))}
+          </ul>
+        </CardContent>
+      </Card>
+    )}
+    {data.lessons?.map((lesson: any, index: number) => (
+      <CollapsibleSection key={lesson.lesson_id || index} title={lesson.title} defaultOpen={index === 0}>
+        <div className="space-y-4">
+          {lesson.why_it_matters_for_ncmhce && <Callout variant="rule" title="Why this matters for the NCMHCE">{lesson.why_it_matters_for_ncmhce}</Callout>}
+          {lesson.key_terms?.length > 0 && (
+            <div className="flex flex-wrap gap-1.5">
+              {lesson.key_terms.map((term: string) => <Badge key={term} variant="outline" className="text-xs">{term}</Badge>)}
+            </div>
+          )}
+          {lesson.content_blocks?.map((block: any, blockIndex: number) => <ContentBlock key={blockIndex} block={block} />)}
+          <div className="grid gap-3 md:grid-cols-3">
+            {lesson.exam_cues?.length > 0 && <Callout variant="tip" title="Exam Cues"><ul className="ml-4 list-disc space-y-1">{lesson.exam_cues.map((cue: string, cueIndex: number) => <li key={cueIndex}>{cue}</li>)}</ul></Callout>}
+            {lesson.common_traps?.length > 0 && <Callout variant="warn" title="Common Traps"><ul className="ml-4 list-disc space-y-1">{lesson.common_traps.map((trap: string, trapIndex: number) => <li key={trapIndex}>{trap}</li>)}</ul></Callout>}
+            {lesson.memory_anchors?.length > 0 && <Callout variant="rule" title="Memory Anchors"><ul className="ml-4 list-disc space-y-1">{lesson.memory_anchors.map((anchor: string, anchorIndex: number) => <li key={anchorIndex}>{anchor}</li>)}</ul></Callout>}
+          </div>
+          {lesson.mini_practice_questions?.length > 0 && (
+            <div className="space-y-2">
+              <p className="text-xs font-semibold text-primary uppercase tracking-wide">Mini Practice</p>
+              {lesson.mini_practice_questions.map((practice: any, practiceIndex: number) => (
+                <Card key={practiceIndex} className="card-elevated"><CardContent className="p-3 space-y-1"><p className="text-sm font-medium text-foreground">{practice.question}</p><p className="text-sm text-muted-foreground">{practice.answer}</p></CardContent></Card>
+              ))}
+            </div>
+          )}
+        </div>
+      </CollapsibleSection>
+    ))}
+    {data.section_exam_mastery_checklist?.length > 0 && <Callout variant="tip" title="Mastery Checklist"><ul className="ml-4 list-disc space-y-1">{data.section_exam_mastery_checklist.map((item: string, index: number) => <li key={index}>{item}</li>)}</ul></Callout>}
+  </div>
+);
+
 /* ---- Generic Key-Value Section ---- */
 const GenericSection = ({ title, data }: { title: string; data: any }) => {
   if (!data) return null;
+
+  if (data.lessons && Array.isArray(data.lessons)) {
+    return <ComprehensiveLearningSection data={data} />;
+  }
 
   if (title === "Theories" && Array.isArray(data)) {
     return <TheoryCards theories={data} />;
