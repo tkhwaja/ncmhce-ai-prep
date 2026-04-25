@@ -32,11 +32,12 @@ const LibraryModuleDetail = ({ module, onBack }: { module: LibraryModule; onBack
 
   return (
     <div className="w-full p-4 sm:p-6 space-y-6">
-      <div className="sticky top-0 z-30 -mx-4 -mt-4 border-b border-border bg-background/95 px-4 py-2 backdrop-blur supports-[backdrop-filter]:bg-background/80 sm:-mx-6 sm:-mt-6 sm:px-6">
-        <Button variant="ghost" onClick={onBack}>
+      <div className="fixed left-4 top-16 z-50 md:left-[calc(var(--sidebar-width)+1rem)]">
+        <Button variant="ghost" onClick={onBack} className="border border-border bg-background/95 shadow-sm backdrop-blur supports-[backdrop-filter]:bg-background/80">
           <ArrowLeft className="mr-2 h-4 w-4" /> Back to Library
         </Button>
       </div>
+      <div className="h-10" aria-hidden="true" />
       <div>
         <h1 className="text-2xl font-bold text-foreground">{module.title}</h1>
         <div className="flex flex-wrap gap-2 mt-2">
