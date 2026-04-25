@@ -29,23 +29,23 @@
       "career-development",
       "vocational-counseling",
       "riasec",
-      "super",
-      "krumboltz",
+      "donald-super",
+      "john-krumboltz",
       "ncmhce",
       "high-yield"
     ]
   },
   "intro": {
-    "summary": "This module covers the major career development theories and career counseling tools most relevant to the NCMHCE, including Holland's RIASEC model, Super's life-span life-space theory, Krumboltz's social learning and planned happenstance ideas, Gottfredson's circumscription and compromise model, and the practical process of career counseling.",
+    "summary": "This module covers the major career development theories and career counseling tools most relevant to the NCMHCE, including John Holland's RIASEC model, Donald Super's life-span life-space theory, John Krumboltz's social learning and planned happenstance ideas, Linda Gottfredson's circumscription and compromise model, and the practical process of career counseling.",
     "learningObjectives": [
       "Explain the major career development theories tested on the NCMHCE",
-      "Use RIASEC, Super, Krumboltz, and Gottfredson concepts in career case conceptualization",
+      "Use RIASEC, Donald Super, John Krumboltz, and Linda Gottfredson concepts in career case conceptualization",
       "Recognize common career-related presentations such as indecision, unemployment, midlife change, retirement distress, and role conflict",
       "Identify major career assessment tools and when they are appropriate",
       "Integrate psychological, developmental, and social justice factors into career counseling"
     ],
     "howToUse": [
-      "Start with Holland, Super, and Krumboltz before moving into the practical counseling process.",
+      "Start with John Holland, Donald Super, and John Krumboltz before moving into the practical counseling process.",
       "Study career theories as tools for understanding real life transitions, not as isolated memorization items.",
       "Pay attention to how career distress often overlaps with identity, self-esteem, family expectations, and social barriers.",
       "Use the mini-cases to practice choosing the best theory for the problem presented."
@@ -67,7 +67,7 @@
     },
     {
       "rule": "Use the theory that best explains the case, not the theory with the fanciest name.",
-      "example": "A dissatisfaction case built around interest-person mismatch often fits Holland better than Super."
+      "example": "A dissatisfaction case built around interest-person mismatch often fits John John Holland's model better than Donald Super's model."
     },
     {
       "rule": "Career interventions should be both practical and emotionally informed.",
@@ -96,8 +96,8 @@
     ]
   },
   "hollandSection": {
-    "title": "Holland's RIASEC Theory",
-    "overview": "Holland proposed that people and work environments can be organized into six broad types. Satisfaction is highest when there is congruence between the person's interests/personality style and the work environment.",
+    "title": "John Holland's RIASEC Theory",
+    "overview": "John Holland proposed that people and work environments can be organized into six broad types. Satisfaction is highest when there is congruence between the person's interests/personality style and the work environment.",
     "types": [
       {
         "code": "R",
@@ -221,12 +221,12 @@
     ],
     "examPearls": [
       "A high Social person stuck in a highly Conventional, low-people environment is a classic mismatch vignette.",
-      "Holland is often the best theory when the core issue is fit between interests/personality style and job environment."
+      "John Holland's theory is often the best fit when the core issue is fit between interests/personality style and job environment."
     ]
   },
   "superSection": {
-    "title": "Super's Life-Span, Life-Space Theory",
-    "overview": "Super viewed career development as a lifelong process of implementing self-concept across multiple life stages and roles. The key question is not just 'What job fits?' but 'How does work fit into the person's evolving identity and roles over time?'",
+    "title": "Donald Super's Life-Span, Life-Space Theory",
+    "overview": "Donald Super viewed career development as a lifelong process of implementing self-concept across multiple life stages and roles. The key question is not just 'What job fits?' but 'How does work fit into the person's evolving identity and roles over time?'",
     "lifeStages": [
       {
         "stage": "Growth",
@@ -306,13 +306,13 @@
       "Supports understanding that career development does not end in adolescence"
     ],
     "examPearls": [
-      "A 50-year-old laid off worker may re-enter an exploration-like mini-cycle. That is classic Super logic.",
-      "Super is especially strong for lifespan, role-balance, and identity-over-time cases."
+      "A 50-year-old laid off worker may re-enter an exploration-like mini-cycle. That is classic Donald Super logic.",
+      "Donald Super's theory is especially strong for lifespan, role-balance, and identity-over-time cases."
     ]
   },
   "krumboltzSection": {
-    "title": "Krumboltz's Social Learning / Planned Happenstance Theory",
-    "overview": "Krumboltz emphasized that career decisions are shaped by learning experiences, environmental conditions, cognitive beliefs, and chance opportunities. Career development is not always linear or planned.",
+    "title": "John Krumboltz's Social Learning / Planned Happenstance Theory",
+    "overview": "John Krumboltz emphasized that career decisions are shaped by learning experiences, environmental conditions, cognitive beliefs, and chance opportunities. Career development is not always linear or planned.",
     "fourFactors": [
       {
         "factor": "Genetic endowment and special abilities",
@@ -353,13 +353,13 @@
       "Helpful when chance events, networking, or experimentation matter"
     ],
     "examPearls": [
-      "Krumboltz is often the best fit when the case involves indecision, learning history, opportunity creation, or overly rigid beliefs about career choice.",
+      "John Krumboltz's theory is often the best fit when the case involves indecision, learning history, opportunity creation, or overly rigid beliefs about career choice.",
       "Planned happenstance is a favorite contrast to overly rigid, one-right-answer career thinking."
     ]
   },
   "gottfredsonSection": {
-    "title": "Gottfredson's Circumscription and Compromise Theory",
-    "overview": "Gottfredson focused on how children and adolescents eliminate career options over time based on gender-role expectations, prestige, social class, and later personal interests, and how they ultimately compromise due to accessibility constraints.",
+    "title": "Linda Gottfredson's Circumscription and Compromise Theory",
+    "overview": "Linda Gottfredson focused on how children and adolescents eliminate career options over time based on gender-role expectations, prestige, social class, and later personal interests, and how they ultimately compromise due to accessibility constraints.",
     "circumscriptionStages": [
       {
         "stage": "Orientation to Size and Power",
@@ -397,7 +397,7 @@
       "Helpful in cases involving prestige pressure, gender-role restriction, class barriers, or social comparison"
     ],
     "examPearls": [
-      "If the case suggests the client has ruled out options as 'not for people like me,' Gottfredson may be highly relevant.",
+      "If the case suggests the client has ruled out options as 'not for people like me,' Linda Gottfredson's theory may be highly relevant.",
       "This theory is useful for understanding invisible narrowing of possibilities over time."
     ]
   },
@@ -546,8 +546,8 @@
           "low confidence"
         ],
         "helpfulLenses": [
-          "Krumboltz",
-          "Super",
+          "John Krumboltz's learning theory",
+          "Donald Super's lifespan theory",
           "CBT-style challenge of perfectionism"
         ]
       },
@@ -561,7 +561,7 @@
           "role disruption"
         ],
         "helpfulLenses": [
-          "Super",
+          "Donald Super's lifespan theory",
           "grief and adjustment work",
           "practical action planning"
         ]
@@ -575,7 +575,7 @@
           "success without fulfillment"
         ],
         "helpfulLenses": [
-          "Holland",
+          "John Holland's RIASEC model",
           "values clarification"
         ]
       },
@@ -588,8 +588,8 @@
           "fear of starting over"
         ],
         "helpfulLenses": [
-          "Super",
-          "Krumboltz",
+          "Donald Super's lifespan theory",
+          "John Krumboltz's learning theory",
           "generativity themes"
         ]
       },
@@ -602,7 +602,7 @@
           "adjustment grief"
         ],
         "helpfulLenses": [
-          "Super",
+          "Donald Super's lifespan theory",
           "Erikson",
           "late-life meaning work"
         ]
@@ -616,7 +616,7 @@
           "role overload"
         ],
         "helpfulLenses": [
-          "Super life-space roles",
+          "Donald Super's life-space roles",
           "systems and support planning"
         ]
       },
@@ -629,8 +629,8 @@
           "economic limitation"
         ],
         "helpfulLenses": [
-          "Krumboltz environmental conditions",
-          "Gottfredson",
+          "John Krumboltz's environmental conditions",
+          "Linda Gottfredson's circumscription/compromise theory",
           "social justice and advocacy lens"
         ]
       }
@@ -666,27 +666,27 @@
   },
   "crossTheoryComparisons": [
     {
-      "title": "Holland vs Super",
+      "title": "John Holland vs Donald Super",
       "points": [
-        "Holland focuses on person-environment fit based on interests and personality style.",
-        "Super focuses on self-concept, lifespan development, and multiple life roles over time.",
-        "Choose Holland for mismatch cases and Super for developmental/life-stage transition cases."
+        "John Holland focuses on person-environment fit based on interests and personality style.",
+        "Donald Super focuses on self-concept, lifespan development, and multiple life roles over time.",
+        "Choose John John Holland's model for mismatch cases and Super for developmental/life-stage transition cases."
       ]
     },
     {
-      "title": "Super vs Krumboltz",
+      "title": "Donald Super vs John Krumboltz",
       "points": [
-        "Super emphasizes developmental stages and self-concept across the lifespan.",
-        "Krumboltz emphasizes learning, beliefs, chance events, and opportunity creation.",
-        "Choose Krumboltz when rigidity, indecision, or unexpected opportunity are central."
+        "Donald Super emphasizes developmental stages and self-concept across the lifespan.",
+        "John Krumboltz emphasizes learning, beliefs, chance events, and opportunity creation.",
+        "Choose John Krumboltz's theory when rigidity, indecision, or unexpected opportunity are central."
       ]
     },
     {
-      "title": "Krumboltz vs Gottfredson",
+      "title": "John Krumboltz vs Linda Gottfredson",
       "points": [
-        "Krumboltz highlights learning experiences and happenstance.",
-        "Gottfredson highlights early narrowing of career options due to gender, status, and social realities.",
-        "Choose Gottfredson when the case centers on limiting beliefs about who is 'allowed' to pursue a path."
+        "John Krumboltz highlights learning experiences and happenstance.",
+        "Linda Gottfredson highlights early narrowing of career options due to gender, status, and social realities.",
+        "Choose Linda Gottfredson's theory when the case centers on limiting beliefs about who is 'allowed' to pursue a path."
       ]
     }
   ],
@@ -694,7 +694,7 @@
     "Treating career counseling as purely informational and ignoring emotional barriers",
     "Giving direct job advice without assessment or exploration",
     "Ignoring structural barriers like discrimination or family obligation",
-    "Confusing Holland fit problems with Super lifespan-role problems",
+    "Confusing John Holland fit problems with Donald Super lifespan-role problems",
     "Assuming indecision always means lack of motivation rather than fear, perfectionism, or limited exposure"
   ],
   "miniCaseDrills": [
@@ -720,17 +720,17 @@
     },
     {
       "case": "A recent retiree feels empty, purposeless, and disconnected after leaving a profession that defined their identity for 35 years.",
-      "bestTheory": "Super's Theory with later-life developmental lens",
+      "bestTheory": "Donald Super's theory with later-life developmental lens",
       "rationale": "The central issue is role transition, disengagement, and identity reorganization."
     }
   ],
   "quickReview": {
     "memoryHooks": [
-      "Holland = fit",
+      "John Holland = person-environment fit",
       "RIASEC = Realistic, Investigative, Artistic, Social, Enterprising, Conventional",
-      "Super = lifespan + self-concept + roles",
-      "Krumboltz = learning + chance + flexibility",
-      "Gottfredson = narrowing and compromise",
+      "Donald Super = lifespan + self-concept + roles",
+      "John Krumboltz = learning + chance + flexibility",
+      "Linda Gottfredson = narrowing and compromise",
       "SDS = career interest tool",
       "O*NET = job information",
       "Career problems are often identity problems too"
@@ -755,7 +755,7 @@
       "answer": "Krumboltz's Social Learning / Planned Happenstance Theory"
     },
     {
-      "question": "What assessment is most directly tied to Holland's model?",
+      "question": "What assessment is most directly tied to John Holland's model?",
       "answer": "Self-Directed Search (SDS)"
     },
     {

@@ -27,8 +27,8 @@
     "tags": [
       "human-development",
       "lifespan",
-      "erikson",
-      "piaget",
+      "erik-erikson",
+      "jean-piaget",
       "attachment",
       "identity",
       "aging",
@@ -36,10 +36,10 @@
     ]
   },
   "intro": {
-    "summary": "This module turns lifespan theory into testable clinical reasoning. It covers Erikson, Piaget, Kohlberg, Vygotsky, Bronfenbrenner, attachment, identity development, racial and cultural identity, normal vs concerning developmental patterns, and later-life counseling considerations. The goal is not to memorize names alone, but to recognize what development should look like in real cases and what the counselor should do next.",
+    "summary": "This module turns lifespan theory into testable clinical reasoning. It covers Erik Erikson, Jean Piaget, Lawrence Kohlberg, Lev Vygotsky, Urie Bronfenbrenner, and attachment theory, identity development, racial and cultural identity, normal vs concerning developmental patterns, and later-life counseling considerations. The goal is not to memorize names alone, but to recognize what development should look like in real cases and what the counselor should do next.",
     "learningObjectives": [
       "Differentiate age-expected behavior from clinically concerning developmental patterns",
-      "Apply Erikson, Piaget, Kohlberg, Vygotsky, Bronfenbrenner, and attachment theory to case conceptualization",
+      "Apply Erik Erikson, Jean Piaget, Lawrence Kohlberg, Lev Vygotsky, Urie Bronfenbrenner, and attachment theory to case conceptualization",
       "Match interventions to developmental level, cognitive capacity, and family context",
       "Use identity and cultural development frameworks without pathologizing normal exploration",
       "Recognize red flags that suggest delay, trauma impact, neurodevelopmental concern, or major cognitive decline",
@@ -105,7 +105,7 @@
   "studyAids": [
     {
       "type": "timeline",
-      "title": "Erikson Across the Lifespan",
+      "title": "Erik Erikson Across the Lifespan",
       "description": "Use this like an exam map: identify the task, what it looks like when healthy, and the kind of distress that appears when development gets stuck.",
       "items": [
         {
@@ -269,7 +269,7 @@
     },
     {
       "type": "comparisonTable",
-      "title": "Piaget Stages and Counseling Implications",
+      "title": "Jean Piaget Stages and Counseling Implications",
       "description": "High-yield summary of how children think and what kind of intervention fits that thinking style.",
       "columns": [
         "Stage",
@@ -358,7 +358,7 @@
     },
     {
       "type": "systemMap",
-      "title": "Bronfenbrenner Ecological Systems Map",
+      "title": "Urie Bronfenbrenner Ecological Systems Map",
       "description": "If the vignette is about a child or adolescent, scan each system before treating the symptom as purely individual.",
       "layers": [
         {
@@ -507,8 +507,8 @@
     ]
   },
   "eriksonSection": {
-    "title": "Erikson's Psychosocial Development",
-    "overview": "Erikson is one of the most testable theories because it explains what people are trying to accomplish at different points in life. Cases often present the unresolved task more clearly than the stage name.",
+    "title": "Erik Erikson's Psychosocial Development",
+    "overview": "Erik Erikson is one of the most testable theories because it explains what people are trying to accomplish at different points in life. Cases often present the unresolved task more clearly than the stage name.",
     "stages": [
       {
         "stage": 1,
@@ -621,14 +621,14 @@
       }
     ],
     "examPearls": [
-      "Adults can struggle with earlier Eriksonian tasks; the stage is a lens, not a locked age box.",
+      "Adults can struggle with earlier Erik Erikson psychosocial tasks; the stage is a lens, not a locked age box.",
       "In vignette questions, ask what developmental task is blocked before deciding the best counselor response."
     ],
     "commonTrap": "Do not answer with a clever abstract intervention if the client has not yet achieved the basic developmental task in front of them."
   },
   "piagetSection": {
-    "title": "Piaget's Cognitive Development",
-    "overview": "Piaget helps you choose the right level of language, insight work, behavioral coaching, and psychoeducation. On the exam, the question is often whether the client can reason abstractly yet.",
+    "title": "Jean Piaget's Cognitive Development",
+    "overview": "Jean Piaget helps you choose the right level of language, insight work, behavioral coaching, and psychoeducation. On the exam, the question is often whether the client can reason abstractly yet.",
     "stages": [
       {
         "name": "Sensorimotor",
@@ -698,8 +698,8 @@
     ]
   },
   "kohlbergSection": {
-    "title": "Kohlberg's Moral Development",
-    "overview": "Kohlberg explains how clients justify right and wrong, which shows up in conduct, discipline, school, parenting, and adolescent identity cases.",
+    "title": "Lawrence Kohlberg's Moral Development",
+    "overview": "Lawrence Kohlberg explains how clients justify right and wrong, which shows up in conduct, discipline, school, parenting, and adolescent identity cases.",
     "levels": [
       {
         "level": "Pre-Conventional",
@@ -745,8 +745,8 @@
       }
     ],
     "gilliganCritique": {
-      "title": "Gilligan's Critique",
-      "summary": "Gilligan argued that justice-based models can miss moral reasoning grounded in care, responsibility, and relationships.",
+      "title": "Carol Gilligan's Critique",
+      "summary": "Carol Gilligan argued that justice-based models can miss moral reasoning grounded in care, responsibility, and relationships.",
       "clinicalMeaning": "Clients may reason morally through protection of relationships and care obligations, not only through rules or abstract principles."
     },
     "examPearls": [
@@ -755,7 +755,7 @@
     ]
   },
   "bronfenbrennerSection": {
-    "title": "Bronfenbrenner's Ecological Systems Theory",
+    "title": "Urie Bronfenbrenner's Ecological Systems Theory",
     "overview": "This theory is especially high-yield because it keeps counselors from blaming the child for stressors that are spread across home, school, peers, community, and culture.",
     "systems": [
       {
@@ -820,8 +820,8 @@
     ]
   },
   "vygotskySection": {
-    "title": "Vygotsky's Sociocultural Theory",
-    "overview": "Vygotsky is especially useful for psychoeducation, school-based counseling, parent guidance, and skill-building cases because it emphasizes socially supported development.",
+    "title": "Lev Vygotsky's Sociocultural Theory",
+    "overview": "Lev Vygotsky is especially useful for psychoeducation, school-based counseling, parent guidance, and skill-building cases because it emphasizes socially supported development.",
     "keyConcepts": [
       {
         "term": "Zone of Proximal Development",
@@ -847,7 +847,7 @@
     ],
     "examPearls": [
       "When a case involves caregiver coaching or psychoeducation, think about how the support can be scaffolded and faded.",
-      "Vygotsky and Bronfenbrenner both move you away from purely individual explanations, but Vygotsky is more focused on guided learning."
+      "Lev Vygotsky and Urie Bronfenbrenner both move you away from purely individual explanations, but Lev Vygotsky is more focused on guided learning."
     ]
   },
   "attachmentSection": {
@@ -1139,26 +1139,26 @@
   },
   "crossTheoryComparisons": [
     {
-      "title": "Erikson vs Piaget",
+      "title": "Erik Erikson vs Jean Piaget",
       "points": [
-        "Erikson explains psychosocial tasks and identity across the lifespan.",
-        "Piaget explains how cognition changes, especially in childhood and adolescence.",
+        "Erik Erikson explains psychosocial tasks and identity across the lifespan.",
+        "Jean Piaget explains how cognition changes, especially in childhood and adolescence.",
         "A client can be cognitively capable of an intervention but psychosocially blocked from using it."
       ]
     },
     {
-      "title": "Bronfenbrenner vs Vygotsky",
+      "title": "Urie Bronfenbrenner vs Lev Vygotsky",
       "points": [
-        "Bronfenbrenner maps the systems around the client.",
-        "Vygotsky focuses on social learning and guided support inside those systems.",
+        "Urie Bronfenbrenner maps the systems around the client.",
+        "Lev Vygotsky focuses on social learning and guided support inside those systems.",
         "Both challenge purely individual explanations for difficulty."
       ]
     },
     {
-      "title": "Attachment vs Erikson",
+      "title": "Attachment vs Erik Erikson",
       "points": [
         "Attachment centers on early bonds and internal working models.",
-        "Erikson describes broader developmental tasks from infancy through late life.",
+        "Erik Erikson describes broader developmental tasks from infancy through late life.",
         "They often overlap in cases involving trust, intimacy, identity, and later relationship distress."
       ]
     }
@@ -1174,12 +1174,12 @@
   "miniCaseDrills": [
     {
       "case": "A 9-year-old has begun refusing homework, crying before school, and saying, 'Everyone else is better than me.'",
-      "bestDevelopmentalLens": "Erikson - Industry vs Inferiority",
+      "bestDevelopmentalLens": "Erik Erikson - Industry vs Inferiority",
       "rationale": "The case centers on competence, mastery, and self-worth in the school-age years."
     },
     {
       "case": "A 5-year-old insists a parent caused the rainstorm because they were angry and struggles to take another person's perspective.",
-      "bestDevelopmentalLens": "Piaget - Preoperational thinking",
+      "bestDevelopmentalLens": "Jean Piaget - Preoperational thinking",
       "rationale": "Egocentric and intuitive reasoning are expected at this stage."
     },
     {
@@ -1189,22 +1189,22 @@
     },
     {
       "case": "A child's panic at school escalated after a move, a parent's schedule change, and worsening peer rejection.",
-      "bestDevelopmentalLens": "Bronfenbrenner's Ecological Systems Theory",
+      "bestDevelopmentalLens": "Urie Bronfenbrenner's Ecological Systems Theory",
       "rationale": "Multiple interacting systems are shaping the symptom presentation."
     },
     {
       "case": "A 72-year-old says, 'I keep replaying my life and wondering if I wasted it,' after retirement and the death of a sibling.",
-      "bestDevelopmentalLens": "Erikson - Integrity vs Despair",
+      "bestDevelopmentalLens": "Erik Erikson - Integrity vs Despair",
       "rationale": "The vignette highlights life review, grief, purpose, and meaning in later life."
     }
   ],
   "quickReview": {
     "memoryHooks": [
-      "Erikson = psychosocial task",
-      "Piaget = thinking style",
-      "Kohlberg = moral logic",
-      "Bronfenbrenner = systems around the person",
-      "Vygotsky = guided learning",
+      "Erik Erikson = psychosocial task",
+      "Jean Piaget = thinking style",
+      "Lawrence Kohlberg = moral logic",
+      "Urie Bronfenbrenner = systems around the person",
+      "Lev Vygotsky = guided learning",
       "Attachment = safe base and closeness patterns",
       "Marcia = exploration plus commitment",
       "Aging = separate expected change from pathology"
@@ -1217,11 +1217,11 @@
   },
   "checkpointQuestions": [
     {
-      "question": "Which Erikson stage is most associated with adolescent self-definition and role experimentation?",
+      "question": "Which Erik Erikson stage is most associated with adolescent self-definition and role experimentation?",
       "answer": "Identity vs Role Confusion"
     },
     {
-      "question": "Which Piaget stage is marked by egocentrism and limited conservation?",
+      "question": "Which Jean Piaget stage is marked by egocentrism and limited conservation?",
       "answer": "Preoperational"
     },
     {

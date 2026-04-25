@@ -1361,8 +1361,8 @@
                 "fullName": "Strong Interest Inventory",
                 "ageRange": "14+",
                 "format": "Self-report",
-                "whatItMeasures": "Interest patterns mapped onto Holland's RIASEC themes and matched to occupations.",
-                "examRelevance": "Most-cited interest inventory; pairs with Holland's typology."
+                "whatItMeasures": "Interest patterns mapped onto John Holland's RIASEC themes and matched to occupations.",
+                "examRelevance": "Most-cited interest inventory; pairs with John Holland's typology."
               },
               {
                 "name": "SDS",
@@ -1370,7 +1370,7 @@
                 "ageRange": "Adolescent–Adult",
                 "format": "Self-administered, self-scored",
                 "whatItMeasures": "RIASEC interest code linked to compatible occupations.",
-                "examRelevance": "Holland-based; client-friendly and self-scoring."
+                "examRelevance": "John Holland-based; client-friendly and self-scoring."
               },
               {
                 "name": "MBTI",

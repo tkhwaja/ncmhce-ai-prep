@@ -133,7 +133,7 @@
     {
       "term": "Altruism",
       "letter": "A",
-      "definition": "Yalom therapeutic factor in which group members benefit from helping each other.",
+      "definition": "Irvin Yalom therapeutic factor in which group members benefit from helping each other.",
       "examRelevance": "Often tested in group scenarios.",
       "relatedTerms": [
         "Universality",
@@ -189,12 +189,12 @@
     {
       "term": "Assimilation",
       "letter": "A",
-      "definition": "Piaget concept describing how new information is fitted into existing mental schemas.",
+      "definition": "Jean Piaget concept describing how new information is fitted into existing mental schemas.",
       "examRelevance": "Appears in human development questions.",
       "relatedTerms": [
         "Accommodation",
         "Schema",
-        "Piaget"
+        "Jean Piaget"
       ],
       "tags": [
         "development"
@@ -362,7 +362,7 @@
       "term": "Catharsis",
       "letter": "C",
       "definition": "Emotional release that brings relief or insight, especially in group work.",
-      "examRelevance": "Yalom factor and trauma/group-related concept.",
+      "examRelevance": "Irvin Yalom therapeutic factor and trauma/group-related concept.",
       "relatedTerms": [
         "Abreaction",
         "Altruism",
@@ -390,11 +390,11 @@
     {
       "term": "Circumscription",
       "letter": "C",
-      "definition": "Gottfredson concept describing how children narrow career options over time based on role expectations, prestige, and interests.",
+      "definition": "Linda Gottfredson concept describing how children narrow career options over time based on role expectations, prestige, and interests.",
       "examRelevance": "High-yield in career development.",
       "relatedTerms": [
         "Compromise",
-        "Gottfredson",
+        "Linda Gottfredson",
         "Career Development"
       ],
       "tags": [
@@ -466,7 +466,7 @@
       "relatedTerms": [
         "Group Cohesion",
         "Universality",
-        "Yalom"
+        "Irvin Yalom"
       ],
       "tags": [
         "group"
@@ -518,7 +518,7 @@
     {
       "term": "Congruence",
       "letter": "C",
-      "definition": "Rogers' term for genuineness and alignment between inner experience and outward expression.",
+      "definition": "Carl Rogers' term for genuineness and alignment between inner experience and outward expression.",
       "examRelevance": "Core person-centered therapy condition.",
       "relatedTerms": [
         "Empathy",
@@ -605,7 +605,7 @@
     {
       "term": "Differentiation of Self",
       "letter": "D",
-      "definition": "Bowen concept describing the ability to stay emotionally connected while maintaining a clear independent sense of self.",
+      "definition": "Murray Bowen family systems concept describing the ability to stay emotionally connected while maintaining a clear independent sense of self.",
       "examRelevance": "High-yield family systems concept.",
       "relatedTerms": [
         "Triangulation",
@@ -750,7 +750,7 @@
       "term": "Empathy",
       "letter": "E",
       "definition": "Accurately understanding and communicating understanding of the client's inner world.",
-      "examRelevance": "Core Rogers condition and broadly central counseling skill.",
+      "examRelevance": "Core Carl Rogers person-centered condition and broadly central counseling skill.",
       "relatedTerms": [
         "Congruence",
         "Unconditional Positive Regard"
@@ -820,10 +820,10 @@
     {
       "term": "Existential Factors",
       "letter": "E",
-      "definition": "Yalom factor involving confrontation with freedom, responsibility, mortality, isolation, and meaning.",
+      "definition": "Irvin Yalom therapeutic factor involving confrontation with freedom, responsibility, mortality, isolation, and meaning.",
       "examRelevance": "Common group theory term.",
       "relatedTerms": [
-        "Yalom",
+        "Irvin Yalom",
         "Catharsis"
       ],
       "tags": [
@@ -991,7 +991,7 @@
       "relatedTerms": [
         "Cohesiveness",
         "Universality",
-        "Yalom"
+        "Irvin Yalom"
       ],
       "tags": [
         "group"
@@ -1012,7 +1012,7 @@
       ]
     },
     {
-      "term": "Holland Codes",
+      "term": "John Holland Codes",
       "letter": "H",
       "definition": "RIASEC career typology: Realistic, Investigative, Artistic, Social, Enterprising, Conventional.",
       "examRelevance": "High-yield career counseling framework.",
@@ -1109,7 +1109,7 @@
     {
       "term": "Instillation of Hope",
       "letter": "I",
-      "definition": "Yalom factor in which members gain hope by seeing that improvement is possible.",
+      "definition": "Irvin Yalom therapeutic factor in which members gain hope by seeing that improvement is possible.",
       "examRelevance": "Common group therapy exam clue.",
       "relatedTerms": [
         "Universality",
@@ -1147,9 +1147,9 @@
       ]
     },
     {
-      "term": "Krumboltz",
+      "term": "John Krumboltz",
       "letter": "K",
-      "definition": "Career theorist known for social learning theory of career development and planned happenstance.",
+      "definition": "Career theorist John Krumboltz, known for social learning theory of career development and planned happenstance.",
       "examRelevance": "High-yield career counseling theory.",
       "relatedTerms": [
         "Planned Happenstance",
@@ -1259,12 +1259,12 @@
     {
       "term": "Microsystem",
       "letter": "M",
-      "definition": "Bronfenbrenner level involving the person's immediate environment, such as family, school, and peers.",
+      "definition": "Urie Bronfenbrenner ecological systems level involving the person's immediate environment, such as family, school, and peers.",
       "examRelevance": "Key in child and systems-based cases.",
       "relatedTerms": [
         "Mesosystem",
         "Macrosystem",
-        "Bronfenbrenner"
+        "Urie Bronfenbrenner"
       ],
       "tags": [
         "development"
@@ -1444,11 +1444,11 @@
     {
       "term": "Object Permanence",
       "letter": "O",
-      "definition": "Piaget concept that objects continue to exist even when out of sight.",
+      "definition": "Jean Piaget concept that objects continue to exist even when out of sight.",
       "examRelevance": "Human development concept in early childhood.",
       "relatedTerms": [
         "Sensorimotor Stage",
-        "Piaget"
+        "Jean Piaget"
       ],
       "tags": [
         "development"
@@ -1683,10 +1683,10 @@
     {
       "term": "RIASEC",
       "letter": "R",
-      "definition": "Holland's six career interest/environment types: Realistic, Investigative, Artistic, Social, Enterprising, Conventional.",
+      "definition": "John Holland's six career interest/environment types: Realistic, Investigative, Artistic, Social, Enterprising, Conventional.",
       "examRelevance": "High-yield career concept.",
       "relatedTerms": [
-        "Holland Codes",
+        "John Holland Codes",
         "SDS"
       ],
       "tags": [
@@ -1710,11 +1710,11 @@
     {
       "term": "Scaffolding",
       "letter": "S",
-      "definition": "Vygotsky concept involving temporary support from a more knowledgeable other to help learning occur.",
+      "definition": "Lev Vygotsky concept involving temporary support from a more knowledgeable other to help learning occur.",
       "examRelevance": "Relevant in development, teaching, and skill-building questions.",
       "relatedTerms": [
         "Zone of Proximal Development",
-        "Vygotsky"
+        "Lev Vygotsky"
       ],
       "tags": [
         "development"
@@ -1750,7 +1750,7 @@
     {
       "term": "Self-Actualization",
       "letter": "S",
-      "definition": "Rogers' concept of the natural drive toward growth, fulfillment, and becoming more fully oneself.",
+      "definition": "Carl Rogers' concept of the natural drive toward growth, fulfillment, and becoming more fully oneself.",
       "examRelevance": "Person-centered therapy concept.",
       "relatedTerms": [
         "Person-Centered Therapy",
@@ -1887,9 +1887,9 @@
       ]
     },
     {
-      "term": "Super",
+      "term": "Donald Super",
       "letter": "S",
-      "definition": "Career theorist who described lifespan career development and the implementation of self-concept across life roles.",
+      "definition": "Career theorist Donald Super, who described lifespan career development and the implementation of self-concept across life roles.",
       "examRelevance": "High-yield career counseling theory.",
       "relatedTerms": [
         "Life-Space",
@@ -2015,7 +2015,7 @@
     {
       "term": "Triangulation",
       "letter": "T",
-      "definition": "Bowen concept in which tension between two people is stabilized by involving a third person.",
+      "definition": "Murray Bowen family systems concept in which tension between two people is stabilized by involving a third person.",
       "examRelevance": "Very high-yield family systems clue.",
       "relatedTerms": [
         "Differentiation of Self",
@@ -2043,7 +2043,7 @@
     {
       "term": "Unconditional Positive Regard",
       "letter": "U",
-      "definition": "Rogers' principle of accepting the client without judgment or conditions of worth.",
+      "definition": "Carl Rogers' principle of accepting the client without judgment or conditions of worth.",
       "examRelevance": "Core person-centered therapy condition.",
       "relatedTerms": [
         "Empathy",
@@ -2056,7 +2056,7 @@
     {
       "term": "Universality",
       "letter": "U",
-      "definition": "Yalom factor involving the realization that one is not alone in one's struggles.",
+      "definition": "Irvin Yalom therapeutic factor involving the realization that one is not alone in one's struggles.",
       "examRelevance": "Classic group counseling test point.",
       "relatedTerms": [
         "Altruism",
@@ -2151,7 +2151,7 @@
       ]
     },
     {
-      "term": "Yalom",
+      "term": "Irvin Yalom",
       "letter": "Y",
       "definition": "Group theorist known for identifying 11 therapeutic factors and for existential group psychotherapy.",
       "examRelevance": "Essential group counseling name and framework.",
@@ -2167,11 +2167,11 @@
     {
       "term": "Zone of Proximal Development",
       "letter": "Z",
-      "definition": "Vygotsky concept describing what a learner can do with guidance but not yet independently.",
+      "definition": "Lev Vygotsky concept describing what a learner can do with guidance but not yet independently.",
       "examRelevance": "Important development and learning term.",
       "relatedTerms": [
         "Scaffolding",
-        "Vygotsky"
+        "Lev Vygotsky"
       ],
       "tags": [
         "development"
@@ -2205,8 +2205,8 @@
       "CBT = thoughts, behaviors, distortions",
       "DBT = regulation, acceptance, Wise Mind",
       "ACT = values, defusion, acceptance",
-      "Rogers = empathy, UPR, congruence",
-      "Yalom = why groups heal",
+      "Carl Rogers = empathy, UPR, congruence",
+      "Irvin Yalom = why groups heal",
       "Tarasoff = protect/warn",
       "PHQ-9 = depression",
       "GAD-7 = anxiety",
