@@ -11,6 +11,7 @@ import ModuleRenderer from "@/components/library/ModuleRenderer";
 import ExamOverviewRenderer from "@/components/library/ExamOverviewRenderer";
 import AssessmentTestingRenderer from "@/components/library/AssessmentTestingRenderer";
 import GlossaryView from "@/components/library/GlossaryView";
+import { ExamLikelihoodBadge } from "@/components/library/ExamLikelihoodBadge";
 import type { AppLayoutOutletContext } from "@/components/app/AppLayout";
 
 const iconMap: Record<string, React.ElementType> = {
@@ -39,6 +40,7 @@ const LibraryModuleDetail = ({ module, onBack }: { module: LibraryModule; onBack
         <h1 className="text-2xl font-bold text-foreground">{module.title}</h1>
         <div className="flex flex-wrap gap-2 mt-2">
           <Badge variant="secondary">{module.category}</Badge>
+          <ExamLikelihoodBadge topic={module.title} context={module.category} />
           {module.tags.slice(0, 4).map((t) => (
             <Badge key={t} variant="outline" className="text-xs">{t}</Badge>
           ))}
@@ -243,7 +245,10 @@ const Library = () => {
                       </div>
                       <div className="min-w-0">
                         <h3 className="font-semibold text-foreground leading-tight">{mod.title}</h3>
-                        <Badge variant="secondary" className="mt-1 text-xs">{mod.keyConcepts.length} concepts</Badge>
+                        <div className="mt-1 flex flex-wrap gap-1.5">
+                          <Badge variant="secondary" className="text-xs">{mod.keyConcepts.length} concepts</Badge>
+                          <ExamLikelihoodBadge topic={mod.title} context={mod.category} compact />
+                        </div>
                       </div>
                     </div>
                     <p className="text-sm text-muted-foreground line-clamp-2">{mod.description}</p>

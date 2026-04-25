@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { StudyVisuals } from "@/components/library/StudyVisuals";
 import ModuleSectionNavigator from "@/components/library/ModuleSectionNavigator";
+import { ExamLikelihoodBadge } from "@/components/library/ExamLikelihoodBadge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { ChevronDown, ChevronRight, Lightbulb, AlertTriangle, BookOpen, Target, HelpCircle, Sparkles, ListChecks, Brain, Repeat, ShieldAlert, Compass } from "lucide-react";
 
@@ -97,7 +98,10 @@ const CollapsibleSection = ({ title, children, defaultOpen = false }: { title: s
   return (
     <Collapsible open={open} onOpenChange={setOpen} className="border border-border rounded-lg mt-4 card-elevated">
       <CollapsibleTrigger className="flex items-center justify-between w-full p-4 hover:bg-accent/40 rounded-lg transition-colors">
-        <span className="font-semibold text-foreground text-left text-base">{title}</span>
+        <span className="flex flex-wrap items-center gap-2 text-left">
+          <span className="font-semibold text-foreground text-base">{title}</span>
+          <ExamLikelihoodBadge topic={title} />
+        </span>
         {open ? <ChevronDown className="h-4 w-4 text-muted-foreground" /> : <ChevronRight className="h-4 w-4 text-muted-foreground" />}
       </CollapsibleTrigger>
       <CollapsibleContent className="px-4 pb-4">{children}</CollapsibleContent>
@@ -186,7 +190,10 @@ const CompactObjectBrowser = ({ title, items }: { title: string; items: any[] })
                 className="h-auto w-full justify-start whitespace-normal px-3 py-2 text-left text-sm"
                 onClick={() => setSelectedIndex(index)}
               >
-                {itemTitle}
+                <span className="flex w-full flex-wrap items-center gap-2">
+                  <span>{itemTitle}</span>
+                  <ExamLikelihoodBadge topic={itemTitle} context={title} compact />
+                </span>
               </Button>
             );
           })}
@@ -195,6 +202,7 @@ const CompactObjectBrowser = ({ title, items }: { title: string; items: any[] })
           <CardContent className="p-4 space-y-3">
             <div className="flex flex-wrap items-center gap-2">
               <h3 className="text-base font-semibold text-foreground">{selectedTitle.label}</h3>
+              <ExamLikelihoodBadge topic={selectedTitle.label} context={title} />
               <Badge variant="secondary" className="text-xs">{selectedIndex + 1} of {items.length}</Badge>
             </div>
             {renderObjectContent(selected, new Set(selectedTitle.key ? [selectedTitle.key] : []))}
@@ -1140,7 +1148,10 @@ const TheoryCards = ({ theories }: { theories: any[] }) => (
           <CardContent className="p-5 space-y-4">
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div className="min-w-0 space-y-1">
-                <h3 className="text-lg font-semibold leading-tight text-foreground">{theory.title}</h3>
+                <div className="flex flex-wrap items-center gap-2">
+                  <h3 className="text-lg font-semibold leading-tight text-foreground">{theory.title}</h3>
+                  <ExamLikelihoodBadge topic={theory.title} context="counseling theory intervention" />
+                </div>
                 {theory.founder && <p className="text-sm text-muted-foreground">Founder: {theory.founder}</p>}
               </div>
               {theory.examPriority && <Badge variant="secondary" className="shrink-0">{formatValue(theory.examPriority)} priority</Badge>}
@@ -1267,7 +1278,10 @@ const ComprehensiveLearningSection = ({ data }: { data: any }) => (
         <CardContent className="p-4 space-y-4">
           <div>
             <p className="text-xs font-semibold uppercase tracking-wide text-primary">Lesson {index + 1}</p>
-            <h3 className="mt-1 text-lg font-semibold leading-tight text-foreground">{lesson.title}</h3>
+            <div className="mt-1 flex flex-wrap items-center gap-2">
+              <h3 className="text-lg font-semibold leading-tight text-foreground">{lesson.title}</h3>
+              <ExamLikelihoodBadge topic={lesson.title} context={lesson.why_it_matters_for_ncmhce} />
+            </div>
           </div>
           {lesson.why_it_matters_for_ncmhce && <Callout variant="rule" title="Why this matters for the NCMHCE">{lesson.why_it_matters_for_ncmhce}</Callout>}
           {lesson.key_terms?.length > 0 && (
@@ -1323,7 +1337,12 @@ const GenericSection = ({ title, data }: { title: string; data: any }) => {
             ) : (
               <Card className="card-elevated h-full">
                 <CardContent className="p-4 space-y-3">
-                  {item.title && <h3 className="text-base font-semibold text-foreground">{item.title}</h3>}
+                  {item.title && (
+                    <div className="flex flex-wrap items-center gap-2">
+                      <h3 className="text-base font-semibold text-foreground">{item.title}</h3>
+                      <ExamLikelihoodBadge topic={item.title} context={title} />
+                    </div>
+                  )}
                   {renderObjectContent(item)}
                 </CardContent>
               </Card>
@@ -1370,7 +1389,10 @@ const renderObjectContent = (obj: any, extraSkipKeys: Set<string> = new Set(), p
         if (Array.isArray(value) && value.length > 0 && typeof value[0] === "string") {
           return (
             <div key={key} className="mb-3 break-inside-avoid self-start rounded-lg border border-border bg-muted/30 p-3">
-              <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
+                <ExamLikelihoodBadge topic={formatKey(key)} context={parentLabel} compact />
+              </div>
               {parentLabel && <p className="mt-1 text-xs text-muted-foreground">Part of {parentLabel}</p>}
               <ul className="ml-4 mt-1">
                 {value.map((v: string, i: number) => (
@@ -1390,7 +1412,10 @@ const renderObjectContent = (obj: any, extraSkipKeys: Set<string> = new Set(), p
         if (typeof value === "object" && !Array.isArray(value)) {
           return (
             <div key={key} className="mb-3 break-inside-avoid self-start rounded-lg border border-border bg-card p-3">
-              <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
+                <ExamLikelihoodBadge topic={formatKey(key)} context={parentLabel} compact />
+              </div>
               {parentLabel && <p className="mt-1 text-xs text-muted-foreground">Part of {parentLabel}</p>}
               <div className="mt-2 grid gap-2">
                 {Object.entries(value as Record<string, any>).map(([k, v]) => (
@@ -1424,7 +1449,10 @@ const renderObjectContent = (obj: any, extraSkipKeys: Set<string> = new Set(), p
         if (typeof value === "string") {
           return (
             <div key={key} className="mb-3 break-inside-avoid self-start rounded-lg border border-border bg-muted/30 p-3">
-              <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
+                <ExamLikelihoodBadge topic={formatKey(key)} context={parentLabel} compact />
+              </div>
               {parentLabel && <p className="mt-1 text-xs text-muted-foreground">Part of {parentLabel}</p>}
               <p className="mt-1 text-sm text-muted-foreground">{formatValue(value)}</p>
             </div>
@@ -1446,13 +1474,19 @@ const DiagnosticCategories = ({ categories }: { categories: any[] }) => (
         <Card key={i} className="card-elevated">
           <CardContent className="p-4 space-y-4">
             <div>
-              <h3 className="text-base font-semibold text-foreground">{cat.title}</h3>
+              <div className="flex flex-wrap items-center gap-2">
+                <h3 className="text-base font-semibold text-foreground">{cat.title}</h3>
+                <ExamLikelihoodBadge topic={cat.title} context="diagnosis differential diagnosis" />
+              </div>
               {cat.overview && <p className="mt-2 text-sm text-muted-foreground">{cat.overview}</p>}
             </div>
 
             {cat.highYieldDisorders?.map((disorder: any, j: number) => (
               <div key={j} className="rounded-lg border border-border bg-muted/30 p-4">
-                <h4 className="mb-3 text-sm font-semibold text-foreground">{disorder.title}</h4>
+                <div className="mb-3 flex flex-wrap items-center gap-2">
+                  <h4 className="text-sm font-semibold text-foreground">{disorder.title}</h4>
+                  <ExamLikelihoodBadge topic={disorder.title} context={`${cat.title} DSM diagnosis`} />
+                </div>
                 {disorder.description && (
                   <div className="mb-4 rounded-lg border border-border bg-background p-4">
                     <p className="text-xs font-semibold uppercase tracking-wide text-muted-foreground mb-1.5">What it is</p>

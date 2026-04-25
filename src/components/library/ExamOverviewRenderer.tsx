@@ -19,6 +19,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { ExamLikelihoodBadge } from "@/components/library/ExamLikelihoodBadge";
 
 /* ---------------- Section primitives ---------------- */
 
@@ -36,7 +37,10 @@ const SectionHeader = ({
       <Icon className="h-5 w-5 text-primary" />
     </div>
     <div>
-      <h2 className="text-xl font-bold text-foreground leading-tight">{title}</h2>
+      <div className="flex flex-wrap items-center gap-2">
+        <h2 className="text-xl font-bold text-foreground leading-tight">{title}</h2>
+        <ExamLikelihoodBadge topic={title} context={subtitle} />
+      </div>
       {subtitle && <p className="text-sm text-muted-foreground mt-1">{subtitle}</p>}
     </div>
   </div>
@@ -210,7 +214,10 @@ const BlueprintDomains = ({ blueprint }: { blueprint: any }) => (
       {blueprint.domains?.map((d: any, i: number) => (
         <Card key={i} className="card-elevated">
           <CardContent className="p-5">
-            <h3 className="text-sm font-semibold text-foreground mb-1">{d.title}</h3>
+            <div className="mb-1 flex flex-wrap items-center gap-2">
+              <h3 className="text-sm font-semibold text-foreground">{d.title}</h3>
+              <ExamLikelihoodBadge topic={d.title} context={d.whyItMatters} compact />
+            </div>
             <p className="text-xs text-muted-foreground mb-3 leading-relaxed">
               {d.whyItMatters}
             </p>
@@ -303,7 +310,10 @@ const DecisionHierarchy = ({ data }: { data: any }) => (
               <Badge variant="outline" className="text-xs">
                 Priority {h.priority}
               </Badge>
-              <p className="text-sm font-semibold text-foreground">{h.title}</p>
+              <div className="flex flex-wrap items-center gap-2">
+                <p className="text-sm font-semibold text-foreground">{h.title}</p>
+                <ExamLikelihoodBadge topic={h.title} context="exam decision hierarchy" compact />
+              </div>
             </div>
             {h.includes?.length > 0 && (
               <div className="flex flex-wrap gap-1.5 ml-1">
