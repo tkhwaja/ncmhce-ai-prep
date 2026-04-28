@@ -32,18 +32,6 @@ const schema = z
 
 type FormValues = z.infer<typeof schema>;
 
-function getStrength(pw: string): { score: number; label: string; color: string } {
-  let score = 0;
-  if (pw.length >= 8) score++;
-  if (/[A-Za-z]/.test(pw) && /[0-9]/.test(pw)) score++;
-  if (pw.length >= 12) score++;
-  if (/[^A-Za-z0-9]/.test(pw)) score++;
-  if (score <= 1) return { score: 1, label: "Weak", color: "bg-destructive" };
-  if (score === 2) return { score: 2, label: "Fair", color: "bg-yellow-500" };
-  if (score === 3) return { score: 3, label: "Good", color: "bg-blue-500" };
-  return { score: 4, label: "Strong", color: "bg-green-500" };
-}
-
 const Signup = () => {
   const [examDate, setExamDate] = useState<Date>();
   const [loading, setLoading] = useState(false);
@@ -61,7 +49,6 @@ const Signup = () => {
   });
 
   const password = watch("password") || "";
-  const strength = getStrength(password);
   const checks = [
     { label: "At least 8 characters", ok: password.length >= 8 },
     { label: "Contains a letter", ok: /[A-Za-z]/.test(password) },
@@ -115,29 +102,18 @@ const Signup = () => {
               <Label htmlFor="password">Password</Label>
               <Input id="password" type="password" placeholder="••••••••" {...register("password")} />
               {password && (
-                <div className="space-y-2">
-                  <div className="flex items-center gap-2">
-                    <div className="flex-1 h-1.5 bg-muted rounded-full overflow-hidden">
-                      <div
-                        className={cn("h-full transition-all", strength.color)}
-                        style={{ width: `${(strength.score / 4) * 100}%` }}
-                      />
-                    </div>
-                    <span className="text-xs text-muted-foreground w-12 text-right">{strength.label}</span>
-                  </div>
-                  <ul className="space-y-1">
-                    {checks.map((c) => (
-                      <li key={c.label} className="flex items-center gap-2 text-xs">
-                        {c.ok ? (
-                          <Check className="h-3 w-3 text-green-600" />
-                        ) : (
-                          <X className="h-3 w-3 text-muted-foreground" />
-                        )}
-                        <span className={c.ok ? "text-foreground" : "text-muted-foreground"}>{c.label}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                <ul className="space-y-1">
+                  {checks.map((c) => (
+                    <li key={c.label} className="flex items-center gap-2 text-xs">
+                      {c.ok ? (
+                        <Check className="h-3 w-3 text-primary" />
+                      ) : (
+                        <X className="h-3 w-3 text-muted-foreground" />
+                      )}
+                      <span className={c.ok ? "text-foreground" : "text-muted-foreground"}>{c.label}</span>
+                    </li>
+                  ))}
+                </ul>
               )}
             </div>
             <div className="space-y-2">
