@@ -14,7 +14,6 @@ import {
   Target, TrendingUp, CheckCircle2, Sparkles, BarChart3
 } from "lucide-react";
 import TceIcon, { TceIconName } from "@/components/icons/TceIcon";
-import { DEMO_MODE, demoAttempts } from "@/data/demo-stats";
 
 const DOMAIN_ICONS: Record<string, TceIconName> = {
   "Intake/assessment/diagnosis": "domain-assessment",
@@ -69,11 +68,6 @@ const Analytics = () => {
   const [aiLoading, setAiLoading] = useState(false);
 
   useEffect(() => {
-    if (DEMO_MODE) {
-      setAttempts(demoAttempts as unknown as Attempt[]);
-      setLoading(false);
-      return;
-    }
     if (!user) return;
     supabase
       .from("narrative_attempts")
