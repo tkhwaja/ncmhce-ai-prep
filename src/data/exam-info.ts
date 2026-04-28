@@ -127,10 +127,10 @@ Starting from your toes, tense each muscle group for 5 seconds, then release. Wo
 Registration is through the **National Board for Certified Counselors (NBCC)**. You must meet eligibility requirements, which typically include a master's degree in counseling from a CACREP-accredited program, supervised clinical experience, and state-specific requirements. Apply through the NBCC website, and once approved, you'll receive an authorization to test (ATT) to schedule at a Pearson VUE testing center.
 
 **How much does the exam cost?**
-The NCMHCE costs approximately **$275** for first-time test-takers. Retake fees may vary. Some states have additional licensing fees separate from the exam cost.
+Exam fees can vary by registration pathway and state requirements. Candidates should confirm the current fee during registration through NBCC/CCE or their state licensing process. State licensing boards may also charge separate application or licensing fees.
 
 **How long is my ATT valid?**
-Your Authorization to Test is typically valid for **90 days** from the date of issuance. You must schedule and take the exam within this window.
+Your Authorization to Test email from Pearson VUE includes your Candidate ID and specific test authorization dates. You must schedule and take the exam within the dates listed in that authorization window.
 
 ## Scoring & Results
 
@@ -138,15 +138,15 @@ Your Authorization to Test is typically valid for **90 days** from the date of i
 The NCMHCE uses a criterion-referenced passing standard. You need to demonstrate minimum competency across all scored domains. The passing standard is set by the NBCC using a modified Angoff method and is not a simple percentage score. Results are reported as **pass or fail**.
 
 **When do I get my results?**
-Results are typically available **within 2 weeks** of taking the exam. You'll receive notification from NBCC. Your state licensing board will also be notified of your results.
+After the examination, test center candidates receive an unofficial score report at the test center. Online candidates can access score report information through their Pearson VUE dashboard. Official reporting processes may vary by state or credentialing pathway.
 
 **What is the pass rate?**
-The national first-time pass rate is approximately **75-80%**. Pass rates vary by program and preparation level.
+Pass rates can change over time and may vary by candidate group, program, and jurisdiction. For the most reliable current data, check official NBCC/CCE reporting or your licensing board rather than relying on a fixed estimate.
 
 ## Retaking the Exam
 
 **Can I retake the NCMHCE if I fail?**
-Yes. You may retake the exam, but you must wait at least **90 days** between attempts. There is no limit on the number of retakes, but each attempt requires a new registration and fee.
+Yes. According to the current NBCC/CCE Candidate Handbook for State Licensure, candidates who fail the NCMHCE may take the examination again after a **30-day window**. A separate registration and fee are required for reregistration.
 
 **How should I prepare differently for a retake?**
 Focus on the domains where you were weakest. If your score report indicates deficits in specific areas, concentrate your study there. Consider using a structured study plan, joining a study group, or working with a tutor who specializes in NCMHCE preparation.
