@@ -1338,7 +1338,6 @@ const GenericSection = ({ title, data }: { title: string; data: any }) => {
                   {item.title && (
                     <div className="flex flex-wrap items-center gap-2">
                       <h3 className="text-base font-semibold text-foreground">{item.title}</h3>
-                      <ExamLikelihoodBadge topic={item.title} context={title} />
                     </div>
                   )}
                   {renderObjectContent(item)}
@@ -1389,7 +1388,6 @@ const renderObjectContent = (obj: any, extraSkipKeys: Set<string> = new Set(), p
             <div key={key} className="mb-3 break-inside-avoid self-start rounded-lg border border-border bg-muted/30 p-3">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
-                <ExamLikelihoodBadge topic={formatKey(key)} context={parentLabel} compact />
               </div>
               {parentLabel && <p className="mt-1 text-xs text-muted-foreground">Part of {parentLabel}</p>}
               <ul className="ml-4 mt-1">
@@ -1412,7 +1410,6 @@ const renderObjectContent = (obj: any, extraSkipKeys: Set<string> = new Set(), p
             <div key={key} className="mb-3 break-inside-avoid self-start rounded-lg border border-border bg-card p-3">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
-                <ExamLikelihoodBadge topic={formatKey(key)} context={parentLabel} compact />
               </div>
               {parentLabel && <p className="mt-1 text-xs text-muted-foreground">Part of {parentLabel}</p>}
               <div className="mt-2 grid gap-2">
