@@ -13,6 +13,7 @@ interface NarrativeAttempt {
   id: string;
   narrative_id: string;
   total_score: number | null;
+  domain_scores: Record<string, number> | null;
   time_spent: number | null;
   completed_at: string | null;
   created_at: string;
@@ -58,7 +59,7 @@ const Dashboard = () => {
       const [{ data: attemptData }, { data: flashcardData }] = await Promise.all([
         supabase
           .from("narrative_attempts")
-          .select("id, narrative_id, total_score, time_spent, completed_at, created_at")
+          .select("id, narrative_id, total_score, domain_scores, time_spent, completed_at, created_at")
           .eq("user_id", user.id)
           .not("completed_at", "is", null)
           .order("completed_at", { ascending: false }),
@@ -123,6 +124,20 @@ const Dashboard = () => {
       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
       .slice(0, 5);
   }, [completedAttempts, flashcardProgress]);
+
+  const weakestDomain = useMemo(() => {
+    const totals: Record<string, { sum: number; count: number }> = {};
+    completedAttempts.forEach((attempt) => {
+      Object.entries(attempt.domain_scores || {}).forEach(([domain, score]) => {
+        if (!totals[domain]) totals[domain] = { sum: 0, count: 0 };
+        totals[domain].sum += score;
+        totals[domain].count += 1;
+      });
+    });
+    return Object.entries(totals)
+      .map(([domain, value]) => ({ domain, average: Math.round(value.sum / value.count) }))
+      .sort((a, b) => a.average - b.average)[0];
+  }, [completedAttempts]);
 
   const quickActions = [
     { title: "Start a Narrative", desc: "Practice with realistic NCMHCE clinical case narratives", icon: Brain, path: "/narratives", color: "from-primary/20 to-primary/5" },
