@@ -53,6 +53,12 @@ const Navbar = () => {
             Sign In
           </Link>
           <Link
+            to="/signup"
+            className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+          >
+            Sign Up
+          </Link>
+          <Link
             to="/free-diagnostic-case"
             className="inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
           >
@@ -87,6 +93,13 @@ const Navbar = () => {
             className="mt-2 inline-flex w-full items-center justify-center rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground"
           >
             Take the Free Diagnostic Case
+          </Link>
+          <Link
+            to="/signup"
+            onClick={() => setMobileOpen(false)}
+            className="mt-3 inline-flex w-full items-center justify-center rounded-lg border border-primary/30 px-4 py-2.5 text-sm font-medium text-primary"
+          >
+            Sign Up for Beta Access
           </Link>
         </div>
       )}
