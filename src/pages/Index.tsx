@@ -7,7 +7,6 @@ import FeatureSpotlight from "@/components/landing/FeatureSpotlight";
 import HowItWorks from "@/components/landing/HowItWorks";
 import ComparisonTable from "@/components/landing/ComparisonTable";
 import WhoItsFor from "@/components/landing/WhoItsFor";
-import PricingSection from "@/components/landing/PricingSection";
 import WaitlistCTA from "@/components/landing/WaitlistCTA";
 import FAQSection from "@/components/landing/FAQSection";
 import Footer from "@/components/landing/Footer";
@@ -23,7 +22,6 @@ const Index = () => (
     <HowItWorks />
     <ComparisonTable />
     <WhoItsFor />
-    <PricingSection />
     <WaitlistCTA />
     <FAQSection />
     <Footer />

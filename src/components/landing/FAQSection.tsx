@@ -31,8 +31,8 @@ const faqs = [
     a: "Absolutely. You can retake any narrative or practice exam as many times as you want. Each attempt is tracked separately so you can measure improvement over time.",
   },
   {
-    q: "What's included in the subscription?",
-    a: "Full access to everything: all clinical narratives, practice exams, optional in-session support, flashcards with spaced repetition, DSM-5-TR library, personalized study plan, domain analytics, Pomodoro timer, and note-taking tools. Cancel anytime.",
+    q: "What's included during beta access?",
+    a: "Beta users can try the complete platform: all clinical narratives, practice exams, optional in-session support, flashcards with spaced repetition, DSM-5-TR library, personalized study plan, domain analytics, Pomodoro timer, and note-taking tools.",
   },
 ];
 
