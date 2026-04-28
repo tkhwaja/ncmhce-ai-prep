@@ -1,32 +1,128 @@
+import { useEffect, useMemo, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
+import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Brain, BarChart3, Layers, Target, TrendingUp, Clock, Flame, Sparkles, BookOpen } from "lucide-react";
 import { useNavigate } from "react-router-dom";
-import { DEMO_MODE, demoDashboardStats, demoRecentActivity } from "@/data/demo-stats";
+import { getNarrativeById } from "@/data/narratives";
 
 const capitalize = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
 
+interface NarrativeAttempt {
+  id: string;
+  narrative_id: string;
+  total_score: number | null;
+  time_spent: number | null;
+  completed_at: string | null;
+  created_at: string;
+}
+
+interface FlashcardProgress {
+  id: string;
+  deck_id: string;
+  card_id: string;
+  status: string;
+  last_reviewed: string | null;
+  created_at: string;
+}
+
+const formatRelativeTime = (value: string | null) => {
+  if (!value) return "Recently";
+  const diffMs = Date.now() - new Date(value).getTime();
+  const minutes = Math.max(0, Math.floor(diffMs / 60000));
+  if (minutes < 1) return "Just now";
+  if (minutes < 60) return `${minutes} min ago`;
+  const hours = Math.floor(minutes / 60);
+  if (hours < 24) return `${hours} hour${hours === 1 ? "" : "s"} ago`;
+  const days = Math.floor(hours / 24);
+  if (days < 7) return `${days} day${days === 1 ? "" : "s"} ago`;
+  return new Date(value).toLocaleDateString();
+};
+
 const Dashboard = () => {
-  const { profile } = useAuth();
+  const { user, profile } = useAuth();
   const navigate = useNavigate();
+  const [attempts, setAttempts] = useState<NarrativeAttempt[]>([]);
+  const [flashcardProgress, setFlashcardProgress] = useState<FlashcardProgress[]>([]);
+  const [loading, setLoading] = useState(true);
   const rawFirst = profile?.full_name?.trim().split(/\s+/)[0] || "there";
   const firstName = capitalize(rawFirst);
   const today = new Date().toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
 
-  const stats = DEMO_MODE
-    ? [
-        { label: "Narratives Completed", value: String(demoDashboardStats.narrativesCompleted), icon: Target, color: "text-primary" },
-        { label: "Average Score", value: `${demoDashboardStats.averageScore}%`, icon: TrendingUp, color: "text-emerald-400" },
-        { label: "Study Streak", value: `${demoDashboardStats.studyStreakDays} days`, icon: Flame, color: "text-amber-400" },
-        { label: "Hours Studied", value: `${demoDashboardStats.hoursStudied}h`, icon: Clock, color: "text-violet-400" },
-      ]
-    : [
-        { label: "Narratives Completed", value: "0", icon: Target, color: "text-primary" },
-        { label: "Average Score", value: "—", icon: TrendingUp, color: "text-emerald-400" },
-        { label: "Study Streak", value: "0 days", icon: Flame, color: "text-amber-400" },
-        { label: "Hours Studied", value: "0h", icon: Clock, color: "text-violet-400" },
-      ];
+  useEffect(() => {
+    if (!user) return;
+
+    const loadDashboardData = async () => {
+      setLoading(true);
+      const [{ data: attemptData }, { data: flashcardData }] = await Promise.all([
+        supabase
+          .from("narrative_attempts")
+          .select("id, narrative_id, total_score, time_spent, completed_at, created_at")
+          .eq("user_id", user.id)
+          .not("completed_at", "is", null)
+          .order("completed_at", { ascending: false }),
+        supabase
+          .from("flashcard_progress")
+          .select("id, deck_id, card_id, status, last_reviewed, created_at")
+          .eq("user_id", user.id)
+          .order("last_reviewed", { ascending: false, nullsFirst: false }),
+      ]);
+      setAttempts((attemptData as NarrativeAttempt[]) || []);
+      setFlashcardProgress((flashcardData as FlashcardProgress[]) || []);
+      setLoading(false);
+    };
+
+    loadDashboardData();
+  }, [user]);
+
+  const completedAttempts = attempts.filter((attempt) => attempt.completed_at);
+  const averageScore = completedAttempts.length
+    ? Math.round(completedAttempts.reduce((sum, attempt) => sum + (attempt.total_score || 0), 0) / completedAttempts.length)
+    : null;
+  const totalStudySeconds = completedAttempts.reduce((sum, attempt) => sum + (attempt.time_spent || 0), 0);
+  const reviewedDates = new Set(
+    [
+      ...completedAttempts.map((attempt) => attempt.completed_at?.slice(0, 10)),
+      ...flashcardProgress.map((card) => card.last_reviewed?.slice(0, 10)),
+    ].filter(Boolean) as string[],
+  );
+  let studyStreak = 0;
+  const cursor = new Date();
+  while (reviewedDates.has(cursor.toISOString().slice(0, 10))) {
+    studyStreak += 1;
+    cursor.setDate(cursor.getDate() - 1);
+  }
+
+  const stats = [
+    { label: "Narratives Completed", value: loading ? "…" : String(completedAttempts.length), icon: Target, color: "text-primary" },
+    { label: "Average Score", value: loading ? "…" : averageScore === null ? "—" : `${averageScore}%`, icon: TrendingUp, color: "text-emerald-400" },
+    { label: "Study Streak", value: loading ? "…" : `${studyStreak} day${studyStreak === 1 ? "" : "s"}`, icon: Flame, color: "text-amber-400" },
+    { label: "Hours Studied", value: loading ? "…" : `${Math.round((totalStudySeconds / 3600) * 10) / 10}h`, icon: Clock, color: "text-violet-400" },
+  ];
+
+  const recentActivity = useMemo(() => {
+    const narrativeItems = completedAttempts.map((attempt) => ({
+      id: attempt.id,
+      type: "narrative" as const,
+      title: getNarrativeById(attempt.narrative_id)?.title || "Clinical narrative",
+      score: attempt.total_score,
+      date: attempt.completed_at || attempt.created_at,
+    }));
+    const flashcardItems = flashcardProgress
+      .filter((card) => card.last_reviewed)
+      .map((card) => ({
+        id: card.id,
+        type: "flashcards" as const,
+        title: `${card.deck_id.replace(/-/g, " ")} flashcard review`,
+        score: null,
+        date: card.last_reviewed || card.created_at,
+      }));
+
+    return [...narrativeItems, ...flashcardItems]
+      .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
+      .slice(0, 5);
+  }, [completedAttempts, flashcardProgress]);
 
   const quickActions = [
     { title: "Start a Narrative", desc: "Practice with realistic NCMHCE clinical case narratives", icon: Brain, path: "/narratives", color: "from-primary/20 to-primary/5" },
