@@ -29,9 +29,6 @@ const quickActions = [
 ];
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/counselor-chat`;
-const isPreviewTesting =
-  typeof window !== "undefined" &&
-  (window.location.hostname.includes("id-preview--") || window.location.hostname === "localhost");
 
 const AIChatSidebar = ({ open, onClose, context, queuedPrompt, width = 380, onWidthChange }: AIChatSidebarProps) => {
   const { session } = useAuth();
@@ -99,7 +96,7 @@ const AIChatSidebar = ({ open, onClose, context, queuedPrompt, width = 380, onWi
           "Content-Type": "application/json",
           Authorization: `Bearer ${session?.access_token ?? ""}`,
         },
-        body: JSON.stringify({ messages: newMessages, context, previewTesting: isPreviewTesting }),
+        body: JSON.stringify({ messages: newMessages, context }),
       });
 
       if (!resp.ok || !resp.body) {
