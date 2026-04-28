@@ -9,13 +9,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
-import { Save, Target, TrendingUp, Layers, Calendar, BarChart3, CalendarCheck, KeyRound, Trash2, CreditCard } from "lucide-react";
-import { useSubscription } from "@/hooks/useSubscription";
-import { getStripeEnvironment } from "@/lib/stripe";
+import { Save, Target, TrendingUp, Layers, Calendar, BarChart3, CalendarCheck, KeyRound, Trash2 } from "lucide-react";
 
 const Profile = () => {
   const { user, profile, refreshProfile, signOut } = useAuth();
-  const { hasAccess, status, cancelAtPeriodEnd, currentPeriodEnd } = useSubscription();
   const { toast } = useToast();
   const navigate = useNavigate();
   const [fullName, setFullName] = useState("");
@@ -23,7 +20,6 @@ const Profile = () => {
   const [studyHours, setStudyHours] = useState(0);
   const [targetExamDate, setTargetExamDate] = useState("");
   const [loading, setLoading] = useState(false);
-  const [portalLoading, setPortalLoading] = useState(false);
   const [deleteConfirmOpen, setDeleteConfirmOpen] = useState(false);
 
   // Stats
@@ -104,19 +100,6 @@ const Profile = () => {
     }
   };
 
-  const handleManageSubscription = async () => {
-    setPortalLoading(true);
-    const { data, error } = await supabase.functions.invoke("create-portal-session", {
-      body: { environment: getStripeEnvironment(), returnUrl: `${window.location.origin}/profile` },
-    });
-    setPortalLoading(false);
-    if (error || !data?.url) {
-      toast({ title: "Error", description: error?.message || "Could not open subscription portal.", variant: "destructive" });
-      return;
-    }
-    window.open(data.url, "_blank");
-  };
-
   const handleDeleteAccount = async () => {
     toast({ title: "Account deletion requested", description: "Please contact support to complete account deletion." });
     await signOut();
@@ -169,55 +152,6 @@ const Profile = () => {
           <BarChart3 className="mr-2 h-4 w-4" /> View Analytics
         </Button>
       </div>
-
-
-      {/* Subscription */}
-      <Card className="card-elevated">
-        <CardHeader>
-          <CardTitle className="text-base">Subscription</CardTitle>
-        </CardHeader>
-        <CardContent className="space-y-3">
-          {hasAccess ? (
-            <>
-              <div className="flex items-center justify-between">
-                <div>
-                  <p className="text-sm font-medium text-foreground">
-                    {status === "canceled"
-                      ? "Canceled (active until period end)"
-                      : cancelAtPeriodEnd
-                      ? "Active (cancels at period end)"
-                      : profile?.payment_status === "paid" && !status
-                      ? "Lifetime Access"
-                      : "Active — $79/month"}
-                  </p>
-                  {currentPeriodEnd && (
-                    <p className="text-xs text-muted-foreground">
-                      {cancelAtPeriodEnd || status === "canceled" ? "Access ends" : "Renews"}{" "}
-                      {new Date(currentPeriodEnd).toLocaleDateString()}
-                    </p>
-                  )}
-                </div>
-                {status && (
-                  <Button variant="outline" size="sm" onClick={handleManageSubscription} disabled={portalLoading}>
-                    <CreditCard className="mr-2 h-4 w-4" />
-                    {portalLoading ? "Opening…" : "Manage"}
-                  </Button>
-                )}
-              </div>
-            </>
-          ) : (
-            <div className="flex items-center justify-between">
-              <div>
-                <p className="text-sm font-medium text-foreground">No active subscription</p>
-                <p className="text-xs text-muted-foreground">Unlock all premium features for $79/month</p>
-              </div>
-              <Button size="sm" onClick={() => navigate("/checkout")}>
-                Subscribe
-              </Button>
-            </div>
-          )}
-        </CardContent>
-      </Card>
 
       {/* Edit Form */}
       <Card className="card-elevated">
