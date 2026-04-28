@@ -273,9 +273,9 @@ const AIChatSidebar = ({ open, onClose, context, queuedPrompt, width = 380, onWi
             onKeyDown={handleKeyDown}
             placeholder="Ask CounselorAI..."
             className="flex-1"
-            disabled={isLoading || accessLoading || !canUseChat}
+            disabled={isLoading || !canUseChat}
           />
-          <Button size="icon" onClick={() => sendMessage(input)} disabled={isLoading || accessLoading || !canUseChat || !input.trim()}>
+          <Button size="icon" onClick={() => sendMessage(input)} disabled={isLoading || !canUseChat || !input.trim()}>
             <Send className="h-4 w-4" />
           </Button>
         </div>
