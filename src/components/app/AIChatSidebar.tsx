@@ -2,12 +2,10 @@ import { useState, useRef, useEffect, useCallback } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
-import { X, Send, Trash2, Sparkles, BookOpen, HelpCircle, GraduationCap, Lock } from "lucide-react";
+import { X, Send, Trash2, Sparkles, BookOpen, HelpCircle, GraduationCap } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/contexts/AuthContext";
-import { useSubscription } from "@/hooks/useSubscription";
-import { useNavigate } from "react-router-dom";
 
 interface Message {
   role: "user" | "assistant";
@@ -37,9 +35,7 @@ const isPreviewTesting =
 
 const AIChatSidebar = ({ open, onClose, context, queuedPrompt, width = 380, onWidthChange }: AIChatSidebarProps) => {
   const { session } = useAuth();
-  const { hasAccess, loading: accessLoading } = useSubscription();
-  const canUseChat = hasAccess || isPreviewTesting;
-  const navigate = useNavigate();
+  const canUseChat = true;
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -83,7 +79,7 @@ const AIChatSidebar = ({ open, onClose, context, queuedPrompt, width = 380, onWi
         ...prev,
         {
           role: "assistant",
-          content: "CounselorAI is included with an active subscription. You can unlock it from the subscription page.",
+          content: "CounselorAI is available to beta users. Please try again in a moment.",
         },
       ]);
       return;
@@ -109,7 +105,7 @@ const AIChatSidebar = ({ open, onClose, context, queuedPrompt, width = 380, onWi
       if (!resp.ok || !resp.body) {
         const errData = await resp.json().catch(() => ({}));
         if (resp.status === 403) {
-          throw new Error("CounselorAI is included with an active subscription. Please subscribe to unlock chat access.");
+          throw new Error("CounselorAI is available to beta users. Please try again in a moment.");
         }
         throw new Error(errData.error || "Failed to get response");
       }
@@ -210,24 +206,7 @@ const AIChatSidebar = ({ open, onClose, context, queuedPrompt, width = 380, onWi
 
       {/* Messages — flex-1 + overflow so input stays pinned */}
       <div className="flex-1 overflow-y-auto p-4" ref={scrollRef}>
-        {!accessLoading && !canUseChat ? (
-          <div className="min-h-full flex items-center justify-center py-8">
-            <div className="text-center max-w-sm space-y-4">
-              <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
-                <Lock className="h-6 w-6 text-primary" />
-              </div>
-              <div className="space-y-2">
-                <h3 className="text-base font-semibold text-foreground">Unlock CounselorAI</h3>
-                <p className="text-sm text-muted-foreground">
-                  CounselorAI requires an active subscription. In preview, use the test checkout to unlock access.
-                </p>
-              </div>
-              <Button onClick={() => navigate("/checkout")} className="w-full">
-                Subscribe — $79/month
-              </Button>
-            </div>
-          </div>
-        ) : messages.length === 0 && (
+        {messages.length === 0 && (
           <div className="text-center py-8">
             <Sparkles className="h-8 w-8 text-primary mx-auto mb-3 opacity-50" />
             <p className="text-sm text-muted-foreground">Hi! I'm CounselorAI, your NCMHCE exam tutor.</p>
@@ -276,7 +255,7 @@ const AIChatSidebar = ({ open, onClose, context, queuedPrompt, width = 380, onWi
             size="sm"
             className="text-xs h-7"
             onClick={() => sendMessage(action.prompt)}
-            disabled={isLoading || accessLoading || !canUseChat}
+            disabled={isLoading || !canUseChat}
           >
             <action.icon className="h-3 w-3 mr-1" />
             {action.label}
