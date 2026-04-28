@@ -216,7 +216,6 @@ const BlueprintDomains = ({ blueprint }: { blueprint: any }) => (
           <CardContent className="p-5">
             <div className="mb-1 flex flex-wrap items-center gap-2">
               <h3 className="text-sm font-semibold text-foreground">{d.title}</h3>
-              <ExamLikelihoodBadge topic={d.title} context={d.whyItMatters} compact />
             </div>
             <p className="text-xs text-muted-foreground mb-3 leading-relaxed">
               {d.whyItMatters}
@@ -312,7 +311,6 @@ const DecisionHierarchy = ({ data }: { data: any }) => (
               </Badge>
               <div className="flex flex-wrap items-center gap-2">
                 <p className="text-sm font-semibold text-foreground">{h.title}</p>
-                <ExamLikelihoodBadge topic={h.title} context="exam decision hierarchy" compact />
               </div>
             </div>
             {h.includes?.length > 0 && (

@@ -192,7 +192,6 @@ const CompactObjectBrowser = ({ title, items }: { title: string; items: any[] })
               >
                 <span className="flex w-full flex-wrap items-center gap-2">
                   <span>{itemTitle}</span>
-                  <ExamLikelihoodBadge topic={itemTitle} context={title} compact />
                 </span>
               </Button>
             );
@@ -202,7 +201,6 @@ const CompactObjectBrowser = ({ title, items }: { title: string; items: any[] })
           <CardContent className="p-4 space-y-3">
             <div className="flex flex-wrap items-center gap-2">
               <h3 className="text-base font-semibold text-foreground">{selectedTitle.label}</h3>
-              <ExamLikelihoodBadge topic={selectedTitle.label} context={title} />
               <Badge variant="secondary" className="text-xs">{selectedIndex + 1} of {items.length}</Badge>
             </div>
             {renderObjectContent(selected, new Set(selectedTitle.key ? [selectedTitle.key] : []))}
@@ -1340,7 +1338,6 @@ const GenericSection = ({ title, data }: { title: string; data: any }) => {
                   {item.title && (
                     <div className="flex flex-wrap items-center gap-2">
                       <h3 className="text-base font-semibold text-foreground">{item.title}</h3>
-                      <ExamLikelihoodBadge topic={item.title} context={title} />
                     </div>
                   )}
                   {renderObjectContent(item)}
@@ -1391,7 +1388,6 @@ const renderObjectContent = (obj: any, extraSkipKeys: Set<string> = new Set(), p
             <div key={key} className="mb-3 break-inside-avoid self-start rounded-lg border border-border bg-muted/30 p-3">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
-                <ExamLikelihoodBadge topic={formatKey(key)} context={parentLabel} compact />
               </div>
               {parentLabel && <p className="mt-1 text-xs text-muted-foreground">Part of {parentLabel}</p>}
               <ul className="ml-4 mt-1">
@@ -1414,7 +1410,6 @@ const renderObjectContent = (obj: any, extraSkipKeys: Set<string> = new Set(), p
             <div key={key} className="mb-3 break-inside-avoid self-start rounded-lg border border-border bg-card p-3">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
-                <ExamLikelihoodBadge topic={formatKey(key)} context={parentLabel} compact />
               </div>
               {parentLabel && <p className="mt-1 text-xs text-muted-foreground">Part of {parentLabel}</p>}
               <div className="mt-2 grid gap-2">
@@ -1451,7 +1446,6 @@ const renderObjectContent = (obj: any, extraSkipKeys: Set<string> = new Set(), p
             <div key={key} className="mb-3 break-inside-avoid self-start rounded-lg border border-border bg-muted/30 p-3">
               <div className="flex flex-wrap items-center gap-2">
                 <span className="text-xs font-semibold text-primary uppercase tracking-wide">{formatKey(key)}</span>
-                <ExamLikelihoodBadge topic={formatKey(key)} context={parentLabel} compact />
               </div>
               {parentLabel && <p className="mt-1 text-xs text-muted-foreground">Part of {parentLabel}</p>}
               <p className="mt-1 text-sm text-muted-foreground">{formatValue(value)}</p>
@@ -1485,7 +1479,6 @@ const DiagnosticCategories = ({ categories }: { categories: any[] }) => (
               <div key={j} className="rounded-lg border border-border bg-muted/30 p-4">
                 <div className="mb-3 flex flex-wrap items-center gap-2">
                   <h4 className="text-sm font-semibold text-foreground">{disorder.title}</h4>
-                  <ExamLikelihoodBadge topic={disorder.title} context={`${cat.title} DSM diagnosis`} />
                 </div>
                 {disorder.description && (
                   <div className="mb-4 rounded-lg border border-border bg-background p-4">

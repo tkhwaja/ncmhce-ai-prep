@@ -200,7 +200,6 @@ const MseTab = ({ data }: { data: any }) => {
               <CardContent className="space-y-2 p-4">
                 <div className="flex flex-wrap items-center gap-2">
                   <p className="text-base font-semibold text-foreground">{d.title}</p>
-                  <ExamLikelihoodBadge topic={d.title} context="MSE assessment diagnosis" compact />
                 </div>
                 {d.whatToAssess && (
                   <p className="text-sm text-muted-foreground leading-relaxed">
@@ -451,7 +450,6 @@ const InstrumentsTab = ({ data }: { data: any }) => {
                     <div className="flex items-baseline justify-between gap-2">
                       <div className="flex flex-wrap items-center gap-2">
                         <p className="text-sm font-semibold text-foreground">{inst.name}</p>
-                        <ExamLikelihoodBadge topic={`${inst.name} ${inst.fullName ?? ""}`} context={cat.title} compact />
                       </div>
                       {inst.ageRange && (
                         <Badge variant="outline" className="shrink-0 text-[10px]">
@@ -564,7 +562,6 @@ const RiskTab = ({ data }: { data: any }) => {
             <CardContent className="space-y-2 p-4">
               <div className="flex flex-wrap items-center gap-2">
                 <p className="text-base font-semibold text-foreground">{d.title}</p>
-                <ExamLikelihoodBadge topic={d.title} context="risk safety assessment" compact />
               </div>
               {d.mustAssess && (
                 <p className="text-sm text-muted-foreground leading-relaxed">
@@ -715,7 +712,6 @@ const RiskTab = ({ data }: { data: any }) => {
                 <CardContent className="space-y-1.5 p-4">
                   <div className="flex flex-wrap items-center gap-2">
                     <p className="text-base font-semibold text-foreground">{lv.level}</p>
-                    <ExamLikelihoodBadge topic={lv.level} context="level of care treatment planning" compact />
                   </div>
                   <p className="text-sm text-muted-foreground leading-relaxed">{lv.description}</p>
                   <p className="text-sm text-muted-foreground leading-relaxed">
@@ -790,7 +786,6 @@ const PsychometricsTab = ({ data }: { data: any }) => {
                 <CardContent className="space-y-1 p-4">
                   <div className="flex flex-wrap items-center gap-2">
                     <p className="text-sm font-semibold text-foreground">{c.term}</p>
-                    <ExamLikelihoodBadge topic={c.term} context="psychometrics assessment" compact />
                   </div>
                   <p className="text-xs text-muted-foreground leading-relaxed">{c.meaning}</p>
                   {c.examPearl && (
