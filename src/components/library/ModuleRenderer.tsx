@@ -192,7 +192,6 @@ const CompactObjectBrowser = ({ title, items }: { title: string; items: any[] })
               >
                 <span className="flex w-full flex-wrap items-center gap-2">
                   <span>{itemTitle}</span>
-                  <ExamLikelihoodBadge topic={itemTitle} context={title} compact />
                 </span>
               </Button>
             );
@@ -202,7 +201,6 @@ const CompactObjectBrowser = ({ title, items }: { title: string; items: any[] })
           <CardContent className="p-4 space-y-3">
             <div className="flex flex-wrap items-center gap-2">
               <h3 className="text-base font-semibold text-foreground">{selectedTitle.label}</h3>
-              <ExamLikelihoodBadge topic={selectedTitle.label} context={title} />
               <Badge variant="secondary" className="text-xs">{selectedIndex + 1} of {items.length}</Badge>
             </div>
             {renderObjectContent(selected, new Set(selectedTitle.key ? [selectedTitle.key] : []))}
