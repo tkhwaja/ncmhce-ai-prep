@@ -22,20 +22,20 @@ const PricingSection = () => {
   return (
     <section id="pricing" className="section-padding bg-muted/30">
       <div className="container max-w-4xl mx-auto text-center">
-        <p className="text-sm font-medium text-primary uppercase tracking-wider mb-3">Pricing</p>
+        <p className="text-sm font-medium text-primary uppercase tracking-wider mb-3">Beta Access</p>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
           Full access when you’re ready.
         </h2>
         <p className="text-muted-foreground mb-10 max-w-lg mx-auto">
-          Start with the Free Diagnostic Case, then move into the full exam-prep platform for $79/month when you want every narrative, exam, and analytics feature unlocked.
+          Create an account to try the complete exam-prep platform during the beta period.
         </p>
 
         <Card className="card-elevated border-primary/30 max-w-md mx-auto">
           <CardHeader className="pb-2">
             <CardTitle className="text-lg text-primary">NCMHCE Full Access</CardTitle>
             <div className="flex items-baseline justify-center gap-1 mt-2">
-              <span className="text-5xl font-extrabold text-foreground">$79</span>
-              <span className="text-muted-foreground text-sm">/month</span>
+              <span className="text-5xl font-extrabold text-foreground blur-sm select-none">Beta</span>
+              <span className="text-muted-foreground text-sm">access</span>
             </div>
             <p className="text-xs text-muted-foreground mt-2">Cancel anytime. No commitment.</p>
           </CardHeader>
@@ -48,8 +48,8 @@ const PricingSection = () => {
                 </li>
               ))}
             </ul>
-            <Button className="w-full" size="lg" onClick={() => navigate("/checkout")}>
-              Subscribe — $79/month
+            <Button className="w-full" size="lg" onClick={() => navigate("/signup")}>
+              Create Beta Account
             </Button>
           </CardContent>
         </Card>
