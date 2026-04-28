@@ -46,44 +46,7 @@ serve(async (req) => {
     }
     const user = userData.user;
 
-    const { messages, context, previewTesting } = await req.json();
-    const requestOrigin = req.headers.get("Origin") || req.headers.get("Referer") || "";
-    const host = req.headers.get("Host") || "";
-    const allowPreviewTesting =
-      previewTesting === true &&
-      (requestOrigin.includes("id-preview--") ||
-        requestOrigin.includes("lovable.app") ||
-        requestOrigin.includes("localhost") ||
-        host.includes("localhost"));
-
-    // Subscription check (service role to bypass RLS for the RPC + legacy paid check)
-    const admin = createClient(supabaseUrl, serviceKey);
-    const { data: profile } = await admin
-      .from("profiles")
-      .select("payment_status")
-      .eq("id", user.id)
-      .maybeSingle();
-    const legacyPaid = profile?.payment_status === "paid";
-
-    let hasActive = legacyPaid;
-    if (!hasActive) {
-      const { data: sandboxActive } = await admin.rpc("has_active_subscription", {
-        user_uuid: user.id,
-        check_env: "sandbox",
-      });
-      const { data: liveActive } = await admin.rpc("has_active_subscription", {
-        user_uuid: user.id,
-        check_env: "live",
-      });
-      hasActive = !!sandboxActive || !!liveActive;
-    }
-
-    if (!hasActive && !allowPreviewTesting) {
-      return new Response(
-        JSON.stringify({ error: "Active subscription required to use CounselorAI." }),
-        { status: 403, headers: { ...corsHeaders, "Content-Type": "application/json" } },
-      );
-    }
+    const { messages, context } = await req.json();
 
     const LOVABLE_API_KEY = Deno.env.get("LOVABLE_API_KEY");
     if (!LOVABLE_API_KEY) throw new Error("LOVABLE_API_KEY is not configured");
