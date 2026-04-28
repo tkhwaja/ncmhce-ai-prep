@@ -197,9 +197,9 @@ const Dashboard = () => {
             <CardTitle className="text-base">Recent Activity</CardTitle>
           </CardHeader>
           <CardContent>
-            {DEMO_MODE ? (
+            {recentActivity.length > 0 ? (
               <ul className="space-y-3">
-                {demoRecentActivity.map((a) => (
+                {recentActivity.map((a) => (
                   <li key={a.id} className="flex items-center gap-3 text-sm">
                     <div className="h-8 w-8 rounded-lg bg-muted flex items-center justify-center shrink-0">
                       {a.type === "narrative" ? (
@@ -210,10 +210,10 @@ const Dashboard = () => {
                     </div>
                     <div className="flex-1 min-w-0">
                       <p className="text-foreground truncate">{a.title}</p>
-                      <p className="text-xs text-muted-foreground">{a.when}</p>
+                      <p className="text-xs text-muted-foreground">{formatRelativeTime(a.date)}</p>
                     </div>
-                    <span className={`text-sm font-medium ${a.type === "narrative" ? (a.score >= 70 ? "text-emerald-400" : "text-amber-400") : "text-muted-foreground"}`}>
-                      {a.type === "narrative" ? `${a.score}%` : `${a.score} cards`}
+                    <span className={`text-sm font-medium ${a.type === "narrative" ? ((a.score || 0) >= 70 ? "text-emerald-400" : "text-amber-400") : "text-muted-foreground"}`}>
+                      {a.type === "narrative" ? `${a.score ?? "—"}%` : "Reviewed"}
                     </span>
                   </li>
                 ))}
@@ -234,9 +234,13 @@ const Dashboard = () => {
           </CardHeader>
           <CardContent>
             <p className="text-sm text-muted-foreground">
-              Based on your study history, we recommend starting with the{" "}
-              <span className="text-foreground font-medium">PTSD differential diagnosis</span>{" "}
-              module. Understanding trauma-related disorders is heavily tested on the NCMHCE.
+              {weakestDomain
+                ? <>
+                    Based on your completed narratives, your lowest domain is{" "}
+                    <span className="text-foreground font-medium">{weakestDomain.domain}</span> at {weakestDomain.average}%.
+                    Start with targeted review and then retake a related case.
+                  </>
+                : "Complete a narrative to unlock personalized recommendations based on your actual score history."}
             </p>
             <Button variant="outline" size="sm" className="mt-4" onClick={() => navigate("/narratives")}>
               Start Learning
