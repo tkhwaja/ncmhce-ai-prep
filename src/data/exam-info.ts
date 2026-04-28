@@ -13,24 +13,25 @@ export const examInfoSections: ExamInfoSection[] = [
 The National Clinical Mental Health Counseling Examination (NCMHCE) is a standardized exam required for licensure as a clinical mental health counselor in most U.S. states. Unlike the NCE (which is a multiple-choice knowledge exam), the NCMHCE is a clinical simulation exam that tests your ability to apply clinical knowledge to realistic client scenarios.
 
 ### Format
-The exam consists of **10 clinical simulations**, each presenting a unique client case. Each simulation has two main sections:
+According to the current NBCC/CCE Candidate Handbook for State Licensure, the NCMHCE is composed of **11 case studies**. One case study is unscored and is used to generate statistics for future test forms; **100 multiple-choice questions are scored**.
 
-- **Information Gathering (IG)**: You are presented with a list of potential actions (reviewing records, conducting assessments, gathering history) and must select which information to gather. Not all items are relevant — the exam tests your clinical judgment in deciding what information is necessary.
-- **Decision Making (DM)**: After gathering information, you answer a series of clinical decision questions covering diagnosis, treatment planning, ethical considerations, and counselor actions.
+Each case study includes a clinical narrative and **9–15 multiple-choice questions**. Current case studies are organized across three parts: an initial intake summary and two subsequent counseling sessions. Questions test applied clinical judgment across professional practice and ethics, intake, assessment and diagnosis, treatment planning, counseling skills and interventions, and core counseling attributes.
 
 ### Scoring
 The NCMHCE uses a criterion-referenced scoring system. You must demonstrate minimum competency across multiple domains:
-- **Assessment & Diagnosis**
-- **Counseling & Psychotherapy**
-- **Administration, Consultation, & Supervision**
+- **Professional Practice and Ethics**
+- **Intake, Assessment, and Diagnosis**
+- **Treatment Planning**
+- **Counseling Skills and Interventions**
+- **Core Counseling Attributes**
 
-Each simulation is scored based on the quality of your information gathering choices and the accuracy of your clinical decisions. There is no penalty for gathering non-critical information, but **failing to gather critical safety information** (such as suicide risk assessment) is heavily penalized.
+Areas of clinical focus, such as diagnoses and presenting problems, appear through the case scenarios rather than as a separate item-level score category.
 
 ### Time Limit
-You have **3 hours (180 minutes)** to complete all 10 simulations. This gives you approximately 18 minutes per simulation. Time management is critical — you should aim to spend about 8-10 minutes on Information Gathering and 8-10 minutes on Decision Making for each case.
+The total test session is **255 minutes (4 hours and 15 minutes)**. This includes 5 minutes for the Test Administration and Confidentiality Agreement, 10 minutes for the tutorial, **225 minutes for the examination**, and one scheduled 15-minute break after the fifth case study. Time management is critical — the exam portion averages roughly 20 minutes per case study.
 
 ### Test Day
-The NCMHCE is administered at **Pearson VUE testing centers** throughout the United States. The exam is computer-based. You will be assigned a workstation in a proctored testing environment.`
+The NCMHCE is administered through **Pearson VUE** as either an in-person test center appointment or, when available and appropriate, an online OnVUE appointment. Both delivery formats require compliance with NBCC/CCE and Pearson VUE testing rules.`
   },
   {
     id: "strategies",
@@ -38,8 +39,8 @@ The NCMHCE is administered at **Pearson VUE testing centers** throughout the Uni
     content: `## Approaching Clinical Simulations
 
 ### Information Gathering Strategy
-1. **Read the vignette carefully** — Note demographics, presenting concern, referral source, and any red flags (mentions of self-harm, substance use, relationship violence).
-2. **Always assess safety first** — If there's any indication of risk, suicide assessment should be your first priority. Missing critical safety items is the fastest way to fail a simulation.
+1. **Read each narrative section carefully** — Note demographics, presenting concern, referral source, setting, and any red flags such as self-harm, substance use, violence, or acute impairment.
+2. **Track safety and ethics throughout the case** — If risk indicators appear, prioritize appropriate assessment, documentation, consultation, mandated reporting, level-of-care decisions, or emergency response.
 3. **Think systematically** — Use the biopsychosocial model as a framework. Gather biological (medical history, medications, substances), psychological (symptoms, cognitions, affect), and social (relationships, support, stressors) information.
 4. **Don't over-gather** — You don't need to click every item. Focus on clinically relevant information. Over-gathering wastes time and may indicate poor clinical judgment.
 5. **Prioritize assessment instruments** — When standardized tools are available (PHQ-9, GAD-7, AUDIT), selecting them demonstrates Evidence-Based Practice (EBP).
@@ -60,7 +61,7 @@ The NCMHCE is administered at **Pearson VUE testing centers** throughout the Uni
 - Selecting the most complex or dramatic intervention when a simpler one is appropriate
 
 ### Time Management
-- Set a mental timer: ~18 minutes per simulation
+- Set a mental timer: roughly 20 minutes per case study during the scored exam portion
 - If stuck on a question, make your best choice and move on
 - Don't go back to change answers unless you're certain
 - Leave the hardest simulations for last if you can identify them early`
@@ -126,10 +127,10 @@ Starting from your toes, tense each muscle group for 5 seconds, then release. Wo
 Registration is through the **National Board for Certified Counselors (NBCC)**. You must meet eligibility requirements, which typically include a master's degree in counseling from a CACREP-accredited program, supervised clinical experience, and state-specific requirements. Apply through the NBCC website, and once approved, you'll receive an authorization to test (ATT) to schedule at a Pearson VUE testing center.
 
 **How much does the exam cost?**
-The NCMHCE costs approximately **$275** for first-time test-takers. Retake fees may vary. Some states have additional licensing fees separate from the exam cost.
+Exam fees can vary by registration pathway and state requirements. Candidates should confirm the current fee during registration through NBCC/CCE or their state licensing process. State licensing boards may also charge separate application or licensing fees.
 
 **How long is my ATT valid?**
-Your Authorization to Test is typically valid for **90 days** from the date of issuance. You must schedule and take the exam within this window.
+Your Authorization to Test email from Pearson VUE includes your Candidate ID and specific test authorization dates. You must schedule and take the exam within the dates listed in that authorization window.
 
 ## Scoring & Results
 
@@ -137,15 +138,15 @@ Your Authorization to Test is typically valid for **90 days** from the date of i
 The NCMHCE uses a criterion-referenced passing standard. You need to demonstrate minimum competency across all scored domains. The passing standard is set by the NBCC using a modified Angoff method and is not a simple percentage score. Results are reported as **pass or fail**.
 
 **When do I get my results?**
-Results are typically available **within 2 weeks** of taking the exam. You'll receive notification from NBCC. Your state licensing board will also be notified of your results.
+After the examination, test center candidates receive an unofficial score report at the test center. Online candidates can access score report information through their Pearson VUE dashboard. Official reporting processes may vary by state or credentialing pathway.
 
 **What is the pass rate?**
-The national first-time pass rate is approximately **75-80%**. Pass rates vary by program and preparation level.
+Pass rates can change over time and may vary by candidate group, program, and jurisdiction. For the most reliable current data, check official NBCC/CCE reporting or your licensing board rather than relying on a fixed estimate.
 
 ## Retaking the Exam
 
 **Can I retake the NCMHCE if I fail?**
-Yes. You may retake the exam, but you must wait at least **90 days** between attempts. There is no limit on the number of retakes, but each attempt requires a new registration and fee.
+Yes. According to the current NBCC/CCE Candidate Handbook for State Licensure, candidates who fail the NCMHCE may take the examination again after a **30-day window**. A separate registration and fee are required for reregistration.
 
 **How should I prepare differently for a retake?**
 Focus on the domains where you were weakest. If your score report indicates deficits in specific areas, concentrate your study there. Consider using a structured study plan, joining a study group, or working with a tutor who specializes in NCMHCE preparation.
