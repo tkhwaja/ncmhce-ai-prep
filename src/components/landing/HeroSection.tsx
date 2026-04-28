@@ -1,5 +1,6 @@
 import FreeDiagnosticCTA from "./FreeDiagnosticCTA";
 import { ArrowDown } from "lucide-react";
+import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
@@ -28,7 +29,15 @@ const HeroSection = () => {
                 Start with a free diagnostic case and see exactly where you stand before test day.
             </p>
 
-              <FreeDiagnosticCTA className="mb-4" />
+              <div className="mb-4 flex flex-col sm:flex-row gap-3 sm:items-start">
+                <Link
+                  to="/signup"
+                  className="inline-flex h-11 items-center justify-center rounded-lg bg-primary px-8 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
+                >
+                  Sign Up for Beta Access
+                </Link>
+                <FreeDiagnosticCTA />
+              </div>
 
             <p className="text-xs text-muted-foreground">
                 Realistic pacing, exam-style layout, and a full results breakdown after completion.
