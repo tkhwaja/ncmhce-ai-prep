@@ -28,9 +28,9 @@ const CheckoutReturn = () => {
               <div className="h-16 w-16 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
                 <CheckCircle className="h-8 w-8 text-primary" />
               </div>
-              <h1 className="text-2xl font-bold text-foreground">Subscription Active!</h1>
+              <h1 className="text-2xl font-bold text-foreground">Access Active!</h1>
               <p className="text-muted-foreground">
-                Your subscription is now active and your account has full access to all premium features.
+                Your account has full access to the complete platform.
               </p>
               <Button onClick={() => navigate("/dashboard")} className="w-full">
                 Go to Dashboard
