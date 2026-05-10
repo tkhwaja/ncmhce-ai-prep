@@ -153,6 +153,16 @@
   .section-padding {
     @apply py-20 md:py-28 px-4 md:px-8;
   }
+
+  /* Slightly larger base font inside the authenticated app for readability.
+     Landing pages are unaffected. */
+  .app-text-scale {
+    font-size: 1.0625rem; /* ~17px */
+    line-height: 1.6;
+  }
+  .app-text-scale .text-xs { font-size: 0.8125rem; line-height: 1.15rem; }
+  .app-text-scale .text-sm { font-size: 0.95rem; line-height: 1.4rem; }
+  .app-text-scale .text-base { font-size: 1.0625rem; line-height: 1.6rem; }
 }
 
 @keyframes fade-up {
