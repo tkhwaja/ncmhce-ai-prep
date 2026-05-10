@@ -49,7 +49,7 @@ const PricingSection = () => {
               ))}
             </ul>
             <Button className="w-full" size="lg" onClick={() => navigate("/signup")}>
-              Create Beta Account
+              Sign Up
             </Button>
           </CardContent>
         </Card>
