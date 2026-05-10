@@ -34,7 +34,7 @@ const HeroSection = () => {
                   to="/signup"
                   className="inline-flex h-11 items-center justify-center rounded-lg bg-primary px-8 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
                 >
-                  Sign Up for Beta Access
+                  Sign Up
                 </Link>
                 <FreeDiagnosticCTA />
               </div>
