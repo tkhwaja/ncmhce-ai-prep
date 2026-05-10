@@ -108,12 +108,17 @@ const AppHeader = ({ onToggleChat, chatOpen }: AppHeaderProps) => {
 
       <div className="flex items-center gap-2">
         <Button
-          variant="ghost"
-          size="icon"
+          variant="outline"
+          size="sm"
           onClick={toggleTheme}
-          title="Toggle theme"
+          className="gap-2"
+          title={theme === "dark" ? "Switch to light mode" : "Switch to dark mode"}
+          aria-label="Toggle color theme"
         >
           {theme === "dark" ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
+          <span className="hidden sm:inline text-xs font-medium">
+            {theme === "dark" ? "Light" : "Dark"} mode
+          </span>
         </Button>
 
         <Button

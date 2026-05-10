@@ -39,7 +39,7 @@ const AppLayout = () => {
 
   return (
     <SidebarProvider>
-      <div className="min-h-screen flex w-full bg-background">
+      <div className="min-h-screen flex w-full bg-background app-text-scale">
         <AppSidebar />
         <div className="flex-1 flex flex-col min-w-0">
           <AppHeader onToggleChat={() => setChatOpen(!chatOpen)} chatOpen={chatOpen} />
