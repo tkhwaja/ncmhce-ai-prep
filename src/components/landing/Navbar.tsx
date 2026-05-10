@@ -50,7 +50,7 @@ const Navbar = () => {
             to="/login"
             className="text-sm text-muted-foreground hover:text-foreground transition-colors"
           >
-            Sign In
+            Log In
           </Link>
           <Link
             to="/signup"
