@@ -7,8 +7,8 @@ import {
 
 const faqs = [
   {
-    q: "What is TheCounselorExam.com?",
-    a: "TheCounselorExam.com is an exam prep platform built specifically for the NCMHCE. It combines realistic clinical case narratives, a full-length timed practice exam, domain analytics, flashcards, a DSM-5-TR library, and optional in-session support to help you practice in a way that feels much closer to the real test.",
+    q: "What is The Exam Path?",
+    a: "The Exam Path (formerly known as TheCounselorExam.com) is an exam prep platform built specifically for the NCMHCE. It combines realistic clinical case narratives, a full-length timed practice exam, domain analytics, flashcards, a DSM-5-TR library, and optional in-session support to help you practice in a way that feels much closer to the real test.",
   },
   {
     q: "How many practice cases are available?",
@@ -16,7 +16,7 @@ const faqs = [
   },
   {
     q: "Who is this for?",
-    a: "TheCounselorExam.com is designed for anyone preparing for the NCMHCE — including first-time test takers, repeat test takers looking for deeper domain-level insight, and counseling students who want early clinical simulation practice.",
+    a: "The Exam Path is designed for anyone preparing for the NCMHCE — including first-time test takers, repeat test takers looking for deeper domain-level insight, and counseling students who want early clinical simulation practice.",
   },
   {
     q: "Is this mainly an AI product?",
