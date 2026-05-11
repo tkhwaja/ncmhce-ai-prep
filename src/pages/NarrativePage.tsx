@@ -413,7 +413,7 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
 
               <div className="flex justify-end">
                 <a
-                  href={`mailto:support@thecounselorexam.com?subject=${encodeURIComponent(`Question Report: ${narrative.title} — Q${globalQuestionNumber} (${currentQuestion.id})`)}&body=${encodeURIComponent(`I would like to report an issue with the following question:\n\nNarrative: ${narrative.title}\nQuestion #${globalQuestionNumber} (ID: ${currentQuestion.id})\nDomain: ${currentQuestion.domain}\n\nIssue:\n`)}`}
+                  href={`mailto:support@theexampath.com?subject=${encodeURIComponent(`Question Report: ${narrative.title} — Q${globalQuestionNumber} (${currentQuestion.id})`)}&body=${encodeURIComponent(`I would like to report an issue with the following question:\n\nNarrative: ${narrative.title}\nQuestion #${globalQuestionNumber} (ID: ${currentQuestion.id})\nDomain: ${currentQuestion.domain}\n\nIssue:\n`)}`}
                   className="text-xs text-muted-foreground hover:text-primary transition-colors underline underline-offset-2"
                 >
                   Report this question
@@ -662,7 +662,7 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
                       </div>
                       <div className="pt-2">
                         <a
-                          href={`mailto:support@thecounselorexam.com?subject=${encodeURIComponent(`Question Report: ${narrative.title} — Q${q.questionNumber} (${q.id})`)}&body=${encodeURIComponent(`I would like to report an issue with the following question:\n\nNarrative: ${narrative.title}\nQuestion #${q.questionNumber} (ID: ${q.id})\nDomain: ${q.domain}\n\nIssue:\n`)}`}
+                          href={`mailto:support@theexampath.com?subject=${encodeURIComponent(`Question Report: ${narrative.title} — Q${q.questionNumber} (${q.id})`)}&body=${encodeURIComponent(`I would like to report an issue with the following question:\n\nNarrative: ${narrative.title}\nQuestion #${q.questionNumber} (ID: ${q.id})\nDomain: ${q.domain}\n\nIssue:\n`)}`}
                           className="text-xs text-muted-foreground hover:text-primary transition-colors underline underline-offset-2"
                         >
                           Report this question
