@@ -30,7 +30,7 @@ const Footer = () => (
 
       <div className="border-t border-border mt-8 pt-6 text-center">
         <p className="text-xs text-muted-foreground">
-          © {new Date().getFullYear()} TheCounselorExam.com. All rights reserved.
+          © {new Date().getFullYear()} The Exam Path. All rights reserved.
         </p>
       </div>
     </div>
