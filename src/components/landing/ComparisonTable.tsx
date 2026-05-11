@@ -18,7 +18,7 @@ const statusLabel = (s: Status) => {
   }
 };
 
-const competitors = ["TheCounselorExam.com", "Therapist Dev Center", "Mometrix", "AATBS"];
+const competitors = ["The Exam Path", "Therapist Dev Center", "Mometrix", "AATBS"];
 
 const rows: { feature: string; statuses: Status[] }[] = [
   { feature: "Exam-style clinical case narratives", statuses: ["yes", "limited", "limited", "limited"] },
