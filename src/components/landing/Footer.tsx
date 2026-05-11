@@ -4,7 +4,10 @@ const Footer = () => (
       <div className="grid md:grid-cols-3 gap-8 items-start">
         <div>
           <p className="text-lg font-bold text-foreground tracking-tight">
-            TheCounselorExam<span className="text-primary">.com</span>
+            The Exam<span className="text-primary"> Path</span>
+          </p>
+          <p className="text-xs text-muted-foreground mt-1">
+            Formerly known as TheCounselorExam.com
           </p>
           <p className="text-sm text-muted-foreground mt-2">
             NCMHCE prep built for real clinical reasoning.
