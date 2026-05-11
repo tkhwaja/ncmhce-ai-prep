@@ -18,7 +18,7 @@ export const InviteEmail = ({ siteName, confirmationUrl }: InviteEmailProps) => 
     <Preview>You've been invited to join {siteName}</Preview>
     <Body style={main}>
       <Container style={container}>
-        <Text style={logo}>TheCounselorExam<span style={logoAccent}>.com</span></Text>
+        <Text style={logo}>The Exam<span style={logoAccent}> Path</span></Text>
         <Heading style={h1}>You're invited</Heading>
         <Text style={text}>
           You've been invited to join {siteName}. Accept the invitation below to create your account.

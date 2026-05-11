@@ -4,7 +4,10 @@ const Footer = () => (
       <div className="grid md:grid-cols-3 gap-8 items-start">
         <div>
           <p className="text-lg font-bold text-foreground tracking-tight">
-            TheCounselorExam<span className="text-primary">.com</span>
+            The Exam<span className="text-primary"> Path</span>
+          </p>
+          <p className="text-xs text-muted-foreground mt-1">
+            Formerly known as TheCounselorExam.com
           </p>
           <p className="text-sm text-muted-foreground mt-2">
             NCMHCE prep built for real clinical reasoning.
@@ -21,13 +24,13 @@ const Footer = () => (
         <div className="flex flex-col gap-2 text-sm text-muted-foreground">
           <a href="/privacy" className="hover:text-foreground transition-colors">Privacy Policy</a>
           <a href="/terms" className="hover:text-foreground transition-colors">Terms of Service</a>
-          <a href="mailto:support@thecounselorexam.com" className="hover:text-foreground transition-colors">Contact</a>
+          <a href="mailto:support@theexampath.com" className="hover:text-foreground transition-colors">Contact</a>
         </div>
       </div>
 
       <div className="border-t border-border mt-8 pt-6 text-center">
         <p className="text-xs text-muted-foreground">
-          © {new Date().getFullYear()} TheCounselorExam.com. All rights reserved.
+          © {new Date().getFullYear()} The Exam Path. All rights reserved.
         </p>
       </div>
     </div>

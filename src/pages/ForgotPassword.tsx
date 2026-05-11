@@ -31,7 +31,7 @@ const ForgotPassword = () => {
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Link to="/" className="text-2xl font-bold text-foreground tracking-tight">
-            TheCounselorExam<span className="text-primary">.com</span>
+            The Exam<span className="text-primary"> Path</span>
           </Link>
           <p className="text-muted-foreground mt-2">Reset your password</p>
         </div>

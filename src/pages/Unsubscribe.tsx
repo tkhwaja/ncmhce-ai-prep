@@ -59,7 +59,7 @@ const Unsubscribe = () => {
           <>
             <h1 className="text-2xl font-bold text-foreground">Unsubscribe</h1>
             <p className="text-muted-foreground">
-              Are you sure you want to unsubscribe from TheCounselorExam.com emails?
+              Are you sure you want to unsubscribe from The Exam Path emails?
             </p>
             <button
               onClick={handleUnsubscribe}
