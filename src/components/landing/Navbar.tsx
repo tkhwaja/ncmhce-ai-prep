@@ -30,9 +30,9 @@ const Navbar = () => {
     >
       <div className="container max-w-6xl mx-auto flex items-center justify-between h-16 px-4">
         <a href="#" className="flex items-center gap-2 text-xl font-bold text-foreground tracking-tight">
-          <img src={logoMark} alt="TheCounselorExam.com logo" className="h-7 w-7 text-primary" />
+          <img src={logoMark} alt="The Exam Path logo" className="h-7 w-7 text-primary" />
           <span>
-            TheCounselorExam<span className="text-primary">.com</span>
+            The Exam<span className="text-primary"> Path</span>
           </span>
         </a>
 
