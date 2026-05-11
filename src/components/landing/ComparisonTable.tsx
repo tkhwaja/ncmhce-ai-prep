@@ -43,7 +43,7 @@ const ComparisonTable = () => (
           The Closest Thing to the Real NCMHCE
         </h2>
         <p className="text-muted-foreground max-w-2xl mx-auto">
-          See how TheCounselorExam.com compares when realism, pacing, and clinical decision-making matter most.
+          See how The Exam Path compares when realism, pacing, and clinical decision-making matter most.
         </p>
       </div>
 
