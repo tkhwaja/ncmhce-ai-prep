@@ -13,8 +13,8 @@ import {
 } from 'npm:@react-email/components@0.0.22'
 import type { TemplateEntry } from './registry.ts'
 
-const SITE_NAME = 'TheCounselorExam.com'
-const SIGNUP_URL = 'https://thecounselorexam.com/signup'
+const SITE_NAME = 'The Exam Path'
+const SIGNUP_URL = 'https://theexampath.com/signup'
 
 interface FreeDiagnosticBreakdownProps {
   fullName?: string

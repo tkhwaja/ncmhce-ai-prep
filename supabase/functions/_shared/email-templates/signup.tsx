@@ -16,10 +16,10 @@ interface SignupEmailProps {
 export const SignupEmail = ({ siteName, confirmationUrl }: SignupEmailProps) => (
   <Html lang="en" dir="ltr">
     <Head />
-    <Preview>Confirm your email for TheCounselorExam.com</Preview>
+    <Preview>Confirm your email for The Exam Path</Preview>
     <Body style={main}>
       <Container style={container}>
-        <Text style={logo}>TheCounselorExam<span style={logoAccent}>.com</span></Text>
+        <Text style={logo}>The Exam<span style={logoAccent}> Path</span></Text>
         <Heading style={h1}>Confirm your email</Heading>
         <Text style={text}>
           Welcome to {siteName} — your AI-powered NCMHCE prep companion. Confirm your

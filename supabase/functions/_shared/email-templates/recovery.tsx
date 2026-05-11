@@ -14,10 +14,10 @@ interface RecoveryEmailProps {
 export const RecoveryEmail = ({ siteName, confirmationUrl }: RecoveryEmailProps) => (
   <Html lang="en" dir="ltr">
     <Head />
-    <Preview>Reset your TheCounselorExam.com password</Preview>
+    <Preview>Reset your The Exam Path password</Preview>
     <Body style={main}>
       <Container style={container}>
-        <Text style={logo}>TheCounselorExam<span style={logoAccent}>.com</span></Text>
+        <Text style={logo}>The Exam<span style={logoAccent}> Path</span></Text>
         <Heading style={h1}>Reset your password</Heading>
         <Text style={text}>
           We received a request to reset the password for your {siteName} account.
