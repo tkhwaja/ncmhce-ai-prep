@@ -7,7 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Brain, Clock, Lock, CheckCircle2, PlayCircle, RotateCcw } from "lucide-react";
+import { Brain, Clock, CheckCircle2, PlayCircle, RotateCcw } from "lucide-react";
 
 const difficultyColor: Record<string, string> = {
   Beginner: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
