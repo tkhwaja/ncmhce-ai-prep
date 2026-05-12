@@ -5,7 +5,7 @@ const testimonials = [
     name: "Randy A.",
     role: "LMHC Candidate",
     quote:
-      "Honestly, I think it's absolutely perfect and I wouldn't change anything. As long as it's user friendly, it's a no-brainer.",
+      "Honestly, I think it's absolutely perfect and I wouldn't change anything. A no-brainer for anyone studying for the NCMHCE.",
   },
   {
     name: "Marcus T.",
