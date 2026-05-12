@@ -128,7 +128,7 @@ const AppHeader = ({ onToggleChat, chatOpen }: AppHeaderProps) => {
           title="Toggle AI Chat"
         >
           <MessageCircle className="h-5 w-5" />
-          <span className="hidden md:inline text-sm font-medium">CounselorAI</span>
+          <span className="hidden md:inline text-sm font-medium">The Exam Path</span>
         </Button>
 
         <DropdownMenu>
