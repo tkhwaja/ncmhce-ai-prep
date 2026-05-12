@@ -1844,6 +1844,7 @@ const ModuleRenderer = ({ data, moduleId }: ModuleRendererProps) => {
         </GuidedSection>
       )}
     </div>
+    </ModuleIdContext.Provider>
   );
 };
 
