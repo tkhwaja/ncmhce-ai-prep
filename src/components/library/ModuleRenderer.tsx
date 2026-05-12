@@ -97,21 +97,48 @@ const ExamPearls = ({ pearls }: { pearls?: string[] }) => {
   );
 };
 
-const CollapsibleSection = ({ title, children, defaultOpen = false }: { title: string; children: React.ReactNode; defaultOpen?: boolean }) => {
+const CollapsibleSection = ({ title, children, defaultOpen = false, sectionId }: { title: string; children: React.ReactNode; defaultOpen?: boolean; sectionId?: string }) => {
+  const moduleId = useContext(ModuleIdContext);
+  const { isBookmarked, toggle, bookmarkedId } = useBookmark(moduleId);
   const [open, setOpen] = useState(defaultOpen);
+
+  // Auto-open when this section is the saved bookmark for the module.
+  useEffect(() => {
+    if (sectionId && bookmarkedId === sectionId) setOpen(true);
+  }, [bookmarkedId, sectionId]);
+
+  const marked = sectionId ? isBookmarked(sectionId) : false;
+
   return (
     <Collapsible open={open} onOpenChange={setOpen} className="border border-border rounded-lg mt-4 card-elevated">
-      <CollapsibleTrigger className="flex items-center justify-between w-full p-4 hover:bg-accent/40 rounded-lg transition-colors">
-        <span className="flex flex-wrap items-center gap-2 text-left">
-          <span className="font-semibold text-foreground text-base">{title}</span>
-          <ExamLikelihoodBadge topic={title} />
-        </span>
-        {open ? <ChevronDown className="h-4 w-4 text-muted-foreground" /> : <ChevronRight className="h-4 w-4 text-muted-foreground" />}
-      </CollapsibleTrigger>
+      <div className="flex items-center w-full hover:bg-accent/40 rounded-lg transition-colors">
+        <CollapsibleTrigger className="flex items-center justify-between flex-1 p-4 text-left">
+          <span className="flex flex-wrap items-center gap-2">
+            <span className="font-semibold text-foreground text-base">{title}</span>
+            <ExamLikelihoodBadge topic={title} />
+          </span>
+          {open ? <ChevronDown className="h-4 w-4 text-muted-foreground" /> : <ChevronRight className="h-4 w-4 text-muted-foreground" />}
+        </CollapsibleTrigger>
+        {sectionId && moduleId && (
+          <button
+            type="button"
+            aria-label={marked ? "Remove bookmark" : "Bookmark this section"}
+            title={marked ? "Bookmarked — click to remove" : "Bookmark to resume here later"}
+            onClick={(e) => {
+              e.stopPropagation();
+              toggle(sectionId);
+            }}
+            className="mr-3 p-1.5 rounded-md text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+          >
+            {marked ? <BookmarkCheck className="h-4 w-4 text-primary fill-primary/20" /> : <Bookmark className="h-4 w-4" />}
+          </button>
+        )}
+      </div>
       <CollapsibleContent className="px-4 pb-4">{children}</CollapsibleContent>
     </Collapsible>
   );
 };
+
 
 const slugifySectionId = (value: string) =>
   value
