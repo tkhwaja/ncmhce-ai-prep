@@ -382,8 +382,8 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
         </Badge>
       </div>
 
-      <div className="flex-1 overflow-hidden flex">
-        <div className="flex-1 lg:flex-none lg:w-2/5 overflow-auto border-r border-border">
+      <div className="flex-1 overflow-hidden flex flex-row-reverse">
+        <div className="flex-1 lg:flex-none lg:w-2/5 overflow-auto border-l border-border">
           {phase === "answering" && (
             <div className="p-6 max-w-2xl mx-auto space-y-6">
               <div>
