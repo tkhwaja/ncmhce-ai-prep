@@ -1679,6 +1679,7 @@ const ModuleRenderer = ({ data, moduleId }: ModuleRendererProps) => {
   if (data.assessmentTerminologyMatch) flowSections.push({ id: "terminology-match", label: "Term matching" });
 
   return (
+    <ModuleIdContext.Provider value={moduleId}>
     <div className="space-y-6">
       <ModuleSectionNavigator sections={flowSections} />
 
