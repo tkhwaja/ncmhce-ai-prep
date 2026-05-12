@@ -8,46 +8,16 @@ const testimonials = [
       "Honestly, I think it's absolutely perfect and I wouldn't change anything. As long as it's user friendly, it's a no-brainer.",
   },
   {
-    name: "Benedicta A.",
-    role: "Counseling Graduate",
-    quote:
-      "The narratives feel exactly like the real exam. The rationales taught me how to think clinically instead of just memorizing answers.",
-  },
-  {
     name: "Marcus T.",
     role: "Pre-Licensed Counselor",
     quote:
       "Never thought I'd say this but — one and done. Walked out of the NCMHCE knowing I had it.",
   },
   {
-    name: "Priya S.",
-    role: "MHC Intern",
+    name: "Benedicta A.",
+    role: "Counseling Graduate",
     quote:
-      "I tried two other prep programs before this. The case structure here is the closest thing to the actual exam I've seen.",
-  },
-  {
-    name: "Jasmine W.",
-    role: "Recent Graduate",
-    quote:
-      "The exam traps section saved me. I caught myself about to pick the wrong answer for the same reasons they warned about.",
-  },
-  {
-    name: "Daniel K.",
-    role: "School Counselor",
-    quote:
-      "Clean, calm, and actually organized. Studying didn't feel like a panic attack for once.",
-  },
-  {
-    name: "Aaliyah R.",
-    role: "Clinical Mental Health Counselor",
-    quote:
-      "The DSM-5-TR breakdowns are gold. Quick to scan before a case and detailed enough when I need to dig in.",
-  },
-  {
-    name: "Liam O.",
-    role: "Limited Permit Counselor",
-    quote:
-      "Worth every dollar. I finally understand why an answer is the best answer, not just that it is.",
+      "The narratives feel exactly like the real exam. The rationales taught me how to think clinically instead of just memorizing answers.",
   },
 ];
 
