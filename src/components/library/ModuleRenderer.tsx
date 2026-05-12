@@ -265,7 +265,7 @@ const GuidedSection = ({
   children: React.ReactNode;
 }) => (
   <section id={id} className="scroll-mt-24">
-    <CollapsibleSection title={title} defaultOpen={defaultOpen}>
+    <CollapsibleSection title={title} defaultOpen={defaultOpen} sectionId={id}>
       <div className="space-y-4 pt-1">
         {summary ? <p className="text-sm leading-relaxed text-muted-foreground">{summary}</p> : null}
         {children}
