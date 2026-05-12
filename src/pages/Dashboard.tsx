@@ -140,8 +140,8 @@ const Dashboard = () => {
   }, [completedAttempts]);
 
   const quickActions = [
-    { title: "Start a Narrative", desc: "Practice with realistic NCMHCE clinical case narratives", icon: Brain, path: "/narratives", color: "from-primary/20 to-primary/5" },
-    { title: "Review Study Plan", desc: "Track your progress and upcoming topics", icon: BarChart3, path: "/study-plan", color: "from-emerald-500/20 to-emerald-500/5" },
+    { title: "Take a Practice Exam", desc: "Full-length, timed, scored — mirrors the real NCMHCE format", icon: Brain, path: "/practice-exams", color: "from-primary/20 to-primary/5" },
+    { title: "Start a Narrative", desc: "Practice individual NCMHCE clinical case narratives", icon: BarChart3, path: "/narratives", color: "from-emerald-500/20 to-emerald-500/5" },
     { title: "Practice Flashcards", desc: "Review key concepts and DSM-5-TR criteria", icon: Layers, path: "/flashcards", color: "from-violet-500/20 to-violet-500/5" },
   ];
 
