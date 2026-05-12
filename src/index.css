@@ -165,6 +165,48 @@
   .app-text-scale .text-base { font-size: 1.0625rem; line-height: 1.6rem; }
 }
 
+/* Themed scrollbar — visible against both light & dark backgrounds */
+.themed-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--primary) / 0.5) hsl(var(--muted));
+}
+.themed-scrollbar::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+.themed-scrollbar::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+  border-radius: 8px;
+}
+.themed-scrollbar::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.5);
+  border-radius: 8px;
+  border: 2px solid hsl(var(--muted));
+}
+.themed-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.8);
+}
+
+/* Apply globally to the page so the main scrollbar is visible too. */
+html {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--primary) / 0.5) hsl(var(--muted));
+}
+html::-webkit-scrollbar {
+  width: 12px;
+}
+html::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+html::-webkit-scrollbar-thumb {
+  background: hsl(var(--primary) / 0.55);
+  border-radius: 8px;
+  border: 2px solid hsl(var(--muted));
+}
+html::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--primary) / 0.85);
+}
+
 @keyframes fade-up {
   from {
     opacity: 0;
