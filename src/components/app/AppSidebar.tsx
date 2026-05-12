@@ -16,6 +16,7 @@ import SidebarPomodoro from "./SidebarPomodoro";
 const navItems: { title: string; url: string; icon: TceIconName }[] = [
   { title: "Dashboard", url: "/dashboard", icon: "dashboard" },
   { title: "Narratives", url: "/narratives", icon: "narrative" },
+  { title: "Practice Exams", url: "/practice-exams", icon: "exam-info" },
   { title: "Study Plan", url: "/study-plan", icon: "study-plan" },
   { title: "Learning Library", url: "/library", icon: "library" },
   { title: "Flashcards", url: "/flashcards", icon: "flashcards" },
