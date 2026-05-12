@@ -1,90 +1,98 @@
 import { useState } from "react";
 import { examInfoSections } from "@/data/exam-info";
 import { Card, CardContent } from "@/components/ui/card";
-import { Alert, AlertDescription } from "@/components/ui/alert";
-import { Badge } from "@/components/ui/badge";
+import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
-import { Info, AlertTriangle, CheckCircle2, BookOpen } from "lucide-react";
 
 const ExamInfo = () => {
   const [activeSection, setActiveSection] = useState(examInfoSections[0].id);
   const currentSection = examInfoSections.find((s) => s.id === activeSection) || examInfoSections[0];
 
+  const renderInline = (text: string) =>
+    text.replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground font-semibold">$1</strong>');
+
   const renderContent = (content: string) => {
-    return content.split("\n\n").map((block, i) => {
-      // Headers
+    const blocks = content.split("\n\n");
+    return blocks.map((block, i) => {
+      // H3
       if (block.startsWith("### ")) {
         return (
-          <h3 key={i} className="text-base font-semibold text-foreground mt-6 mb-2 flex items-center gap-2">
-            <BookOpen className="h-4 w-4 text-primary shrink-0" />
+          <h3 key={i} className="text-base font-semibold text-foreground mt-7 mb-2">
             {block.replace("### ", "")}
           </h3>
         );
       }
+      // H2 with separator above (except first)
       if (block.startsWith("## ")) {
         return (
-          <h2 key={i} className="text-lg font-bold text-foreground mt-8 mb-3 pb-2 border-b border-border">
-            {block.replace("## ", "")}
-          </h2>
+          <div key={i}>
+            {i > 0 && <Separator className="my-8" />}
+            <h2 className="text-lg font-semibold text-foreground mb-3">
+              {block.replace("## ", "")}
+            </h2>
+          </div>
         );
       }
 
-      // Callout detection — lines starting with > or containing key phrases
+      // Quote / callout — light left-border style, no icon
       if (block.startsWith("> ")) {
         const text = block.replace(/^> /gm, "");
         return (
-          <Alert key={i} className="border-primary/30 bg-primary/5 my-3">
-            <Info className="h-4 w-4 text-primary" />
-            <AlertDescription className="text-sm text-foreground" dangerouslySetInnerHTML={{ __html: text.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
-          </Alert>
+          <blockquote
+            key={i}
+            className="my-4 border-l-2 border-primary bg-primary/5 rounded-r-md px-4 py-3 text-[15px] text-foreground leading-7"
+            dangerouslySetInnerHTML={{ __html: renderInline(text) }}
+          />
         );
       }
 
-      // Bullet lists
+      // Bulleted list — clean disc, primary marker
       if (block.startsWith("- ")) {
-        const items = block.split("\n").filter(l => l.startsWith("- "));
+        const items = block.split("\n").filter((l) => l.startsWith("- "));
         return (
-          <ul key={i} className="space-y-2 mb-4 ml-1">
+          <ul key={i} className="list-disc marker:text-primary pl-5 space-y-1.5 mb-4 text-[15px] leading-7 text-muted-foreground">
             {items.map((item, j) => (
-              <li key={j} className="text-sm text-muted-foreground flex items-start gap-2.5">
-                <CheckCircle2 className="h-3.5 w-3.5 text-primary mt-0.5 shrink-0" />
-                <span dangerouslySetInnerHTML={{ __html: item.replace("- ", "").replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground">$1</strong>') }} />
-              </li>
+              <li
+                key={j}
+                dangerouslySetInnerHTML={{ __html: renderInline(item.replace(/^- /, "")) }}
+              />
             ))}
           </ul>
         );
       }
 
-      // Numbered lists
+      // Numbered list — native ol
       if (block.match(/^\d+\./)) {
-        const items = block.split("\n").filter(l => l.match(/^\d+\./));
+        const items = block.split("\n").filter((l) => l.match(/^\d+\./));
         return (
-          <ol key={i} className="space-y-2 mb-4 ml-1">
+          <ol key={i} className="list-decimal marker:text-primary marker:font-semibold pl-5 space-y-1.5 mb-4 text-[15px] leading-7 text-muted-foreground">
             {items.map((item, j) => (
-              <li key={j} className="text-sm text-muted-foreground flex items-start gap-2.5">
-                <Badge variant="outline" className="h-5 w-5 p-0 flex items-center justify-center text-[10px] shrink-0 mt-0.5">
-                  {j + 1}
-                </Badge>
-                <span dangerouslySetInnerHTML={{ __html: item.replace(/^\d+\.\s*/, "").replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground">$1</strong>') }} />
-              </li>
+              <li
+                key={j}
+                dangerouslySetInnerHTML={{ __html: renderInline(item.replace(/^\d+\.\s*/, "")) }}
+              />
             ))}
           </ol>
         );
       }
 
-      // Regular paragraphs
+      // Paragraph
       return (
-        <p key={i} className="text-sm text-muted-foreground mb-3 leading-relaxed" dangerouslySetInnerHTML={{ __html: block.replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground">$1</strong>') }} />
+        <p
+          key={i}
+          className="text-[15px] leading-7 text-muted-foreground mb-4"
+          dangerouslySetInnerHTML={{ __html: renderInline(block) }}
+        />
       );
     });
   };
 
   return (
     <div className="p-6 max-w-6xl mx-auto">
-      <h1 className="text-2xl font-bold text-foreground mb-2">Exam Information</h1>
-      <p className="text-muted-foreground mb-6">Everything you need to know about the NCMHCE</p>
+      <h1 className="text-2xl font-bold text-foreground mb-1">Exam Information</h1>
+      <p className="text-muted-foreground mb-8">Everything you need to know about the NCMHCE</p>
 
-      <div className="flex gap-6">
+      <div className="flex gap-8">
         {/* TOC Sidebar */}
         <div className="hidden md:block w-56 flex-shrink-0">
           <nav className="sticky top-6 space-y-1">
@@ -97,7 +105,7 @@ const ExamInfo = () => {
                   "w-full text-left px-3 py-2 rounded-md text-sm transition-colors",
                   activeSection === section.id
                     ? "bg-primary/10 text-primary font-medium border-l-2 border-primary"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted"
+                    : "text-muted-foreground hover:text-foreground hover:bg-muted",
                 )}
               >
                 {section.title}
@@ -113,10 +121,10 @@ const ExamInfo = () => {
               key={section.id}
               onClick={() => setActiveSection(section.id)}
               className={cn(
-                "px-3 py-1.5 rounded-full text-xs whitespace-nowrap transition-colors",
+                "px-3 py-1.5 rounded-full text-xs whitespace-nowrap transition-colors border",
                 activeSection === section.id
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-muted text-muted-foreground"
+                  ? "bg-primary text-primary-foreground border-primary"
+                  : "bg-muted text-muted-foreground border-transparent",
               )}
             >
               {section.title}
@@ -126,9 +134,8 @@ const ExamInfo = () => {
 
         {/* Content */}
         <Card className="card-elevated flex-1">
-          <CardContent className="p-8">
-            <h2 className="text-xl font-bold text-foreground mb-1">{currentSection.title}</h2>
-            <div className="h-1 w-12 bg-primary rounded-full mb-6" />
+          <CardContent className="p-8 md:p-10">
+            <h2 className="text-2xl font-bold text-foreground mb-6">{currentSection.title}</h2>
             {renderContent(currentSection.content)}
           </CardContent>
         </Card>
