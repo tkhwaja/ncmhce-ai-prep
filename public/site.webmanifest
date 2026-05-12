@@ -1,6 +1,7 @@
 {
   "name": "The Exam Path",
-  "short_name": "TCE",
+  "short_name": "Exam Path",
+  "description": "NCMHCE prep — close the ring.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#162033",
@@ -15,6 +16,12 @@
       "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "/maskable-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
