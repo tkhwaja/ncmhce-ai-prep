@@ -20,6 +20,8 @@ import { nadiaBulimia } from "./20-nadia-bulimia";
 import { darnellPanic } from "./19-darnell-panic";
 import { carmenOud } from "./18-carmen-oud";
 import { safiyaSchizophreniform } from "./21-safiya-schizophreniform";
+import { rafaelHoarding } from "./24-rafael-hoarding";
+import { noraSpecificPhobia } from "./25-nora-specific-phobia";
 import { daniellePeripartumMDDNarrative } from "./exam-01-02-danielle-mdd";
 import { nehaGADPracticeExamNarrative } from "./practice-exam-01-case-03-neha-gad";
 import { luisPanicNarrative } from "./practice-exam-01-case-04-luis-panic";
@@ -88,6 +90,8 @@ export const narratives: Narrative[] = [
   darnellPanic,
   nadiaBulimia,
   safiyaSchizophreniform,
+  rafaelHoarding,
+  noraSpecificPhobia,
   kiaraBPDPracticeExamNarrative,
   emilyBulimiaPracticeExamNarrative,
   ericaProlongedGriefPracticeExamNarrative,
