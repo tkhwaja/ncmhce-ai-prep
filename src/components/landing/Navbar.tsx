@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
-import logoMark from "@/components/icons/svg/logo-mark.svg";
+import logoMark from "@/assets/brand/ring-mark-dark.svg";
 
 const navLinks = [
   { label: "Features", href: "#features" },
