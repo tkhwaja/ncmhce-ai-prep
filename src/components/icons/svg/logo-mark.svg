@@ -1,1 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M19 7.5C17.5 5.5 15 4 12 4C7.58 4 4 7.58 4 12s3.58 8 8 8c3 0 5.5-1.5 7-3.5"/><path d="m17.5 11 1.25 1.25L21 10"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" fill="currentColor" role="img" aria-label="The Exam Path">
+  <ellipse cx="256" cy="172" rx="44" ry="44" fill="#34D399"/>
+  <ellipse cx="331" cy="183.25" rx="42.39" ry="42.39"/>
+  <ellipse cx="385.9" cy="214" rx="26.6" ry="38"/>
+  <ellipse cx="406" cy="256" rx="22.4" ry="32"/>
+  <ellipse cx="385.9" cy="298" rx="26.6" ry="38"/>
+  <ellipse cx="331" cy="328.75" rx="42.39" ry="42.39"/>
+  <ellipse cx="256" cy="340" rx="44" ry="44"/>
+  <ellipse cx="181" cy="328.75" rx="42.39" ry="42.39"/>
+  <ellipse cx="126.1" cy="298" rx="26.6" ry="38"/>
+  <ellipse cx="106" cy="256" rx="22.4" ry="32"/>
+  <ellipse cx="126.1" cy="214" rx="26.6" ry="38"/>
+  <ellipse cx="181" cy="183.25" rx="42.39" ry="42.39"/>
+</svg>
