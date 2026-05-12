@@ -30,15 +30,18 @@ const HeroSection = () => {
                 Start with a free diagnostic case and see exactly where you stand before test day.
             </p>
 
-              <div className="mb-4 flex flex-col sm:flex-row gap-3 sm:items-start">
+              <div className="mb-4 flex flex-col sm:flex-row gap-3 sm:items-center">
                 <Link
                   to="/signup"
                   className="inline-flex h-11 items-center justify-center rounded-lg bg-primary px-8 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
                 >
                   Sign Up
                 </Link>
-                <FreeDiagnosticCTA />
+                <FreeDiagnosticCTA className="space-y-0" noteClassName="hidden" />
               </div>
+              <p className="text-xs text-muted-foreground mb-2">
+                One full exam-style case. Breakdown unlocked after you finish.
+              </p>
 
             <p className="text-xs text-muted-foreground">
                 Realistic pacing, exam-style layout, and a full results breakdown after completion.
