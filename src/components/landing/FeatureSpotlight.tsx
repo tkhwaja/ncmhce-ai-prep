@@ -19,7 +19,7 @@ const spotlights = [
   },
   {
     label: "Clinical Case Narratives",
-    title: "20+ realistic cases, with new narratives added weekly",
+    title: "20+ realistic cases, with new narratives added regularly",
     desc: "Practice across anxiety, mood, trauma, personality, substance use, OCD-spectrum, grief, and more. Every case uses the same three-session structure and question flow the real exam expects.",
     mockup: (
       <div className="space-y-3">

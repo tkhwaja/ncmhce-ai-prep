@@ -12,7 +12,7 @@ const features = [
   "60+ Flashcards with Spaced Repetition",
   "Score Tracking and Domain Analytics",
   "Auto-Save and Resume Progress",
-  "New narratives added weekly",
+  "New narratives added regularly",
   "Cancel anytime",
 ];
 
