@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Alert, AlertDescription } from "@/components/ui/alert";
@@ -9,7 +9,11 @@ import { StudyVisuals } from "@/components/library/StudyVisuals";
 import ModuleSectionNavigator from "@/components/library/ModuleSectionNavigator";
 import { ExamLikelihoodBadge } from "@/components/library/ExamLikelihoodBadge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { ChevronDown, ChevronRight, Lightbulb, AlertTriangle, BookOpen, Target, HelpCircle, Sparkles, ListChecks, Brain, Repeat, ShieldAlert, Compass } from "lucide-react";
+import { useBookmark } from "@/hooks/useBookmark";
+import { ChevronDown, ChevronRight, Lightbulb, AlertTriangle, BookOpen, Target, HelpCircle, Sparkles, ListChecks, Brain, Repeat, ShieldAlert, Compass, Bookmark, BookmarkCheck } from "lucide-react";
+
+const ModuleIdContext = createContext<string | undefined>(undefined);
+
 
 /* ------------------------------------------------------------------ */
 /*  Generic section renderers for the structured JSON module format    */
