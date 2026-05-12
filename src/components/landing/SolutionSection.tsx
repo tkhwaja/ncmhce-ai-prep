@@ -15,7 +15,7 @@ const features = [
   },
   {
     icon: CalendarClock,
-    title: "New narratives added weekly",
+    title: "New narratives added regularly",
     desc: "Keep sharpening your judgment with fresh cases instead of overfitting to the same limited set over and over.",
     badge: "Weekly",
   },

@@ -4,7 +4,7 @@ const steps = [
   { icon: ClipboardCheck, title: "Take the free diagnostic case", desc: "Start one full exam-style case and experience the same layout, pacing, and case flow as the platform." },
   { icon: LockKeyhole, title: "Unlock your breakdown", desc: "After you finish, enter your full name and email to reveal your score, missed questions, and detailed review." },
   { icon: BrainCircuit, title: "See exactly what to fix", desc: "Use the domain breakdown, rationale review, and one-page strategy sheet to identify how your reasoning needs to improve." },
-  { icon: TrendingUp, title: "Move into full prep", desc: "Step into 20+ narratives, full-length exams, and ongoing weekly case drops once you’re ready for the full platform." },
+  { icon: TrendingUp, title: "Move into full prep", desc: "Step into 20+ narratives, full-length exams, and ongoing new case drops once you’re ready for the full platform." },
 ];
 
 const HowItWorks = () => (
