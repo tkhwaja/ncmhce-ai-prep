@@ -15,6 +15,10 @@ const faqs = [
     a: "The platform currently includes 14+ individual clinical case narratives covering a wide range of diagnoses — from GAD and MDD to PTSD, Bipolar Disorder, Hoarding, Anorexia, BPD, and more. There's also a full-length timed practice exam, with more cases added regularly.",
   },
   {
+    q: "Who writes the narratives and questions?",
+    a: "Every clinical case, practice question, and rationale is developed by a team of licensed therapists with years of real-world clinical experience, alongside clinical psychologists and subject-matter experts in mental health counseling. All content is then reviewed by a select sample of current counseling students and recent test-takers for accuracy, relevance, and clarity before it goes live.",
+  },
+  {
     q: "Who is this for?",
     a: "The Exam Path is designed for anyone preparing for the NCMHCE — including first-time test takers, repeat test takers looking for deeper domain-level insight, and counseling students who want early clinical simulation practice.",
   },
