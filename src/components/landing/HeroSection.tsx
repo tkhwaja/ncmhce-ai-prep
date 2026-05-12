@@ -23,9 +23,7 @@ const HeroSection = () => {
                 The modern way to study
                 <span className="text-gradient"> for the NCMHCE.</span>
             </h1>
-            <p className="text-xs text-muted-foreground mb-6 italic">
-              Formerly known as TheCounselorExam.com
-            </p>
+
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-8 leading-relaxed">
                 AI tutoring, narrative simulations, and smart study tools — built for how you actually learn.
