@@ -6,12 +6,14 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ArrowLeft, Search, BookOpen, Sparkles, ClipboardCheck, FileText, Lightbulb, Scale, AlertTriangle, Heart } from "lucide-react";
+import { ArrowLeft, Search, BookOpen, Sparkles, ClipboardCheck, FileText, Lightbulb, Scale, AlertTriangle, Heart, Bookmark } from "lucide-react";
 import ModuleRenderer from "@/components/library/ModuleRenderer";
 import ExamOverviewRenderer from "@/components/library/ExamOverviewRenderer";
 import AssessmentTestingRenderer from "@/components/library/AssessmentTestingRenderer";
 import GlossaryView from "@/components/library/GlossaryView";
 import { ExamLikelihoodBadge } from "@/components/library/ExamLikelihoodBadge";
+import { useBookmark } from "@/hooks/useBookmark";
+import { InlineBackToTop, FloatingBackToTop } from "@/components/library/BackToTopButton";
 import type { AppLayoutOutletContext } from "@/components/app/AppLayout";
 
 const iconMap: Record<string, React.ElementType> = {
@@ -31,6 +33,25 @@ const LibraryModuleDetail = ({ module, onBack }: { module: LibraryModule; onBack
     openChatWithPrompt(`Quiz me on the ${module.title} module. Create 5 NCMHCE-style multiple choice questions based on the exact material in this section, ask them one at a time, wait for my answer after each, then explain why the correct answer is right.`);
   };
 
+  const { bookmarkedId } = useBookmark(module.id);
+
+  const scrollToBookmark = () => {
+    if (!bookmarkedId) return;
+    const el = document.getElementById(bookmarkedId);
+    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
+  // On mount: if a bookmark exists, jump to it after layout settles.
+  useEffect(() => {
+    if (!bookmarkedId) return;
+    const t = setTimeout(() => {
+      const el = document.getElementById(bookmarkedId);
+      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 250);
+    return () => clearTimeout(t);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
     <div className="w-full p-4 sm:p-6 space-y-6">
       <Button variant="ghost" onClick={onBack} className="mb-2">
@@ -47,6 +68,17 @@ const LibraryModuleDetail = ({ module, onBack }: { module: LibraryModule; onBack
         </div>
       </div>
 
+      {bookmarkedId && (
+        <button
+          type="button"
+          onClick={scrollToBookmark}
+          className="inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/5 px-4 py-2 text-sm text-foreground hover:bg-primary/10 transition-colors"
+        >
+          <Bookmark className="h-4 w-4 text-primary fill-primary/30" />
+          <span>Resume where you left off</span>
+        </button>
+      )}
+
       {isGlossary && module.data?.terms ? (
         <GlossaryView terms={module.data.terms} />
       ) : module.id === "exam-overview-and-blueprint" && module.data ? (
@@ -54,7 +86,7 @@ const LibraryModuleDetail = ({ module, onBack }: { module: LibraryModule; onBack
       ) : module.id === "assessment-and-testing" && module.data ? (
         <AssessmentTestingRenderer data={module.data} />
       ) : hasStructuredData ? (
-        <ModuleRenderer data={module.data} />
+        <ModuleRenderer data={module.data} moduleId={module.id} />
       ) : (
         <>
           {/* Key concepts */}
@@ -93,13 +125,16 @@ const LibraryModuleDetail = ({ module, onBack }: { module: LibraryModule; onBack
         </>
       )}
 
-      {!isGlossary && (
-        <div className="flex gap-3">
+      <div className="flex flex-wrap gap-3 pt-2 border-t border-border mt-4 pt-6">
+        {!isGlossary && (
           <Button variant="outline" onClick={handleQuizClick}>
             <Sparkles className="mr-2 h-4 w-4" /> Quiz Me on This
           </Button>
-        </div>
-      )}
+        )}
+        <InlineBackToTop />
+      </div>
+
+      <FloatingBackToTop />
     </div>
   );
 };
