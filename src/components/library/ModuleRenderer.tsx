@@ -1636,9 +1636,10 @@ const DiagnosticCategories = ({ categories }: { categories: any[] }) => (
 
 interface ModuleRendererProps {
   data: any;
+  moduleId?: string;
 }
 
-const ModuleRenderer = ({ data }: ModuleRendererProps) => {
+const ModuleRenderer = ({ data, moduleId }: ModuleRendererProps) => {
   if (!data) return null;
 
   const skipTopLevel = new Set([
