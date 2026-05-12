@@ -6,12 +6,14 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { ArrowLeft, Search, BookOpen, Sparkles, ClipboardCheck, FileText, Lightbulb, Scale, AlertTriangle, Heart } from "lucide-react";
+import { ArrowLeft, Search, BookOpen, Sparkles, ClipboardCheck, FileText, Lightbulb, Scale, AlertTriangle, Heart, Bookmark } from "lucide-react";
 import ModuleRenderer from "@/components/library/ModuleRenderer";
 import ExamOverviewRenderer from "@/components/library/ExamOverviewRenderer";
 import AssessmentTestingRenderer from "@/components/library/AssessmentTestingRenderer";
 import GlossaryView from "@/components/library/GlossaryView";
 import { ExamLikelihoodBadge } from "@/components/library/ExamLikelihoodBadge";
+import { useBookmark } from "@/hooks/useBookmark";
+import { InlineBackToTop, FloatingBackToTop } from "@/components/library/BackToTopButton";
 import type { AppLayoutOutletContext } from "@/components/app/AppLayout";
 
 const iconMap: Record<string, React.ElementType> = {
