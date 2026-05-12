@@ -1,5 +1,5 @@
 import { useState, useEffect, useMemo, useRef } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useSearchParams } from "react-router-dom";
 import { z } from "zod";
 import {
   getNarrativeById,
@@ -50,6 +50,9 @@ const formatTime = (s: number) => {
 const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePageProps) => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const examAttemptId = searchParams.get("examAttempt");
+  const examIdParam = searchParams.get("examId");
   const { user } = useAuth();
   const narrative = getNarrativeById(narrativeIdOverride ?? id);
 
@@ -580,10 +583,16 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
                 <Button variant="outline" onClick={handleRetry}>
                   <RotateCcw className="mr-2 h-4 w-4" /> Retry
                 </Button>
-                <Button variant="outline" onClick={() => navigate(publicMode ? "/" : "/narratives")}>
-                  <ArrowRight className="mr-2 h-4 w-4" /> {publicMode ? "Back to Home" : "Next Narrative"}
-                </Button>
-                {!publicMode && (
+                {examAttemptId && examIdParam ? (
+                  <Button onClick={() => navigate(`/practice-exam/${examIdParam}/attempt/${examAttemptId}`)}>
+                    <ArrowRight className="mr-2 h-4 w-4" /> Back to Practice Exam
+                  </Button>
+                ) : (
+                  <Button variant="outline" onClick={() => navigate(publicMode ? "/" : "/narratives")}>
+                    <ArrowRight className="mr-2 h-4 w-4" /> {publicMode ? "Back to Home" : "Next Narrative"}
+                  </Button>
+                )}
+                {!publicMode && !examAttemptId && (
                   <Button variant="outline" onClick={() => navigate("/dashboard")}>
                     <LayoutDashboard className="mr-2 h-4 w-4" /> Dashboard
                   </Button>

@@ -353,6 +353,54 @@ export type Database = {
         }
         Relationships: []
       }
+      practice_exam_attempts: {
+        Row: {
+          completed_at: string | null
+          created_at: string
+          domain_scores: Json
+          graded_case_count: number | null
+          id: string
+          practice_exam_id: string
+          started_at: string
+          status: string
+          time_spent_seconds: number | null
+          total_score: number | null
+          ungraded_narrative_ids: Json
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string | null
+          created_at?: string
+          domain_scores?: Json
+          graded_case_count?: number | null
+          id?: string
+          practice_exam_id: string
+          started_at?: string
+          status?: string
+          time_spent_seconds?: number | null
+          total_score?: number | null
+          ungraded_narrative_ids?: Json
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          completed_at?: string | null
+          created_at?: string
+          domain_scores?: Json
+          graded_case_count?: number | null
+          id?: string
+          practice_exam_id?: string
+          started_at?: string
+          status?: string
+          time_spent_seconds?: number | null
+          total_score?: number | null
+          ungraded_narrative_ids?: Json
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       profiles: {
         Row: {
           avatar_url: string | null

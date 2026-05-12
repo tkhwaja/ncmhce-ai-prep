@@ -28,6 +28,9 @@ import Library from "./pages/Library";
 import ExamInfo from "./pages/ExamInfo";
 import Community from "./pages/Community";
 import Tools from "./pages/Tools";
+import PracticeExams from "./pages/PracticeExams";
+import PracticeExamRunner from "./pages/PracticeExamRunner";
+import PracticeExamResults from "./pages/PracticeExamResults";
 import PaidFeatureGate from "./components/PaidFeatureGate";
 import CheckoutPage from "./pages/CheckoutPage";
 import CheckoutReturn from "./pages/CheckoutReturn";
@@ -66,6 +69,9 @@ const App = () => (
                 <Route path="/exam-info" element={<ExamInfo />} />
                 <Route path="/narratives" element={<PaidFeatureGate feature="Narratives"><Narratives /></PaidFeatureGate>} />
                 <Route path="/narrative/:id" element={<PaidFeatureGate feature="Narratives"><NarrativePage /></PaidFeatureGate>} />
+                <Route path="/practice-exams" element={<PaidFeatureGate feature="Practice Exams"><PracticeExams /></PaidFeatureGate>} />
+                <Route path="/practice-exam/:examId/attempt/:attemptId" element={<PaidFeatureGate feature="Practice Exams"><PracticeExamRunner /></PaidFeatureGate>} />
+                <Route path="/practice-exam/:examId/results/:attemptId" element={<PaidFeatureGate feature="Practice Exams"><PracticeExamResults /></PaidFeatureGate>} />
                 <Route path="/simulations" element={<Navigate to="/narratives" replace />} />
                 <Route path="/simulation/:id" element={<RedirectSimulation />} />
                 <Route path="/study-plan" element={<PaidFeatureGate feature="Study Plan"><StudyPlan /></PaidFeatureGate>} />
