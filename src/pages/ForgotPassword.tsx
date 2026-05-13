@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -28,6 +29,11 @@ const ForgotPassword = () => {
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center px-4">
+      <Helmet>
+        <title>Forgot Password | The Exam Path</title>
+        <meta name="description" content="Reset your password to regain access to your NCMHCE study plan, practice exams, and clinical case narratives on The Exam Path." />
+        <link rel="canonical" href="https://theexampath.com/forgot-password" />
+      </Helmet>
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Link to="/" className="text-2xl font-bold text-foreground tracking-tight">
