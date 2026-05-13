@@ -763,47 +763,7 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
             <p className="text-xs uppercase tracking-wide text-muted-foreground">Case File</p>
             <p className="text-sm font-semibold text-foreground">{narrative.title}</p>
           </div>
-          <ScrollArea className="flex-1 p-4">
-            <div className="space-y-5 pb-8">
-              <section>
-                <h3 className="text-sm font-semibold text-foreground mb-2">Client Information</h3>
-                <dl className="text-xs space-y-1">
-                  <InfoRow label="Age" value={String(narrative.clientInfo.age)} />
-                  <InfoRow label="Sex assigned at birth" value={narrative.clientInfo.sexAssignedAtBirth} />
-                  <InfoRow label="Gender identity" value={narrative.clientInfo.genderIdentity} />
-                  <InfoRow label="Pronouns" value={narrative.clientInfo.pronouns} />
-                  <InfoRow label="Sexual orientation" value={narrative.clientInfo.sexualOrientation} />
-                  <InfoRow label="Race / ethnicity" value={narrative.clientInfo.raceEthnicity} />
-                  <InfoRow label="Relationship" value={narrative.clientInfo.relationshipStatus} />
-                  <InfoRow label="Setting" value={narrative.clientInfo.setting} />
-                  <InfoRow label="Payment" value={narrative.clientInfo.payment} />
-                  <InfoRow label="Type of counseling" value={narrative.clientInfo.typeOfCounseling} />
-                  <InfoRow label="Provisional diagnosis" value={narrative.clientInfo.provisionalDiagnosis} />
-                </dl>
-              </section>
-
-              <CaseSection title="Presenting Problem" body={narrative.presentingProblem} />
-              <CaseSection title="Mental Status Observation" body={narrative.mentalStatusObservation} />
-              <CaseSection title="Family History" body={narrative.familyHistory} />
-              <CaseSection title="Work History" body={narrative.workHistory} />
-              <CaseSection title="Intake Session Summary" body={narrative.intakeSessionSummary} />
-
-              {narrative.sections.slice(1).map((s, i) => {
-                const sIdx = i + 1;
-                const unlocked = visibleSectionIndex >= sIdx;
-                if (!unlocked) {
-                  return (
-                    <section key={s.sessionLabel} className="rounded-md border border-dashed border-border/60 bg-muted/20 p-3">
-                      <p className="text-xs text-muted-foreground">
-                        {s.sessionLabel} — unlocks after you confirm Section {sIdx}
-                      </p>
-                    </section>
-                  );
-                }
-                return <CaseSection key={s.sessionLabel} title={s.sessionLabel} body={s.sectionNarrative} />;
-              })}
-            </div>
-          </ScrollArea>
+          <ScrollArea className="flex-1 p-4">{caseFileBody}</ScrollArea>
         </aside>
       </div>
 
