@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -78,6 +79,13 @@ const Signup = () => {
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center px-4 py-8">
+      <Helmet>
+        <title>Sign Up | The Exam Path</title>
+        <meta name="description" content="Create your account to access NCMHCE clinical case narratives, full-length practice exams, flashcards, and a personalized study plan." />
+        <link rel="canonical" href="https://theexampath.com/signup" />
+        <meta property="og:title" content="Sign Up | The Exam Path" />
+        <meta property="og:url" content="https://theexampath.com/signup" />
+      </Helmet>
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Link to="/" className="text-2xl font-bold text-foreground tracking-tight">
