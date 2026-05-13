@@ -1,59 +1,59 @@
-# Make the Free Diagnostic Case Harder
+## What's going on
 
-## Why
+Your `/founding` page already calls `create-checkout` with `priceId: "founding_yearly"` (lookup key). The edge function looks that up in Stripe via `lookup_keys` — if no Stripe price has that lookup key, checkout fails with "Price not found." That's almost certainly why you don't see the $67 offer wired up: the **product/price was never created in Stripe**.
 
-Current score distribution from `free_diagnostic_leads` (82 submissions on Tessa GAD case, 14 questions):
+The webhook (`payments-webhook`) is already correct: when a `checkout.session.completed` event comes in for a session whose line item has `lookup_key === "founding_yearly"`, it sets `profiles.access_expires_at = now + 1 year` and `payment_status = "founding"`. Then `useSubscription` grants access while `access_expires_at` is in the future.
 
-| Score | Count | % |
-|------:|------:|--:|
-| 100 (14/14) | 19 | 23% |
-| 93 (13/14) | 32 | 39% |
-| 86 (12/14) | 24 | 29% |
-| 79 (11/14) | 3 | 4% |
-| ≤64 | 4 | 5% |
+So the only missing piece in code is the Stripe product itself. The cleanup of old products is a manual step in the payments dashboard (Lovable doesn't expose a delete-product tool).
 
-23% perfect and ~62% scoring 93+ is too easy for a "diagnostic" — it under-sells the gap the paid product fills. Goal: bring the perfect-score rate down to **10–15%** and shift the median into the 70s–low 80s, which is closer to real NCMHCE difficulty.
+## What clicking "Claim founding access" actually does
 
-## Approach
+1. User lands on `/founding` (from email link, banner, popup, or pricing card).
+2. The page mounts `<StripeEmbeddedCheckout priceId="founding_yearly" ...>`.
+3. That component calls the `create-checkout` edge function, which:
+   - Looks up the Stripe price by `lookup_key: "founding_yearly"`
+   - Creates an embedded Checkout Session in `payment` mode (one-time)
+   - Returns a `clientSecret`
+4. Stripe's embedded form renders inline — user enters card and pays.
+5. Stripe redirects to `/checkout/return?session_id=...`.
+6. In parallel, Stripe fires `checkout.session.completed` to `payments-webhook`, which writes `access_expires_at = now + 365d` on the user's profile.
+7. `useSubscription` sees `foundingActive === true` and unlocks the app.
 
-Keep the case (Tessa, GAD), the 14-question structure, the 3 sections, the narrative, the timing, and the domain mix. **Only the questions and rationales change.** Difficulty comes from better distractors and harder stems, not from trick questions.
+## Plan
 
-### Concrete edits to `src/data/free-diagnostic-bundle.json`
+### 1. Create the founding product in Stripe (test mode)
+Use Lovable's payments tool to create:
+- **Product**: `founding_yearly` — "Founding Member — 1 Year Access"
+- **Price ID (lookup key)**: `founding_yearly`
+- **Amount**: $67 one-time (6700 cents, USD, no recurring interval)
+- **Quantity**: locked to 1
+- **Tax code**: `txcd_10103001` (SaaS / electronic services)
 
-1. **Tighten distractors.** Today most items have 1 obviously correct option and 3 clearly weak ones (e.g. "Reassure her that this is just anxiety" vs "Clarify what she means and assess for safety"). Rewrite each item so:
-   - At least 2 options are clinically defensible.
-   - The "best" answer wins on a specific NCMHCE principle (sequencing, safety-first, evidence base, scope of practice, ethical priority), not on being the only sane choice.
-   - Remove obviously bad straw-man options ("just calm down", "tell her it's nothing", etc.).
+Lovable auto-syncs test → live on publish, so this single call covers both environments.
 
-2. **Add NCMHCE-style "best next step" framing** on ~6 of the 14 items. These are the items that statistically separate strong from weak test-takers (e.g. "*before* assigning homework, what should the counselor do *first*?" with two correct-sounding sequencing options).
+### 2. Ask you about tax handling
+Stripe Embedded Checkout requires deciding once: full compliance (+3.5%, Stripe handles tax filing), calculation-only (+0.5%, you file), or none. I'll ask you before wiring this so we don't accidentally enable the higher fee.
 
-3. **Upgrade ~3 items to higher-order reasoning**:
-   - One diagnostic item that requires ruling out OCD / Adjustment Disorder / Illness Anxiety as plausible alternatives, not just "is this GAD yes/no".
-   - One ethics/scope item (e.g. fiancé requesting an update — release, informed consent, and clinical judgment all in play).
-   - One treatment-planning item that distinguishes CBT *technique sequencing* (psychoeducation → worry monitoring → cognitive restructuring → behavioral experiments) rather than "pick CBT vs psychoanalysis".
+### 3. Old products cleanup
+I can't delete old Stripe products from here. After step 1 you'll:
+- Open the Payments dashboard you're on now
+- Archive the legacy products you no longer want shown ("Archive" — Stripe doesn't allow hard delete of products with prior charges)
+- Confirm only the active SKUs remain: `ncmhce_monthly` ($79/mo) and `founding_yearly` ($67 one-time)
 
-4. **Rewrite explanations** for every changed item so each rationale:
-   - Says why the correct answer wins.
-   - Says why each *plausible* distractor is second-best (not just wrong).
-   - Names the NCMHCE principle being tested.
-   This matches the project's existing rationale standard and reinforces the teaching value even when users miss items.
+### 4. Test in sandbox (preview env uses `pk_test_`)
+1. Open the preview URL, log in (or sign up) with a test account.
+2. Click your email's CTA → lands on `/founding`.
+3. Use Stripe test card `4242 4242 4242 4242`, any future expiry, any CVC, any ZIP.
+4. Should redirect to `/checkout/return?session_id=...`.
+5. Verify the webhook fired: check the user's row in `profiles` — `access_expires_at` should be ~1 year out, `payment_status = 'founding'`.
+6. Navigate into a gated page (e.g. a paid narrative) — access should be granted.
 
-5. **Bump `difficulty` from `"intermediate"` to `"advanced"`** in the bundle so the UI label matches reality.
+### 5. Go live
+Once test passes, hit Publish. Lovable copies the test product/price to live and the live webhook secret is already configured. Send the real email and the `/founding` link becomes a real $67 charge.
 
-### What does NOT change
+## Technical details
 
-- Case narrative, MSE, family/work history, intake summary.
-- Section count (3), question count (14), domain distribution, recommended minutes.
-- Scoring logic, lead-capture flow, results email, or any DB schema.
-- Practice exams and other narratives.
-
-## Validation
-
-- After editing, I'll re-read the bundle and spot-check that every item still has exactly 4 options and a valid `correctAnswer` index.
-- No DB migration needed. Existing `free_diagnostic_leads` rows stay as historical data; new submissions will reflect the harder question set.
-- We can re-check the score distribution after ~20 new submissions and tune further if needed.
-
-## Open questions
-
-1. Want me to keep the **same 14 question topics** and just rewrite distractors/stems, or is it OK to swap a couple of topics entirely (e.g. drop one easy "rapport" question and add one diagnostic-rule-out question)?
-2. Should I also generate **2–3 extra hard items** so the case has 16–17 questions total, or strictly stay at 14?
+- Code is already correct — no source edits needed unless you change pricing or want to lock down the page when sold-out.
+- `src/lib/foundingOffer.ts` auto-disables the offer at `2026-06-01T00:00:00-04:00` (banner, popup, and `/founding` route all redirect on June 1).
+- Webhook detection is by `lookup_key === "founding_yearly"` on the line item, so do not rename the price ID after launch.
+- If you want to *also* archive the old `$349 one-time` legacy product so it can never be checked out again, that's a dashboard click — the `useSubscription` hook still honors anyone who already paid via `profile.payment_status === "paid"`.
