@@ -1,56 +1,59 @@
-## 1. Visible scrollbar in Learning Library modules
+# Launch Plan: Founding Member Offer → June 1 Subscription
 
-Right now the page uses the browser's default scrollbar, which on dark mode blends into the background. Add a custom scrollbar utility that uses our design tokens so it's visible but still subtle.
+## Phase 1 — Export your email list (today)
 
-- In `src/index.css`, add a new `.themed-scrollbar` utility under `@layer utilities`:
-  - WebKit: `::-webkit-scrollbar` width 10px, track `hsl(var(--muted))`, thumb `hsl(var(--primary) / 0.5)` with `border-radius: 8px` and a 2px transparent border for inset look; hover thumb `hsl(var(--primary) / 0.75)`.
-  - Firefox: `scrollbar-width: thin; scrollbar-color: hsl(var(--primary) / 0.5) hsl(var(--muted));`
-- Apply it to the Library module detail wrapper and any internal scroll containers (the sidebar list inside `CompactObjectBrowser` in `ModuleRenderer.tsx`, plus the GlossaryView scroll regions). The page itself already scrolls on `<body>` — also add the utility to `body` via a class on the Library page wrapper so the main scrollbar in the module view becomes visible.
+I'll generate a CSV (downloadable from `/mnt/documents/`) with all collected contacts, deduped by email, with a `segment` column so you can filter in Sequenzy:
 
-## 2. Bookmark on each study dropdown
+- `practice_exam` — completed the free diagnostic case (~79, includes full name + score)
+- `signup` — created an account but didn't take diagnostic
+- `waitlist` — only joined waitlist
 
-Inside each module, the user wants a small bookmark button in the top-right of every collapsible study section so they can mark where to resume next session.
+Columns: `email, full_name, segment, signed_up_at, diagnostic_score`. ~93 unique emails total.
 
-- Storage: `localStorage` key `library:bookmarks` → `Record<moduleId, string>` storing the last-bookmarked section id (one bookmark per module — picking a new one replaces the previous so the user always has one clear "resume here" anchor).
-- Add a tiny `useBookmark(moduleId)` hook in `src/hooks/useBookmark.ts` exposing `{ bookmarkedId, toggle(id), isBookmarked(id) }`.
-- Update `CollapsibleSection` in `src/components/library/ModuleRenderer.tsx` to accept an optional `sectionId` and render a `Bookmark` / `BookmarkCheck` (lucide) icon button in the trigger row, right side, before the chevron. Clicking it toggles the bookmark and stops propagation so it doesn't open/close the section.
-- Wire `moduleId` down from `LibraryModuleDetail` → `ModuleRenderer` → each `GuidedSection`/`CollapsibleSection` (a single prop drill — `ModuleRenderer` already builds these sections, so it can pass a stable `sectionId` derived from the existing `slugifySectionId` helper).
-- On opening a module, if a bookmark exists: scroll that section into view and auto-open it (use the existing `id` we already set on `<section>` for navigator anchors).
-- Show a small "Resume where you left off" pill at the top of the module detail when a bookmark exists, that scrolls to and opens the bookmarked section.
+## Phase 2 — Stripe products (test now, live before June 1)
 
-## 3. "Back to top" button at end of module
+Two products in test mode (auto-syncs to live on publish):
 
-- Add a `BackToTopButton` component rendered at the bottom of `LibraryModuleDetail` (inside the module detail return, after the Quiz Me button block).
-- It's a simple `<Button variant="outline">` with an `ArrowUp` icon and label "Back to top" that calls `window.scrollTo({ top: 0, behavior: 'smooth' })`.
-- Also add a floating version: a small fixed circular button in the bottom-right that fades in once the user scrolls past ~600px (listen to `scroll` on window, throttle with `requestAnimationFrame`). Same scroll-to-top action. Uses `bg-primary text-primary-foreground` with subtle shadow so it's discoverable without being noisy.
+1. **`founding_yearly`** — **$67 one-time payment, 1 year of access** (not lifetime)
+2. **`ncmhce_monthly`** — $79/month subscription
 
-## 4. Cleaner Exam Info page
+For #1 I'll record `access_expires_at = now() + 1 year` on the user (new column on `profiles` or a `lifetime_purchases`-style row, renamed to `access_grants`). After that date, access reverts and they'd need to subscribe to the $79/mo plan.
 
-The current `ExamInfo.tsx` renders every bullet with a `CheckCircle2` icon, every numbered item inside a circular `Badge`, every `>` block as an `Alert`, and every `###` heading prefixed with a `BookOpen` icon — that's where the "stars everywhere" feeling comes from. Restructure for a calm, document-like read.
+You can fully test both in sandbox with card `4242 4242 4242 4242` before May 31.
 
-Changes to `src/pages/ExamInfo.tsx`:
-- Replace the icon-prefixed `###` heading with a plain semantic `<h3>` (no icon), tighter top spacing.
-- Replace per-bullet `CheckCircle2` icons with a clean disc list (`list-disc` with `marker:text-primary`), one consistent indent.
-- Replace numbered `Badge` circles with a normal `list-decimal` ordered list, primary-colored markers.
-- Keep the `>` callout but make it lighter: a left-border accent (`border-l-2 border-primary pl-4 py-1 bg-primary/5 rounded-r`) instead of the full Alert component, with no leading icon.
-- Add an at-a-glance header strip on each section with 2–4 key facts (e.g. for "About": format, scored questions, time limit, delivery) parsed once into a small "highlights" array per section in `src/data/exam-info.ts`. Optional but recommended — falls back gracefully when not provided.
-- Type scale: bump body to `text-[15px]` with `leading-7`, headings to `text-lg`/`text-xl`, generous section spacing (`space-y-6`), and a single subtle `Separator` between major `##` blocks.
-- Remove the `h-1 w-12 bg-primary` underline under the section title (redundant with the new typography hierarchy).
-- Mobile tab strip: keep, but use `Badge`-styled pills with consistent sizing.
+## Phase 3 — Landing page changes
 
-No changes to data files except optionally adding a `highlights?: { label: string; value: string }[]` field on each section.
+1. **Top announcement banner** (sticky, dismissible) — "🎉 Founding Member: 1 year of access for $67 (reg. $79/mo). Offer ends May 31 →" linking to `/founding`.
+2. **Welcome popup** — fires once per visitor (localStorage flag) ~3s after landing. Same offer, dismissible.
+3. **`/founding` page** — short pitch + embedded Stripe checkout for `founding_yearly`. Clearly states "1 year of access, then standard $79/mo pricing applies."
+4. **Pricing section** — replace the current "Beta" card with the real $79/mo card, plus a highlighted founding offer callout (until May 31).
 
-## Files touched
+## Phase 4 — Auto-switchover on June 1
 
-- `src/index.css` — add `.themed-scrollbar` utility.
-- `src/hooks/useBookmark.ts` — new.
-- `src/components/library/ModuleRenderer.tsx` — bookmark button on `CollapsibleSection`, accept `moduleId` prop, thread `sectionId`.
-- `src/pages/Library.tsx` — pass `module.id` into `ModuleRenderer`, render resume pill + back-to-top button, apply `themed-scrollbar`.
-- `src/components/library/BackToTopButton.tsx` — new (floating + inline variants).
-- `src/pages/ExamInfo.tsx` — restructured renderer.
-- `src/data/exam-info.ts` — optional `highlights` field per section.
+- **May 13 → May 31**: banner + popup + `/founding` checkout active.
+- **June 1**: banner/popup auto-hide via `new Date() < new Date('2026-06-01')` check baked into the components — no republish needed. `/founding` page itself will also redirect to `/signup` after the cutoff.
+- Founding members keep their 1 year of access (until purchase date + 365 days). After expiry they see the standard $79/mo offer.
 
-## Notes / tradeoffs
+## Phase 5 — Email copy for Sequenzy
 
-- Bookmarks are stored locally per browser (no backend). If you'd rather sync them to the user's account, say the word and I'll add a `library_bookmarks` table behind RLS instead.
-- One bookmark per module keeps the UI dead-simple ("resume here"). If you want multiple bookmarks per module, the same hook trivially extends to a `Set<sectionId>`.
+Drafted to match your tone spec (professional, appreciative, urgency without spam) with corrected offer wording: **$67 one-time, 1 year of access, 7 days only**, then standard pricing applies. Delivered as plain text + HTML, CTA → `https://theexampath.com/founding`.
+
+## Technical notes
+
+- Stripe products use existing `_shared/stripe.ts` gateway.
+- One-time `founding_yearly` purchase will set `profiles.access_expires_at` via the existing `payments-webhook` (extended to handle `checkout.session.completed` for `mode: 'payment'`).
+- `useSubscription.hasAccess` extended to also return true when `profile.access_expires_at > now()`.
+- Banner/popup are pure frontend.
+
+## Order of execution after you approve
+
+1. Export & deliver CSV
+2. Create Stripe products (test)
+3. Add `access_expires_at` column + extend webhook + update `useSubscription`
+4. Build `/founding` page + banner + popup with May 31 cutoff
+5. Update pricing section
+6. Draft email copy
+7. You test the flow in preview with test card
+8. Publish + complete Stripe go-live before May 31
+
+Want me to proceed end-to-end, or adjust anything first (banner copy, popup timing, exact end time on May 31)?
