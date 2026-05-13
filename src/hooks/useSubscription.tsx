@@ -63,8 +63,12 @@ export function useSubscription(): SubscriptionState {
   // Legacy paid users (one-time $349) still get access
   const legacyPaid = profile?.payment_status === "paid";
 
+  // Founding members: 1-year access via access_expires_at on profile
+  const foundingActive =
+    !!profile?.access_expires_at && new Date(profile.access_expires_at) > new Date();
+
   return {
-    hasAccess: !!subActive || legacyPaid,
+    hasAccess: !!subActive || legacyPaid || foundingActive,
     loading,
     status,
     cancelAtPeriodEnd,

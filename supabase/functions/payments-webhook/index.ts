@@ -50,14 +50,35 @@ serve(async (req) => {
 });
 
 async function handleCheckoutCompleted(session: any) {
-  // Legacy one-time payment support — keep updating profile.payment_status
-  if (session.mode === "payment") {
-    const userId = session.metadata?.userId;
-    if (!userId) return;
+  if (session.mode !== "payment") return;
+  const userId = session.metadata?.userId;
+  if (!userId) return;
+
+  // Detect founding-member 1-year offer via line items lookup_key
+  let isFounding = false;
+  try {
+    const { createStripeClient } = await import("../_shared/stripe.ts");
+    const env = (session.livemode ? "live" : "sandbox") as StripeEnv;
+    const stripe = createStripeClient(env);
+    const items = await stripe.checkout.sessions.listLineItems(session.id, { limit: 5, expand: ["data.price"] });
+    isFounding = items.data.some((li: any) => li.price?.lookup_key === "founding_yearly");
+  } catch (e) {
+    console.error("Failed to inspect line items:", e);
+  }
+
+  if (isFounding) {
+    const expiresAt = new Date();
+    expiresAt.setFullYear(expiresAt.getFullYear() + 1);
+    await supabase
+      .from("profiles")
+      .update({ access_expires_at: expiresAt.toISOString(), payment_status: "founding" })
+      .eq("id", userId);
+    console.log("Founding 1-year access granted to user:", userId, "until", expiresAt.toISOString());
+  } else {
+    // Legacy one-time payment fallback
     await supabase.from("profiles").update({ payment_status: "paid" }).eq("id", userId);
     console.log("Legacy one-time payment recorded for user:", userId);
   }
-  // Subscription mode is handled by customer.subscription.* events
 }
 
 async function handleSubscriptionCreated(subscription: any, env: StripeEnv) {

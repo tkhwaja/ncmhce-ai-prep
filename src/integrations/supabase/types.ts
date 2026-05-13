@@ -403,6 +403,7 @@ export type Database = {
       }
       profiles: {
         Row: {
+          access_expires_at: string | null
           avatar_url: string | null
           bio: string | null
           created_at: string
@@ -415,6 +416,7 @@ export type Database = {
           updated_at: string
         }
         Insert: {
+          access_expires_at?: string | null
           avatar_url?: string | null
           bio?: string | null
           created_at?: string
@@ -427,6 +429,7 @@ export type Database = {
           updated_at?: string
         }
         Update: {
+          access_expires_at?: string | null
           avatar_url?: string | null
           bio?: string | null
           created_at?: string
