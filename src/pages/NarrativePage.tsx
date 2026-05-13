@@ -360,14 +360,56 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
   const results = phase === "results" || phase === "review" ? calculateResults() : null;
   const resultsLocked = publicMode && !leadSubmitted;
 
+  const caseFileBody = (
+    <div className="space-y-5 pb-8">
+      <section>
+        <h3 className="text-sm font-semibold text-foreground mb-2">Client Information</h3>
+        <dl className="text-xs space-y-1">
+          <InfoRow label="Age" value={String(narrative.clientInfo.age)} />
+          <InfoRow label="Sex assigned at birth" value={narrative.clientInfo.sexAssignedAtBirth} />
+          <InfoRow label="Gender identity" value={narrative.clientInfo.genderIdentity} />
+          <InfoRow label="Pronouns" value={narrative.clientInfo.pronouns} />
+          <InfoRow label="Sexual orientation" value={narrative.clientInfo.sexualOrientation} />
+          <InfoRow label="Race / ethnicity" value={narrative.clientInfo.raceEthnicity} />
+          <InfoRow label="Relationship" value={narrative.clientInfo.relationshipStatus} />
+          <InfoRow label="Setting" value={narrative.clientInfo.setting} />
+          <InfoRow label="Payment" value={narrative.clientInfo.payment} />
+          <InfoRow label="Type of counseling" value={narrative.clientInfo.typeOfCounseling} />
+          <InfoRow label="Provisional diagnosis" value={narrative.clientInfo.provisionalDiagnosis} />
+        </dl>
+      </section>
+
+      <CaseSection title="Presenting Problem" body={narrative.presentingProblem} />
+      <CaseSection title="Mental Status Observation" body={narrative.mentalStatusObservation} />
+      <CaseSection title="Family History" body={narrative.familyHistory} />
+      <CaseSection title="Work History" body={narrative.workHistory} />
+      <CaseSection title="Intake Session Summary" body={narrative.intakeSessionSummary} />
+
+      {narrative.sections.slice(1).map((s, i) => {
+        const sIdx = i + 1;
+        const unlocked = visibleSectionIndex >= sIdx;
+        if (!unlocked) {
+          return (
+            <section key={s.sessionLabel} className="rounded-md border border-dashed border-border/60 bg-muted/20 p-3">
+              <p className="text-xs text-muted-foreground">
+                {s.sessionLabel} — unlocks after you confirm Section {sIdx}
+              </p>
+            </section>
+          );
+        }
+        return <CaseSection key={s.sessionLabel} title={s.sessionLabel} body={s.sectionNarrative} />;
+      })}
+    </div>
+  );
+
   return (
     <div className="flex flex-col h-screen bg-background">
       <div className="h-12 border-b border-border flex items-center justify-between px-4 bg-muted/30 shrink-0">
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3 min-w-0">
           {phase === "answering" && (
             <Badge
               variant="outline"
-              className={`font-mono text-sm ${
+              className={`font-mono text-sm shrink-0 ${
                 secondsRemaining <= 60 ? "border-red-500/40 text-red-400" :
                 secondsRemaining <= 300 ? "border-amber-500/40 text-amber-400" : ""
               }`}
@@ -376,14 +418,29 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
               {timerExpired ? `+${formatTime(Math.abs(secondsRemaining))} over` : formatTime(secondsRemaining)}
             </Badge>
           )}
-          <span className="text-sm font-medium text-foreground">{narrative.title}</span>
+          <span className="text-sm font-medium text-foreground truncate">{narrative.title}</span>
         </div>
-        <Badge variant="outline" className="text-xs">
-          {phase === "answering" && `Section ${sectionIndex + 1} of ${narrative.sections.length}`}
-          {phase === "section-summary" && `Section ${sectionIndex + 1} Summary`}
-          {phase === "results" && "Results"}
-          {phase === "review" && "Review Mode"}
-        </Badge>
+        <div className="flex items-center gap-2 shrink-0">
+          <Sheet>
+            <SheetTrigger asChild>
+              <Button variant="outline" size="sm" className="lg:hidden h-8 px-2">
+                <FileText className="h-4 w-4 mr-1" /> Case
+              </Button>
+            </SheetTrigger>
+            <SheetContent side="right" className="w-[92vw] sm:w-[440px] p-0 flex flex-col">
+              <SheetHeader className="px-4 py-3 border-b border-border text-left">
+                <SheetTitle className="text-sm">{narrative.title} — Case File</SheetTitle>
+              </SheetHeader>
+              <ScrollArea className="flex-1 p-4">{caseFileBody}</ScrollArea>
+            </SheetContent>
+          </Sheet>
+          <Badge variant="outline" className="text-xs">
+            {phase === "answering" && `Section ${sectionIndex + 1} of ${narrative.sections.length}`}
+            {phase === "section-summary" && `Section ${sectionIndex + 1} Summary`}
+            {phase === "results" && "Results"}
+            {phase === "review" && "Review Mode"}
+          </Badge>
+        </div>
       </div>
 
       <div className="flex-1 overflow-hidden flex flex-row-reverse">
