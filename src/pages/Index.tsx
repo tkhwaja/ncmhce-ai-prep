@@ -82,8 +82,10 @@ const Index = () => (
       <meta property="og:url" content="https://theexampath.com/" />
       <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
     </Helmet>
-    <FoundingBanner />
-    <Navbar />
+    <div className="fixed top-0 left-0 right-0 z-50">
+      <FoundingBanner />
+      <Navbar />
+    </div>
     <HeroSection />
     <TrustBar />
     <Testimonials />
