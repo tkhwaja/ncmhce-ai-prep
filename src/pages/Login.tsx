@@ -29,6 +29,13 @@ const Login = () => {
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center px-4">
+      <Helmet>
+        <title>Log In | The Exam Path</title>
+        <meta name="description" content="Sign in to The Exam Path to access NCMHCE practice narratives, timed practice exams, flashcards, and your personalized study plan." />
+        <link rel="canonical" href="https://theexampath.com/login" />
+        <meta property="og:title" content="Log In | The Exam Path" />
+        <meta property="og:url" content="https://theexampath.com/login" />
+      </Helmet>
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
           <Link to="/" className="text-2xl font-bold text-foreground tracking-tight">
