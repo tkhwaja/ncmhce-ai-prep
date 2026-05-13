@@ -2,7 +2,7 @@
 
 > NCMHCE prep platform with realistic clinical case narratives, full-length timed practice exams, DSM-5-TR library, flashcards, and domain analytics — built for counseling students and pre-licensed counselors.
 
-The Exam Path (formerly TheCounselorExam.com) helps counseling students, limited permit counselors, and pre-licensed mental health counselors prepare for the National Clinical Mental Health Counseling Examination (NCMHCE). Content is developed by licensed therapists and clinical psychologists and reviewed by current counseling students for accuracy and exam relevance.
+The Exam Path helps counseling students, limited permit counselors, and pre-licensed mental health counselors prepare for the National Clinical Mental Health Counseling Examination (NCMHCE). Content is developed by licensed therapists and clinical psychologists and reviewed by current counseling students for accuracy and exam relevance.
 
 ## Pages
 
