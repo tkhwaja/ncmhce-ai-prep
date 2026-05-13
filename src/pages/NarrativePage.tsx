@@ -24,9 +24,10 @@ import {
 } from "@/components/ui/alert-dialog";
 import {
   Clock, ChevronRight, ChevronLeft, CheckCircle2, XCircle,
-  RotateCcw, ArrowRight, LayoutDashboard, Mail, UnlockKeyhole,
+  RotateCcw, ArrowRight, LayoutDashboard, Mail, UnlockKeyhole, FileText,
 } from "lucide-react";
 import NarrativeReviewChat from "@/components/NarrativeReviewChat";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 
 type Phase = "answering" | "section-summary" | "results" | "review";
 
