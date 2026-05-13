@@ -35,6 +35,7 @@ import PaidFeatureGate from "./components/PaidFeatureGate";
 import CheckoutPage from "./pages/CheckoutPage";
 import CheckoutReturn from "./pages/CheckoutReturn";
 import IconsPreview from "./pages/IconsPreview";
+import Founding from "./pages/Founding";
 
 const queryClient = new QueryClient();
 
@@ -62,6 +63,7 @@ const App = () => (
               <Route path="/checkout" element={<CheckoutPage />} />
               <Route path="/checkout/return" element={<CheckoutReturn />} />
               <Route path="/icons-preview" element={<IconsPreview />} />
+              <Route path="/founding" element={<Founding />} />
 
               <Route element={<ProtectedRoute><PomodoroProvider><AppLayout /></PomodoroProvider></ProtectedRoute>}>
                 <Route path="/dashboard" element={<Dashboard />} />

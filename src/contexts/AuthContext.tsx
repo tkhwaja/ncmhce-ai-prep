@@ -21,6 +21,7 @@ interface Profile {
   avatar_url: string | null;
   study_hours_per_week: number | null;
   payment_status: string;
+  access_expires_at: string | null;
 }
 
 const AuthContext = createContext<AuthContextType | undefined>(undefined);

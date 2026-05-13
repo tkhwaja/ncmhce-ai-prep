@@ -9,9 +9,12 @@ import HowItWorks from "@/components/landing/HowItWorks";
 import ComparisonTable from "@/components/landing/ComparisonTable";
 import WhoItsFor from "@/components/landing/WhoItsFor";
 import Testimonials from "@/components/landing/Testimonials";
+import PricingSection from "@/components/landing/PricingSection";
 import WaitlistCTA from "@/components/landing/WaitlistCTA";
 import FAQSection from "@/components/landing/FAQSection";
 import Footer from "@/components/landing/Footer";
+import FoundingBanner from "@/components/landing/FoundingBanner";
+import FoundingPopup from "@/components/landing/FoundingPopup";
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -79,6 +82,7 @@ const Index = () => (
       <meta property="og:url" content="https://theexampath.com/" />
       <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
     </Helmet>
+    <FoundingBanner />
     <Navbar />
     <HeroSection />
     <TrustBar />
@@ -89,9 +93,11 @@ const Index = () => (
     <HowItWorks />
     <ComparisonTable />
     <WhoItsFor />
+    <PricingSection />
     <WaitlistCTA />
     <FAQSection />
     <Footer />
+    <FoundingPopup />
   </div>
 );
 
