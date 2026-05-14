@@ -9,7 +9,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
-import { Save, Target, TrendingUp, Layers, Calendar, BarChart3, CalendarCheck, KeyRound, Trash2 } from "lucide-react";
+import { Save, Target, TrendingUp, Layers, Calendar, BarChart3, CalendarCheck, KeyRound, Trash2, CreditCard, XCircle } from "lucide-react";
+import { useSubscription } from "@/hooks/useSubscription";
+import { getStripeEnvironment } from "@/lib/stripe";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 const Profile = () => {
   const { user, profile, refreshProfile, signOut } = useAuth();
@@ -21,6 +24,12 @@ const Profile = () => {
   const [targetExamDate, setTargetExamDate] = useState("");
   const [loading, setLoading] = useState(false);
   const [deleteConfirmOpen, setDeleteConfirmOpen] = useState(false);
+  const [cancelOpen, setCancelOpen] = useState(false);
+  const [cancelReason, setCancelReason] = useState("");
+  const [cancelDetails, setCancelDetails] = useState("");
+  const [cancelSubmitting, setCancelSubmitting] = useState(false);
+  const [portalLoading, setPortalLoading] = useState(false);
+  const sub = useSubscription();
 
   // Stats
   const [simCount, setSimCount] = useState(0);
@@ -106,6 +115,51 @@ const Profile = () => {
     navigate("/");
   };
 
+  const handleManageSubscription = async () => {
+    setPortalLoading(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("create-portal-session", {
+        body: { returnUrl: `${window.location.origin}/profile`, environment: getStripeEnvironment() },
+      });
+      if (error || !data?.url) throw new Error(error?.message || "Could not open billing portal");
+      window.open(data.url, "_blank");
+    } catch (e: any) {
+      toast({ title: "Error", description: e.message || "Failed to open billing portal", variant: "destructive" });
+    } finally {
+      setPortalLoading(false);
+    }
+  };
+
+  const handleSubmitCancellation = async () => {
+    if (!cancelReason) {
+      toast({ title: "Please choose a reason", variant: "destructive" });
+      return;
+    }
+    setCancelSubmitting(true);
+    try {
+      const { error } = await supabase.functions.invoke("submit-cancellation-feedback", {
+        body: { reason: cancelReason, details: cancelDetails },
+      });
+      if (error) throw new Error(error.message);
+      toast({
+        title: "Feedback submitted",
+        description: "Thank you. We'll process your cancellation request shortly. You can also manage billing directly via the portal.",
+      });
+      setCancelOpen(false);
+      setCancelReason("");
+      setCancelDetails("");
+    } catch (e: any) {
+      toast({ title: "Error", description: e.message || "Failed to submit feedback", variant: "destructive" });
+    } finally {
+      setCancelSubmitting(false);
+    }
+  };
+
+  // Determine subscription display info
+  const hasStripeSub = !!sub.status && sub.status !== "none";
+  const isFounding = !hasStripeSub && (profile?.payment_status === "paid" || !!profile?.access_expires_at);
+  const accessUntil = sub.currentPeriodEnd || profile?.access_expires_at || null;
+
   const initials = (fullName || "?").split(" ").map(n => n[0]).join("").toUpperCase().slice(0, 2);
 
   const stats = [
@@ -187,6 +241,116 @@ const Profile = () => {
           </Button>
         </CardContent>
       </Card>
+
+      {/* Subscription */}
+      <Card className="card-elevated">
+        <CardHeader>
+          <CardTitle className="text-base flex items-center gap-2">
+            <CreditCard className="h-4 w-4 text-primary" /> Subscription
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {sub.loading ? (
+            <p className="text-sm text-muted-foreground">Loading subscription...</p>
+          ) : hasStripeSub ? (
+            <>
+              <div className="flex items-center justify-between flex-wrap gap-3">
+                <div>
+                  <p className="text-sm font-medium text-foreground capitalize">
+                    Status: {sub.status}{sub.cancelAtPeriodEnd ? " (cancels at period end)" : ""}
+                  </p>
+                  {accessUntil && (
+                    <p className="text-xs text-muted-foreground">
+                      {sub.cancelAtPeriodEnd || sub.status === "canceled" ? "Access until " : "Renews "}
+                      {new Date(accessUntil).toLocaleDateString()}
+                    </p>
+                  )}
+                </div>
+                <Button variant="outline" size="sm" onClick={handleManageSubscription} disabled={portalLoading}>
+                  {portalLoading ? "Opening..." : "Manage Billing"}
+                </Button>
+              </div>
+              {!sub.cancelAtPeriodEnd && sub.status !== "canceled" && (
+                <div className="border-t border-border pt-4 flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium text-foreground">Cancel Subscription</p>
+                    <p className="text-xs text-muted-foreground">We'd love your feedback before you go</p>
+                  </div>
+                  <Button variant="outline" size="sm" onClick={() => setCancelOpen(true)}>
+                    <XCircle className="mr-2 h-4 w-4" /> Cancel
+                  </Button>
+                </div>
+              )}
+            </>
+          ) : isFounding ? (
+            <>
+              <div>
+                <p className="text-sm font-medium text-foreground">Founding Member — Early Access</p>
+                <p className="text-xs text-muted-foreground">
+                  One-time purchase.{accessUntil ? ` Access through ${new Date(accessUntil).toLocaleDateString()}.` : ""}
+                </p>
+              </div>
+              <div className="border-t border-border pt-4 flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-medium text-foreground">Cancel & Request Refund</p>
+                  <p className="text-xs text-muted-foreground">Tell us why — our team will follow up</p>
+                </div>
+                <Button variant="outline" size="sm" onClick={() => setCancelOpen(true)}>
+                  <XCircle className="mr-2 h-4 w-4" /> Cancel
+                </Button>
+              </div>
+            </>
+          ) : (
+            <p className="text-sm text-muted-foreground">No active subscription.</p>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* Cancellation Feedback Dialog */}
+      <Dialog open={cancelOpen} onOpenChange={setCancelOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Before you cancel</DialogTitle>
+          </DialogHeader>
+          <p className="text-sm text-muted-foreground">
+            We're sorry to see you go. Could you share why you're canceling? Your feedback helps us improve.
+          </p>
+          <div className="space-y-3 mt-2">
+            <div className="space-y-2">
+              <Label>Reason</Label>
+              <Select value={cancelReason} onValueChange={setCancelReason}>
+                <SelectTrigger><SelectValue placeholder="Select a reason" /></SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="Too expensive">Too expensive</SelectItem>
+                  <SelectItem value="Not using it enough">Not using it enough</SelectItem>
+                  <SelectItem value="Missing features I need">Missing features I need</SelectItem>
+                  <SelectItem value="Already passed the exam">Already passed the exam</SelectItem>
+                  <SelectItem value="Found a better alternative">Found a better alternative</SelectItem>
+                  <SelectItem value="Technical issues">Technical issues</SelectItem>
+                  <SelectItem value="Other">Other</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="space-y-2">
+              <Label>Additional details (optional)</Label>
+              <Textarea
+                value={cancelDetails}
+                onChange={(e) => setCancelDetails(e.target.value.slice(0, 2000))}
+                placeholder="Anything else we should know?"
+                rows={4}
+              />
+            </div>
+          </div>
+          <div className="flex gap-3 justify-end mt-4">
+            <Button variant="outline" onClick={() => setCancelOpen(false)} disabled={cancelSubmitting}>
+              Keep Subscription
+            </Button>
+            <Button variant="destructive" onClick={handleSubmitCancellation} disabled={cancelSubmitting || !cancelReason}>
+              {cancelSubmitting ? "Submitting..." : "Submit & Cancel"}
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
 
       {/* Account Settings */}
       <Card className="card-elevated">
