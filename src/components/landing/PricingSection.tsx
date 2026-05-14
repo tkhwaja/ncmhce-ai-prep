@@ -89,7 +89,7 @@ const PricingSection = () => {
                 size="lg"
                 onClick={() => navigate("/signup")}
               >
-                Sign Up
+                Free Sign Up
               </Button>
             </CardContent>
           </Card>
