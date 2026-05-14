@@ -132,6 +132,28 @@ Deno.serve(async (req) => {
     }, null, 2), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } })
   }
 
+  if (mode === 'single') {
+    const target = (url.searchParams.get('email') || '').toLowerCase()
+    if (!target) {
+      return new Response(JSON.stringify({ error: 'single mode requires &email=<email>' }), { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } })
+    }
+    const u = unconfirmed.find(x => x.email.toLowerCase() === target)
+      ?? eligible.find(x => x.email.toLowerCase() === target)
+    // Fall back to listUsers lookup if not in unconfirmed (e.g. already confirmed - skip)
+    if (!u) {
+      return new Response(JSON.stringify({ error: 'user not found among unconfirmed users', target }), { status: 404, headers: { ...corsHeaders, 'Content-Type': 'application/json' } })
+    }
+    const link = await generateConfirmLink(u.email)
+    if (!link) {
+      return new Response(JSON.stringify({ error: 'link_gen_failed', email: u.email }), { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } })
+    }
+    const r = await sendEmail('signup-confirmation-reminder', u.email, `manual-recovery-${u.id}-${Date.now()}`, {
+      confirmUrl: link,
+      name: u.full_name,
+    })
+    return new Response(JSON.stringify({ mode: 'single', email: u.email, name: u.full_name, send_result: r }, null, 2), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } })
+  }
+
   if (mode === 'blast') {
     const results: any[] = []
     for (let i = 0; i < eligible.length; i += 5) {
