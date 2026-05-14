@@ -2,7 +2,7 @@ import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Randy A.",
+    name: "Jordan K.",
     role: "LMHC Candidate",
     quote:
       "Honestly, I think it's absolutely perfect and I wouldn't change anything. A no-brainer for anyone studying for the NCMHCE.",
