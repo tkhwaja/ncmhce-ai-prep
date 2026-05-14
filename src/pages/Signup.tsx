@@ -73,15 +73,26 @@ const Signup = () => {
       toast({ title: "Signup failed", description: error.message, variant: "destructive" });
       return;
     }
-    if (!data.session) {
-      toast({
-        title: "Account already exists",
-        description: "An account with this email already exists. Please log in instead.",
-        variant: "destructive",
-      });
+    // Email confirmation is required: signUp returns no session until the user clicks the link.
+    // If a session is returned, treat it as immediate login (e.g., confirm disabled).
+    if (data.session) {
+      navigate("/dashboard?new=true");
       return;
     }
-    navigate("/dashboard?new=true");
+    if (data.user) {
+      toast({
+        title: "Check your email",
+        description: "We sent a confirmation link to " + values.email + ". Click it to activate your account.",
+      });
+      navigate("/login?confirm=pending");
+      return;
+    }
+    // No session AND no user means email already exists (Supabase obfuscates).
+    toast({
+      title: "Account already exists",
+      description: "An account with this email already exists. Please log in instead.",
+      variant: "destructive",
+    });
   };
 
   return (

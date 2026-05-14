@@ -36,6 +36,8 @@ import CheckoutPage from "./pages/CheckoutPage";
 import CheckoutReturn from "./pages/CheckoutReturn";
 import IconsPreview from "./pages/IconsPreview";
 import Founding from "./pages/Founding";
+import AdminEmails from "./pages/AdminEmails";
+import SupportFab from "./components/SupportFab";
 
 const queryClient = new QueryClient();
 
@@ -64,6 +66,7 @@ const App = () => (
               <Route path="/checkout/return" element={<CheckoutReturn />} />
               <Route path="/icons-preview" element={<IconsPreview />} />
               <Route path="/founding" element={<Founding />} />
+              <Route path="/admin/emails" element={<AdminEmails />} />
 
               <Route element={<ProtectedRoute><PomodoroProvider><AppLayout /></PomodoroProvider></ProtectedRoute>}>
                 <Route path="/dashboard" element={<Dashboard />} />
@@ -85,6 +88,7 @@ const App = () => (
 
               <Route path="*" element={<NotFound />} />
             </Routes>
+            <SupportFab />
           </AuthProvider>
         </BrowserRouter>
       </TooltipProvider>
