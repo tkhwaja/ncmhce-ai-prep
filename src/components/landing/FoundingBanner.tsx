@@ -1,15 +1,15 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { X } from "lucide-react";
-import { isFoundingOfferActive } from "@/lib/foundingOffer";
+import { isFreePromoActive } from "@/lib/freePromo";
 
-const STORAGE_KEY = "founding_banner_dismissed_v1";
+const STORAGE_KEY = "free_promo_banner_dismissed_v1";
 
 const FoundingBanner = () => {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    if (!isFoundingOfferActive()) return;
+    if (!isFreePromoActive()) return;
     if (typeof window !== "undefined" && localStorage.getItem(STORAGE_KEY)) return;
     setVisible(true);
   }, []);
@@ -19,10 +19,9 @@ const FoundingBanner = () => {
   return (
     <div className="relative w-full bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 py-2.5 pr-10 text-center text-sm font-medium">
-        🎉 <span className="font-semibold">Founding Member offer:</span> 1 year of full access for{" "}
-        <span className="font-bold">$67</span> (reg. $79/mo). Ends May 31 —{" "}
-        <Link to="/founding" className="underline underline-offset-2 font-semibold">
-          claim your spot →
+        🎉 <span className="font-semibold">Free for everyone until May 31</span> — full access to every case, exam, and study tool, no payment required.{" "}
+        <Link to="/signup" className="underline underline-offset-2 font-semibold">
+          create your free account →
         </Link>
       </div>
       <button
