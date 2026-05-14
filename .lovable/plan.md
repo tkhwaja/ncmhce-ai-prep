@@ -1,29 +1,23 @@
-## Changes
+# Status update since the blast
 
-### 1. Rename "Sign Up" → "Free Sign Up" on the landing page
+**Blast went out:** 2026-05-14 ~15:00 UTC (Email A: 86 sends, Email B: 68 sends in that hour, plus a small trickle after).
 
-Update the button label in 4 spots (all on the landing surface, all link to `/signup` — no behavior change):
+**New signups since the blast (4 total):**
+| Email | Name | Signed up | From lead list? |
+|---|---|---|---|
+| bobbibigler2024@gmail.com | Bobbi Bigler | 16:05 UTC | No |
+| sseal@liberty.edu | Stacey Seal | 15:54 UTC | No |
+| tahahareb7@gmail.com | Taha Khwaja | 15:47 UTC | You (test) |
+| mail.klein@gmail.com | yosef klein | 15:25 UTC | No |
 
-- `src/components/landing/HeroSection.tsx` (line 38) — primary hero CTA
-- `src/components/landing/Navbar.tsx` (lines 60, 103) — desktop nav + mobile menu
-- `src/components/landing/PricingSection.tsx` (line 92) — pricing card CTA
+**Conversions directly from the blast recipient list: 0 so far.** None of the 4 new signup emails match any address in `free_diagnostic_leads`. Recovery emails often convert over 24–72h, so it's still early.
 
-The Founding banner link stays as "create your free account" (already says "free").
+# Plan: delete your personal accounts
 
-### 2. Email plan — no code changes, just confirmation of current state
+Same cleanup as last time, scoped to `tahahareb7@gmail.com` and `tahahareb18@gmail.com`:
 
-**Active automatic sends** (running now):
-- Signup confirmation email → every new `/signup` user
-- Free Diagnostic breakdown → every visitor who finishes the free diagnostic
+1. Delete from `auth.users` (cascades to `profiles`, `active_sessions`, `flashcard_progress`, `narrative_attempts`, `practice_exam_attempts`, `study_plans`, `chat_sessions`, `notes`, `feedback`, `posts`, `replies`, `subscriptions` via user_id where applicable — manual deletes for any that don't cascade).
+2. Leave `free_diagnostic_leads` and `email_send_log` rows intact (so you stay testable on the blast/dedup logic).
+3. Confirm with a count query that both auth users and profiles are gone.
 
-**Pending batch sends** (will NOT fire until you say so):
-- **Email A** — Signup recovery apology to diagnostic leads with no profile
-- **Email B** — Free Diagnostic breakdown resend to leads whose `email_sent_at` is null
-
-When you're ready, just say "send Email A" and/or "send Email B" and I'll fire them as one-by-one queued sends through the existing `send-transactional-email` function.
-
-## Out of scope
-
-- No template copy changes
-- No new email types
-- No batch sends in this turn
+After approval I'll run the deletion and re-check signup numbers.
