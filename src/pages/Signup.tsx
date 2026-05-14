@@ -58,7 +58,9 @@ const Signup = () => {
 
   const onSubmit = async (values: FormValues) => {
     setLoading(true);
-    const { error } = await supabase.auth.signUp({
+    // Clear any existing session so a failed signup can never land on someone else's account
+    await supabase.auth.signOut();
+    const { data, error } = await supabase.auth.signUp({
       email: values.email,
       password: values.password,
       options: {
@@ -69,9 +71,17 @@ const Signup = () => {
     setLoading(false);
     if (error) {
       toast({ title: "Signup failed", description: error.message, variant: "destructive" });
-    } else {
-      navigate("/dashboard");
+      return;
     }
+    if (!data.session) {
+      toast({
+        title: "Account already exists",
+        description: "An account with this email already exists. Please log in instead.",
+        variant: "destructive",
+      });
+      return;
+    }
+    navigate("/dashboard");
   };
 
   return (
