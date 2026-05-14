@@ -133,6 +133,11 @@ const FreeDiagnosticBreakdownEmail = ({
         </Text>
         <Button href={SIGNUP_URL} style={button}>Start Full Access</Button>
 
+        <Text style={text}>
+          Questions or need a hand? Reply to this email or reach us at{' '}
+          <a href="mailto:support@theexampath.com" style={link}>support@theexampath.com</a>.
+        </Text>
+
         <Text style={footer}>
           You received this because you unlocked your Free Diagnostic Case breakdown on {SITE_NAME}.
         </Text>
