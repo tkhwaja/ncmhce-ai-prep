@@ -93,7 +93,13 @@ const Founding = () => {
 
           <div>
             <h2 className="text-lg font-semibold mb-3">Secure your founding spot</h2>
-            {user ? (
+            {authLoading ? (
+              <Card className="card-elevated">
+                <CardContent className="p-6 flex items-center justify-center min-h-[160px]">
+                  <div className="h-6 w-6 animate-spin rounded-full border-2 border-primary border-t-transparent" />
+                </CardContent>
+              </Card>
+            ) : user ? (
               <StripeEmbeddedCheckout
                 priceId="early_access_yearly"
                 customerEmail={user.email || undefined}
