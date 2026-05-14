@@ -137,11 +137,16 @@ Deno.serve(async (req) => {
     if (!target) {
       return new Response(JSON.stringify({ error: 'single mode requires &email=<email>' }), { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } })
     }
-    const u = unconfirmed.find(x => x.email.toLowerCase() === target)
+    let u = unconfirmed.find(x => x.email.toLowerCase() === target)
       ?? eligible.find(x => x.email.toLowerCase() === target)
-    // Fall back to listUsers lookup if not in unconfirmed (e.g. already confirmed - skip)
+    // Fall back: look up directly so confirmed users can still get a magiclink
     if (!u) {
-      return new Response(JSON.stringify({ error: 'user not found among unconfirmed users', target }), { status: 404, headers: { ...corsHeaders, 'Content-Type': 'application/json' } })
+      const { data: lu } = await supabase.auth.admin.listUsers({ page: 1, perPage: 1000 })
+      const found = lu?.users.find((x: any) => x.email?.toLowerCase() === target)
+      if (!found || !found.email) {
+        return new Response(JSON.stringify({ error: 'user not found', target }), { status: 404, headers: { ...corsHeaders, 'Content-Type': 'application/json' } })
+      }
+      u = { id: found.id, email: found.email, full_name: found.user_metadata?.full_name as string | undefined }
     }
     const link = await generateConfirmLink(u.email)
     if (!link) {
