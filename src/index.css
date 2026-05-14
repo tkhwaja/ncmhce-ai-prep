@@ -99,6 +99,15 @@
     --yield-high: 35 92% 58%;
     --yield-moderate: 186 72% 55%;
     --yield-low: 215 16% 62%;
+
+    --sidebar-background: 222 24% 9%;
+    --sidebar-foreground: 210 20% 92%;
+    --sidebar-primary: 217 91% 60%;
+    --sidebar-primary-foreground: 222 28% 6%;
+    --sidebar-accent: 222 20% 14%;
+    --sidebar-accent-foreground: 210 20% 95%;
+    --sidebar-border: 222 20% 16%;
+    --sidebar-ring: 217 91% 60%;
   }
 }
 
