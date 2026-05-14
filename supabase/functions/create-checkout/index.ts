@@ -28,6 +28,9 @@ serve(async (req) => {
     const stripePrice = prices.data[0];
     const isRecurring = stripePrice.type === "recurring";
 
+    // Enable Stripe full compliance handling for products that have tax codes set.
+    const useManagedPayments = priceId === "early_access_yearly";
+
     const sessionParams: any = {
       line_items: [{ price: stripePrice.id, quantity: quantity || 1 }],
       mode: isRecurring ? "subscription" : "payment",
@@ -36,9 +39,10 @@ serve(async (req) => {
       allow_promotion_codes: true,
       ...(customerEmail && { customer_email: customerEmail }),
       ...(userId && {
-        metadata: { userId },
-        ...(isRecurring && { subscription_data: { metadata: { userId } } }),
+        metadata: { userId, priceId },
+        ...(isRecurring && { subscription_data: { metadata: { userId, priceId } } }),
       }),
+      ...(useManagedPayments && { managed_payments: { enabled: true } }),
     };
 
     const session = await stripe.checkout.sessions.create(sessionParams);
