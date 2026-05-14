@@ -446,7 +446,7 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
       <div className="flex-1 overflow-hidden flex flex-row-reverse">
         <div className="flex-1 lg:flex-none lg:w-2/5 overflow-auto border-l border-border">
           {phase === "answering" && (
-            <div className="p-6 max-w-2xl mx-auto space-y-6">
+            <div className="p-4 sm:p-6 max-w-2xl mx-auto space-y-6">
               <div>
                 <p className="text-xs text-muted-foreground">{currentSection.sessionLabel} — Question {globalQuestionNumber}</p>
                 <p className="text-xs text-muted-foreground mt-0.5">{currentQuestion.domain}</p>
@@ -497,7 +497,7 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
           )}
 
           {phase === "section-summary" && (
-            <div className="p-6 max-w-2xl mx-auto space-y-6">
+            <div className="p-4 sm:p-6 max-w-2xl mx-auto space-y-6">
               <div>
                 <h2 className="text-xl font-semibold text-foreground">Section {sectionIndex + 1} Summary</h2>
                 <p className="text-sm text-muted-foreground mt-1">
@@ -558,7 +558,7 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
           )}
 
           {phase === "results" && results && (
-            <div className="p-6 max-w-2xl mx-auto space-y-6">
+            <div className="p-4 sm:p-6 max-w-2xl mx-auto space-y-6">
               {publicMode && (
                 <Card className="card-elevated border-primary/20 bg-primary/5">
                   <CardContent className="p-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
