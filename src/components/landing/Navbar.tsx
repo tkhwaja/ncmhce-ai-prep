@@ -57,7 +57,7 @@ const Navbar = () => {
             to="/signup"
             className="text-sm font-medium text-primary hover:text-primary/80 transition-colors"
           >
-            Sign Up
+            Free Sign Up
           </Link>
           <Link
             to="/free-diagnostic-case"
