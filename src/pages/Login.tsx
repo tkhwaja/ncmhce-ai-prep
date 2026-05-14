@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const next = searchParams.get("next");
   const { toast } = useToast();
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -30,7 +32,7 @@ const Login = () => {
       });
       return;
     }
-    navigate("/dashboard?returning=true");
+    navigate(next && next.startsWith("/") ? next : "/dashboard?returning=true");
   };
 
   return (

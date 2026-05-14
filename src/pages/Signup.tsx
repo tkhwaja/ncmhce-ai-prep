@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -38,6 +38,10 @@ const Signup = () => {
   const [loading, setLoading] = useState(false);
   const [confirmSent, setConfirmSent] = useState<string | null>(null);
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const next = searchParams.get("next");
+  const safeNext = next && next.startsWith("/") ? next : null;
+  const loginHref = safeNext ? `/login?confirm=pending&next=${encodeURIComponent(safeNext)}` : "/login?confirm=pending";
   const { toast } = useToast();
 
   const {
@@ -64,7 +68,7 @@ const Signup = () => {
       password: values.password,
       options: {
         data: { full_name: values.fullName, target_exam_date: examDate?.toISOString() },
-        emailRedirectTo: `${window.location.origin}/dashboard`,
+        emailRedirectTo: `${window.location.origin}${safeNext ?? "/dashboard"}`,
       },
     });
     setLoading(false);
@@ -75,7 +79,7 @@ const Signup = () => {
     // Email confirmation is required: signUp returns no session until the user clicks the link.
     // If a session is returned, treat it as immediate login (e.g., confirm disabled).
     if (data.session) {
-      navigate("/dashboard?new=true");
+      navigate(safeNext ?? "/dashboard?new=true");
       return;
     }
     if (data.user) {
@@ -183,7 +187,7 @@ const Signup = () => {
         </div>
       </div>
 
-      <Dialog open={!!confirmSent} onOpenChange={(open) => { if (!open) { setConfirmSent(null); navigate("/login?confirm=pending"); } }}>
+      <Dialog open={!!confirmSent} onOpenChange={(open) => { if (!open) { setConfirmSent(null); navigate(loginHref); } }}>
         <DialogContent className="sm:max-w-md text-center">
           <DialogHeader>
             <div className="mx-auto mb-2 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
@@ -195,7 +199,7 @@ const Signup = () => {
             </DialogDescription>
           </DialogHeader>
           <DialogFooter className="sm:justify-center">
-            <Button onClick={() => { setConfirmSent(null); navigate("/login?confirm=pending"); }} className="w-full sm:w-auto">
+            <Button onClick={() => { setConfirmSent(null); navigate(loginHref); }} className="w-full sm:w-auto">
               Got it
             </Button>
           </DialogFooter>

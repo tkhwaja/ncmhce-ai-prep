@@ -93,12 +93,31 @@ const Founding = () => {
 
           <div>
             <h2 className="text-lg font-semibold mb-3">Secure your founding spot</h2>
-            <StripeEmbeddedCheckout
-              priceId="early_access_yearly"
-              customerEmail={user?.email || undefined}
-              userId={user?.id || ""}
-              returnUrl={`${window.location.origin}/checkout/return?session_id={CHECKOUT_SESSION_ID}`}
-            />
+            {user ? (
+              <StripeEmbeddedCheckout
+                priceId="early_access_yearly"
+                customerEmail={user.email || undefined}
+                userId={user.id}
+                returnUrl={`${window.location.origin}/checkout/return?session_id={CHECKOUT_SESSION_ID}`}
+              />
+            ) : (
+              <Card className="card-elevated">
+                <CardContent className="p-6 space-y-4">
+                  <p className="text-sm text-foreground">
+                    Please create an account or log in before checking out. We'll attach your
+                    purchase to your account so your access starts automatically on May 31, 2026.
+                  </p>
+                  <div className="flex flex-col sm:flex-row gap-2">
+                    <Button asChild className="flex-1">
+                      <Link to="/signup?next=/founding">Create account</Link>
+                    </Button>
+                    <Button asChild variant="outline" className="flex-1">
+                      <Link to="/login?next=/founding">Log in</Link>
+                    </Button>
+                  </div>
+                </CardContent>
+              </Card>
+            )}
           </div>
         </div>
       </div>
