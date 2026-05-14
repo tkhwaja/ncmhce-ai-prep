@@ -67,13 +67,21 @@ const Navbar = () => {
           </Link>
         </div>
 
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden text-foreground"
-          aria-label="Toggle menu"
-        >
-          {mobileOpen ? <X size={24} /> : <Menu size={24} />}
-        </button>
+        <div className="flex items-center gap-3 md:hidden">
+          <Link
+            to="/login"
+            className="text-sm font-medium text-foreground hover:text-primary transition-colors"
+          >
+            Log In
+          </Link>
+          <button
+            onClick={() => setMobileOpen(!mobileOpen)}
+            className="text-foreground"
+            aria-label="Toggle menu"
+          >
+            {mobileOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+        </div>
       </div>
 
       {mobileOpen && (
@@ -88,6 +96,13 @@ const Navbar = () => {
               {link.label}
             </a>
           ))}
+          <Link
+            to="/login"
+            onClick={() => setMobileOpen(false)}
+            className="block py-3 text-sm font-medium text-foreground hover:text-primary transition-colors"
+          >
+            Log In
+          </Link>
           <Link
             to="/free-diagnostic-case"
             onClick={() => setMobileOpen(false)}
