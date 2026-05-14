@@ -54,10 +54,25 @@ Deno.serve(async (req) => {
     )
   }
 
-  const authHeader = req.headers.get('Authorization')
-  const serviceRoleToken = `Bearer ${supabaseServiceKey}`
+  const authHeader = req.headers.get('Authorization') || ''
+  const bearer = authHeader.startsWith('Bearer ') ? authHeader.slice(7) : ''
 
-  if (authHeader !== serviceRoleToken) {
+  // Accept either an exact match against the service role key OR any JWT
+  // whose role claim is "service_role" (the gateway already verified the JWT
+  // signature when verify_jwt = true).
+  let authorized = false
+  if (bearer && bearer === supabaseServiceKey) {
+    authorized = true
+  } else if (bearer) {
+    try {
+      const payload = JSON.parse(atob(bearer.split('.')[1]))
+      if (payload?.role === 'service_role') authorized = true
+    } catch {
+      // ignore
+    }
+  }
+
+  if (!authorized) {
     return new Response(
       JSON.stringify({ error: 'Unauthorized' }),
       {
