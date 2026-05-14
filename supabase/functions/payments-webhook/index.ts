@@ -125,6 +125,16 @@ async function handleSubscriptionCreated(subscription: any, env: StripeEnv) {
   );
 
   if (error) console.error("subscription upsert failed:", error);
+
+  // Mirror onto profile so legacy access gates work
+  const isActive = ["active", "trialing"].includes(subscription.status);
+  await supabase
+    .from("profiles")
+    .update({
+      payment_status: isActive ? "subscribed" : "free",
+      access_expires_at: periodEnd ? new Date(periodEnd * 1000).toISOString() : null,
+    })
+    .eq("id", userId);
 }
 
 async function handleSubscriptionUpdated(subscription: any, env: StripeEnv) {

@@ -29,7 +29,7 @@ serve(async (req) => {
     const isRecurring = stripePrice.type === "recurring";
 
     // Enable Stripe full compliance handling for products that have tax codes set.
-    const useManagedPayments = priceId === "early_access_yearly";
+    const useManagedPayments = priceId === "early_access_yearly" || priceId === "ncmhce_monthly";
 
     const sessionParams: any = {
       line_items: [{ price: stripePrice.id, quantity: quantity || 1 }],
