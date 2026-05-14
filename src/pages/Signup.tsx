@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { useForm } from "react-hook-form";
@@ -9,6 +9,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
+import { useAuth } from "@/contexts/AuthContext";
 import { UserPlus, CalendarIcon, Check, X } from "lucide-react";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
@@ -43,6 +44,13 @@ const Signup = () => {
   const safeNext = next && next.startsWith("/") ? next : null;
   const loginHref = safeNext ? `/login?confirm=pending&next=${encodeURIComponent(safeNext)}` : "/login?confirm=pending";
   const { toast } = useToast();
+  const { user, loading: authLoading } = useAuth();
+
+  useEffect(() => {
+    if (!authLoading && user) {
+      navigate(safeNext ?? "/dashboard?returning=true", { replace: true });
+    }
+  }, [authLoading, user, safeNext, navigate]);
 
   const {
     register,
