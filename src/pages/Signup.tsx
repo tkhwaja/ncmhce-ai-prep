@@ -81,7 +81,7 @@ const Signup = () => {
       });
       return;
     }
-    navigate("/dashboard");
+    navigate("/dashboard?new=true");
   };
 
   return (
