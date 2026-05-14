@@ -187,7 +187,7 @@ const Signup = () => {
         </div>
       </div>
 
-      <Dialog open={!!confirmSent} onOpenChange={(open) => { if (!open) { setConfirmSent(null); navigate("/login?confirm=pending"); } }}>
+      <Dialog open={!!confirmSent} onOpenChange={(open) => { if (!open) { setConfirmSent(null); navigate(loginHref); } }}>
         <DialogContent className="sm:max-w-md text-center">
           <DialogHeader>
             <div className="mx-auto mb-2 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
