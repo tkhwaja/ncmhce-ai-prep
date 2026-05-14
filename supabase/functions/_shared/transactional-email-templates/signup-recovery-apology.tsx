@@ -22,7 +22,7 @@ const SignupRecoveryApologyEmail = ({
     <Preview>A quick apology — signup is fixed and your spot at {SITE_NAME} is ready.</Preview>
     <Body style={main}>
       <Container style={container}>
-        <Text style={logo}>The Exam<span style={logoAccent}> Path</span></Text>
+        <Img src="https://www.theexampath.com/email-header.png" alt="The Exam Path" width="560" style={headerImg} />
         <Heading style={h1}>We're sorry — signup is fixed now</Heading>
         <Text style={text}>{name ? `Hi ${name},` : 'Hi there,'}</Text>
         <Text style={text}>
