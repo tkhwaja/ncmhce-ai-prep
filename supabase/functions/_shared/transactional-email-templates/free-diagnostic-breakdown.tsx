@@ -7,6 +7,7 @@ import {
   Heading,
   Hr,
   Html,
+  Img,
   Preview,
   Section,
   Text,
@@ -86,7 +87,7 @@ const FreeDiagnosticBreakdownEmail = ({
     <Preview>Your Free Diagnostic Case breakdown + answer strategy sheet</Preview>
     <Body style={main}>
       <Container style={container}>
-        <Text style={logo}>{SITE_NAME}</Text>
+        <Img src="https://www.theexampath.com/email-header.png" alt="The Exam Path" width="560" style={headerImg} />
         <Heading style={h1}>
           {fullName ? `${fullName}, here’s your diagnostic breakdown.` : 'Here’s your diagnostic breakdown.'}
         </Heading>
@@ -156,7 +157,7 @@ export const template = {
 
 const main = { backgroundColor: '#ffffff', fontFamily: "'Inter', Arial, sans-serif" }
 const container = { padding: '36px 28px', maxWidth: '580px', margin: '0 auto' }
-const logo = { fontSize: '18px', lineHeight: '24px', fontWeight: '700' as const, color: '#2563eb', margin: '0 0 18px' }
+const headerImg = { width: '100%', maxWidth: '560px', height: 'auto', display: 'block', borderRadius: '8px', margin: '0 0 24px' }
 const h1 = { fontSize: '26px', lineHeight: '34px', fontWeight: '700' as const, color: '#0f172a', margin: '0 0 14px' }
 const h2 = { fontSize: '18px', lineHeight: '26px', fontWeight: '700' as const, color: '#0f172a', margin: '0 0 14px' }
 const text = { fontSize: '15px', lineHeight: '24px', color: '#475569', margin: '0 0 14px' }

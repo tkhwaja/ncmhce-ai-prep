@@ -2,7 +2,7 @@
 
 import * as React from 'npm:react@18.3.1'
 import {
-  Body, Button, Container, Head, Heading, Html, Preview, Text,
+  Body, Button, Container, Head, Heading, Html, Img, Preview, Text,
 } from 'npm:@react-email/components@0.0.22'
 import type { TemplateEntry } from './registry.ts'
 
@@ -22,7 +22,7 @@ const SignupRecoveryApologyEmail = ({
     <Preview>A quick apology — signup is fixed and your spot at {SITE_NAME} is ready.</Preview>
     <Body style={main}>
       <Container style={container}>
-        <Text style={logo}>The Exam<span style={logoAccent}> Path</span></Text>
+        <Img src="https://www.theexampath.com/email-header.png" alt="The Exam Path" width="560" style={headerImg} />
         <Heading style={h1}>We're sorry — signup is fixed now</Heading>
         <Text style={text}>{name ? `Hi ${name},` : 'Hi there,'}</Text>
         <Text style={text}>
@@ -56,8 +56,7 @@ export const template = {
 
 const main = { backgroundColor: '#ffffff', fontFamily: "'Inter', Arial, sans-serif" }
 const container = { padding: '40px 28px', maxWidth: '560px', margin: '0 auto' }
-const logo = { fontSize: '18px', fontWeight: 700 as const, color: '#111827', margin: '0 0 24px', letterSpacing: '-0.3px' }
-const logoAccent = { color: 'hsl(217, 91%, 60%)' }
+const headerImg = { width: '100%', maxWidth: '560px', height: 'auto', display: 'block', borderRadius: '8px', margin: '0 0 24px' }
 const h1 = { fontSize: '24px', fontWeight: 700 as const, color: '#111827', margin: '0 0 20px', lineHeight: '1.3' }
 const text = { fontSize: '15px', color: '#374151', lineHeight: '1.7', margin: '0 0 18px' }
 const button = { backgroundColor: 'hsl(217, 91%, 60%)', color: '#ffffff', fontSize: '15px', fontWeight: 600 as const, borderRadius: '12px', padding: '12px 24px', textDecoration: 'none', display: 'inline-block', margin: '8px 0 22px' }
