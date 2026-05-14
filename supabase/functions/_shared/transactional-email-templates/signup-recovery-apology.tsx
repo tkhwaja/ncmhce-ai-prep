@@ -36,7 +36,8 @@ const SignupRecoveryApologyEmail = ({
         </Text>
         <Button style={button} href={signupUrl}>Create my account</Button>
         <Text style={text}>
-          If you run into any trouble at all, simply reply to this email and we'll personally make sure you get in.
+          If you run into any trouble at all, simply reply to this email or write to us directly at{' '}
+          <a href="mailto:support@theexampath.com" style={link}>support@theexampath.com</a> and we'll personally make sure you get in.
         </Text>
         <Text style={text}>
           Thank you for your patience — and for trusting us with your NCMHCE prep.
@@ -61,3 +62,4 @@ const h1 = { fontSize: '24px', fontWeight: 700 as const, color: '#111827', margi
 const text = { fontSize: '15px', color: '#374151', lineHeight: '1.7', margin: '0 0 18px' }
 const button = { backgroundColor: 'hsl(217, 91%, 60%)', color: '#ffffff', fontSize: '15px', fontWeight: 600 as const, borderRadius: '12px', padding: '12px 24px', textDecoration: 'none', display: 'inline-block', margin: '8px 0 22px' }
 const signoff = { fontSize: '15px', color: '#374151', lineHeight: '1.7', margin: '24px 0 0' }
+const link = { color: 'hsl(217, 91%, 60%)', textDecoration: 'underline' }
