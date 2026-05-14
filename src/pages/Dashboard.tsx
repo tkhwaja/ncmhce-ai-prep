@@ -151,7 +151,9 @@ const Dashboard = () => {
     <div className="p-6 max-w-6xl mx-auto space-y-8">
       {/* Greeting */}
       <div>
-        <h1 className="text-2xl font-bold text-foreground">Welcome back, {firstName}</h1>
+        <h1 className="text-2xl font-bold text-foreground">
+          {isNewUser ? "Welcome" : "Welcome back"}, {firstName}
+        </h1>
         <p className="text-muted-foreground">{today}</p>
       </div>
 
