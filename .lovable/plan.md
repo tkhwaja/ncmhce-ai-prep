@@ -1,59 +1,110 @@
-## What's going on
+# Outreach plan for the 33 affected users
 
-Your `/founding` page already calls `create-checkout` with `priceId: "founding_yearly"` (lookup key). The edge function looks that up in Stripe via `lookup_keys` — if no Stripe price has that lookup key, checkout fails with "Price not found." That's almost certainly why you don't see the $67 offer wired up: the **product/price was never created in Stripe**.
+## The two lists (saved as files you can download)
 
-The webhook (`payments-webhook`) is already correct: when a `checkout.session.completed` event comes in for a session whose line item has `lookup_key === "founding_yearly"`, it sets `profiles.access_expires_at = now + 1 year` and `payment_status = "founding"`. Then `useSubscription` grants access while `access_expires_at` is in the future.
+<presentation-artifact path="list-A-signup-blocked.txt" mime_type="text/plain"></presentation-artifact>
+<presentation-artifact path="list-B-diagnostic-results-missed.txt" mime_type="text/plain"></presentation-artifact>
 
-So the only missing piece in code is the Stripe product itself. The cleanup of old products is a manual step in the payments dashboard (Lovable doesn't expose a delete-product tool).
+### List A — Signup-blocked (23) — never got their confirmation email, so they could not finish creating an account
+afancitee@gmail.com, garcia.ilsa@tusd.org, ilsagg1992@gmail.com, joanahammond87@gmail.com, kimberlylorenzini@hotmail.com, knyannapeters@gmail.com, kpeters.babokmed@gmail.com, lesmich122@gmail.com, odalis.norales@gmail.com, qqureshi@phoenixcpt.com, qrafia77@gmail.com, randallthompson43@gmail.com, rbetancourt023@gmail.com, robin26chad@gmail.com, robinlbutler21@gmail.com, rthompson@voail.org, scottsierra73@gmail.com, sheri.smith.e@gmail.com, simonekingsbhs@hotmail.com, siscott@primecaremedical.com, talishahuff@gmail.com, tardel93@hotmail.com, tesslorraine@aol.com
 
-## What clicking "Claim founding access" actually does
+### List B — Diagnostic-results missed (19) — finished the free diagnostic but never received their score breakdown
+anna.bordayo@gmail.com, carole.felder29@gmail.com, gayres89@yahoo.com, ilsagg1992@gmail.com, info@counselingyourheart.com, j.m.noah99@gmail.com, joanahammond87@gmail.com, knyannapeters@gmail.com, lesmich122@gmail.com, lety24@hotmail.com, meirepalmer@gmail.com, mmorton396@yahoo.com, odalis.norales@gmail.com, qrafia77@gmail.com, scottsierra73@gmail.com, sheri.smith.e@gmail.con (typo at signup — likely sheri.smith.e@gmail.com), simonekingsbhs@hotmail.com, staceylseal@gmail.com, tardel93@hotmail.com
 
-1. User lands on `/founding` (from email link, banner, popup, or pricing card).
-2. The page mounts `<StripeEmbeddedCheckout priceId="founding_yearly" ...>`.
-3. That component calls the `create-checkout` edge function, which:
-   - Looks up the Stripe price by `lookup_key: "founding_yearly"`
-   - Creates an embedded Checkout Session in `payment` mode (one-time)
-   - Returns a `clientSecret`
-4. Stripe's embedded form renders inline — user enters card and pays.
-5. Stripe redirects to `/checkout/return?session_id=...`.
-6. In parallel, Stripe fires `checkout.session.completed` to `payments-webhook`, which writes `access_expires_at = now + 365d` on the user's profile.
-7. `useSubscription` sees `foundingActive === true` and unlocks the app.
+7 people appear on both lists.
 
-## Plan
+---
 
-### 1. Create the founding product in Stripe (test mode)
-Use Lovable's payments tool to create:
-- **Product**: `founding_yearly` — "Founding Member — 1 Year Access"
-- **Price ID (lookup key)**: `founding_yearly`
-- **Amount**: $67 one-time (6700 cents, USD, no recurring interval)
-- **Quantity**: locked to 1
-- **Tax code**: `txcd_10103001` (SaaS / electronic services)
+## How we actually fix each case
 
-Lovable auto-syncs test → live on publish, so this single call covers both environments.
+### List A — Signup-blocked
+Their auth account was created but the confirmation email never landed, so they cannot log in. Two options:
 
-### 2. Ask you about tax handling
-Stripe Embedded Checkout requires deciding once: full compliance (+3.5%, Stripe handles tax filing), calculation-only (+0.5%, you file), or none. I'll ask you before wiring this so we don't accidentally enable the higher fee.
+1. **Manually confirm their email + send a password-set link** (recommended). I run a one-time admin script that:
+   - Marks their `auth.users.email_confirmed_at` as confirmed (so the account is usable).
+   - Generates a Supabase password-recovery link for each address.
+   - The apology email includes that personal "Set your password" link — one click and they're in.
 
-### 3. Old products cleanup
-I can't delete old Stripe products from here. After step 1 you'll:
-- Open the Payments dashboard you're on now
-- Archive the legacy products you no longer want shown ("Archive" — Stripe doesn't allow hard delete of products with prior charges)
-- Confirm only the active SKUs remain: `ncmhce_monthly` ($79/mo) and `founding_yearly` ($67 one-time)
+2. **Tell them to "sign up again"** — works, but feels like extra friction and some will drop off.
 
-### 4. Test in sandbox (preview env uses `pk_test_`)
-1. Open the preview URL, log in (or sign up) with a test account.
-2. Click your email's CTA → lands on `/founding`.
-3. Use Stripe test card `4242 4242 4242 4242`, any future expiry, any CVC, any ZIP.
-4. Should redirect to `/checkout/return?session_id=...`.
-5. Verify the webhook fired: check the user's row in `profiles` — `access_expires_at` should be ~1 year out, `payment_status = 'founding'`.
-6. Navigate into a gated page (e.g. a paid narrative) — access should be granted.
+Going with option 1.
 
-### 5. Go live
-Once test passes, hit Publish. Lovable copies the test product/price to live and the live webhook secret is already configured. Send the real email and the `/founding` link becomes a real $67 charge.
+### List B — Diagnostic-results missed
+Their results are already saved in `free_diagnostic_leads` (score, domain breakdown, narrative). The fix is:
 
-## Technical details
+1. Pull each person's stored results from the database.
+2. Re-render the existing `free-diagnostic-breakdown` template with their actual data.
+3. Send it now via the working email pipeline.
 
-- Code is already correct — no source edits needed unless you change pricing or want to lock down the page when sold-out.
-- `src/lib/foundingOffer.ts` auto-disables the offer at `2026-06-01T00:00:00-04:00` (banner, popup, and `/founding` route all redirect on June 1).
-- Webhook detection is by `lookup_key === "founding_yearly"` on the line item, so do not rename the price ID after launch.
-- If you want to *also* archive the old `$349 one-time` legacy product so it can never be checked out again, that's a dashboard click — the `useSubscription` hook still honors anyone who already paid via `profile.payment_status === "paid"`.
+For `sheri.smith.e@gmail.con` we correct the typo to `.com` before sending.
+
+---
+
+## Email drafts
+
+### Draft for List A (signup-blocked)
+
+> **Subject:** Your TheExamPath account is ready — quick fix from us
+>
+> Hi {{first_name}},
+>
+> Thank you for signing up for TheExamPath. A few of our recent signups, including yours, hit a temporary delivery issue on our end and the confirmation email never reached you — that's why you couldn't get into your account. We're really sorry for the friction; that's not the experience we want anyone studying for the NCMHCE to have.
+>
+> The good news: your account is already set up and waiting. Just click below to set your password and start studying.
+>
+> **[Set my password and log in]**
+>
+> If you have any trouble, just reply to this email and I'll personally make sure you're taken care of.
+>
+> Thanks for your patience,
+> Taha — TheExamPath
+
+### Draft for List B (diagnostic-results missed)
+
+> **Subject:** Sorry for the delay — here's your free NCMHCE diagnostic breakdown
+>
+> Hi {{first_name}},
+>
+> You took our free NCMHCE diagnostic recently, and your detailed results email got caught in a delivery issue on our side. Sincere apologies — you should have had this in your inbox the same day.
+>
+> Your full score breakdown is below, including how you did across each NCMHCE content domain and where to focus next.
+>
+> **[View my diagnostic breakdown]**
+>
+> If anything looks off or you have questions about your results, just reply to this email.
+>
+> Thanks for your patience,
+> Taha — TheExamPath
+
+---
+
+## Should you send through Google Workspace instead?
+
+**Short answer:** It would simplify the *one-time* apology blast, but it would not fix the underlying app emails — and it has real downsides for List A.
+
+**Where Workspace helps:**
+- You can paste both lists into Gmail (BCC) or a mail-merge tool (GMass, YAMM) and send branded plain-text apologies in 10 minutes — no infrastructure work.
+- Personal-feeling, replies go straight to your inbox.
+- Gmail's sender reputation is rock-solid, so deliverability for this one batch will be excellent.
+
+**Where Workspace does not help:**
+- **List A still can't log in.** Workspace can deliver an apology, but the link inside still has to be a Supabase recovery / set-password link generated from our backend. So we'd still run the admin script — Workspace just becomes the delivery channel for the link.
+- **List B's results email is dynamic per recipient** (each person's score, domain breakdown, narrative). Doing that from Gmail means either (a) mail merge with a CSV I export for you, or (b) a generic "log in to view your results" link — which sends them back into the broken-signup flow.
+- **Workspace has a 2,000 recipients/day limit and no built-in suppression/unsubscribe handling.** Fine for 33 people once, not fine as a pattern.
+- **Sender domain mismatch.** Your transactional emails go from `notify.theexampath.com`; sending the apology from `you@theexampath.com` is fine and even feels more personal, but mixing channels long-term hurts brand consistency and deliverability tracking.
+
+**My recommendation:**
+- **Use the in-app pipeline for both** so the personalized links and per-user diagnostic data are generated automatically and logged. Once `notify.theexampath.com` is verified, this is one click.
+- **If verification keeps stalling**, fall back to: I export List A as a CSV with each person's set-password link, and List B as a CSV with each person's results URL. You paste those into a Gmail mail-merge (GMass) and send from your Workspace address. Best of both worlds.
+
+---
+
+## Proposed execution order (once you approve)
+
+1. Wait for `notify.theexampath.com` to flip to Active (or you tell me to go the Workspace/CSV route).
+2. Run the admin script for List A → generate set-password links + mark emails confirmed.
+3. Send List A apology via the app's email function (or export CSV for Gmail merge).
+4. Pull List B results from `free_diagnostic_leads`, fix the `.con` typo, send the personalized breakdown email.
+5. Log everything to `email_send_log` so we can confirm delivery.
+
+Want me to proceed this way, or pivot to the Google Workspace + CSV route now so we're not blocked on DNS?
