@@ -57,7 +57,6 @@ const Dashboard = () => {
     if (!user) return;
 
     const loadDashboardData = async () => {
-      setLoading(true);
       const [{ data: attemptData }, { data: flashcardData }] = await Promise.all([
         supabase
           .from("narrative_attempts")
@@ -76,7 +75,26 @@ const Dashboard = () => {
       setLoading(false);
     };
 
+    setLoading(true);
     loadDashboardData();
+
+    const channel = supabase
+      .channel(`dashboard-realtime-${user.id}`)
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "narrative_attempts", filter: `user_id=eq.${user.id}` },
+        () => loadDashboardData(),
+      )
+      .on(
+        "postgres_changes",
+        { event: "*", schema: "public", table: "flashcard_progress", filter: `user_id=eq.${user.id}` },
+        () => loadDashboardData(),
+      )
+      .subscribe();
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, [user]);
 
   const completedAttempts = attempts.filter((attempt) => attempt.completed_at);
