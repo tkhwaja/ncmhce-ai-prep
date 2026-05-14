@@ -44,6 +44,8 @@ const formatRelativeTime = (value: string | null) => {
 const Dashboard = () => {
   const { user, profile } = useAuth();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const isNewUser = searchParams.get("new") === "true";
   const [attempts, setAttempts] = useState<NarrativeAttempt[]>([]);
   const [flashcardProgress, setFlashcardProgress] = useState<FlashcardProgress[]>([]);
   const [loading, setLoading] = useState(true);
