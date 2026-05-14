@@ -79,11 +79,7 @@ const Signup = () => {
       return;
     }
     if (data.user) {
-      toast({
-        title: "Check your email",
-        description: "We sent a confirmation link to " + values.email + ". Click it to activate your account.",
-      });
-      navigate("/login?confirm=pending");
+      setConfirmSent(values.email);
       return;
     }
     // No session AND no user means email already exists (Supabase obfuscates).
