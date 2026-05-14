@@ -14,6 +14,8 @@ import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
+import { MailCheck } from "lucide-react";
 
 const schema = z
   .object({
@@ -34,6 +36,7 @@ type FormValues = z.infer<typeof schema>;
 const Signup = () => {
   const [examDate, setExamDate] = useState<Date>();
   const [loading, setLoading] = useState(false);
+  const [confirmSent, setConfirmSent] = useState<string | null>(null);
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -76,11 +79,7 @@ const Signup = () => {
       return;
     }
     if (data.user) {
-      toast({
-        title: "Check your email",
-        description: "We sent a confirmation link to " + values.email + ". Click it to activate your account.",
-      });
-      navigate("/login?confirm=pending");
+      setConfirmSent(values.email);
       return;
     }
     // No session AND no user means email already exists (Supabase obfuscates).
@@ -183,6 +182,25 @@ const Signup = () => {
           </p>
         </div>
       </div>
+
+      <Dialog open={!!confirmSent} onOpenChange={(open) => { if (!open) { setConfirmSent(null); navigate("/login?confirm=pending"); } }}>
+        <DialogContent className="sm:max-w-md text-center">
+          <DialogHeader>
+            <div className="mx-auto mb-2 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
+              <MailCheck className="h-7 w-7 text-primary" />
+            </div>
+            <DialogTitle className="text-2xl">Check your email</DialogTitle>
+            <DialogDescription className="text-base pt-2">
+              We sent a confirmation link to <strong className="text-foreground">{confirmSent}</strong>. Click it to activate your account.
+            </DialogDescription>
+          </DialogHeader>
+          <DialogFooter className="sm:justify-center">
+            <Button onClick={() => { setConfirmSent(null); navigate("/login?confirm=pending"); }} className="w-full sm:w-auto">
+              Got it
+            </Button>
+          </DialogFooter>
+        </DialogContent>
+      </Dialog>
     </div>
   );
 };
