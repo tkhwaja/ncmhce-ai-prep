@@ -9,7 +9,10 @@ import { Textarea } from "@/components/ui/textarea";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useToast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
-import { Save, Target, TrendingUp, Layers, Calendar, BarChart3, CalendarCheck, KeyRound, Trash2 } from "lucide-react";
+import { Save, Target, TrendingUp, Layers, Calendar, BarChart3, CalendarCheck, KeyRound, Trash2, CreditCard, XCircle } from "lucide-react";
+import { useSubscription } from "@/hooks/useSubscription";
+import { getStripeEnvironment } from "@/lib/stripe";
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
 const Profile = () => {
   const { user, profile, refreshProfile, signOut } = useAuth();
