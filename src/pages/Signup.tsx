@@ -36,6 +36,7 @@ type FormValues = z.infer<typeof schema>;
 const Signup = () => {
   const [examDate, setExamDate] = useState<Date>();
   const [loading, setLoading] = useState(false);
+  const [confirmSent, setConfirmSent] = useState<string | null>(null);
   const navigate = useNavigate();
   const { toast } = useToast();
 
