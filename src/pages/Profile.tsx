@@ -24,6 +24,12 @@ const Profile = () => {
   const [targetExamDate, setTargetExamDate] = useState("");
   const [loading, setLoading] = useState(false);
   const [deleteConfirmOpen, setDeleteConfirmOpen] = useState(false);
+  const [cancelOpen, setCancelOpen] = useState(false);
+  const [cancelReason, setCancelReason] = useState("");
+  const [cancelDetails, setCancelDetails] = useState("");
+  const [cancelSubmitting, setCancelSubmitting] = useState(false);
+  const [portalLoading, setPortalLoading] = useState(false);
+  const sub = useSubscription();
 
   // Stats
   const [simCount, setSimCount] = useState(0);
@@ -108,6 +114,51 @@ const Profile = () => {
     await signOut();
     navigate("/");
   };
+
+  const handleManageSubscription = async () => {
+    setPortalLoading(true);
+    try {
+      const { data, error } = await supabase.functions.invoke("create-portal-session", {
+        body: { returnUrl: `${window.location.origin}/profile`, environment: getStripeEnvironment() },
+      });
+      if (error || !data?.url) throw new Error(error?.message || "Could not open billing portal");
+      window.open(data.url, "_blank");
+    } catch (e: any) {
+      toast({ title: "Error", description: e.message || "Failed to open billing portal", variant: "destructive" });
+    } finally {
+      setPortalLoading(false);
+    }
+  };
+
+  const handleSubmitCancellation = async () => {
+    if (!cancelReason) {
+      toast({ title: "Please choose a reason", variant: "destructive" });
+      return;
+    }
+    setCancelSubmitting(true);
+    try {
+      const { error } = await supabase.functions.invoke("submit-cancellation-feedback", {
+        body: { reason: cancelReason, details: cancelDetails },
+      });
+      if (error) throw new Error(error.message);
+      toast({
+        title: "Feedback submitted",
+        description: "Thank you. We'll process your cancellation request shortly. You can also manage billing directly via the portal.",
+      });
+      setCancelOpen(false);
+      setCancelReason("");
+      setCancelDetails("");
+    } catch (e: any) {
+      toast({ title: "Error", description: e.message || "Failed to submit feedback", variant: "destructive" });
+    } finally {
+      setCancelSubmitting(false);
+    }
+  };
+
+  // Determine subscription display info
+  const hasStripeSub = !!sub.status && sub.status !== "none";
+  const isFounding = !hasStripeSub && (profile?.payment_status === "paid" || !!profile?.access_expires_at);
+  const accessUntil = sub.currentPeriodEnd || profile?.access_expires_at || null;
 
   const initials = (fullName || "?").split(" ").map(n => n[0]).join("").toUpperCase().slice(0, 2);
 
