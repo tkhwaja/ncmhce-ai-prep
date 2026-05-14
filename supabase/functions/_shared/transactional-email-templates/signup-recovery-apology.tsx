@@ -56,8 +56,7 @@ export const template = {
 
 const main = { backgroundColor: '#ffffff', fontFamily: "'Inter', Arial, sans-serif" }
 const container = { padding: '40px 28px', maxWidth: '560px', margin: '0 auto' }
-const logo = { fontSize: '18px', fontWeight: 700 as const, color: '#111827', margin: '0 0 24px', letterSpacing: '-0.3px' }
-const logoAccent = { color: 'hsl(217, 91%, 60%)' }
+const headerImg = { width: '100%', maxWidth: '560px', height: 'auto', display: 'block', borderRadius: '8px', margin: '0 0 24px' }
 const h1 = { fontSize: '24px', fontWeight: 700 as const, color: '#111827', margin: '0 0 20px', lineHeight: '1.3' }
 const text = { fontSize: '15px', color: '#374151', lineHeight: '1.7', margin: '0 0 18px' }
 const button = { backgroundColor: 'hsl(217, 91%, 60%)', color: '#ffffff', fontSize: '15px', fontWeight: 600 as const, borderRadius: '12px', padding: '12px 24px', textDecoration: 'none', display: 'inline-block', margin: '8px 0 22px' }
