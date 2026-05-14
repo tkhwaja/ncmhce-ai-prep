@@ -67,7 +67,7 @@ const Signup = () => {
     { label: "At least 6 characters", ok: password.length >= 6 },
   ];
 
-  const [resending, setResending] = useState(false);
+  
 
   const onSubmit = async (values: FormValues) => {
     setLoading(true);
