@@ -30,8 +30,6 @@ const Login = () => {
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    // Clear any existing session first so we never end up on a stale account
-    await supabase.auth.signOut();
     const { data, error } = await supabase.auth.signInWithPassword({ email, password });
     setLoading(false);
     if (error || !data.session) {
@@ -42,7 +40,7 @@ const Login = () => {
       });
       return;
     }
-    navigate(next && next.startsWith("/") ? next : "/dashboard?returning=true");
+    navigate(safeNext ?? "/dashboard?returning=true");
   };
 
   return (
