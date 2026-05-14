@@ -68,7 +68,7 @@ const Signup = () => {
       password: values.password,
       options: {
         data: { full_name: values.fullName, target_exam_date: examDate?.toISOString() },
-        emailRedirectTo: `${window.location.origin}/dashboard`,
+        emailRedirectTo: `${window.location.origin}${safeNext ?? "/dashboard"}`,
       },
     });
     setLoading(false);
@@ -79,7 +79,7 @@ const Signup = () => {
     // Email confirmation is required: signUp returns no session until the user clicks the link.
     // If a session is returned, treat it as immediate login (e.g., confirm disabled).
     if (data.session) {
-      navigate("/dashboard?new=true");
+      navigate(safeNext ?? "/dashboard?new=true");
       return;
     }
     if (data.user) {
