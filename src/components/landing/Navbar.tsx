@@ -22,18 +22,18 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`w-full transition-all duration-300 ${
+      className={`w-full transition-all duration-300 bg-background/90 backdrop-blur-xl md:bg-background/0 md:backdrop-blur-none ${
         scrolled
-          ? "bg-background/80 backdrop-blur-xl border-b border-border"
-          : "bg-transparent"
+          ? "md:bg-background/80 md:backdrop-blur-xl border-b border-border"
+          : "border-b border-border md:border-transparent"
       }`}
     >
       <div className="container max-w-6xl mx-auto flex items-center justify-between h-16 px-4">
-        <a href="#" className="flex items-start gap-2 text-xl font-bold text-foreground tracking-tight">
-          <img src={logoMark} alt="The Exam Path logo" className="h-7 w-7 rounded-md mt-0.5" />
-          <span className="flex flex-col leading-tight">
-            <span>The Exam<span className="text-primary"> Path</span></span>
-            <span className="text-[10px] font-normal italic text-muted-foreground">Formerly TheCounselorExam.com</span>
+        <a href="#" className="flex items-start gap-2 text-base sm:text-xl font-bold text-foreground tracking-tight min-w-0">
+          <img src={logoMark} alt="The Exam Path logo" className="h-7 w-7 rounded-md mt-0.5 shrink-0" />
+          <span className="flex flex-col leading-tight min-w-0">
+            <span className="truncate">The Exam<span className="text-primary"> Path</span></span>
+            <span className="hidden sm:inline text-[10px] font-normal italic text-muted-foreground">Formerly TheCounselorExam.com</span>
           </span>
         </a>
 

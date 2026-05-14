@@ -187,7 +187,7 @@ Return ONLY valid JSON, no markdown or explanation.`
     }
 
     return (
-      <div className="p-6 max-w-2xl mx-auto space-y-6">
+      <div className="p-4 sm:p-6 max-w-2xl mx-auto space-y-6">
         <div className="flex items-center justify-between">
           <Button variant="ghost" onClick={() => { setStudyMode(false); setFlipped(false); }}>
             <ArrowLeft className="mr-2 h-4 w-4" /> Back to Deck
@@ -263,7 +263,7 @@ Return ONLY valid JSON, no markdown or explanation.`
     const cards = getAllCards(selectedDeck);
 
     return (
-      <div className="p-6 max-w-4xl mx-auto space-y-6">
+      <div className="p-4 sm:p-6 max-w-4xl mx-auto space-y-6">
         <div className="flex items-center justify-between">
           <Button variant="ghost" onClick={() => setSelectedDeck(null)}>
             <ArrowLeft className="mr-2 h-4 w-4" /> All Decks
@@ -334,7 +334,7 @@ Return ONLY valid JSON, no markdown or explanation.`
 
   // Deck list view
   return (
-    <div className="p-6 max-w-4xl mx-auto space-y-6">
+    <div className="p-4 sm:p-6 max-w-4xl mx-auto space-y-6">
       <h1 className="text-2xl font-bold text-foreground">Flashcards</h1>
       <p className="text-muted-foreground">Review key NCMHCE concepts with spaced repetition</p>
 
