@@ -54,26 +54,38 @@ async function handleCheckoutCompleted(session: any) {
   const userId = session.metadata?.userId;
   if (!userId) return;
 
-  // Detect founding-member 1-year offer via line items lookup_key
-  let isFounding = false;
-  try {
-    const { createStripeClient } = await import("../_shared/stripe.ts");
-    const env = (session.livemode ? "live" : "sandbox") as StripeEnv;
-    const stripe = createStripeClient(env);
-    const items = await stripe.checkout.sessions.listLineItems(session.id, { limit: 5, expand: ["data.price"] });
-    isFounding = items.data.some((li: any) => li.price?.lookup_key === "founding_yearly");
-  } catch (e) {
-    console.error("Failed to inspect line items:", e);
+  // Detect early-access offer via line items lookup_key
+  let lookupKey: string | null = session.metadata?.priceId || null;
+  if (!lookupKey) {
+    try {
+      const { createStripeClient } = await import("../_shared/stripe.ts");
+      const env = (session.livemode ? "live" : "sandbox") as StripeEnv;
+      const stripe = createStripeClient(env);
+      const items = await stripe.checkout.sessions.listLineItems(session.id, { limit: 5, expand: ["data.price"] });
+      lookupKey = items.data[0]?.price?.lookup_key ?? null;
+    } catch (e) {
+      console.error("Failed to inspect line items:", e);
+    }
   }
 
-  if (isFounding) {
-    const expiresAt = new Date();
-    expiresAt.setFullYear(expiresAt.getFullYear() + 1);
+  const isEarlyAccess = lookupKey === "early_access_yearly" || lookupKey === "founding_yearly";
+
+  if (isEarlyAccess) {
+    // Fixed access window: May 31, 2026 -> May 31, 2027 (UTC)
+    const accessStart = new Date("2026-05-31T00:00:00Z");
+    const accessEnd = new Date("2027-05-31T00:00:00Z");
     await supabase
       .from("profiles")
-      .update({ access_expires_at: expiresAt.toISOString(), payment_status: "founding" })
+      .update({ access_expires_at: accessEnd.toISOString(), payment_status: "early_access" })
       .eq("id", userId);
-    console.log("Founding 1-year access granted to user:", userId, "until", expiresAt.toISOString());
+    console.log(
+      "Early-access granted to user:",
+      userId,
+      "from",
+      accessStart.toISOString(),
+      "until",
+      accessEnd.toISOString(),
+    );
   } else {
     // Legacy one-time payment fallback
     await supabase.from("profiles").update({ payment_status: "paid" }).eq("id", userId);
