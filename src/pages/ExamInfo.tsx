@@ -92,7 +92,25 @@ const ExamInfo = () => {
       <h1 className="text-2xl font-bold text-foreground mb-1">Exam Information</h1>
       <p className="text-muted-foreground mb-8">Everything you need to know about the NCMHCE</p>
 
-      <div className="flex gap-8">
+      {/* Mobile tabs */}
+      <div className="md:hidden flex gap-2 overflow-x-auto pb-3 mb-4 w-full">
+        {examInfoSections.map((section) => (
+          <button
+            key={section.id}
+            onClick={() => setActiveSection(section.id)}
+            className={cn(
+              "px-3 py-1.5 rounded-full text-xs whitespace-nowrap transition-colors border flex-shrink-0",
+              activeSection === section.id
+                ? "bg-primary text-primary-foreground border-primary"
+                : "bg-muted text-muted-foreground border-transparent",
+            )}
+          >
+            {section.title}
+          </button>
+        ))}
+      </div>
+
+      <div className="md:flex md:gap-8">
         {/* TOC Sidebar */}
         <div className="hidden md:block w-56 flex-shrink-0">
           <nav className="sticky top-6 space-y-1">
