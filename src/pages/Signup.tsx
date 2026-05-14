@@ -67,8 +67,41 @@ const Signup = () => {
     { label: "At least 6 characters", ok: password.length >= 6 },
   ];
 
+  
+
   const onSubmit = async (values: FormValues) => {
     setLoading(true);
+
+    // Pre-flight: detect existing accounts so we don't create duplicate signup rows
+    // (which invalidate prior confirmation links).
+    try {
+      const { data: status } = await supabase.functions.invoke("check-signup-status", {
+        body: { email: values.email },
+      });
+      if (status?.status === "confirmed") {
+        setLoading(false);
+        toast({
+          title: "Account already exists",
+          description: "Please log in instead — use Forgot password if needed.",
+          variant: "destructive",
+        });
+        navigate(`/login?email=${encodeURIComponent(values.email)}`);
+        return;
+      }
+      if (status?.status === "unconfirmed") {
+        // Resend a fresh magic link instead of creating a duplicate signup row
+        await fetch(
+          `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/blast-confirm-reminders?mode=single&email=${encodeURIComponent(values.email)}`,
+          { method: "POST", headers: { apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY } },
+        ).catch(() => {});
+        setLoading(false);
+        setConfirmSent(values.email);
+        return;
+      }
+    } catch {
+      // If the check fails, fall through to normal signup — don't block the user
+    }
+
     // Clear any existing session so a failed signup can never land on someone else's account
     await supabase.auth.signOut();
     const { data, error } = await supabase.auth.signUp({
