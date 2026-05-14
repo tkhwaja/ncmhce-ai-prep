@@ -36,10 +36,10 @@ const EMAIL_TEMPLATES: Record<string, React.ComponentType<any>> = {
 }
 
 // Configuration
-const SITE_NAME = "ai-counselor-prep-pulse"
-const SENDER_DOMAIN = "notify.thecounselorexam.com"
-const ROOT_DOMAIN = "thecounselorexam.com"
-const FROM_DOMAIN = "thecounselorexam.com" // Domain shown in From address (may be root or sender subdomain)
+const SITE_NAME = "The Exam Path"
+const SENDER_DOMAIN = "notify.theexampath.com"
+const ROOT_DOMAIN = "theexampath.com"
+const FROM_DOMAIN = "theexampath.com" // Domain shown in From address (may be root or sender subdomain)
 
 // Sample data for preview mode ONLY (not used in actual email sending).
 // URLs are baked in at scaffold time from the project's real data.
