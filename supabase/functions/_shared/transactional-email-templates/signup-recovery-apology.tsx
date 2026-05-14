@@ -42,7 +42,7 @@ const SignupRecoveryApologyEmail = ({
         <Text style={text}>
           Thank you for your patience — and for trusting us with your NCMHCE prep.
         </Text>
-        <Text style={signoff}>Warmly,<br />The {SITE_NAME} Team</Text>
+        <Text style={signoff}>Warmly,<br />The {SITE_NAME.replace(/^The /, '')} Team</Text>
       </Container>
     </Body>
   </Html>
