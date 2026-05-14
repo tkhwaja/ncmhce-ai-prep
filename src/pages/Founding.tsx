@@ -74,9 +74,10 @@ const Founding = () => {
             </Card>
 
             <p className="text-xs text-muted-foreground leading-relaxed">
-              One-time payment of $67 grants 1 year (365 days) of access from purchase. After your
-              year ends, standard $79/month subscription pricing applies — no automatic renewal,
-              no surprise charges. You'll never be billed again from this purchase.
+              The platform is free for everyone until <strong>May 31, 2026</strong>. Your paid year
+              of full access runs <strong>May 31, 2026 → May 31, 2027</strong>. One-time $67
+              payment, no subscription, no auto-renewal. After your year ends, standard $79/month
+              pricing applies.
             </p>
 
             {!user && (
@@ -93,7 +94,7 @@ const Founding = () => {
           <div>
             <h2 className="text-lg font-semibold mb-3">Secure your founding spot</h2>
             <StripeEmbeddedCheckout
-              priceId="founding_yearly"
+              priceId="early_access_yearly"
               customerEmail={user?.email || undefined}
               userId={user?.id || ""}
               returnUrl={`${window.location.origin}/checkout/return?session_id={CHECKOUT_SESSION_ID}`}
