@@ -38,6 +38,10 @@ const Signup = () => {
   const [loading, setLoading] = useState(false);
   const [confirmSent, setConfirmSent] = useState<string | null>(null);
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const next = searchParams.get("next");
+  const safeNext = next && next.startsWith("/") ? next : null;
+  const loginHref = safeNext ? `/login?confirm=pending&next=${encodeURIComponent(safeNext)}` : "/login?confirm=pending";
   const { toast } = useToast();
 
   const {
