@@ -68,8 +68,11 @@ export function useSubscription(): SubscriptionState {
   const foundingActive =
     !!profile?.access_expires_at && new Date(profile.access_expires_at) > new Date();
 
+  // Free promo window: everyone has full access until May 31, 2026
+  const promoActive = isFreePromoActive();
+
   return {
-    hasAccess: !!subActive || legacyPaid || foundingActive,
+    hasAccess: !!subActive || legacyPaid || foundingActive || promoActive,
     loading,
     status,
     cancelAtPeriodEnd,
