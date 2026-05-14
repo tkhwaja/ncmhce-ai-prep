@@ -242,6 +242,116 @@ const Profile = () => {
         </CardContent>
       </Card>
 
+      {/* Subscription */}
+      <Card className="card-elevated">
+        <CardHeader>
+          <CardTitle className="text-base flex items-center gap-2">
+            <CreditCard className="h-4 w-4 text-primary" /> Subscription
+          </CardTitle>
+        </CardHeader>
+        <CardContent className="space-y-4">
+          {sub.loading ? (
+            <p className="text-sm text-muted-foreground">Loading subscription...</p>
+          ) : hasStripeSub ? (
+            <>
+              <div className="flex items-center justify-between flex-wrap gap-3">
+                <div>
+                  <p className="text-sm font-medium text-foreground capitalize">
+                    Status: {sub.status}{sub.cancelAtPeriodEnd ? " (cancels at period end)" : ""}
+                  </p>
+                  {accessUntil && (
+                    <p className="text-xs text-muted-foreground">
+                      {sub.cancelAtPeriodEnd || sub.status === "canceled" ? "Access until " : "Renews "}
+                      {new Date(accessUntil).toLocaleDateString()}
+                    </p>
+                  )}
+                </div>
+                <Button variant="outline" size="sm" onClick={handleManageSubscription} disabled={portalLoading}>
+                  {portalLoading ? "Opening..." : "Manage Billing"}
+                </Button>
+              </div>
+              {!sub.cancelAtPeriodEnd && sub.status !== "canceled" && (
+                <div className="border-t border-border pt-4 flex items-center justify-between">
+                  <div>
+                    <p className="text-sm font-medium text-foreground">Cancel Subscription</p>
+                    <p className="text-xs text-muted-foreground">We'd love your feedback before you go</p>
+                  </div>
+                  <Button variant="outline" size="sm" onClick={() => setCancelOpen(true)}>
+                    <XCircle className="mr-2 h-4 w-4" /> Cancel
+                  </Button>
+                </div>
+              )}
+            </>
+          ) : isFounding ? (
+            <>
+              <div>
+                <p className="text-sm font-medium text-foreground">Founding Member — Early Access</p>
+                <p className="text-xs text-muted-foreground">
+                  One-time purchase.{accessUntil ? ` Access through ${new Date(accessUntil).toLocaleDateString()}.` : ""}
+                </p>
+              </div>
+              <div className="border-t border-border pt-4 flex items-center justify-between">
+                <div>
+                  <p className="text-sm font-medium text-foreground">Cancel & Request Refund</p>
+                  <p className="text-xs text-muted-foreground">Tell us why — our team will follow up</p>
+                </div>
+                <Button variant="outline" size="sm" onClick={() => setCancelOpen(true)}>
+                  <XCircle className="mr-2 h-4 w-4" /> Cancel
+                </Button>
+              </div>
+            </>
+          ) : (
+            <p className="text-sm text-muted-foreground">No active subscription.</p>
+          )}
+        </CardContent>
+      </Card>
+
+      {/* Cancellation Feedback Dialog */}
+      <Dialog open={cancelOpen} onOpenChange={setCancelOpen}>
+        <DialogContent>
+          <DialogHeader>
+            <DialogTitle>Before you cancel</DialogTitle>
+          </DialogHeader>
+          <p className="text-sm text-muted-foreground">
+            We're sorry to see you go. Could you share why you're canceling? Your feedback helps us improve.
+          </p>
+          <div className="space-y-3 mt-2">
+            <div className="space-y-2">
+              <Label>Reason</Label>
+              <Select value={cancelReason} onValueChange={setCancelReason}>
+                <SelectTrigger><SelectValue placeholder="Select a reason" /></SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="Too expensive">Too expensive</SelectItem>
+                  <SelectItem value="Not using it enough">Not using it enough</SelectItem>
+                  <SelectItem value="Missing features I need">Missing features I need</SelectItem>
+                  <SelectItem value="Already passed the exam">Already passed the exam</SelectItem>
+                  <SelectItem value="Found a better alternative">Found a better alternative</SelectItem>
+                  <SelectItem value="Technical issues">Technical issues</SelectItem>
+                  <SelectItem value="Other">Other</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+            <div className="space-y-2">
+              <Label>Additional details (optional)</Label>
+              <Textarea
+                value={cancelDetails}
+                onChange={(e) => setCancelDetails(e.target.value.slice(0, 2000))}
+                placeholder="Anything else we should know?"
+                rows={4}
+              />
+            </div>
+          </div>
+          <div className="flex gap-3 justify-end mt-4">
+            <Button variant="outline" onClick={() => setCancelOpen(false)} disabled={cancelSubmitting}>
+              Keep Subscription
+            </Button>
+            <Button variant="destructive" onClick={handleSubmitCancellation} disabled={cancelSubmitting || !cancelReason}>
+              {cancelSubmitting ? "Submitting..." : "Submit & Cancel"}
+            </Button>
+          </div>
+        </DialogContent>
+      </Dialog>
+
       {/* Account Settings */}
       <Card className="card-elevated">
         <CardHeader>
