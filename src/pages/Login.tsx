@@ -13,6 +13,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const next = searchParams.get("next");
   const { toast } = useToast();
 
   const handleLogin = async (e: React.FormEvent) => {
