@@ -4,7 +4,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Brain, BarChart3, Layers, Target, TrendingUp, Clock, Flame, Sparkles, BookOpen } from "lucide-react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 import { getNarrativeById } from "@/data/narratives";
 
 const capitalize = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
@@ -44,6 +44,8 @@ const formatRelativeTime = (value: string | null) => {
 const Dashboard = () => {
   const { user, profile } = useAuth();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const isNewUser = searchParams.get("new") === "true";
   const [attempts, setAttempts] = useState<NarrativeAttempt[]>([]);
   const [flashcardProgress, setFlashcardProgress] = useState<FlashcardProgress[]>([]);
   const [loading, setLoading] = useState(true);
@@ -149,7 +151,9 @@ const Dashboard = () => {
     <div className="p-6 max-w-6xl mx-auto space-y-8">
       {/* Greeting */}
       <div>
-        <h1 className="text-2xl font-bold text-foreground">Welcome back, {firstName}</h1>
+        <h1 className="text-2xl font-bold text-foreground">
+          {isNewUser ? "Welcome" : "Welcome back"}, {firstName}
+        </h1>
         <p className="text-muted-foreground">{today}</p>
       </div>
 

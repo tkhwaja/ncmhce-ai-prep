@@ -30,7 +30,7 @@ const Login = () => {
       });
       return;
     }
-    navigate("/dashboard");
+    navigate("/dashboard?returning=true");
   };
 
   return (
