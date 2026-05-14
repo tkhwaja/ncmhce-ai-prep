@@ -36,7 +36,8 @@ const SignupRecoveryApologyEmail = ({
         </Text>
         <Button style={button} href={signupUrl}>Create my account</Button>
         <Text style={text}>
-          If you run into any trouble at all, simply reply to this email and we'll personally make sure you get in.
+          If you run into any trouble at all, simply reply to this email or write to us directly at{' '}
+          <a href="mailto:support@theexampath.com" style={link}>support@theexampath.com</a> and we'll personally make sure you get in.
         </Text>
         <Text style={text}>
           Thank you for your patience — and for trusting us with your NCMHCE prep.
