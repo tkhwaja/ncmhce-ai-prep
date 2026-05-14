@@ -182,5 +182,76 @@ Deno.serve(async (req) => {
     }, null, 2), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } })
   }
 
+  if (mode === 'cron') {
+    // Auto-recovery: unconfirmed >48h, lifetime cap of 2 reminder sends per recipient.
+    const cutoff = Date.now() - 48 * 3600 * 1000
+    const aged = unconfirmed.filter(u => {
+      // use eligible filtering (suppression) — but ignore the 24h recent-send filter and recompute cap below
+      return true
+    })
+
+    // Lifetime cap: count all signup-confirmation-reminder sends per recipient
+    const { data: allReminderLogs } = await supabase.from('email_send_log')
+      .select('recipient_email,created_at')
+      .eq('template_name', 'signup-confirmation-reminder')
+    const sendCounts = new Map<string, number>()
+    for (const r of (allReminderLogs || [])) {
+      const k = String((r as any).recipient_email).toLowerCase()
+      sendCounts.set(k, (sendCounts.get(k) || 0) + 1)
+    }
+
+    // Get auth.users created_at via listUsers we already have — refetch with created_at
+    const ageMap = new Map<string, number>()
+    let p = 1
+    while (true) {
+      const { data, error } = await supabase.auth.admin.listUsers({ page: p, perPage: 1000 })
+      if (error) break
+      for (const u of data.users) {
+        if (u.email) ageMap.set(u.email.toLowerCase(), new Date(u.created_at).getTime())
+      }
+      if (data.users.length < 1000) break
+      p++
+    }
+
+    const cronTargets = unconfirmed.filter(u => {
+      const e = u.email.toLowerCase()
+      if (suppSet.has(e)) return false
+      const created = ageMap.get(e) ?? 0
+      if (created > cutoff) return false // too new
+      if ((sendCounts.get(e) || 0) >= 2) return false // hit lifetime cap
+      return true
+    })
+
+    // ISO week stamp for idempotency
+    const now = new Date()
+    const onejan = new Date(now.getFullYear(), 0, 1)
+    const week = Math.ceil((((now.getTime() - onejan.getTime()) / 86400000) + onejan.getDay() + 1) / 7)
+    const weekStamp = `${now.getFullYear()}w${week}`
+
+    const results: any[] = []
+    for (let i = 0; i < cronTargets.length; i += 5) {
+      const batch = cronTargets.slice(i, i + 5)
+      const res = await Promise.all(batch.map(async u => {
+        const link = await generateConfirmLink(u.email)
+        if (!link) return { email: u.email, ok: false, reason: 'link_gen_failed' }
+        const r = await sendEmail('signup-confirmation-reminder', u.email, `auto-recovery-${u.id}-${weekStamp}`, {
+          confirmUrl: link,
+          name: u.full_name,
+        })
+        return { email: u.email, ok: r.ok, status: r.status }
+      }))
+      results.push(...res)
+    }
+    return new Response(JSON.stringify({
+      mode: 'cron',
+      week: weekStamp,
+      total_unconfirmed: unconfirmed.length,
+      eligible: cronTargets.length,
+      attempted: results.length,
+      success: results.filter(r => r.ok).length,
+      failures: results.filter(r => !r.ok),
+    }, null, 2), { headers: { ...corsHeaders, 'Content-Type': 'application/json' } })
+  }
+
   return new Response(JSON.stringify({ error: 'unknown mode' }), { status: 400, headers: { ...corsHeaders, 'Content-Type': 'application/json' } })
 })
