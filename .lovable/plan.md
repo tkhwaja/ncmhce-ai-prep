@@ -1,32 +1,29 @@
-## Goal
+## Changes
 
-Fully remove `tahahareb18@gmail.com` and `tahahareb7@gmail.com` from the database so you can sign up and run the free diagnostic again as a fresh user, then wait for your go-ahead before any batch emails are sent.
+### 1. Rename "Sign Up" → "Free Sign Up" on the landing page
 
-## What I'll delete (data only — no schema changes)
+Update the button label in 4 spots (all on the landing surface, all link to `/signup` — no behavior change):
 
-For both `tahahareb18@gmail.com` and `tahahareb7@gmail.com`:
+- `src/components/landing/HeroSection.tsx` (line 38) — primary hero CTA
+- `src/components/landing/Navbar.tsx` (lines 60, 103) — desktop nav + mobile menu
+- `src/components/landing/PricingSection.tsx` (line 92) — pricing card CTA
 
-1. **`auth.users`** — removes the account so signup works as new (cascades into `profiles` via the existing handler relationship; I'll also explicitly clean `profiles` in case any row is orphaned).
-2. **`profiles`** — explicit delete to be safe.
-3. **`free_diagnostic_leads`** — so the diagnostic form treats you as a brand-new lead.
-4. **`email_send_log`** — clears prior send history for these two addresses (keeps the admin email dashboard clean).
-5. **`email_unsubscribe_tokens`** — clears any token tied to these addresses.
-6. **`suppressed_emails`** — clears any suppression entry (in case Mailgun marked one as bounced/complained during the broken window) so future sends aren't silently blocked.
-7. **`narrative_attempts`, `practice_exam_attempts`, `flashcard_progress`, `study_plans`, `notes`, `chat_sessions`, `active_sessions`, `feedback`, `posts`, `replies`, `subscriptions`** — any rows tied to the user_id of either account, so nothing dangles.
+The Founding banner link stays as "create your free account" (already says "free").
 
-Currently `tahahareb18@gmail.com` is the only one with a real account; `tahahareb7@gmail.com` only has email-log history. The deletes are scoped by email/user_id so they won't touch any other data.
+### 2. Email plan — no code changes, just confirmation of current state
 
-## What I will NOT do
+**Active automatic sends** (running now):
+- Signup confirmation email → every new `/signup` user
+- Free Diagnostic breakdown → every visitor who finishes the free diagnostic
 
-- No schema migrations.
-- No batch emails (Email A apology / Email B breakdown). I'll wait until you explicitly say "send them."
-- No code changes — this is purely a DB cleanup.
+**Pending batch sends** (will NOT fire until you say so):
+- **Email A** — Signup recovery apology to diagnostic leads with no profile
+- **Email B** — Free Diagnostic breakdown resend to leads whose `email_sent_at` is null
 
-## After cleanup
+When you're ready, just say "send Email A" and/or "send Email B" and I'll fire them as one-by-one queued sends through the existing `send-transactional-email` function.
 
-You can:
-- Sign up again with either address to test the new confirmation email + the "Check your email" flow.
-- Re-run the free diagnostic to test the breakdown email.
-- Verify replies to either email land in `support@theexampath.com`.
+## Out of scope
 
-Once you confirm both flows look good, tell me to fire Email A (and/or Email B) and I'll send them.
+- No template copy changes
+- No new email types
+- No batch sends in this turn
