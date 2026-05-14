@@ -32,7 +32,7 @@ const Login = () => {
       });
       return;
     }
-    navigate("/dashboard?returning=true");
+    navigate(next && next.startsWith("/") ? next : "/dashboard?returning=true");
   };
 
   return (
