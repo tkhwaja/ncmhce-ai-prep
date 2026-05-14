@@ -176,3 +176,4 @@ const bulletText = { fontSize: '13px', lineHeight: '20px', color: '#475569', mar
 const divider = { borderColor: '#e2e8f0', margin: '22px 0' }
 const button = { backgroundColor: '#2563eb', color: '#ffffff', fontSize: '14px', fontWeight: '700' as const, textDecoration: 'none', padding: '12px 20px', borderRadius: '10px', display: 'inline-block', margin: '8px 0 18px' }
 const footer = { fontSize: '12px', lineHeight: '18px', color: '#94a3b8', margin: '0' }
+const link = { color: '#2563eb', textDecoration: 'underline' }
