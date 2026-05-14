@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-[calc(100svh-4rem)] flex items-center justify-center section-padding pt-24 md:pt-28 overflow-hidden">
+    <section className="relative md:min-h-[calc(100svh-4rem)] flex items-start md:items-center justify-center section-padding pt-36 md:pt-28 overflow-hidden">
       {/* Background effects */}
       <div className="absolute inset-0 bg-grid opacity-30" />
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px]" />
