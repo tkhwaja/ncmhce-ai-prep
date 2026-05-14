@@ -2,7 +2,7 @@ import { Star, Quote } from "lucide-react";
 
 const testimonials = [
   {
-    name: "Randy A.",
+    name: "Jordan K.",
     role: "LMHC Candidate",
     quote:
       "Honestly, I think it's absolutely perfect and I wouldn't change anything. A no-brainer for anyone studying for the NCMHCE.",
@@ -14,7 +14,7 @@ const testimonials = [
       "Never thought I'd say this but — one and done. Walked out of the NCMHCE knowing I had it.",
   },
   {
-    name: "Benedicta A.",
+    name: "Aisha R.",
     role: "Counseling Graduate",
     quote:
       "The narratives feel exactly like the real exam. The rationales taught me how to think clinically instead of just memorizing answers.",
