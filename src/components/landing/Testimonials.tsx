@@ -14,7 +14,7 @@ const testimonials = [
       "Never thought I'd say this but — one and done. Walked out of the NCMHCE knowing I had it.",
   },
   {
-    name: "Benedicta A.",
+    name: "Aisha R.",
     role: "Counseling Graduate",
     quote:
       "The narratives feel exactly like the real exam. The rationales taught me how to think clinically instead of just memorizing answers.",
