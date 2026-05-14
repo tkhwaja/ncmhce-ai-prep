@@ -21,9 +21,7 @@ const schema = z
     email: z.string().email("Invalid email"),
     password: z
       .string()
-      .min(8, "At least 8 characters")
-      .regex(/[A-Za-z]/, "Must contain a letter")
-      .regex(/[0-9]/, "Must contain a number"),
+      .min(6, "At least 6 characters"),
     confirmPassword: z.string(),
   })
   .refine((d) => d.password === d.confirmPassword, {
@@ -51,9 +49,7 @@ const Signup = () => {
 
   const password = watch("password") || "";
   const checks = [
-    { label: "At least 8 characters", ok: password.length >= 8 },
-    { label: "Contains a letter", ok: /[A-Za-z]/.test(password) },
-    { label: "Contains a number", ok: /[0-9]/.test(password) },
+    { label: "At least 6 characters", ok: password.length >= 6 },
   ];
 
   const onSubmit = async (values: FormValues) => {
