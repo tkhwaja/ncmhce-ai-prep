@@ -89,23 +89,12 @@ const Signup = () => {
         return;
       }
       if (status?.status === "unconfirmed") {
+        // Resend a fresh magic link instead of creating a duplicate signup row
+        await fetch(
+          `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/blast-confirm-reminders?mode=single&email=${encodeURIComponent(values.email)}`,
+          { method: "POST", headers: { apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY } },
+        ).catch(() => {});
         setLoading(false);
-        // Resend the magic link instead of creating a duplicate signup
-        setResending(true);
-        try {
-          await supabase.functions.invoke("blast-confirm-reminders", {
-            method: "POST" as any,
-            body: null,
-            // Pass via URL query — function reads searchParams
-          }).catch(() => {});
-          // The invoke helper doesn't carry query params cleanly; call via fetch instead
-          await fetch(`${import.meta.env.VITE_SUPABASE_URL}/functions/v1/blast-confirm-reminders?mode=single&email=${encodeURIComponent(values.email)}`, {
-            method: "POST",
-            headers: { apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY },
-          });
-        } finally {
-          setResending(false);
-        }
         setConfirmSent(values.email);
         return;
       }
