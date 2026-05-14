@@ -132,23 +132,6 @@ const ExamInfo = () => {
           </nav>
         </div>
 
-        {/* Mobile tabs */}
-        <div className="md:hidden flex gap-2 overflow-x-auto pb-3 mb-4 w-full">
-          {examInfoSections.map((section) => (
-            <button
-              key={section.id}
-              onClick={() => setActiveSection(section.id)}
-              className={cn(
-                "px-3 py-1.5 rounded-full text-xs whitespace-nowrap transition-colors border",
-                activeSection === section.id
-                  ? "bg-primary text-primary-foreground border-primary"
-                  : "bg-muted text-muted-foreground border-transparent",
-              )}
-            >
-              {section.title}
-            </button>
-          ))}
-        </div>
 
         {/* Content */}
         <Card className="card-elevated flex-1">
