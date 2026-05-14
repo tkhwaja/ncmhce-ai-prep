@@ -18,7 +18,7 @@ const benefits = [
 ];
 
 const Founding = () => {
-  const { user } = useAuth();
+  const { user, loading: authLoading } = useAuth();
   const navigate = useNavigate();
   const offerActive = isFoundingOfferActive();
 
