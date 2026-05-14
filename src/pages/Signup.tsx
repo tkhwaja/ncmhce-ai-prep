@@ -43,6 +43,13 @@ const Signup = () => {
   const safeNext = next && next.startsWith("/") ? next : null;
   const loginHref = safeNext ? `/login?confirm=pending&next=${encodeURIComponent(safeNext)}` : "/login?confirm=pending";
   const { toast } = useToast();
+  const { user, loading: authLoading } = useAuth();
+
+  useEffect(() => {
+    if (!authLoading && user) {
+      navigate(safeNext ?? "/dashboard?returning=true", { replace: true });
+    }
+  }, [authLoading, user, safeNext, navigate]);
 
   const {
     register,
