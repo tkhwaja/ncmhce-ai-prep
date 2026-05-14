@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
@@ -7,6 +7,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { LogIn } from "lucide-react";
+import { useAuth } from "@/contexts/AuthContext";
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -15,7 +16,16 @@ const Login = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const next = searchParams.get("next");
+  const safeNext = next && next.startsWith("/") ? next : null;
   const { toast } = useToast();
+  const { user, loading: authLoading } = useAuth();
+
+  // If user is already signed in (e.g. just clicked email confirmation link), bounce them through.
+  useEffect(() => {
+    if (!authLoading && user) {
+      navigate(safeNext ?? "/dashboard?returning=true", { replace: true });
+    }
+  }, [authLoading, user, safeNext, navigate]);
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
