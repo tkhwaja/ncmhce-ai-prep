@@ -199,7 +199,7 @@ const Signup = () => {
             </DialogDescription>
           </DialogHeader>
           <DialogFooter className="sm:justify-center">
-            <Button onClick={() => { setConfirmSent(null); navigate("/login?confirm=pending"); }} className="w-full sm:w-auto">
+            <Button onClick={() => { setConfirmSent(null); navigate(loginHref); }} className="w-full sm:w-auto">
               Got it
             </Button>
           </DialogFooter>
