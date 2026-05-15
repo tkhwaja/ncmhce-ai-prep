@@ -110,9 +110,20 @@ const Profile = () => {
   };
 
   const handleDeleteAccount = async () => {
-    toast({ title: "Account deletion requested", description: "Please contact support to complete account deletion." });
-    await signOut();
-    navigate("/");
+    setDeleteConfirmOpen(false);
+    try {
+      const { error } = await supabase.functions.invoke("delete-account");
+      if (error) throw error;
+      toast({ title: "Account deleted", description: "Your account and all related data have been removed." });
+      await signOut();
+      navigate("/");
+    } catch (e: any) {
+      toast({
+        title: "Could not delete account",
+        description: e?.message || "Please try again or contact support.",
+        variant: "destructive",
+      });
+    }
   };
 
   const handleManageSubscription = async () => {
