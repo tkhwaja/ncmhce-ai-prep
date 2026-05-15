@@ -125,6 +125,8 @@ const Signup = () => {
       return;
     }
     if (data.user) {
+      posthog.identify(data.user.id, { email: values.email, full_name: values.fullName });
+      posthog.capture("email_signup", { email: values.email, source: "signup_page", confirmed: false });
       setConfirmSent(values.email);
       return;
     }
