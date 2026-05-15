@@ -39,9 +39,18 @@ const AppHeader = ({ onToggleChat, chatOpen }: AppHeaderProps) => {
   const { profile, signOut } = useAuth();
   const navigate = useNavigate();
   const { theme, toggleTheme } = useTheme();
+  const sub = useSubscription();
   const [searchQuery, setSearchQuery] = useState("");
   const [showResults, setShowResults] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
+
+  // Show "Upgrade" CTA only to users without a real paid plan
+  // (no Stripe sub, no founder access, not legacy paid).
+  const isFreeUser =
+    !sub.loading &&
+    !sub.status &&
+    profile?.payment_status !== "paid" &&
+    !profile?.access_expires_at;
 
   const filteredResults = searchQuery.trim()
     ? searchDestinations.filter(
