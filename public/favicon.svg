@@ -1,15 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="The Exam Path">
-  <rect width="512" height="512" fill="#162033"></rect>
-  <ellipse cx="256.00" cy="172.00" rx="44.00" ry="44.00" fill="#34D399"></ellipse>
-  <ellipse cx="331.00" cy="183.25" rx="42.39" ry="42.39" fill="#FFFFFF"></ellipse>
-  <ellipse cx="385.90" cy="214.00" rx="26.60" ry="38.00" fill="#FFFFFF"></ellipse>
-  <ellipse cx="406.00" cy="256.00" rx="22.40" ry="32.00" fill="#FFFFFF"></ellipse>
-  <ellipse cx="385.90" cy="298.00" rx="26.60" ry="38.00" fill="#FFFFFF"></ellipse>
-  <ellipse cx="331.00" cy="328.75" rx="42.39" ry="42.39" fill="#FFFFFF"></ellipse>
-  <ellipse cx="256.00" cy="340.00" rx="44.00" ry="44.00" fill="#FFFFFF"></ellipse>
-  <ellipse cx="181.00" cy="328.75" rx="42.39" ry="42.39" fill="#FFFFFF"></ellipse>
-  <ellipse cx="126.10" cy="298.00" rx="26.60" ry="38.00" fill="#FFFFFF"></ellipse>
-  <ellipse cx="106.00" cy="256.00" rx="22.40" ry="32.00" fill="#FFFFFF"></ellipse>
-  <ellipse cx="126.10" cy="214.00" rx="26.60" ry="38.00" fill="#FFFFFF"></ellipse>
-  <ellipse cx="181.00" cy="183.25" rx="42.39" ry="42.39" fill="#FFFFFF"></ellipse>
+  <rect width="512" height="512" rx="112" ry="112" fill="#162033"></rect>
+  <circle cx="256.00" cy="106.00" r="56" fill="#34D399"></circle>
+  <circle cx="362.07" cy="149.93" r="56" fill="#FFFFFF"></circle>
+  <circle cx="406.00" cy="256.00" r="56" fill="#FFFFFF"></circle>
+  <circle cx="362.07" cy="362.07" r="56" fill="#FFFFFF"></circle>
+  <circle cx="256.00" cy="406.00" r="56" fill="#FFFFFF"></circle>
+  <circle cx="149.93" cy="362.07" r="56" fill="#FFFFFF"></circle>
+  <circle cx="106.00" cy="256.00" r="56" fill="#FFFFFF"></circle>
+  <circle cx="149.93" cy="149.93" r="56" fill="#FFFFFF"></circle>
 </svg>
