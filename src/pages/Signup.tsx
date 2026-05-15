@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
+import { posthog } from "@/lib/posthog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -120,10 +121,14 @@ const Signup = () => {
     // Email confirmation is required: signUp returns no session until the user clicks the link.
     // If a session is returned, treat it as immediate login (e.g., confirm disabled).
     if (data.session) {
+      posthog.identify(data.session.user.id, { email: values.email, full_name: values.fullName });
+      posthog.capture("email_signup", { email: values.email, source: "signup_page", confirmed: true });
       navigate(safeNext ?? "/dashboard?new=true");
       return;
     }
     if (data.user) {
+      posthog.identify(data.user.id, { email: values.email, full_name: values.fullName });
+      posthog.capture("email_signup", { email: values.email, source: "signup_page", confirmed: false });
       setConfirmSent(values.email);
       return;
     }

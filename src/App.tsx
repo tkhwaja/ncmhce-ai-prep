@@ -7,6 +7,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { PomodoroProvider } from "@/contexts/PomodoroContext";
 import ProtectedRoute from "@/components/ProtectedRoute";
+import PostHogPageview from "@/components/PostHogPageview";
 import Index from "./pages/Index";
 import NotFound from "./pages/NotFound";
 import Unsubscribe from "./pages/Unsubscribe";
@@ -54,6 +55,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <AuthProvider>
+            <PostHogPageview />
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/free-diagnostic-case" element={<FreeDiagnosticCase />} />
