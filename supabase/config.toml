@@ -3,6 +3,8 @@ project_id = "dhcjjwxrksojseskqofl"
 [functions]
   [functions.auth-email-hook]
     verify_jwt = false
+  [functions.daily-diagnostic-report]
+    verify_jwt = true
   [functions.check-signup-status]
     verify_jwt = false
   [functions.create-checkout]
