@@ -76,7 +76,14 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
   }, []);
 
   const signOut = async () => {
-    await supabase.auth.signOut();
+    // 'global' revokes all refresh tokens for this user across every device.
+    // Other active sessions will be signed out on their next token refresh.
+    try {
+      await supabase.auth.signOut({ scope: "global" });
+    } catch {
+      await supabase.auth.signOut();
+    }
+    // Clear our single-session slot so heartbeats elsewhere don't think they're still valid.
     setUser(null);
     setSession(null);
     setProfile(null);
