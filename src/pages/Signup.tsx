@@ -257,35 +257,17 @@ const Signup = () => {
               {loading ? "Creating account..." : "Create Account"}
             </Button>
           </form>
-          <p className="text-center text-sm text-muted-foreground mt-6">
-            Already have an account?{" "}
-            <Link to="/login" className="text-primary hover:underline">
-              Sign in
-            </Link>
-          </p>
+          )}
+          {!confirmSent && (
+            <p className="text-center text-sm text-muted-foreground mt-6">
+              Already have an account?{" "}
+              <Link to="/login" className="text-primary hover:underline">
+                Sign in
+              </Link>
+            </p>
+          )}
         </div>
       </div>
-
-      <Dialog open={!!confirmSent} onOpenChange={(open) => { if (!open) setConfirmSent(null); }}>
-        <DialogContent className="sm:max-w-md text-center">
-          <DialogHeader>
-            <div className="mx-auto mb-2 flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
-              <MailCheck className="h-7 w-7 text-primary" />
-            </div>
-            <DialogTitle className="text-2xl">Check your email</DialogTitle>
-            <DialogDescription className="text-base pt-2">
-              We sent a confirmation link to <strong className="text-foreground">{confirmSent}</strong>.
-              Click it to activate your account — we'll log you in automatically and
-              {safeNext === "/founding" ? " take you straight to checkout." : " bring you right back here."}
-            </DialogDescription>
-          </DialogHeader>
-          <DialogFooter className="sm:justify-center">
-            <Button onClick={() => setConfirmSent(null)} variant="outline" className="w-full sm:w-auto">
-              Close
-            </Button>
-          </DialogFooter>
-        </DialogContent>
-      </Dialog>
     </div>
   );
 };
