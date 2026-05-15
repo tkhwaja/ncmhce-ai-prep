@@ -11,7 +11,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { MessageSquare, Search, LayoutDashboard, User, LogOut, Sun, Moon, MessageCircle } from "lucide-react";
+import { MessageSquare, Search, LayoutDashboard, User, LogOut, Sun, Moon, MessageCircle, Sparkles } from "lucide-react";
+import { useSubscription } from "@/hooks/useSubscription";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "@/contexts/ThemeContext";
 import FeedbackDialog from "@/components/FeedbackDialog";
