@@ -1,4 +1,4 @@
-import { lazy, Suspense } from "react";
+import { Component, lazy, Suspense, type ReactNode } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Route, Routes, Navigate, useParams } from "react-router-dom";
 import { Toaster as Sonner } from "@/components/ui/sonner";
@@ -54,8 +54,56 @@ const RedirectSimulation = () => {
 };
 
 const RouteFallback = () => (
-  <div className="min-h-screen w-full bg-background" aria-hidden="true" />
+  <div className="min-h-screen w-full flex items-center justify-center bg-background">
+    <div
+      className="h-8 w-8 animate-spin rounded-full border-2 border-primary border-t-transparent"
+      role="status"
+      aria-label="Loading"
+    />
+  </div>
 );
+
+// Recover from stale lazy-chunk hashes after a deploy/rebuild by reloading once.
+class ChunkErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
+  state = { hasError: false };
+  static getDerivedStateFromError(error: unknown) {
+    const msg = error instanceof Error ? `${error.name} ${error.message}` : String(error);
+    const isChunkError =
+      /ChunkLoadError|Loading chunk|Failed to fetch dynamically imported module|Importing a module script failed/i.test(
+        msg,
+      );
+    if (isChunkError && typeof window !== "undefined") {
+      const KEY = "lovable:chunk-reload";
+      if (!sessionStorage.getItem(KEY)) {
+        sessionStorage.setItem(KEY, "1");
+        window.location.reload();
+        return { hasError: true };
+      }
+    }
+    return { hasError: true };
+  }
+  componentDidMount() {
+    if (typeof window !== "undefined") sessionStorage.removeItem("lovable:chunk-reload");
+  }
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div className="min-h-screen w-full flex items-center justify-center bg-background p-6">
+          <div className="text-center">
+            <p className="text-foreground mb-3">Something went wrong loading this page.</p>
+            <button
+              onClick={() => window.location.reload()}
+              className="text-sm text-primary underline"
+            >
+              Reload
+            </button>
+          </div>
+        </div>
+      );
+    }
+    return this.props.children;
+  }
+}
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
@@ -66,6 +114,7 @@ const App = () => (
         <BrowserRouter>
           <AuthProvider>
             <PostHogPageview />
+            <ChunkErrorBoundary>
             <Suspense fallback={<RouteFallback />}>
               <Routes>
                 <Route path="/" element={<Index />} />
@@ -102,6 +151,7 @@ const App = () => (
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </Suspense>
+            </ChunkErrorBoundary>
             <SupportFab />
           </AuthProvider>
         </BrowserRouter>
