@@ -1,10 +1,12 @@
 import { Navigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { useActiveSessionEnforcement } from "@/hooks/useActiveSessionEnforcement";
+import { useIdleLogout } from "@/hooks/useIdleLogout";
 
 const ProtectedRoute = ({ children }: { children: React.ReactNode }) => {
   const { user, loading } = useAuth();
   useActiveSessionEnforcement();
+  useIdleLogout();
 
   if (loading) {
     return (
