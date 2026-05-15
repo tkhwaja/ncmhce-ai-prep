@@ -11,7 +11,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { MessageSquare, Search, LayoutDashboard, User, LogOut, Sun, Moon, MessageCircle } from "lucide-react";
+import { MessageSquare, Search, LayoutDashboard, User, LogOut, Sun, Moon, MessageCircle, Sparkles } from "lucide-react";
+import { useSubscription } from "@/hooks/useSubscription";
 import { useNavigate } from "react-router-dom";
 import { useTheme } from "@/contexts/ThemeContext";
 import FeedbackDialog from "@/components/FeedbackDialog";
@@ -38,9 +39,18 @@ const AppHeader = ({ onToggleChat, chatOpen }: AppHeaderProps) => {
   const { profile, signOut } = useAuth();
   const navigate = useNavigate();
   const { theme, toggleTheme } = useTheme();
+  const sub = useSubscription();
   const [searchQuery, setSearchQuery] = useState("");
   const [showResults, setShowResults] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
+
+  // Show "Upgrade" CTA only to users without a real paid plan
+  // (no Stripe sub, no founder access, not legacy paid).
+  const isFreeUser =
+    !sub.loading &&
+    !sub.status &&
+    profile?.payment_status !== "paid" &&
+    !profile?.access_expires_at;
 
   const filteredResults = searchQuery.trim()
     ? searchDestinations.filter(
@@ -107,6 +117,18 @@ const AppHeader = ({ onToggleChat, chatOpen }: AppHeaderProps) => {
       </div>
 
       <div className="flex items-center gap-2">
+        {isFreeUser && (
+          <Button
+            size="sm"
+            onClick={() => navigate("/founding")}
+            className="gap-1.5 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground shadow-sm"
+            title="Upgrade your membership"
+          >
+            <Sparkles className="h-4 w-4" />
+            <span className="hidden sm:inline text-xs font-semibold">Upgrade</span>
+          </Button>
+        )}
+
         <Button
           variant="outline"
           size="sm"
