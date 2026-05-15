@@ -20,27 +20,6 @@ export default defineConfig(({ mode }) => ({
     dedupe: ["react", "react-dom", "react/jsx-runtime", "react/jsx-dev-runtime", "@tanstack/react-query", "@tanstack/query-core"],
   },
   build: {
-    chunkSizeWarningLimit: 800,
-    rollupOptions: {
-      output: {
-        manualChunks: (id) => {
-          if (!id.includes("node_modules")) return;
-          if (id.includes("recharts") || id.includes("d3-")) return "charts";
-          if (id.includes("@stripe")) return "stripe";
-          if (id.includes("@supabase")) return "supabase";
-          if (id.includes("@radix-ui")) return "radix";
-          if (id.includes("react-hook-form") || id.includes("@hookform") || id.includes("zod")) return "forms";
-          if (id.includes("date-fns") || id.includes("react-day-picker")) return "dates";
-          if (id.includes("lucide-react")) return "icons";
-          if (
-            id.includes("/react/") ||
-            id.includes("/react-dom/") ||
-            id.includes("react-router") ||
-            id.includes("@tanstack")
-          )
-            return "react-vendor";
-        },
-      },
-    },
+    chunkSizeWarningLimit: 1500,
   },
 }));
