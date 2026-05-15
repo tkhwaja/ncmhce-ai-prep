@@ -158,6 +158,39 @@ const Signup = () => {
         </div>
 
         <div className="card-elevated p-8">
+          {confirmSent ? (
+            <div className="text-center space-y-4 py-4">
+              <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-primary/10">
+                <MailCheck className="h-7 w-7 text-primary" />
+              </div>
+              <h2 className="text-2xl font-semibold text-foreground">Check your email</h2>
+              <p className="text-base text-muted-foreground">
+                We sent a confirmation link to{" "}
+                <strong className="text-foreground">{confirmSent}</strong>.
+              </p>
+              <p className="text-sm text-muted-foreground">
+                Click the link in your inbox to activate your account — we'll log you in automatically and
+                {safeNext === "/founding" ? " take you straight to checkout." : " bring you right back here."}
+              </p>
+              <div className="pt-2 text-xs text-muted-foreground">
+                Don't see it? Check your spam folder, or{" "}
+                <button
+                  type="button"
+                  className="text-primary hover:underline"
+                  onClick={async () => {
+                    await fetch(
+                      `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/blast-confirm-reminders?mode=single&email=${encodeURIComponent(confirmSent)}`,
+                      { method: "POST", headers: { apikey: import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY } },
+                    ).catch(() => {});
+                    toast({ title: "Confirmation email resent", description: `Sent another link to ${confirmSent}.` });
+                  }}
+                >
+                  resend the email
+                </button>
+                .
+              </div>
+            </div>
+          ) : (
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
             <div className="space-y-2">
               <Label htmlFor="fullName">Full Name</Label>
