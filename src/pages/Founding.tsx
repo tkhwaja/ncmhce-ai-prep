@@ -22,6 +22,13 @@ const Founding = () => {
   const navigate = useNavigate();
   const offerActive = isFoundingOfferActive();
 
+  // If the user just clicked an email confirmation link, the URL contains
+  // either ?code=... (PKCE) or #access_token=... — supabase-js handles it
+  // asynchronously. Treat that window as "still authenticating" so we don't
+  // flash the Log in / Sign up buttons before the session is established.
+  const url = typeof window !== "undefined" ? window.location.href : "";
+  const hasAuthInUrl = /[?&]code=|#access_token=|[?&]token_hash=/.test(url);
+
   useEffect(() => {
     if (!offerActive) navigate("/signup", { replace: true });
   }, [offerActive, navigate]);
@@ -93,10 +100,13 @@ const Founding = () => {
 
           <div>
             <h2 className="text-lg font-semibold mb-3">Secure your founding spot</h2>
-            {authLoading ? (
+            {authLoading || (hasAuthInUrl && !user) ? (
               <Card className="card-elevated">
-                <CardContent className="p-6 flex items-center justify-center min-h-[160px]">
+                <CardContent className="p-6 flex flex-col items-center justify-center min-h-[160px] gap-3">
                   <div className="h-6 w-6 animate-spin rounded-full border-2 border-primary border-t-transparent" />
+                  {hasAuthInUrl && !user && (
+                    <p className="text-sm text-muted-foreground">Confirming your account…</p>
+                  )}
                 </CardContent>
               </Card>
             ) : user ? (
