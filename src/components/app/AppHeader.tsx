@@ -117,6 +117,18 @@ const AppHeader = ({ onToggleChat, chatOpen }: AppHeaderProps) => {
       </div>
 
       <div className="flex items-center gap-2">
+        {isFreeUser && (
+          <Button
+            size="sm"
+            onClick={() => navigate("/founding")}
+            className="gap-1.5 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground shadow-sm"
+            title="Upgrade your membership"
+          >
+            <Sparkles className="h-4 w-4" />
+            <span className="hidden sm:inline text-xs font-semibold">Upgrade</span>
+          </Button>
+        )}
+
         <Button
           variant="outline"
           size="sm"
