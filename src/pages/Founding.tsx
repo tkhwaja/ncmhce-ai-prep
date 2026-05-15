@@ -22,6 +22,13 @@ const Founding = () => {
   const navigate = useNavigate();
   const offerActive = isFoundingOfferActive();
 
+  // If the user just clicked an email confirmation link, the URL contains
+  // either ?code=... (PKCE) or #access_token=... — supabase-js handles it
+  // asynchronously. Treat that window as "still authenticating" so we don't
+  // flash the Log in / Sign up buttons before the session is established.
+  const url = typeof window !== "undefined" ? window.location.href : "";
+  const hasAuthInUrl = /[?&]code=|#access_token=|[?&]token_hash=/.test(url);
+
   useEffect(() => {
     if (!offerActive) navigate("/signup", { replace: true });
   }, [offerActive, navigate]);
