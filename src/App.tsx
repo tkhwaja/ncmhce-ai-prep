@@ -54,6 +54,7 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <AuthProvider>
+            <PostHogPageview />
             <Routes>
               <Route path="/" element={<Index />} />
               <Route path="/free-diagnostic-case" element={<FreeDiagnosticCase />} />
