@@ -1,70 +1,49 @@
-# Connect Brevo + Build Marketing/Announcement Tools
+## Why
 
-## Step 1 — Connect Brevo
+PostHog is currently **half-connected**: the daily diagnostic report edge function can *read* from PostHog's API, but the site itself never *sends* any events. There's no `posthog-js` SDK, no init call, no autocapture. That's why your PostHog project is empty.
 
-Use the Brevo standard connector. You'll be prompted to either pick an existing Brevo connection or create a new one (you'll paste your Brevo API key from Brevo → SMTP & API → API Keys).
+## What I'll build
 
-Once linked, two env vars become available to backend functions automatically:
-- `LOVABLE_API_KEY`
-- `BREVO_API_KEY`
+1. **Install `posthog-js`** in the project.
 
-All Brevo calls go through the Lovable connector gateway (`https://connector-gateway.lovable.dev/brevo/...`) — no SDK, no direct API calls.
+2. **Add a PostHog provider** at `src/lib/posthog.ts` + initialize it in `src/main.tsx`:
+   - Autocapture clicks, form submits, sessions
+   - Manual `$pageview` capture wired into React Router so SPA navigation is tracked
+   - `person_profiles: 'identified_only'` to keep MTU costs sane
+   - Disable in dev (only run when `import.meta.env.PROD`) so localhost noise doesn't pollute data
 
-**Sender domain note:** Your `theexampath.com` domain is already verified inside Lovable Emails (via `notify.theexampath.com`). For Brevo blasts to look professional and land in inboxes, you'll want to verify a sender in Brevo too — either:
-- The root `theexampath.com` (separate from Lovable's `notify` subdomain — no conflict), or
-- A different subdomain like `news.theexampath.com` or `hello.theexampath.com`
+3. **Identify users on auth**: in the auth state listener, call `posthog.identify(user.id, { email })` on sign-in and `posthog.reset()` on sign-out. This makes the signup → confirmed → paid funnel actually work in the daily report.
 
-I can guide you through the Brevo DNS records once we're connected.
+4. **Track key funnel events** explicitly so the report's funnel metrics light up:
+   - `landing_viewed` (home `/`)
+   - `signup_started`, `signup_completed`
+   - `email_confirmed`
+   - `diagnostic_started`, `diagnostic_completed`
+   - `checkout_started`, `purchase_completed`
 
-## Step 2 — What we can build with Brevo
+5. **Configuration**:
+   - Use the **Project API Key** (`phc_...`) — public, safe in frontend
+   - Default to **US host** (`https://us.i.posthog.com`) since that's the most common; one-line change if you're on EU
+   - Read from `VITE_POSTHOG_KEY` if present, otherwise fall back to a hardcoded constant once you give me the key
 
-Lovable Emails (current setup) is for **transactional, 1-to-1, triggered emails** (signup confirmations, password resets, free-diagnostic delivery, recovery apologies). Brevo is for **1-to-many marketing blasts** with list management, segments, templates, and analytics.
+## What I need from you
 
-Concrete things I can build into your admin area once Brevo is connected:
+The **PostHog Project API Key** (starts with `phc_...`).
+Find it at: PostHog → Settings (bottom-left) → Project → "Project API Key".
 
-### A. Contact sync
-- Auto-push every new signup into a Brevo list (e.g. "All Users")
-- Tag contacts by status: `confirmed`, `unconfirmed`, `paid`, `free-diagnostic-lead`, `cancelled`
-- Background sync of your existing 80 users + 26 unconfirmed + free-diagnostic leads into matching Brevo lists/segments
+⚠️ This is **not** the same as the `POSTHOG_PERSONAL_API_KEY` you already gave me. The personal one reads data; the project key writes events.
 
-### B. Admin "Send Announcement" page (new tab in your admin area)
-- Pick a Brevo list or segment (e.g. "Confirmed users", "Unconfirmed", "Free diagnostic leads who haven't signed up")
-- Compose subject + HTML (or pick a Brevo template by ID)
-- Preview, then send — calls Brevo's `POST /smtp/email` (for one-offs) or `POST /emailCampaigns` (for proper campaigns with tracking)
-- Show send status, opens, clicks back in the admin UI
+Also confirm: **US or EU PostHog?** (I'll default to US if you don't say.)
 
-### C. Suggested campaign types for your platform
-- **Launch / feature announcements** ("New practice exam added", "Library update")
-- **Re-engagement** to the 26 unconfirmed users (different from the transactional reminder — a softer marketing nudge)
-- **Free diagnostic → paid conversion** drip to the leads who downloaded the free case but didn't subscribe
-- **Study tips / NCMHCE prep newsletter** (weekly or biweekly)
-- **Founding-member / pricing offers**
-- **Win-back** campaigns for cancelled subscribers
+## After it's deployed
 
-### D. Optional automations (later)
-- Brevo workflows triggered by events we send from the app (e.g. "completed first practice exam", "abandoned checkout")
-- A/B subject line testing
-- Unsubscribe sync between Brevo and your existing `suppressed_emails` table so a user who unsubscribes in Brevo also stops getting transactional marketing-type emails
+- Open your site in an incognito window, click around, sign up.
+- Within ~30 seconds, events should show up in PostHog → Activity → Live events.
+- Tomorrow's 7 PM ET diagnostic report will start showing real visitor/pageview/funnel numbers instead of zeros.
 
-## Clear separation we'll keep
+## Out of scope (say the word if you want them)
 
-| Email type | Sent via | Examples |
-|---|---|---|
-| Transactional (triggered by user action) | Lovable Emails (current) | Signup confirm, password reset, free-diagnostic delivery |
-| Marketing / blasts (1-to-many) | Brevo (new) | Announcements, newsletters, re-engagement, drips |
-
-This avoids deliverability issues (mixing marketing with transactional hurts both) and keeps your existing email pipeline untouched.
-
-## What I'd build first (recommended scope for the next step)
-
-1. Connect Brevo (you click through the connector picker)
-2. Add an admin page `/admin/announcements` (gated to your two admin emails, same pattern as `/admin/emails`)
-3. Backend function `send-brevo-campaign` that calls the Brevo gateway
-4. A simple "Sync contacts to Brevo" button that pushes your current users into a Brevo list with tags
-5. Send your first announcement from the UI
-
-We can add segments, templates, scheduling, and analytics views in a follow-up pass.
-
----
-
-**To proceed:** approve this plan and I'll trigger the Brevo connection prompt, then build the admin announcement page + sync.
+- Session recordings (off by default — easy to turn on)
+- Feature flags / experiments
+- Heatmaps / toolbar
+- Server-side event capture from edge functions
