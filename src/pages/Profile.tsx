@@ -312,7 +312,18 @@ const Profile = () => {
               </div>
             </>
           ) : (
-            <p className="text-sm text-muted-foreground">No active subscription.</p>
+            <div className="rounded-lg border border-primary/30 bg-primary/5 p-4 space-y-3">
+              <div>
+                <p className="text-sm font-semibold text-foreground">You're on the Free plan</p>
+                <p className="text-xs text-muted-foreground mt-1">
+                  Unlock all narratives, full-length practice exams, flashcards, AI coaching, and your
+                  personalized study plan with the Founding Member offer — one payment, a full year of access.
+                </p>
+              </div>
+              <Button onClick={() => navigate("/founding")} className="w-full sm:w-auto">
+                <CreditCard className="mr-2 h-4 w-4" /> View Membership Options
+              </Button>
+            </div>
           )}
         </CardContent>
       </Card>
