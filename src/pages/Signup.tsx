@@ -121,6 +121,8 @@ const Signup = () => {
     // Email confirmation is required: signUp returns no session until the user clicks the link.
     // If a session is returned, treat it as immediate login (e.g., confirm disabled).
     if (data.session) {
+      posthog.identify(data.session.user.id, { email: values.email, full_name: values.fullName });
+      posthog.capture("email_signup", { email: values.email, source: "signup_page", confirmed: true });
       navigate(safeNext ?? "/dashboard?new=true");
       return;
     }
