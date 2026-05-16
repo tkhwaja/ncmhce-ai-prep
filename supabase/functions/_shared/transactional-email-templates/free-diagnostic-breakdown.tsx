@@ -15,7 +15,7 @@ import {
 import type { TemplateEntry } from './registry.ts'
 
 const SITE_NAME = 'The Exam Path'
-const SIGNUP_URL = 'https://theexampath.com/signup'
+const PRICING_URL = 'https://theexampath.com/#pricing'
 
 interface FreeDiagnosticBreakdownProps {
   fullName?: string
@@ -131,7 +131,7 @@ const FreeDiagnosticBreakdownEmail = ({
         <Text style={text}>
           Get full-length practice exams, 20+ narratives, domain analytics, and new narratives added weekly.
         </Text>
-        <Button href={SIGNUP_URL} style={button}>Start Full Access</Button>
+        <Button href={PRICING_URL} style={button}>See pricing & get full access</Button>
 
         <Text style={text}>
           Questions or need a hand? Reply to this email or reach us at{' '}
