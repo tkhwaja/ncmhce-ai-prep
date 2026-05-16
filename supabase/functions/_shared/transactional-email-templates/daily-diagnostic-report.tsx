@@ -220,7 +220,7 @@ const DailyDiagnosticReportEmail = ({
 
         <Hr style={divider} />
         <Text style={footer}>
-          Auto-generated each day at 7:00 PM Eastern by The Exam Path.
+          Auto-generated each day at 10:00 AM Eastern by The Exam Path.
         </Text>
       </Container>
     </Body>
