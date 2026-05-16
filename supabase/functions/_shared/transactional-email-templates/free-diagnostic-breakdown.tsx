@@ -17,6 +17,17 @@ import type { TemplateEntry } from './registry.ts'
 const SITE_NAME = 'The Exam Path'
 const PRICING_URL = 'https://theexampath.com/founding'
 
+interface AnswerBreakdownItem {
+  questionId: string
+  questionNumber: number
+  domain: string
+  prompt: string
+  selectedAnswer: string
+  correctAnswer: string
+  explanation: string
+  isCorrect: boolean
+}
+
 interface FreeDiagnosticBreakdownProps {
   fullName?: string
   totalScore?: number
@@ -24,6 +35,8 @@ interface FreeDiagnosticBreakdownProps {
   totalQuestions?: number
   strongestDomain?: string
   weakestDomain?: string
+  domainScores?: Record<string, number>
+  answerBreakdown?: AnswerBreakdownItem[]
 }
 
 const cheatSheetSections = [
