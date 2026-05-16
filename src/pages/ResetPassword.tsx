@@ -72,14 +72,18 @@ const ResetPassword = () => {
       </Helmet>
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold text-foreground">Set New Password</h1>
-          <p className="text-muted-foreground mt-2">Enter your new password below</p>
+          <h1 className="text-2xl font-bold text-foreground">
+            {isWelcome ? "Set Your Password" : "Set New Password"}
+          </h1>
+          <p className="text-muted-foreground mt-2">
+            {isWelcome ? "Finish setting up your account to continue" : "Enter your new password below"}
+          </p>
         </div>
         <div className="card-elevated p-8">
           {status === "checking" && (
             <div className="flex items-center justify-center py-8 text-muted-foreground">
               <Loader2 className="h-5 w-5 animate-spin mr-2" />
-              Verifying reset link...
+              {isWelcome ? "Verifying your link..." : "Verifying reset link..."}
             </div>
           )}
 
