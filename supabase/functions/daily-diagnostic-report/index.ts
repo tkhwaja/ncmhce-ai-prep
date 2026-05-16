@@ -53,8 +53,8 @@ Deno.serve(async (req) => {
   const force = url.searchParams.get('force') === '1'
 
   const { hour, isoDate, label } = easternParts()
-  if (!force && hour !== 19) {
-    return new Response(JSON.stringify({ skipped: true, reason: `not 7pm ET (hour=${hour})` }), {
+  if (!force && hour !== 10) {
+    return new Response(JSON.stringify({ skipped: true, reason: `not 10am ET (hour=${hour})` }), {
       headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     })
   }
