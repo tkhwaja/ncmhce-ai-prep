@@ -29,6 +29,13 @@ import {
 import NarrativeReviewChat from "@/components/NarrativeReviewChat";
 import { isFoundingOfferActive } from "@/lib/foundingOffer";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Slider } from "@/components/ui/slider";
+import { Type } from "lucide-react";
+
+const FONT_SIZE_KEY = "narrative-case-font-size";
+const MIN_FONT = 12;
+const MAX_FONT = 22;
+const DEFAULT_FONT = 14;
 
 type Phase = "answering" | "section-summary" | "results" | "review";
 
@@ -64,6 +71,30 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
   );
 
   const [phase, setPhase] = useState<Phase>("answering");
+  const [caseFontSize, setCaseFontSize] = useState<number>(() => {
+    if (typeof window === "undefined") return DEFAULT_FONT;
+    const stored = parseInt(window.localStorage.getItem(FONT_SIZE_KEY) ?? "", 10);
+    return Number.isFinite(stored) && stored >= MIN_FONT && stored <= MAX_FONT ? stored : DEFAULT_FONT;
+  });
+  useEffect(() => {
+    try { window.localStorage.setItem(FONT_SIZE_KEY, String(caseFontSize)); } catch { /* ignore */ }
+  }, [caseFontSize]);
+
+  const fontSizeControl = (
+    <div className="flex items-center gap-2 w-full max-w-[220px]" title="Adjust case file text size">
+      <Type className="h-3.5 w-3.5 text-muted-foreground shrink-0" aria-hidden />
+      <Slider
+        value={[caseFontSize]}
+        min={MIN_FONT}
+        max={MAX_FONT}
+        step={1}
+        onValueChange={(v) => setCaseFontSize(v[0])}
+        aria-label="Case file font size"
+        className="flex-1"
+      />
+      <span className="text-[10px] tabular-nums text-muted-foreground w-6 text-right">{caseFontSize}</span>
+    </div>
+  );
   const [sectionIndex, setSectionIndex] = useState(0);
   const [questionIndexInSection, setQuestionIndexInSection] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
@@ -362,7 +393,8 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
   const resultsLocked = publicMode && !leadSubmitted;
 
   const caseFileBody = (
-    <div className="space-y-5 pb-8">
+    <div className="narrative-text-scale space-y-5 pb-8" style={{ fontSize: `${caseFontSize}px` }}>
+
       <section>
         <h3 className="text-sm font-semibold text-foreground mb-2">Client Information</h3>
         <dl className="text-xs space-y-1">
@@ -429,8 +461,9 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
               </Button>
             </SheetTrigger>
             <SheetContent side="right" className="w-[92vw] sm:w-[440px] p-0 flex flex-col">
-              <SheetHeader className="px-4 py-3 border-b border-border text-left">
+              <SheetHeader className="px-4 py-3 border-b border-border text-left space-y-2">
                 <SheetTitle className="text-sm">{narrative.title} — Case File</SheetTitle>
+                {fontSizeControl}
               </SheetHeader>
               <ScrollArea className="flex-1 p-4">{caseFileBody}</ScrollArea>
             </SheetContent>
@@ -810,9 +843,12 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
         </div>
 
         <aside className="hidden lg:flex lg:w-3/5 flex-col bg-card/30">
-          <div className="px-4 py-3 border-b border-border">
-            <p className="text-xs uppercase tracking-wide text-muted-foreground">Case File</p>
-            <p className="text-sm font-semibold text-foreground">{narrative.title}</p>
+          <div className="px-4 py-3 border-b border-border flex items-center justify-between gap-4">
+            <div className="min-w-0">
+              <p className="text-xs uppercase tracking-wide text-muted-foreground">Case File</p>
+              <p className="text-sm font-semibold text-foreground truncate">{narrative.title}</p>
+            </div>
+            {fontSizeControl}
           </div>
           <ScrollArea className="flex-1 p-4">{caseFileBody}</ScrollArea>
         </aside>
