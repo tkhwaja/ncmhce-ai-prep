@@ -606,6 +606,23 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
                 </CardContent>
               </Card>
 
+              {publicMode && !resultsLocked && isFoundingOfferActive() && (
+                <Card className="card-elevated border-primary/40 bg-primary/5">
+                  <CardContent className="p-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                    <div>
+                      <p className="text-sm font-semibold text-foreground">Get full access — Founding Member offer</p>
+                      <p className="text-sm text-muted-foreground mt-1">
+                        Lock in 1 year of The Exam Path for a one-time <strong>$67</strong> (regular $79/mo). Ends May 31.
+                      </p>
+                    </div>
+                    <Button onClick={() => navigate("/founding")} className="shrink-0">
+                      <Sparkles className="h-4 w-4" />
+                      Claim $67 offer
+                    </Button>
+                  </CardContent>
+                </Card>
+              )}
+
               <Card className="card-elevated">
                 <CardHeader><CardTitle className="text-base">Domain Breakdown</CardTitle></CardHeader>
                 <CardContent className="space-y-4">
