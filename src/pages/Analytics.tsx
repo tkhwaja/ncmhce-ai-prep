@@ -69,16 +69,45 @@ const Analytics = () => {
 
   useEffect(() => {
     if (!user) return;
-    supabase
-      .from("narrative_attempts")
-      .select("narrative_id, total_score, domain_scores, ig_selections, completed_at, created_at")
-      .eq("user_id", user.id)
-      .not("completed_at", "is", null)
-      .order("created_at", { ascending: true })
-      .then(({ data }) => {
-        setAttempts((data as Attempt[]) || []);
-        setLoading(false);
-      });
+
+    const fetchAttempts = async () => {
+      const { data } = await supabase
+        .from("narrative_attempts")
+        .select("narrative_id, total_score, domain_scores, ig_selections, completed_at, created_at")
+        .eq("user_id", user.id)
+        .not("completed_at", "is", null)
+        .order("created_at", { ascending: true });
+      setAttempts((data as Attempt[]) || []);
+      setLoading(false);
+    };
+
+    fetchAttempts();
+
+    // Realtime: refetch whenever this user's narrative_attempts change
+    const channel = supabase
+      .channel(`analytics-attempts-${user.id}`)
+      .on(
+        "postgres_changes",
+        {
+          event: "*",
+          schema: "public",
+          table: "narrative_attempts",
+          filter: `user_id=eq.${user.id}`,
+        },
+        () => {
+          fetchAttempts();
+        }
+      )
+      .subscribe();
+
+    // Also refetch when the tab regains focus, in case realtime missed an event
+    const onFocus = () => fetchAttempts();
+    window.addEventListener("focus", onFocus);
+
+    return () => {
+      supabase.removeChannel(channel);
+      window.removeEventListener("focus", onFocus);
+    };
   }, [user]);
 
   const completed = attempts.filter((a) => a.completed_at);
