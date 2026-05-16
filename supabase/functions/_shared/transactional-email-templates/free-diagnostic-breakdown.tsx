@@ -17,6 +17,17 @@ import type { TemplateEntry } from './registry.ts'
 const SITE_NAME = 'The Exam Path'
 const PRICING_URL = 'https://theexampath.com/founding'
 
+interface AnswerBreakdownItem {
+  questionId: string
+  questionNumber: number
+  domain: string
+  prompt: string
+  selectedAnswer: string
+  correctAnswer: string
+  explanation: string
+  isCorrect: boolean
+}
+
 interface FreeDiagnosticBreakdownProps {
   fullName?: string
   totalScore?: number
@@ -24,6 +35,8 @@ interface FreeDiagnosticBreakdownProps {
   totalQuestions?: number
   strongestDomain?: string
   weakestDomain?: string
+  domainScores?: Record<string, number>
+  answerBreakdown?: AnswerBreakdownItem[]
 }
 
 const cheatSheetSections = [
@@ -81,7 +94,12 @@ const FreeDiagnosticBreakdownEmail = ({
   totalQuestions,
   strongestDomain,
   weakestDomain,
-}: FreeDiagnosticBreakdownProps) => (
+  domainScores,
+  answerBreakdown,
+}: FreeDiagnosticBreakdownProps) => {
+  const domainEntries = domainScores ? Object.entries(domainScores) : []
+  const breakdown = answerBreakdown ?? []
+  return (
   <Html lang="en" dir="ltr">
     <Head />
     <Preview>Your Free Diagnostic Case breakdown + answer strategy sheet</Preview>
@@ -92,7 +110,7 @@ const FreeDiagnosticBreakdownEmail = ({
           {fullName ? `${fullName}, here’s your diagnostic breakdown.` : 'Here’s your diagnostic breakdown.'}
         </Heading>
         <Text style={text}>
-          You finished the Free Diagnostic Case, so here’s the fast read on where you stand before exam day.
+          You finished the Free Diagnostic Case, so here’s the full read on where you stand before exam day.
         </Text>
 
         <Section style={summaryCard}>
@@ -112,6 +130,54 @@ const FreeDiagnosticBreakdownEmail = ({
             </Text>
           )}
         </Section>
+
+        {domainEntries.length > 0 && (
+          <>
+            <Hr style={divider} />
+            <Heading as="h2" style={h2}>Domain performance</Heading>
+            <Section style={cheatSheetSection}>
+              {domainEntries.map(([domain, score]) => (
+                <Text key={domain} style={domainRow}>
+                  <strong style={domainName}>{domain}</strong>
+                  <span style={domainScore}>{score}%</span>
+                </Text>
+              ))}
+            </Section>
+          </>
+        )}
+
+        {breakdown.length > 0 && (
+          <>
+            <Hr style={divider} />
+            <Heading as="h2" style={h2}>Question-by-question review</Heading>
+            {breakdown.map((q) => (
+              <Section
+                key={q.questionId}
+                style={{
+                  ...questionCard,
+                  borderColor: q.isCorrect ? '#bbf7d0' : '#fecaca',
+                  backgroundColor: q.isCorrect ? '#f0fdf4' : '#fef2f2',
+                }}
+              >
+                <Text style={questionMeta}>
+                  Question {q.questionNumber} · {q.domain} · {q.isCorrect ? 'Correct' : 'Incorrect'}
+                </Text>
+                <Text style={questionStem}>{q.prompt}</Text>
+                <Text style={answerLine}>
+                  <strong>Your answer:</strong> {q.selectedAnswer}
+                </Text>
+                {!q.isCorrect && (
+                  <Text style={answerLine}>
+                    <strong>Correct answer:</strong> {q.correctAnswer}
+                  </Text>
+                )}
+                <Text style={explanationLine}>
+                  <strong>Why:</strong> {q.explanation}
+                </Text>
+              </Section>
+            ))}
+          </>
+        )}
 
         <Hr style={divider} />
 
@@ -144,7 +210,8 @@ const FreeDiagnosticBreakdownEmail = ({
       </Container>
     </Body>
   </Html>
-)
+  )
+}
 
 export const template = {
   component: FreeDiagnosticBreakdownEmail,
@@ -157,6 +224,35 @@ export const template = {
     totalQuestions: 14,
     strongestDomain: 'Treatment planning',
     weakestDomain: 'Professional practice and ethics',
+    domainScores: {
+      'Intake/assessment/diagnosis': 80,
+      'Treatment planning': 90,
+      'Counseling skills and interventions': 70,
+      'Core counseling attributes': 60,
+      'Professional practice and ethics': 50,
+    },
+    answerBreakdown: [
+      {
+        questionId: 'q1',
+        questionNumber: 1,
+        domain: 'Intake/assessment/diagnosis',
+        prompt: 'What is the most appropriate first step given the client safety concerns?',
+        selectedAnswer: 'Conduct a suicide risk assessment',
+        correctAnswer: 'Conduct a suicide risk assessment',
+        explanation: 'Safety always comes first when the client mentions hopelessness.',
+        isCorrect: true,
+      },
+      {
+        questionId: 'q2',
+        questionNumber: 2,
+        domain: 'Professional practice and ethics',
+        prompt: 'How should the counselor respond to the client request for advice?',
+        selectedAnswer: 'Immediately provide advice',
+        correctAnswer: 'Explore the meaning behind the request',
+        explanation: 'Exploration before advice keeps the work client-centered and within scope.',
+        isCorrect: false,
+      },
+    ],
   },
 } satisfies TemplateEntry
 
@@ -177,3 +273,11 @@ const divider = { borderColor: '#e2e8f0', margin: '22px 0' }
 const button = { backgroundColor: '#2563eb', color: '#ffffff', fontSize: '14px', fontWeight: '700' as const, textDecoration: 'none', padding: '12px 20px', borderRadius: '10px', display: 'inline-block', margin: '8px 0 18px' }
 const footer = { fontSize: '12px', lineHeight: '18px', color: '#94a3b8', margin: '0' }
 const link = { color: '#2563eb', textDecoration: 'underline' }
+const domainRow = { fontSize: '13px', lineHeight: '20px', color: '#0f172a', margin: '0 0 8px', display: 'flex' as const, justifyContent: 'space-between' as const }
+const domainName = { color: '#0f172a', fontWeight: '600' as const, marginRight: '12px' }
+const domainScore = { color: '#2563eb', fontWeight: '700' as const, float: 'right' as const }
+const questionCard = { border: '1px solid #e2e8f0', borderRadius: '12px', padding: '14px 16px', margin: '0 0 12px' }
+const questionMeta = { fontSize: '11px', lineHeight: '16px', fontWeight: '700' as const, color: '#475569', letterSpacing: '0.04em', textTransform: 'uppercase' as const, margin: '0 0 8px' }
+const questionStem = { fontSize: '14px', lineHeight: '20px', fontWeight: '600' as const, color: '#0f172a', margin: '0 0 10px' }
+const answerLine = { fontSize: '13px', lineHeight: '20px', color: '#334155', margin: '0 0 6px' }
+const explanationLine = { fontSize: '13px', lineHeight: '20px', color: '#475569', margin: '8px 0 0' }

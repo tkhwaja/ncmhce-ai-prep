@@ -117,6 +117,8 @@ Deno.serve(async (req) => {
         totalQuestions: payload.totalQuestions,
         strongestDomain,
         weakestDomain,
+        domainScores: payload.domainScores,
+        answerBreakdown: payload.answerBreakdown,
       },
     }),
   })
