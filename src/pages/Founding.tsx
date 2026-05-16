@@ -44,8 +44,8 @@ const Founding = () => {
       </Helmet>
       <PaymentTestModeBanner />
       <div className="container max-w-5xl mx-auto py-8 px-4">
-        <Link to="/" className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground mb-6">
-          <ArrowLeft className="mr-1.5 h-4 w-4" /> Back to home
+        <Link to={user ? "/dashboard" : "/"} className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground mb-6">
+          <ArrowLeft className="mr-1.5 h-4 w-4" /> {user ? "Back to dashboard" : "Back to home"}
         </Link>
 
         <div className="grid md:grid-cols-2 gap-10">
