@@ -615,7 +615,7 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
                         Lock in 1 year of The Exam Path for a one-time <strong>$67</strong> (regular $79/mo). Ends May 31.
                       </p>
                     </div>
-                    <Button onClick={() => navigate("/founding")} className="shrink-0">
+                    <Button onClick={() => navigate("/signup?next=/founding")} className="shrink-0">
                       <Sparkles className="h-4 w-4" />
                       Claim $67 offer
                     </Button>
