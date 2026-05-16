@@ -24,7 +24,7 @@ const pageContextMap: Record<string, string> = {
 };
 
 const AppLayout = () => {
-  const [chatOpen, setChatOpen] = useState(false);
+  const [chatOpen, setChatOpen] = useState(true);
   const [chatWidth, setChatWidth] = useState(380);
   const [queuedPrompt, setQueuedPrompt] = useState<{ id: number; text: string } | null>(null);
   const location = useLocation();
