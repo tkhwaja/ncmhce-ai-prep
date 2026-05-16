@@ -29,6 +29,13 @@ import {
 import NarrativeReviewChat from "@/components/NarrativeReviewChat";
 import { isFoundingOfferActive } from "@/lib/foundingOffer";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
+import { Slider } from "@/components/ui/slider";
+import { Type } from "lucide-react";
+
+const FONT_SIZE_KEY = "narrative-case-font-size";
+const MIN_FONT = 12;
+const MAX_FONT = 22;
+const DEFAULT_FONT = 14;
 
 type Phase = "answering" | "section-summary" | "results" | "review";
 
