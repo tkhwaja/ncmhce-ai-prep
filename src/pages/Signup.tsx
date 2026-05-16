@@ -223,7 +223,7 @@ const Signup = () => {
             </div>
             <div className="space-y-2">
               <Label htmlFor="confirmPassword">Confirm Password</Label>
-              <Input id="confirmPassword" type="password" placeholder="••••••••" {...register("confirmPassword")} />
+              <PasswordInput id="confirmPassword" placeholder="••••••••" {...register("confirmPassword")} />
               {errors.confirmPassword && (
                 <p className="text-xs text-destructive">{errors.confirmPassword.message}</p>
               )}
