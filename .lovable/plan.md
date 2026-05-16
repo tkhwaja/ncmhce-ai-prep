@@ -1,36 +1,24 @@
-## What's happening
+## Goal
+Simulate a support-recovery flow for `tahahareb7@gmail.com`: wipe any existing record so it's a clean slate, then send a branded magic link that completes signup on click.
 
-When you click the test checkout link, you land on `/checkout` (or `/founding`). Both routes are now **lazy-loaded** (a change we made yesterday for code-splitting). While the JS chunk downloads, React shows a Suspense fallback — and right now that fallback is an **invisible blank div**:
+## Steps
 
-```tsx
-const RouteFallback = () => (
-  <div className="min-h-screen w-full bg-background" aria-hidden="true" />
-);
-```
+1. **Check current state** — Query `auth.users` (and `profiles`) for `tahahareb7@gmail.com` to confirm whether the user exists and whether they're confirmed.
 
-So two things look identical to you:
-1. Chunk is still loading → blank screen (briefly)
-2. Chunk **failed to load** (stale hash from our recent rebuild, cached old `index.html` pointing at a chunk that no longer exists) → blank screen forever, no error, no spinner
+2. **Delete the existing user** — If found, delete from `auth.users` via the Supabase admin API. The `profiles` row will cascade via `handle_new_user` re-creation on next signup. Also clean up any rows in `email_send_log` / `suppressed_emails` for that address if present (so the send isn't blocked).
 
-The console log `[vite] server connection lost. Polling for restart...` from your last session is consistent with #2 — the dev server restarted after our Vite config change and the browser is holding a stale module reference.
+3. **Send the magic link** — Call the existing `blast-confirm-reminders` edge function in `single` mode:
+   ```
+   GET /functions/v1/blast-confirm-reminders?mode=single&email=tahahareb7@gmail.com
+   Authorization: Bearer <service-role-key>
+   ```
+   This generates a fresh magic link via `supabase.auth.admin.generateLink({ type: 'magiclink' })` and sends the branded `signup-confirmation-reminder` email template. Clicking the link auto-confirms the email and logs the user straight into `/dashboard`.
 
-## Fix
+   Note: `single` mode currently requires the user to exist in `auth.users` (it calls `generateLink` on an email). So the order matters — we need a fresh signup placeholder OR we use a different path. Two options:
+   - **Option A (recommended):** Don't delete first. Just re-send the magic link to the existing unconfirmed user. This is the realistic support flow ("you signed up but couldn't confirm — here's a fresh link").
+   - **Option B:** Delete the user, then create a new auth user via admin API with that email (unconfirmed), then send the magic link.
 
-Two small changes in `src/App.tsx`:
+## Question for you
+Do you want **Option A** (keep the existing record, just send a fresh magic link — most realistic support scenario) or **Option B** (fully delete + recreate from scratch)?
 
-1. **Make the fallback visible** — swap the blank div for a centered spinner so a loading state is obvious instead of looking broken.
-
-2. **Recover from chunk-load failures** — wrap the `Suspense` in a tiny error boundary that detects `ChunkLoadError` / "Failed to fetch dynamically imported module" and force-reloads the page once. This is the standard fix for the stale-hash problem after a deploy/rebuild and prevents the permanent blank screen.
-
-No changes to checkout logic, Stripe code, edge functions, or routing. Pure presentation/resilience fix in one file.
-
-## Verification
-
-After the change I'll open the preview at `/checkout` and `/founding` in the browser tool to confirm:
-- A spinner shows briefly, then the page renders
-- No blank-screen state remains
-- Console has no chunk-load errors
-
-## Note on the underlying behavior
-
-Once this lands, if you ever see a brief spinner-then-reload on `/checkout`, that's the recovery doing its job after a code push — not a bug. In production (after publish) chunk hashes are stable so this only affects active dev sessions right after a rebuild.
+Once you confirm, I'll run it and report back with the send result.
