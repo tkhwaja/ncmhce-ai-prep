@@ -27,6 +27,7 @@ import {
   RotateCcw, ArrowRight, LayoutDashboard, Mail, UnlockKeyhole, FileText, Sparkles,
 } from "lucide-react";
 import NarrativeReviewChat from "@/components/NarrativeReviewChat";
+import { isFoundingOfferActive } from "@/lib/foundingOffer";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 
 type Phase = "answering" | "section-summary" | "results" | "review";
