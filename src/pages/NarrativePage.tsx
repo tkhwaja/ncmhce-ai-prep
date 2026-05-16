@@ -755,6 +755,39 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
                   Next <ChevronRight className="ml-1 h-4 w-4" />
                 </Button>
               </div>
+
+              {publicMode && reviewQuestionGlobalIndex === totalQs - 1 && isFoundingOfferActive() && (
+                <Card className="card-elevated border-primary/30 bg-gradient-to-br from-primary/5 to-primary/10">
+                  <CardContent className="p-6 text-center space-y-4">
+                    <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/20">
+                      <Sparkles className="h-6 w-6 text-primary" />
+                    </div>
+                    <div>
+                      <h3 className="text-lg font-semibold text-foreground mb-1">
+                        Ready for more practice?
+                      </h3>
+                      <p className="text-sm text-muted-foreground max-w-sm mx-auto">
+                        Get full access to every clinical case narrative, practice exams, DSM-5-TR library, and flashcards. Lock in your founding member price before it goes up.
+                      </p>
+                    </div>
+                    <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                      <Button
+                        onClick={() => navigate("/founding")}
+                        className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground shadow-sm"
+                      >
+                        <Sparkles className="mr-2 h-4 w-4" />
+                        Get Full Access — $67/year
+                      </Button>
+                      <Button variant="outline" onClick={() => navigate("/")}>
+                        Back to Home
+                      </Button>
+                    </div>
+                    <p className="text-xs text-muted-foreground">
+                      Founding member offer ends May 31, 2026
+                    </p>
+                  </CardContent>
+                </Card>
+              )}
             </div>
           )}
         </div>
