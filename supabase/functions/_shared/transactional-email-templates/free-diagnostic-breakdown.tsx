@@ -15,7 +15,7 @@ import {
 import type { TemplateEntry } from './registry.ts'
 
 const SITE_NAME = 'The Exam Path'
-const PRICING_URL = 'https://theexampath.com/#pricing'
+const PRICING_URL = 'https://theexampath.com/founding'
 
 interface FreeDiagnosticBreakdownProps {
   fullName?: string
