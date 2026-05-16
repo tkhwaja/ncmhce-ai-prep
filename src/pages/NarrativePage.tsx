@@ -393,7 +393,8 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
   const resultsLocked = publicMode && !leadSubmitted;
 
   const caseFileBody = (
-    <div className="space-y-5 pb-8">
+    <div className="narrative-text-scale space-y-5 pb-8" style={{ fontSize: `${caseFontSize}px` }}>
+
       <section>
         <h3 className="text-sm font-semibold text-foreground mb-2">Client Information</h3>
         <dl className="text-xs space-y-1">
