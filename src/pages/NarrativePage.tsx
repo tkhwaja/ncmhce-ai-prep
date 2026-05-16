@@ -24,7 +24,7 @@ import {
 } from "@/components/ui/alert-dialog";
 import {
   Clock, ChevronRight, ChevronLeft, CheckCircle2, XCircle,
-  RotateCcw, ArrowRight, LayoutDashboard, Mail, UnlockKeyhole, FileText,
+  RotateCcw, ArrowRight, LayoutDashboard, Mail, UnlockKeyhole, FileText, Sparkles,
 } from "lucide-react";
 import NarrativeReviewChat from "@/components/NarrativeReviewChat";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
