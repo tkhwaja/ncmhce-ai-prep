@@ -131,7 +131,7 @@ const FreeDiagnosticBreakdownEmail = ({
         <Text style={text}>
           Get full-length practice exams, 20+ narratives, domain analytics, and new narratives added weekly.
         </Text>
-        <Button href={SIGNUP_URL} style={button}>Start Full Access</Button>
+        <Button href={PRICING_URL} style={button}>See pricing & get full access</Button>
 
         <Text style={text}>
           Questions or need a hand? Reply to this email or reach us at{' '}
