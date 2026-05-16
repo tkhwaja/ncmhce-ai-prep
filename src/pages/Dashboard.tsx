@@ -170,7 +170,7 @@ const Dashboard = () => {
       {/* Greeting */}
       <div>
         <h1 className="text-2xl font-bold text-foreground">
-          {isNewUser ? "Welcome" : "Welcome back"}, {firstName}
+          Hi, {firstName}
         </h1>
         <p className="text-muted-foreground">{today}</p>
       </div>
