@@ -739,7 +739,7 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
                   </Card>
                 );
               })()}
-              <div className="flex justify-between">
+              <div className="flex justify-between pb-20 sm:pb-0">
                 <Button
                   variant="outline"
                   onClick={() => setReviewQuestionGlobalIndex(Math.max(0, reviewQuestionGlobalIndex - 1))}
