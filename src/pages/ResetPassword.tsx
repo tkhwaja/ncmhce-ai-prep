@@ -15,6 +15,8 @@ const ResetPassword = () => {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<Status>("checking");
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const isWelcome = searchParams.get("welcome") === "true";
   const { toast } = useToast();
 
   useEffect(() => {
