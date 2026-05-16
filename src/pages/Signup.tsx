@@ -8,6 +8,7 @@ import { supabase } from "@/integrations/supabase/client";
 import { posthog } from "@/lib/posthog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { PasswordInput } from "@/components/ui/password-input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
@@ -204,7 +205,7 @@ const Signup = () => {
             </div>
             <div className="space-y-2">
               <Label htmlFor="password">Password</Label>
-              <Input id="password" type="password" placeholder="••••••••" {...register("password")} />
+              <PasswordInput id="password" placeholder="••••••••" {...register("password")} />
               {password && (
                 <ul className="space-y-1">
                   {checks.map((c) => (
@@ -222,7 +223,7 @@ const Signup = () => {
             </div>
             <div className="space-y-2">
               <Label htmlFor="confirmPassword">Confirm Password</Label>
-              <Input id="confirmPassword" type="password" placeholder="••••••••" {...register("confirmPassword")} />
+              <PasswordInput id="confirmPassword" placeholder="••••••••" {...register("confirmPassword")} />
               {errors.confirmPassword && (
                 <p className="text-xs text-destructive">{errors.confirmPassword.message}</p>
               )}
