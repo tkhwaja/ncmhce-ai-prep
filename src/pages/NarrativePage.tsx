@@ -842,9 +842,12 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
         </div>
 
         <aside className="hidden lg:flex lg:w-3/5 flex-col bg-card/30">
-          <div className="px-4 py-3 border-b border-border">
-            <p className="text-xs uppercase tracking-wide text-muted-foreground">Case File</p>
-            <p className="text-sm font-semibold text-foreground">{narrative.title}</p>
+          <div className="px-4 py-3 border-b border-border flex items-center justify-between gap-4">
+            <div className="min-w-0">
+              <p className="text-xs uppercase tracking-wide text-muted-foreground">Case File</p>
+              <p className="text-sm font-semibold text-foreground truncate">{narrative.title}</p>
+            </div>
+            {fontSizeControl}
           </div>
           <ScrollArea className="flex-1 p-4">{caseFileBody}</ScrollArea>
         </aside>
