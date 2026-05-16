@@ -481,7 +481,7 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
                 </a>
               </div>
 
-              <div className="flex justify-between">
+              <div className="flex justify-between pb-20">
                 <Button variant="outline" onClick={goPrev} disabled={questionIndexInSection === 0}>
                   <ChevronLeft className="mr-1 h-4 w-4" /> Previous
                 </Button>
@@ -739,7 +739,7 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
                   </Card>
                 );
               })()}
-              <div className="flex justify-between">
+              <div className="flex justify-between pb-20">
                 <Button
                   variant="outline"
                   onClick={() => setReviewQuestionGlobalIndex(Math.max(0, reviewQuestionGlobalIndex - 1))}
