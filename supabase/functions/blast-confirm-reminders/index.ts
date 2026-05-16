@@ -143,10 +143,20 @@ Deno.serve(async (req) => {
     if (!u) {
       const { data: lu } = await supabase.auth.admin.listUsers({ page: 1, perPage: 1000 })
       const found = lu?.users.find((x: any) => x.email?.toLowerCase() === target)
-      if (!found || !found.email) {
-        return new Response(JSON.stringify({ error: 'user not found', target }), { status: 404, headers: { ...corsHeaders, 'Content-Type': 'application/json' } })
+      if (found && found.email) {
+        u = { id: found.id, email: found.email, full_name: found.user_metadata?.full_name as string | undefined }
       }
-      u = { id: found.id, email: found.email, full_name: found.user_metadata?.full_name as string | undefined }
+    }
+    // Support-recovery: if user truly doesn't exist, create an unconfirmed placeholder so we can send them a magic link
+    if (!u) {
+      const { data: created, error: createErr } = await supabase.auth.admin.createUser({
+        email: target,
+        email_confirm: false,
+      })
+      if (createErr || !created?.user?.email) {
+        return new Response(JSON.stringify({ error: 'user_create_failed', target, detail: createErr?.message }), { status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' } })
+      }
+      u = { id: created.user.id, email: created.user.email, full_name: undefined }
     }
     const link = await generateConfirmLink(u.email)
     if (!link) {
