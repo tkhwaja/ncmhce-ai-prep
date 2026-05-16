@@ -110,7 +110,7 @@ const ResetPassword = () => {
               </div>
               <Button type="submit" className="w-full" disabled={loading}>
                 <KeyRound className="mr-2 h-4 w-4" />
-                {loading ? "Updating..." : "Update Password"}
+                {loading ? "Saving..." : isWelcome ? "Set Password & Continue" : "Update Password"}
               </Button>
             </form>
           )}
