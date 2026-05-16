@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate, Link, useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import { supabase } from "@/integrations/supabase/client";
 import { Button } from "@/components/ui/button";
@@ -15,6 +15,8 @@ const ResetPassword = () => {
   const [loading, setLoading] = useState(false);
   const [status, setStatus] = useState<Status>("checking");
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+  const isWelcome = searchParams.get("welcome") === "true";
   const { toast } = useToast();
 
   useEffect(() => {
@@ -53,7 +55,10 @@ const ResetPassword = () => {
     if (error) {
       toast({ title: "Error", description: error.message, variant: "destructive" });
     } else {
-      toast({ title: "Password updated", description: "You can now sign in with your new password." });
+      toast({
+        title: isWelcome ? "You're all set!" : "Password updated",
+        description: isWelcome ? "Welcome to The Exam Path." : "You can now sign in with your new password.",
+      });
       navigate("/dashboard");
     }
   };
@@ -67,14 +72,18 @@ const ResetPassword = () => {
       </Helmet>
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <h1 className="text-2xl font-bold text-foreground">Set New Password</h1>
-          <p className="text-muted-foreground mt-2">Enter your new password below</p>
+          <h1 className="text-2xl font-bold text-foreground">
+            {isWelcome ? "Set Your Password" : "Set New Password"}
+          </h1>
+          <p className="text-muted-foreground mt-2">
+            {isWelcome ? "Finish setting up your account to continue" : "Enter your new password below"}
+          </p>
         </div>
         <div className="card-elevated p-8">
           {status === "checking" && (
             <div className="flex items-center justify-center py-8 text-muted-foreground">
               <Loader2 className="h-5 w-5 animate-spin mr-2" />
-              Verifying reset link...
+              {isWelcome ? "Verifying your link..." : "Verifying reset link..."}
             </div>
           )}
 
@@ -101,7 +110,7 @@ const ResetPassword = () => {
               </div>
               <Button type="submit" className="w-full" disabled={loading}>
                 <KeyRound className="mr-2 h-4 w-4" />
-                {loading ? "Updating..." : "Update Password"}
+                {loading ? "Saving..." : isWelcome ? "Set Password & Continue" : "Update Password"}
               </Button>
             </form>
           )}

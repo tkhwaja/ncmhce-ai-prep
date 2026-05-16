@@ -47,7 +47,7 @@ Deno.serve(async (req) => {
       const { data, error } = await supabase.auth.admin.generateLink({
         type: 'magiclink',
         email,
-        options: { redirectTo: 'https://www.theexampath.com/dashboard?confirmed=true' },
+        options: { redirectTo: 'https://www.theexampath.com/reset-password?welcome=true' },
       })
       if (error) {
         console.error('generateLink failed', email, error)
