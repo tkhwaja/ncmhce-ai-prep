@@ -86,6 +86,31 @@ async function handleCheckoutCompleted(session: any) {
       "until",
       accessEnd.toISOString(),
     );
+
+    // Send branded founders-offer confirmation email
+    try {
+      const { data: profile } = await supabase
+        .from("profiles")
+        .select("email, full_name")
+        .eq("id", userId)
+        .maybeSingle();
+      const recipientEmail = profile?.email || session.customer_details?.email || session.customer_email;
+      if (recipientEmail) {
+        const { error: emailError } = await supabase.functions.invoke("send-transactional-email", {
+          body: {
+            templateName: "founders-offer-confirmation",
+            recipientEmail,
+            idempotencyKey: `founders-confirm-${session.id}`,
+            templateData: { fullName: profile?.full_name || session.customer_details?.name || null },
+          },
+        });
+        if (emailError) console.error("Failed to send founders confirmation email:", emailError);
+      } else {
+        console.warn("No recipient email available for founders confirmation; userId:", userId);
+      }
+    } catch (e) {
+      console.error("Founders confirmation email error:", e);
+    }
   } else {
     // Legacy one-time payment fallback
     await supabase.from("profiles").update({ payment_status: "paid" }).eq("id", userId);
