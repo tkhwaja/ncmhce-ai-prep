@@ -14,7 +14,7 @@ const SENDER_EMAIL = "hello@theexampath.com";
 const LIST_NAME = "Official Founders offer";
 const CAMPAIGN_NAME = "Founders Offer Announcement";
 const CAMPAIGN_SUBJECT = "Your official founding member invite to The Exam Path";
-const HERO_IMAGE_URL = "https://theexampath.com/founders-offer-hero.png";
+const HERO_IMAGE_URL = "https://dhcjjwxrksojseskqofl.supabase.co/storage/v1/object/public/email-assets/founders-offer-hero.png";
 
 function brevoHeaders() {
   const lovableKey = Deno.env.get("LOVABLE_API_KEY");
