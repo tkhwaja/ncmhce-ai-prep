@@ -78,6 +78,7 @@ function buildCampaignHtml() {
       You received this because you signed up for The Exam Path or grabbed a free diagnostic.
       {{ unsubscribe }}
     </p>
+    </div>
   </div>
 </body></html>`;
 }
