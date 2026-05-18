@@ -175,14 +175,14 @@ Deno.serve(async (req) => {
     // Brevo requires a folder. Use folder ID 1 if it exists, else create one.
     let folderId: number | null = null;
     try {
-      const folders = await brevo(`/v3/contacts/folders?limit=50&offset=0`);
+      const folders = await brevo(`/contacts/folders?limit=50&offset=0`);
       const existing = (folders?.folders || []).find((f: any) =>
         f.name === "Lovable" || f.name === "Default"
       );
       folderId = existing?.id ?? folders?.folders?.[0]?.id ?? null;
     } catch { /* ignore */ }
     if (!folderId) {
-      const created = await brevo(`/v3/contacts/folders`, {
+      const created = await brevo(`/contacts/folders`, {
         method: "POST",
         body: JSON.stringify({ name: "Lovable" }),
       });
@@ -191,12 +191,12 @@ Deno.serve(async (req) => {
 
     // Find or create the list
     let listId: number | null = null;
-    const lists = await brevo(`/v3/contacts/lists?limit=50&offset=0`);
+    const lists = await brevo(`/contacts/lists?limit=50&offset=0`);
     const found = (lists?.lists || []).find((l: any) => l.name === LIST_NAME);
     if (found) {
       listId = found.id;
     } else {
-      const createdList = await brevo(`/v3/contacts/lists`, {
+      const createdList = await brevo(`/contacts/lists`, {
         method: "POST",
         body: JSON.stringify({ name: LIST_NAME, folderId }),
       });
@@ -216,7 +216,7 @@ Deno.serve(async (req) => {
           ...(c.lastName ? { LASTNAME: c.lastName } : {}),
         },
       }));
-      await brevo(`/v3/contacts/import`, {
+      await brevo(`/contacts/import`, {
         method: "POST",
         body: JSON.stringify({
           listIds: [listId],
@@ -231,7 +231,7 @@ Deno.serve(async (req) => {
     // 4) Optionally create a draft email campaign targeted at the new list
     let campaignId: number | null = null;
     if (createCampaign) {
-      const campaign = await brevo(`/v3/emailCampaigns`, {
+      const campaign = await brevo(`/emailCampaigns`, {
         method: "POST",
         body: JSON.stringify({
           name: CAMPAIGN_NAME,
