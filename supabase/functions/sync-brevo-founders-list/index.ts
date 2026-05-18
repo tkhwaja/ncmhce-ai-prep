@@ -44,9 +44,11 @@ async function brevo(path: string, init: RequestInit = {}) {
 
 function buildCampaignHtml() {
   return `<!doctype html><html><body style="margin:0;padding:0;background:#ffffff;font-family:Inter,Arial,sans-serif;color:#0f172a">
-  <div style="max-width:580px;margin:0 auto;padding:36px 28px">
+  <div style="max-width:580px;margin:0 auto;padding:0 0 36px">
+    <img src="${HERO_IMAGE_URL}" alt="The Exam Path — Your path to NCMHCE success" width="580" style="display:block;width:100%;max-width:580px;height:auto;border:0;outline:none;text-decoration:none;margin:0 0 24px" />
+    <div style="padding:0 28px">
     <p style="font-size:12px;font-weight:700;color:#2563eb;letter-spacing:0.08em;margin:0 0 12px">FOUNDING MEMBER OFFER · ENDS MAY 31</p>
-    <h1 style="font-size:28px;line-height:36px;font-weight:700;color:#0f172a;margin:0 0 16px">1 year of full NCMHCE prep for $67</h1>
+    <h1 style="font-size:28px;line-height:36px;font-weight:700;color:#0f172a;margin:0 0 16px">Your official founding member invite</h1>
     <p style="font-size:15px;line-height:24px;color:#475569;margin:0 0 14px">
       We're officially opening the founding member offer. Lock in a full year of The Exam Path
       <strong>before public subscription pricing launches at $79/month</strong>. One-time payment, no subscription, no auto-renewal.
