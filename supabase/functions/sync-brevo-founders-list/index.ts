@@ -235,19 +235,30 @@ Deno.serve(async (req) => {
     // 4) Optionally create a draft email campaign targeted at the new list
     let campaignId: number | null = null;
     if (createCampaign) {
-      const campaign = await brevo(`/emailCampaigns`, {
-        method: "POST",
-        body: JSON.stringify({
-          name: CAMPAIGN_NAME,
-          subject: CAMPAIGN_SUBJECT,
-          sender: { name: SENDER_NAME, email: SENDER_EMAIL },
-          replyTo: SENDER_EMAIL,
-          htmlContent: buildCampaignHtml(),
-          recipients: { listIds: [listId] },
-          // No scheduledAt → stays as draft
-        }),
-      });
-      campaignId = campaign?.id ?? null;
+      const campaignPayload = {
+        name: CAMPAIGN_NAME,
+        subject: CAMPAIGN_SUBJECT,
+        sender: { name: SENDER_NAME, email: SENDER_EMAIL },
+        replyTo: SENDER_EMAIL,
+        htmlContent: buildCampaignHtml(),
+        recipients: { listIds: [listId] },
+      };
+      // Look for an existing draft with the same name and update it instead of duplicating
+      const existing = await brevo(`/emailCampaigns?type=classic&status=draft&limit=100&offset=0`);
+      const match = (existing?.campaigns || []).find((c: any) => c?.name === CAMPAIGN_NAME);
+      if (match?.id) {
+        await brevo(`/emailCampaigns/${match.id}`, {
+          method: "PUT",
+          body: JSON.stringify(campaignPayload),
+        });
+        campaignId = match.id;
+      } else {
+        const campaign = await brevo(`/emailCampaigns`, {
+          method: "POST",
+          body: JSON.stringify(campaignPayload),
+        });
+        campaignId = campaign?.id ?? null;
+      }
     }
 
     return new Response(JSON.stringify({
