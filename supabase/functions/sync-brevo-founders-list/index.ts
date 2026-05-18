@@ -10,7 +10,7 @@ const corsHeaders = {
 
 const BREVO_GATEWAY = "https://connector-gateway.lovable.dev/brevo";
 const SENDER_NAME = "The Exam Path";
-const SENDER_EMAIL = "support@theexampath.com";
+const SENDER_EMAIL = "hello@theexampath.com";
 const LIST_NAME = "Official Founders offer";
 const CAMPAIGN_NAME = "Founders Offer Announcement";
 const CAMPAIGN_SUBJECT = "Founding member offer — 1 year of The Exam Path for $67";
