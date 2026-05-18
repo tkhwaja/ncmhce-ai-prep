@@ -13,7 +13,8 @@ const SENDER_NAME = "The Exam Path";
 const SENDER_EMAIL = "hello@theexampath.com";
 const LIST_NAME = "Official Founders offer";
 const CAMPAIGN_NAME = "Founders Offer Announcement";
-const CAMPAIGN_SUBJECT = "Founding member offer — 1 year of The Exam Path for $67";
+const CAMPAIGN_SUBJECT = "Your official founding member invite to The Exam Path";
+const HERO_IMAGE_URL = "https://theexampath.com/founders-offer-hero.png";
 
 function brevoHeaders() {
   const lovableKey = Deno.env.get("LOVABLE_API_KEY");
@@ -43,9 +44,11 @@ async function brevo(path: string, init: RequestInit = {}) {
 
 function buildCampaignHtml() {
   return `<!doctype html><html><body style="margin:0;padding:0;background:#ffffff;font-family:Inter,Arial,sans-serif;color:#0f172a">
-  <div style="max-width:580px;margin:0 auto;padding:36px 28px">
+  <div style="max-width:580px;margin:0 auto;padding:0 0 36px">
+    <img src="${HERO_IMAGE_URL}" alt="The Exam Path — Your path to NCMHCE success" width="580" style="display:block;width:100%;max-width:580px;height:auto;border:0;outline:none;text-decoration:none;margin:0 0 24px" />
+    <div style="padding:0 28px">
     <p style="font-size:12px;font-weight:700;color:#2563eb;letter-spacing:0.08em;margin:0 0 12px">FOUNDING MEMBER OFFER · ENDS MAY 31</p>
-    <h1 style="font-size:28px;line-height:36px;font-weight:700;color:#0f172a;margin:0 0 16px">1 year of full NCMHCE prep for $67</h1>
+    <h1 style="font-size:28px;line-height:36px;font-weight:700;color:#0f172a;margin:0 0 16px">Your official founding member invite</h1>
     <p style="font-size:15px;line-height:24px;color:#475569;margin:0 0 14px">
       We're officially opening the founding member offer. Lock in a full year of The Exam Path
       <strong>before public subscription pricing launches at $79/month</strong>. One-time payment, no subscription, no auto-renewal.
@@ -75,6 +78,7 @@ function buildCampaignHtml() {
       You received this because you signed up for The Exam Path or grabbed a free diagnostic.
       {{ unsubscribe }}
     </p>
+    </div>
   </div>
 </body></html>`;
 }
@@ -231,19 +235,30 @@ Deno.serve(async (req) => {
     // 4) Optionally create a draft email campaign targeted at the new list
     let campaignId: number | null = null;
     if (createCampaign) {
-      const campaign = await brevo(`/emailCampaigns`, {
-        method: "POST",
-        body: JSON.stringify({
-          name: CAMPAIGN_NAME,
-          subject: CAMPAIGN_SUBJECT,
-          sender: { name: SENDER_NAME, email: SENDER_EMAIL },
-          replyTo: SENDER_EMAIL,
-          htmlContent: buildCampaignHtml(),
-          recipients: { listIds: [listId] },
-          // No scheduledAt → stays as draft
-        }),
-      });
-      campaignId = campaign?.id ?? null;
+      const campaignPayload = {
+        name: CAMPAIGN_NAME,
+        subject: CAMPAIGN_SUBJECT,
+        sender: { name: SENDER_NAME, email: SENDER_EMAIL },
+        replyTo: SENDER_EMAIL,
+        htmlContent: buildCampaignHtml(),
+        recipients: { listIds: [listId] },
+      };
+      // Look for an existing draft with the same name and update it instead of duplicating
+      const existing = await brevo(`/emailCampaigns?type=classic&status=draft&limit=100&offset=0`);
+      const match = (existing?.campaigns || []).find((c: any) => c?.name === CAMPAIGN_NAME);
+      if (match?.id) {
+        await brevo(`/emailCampaigns/${match.id}`, {
+          method: "PUT",
+          body: JSON.stringify(campaignPayload),
+        });
+        campaignId = match.id;
+      } else {
+        const campaign = await brevo(`/emailCampaigns`, {
+          method: "POST",
+          body: JSON.stringify(campaignPayload),
+        });
+        campaignId = campaign?.id ?? null;
+      }
     }
 
     return new Response(JSON.stringify({
