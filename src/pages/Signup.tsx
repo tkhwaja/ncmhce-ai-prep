@@ -173,6 +173,9 @@ const Signup = () => {
                 Click the link in your inbox to activate your account — we'll log you in automatically and
                 {safeNext === "/founding" ? " take you straight to checkout." : " bring you right back here."}
               </p>
+              <p className="text-sm font-medium text-amber-600 bg-amber-50 dark:bg-amber-950/20 px-3 py-2 rounded-lg border border-amber-200 dark:border-amber-900">
+                Not seeing it? Check your spam or junk folder — sometimes confirmation emails end up there by mistake.
+              </p>
               <div className="pt-2 text-xs text-muted-foreground">
                 Don't see it? Check your spam folder, or{" "}
                 <button
