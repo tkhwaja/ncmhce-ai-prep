@@ -53,6 +53,10 @@ export interface Narrative {
   title: string;
   category: string;
   difficulty: "Beginner" | "Intermediate" | "Advanced";
+  /** Bump this string whenever the questions or correct answers change.
+   *  Used purely for tracking — the runtime source of truth for an in-progress
+   *  attempt is the snapshot stored on `narrative_attempts.narrative_snapshot`. */
+  version?: string;
   /** Optional manual override for per-section minutes when the default estimate should be replaced. */
   minutesPerSection?: number;
   recommendedTimeBySectionMinutes?: number[];
