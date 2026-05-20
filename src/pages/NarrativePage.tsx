@@ -349,6 +349,7 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
     setQuestionIndexInSection(0);
     setPhase("answering");
     setAttemptId(null);
+    setSnapshotNarrative(null);
     setTimerExpired(false);
     setSecondsRemaining(getNarrativeSectionMinutesAt(narrative, 0) * 60);
     dialogShownRef.current = false;
