@@ -63,7 +63,13 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
   const examAttemptId = searchParams.get("examAttempt");
   const examIdParam = searchParams.get("examId");
   const { user } = useAuth();
-  const narrative = getNarrativeById(narrativeIdOverride ?? id);
+  const liveNarrative = getNarrativeById(narrativeIdOverride ?? id);
+  // `snapshotNarrative` is the frozen copy attached to an in-progress / completed
+  // attempt. When present it overrides the live bundle so that users finishing
+  // (or reviewing) an older attempt see the exact questions, options, and correct
+  // answers they started with — even if we ship harder questions in the meantime.
+  const [snapshotNarrative, setSnapshotNarrative] = useState<Narrative | null>(null);
+  const narrative = snapshotNarrative ?? liveNarrative;
 
   const allQuestions = useMemo<NarrativeQuestion[]>(
     () => (narrative ? narrative.sections.flatMap((s) => s.questions) : []),
