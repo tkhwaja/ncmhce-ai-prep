@@ -267,6 +267,8 @@ export type Database = {
           id: string
           ig_selections: Json
           narrative_id: string
+          narrative_snapshot: Json | null
+          narrative_version: string | null
           time_spent: number | null
           total_score: number | null
           user_id: string
@@ -280,6 +282,8 @@ export type Database = {
           id?: string
           ig_selections?: Json
           narrative_id: string
+          narrative_snapshot?: Json | null
+          narrative_version?: string | null
           time_spent?: number | null
           total_score?: number | null
           user_id: string
@@ -293,6 +297,8 @@ export type Database = {
           id?: string
           ig_selections?: Json
           narrative_id?: string
+          narrative_snapshot?: Json | null
+          narrative_version?: string | null
           time_spent?: number | null
           total_score?: number | null
           user_id?: string

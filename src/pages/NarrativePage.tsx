@@ -7,7 +7,7 @@ import {
   totalQuestionCount,
   NARRATIVE_DOMAINS,
 } from "@/data/narratives";
-import type { NarrativeQuestion } from "@/data/narratives";
+import type { Narrative, NarrativeQuestion } from "@/data/narratives";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
@@ -63,7 +63,13 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
   const examAttemptId = searchParams.get("examAttempt");
   const examIdParam = searchParams.get("examId");
   const { user } = useAuth();
-  const narrative = getNarrativeById(narrativeIdOverride ?? id);
+  const liveNarrative = getNarrativeById(narrativeIdOverride ?? id);
+  // `snapshotNarrative` is the frozen copy attached to an in-progress / completed
+  // attempt. When present it overrides the live bundle so that users finishing
+  // (or reviewing) an older attempt see the exact questions, options, and correct
+  // answers they started with — even if we ship harder questions in the meantime.
+  const [snapshotNarrative, setSnapshotNarrative] = useState<Narrative | null>(null);
+  const narrative = snapshotNarrative ?? liveNarrative;
 
   const allQuestions = useMemo<NarrativeQuestion[]>(
     () => (narrative ? narrative.sections.flatMap((s) => s.questions) : []),
@@ -122,27 +128,35 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
       return;
     }
 
-    if (!user || !narrative) {
+    if (!user || !liveNarrative) {
       setLoadingDraft(false);
       return;
     }
 
     supabase
       .from("narrative_attempts")
-      .select("id, dm_answers, completed_at")
+      .select("id, dm_answers, completed_at, narrative_snapshot")
       .eq("user_id", user.id)
-      .eq("narrative_id", narrative.id)
+      .eq("narrative_id", liveNarrative.id)
       .order("created_at", { ascending: false })
       .limit(1)
       .then(({ data }) => {
         if (data && data.length > 0) {
           const latest = data[0];
+          // If this attempt has a frozen snapshot, use it as the source of truth.
+          const snap = (latest as { narrative_snapshot?: unknown }).narrative_snapshot;
+          const effective =
+            snap && typeof snap === "object"
+              ? (snap as Narrative)
+              : liveNarrative;
+          if (snap && typeof snap === "object") setSnapshotNarrative(snap as Narrative);
+
           if (!latest.completed_at) {
             setAttemptId(latest.id);
             const saved = latest.dm_answers as Record<string, number>;
             if (saved && typeof saved === "object") {
               setAnswers(saved);
-              const sections = narrative.sections;
+              const sections = effective.sections;
               for (let si = sections.length - 1; si >= 0; si--) {
                 const qs = sections[si].questions;
                 const answeredInSection = qs.filter((q) => saved[q.id] !== undefined);
@@ -160,7 +174,7 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
         }
         setLoadingDraft(false);
       });
-  }, [user, narrative, publicMode]);
+  }, [user, liveNarrative, publicMode]);
 
   const saveTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
   useEffect(() => {
@@ -175,6 +189,9 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
           .update({ dm_answers: answers as never })
           .eq("id", attemptId);
       } else {
+        // Freeze the current bundle's version of this case onto the attempt so
+        // future deploys with harder questions don't disturb this user's session.
+        const freeze = liveNarrative ?? narrative;
         const { data } = await supabase
           .from("narrative_attempts")
           .insert({
@@ -185,10 +202,15 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
             domain_scores: {},
             total_score: null,
             completed_at: null,
+            narrative_version: freeze?.version ?? null,
+            narrative_snapshot: (freeze as unknown as never) ?? null,
           })
           .select("id")
           .single();
-        if (data) setAttemptId(data.id);
+        if (data) {
+          setAttemptId(data.id);
+          if (freeze && !snapshotNarrative) setSnapshotNarrative(freeze);
+        }
       }
     }, 1500);
 
@@ -295,10 +317,13 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
       if (attemptId) {
         await supabase.from("narrative_attempts").update(payload).eq("id", attemptId);
       } else {
+        const freeze = snapshotNarrative ?? liveNarrative ?? narrative;
         await supabase.from("narrative_attempts").insert({
           user_id: user.id,
           narrative_id: narrative.id,
           ig_selections: [],
+          narrative_version: freeze?.version ?? null,
+          narrative_snapshot: (freeze as unknown as never) ?? null,
           ...payload,
         });
       }
@@ -324,6 +349,7 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
     setQuestionIndexInSection(0);
     setPhase("answering");
     setAttemptId(null);
+    setSnapshotNarrative(null);
     setTimerExpired(false);
     setSecondsRemaining(getNarrativeSectionMinutesAt(narrative, 0) * 60);
     dialogShownRef.current = false;
