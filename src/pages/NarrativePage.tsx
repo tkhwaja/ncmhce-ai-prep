@@ -128,27 +128,35 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
       return;
     }
 
-    if (!user || !narrative) {
+    if (!user || !liveNarrative) {
       setLoadingDraft(false);
       return;
     }
 
     supabase
       .from("narrative_attempts")
-      .select("id, dm_answers, completed_at")
+      .select("id, dm_answers, completed_at, narrative_snapshot")
       .eq("user_id", user.id)
-      .eq("narrative_id", narrative.id)
+      .eq("narrative_id", liveNarrative.id)
       .order("created_at", { ascending: false })
       .limit(1)
       .then(({ data }) => {
         if (data && data.length > 0) {
           const latest = data[0];
+          // If this attempt has a frozen snapshot, use it as the source of truth.
+          const snap = (latest as { narrative_snapshot?: unknown }).narrative_snapshot;
+          const effective =
+            snap && typeof snap === "object"
+              ? (snap as Narrative)
+              : liveNarrative;
+          if (snap && typeof snap === "object") setSnapshotNarrative(snap as Narrative);
+
           if (!latest.completed_at) {
             setAttemptId(latest.id);
             const saved = latest.dm_answers as Record<string, number>;
             if (saved && typeof saved === "object") {
               setAnswers(saved);
-              const sections = narrative.sections;
+              const sections = effective.sections;
               for (let si = sections.length - 1; si >= 0; si--) {
                 const qs = sections[si].questions;
                 const answeredInSection = qs.filter((q) => saved[q.id] !== undefined);
@@ -166,7 +174,7 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
         }
         setLoadingDraft(false);
       });
-  }, [user, narrative, publicMode]);
+  }, [user, liveNarrative, publicMode]);
 
   const saveTimeoutRef = useRef<ReturnType<typeof setTimeout>>();
   useEffect(() => {
