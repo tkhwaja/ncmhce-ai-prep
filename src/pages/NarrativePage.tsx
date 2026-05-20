@@ -189,6 +189,9 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
           .update({ dm_answers: answers as never })
           .eq("id", attemptId);
       } else {
+        // Freeze the current bundle's version of this case onto the attempt so
+        // future deploys with harder questions don't disturb this user's session.
+        const freeze = liveNarrative ?? narrative;
         const { data } = await supabase
           .from("narrative_attempts")
           .insert({
@@ -199,10 +202,15 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
             domain_scores: {},
             total_score: null,
             completed_at: null,
+            narrative_version: freeze?.version ?? null,
+            narrative_snapshot: (freeze as unknown as never) ?? null,
           })
           .select("id")
           .single();
-        if (data) setAttemptId(data.id);
+        if (data) {
+          setAttemptId(data.id);
+          if (freeze && !snapshotNarrative) setSnapshotNarrative(freeze);
+        }
       }
     }, 1500);
 
