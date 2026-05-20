@@ -317,10 +317,13 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
       if (attemptId) {
         await supabase.from("narrative_attempts").update(payload).eq("id", attemptId);
       } else {
+        const freeze = snapshotNarrative ?? liveNarrative ?? narrative;
         await supabase.from("narrative_attempts").insert({
           user_id: user.id,
           narrative_id: narrative.id,
           ig_selections: [],
+          narrative_version: freeze?.version ?? null,
+          narrative_snapshot: (freeze as unknown as never) ?? null,
           ...payload,
         });
       }
