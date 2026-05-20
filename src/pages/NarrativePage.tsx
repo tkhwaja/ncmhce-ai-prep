@@ -7,7 +7,7 @@ import {
   totalQuestionCount,
   NARRATIVE_DOMAINS,
 } from "@/data/narratives";
-import type { NarrativeQuestion } from "@/data/narratives";
+import type { Narrative, NarrativeQuestion } from "@/data/narratives";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { Button } from "@/components/ui/button";
