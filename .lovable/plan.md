@@ -1,51 +1,43 @@
-# Safely upgrade narrative questions without disrupting active attempts
+## Batch 4: Apply hardened questions to Samuel & Monica
 
-## The problem
+Apply uploaded `practice_exam_01_hardened_questions_batch_04_samuel_monica.json` to:
+- `src/data/narratives/practice-exam-01-case-06-samuel-ocd.ts`
+- `src/data/narratives/practice-exam-01-case-07-monica-bipolar-ii.ts`
 
-Narratives live as static TypeScript files in `src/data/narratives/*.ts` and ship in the JS bundle. If you edit a question (stem, options, or `correctAnswer` index) and deploy, **every user currently mid-attempt** reloads with different content:
+Replace only the `questions` arrays inside each matching `sessionLabel` section. Preserve all narrative text, `clientInfo`, `sectionNarrative`, `sessionLabel`, and `questionNumber` ordering. `difficultyLevel` / `skillTested` will be dropped (schema doesn't support them). Verify with the typecheck.
 
-- Answers they already picked may now point at the wrong option index (scoring breaks).
-- Question count or order can shift, corrupting their progress UI.
-- Their completed score on the results page no longer matches what they answered.
+This completes Practice Exam 1 hardening.
 
-The `narrative_attempts` row only stores `narrative_id` + `dm_answers` (a JSON of selected indices). There is no snapshot of the questions they actually saw, so today the runner is always coupled to whatever is in the latest bundle.
+---
 
-## Recommended approach: snapshot-on-start
+## Individual narratives available to harden in future batches
 
-When a user begins an attempt, freeze the exact narrative content into their attempt row. The runner reads from the snapshot, not from the live `getNarrativeById`. New attempts always pick up the latest (harder) version; in-progress attempts finish on the version they started.
+These are the standalone narratives (outside Practice Exam 1) in `src/data/narratives/`. You can send hardened-question batches for any of these next:
 
-This is the most robust option because it survives any future edit — content, scoring, even narrative deletion — with no coordination needed at deploy time.
+1. `06-aisha-ptsd-ipv` — Aisha (PTSD with IPV)
+2. `07-jordan-anorexia` — Jordan (Anorexia Nervosa)
+3. `08-robert-prolonged-grief` — Robert (Prolonged Grief)
+4. `09-mei-ocd` — Mei (OCD)
+5. `10-tyrone-bpd` — Tyrone (BPD)
+6. `11-keisha-adjustment` — Keisha (Adjustment Disorder)
+7. `12-miguel-social-anxiety` — Miguel (Social Anxiety)
+8. `13-marisol-ptsd` — Marisol (PTSD)
+9. `14-claudette-hoarding` — Claudette (Hoarding)
+10. `15-rowena-adhd` — Rowena (ADHD)
+11. `16-leila-autism` — Leila (Autism)
+12. `17-sonia-somatic-symptom` — Sonia (Somatic Symptom Disorder)
+13. `18-carmen-oud` — Carmen (Opioid Use Disorder)
+14. `19-darnell-panic` — Darnell (Panic Disorder)
+15. `20-nadia-bulimia` — Nadia (Bulimia)
+16. `21-safiya-schizophreniform` — Safiya (Schizophreniform)
+17. `24-rafael-hoarding` — Rafael (Hoarding)
+18. `25-nora-specific-phobia` — Nora (Specific Phobia)
 
-### What changes
+Plus 4 cases that live in `src/data/narratives/` as practice-exam-style files but are surfaced in the individual narrative list (not in Practice Exam 1):
 
-1. **DB migration**: add two nullable columns to `narrative_attempts`:
-   - `narrative_version text` — short version string (e.g. `"2026-05-20"` or `"v2"`)
-   - `narrative_snapshot jsonb` — the full `Narrative` object as it existed when the attempt started
-2. **Narrative data**: add a `version: string` field to the `Narrative` type. Bump it whenever you change questions.
-3. **Attempt creation** (wherever `narrative_attempts` is inserted — in `PracticeExamRunner.tsx` / `NarrativePage.tsx`): also write `narrative_version` and `narrative_snapshot` from the current `getNarrativeById(id)`.
-4. **Attempt loading**: in the runner and results pages, prefer `attempt.narrative_snapshot` when present; fall back to `getNarrativeById` for legacy attempts that pre-date the snapshot column.
-5. **Scoring** (`src/lib/practice-exam-scoring.ts` and any inline scoring in the runner): score against the snapshot's `correctAnswer` indices, not the live narrative.
+19. `practice-exam-01-case-08-kiara-bpd` — Kiara (BPD)
+20. `practice-exam-01-case-09-emily-bulimia` — Emily (Bulimia)
+21. `practice-exam-01-case-10-erica-prolonged-grief` — Erica (Prolonged Grief)
+22. `practice-exam-01-case-11-jonah-schizophreniform` — Jonah (Schizophreniform)
 
-### Rollout
-
-- Ship the snapshot infrastructure first (no content changes). Existing in-flight attempts continue using `getNarrativeById` via the fallback — no disruption.
-- Once deployed, every newly started attempt is self-contained.
-- Then push your harder questions whenever you like. In-progress attempts finish on the old version; new attempts get the new one.
-
-### Trade-offs
-
-- Snapshots add ~5–50 KB of JSON per attempt row. Negligible at this scale.
-- Once snapshotted, you can't retroactively "fix a typo" for users mid-attempt without writing a small script. Acceptable.
-
-## Alternatives considered (not recommended as the primary fix)
-
-- **Versioned files side-by-side** (`09-mei-ocd.ts` + `09-mei-ocd-v2.ts`, attempt records which version): works, but you accumulate dead files forever and have to remember to wire each version into the registry.
-- **Deploy during a quiet window + show a "please finish within X minutes" banner**: doesn't actually prevent breakage, just reduces the surface area. Bad UX.
-- **Block edits until all in-progress attempts complete**: not practical — there's almost always someone mid-case.
-
-## Technical notes
-
-- The `version` field is for your own tracking and audit — the snapshot is the source of truth at runtime.
-- Keep `Narrative` import paths unchanged; only the runner/scoring layer learns about the snapshot.
-- Realtime/streak/analytics code that depends on `total_score` is unaffected since scoring still writes the same integer to the same column.
-- No change needed to `src/data/narratives/index.ts` aside from the optional `version` field on each export.
+Also note the free diagnostic case (`src/data/free-diagnostic-bundle.json`) — Tessa GAD — exists separately if you want it hardened too.
