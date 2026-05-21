@@ -7,6 +7,7 @@ export interface PracticeExam {
   description: string;
   narrativeIds: string[];
   ungradedNarrativeCount?: number;
+  comingSoon?: boolean;
 }
 
 export const practiceExams: PracticeExam[] = [
