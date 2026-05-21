@@ -130,7 +130,7 @@ const Narratives = () => {
               className="card-elevated cursor-pointer hover:border-primary/30 transition-all group relative overflow-hidden"
               onClick={() => navigate(`/narrative/${n.id}`)}
             >
-              {(n.id === "27-andre-mdd" || n.id === "22-malika-social-anxiety") && (
+              {["27-andre-mdd", "22-malika-social-anxiety", "23-hana-insomnia", "26-mateo-body-dysmorphic"].includes(n.id) && (
                 <span className="absolute top-2 right-2 z-10 px-2 py-0.5 text-[10px] font-bold tracking-wider rounded-full bg-primary text-primary-foreground shadow-md">
                   NEW
                 </span>
