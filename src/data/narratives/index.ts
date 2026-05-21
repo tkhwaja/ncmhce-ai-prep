@@ -93,6 +93,7 @@ export const narratives: Narrative[] = [
   safiyaSchizophreniform,
   rafaelHoarding,
   noraSpecificPhobia,
+  andreMdd,
   kiaraBPDPracticeExamNarrative,
   emilyBulimiaPracticeExamNarrative,
   ericaProlongedGriefPracticeExamNarrative,
