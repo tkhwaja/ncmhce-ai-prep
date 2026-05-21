@@ -70,30 +70,7 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
   );
 
   const [phase, setPhase] = useState<Phase>("answering");
-  const [caseFontSize, setCaseFontSize] = useState<number>(() => {
-    if (typeof window === "undefined") return DEFAULT_FONT;
-    const stored = parseInt(window.localStorage.getItem(FONT_SIZE_KEY) ?? "", 10);
-    return Number.isFinite(stored) && stored >= MIN_FONT && stored <= MAX_FONT ? stored : DEFAULT_FONT;
-  });
-  useEffect(() => {
-    try { window.localStorage.setItem(FONT_SIZE_KEY, String(caseFontSize)); } catch { /* ignore */ }
-  }, [caseFontSize]);
 
-  const fontSizeControl = (
-    <div className="flex items-center gap-2 w-full max-w-[220px]" title="Adjust case file text size">
-      <Type className="h-3.5 w-3.5 text-muted-foreground shrink-0" aria-hidden />
-      <Slider
-        value={[caseFontSize]}
-        min={MIN_FONT}
-        max={MAX_FONT}
-        step={1}
-        onValueChange={(v) => setCaseFontSize(v[0])}
-        aria-label="Case file font size"
-        className="flex-1"
-      />
-      <span className="text-[10px] tabular-nums text-muted-foreground w-6 text-right">{caseFontSize}</span>
-    </div>
-  );
   const [sectionIndex, setSectionIndex] = useState(0);
   const [questionIndexInSection, setQuestionIndexInSection] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
