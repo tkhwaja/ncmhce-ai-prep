@@ -48,16 +48,24 @@ const Narratives = () => {
 
   const categories = [...new Set(narratives.map((s) => s.category))];
 
-  const filtered = narratives.filter((s) => {
-    if (difficultyFilter !== "all" && s.difficulty !== difficultyFilter) return false;
-    if (categoryFilter !== "all" && s.category !== categoryFilter) return false;
-    if (statusFilter !== "all") {
-      const attempt = attempts[s.id];
-      if (statusFilter === "completed" && !attempt?.completed_at) return false;
-      if (statusFilter === "not-started" && attempt) return false;
-    }
-    return true;
-  });
+  const NEW_IDS = ["27-andre-mdd", "22-malika-social-anxiety", "23-hana-insomnia", "26-mateo-body-dysmorphic"];
+
+  const filtered = narratives
+    .filter((s) => {
+      if (difficultyFilter !== "all" && s.difficulty !== difficultyFilter) return false;
+      if (categoryFilter !== "all" && s.category !== categoryFilter) return false;
+      if (statusFilter !== "all") {
+        const attempt = attempts[s.id];
+        if (statusFilter === "completed" && !attempt?.completed_at) return false;
+        if (statusFilter === "not-started" && attempt) return false;
+      }
+      return true;
+    })
+    .sort((a, b) => {
+      const aNew = NEW_IDS.includes(a.id) ? 0 : 1;
+      const bNew = NEW_IDS.includes(b.id) ? 0 : 1;
+      return aNew - bNew;
+    });
 
   const getStatus = (id: string) => {
     const attempt = attempts[id];
