@@ -135,7 +135,7 @@ const Narratives = () => {
                   className="absolute -top-1 -right-1 z-10 px-3.5 py-1 text-[11px] font-extrabold tracking-widest uppercase rounded-[999px] text-white shadow-lg"
                   style={{
                     background: "linear-gradient(135deg, #FF4D8F 0%, #FF1A6C 40%, #FF85B3 60%, #FF1A6C 100%)",
-                    boxShadow: "0 4px 14px -2px rgba(255, 77, 143, 0.5), inset 1px 1px 2px rgba(255,255,255,5.5)",
+                    boxShadow: "0 4px 14px -2px rgba(255, 77, 143, 0.5), inset 1px 1px 2px rgba(255,255,255,0.55)",
                     textShadow: "0 1px 2px rgba(0,0,0,0.2)",
                   }}
                 >
