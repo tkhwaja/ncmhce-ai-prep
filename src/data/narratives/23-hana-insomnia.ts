@@ -8,7 +8,7 @@ export const hanaInsomnia: Narrative = {
   recommendedTimeBySectionMinutes: [8, 8, 8],
 
   clientInfo: {
-    age: `38`,
+    age: 38,
     sexAssignedAtBirth: `Female`,
     genderIdentity: `Cisgender Female`,
     pronouns: `She/her`,

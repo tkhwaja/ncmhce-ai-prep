@@ -8,7 +8,7 @@ export const mateoBodyDysmorphic: Narrative = {
   recommendedTimeBySectionMinutes: [8, 8, 8],
 
   clientInfo: {
-    age: `27`,
+    age: 27,
     sexAssignedAtBirth: `Male`,
     genderIdentity: `Cisgender Male`,
     pronouns: `He/him`,
