@@ -95,6 +95,7 @@ export const narratives: Narrative[] = [
   rafaelHoarding,
   noraSpecificPhobia,
   andreMdd,
+  malikaSocialAnxiety,
   kiaraBPDPracticeExamNarrative,
   emilyBulimiaPracticeExamNarrative,
   ericaProlongedGriefPracticeExamNarrative,
