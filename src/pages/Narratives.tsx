@@ -7,7 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Brain, Clock, CheckCircle2, PlayCircle, RotateCcw } from "lucide-react";
+import { Brain, Clock, CheckCircle2, PlayCircle, RotateCcw, Lock as LockIcon } from "lucide-react";
 
 const difficultyColor: Record<string, string> = {
   Beginner: "bg-emerald-500/20 text-emerald-400 border-emerald-500/30",
@@ -85,6 +85,19 @@ const Narratives = () => {
               <p className="text-sm text-muted-foreground mt-1">11 clinical narratives • ~4 hours</p>
               <Button size="sm" className="mt-4 h-7 text-xs">
                 <PlayCircle className="h-3 w-3 mr-1" /> Open Exam
+              </Button>
+            </CardContent>
+          </Card>
+          <Card className="card-elevated opacity-70 relative">
+            <CardContent className="p-6">
+              <span className="absolute top-3 right-3 z-10 px-2 py-0.5 text-[10px] font-bold tracking-wider rounded-full bg-muted text-muted-foreground border border-border">
+                COMING SOON
+              </span>
+              <LockIcon className="h-8 w-8 text-muted-foreground mb-3" />
+              <h3 className="font-semibold text-foreground">Practice Exam 2</h3>
+              <p className="text-sm text-muted-foreground mt-1">Coming soon — 11 new clinical narratives</p>
+              <Button size="sm" className="mt-4 h-7 text-xs" disabled>
+                <LockIcon className="h-3 w-3 mr-1" /> Coming Soon
               </Button>
             </CardContent>
           </Card>
