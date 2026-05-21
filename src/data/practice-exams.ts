@@ -7,6 +7,7 @@ export interface PracticeExam {
   description: string;
   narrativeIds: string[];
   ungradedNarrativeCount?: number;
+  comingSoon?: boolean;
 }
 
 export const practiceExams: PracticeExam[] = [
@@ -28,6 +29,13 @@ export const practiceExams: PracticeExam[] = [
       "practice-exam-01-case-06-samuel-ocd",
       "practice-exam-01-case-07-monica-bipolar-ii",
     ],
+  },
+  {
+    id: "practice-exam-2",
+    title: "Practice Exam 2",
+    description: "Coming soon — 11 new clinical narratives",
+    narrativeIds: [],
+    comingSoon: true,
   },
 ];
 
