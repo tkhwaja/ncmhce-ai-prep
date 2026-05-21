@@ -80,16 +80,25 @@ const PracticeExams = () => {
             : null;
 
           return (
-            <Card key={exam.id} className="card-elevated">
-              <CardContent className="p-6">
+            <Card key={exam.id} className={`card-elevated ${exam.comingSoon ? "opacity-70" : ""}`}>
+              <CardContent className="p-6 relative">
+                {exam.comingSoon && (
+                  <span className="absolute top-3 right-3 z-10 px-2 py-0.5 text-[10px] font-bold tracking-wider rounded-full bg-muted text-muted-foreground border border-border">
+                    COMING SOON
+                  </span>
+                )}
                 <div className="flex items-start gap-3">
-                  <div className="h-10 w-10 rounded-lg bg-primary/10 flex items-center justify-center shrink-0">
-                    <Brain className="h-5 w-5 text-primary" />
+                  <div className={`h-10 w-10 rounded-lg flex items-center justify-center shrink-0 ${exam.comingSoon ? "bg-muted" : "bg-primary/10"}`}>
+                    {exam.comingSoon ? (
+                      <Lock className="h-5 w-5 text-muted-foreground" />
+                    ) : (
+                      <Brain className="h-5 w-5 text-primary" />
+                    )}
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-semibold text-foreground">{exam.title}</h3>
                     <p className="text-sm text-muted-foreground mt-1">{exam.description}</p>
-                    {exam.ungradedNarrativeCount ? (
+                    {!exam.comingSoon && exam.ungradedNarrativeCount ? (
                       <p className="text-xs text-muted-foreground mt-2">
                         {exam.ungradedNarrativeCount} ungraded pretest case (mirrors the real NCMHCE)
                       </p>
@@ -100,22 +109,26 @@ const PracticeExams = () => {
                 <div className="grid grid-cols-3 gap-3 mt-5 pt-5 border-t border-border">
                   <div>
                     <p className="text-xs text-muted-foreground">Attempts</p>
-                    <p className="text-lg font-semibold text-foreground">{loading ? "…" : completedAttempts.length}</p>
+                    <p className="text-lg font-semibold text-foreground">{exam.comingSoon ? "—" : loading ? "…" : completedAttempts.length}</p>
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground">Best Score</p>
                     <p className="text-lg font-semibold text-foreground">
-                      {bestScore !== null ? `${bestScore}%` : "—"}
+                      {exam.comingSoon ? "—" : bestScore !== null ? `${bestScore}%` : "—"}
                     </p>
                   </div>
                   <div>
                     <p className="text-xs text-muted-foreground">Cases</p>
-                    <p className="text-lg font-semibold text-foreground">{exam.narrativeIds.length}</p>
+                    <p className="text-lg font-semibold text-foreground">{exam.comingSoon ? "—" : exam.narrativeIds.length}</p>
                   </div>
                 </div>
 
                 <div className="flex gap-2 mt-5">
-                  {inProgress ? (
+                  {exam.comingSoon ? (
+                    <Button className="flex-1" disabled>
+                      <Lock className="h-4 w-4 mr-1" /> Coming Soon
+                    </Button>
+                  ) : inProgress ? (
                     <Button
                       className="flex-1"
                       onClick={() => navigate(`/practice-exam/${exam.id}/attempt/${inProgress.id}`)}
@@ -131,7 +144,7 @@ const PracticeExams = () => {
                       <PlayCircle className="h-4 w-4 mr-1" /> {creating ? "Starting…" : "Start Exam"}
                     </Button>
                   )}
-                  {completedAttempts.length > 0 && !inProgress && (
+                  {!exam.comingSoon && completedAttempts.length > 0 && !inProgress && (
                     <Button
                       variant="outline"
                       onClick={() => startNewAttempt(exam.id)}
