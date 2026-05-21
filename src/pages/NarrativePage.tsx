@@ -844,7 +844,7 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
               <p className="text-xs uppercase tracking-wide text-muted-foreground">Case File</p>
               <p className="text-sm font-semibold text-foreground truncate">{narrative.title}</p>
             </div>
-            {fontSizeControl}
+            
           </div>
           <ScrollArea className="flex-1 p-4">{caseFileBody}</ScrollArea>
         </aside>
