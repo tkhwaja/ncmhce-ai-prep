@@ -122,10 +122,6 @@ You explain the evidence base for CBT for hoarding disorder, including motivatio
           correctAnswer: 1,
           explanation: `Hoarding can be related to OCD, but this case is driven by difficulty discarding, acquisition, attachment, and usefulness beliefs rather than rituals performed to neutralize intrusive contamination or harm obsessions.`,
         },
-          ],
-          correctAnswer: 1,
-          explanation: "Persistent difficulty discarding possessions regardless of value, accompanied by clutter that compromises living spaces and causes impairment, is the core feature of Hoarding Disorder. General indecisiveness alone is insufficient, contamination rituals point more toward OCD, and organized collecting without impairment is not hoarding.",
-        },
         {
           id: "claudette-q2",
           questionNumber: 2,
@@ -264,10 +260,6 @@ With her written consent, you also complete a brief, structured in-home session 
           correctAnswer: 1,
           explanation: `The response addresses the central ambivalence: needing support while preserving autonomy. It is more therapeutic than avoidance, forced choice, or premature advice.`,
         },
-          ],
-          correctAnswer: 1,
-          explanation: "Validating the rupture and then clarifying what would make future help feel safe addresses both the emotional injury and the practical treatment need. Minimizing the incident will deepen mistrust, while removing family involvement altogether or transferring control to family would reduce collaboration and client agency.",
-        },
         {
           id: "claudette-q7",
           questionNumber: 7,
@@ -389,10 +381,6 @@ Several high-attachment areas remain largely untouched. The sewing basket that b
           ],
           correctAnswer: 1,
           explanation: `Natural supports can help when roles, limits, consent, and decision authority are clear. Without structure, help can become coercive or retraumatizing.`,
-        },
-          ],
-          correctAnswer: 1,
-          explanation: "The most therapeutic response invites the client to deepen her own meaning-making about the change she is noticing. Prematurely declaring success, siding with others, or narrowing the moment to inspection compliance would miss the significance of emerging self-recognition and restored dignity.",
         },
         {
           id: "claudette-q12",

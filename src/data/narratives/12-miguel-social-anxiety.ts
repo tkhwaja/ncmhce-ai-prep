@@ -106,10 +106,6 @@ He disclosed that he is the first person in his family to attend graduate school
           correctAnswer: 1,
           explanation: `Academic coordination can be appropriate, but only with informed consent, a clear purpose, and minimum necessary disclosure.`,
         },
-          ],
-          correctAnswer: 1,
-          explanation: "Social Anxiety Disorder is specifically characterized by fear of scrutiny in social or performance situations, with fear of embarrassment or humiliation, and corresponding avoidance or distress. GAD involves generalized worry across topics; Avoidant Personality Disorder involves pervasive patterns of inadequacy that begin early and affect multiple domains broadly.",
-        },
         {
           id: "miguel-q2",
           questionNumber: 2,

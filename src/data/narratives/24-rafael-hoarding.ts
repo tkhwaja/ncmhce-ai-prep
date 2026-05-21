@@ -121,11 +121,6 @@ You discussed Hoarding Disorder as a provisional diagnosis, emphasizing that it 
           correctAnswer: 2,
           explanation: `The counselor may receive collateral information but cannot disclose protected information without written authorization. Even attendance and diagnosis require consent.`,
         },
-          ],
-          correctAnswer: 2,
-          explanation:
-            "Hoarding Disorder is characterized by persistent difficulty discarding possessions, distress associated with discarding, clutter that compromises living areas, and clinically significant impairment or safety risk. Grief, saving useful items, and family conflict may be part of the presentation but do not alone establish the diagnosis.",
-        },
         {
           id: "rafael-q2",
           questionNumber: 2,
@@ -269,11 +264,6 @@ You ask about safety. He acknowledges that the front door does not open fully, o
           correctAnswer: 1,
           explanation: `The counselor may provide accurate, limited documentation within scope but should not function as a legal advocate or make demands outside professional competence.`,
         },
-          ],
-          correctAnswer: 1,
-          explanation:
-            "Exploring item meaning helps build alliance and supports collaborative decision-making. The goal is not immediate forced discarding, but helping the client differentiate categories such as sentimental value, practical use, legal importance, and clutter risk.",
-        },
         {
           id: "rafael-q7",
           questionNumber: 7,
@@ -404,11 +394,6 @@ He asked, "What if getting better means losing the only proof that my life happe
           ],
           correctAnswer: 1,
           explanation: `The client retains autonomy unless capacity or imminent safety issues require intervention. The counselor can facilitate discussion but should not coerce a housing decision for the family.`,
-        },
-          ],
-          correctAnswer: 0,
-          explanation:
-            "Once urgent safety risks are reduced, treatment can carefully address sentimental items while maintaining gains in acquisition and safety. Forced disposal or premature termination would not match the client's ongoing clinical needs.",
         },
         {
           id: "rafael-q12",

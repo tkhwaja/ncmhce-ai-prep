@@ -121,11 +121,6 @@ You provided psychoeducation about Specific Phobia, blood-injection-injury type,
           correctAnswer: 2,
           explanation: `Medical coordination can be clinically important, but it requires informed written consent and minimum necessary disclosure.`,
         },
-          ],
-          correctAnswer: 2,
-          explanation:
-            "Her fear and avoidance are specifically tied to blood, needles, injections, and injury cues, with marked impairment and vasovagal fainting. Panic Disorder would involve recurrent unexpected panic attacks; Illness Anxiety Disorder would involve persistent health preoccupation; PTSD would require trauma-related intrusion and avoidance symptoms.",
-        },
         {
           id: "nora-q2",
           questionNumber: 2,
@@ -269,11 +264,6 @@ She is scheduled for bloodwork in three weeks. She asked whether she should brin
           correctAnswer: 1,
           explanation: `The response is triggered by blood/injury cues and fits the specific phobia pattern. The narrative does not support trauma re-experiencing or a generalized panic pattern.`,
         },
-          ],
-          correctAnswer: 1,
-          explanation:
-            "Applied tension is used in blood-injection-injury phobia to reduce fainting risk by increasing muscle tension and supporting blood pressure. It does not replace exposure, but it can make exposure safer and more tolerable.",
-        },
         {
           id: "nora-q7",
           questionNumber: 7,
@@ -388,11 +378,6 @@ A new gynecology appointment is scheduled in one month, and the client is worrie
           ],
           correctAnswer: 1,
           explanation: `The central learning is not that fear or symptoms disappear, but that she can approach necessary care while tolerating sensations and using skills.`,
-        },
-          ],
-          correctAnswer: 1,
-          explanation:
-            "After a successful exposure, treatment should consolidate learning and plan for future phobic situations. This helps the client generalize skills rather than treat the event as a one-time exception.",
         },
         {
           id: "nora-q12",
