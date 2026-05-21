@@ -127,9 +127,14 @@ const Narratives = () => {
           return (
             <Card
               key={n.id}
-              className="card-elevated cursor-pointer hover:border-primary/30 transition-all group"
+              className="card-elevated cursor-pointer hover:border-primary/30 transition-all group relative overflow-hidden"
               onClick={() => navigate(`/narrative/${n.id}`)}
             >
+              {n.id === "27-andre-mdd" && (
+                <span className="absolute top-2 right-2 z-10 px-2 py-0.5 text-[10px] font-bold tracking-wider rounded-full bg-primary text-primary-foreground shadow-md">
+                  NEW
+                </span>
+              )}
               <CardContent className="p-6">
                 <div className="flex items-start justify-between mb-3">
                   <Badge variant="outline" className={difficultyColor[n.difficulty]}>

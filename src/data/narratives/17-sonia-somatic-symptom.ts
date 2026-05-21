@@ -125,10 +125,6 @@ You explain that Somatic Symptom Disorder is not a diagnosis of "fake symptoms" 
           correctAnswer: 0,
           explanation: `Medication overuse or taking leftover prescriptions can create medical risk and should be assessed and coordinated with medical providers. It is clinically relevant even without substance misuse.`,
         },
-          ],
-          correctAnswer: 1,
-          explanation: 'Somatic Symptom Disorder involves one or more distressing physical symptoms accompanied by disproportionate thoughts, feelings, or behaviors related to those symptoms. Illness Anxiety Disorder typically involves fear of illness with minimal or absent somatic symptoms. The client has substantial ongoing pain and other bodily symptoms in addition to excessive preoccupation.',
-        },
         {
           id: 'sonia-q2',
           questionNumber: 2,
@@ -267,10 +263,6 @@ The client reports that her PCP suggested limiting messages to one non-urgent po
           correctAnswer: 1,
           explanation: `Without authorization, the counselor should not disclose attendance, diagnosis, or content. The next step is to discuss the request with the client and respect her consent decisions.`,
         },
-          ],
-          correctAnswer: 1,
-          explanation: 'A collaborative decision framework respects real medical uncertainty while helping the client differentiate true red flags from anxiety-driven escalation. Absolute reassurance or blanket instructions to stop checking are unlikely to be effective and may feel dismissive. Reviewing inaccuracy alone does not build a practical skill.',
-        },
         {
           id: 'sonia-q7',
           questionNumber: 7,
@@ -396,10 +388,6 @@ Near the end of the session she asks, "What does finishing this even look like? 
           ],
           correctAnswer: 0,
           explanation: `The best plan preserves medical safety while reducing compulsive reassurance seeking and maintaining functioning. It should not rely on family members or urgent evaluation for every symptom increase.`,
-        },
-          ],
-          correctAnswer: 1,
-          explanation: 'Somatic Symptom Disorder does not mean symptoms are medically unexplained or never medically significant. The diagnosis centers on excessive preoccupation, distress, and behavior in response to symptoms. A real migraine does not negate the broader treatment formulation.',
         },
         {
           id: 'sonia-q12',
