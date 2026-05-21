@@ -459,8 +459,8 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
             <SheetContent side="right" className="w-[92vw] sm:w-[440px] p-0 flex flex-col">
               <SheetHeader className="px-4 py-3 border-b border-border text-left space-y-2">
                 <SheetTitle className="text-sm">{narrative.title} — Case File</SheetTitle>
-                {fontSizeControl}
               </SheetHeader>
+
               <ScrollArea className="flex-1 p-4">{caseFileBody}</ScrollArea>
             </SheetContent>
           </Sheet>
