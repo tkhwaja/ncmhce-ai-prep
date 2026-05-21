@@ -93,11 +93,11 @@ const Narratives = () => {
               <span className="absolute top-3 right-3 z-10 px-2 py-0.5 text-[10px] font-bold tracking-wider rounded-full bg-muted text-muted-foreground border border-border">
                 COMING SOON
               </span>
-              <Lock className="h-8 w-8 text-muted-foreground mb-3" />
+              <LockIcon className="h-8 w-8 text-muted-foreground mb-3" />
               <h3 className="font-semibold text-foreground">Practice Exam 2</h3>
               <p className="text-sm text-muted-foreground mt-1">Coming soon — 11 new clinical narratives</p>
               <Button size="sm" className="mt-4 h-7 text-xs" disabled>
-                <Lock className="h-3 w-3 mr-1" /> Coming Soon
+                <LockIcon className="h-3 w-3 mr-1" /> Coming Soon
               </Button>
             </CardContent>
           </Card>
