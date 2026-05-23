@@ -130,12 +130,14 @@ Deno.serve(async (req) => {
   const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
   const authHeader = req.headers.get("Authorization") || "";
   const bearer = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : "";
+  const ADMIN_EMAILS = ["tahahareb18@gmail.com", "tahahareb7@gmail.com"];
   let authorized = false;
   if (bearer && bearer === supabaseServiceKey) authorized = true;
   else if (bearer) {
     try {
       const payload = JSON.parse(atob(bearer.split(".")[1]));
       if (payload?.role === "service_role") authorized = true;
+      else if (payload?.email && ADMIN_EMAILS.includes(String(payload.email).toLowerCase())) authorized = true;
     } catch { /* */ }
   }
   if (!authorized) {
