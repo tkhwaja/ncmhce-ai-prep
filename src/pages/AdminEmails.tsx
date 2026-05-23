@@ -70,9 +70,31 @@ const AdminEmails = () => {
       <div className="max-w-6xl mx-auto space-y-6">
         <div className="flex items-center justify-between">
           <h1 className="text-2xl font-bold">Email monitor</h1>
-          <Button variant="outline" size="sm" onClick={load} disabled={loading}>
-            Refresh
-          </Button>
+          <div className="flex gap-2">
+            <Button
+              variant="default"
+              size="sm"
+              onClick={async () => {
+                const ok = window.confirm(
+                  "Rebuild the Brevo founders list and create the 'Founders Offer — Final Week Feature Tour' draft campaign?"
+                );
+                if (!ok) return;
+                const { data, error } = await supabase.functions.invoke("sync-brevo-second-blast", { body: {} });
+                if (error) {
+                  alert("Failed: " + error.message);
+                } else {
+                  alert(
+                    `Done.\nList: ${data?.listName}\nContacts refreshed: ${data?.contactsRefreshed}\nDraft campaign ID: ${data?.campaignId}\n\nOpen Brevo to review and send.`
+                  );
+                }
+              }}
+            >
+              Draft 2nd blast in Brevo
+            </Button>
+            <Button variant="outline" size="sm" onClick={load} disabled={loading}>
+              Refresh
+            </Button>
+          </div>
         </div>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
