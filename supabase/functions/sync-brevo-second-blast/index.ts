@@ -18,10 +18,10 @@ const CAMPAIGN_SUBJECT = "8 days left: see what your founding year unlocks";
 const PREVIEW_TEXT = "AI tutor, auto-flashcards, focus timer, and a study plan built around your weak areas — all locked in for one year.";
 
 const IMG = {
-  aiTutor: "https://dhcjjwxrksojseskqofl.supabase.co/storage/v1/object/public/email-assets/blast2-ai-tutor.jpg",
-  flashcards: "https://dhcjjwxrksojseskqofl.supabase.co/storage/v1/object/public/email-assets/blast2-flashcards.jpg",
-  pomodoro: "https://dhcjjwxrksojseskqofl.supabase.co/storage/v1/object/public/email-assets/blast2-pomodoro.jpg",
-  studyPlan: "https://dhcjjwxrksojseskqofl.supabase.co/storage/v1/object/public/email-assets/blast2-studyplan.jpg",
+  aiTutor: "https://dhcjjwxrksojseskqofl.supabase.co/storage/v1/object/public/email-assets/blast2-ai-tutor-real.png",
+  flashcards: "https://dhcjjwxrksojseskqofl.supabase.co/storage/v1/object/public/email-assets/blast2-flashcards-real.png",
+  pomodoro: "https://dhcjjwxrksojseskqofl.supabase.co/storage/v1/object/public/email-assets/blast2-pomodoro-real.png",
+  studyPlan: "https://dhcjjwxrksojseskqofl.supabase.co/storage/v1/object/public/email-assets/blast2-study-plan-real.png",
 };
 
 function brevoHeaders() {
