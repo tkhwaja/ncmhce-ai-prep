@@ -27,5 +27,7 @@ project_id = "dhcjjwxrksojseskqofl"
     verify_jwt = false
   [functions.sync-brevo-founders-list]
     verify_jwt = false
+  [functions.sync-brevo-second-blast]
+    verify_jwt = false
   [functions.waitlist-signup]
     verify_jwt = false
