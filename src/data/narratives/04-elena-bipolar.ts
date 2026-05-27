@@ -1,4 +1,4 @@
-import { Narrative } from "../types";
+import { Narrative } from "./types";
 
 export const elenaBipolar: Narrative = {
   id: "elena-bipolar",
