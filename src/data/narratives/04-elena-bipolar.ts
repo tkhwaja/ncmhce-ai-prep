@@ -1,9 +1,39 @@
-import { Narrative } from "./types";
+import type { Narrative } from "./types";
 
 export const elenaBipolar: Narrative = {
-  id: "elena-bipolar",
-  title: "Elena: Bipolar I Disorder",
-  clientName: "Elena",
+  id: "04-elena-bipolar",
+  title: "Elena — Bipolar I Disorder",
+  category: "Mood Disorders",
+  difficulty: "Advanced",
+
+  clientInfo: {
+    age: 31,
+    sexAssignedAtBirth: "Female",
+    genderIdentity: "Cisgender Female",
+    pronouns: "She/her / Ella",
+    sexualOrientation: "Heterosexual",
+    raceEthnicity: "Latina (Mexican American, first generation)",
+    relationshipStatus: "Single, divorced",
+    setting: "Community mental health agency",
+    payment: "Medicaid",
+    typeOfCounseling: "Individual",
+    provisionalDiagnosis: "Bipolar I Disorder, most recent episode manic, severe, with psychotic features: F31.2",
+  },
+
+  presentingProblem: `You are a licensed mental health counselor at a community mental health agency serving a predominantly Latino neighborhood. Your client was referred following discharge from a seven-day inpatient psychiatric hospitalization three days ago. She was brought to the emergency department by her sister after family members became concerned about her behavior. She is bilingual (Spanish-English) and has chosen to conduct sessions in English. She stated, "My sister told me to come here. She said if I don't come, I can't see my daughter until I do."
+
+The client reported that prior to hospitalization, she had been "feeling amazing" for about three weeks. She stated, "I was finally getting things done. I cleaned the whole house at 3 AM. I started six projects. I felt like God had finally given me what I was praying for." She reported sleeping two to three hours per night without feeling tired. She began spending beyond her means, purchasing supplies for a business she was going to start. Her credit card debt increased by approximately $8,000 over ten days. She called her ex-husband repeatedly at night with detailed plans for reconciliation despite a restraining order that remains in effect.
+
+The client stated that during the week before hospitalization, she began to believe that her neighbors were monitoring her through her smoke detectors. She disconnected them and covered them with aluminum foil. She reported hearing "a voice like an angel" telling her she had been chosen to help other Latina mothers. She stopped eating because she believed the food in her refrigerator had been tampered with. Her sister arrived to pick up the client's seven-year-old daughter for school and found the client sitting on the kitchen floor, writing a manifesto in Spanish across the kitchen walls in permanent marker. Her sister called 911.
+
+The client has a history of a depressive episode at age 23, during which she was briefly hospitalized after a medication overdose. She has not received consistent mental health treatment since. She was diagnosed with Bipolar I Disorder during the current hospitalization and was started on lithium and olanzapine. She reported that her symptoms have "quieted down" since starting medication, but she stated, "I don't think I need pills. I just needed to sleep more. I'm not crazy." She expressed significant fear about losing custody of her daughter, who is currently staying with the client's mother.`,
+
+  mentalStatusObservation: `Your client presented dressed neatly in a blouse and jeans; her hair was styled and she wore makeup. She was alert and oriented to person, place, time, and situation. Grooming was good. Eye contact was appropriate to direct. Speech was at a normal rate and volume; she occasionally paused to search for English words she would have spoken more easily in Spanish. Mood was reported as "tired and scared." Affect was mildly constricted, appropriate to content, with brief moments of tearfulness when discussing her daughter. Psychomotor activity was calm. Thought processes were linear and goal-directed. Thought content was notable for minimization of recent psychotic symptoms ("I was just stressed"), ambivalence about medication, and significant worry about custody. She denied current delusions; when asked about the smoke detector beliefs, she stated, "I don't really think that anymore. I think I was just not sleeping." She reported no current hallucinations. She denied current suicidal ideation. She has a history of one suicide attempt at age 23. She denied illicit substance use and reported drinking "maybe a glass of wine on holidays." A recent inpatient physical was unremarkable; her lithium level drawn two days ago was within therapeutic range.`,
+
+  familyHistory: `The client is the youngest of four children. Her parents immigrated from Jalisco, Mexico in 1988. Her father passed away eight years ago from complications of diabetes. Her mother lives nearby and is her primary support. She has three older siblings who all live in the area. Her older sister, age 39, is her emergency contact and is currently caring for her daughter along with the client's mother. The client reported that her mother was diagnosed with "nervios" in Mexico as a young woman and took medication "for a little while" but "prayed her way out of it." She reported that a maternal aunt was hospitalized multiple times in Mexico and died by suicide at age 44. "Nobody in the family talked about it. They said she had a weak faith." The client's paternal grandfather was known for "drinking too much and being too happy, then too sad." No formal diagnosis history for relatives, but the family pattern is notable.`,
+
+  workHistory: `The client completed an associate's degree in medical office administration. She worked as a medical receptionist for five years before her divorce three years ago. She was fired from her position nine months ago after showing up to work with increasingly erratic behavior during what was likely an earlier hypomanic period that was not recognized as such at the time. She has worked part-time as a receptionist at a local auto body shop for the past four months. Her employment there is currently on hold pending her return from medical leave. The client is the primary financial support for herself and her daughter. She receives child support inconsistently from her ex-husband. She currently receives Medicaid and food stamps.`,
+
   intakeSessionSummary: `Elena is a 32-year-old woman who presents for outpatient counseling following a 9-day inpatient psychiatric hospitalization. She was admitted after a manic episode characterized by decreased need for sleep, expansive mood, religious delusions, impulsive spending, and grandiose plans. She has a history of a depressive episode at age 23. She is currently prescribed lithium and olanzapine. She is a single mother to a 7-year-old daughter and is currently navigating a contentious custody situation with her ex-husband.`,
 
   sections: [
