@@ -26,6 +26,7 @@ import { andreMdd } from "./27-andre-mdd";
 import { malikaSocialAnxiety } from "./22-malika-social-anxiety";
 import { hanaInsomnia } from "./23-hana-insomnia";
 import { mateoBodyDysmorphic } from "./26-mateo-body-dysmorphic";
+import { rafaelPtsd } from "./28-rafael-ptsd";
 import { daniellePeripartumMDDNarrative } from "./exam-01-02-danielle-mdd";
 import { nehaGADPracticeExamNarrative } from "./practice-exam-01-case-03-neha-gad";
 import { luisPanicNarrative } from "./practice-exam-01-case-04-luis-panic";
@@ -100,6 +101,7 @@ export const narratives: Narrative[] = [
   malikaSocialAnxiety,
   hanaInsomnia,
   mateoBodyDysmorphic,
+  rafaelPtsd,
   kiaraBPDPracticeExamNarrative,
   emilyBulimiaPracticeExamNarrative,
   ericaProlongedGriefPracticeExamNarrative,
