@@ -48,7 +48,26 @@ const Narratives = () => {
 
   const categories = [...new Set(narratives.map((s) => s.category))];
 
-  const NEW_IDS = ["28-rafael-ptsd"];
+  // NEW badges auto-expire 7 days after `addedAt`. Add new entries here when shipping a case.
+  const NEW_BADGES: Record<string, { addedAt: string; gradient: string; shadow: string }> = {
+    "28-rafael-ptsd": {
+      addedAt: "2026-05-27",
+      gradient: "linear-gradient(135deg, #34D399 0%, #10B981 40%, #6EE7B7 60%, #059669 100%)",
+      shadow: "0 4px 14px -2px rgba(16, 185, 129, 0.5), inset 1px 1px 2px rgba(255,255,255,0.55)",
+    },
+    "32-renee-did": {
+      addedAt: "2026-05-30",
+      gradient: "linear-gradient(135deg, #A78BFA 0%, #7C3AED 40%, #C4B5FD 60%, #6D28D9 100%)",
+      shadow: "0 4px 14px -2px rgba(124, 58, 237, 0.5), inset 1px 1px 2px rgba(255,255,255,0.55)",
+    },
+  };
+  const NEW_BADGE_DAYS = 7;
+  const isBadgeActive = (id: string) => {
+    const entry = NEW_BADGES[id];
+    if (!entry) return false;
+    const added = new Date(entry.addedAt).getTime();
+    return Date.now() - added < NEW_BADGE_DAYS * 24 * 60 * 60 * 1000;
+  };
 
   const filtered = narratives
     .filter((s) => {
@@ -62,8 +81,8 @@ const Narratives = () => {
       return true;
     })
     .sort((a, b) => {
-      const aNew = NEW_IDS.includes(a.id) ? 0 : 1;
-      const bNew = NEW_IDS.includes(b.id) ? 0 : 1;
+      const aNew = isBadgeActive(a.id) ? 0 : 1;
+      const bNew = isBadgeActive(b.id) ? 0 : 1;
       return aNew - bNew;
     });
 
@@ -151,12 +170,12 @@ const Narratives = () => {
               className="card-elevated cursor-pointer hover:border-primary/30 transition-all group relative overflow-hidden"
               onClick={() => navigate(`/narrative/${n.id}`)}
             >
-              {["28-rafael-ptsd"].includes(n.id) && (
+              {isBadgeActive(n.id) && (
                 <span
                   className="absolute -top-1 -right-1 z-10 px-3.5 py-1 text-[11px] font-extrabold tracking-widest uppercase rounded-[999px] text-white shadow-lg"
                   style={{
-                    background: "linear-gradient(135deg, #34D399 0%, #10B981 40%, #6EE7B7 60%, #059669 100%)",
-                    boxShadow: "0 4px 14px -2px rgba(16, 185, 129, 0.5), inset 1px 1px 2px rgba(255,255,255,0.55)",
+                    background: NEW_BADGES[n.id].gradient,
+                    boxShadow: NEW_BADGES[n.id].shadow,
                     textShadow: "0 1px 2px rgba(0,0,0,0.2)",
                   }}
                 >
