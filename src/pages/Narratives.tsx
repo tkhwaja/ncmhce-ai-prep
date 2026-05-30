@@ -48,7 +48,7 @@ const Narratives = () => {
 
   const categories = [...new Set(narratives.map((s) => s.category))];
 
-  const NEW_IDS = ["27-andre-mdd", "22-malika-social-anxiety", "23-hana-insomnia", "26-mateo-body-dysmorphic"];
+  const NEW_IDS = ["28-rafael-ptsd"];
 
   const filtered = narratives
     .filter((s) => {
