@@ -51,7 +51,7 @@ const PricingSection = () => {
                 ))}
               </ul>
               <Button className="w-full" size="lg" onClick={() => navigate("/signup")}>
-                Free Sign Up
+                Start Subscription
               </Button>
             </CardContent>
           </Card>

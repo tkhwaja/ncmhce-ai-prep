@@ -16,7 +16,7 @@ const HeroSection = () => {
           <div className="animate-fade-up">
               <div className="hidden md:inline-flex items-center gap-2 rounded-full border border-primary/30 bg-primary/10 px-4 py-1.5 text-xs font-semibold text-primary mb-6">
               <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-                Free for everyone until May 31 — no payment required
+                Start with a free diagnostic case
             </div>
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-foreground mb-3">
@@ -35,7 +35,7 @@ const HeroSection = () => {
                   to="/signup"
                   className="inline-flex h-11 items-center justify-center rounded-lg bg-primary px-8 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
                 >
-                  Free Sign Up
+                  Sign Up
                 </Link>
                 <FreeDiagnosticCTA className="space-y-0" noteClassName="hidden" />
               </div>
