@@ -13,8 +13,6 @@ import PricingSection from "@/components/landing/PricingSection";
 import WaitlistCTA from "@/components/landing/WaitlistCTA";
 import FAQSection from "@/components/landing/FAQSection";
 import Footer from "@/components/landing/Footer";
-import FoundingBanner from "@/components/landing/FoundingBanner";
-import FoundingPopup from "@/components/landing/FoundingPopup";
 
 const faqSchema = {
   "@context": "https://schema.org",
@@ -83,7 +81,6 @@ const Index = () => (
       <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
     </Helmet>
     <div className="fixed top-0 left-0 right-0 z-50">
-      <FoundingBanner />
       <Navbar />
     </div>
     <HeroSection />
@@ -99,7 +96,6 @@ const Index = () => (
     <WaitlistCTA />
     <FAQSection />
     <Footer />
-    <FoundingPopup />
   </div>
 );
 
