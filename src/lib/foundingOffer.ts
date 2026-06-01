@@ -1,7 +1,8 @@
-// Founding-member offer window: live until end of May 31, 2026.
-// Banner, popup, and /founding checkout all auto-disable on June 1, 2026.
+// Founding-member offer ended May 31, 2026. Standard $79/mo pricing is now live.
+// Existing founding members retain access via profile.access_expires_at — that
+// check lives in useSubscription and is independent of this flag.
 export const FOUNDING_OFFER_END = new Date("2026-06-01T00:00:00-04:00");
 
-export function isFoundingOfferActive(now: Date = new Date()): boolean {
-  return now < FOUNDING_OFFER_END;
+export function isFoundingOfferActive(_now: Date = new Date()): boolean {
+  return false;
 }
