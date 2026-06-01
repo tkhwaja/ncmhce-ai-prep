@@ -27,7 +27,7 @@ const FreeDiagnosticCase = lazy(() => import("./pages/FreeDiagnosticCase"));
 const CheckoutPage = lazy(() => import("./pages/CheckoutPage"));
 const CheckoutReturn = lazy(() => import("./pages/CheckoutReturn"));
 const IconsPreview = lazy(() => import("./pages/IconsPreview"));
-const Founding = lazy(() => import("./pages/Founding"));
+
 const AdminEmails = lazy(() => import("./pages/AdminEmails"));
 
 // App shell + pages
@@ -127,7 +127,7 @@ const App = () => (
                 <Route path="/checkout" element={<CheckoutPage />} />
                 <Route path="/checkout/return" element={<CheckoutReturn />} />
                 <Route path="/icons-preview" element={<IconsPreview />} />
-                <Route path="/founding" element={<Founding />} />
+                <Route path="/founding" element={<Navigate to="/signup" replace />} />
                 <Route path="/admin/emails" element={<AdminEmails />} />
 
                 <Route element={<ProtectedRoute><PomodoroProvider><AppLayout /></PomodoroProvider></ProtectedRoute>}>

@@ -317,11 +317,11 @@ const Profile = () => {
                 <p className="text-sm font-semibold text-foreground">You're on the Free plan</p>
                 <p className="text-xs text-muted-foreground mt-1">
                   Unlock all narratives, full-length practice exams, flashcards, AI coaching, and your
-                  personalized study plan with the Founding Member offer — one payment, a full year of access.
+                  personalized study plan for $79/month. Cancel anytime.
                 </p>
               </div>
-              <Button onClick={() => navigate("/founding")} className="w-full sm:w-auto">
-                <CreditCard className="mr-2 h-4 w-4" /> View Membership Options
+              <Button onClick={() => navigate("/checkout")} className="w-full sm:w-auto">
+                <CreditCard className="mr-2 h-4 w-4" /> Subscribe — $79/month
               </Button>
             </div>
           )}

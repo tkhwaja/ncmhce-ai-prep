@@ -27,7 +27,7 @@ import {
   RotateCcw, ArrowRight, LayoutDashboard, Mail, UnlockKeyhole, FileText, Sparkles,
 } from "lucide-react";
 import NarrativeReviewChat from "@/components/NarrativeReviewChat";
-import { isFoundingOfferActive } from "@/lib/foundingOffer";
+
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 
 type Phase = "answering" | "section-summary" | "results" | "review";
@@ -635,18 +635,18 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
                 </CardContent>
               </Card>
 
-              {publicMode && !resultsLocked && isFoundingOfferActive() && (
+              {publicMode && !resultsLocked && (
                 <Card className="card-elevated border-primary/40 bg-primary/5">
                   <CardContent className="p-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
                     <div>
-                      <p className="text-sm font-semibold text-foreground">Get full access — Founding Member offer</p>
+                      <p className="text-sm font-semibold text-foreground">Get full access</p>
                       <p className="text-sm text-muted-foreground mt-1">
-                        Lock in 1 year of The Exam Path for a one-time <strong>$67</strong> (regular $79/mo). Ends May 31.
+                        Unlock every clinical case, practice exam, and study tool for <strong>$79/month</strong>. Cancel anytime.
                       </p>
                     </div>
-                    <Button onClick={() => navigate("/signup?next=/founding")} className="shrink-0">
+                    <Button onClick={() => navigate("/signup")} className="shrink-0">
                       <Sparkles className="h-4 w-4" />
-                      Claim $67 offer
+                      Get Full Access
                     </Button>
                   </CardContent>
                 </Card>
@@ -802,7 +802,7 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
                 </Button>
               </div>
 
-              {publicMode && reviewQuestionGlobalIndex === totalQs - 1 && isFoundingOfferActive() && (
+              {publicMode && reviewQuestionGlobalIndex === totalQs - 1 && (
                 <Card className="card-elevated border-primary/30 bg-gradient-to-br from-primary/5 to-primary/10">
                   <CardContent className="p-6 text-center space-y-4">
                     <div className="inline-flex items-center justify-center w-12 h-12 rounded-full bg-primary/20">
@@ -813,23 +813,23 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
                         Ready for more practice?
                       </h3>
                       <p className="text-sm text-muted-foreground max-w-sm mx-auto">
-                        Get full access to every clinical case narrative, practice exams, DSM-5-TR library, and flashcards. Lock in your founding member price before it goes up.
+                        Get full access to every clinical case narrative, practice exams, DSM-5-TR library, and flashcards.
                       </p>
                     </div>
                     <div className="flex flex-col sm:flex-row gap-3 justify-center">
                       <Button
-                        onClick={() => navigate("/founding")}
+                        onClick={() => navigate("/signup")}
                         className="bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground shadow-sm"
                       >
                         <Sparkles className="mr-2 h-4 w-4" />
-                        Get Full Access — $67/year
+                        Get Full Access — $79/month
                       </Button>
                       <Button variant="outline" onClick={() => navigate("/")}>
                         Back to Home
                       </Button>
                     </div>
                     <p className="text-xs text-muted-foreground">
-                      Founding member offer ends May 31, 2026
+                      Cancel anytime. No commitment.
                     </p>
                   </CardContent>
                 </Card>

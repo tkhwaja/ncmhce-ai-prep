@@ -120,7 +120,7 @@ const AppHeader = ({ onToggleChat, chatOpen }: AppHeaderProps) => {
         {isFreeUser && (
           <Button
             size="sm"
-            onClick={() => navigate("/founding")}
+            onClick={() => navigate("/checkout")}
             className="gap-1.5 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground shadow-sm"
             title="Upgrade your membership"
           >
