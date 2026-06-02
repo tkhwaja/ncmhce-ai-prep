@@ -39,7 +39,8 @@ serve(async (req) => {
         metadata: { userId, priceId },
         ...(isRecurring && { subscription_data: { metadata: { userId, priceId } } }),
       }),
-    };
+      automatic_tax: { enabled: false },
+
 
 
     const session = await stripe.checkout.sessions.create(sessionParams);
