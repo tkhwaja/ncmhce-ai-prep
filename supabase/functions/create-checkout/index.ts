@@ -28,11 +28,6 @@ serve(async (req) => {
     const stripePrice = prices.data[0];
     const isRecurring = stripePrice.type === "recurring";
 
-    // Enable Stripe tax calculation for products that have tax codes set.
-    // (We previously used managed_payments, but it forces Link as the default
-    // payment method and hides the card/other options — users want to choose.)
-    const useAutomaticTax = priceId === "early_access_yearly" || priceId === "ncmhce_monthly";
-
     const sessionParams: any = {
       line_items: [{ price: stripePrice.id, quantity: quantity || 1 }],
       mode: isRecurring ? "subscription" : "payment",
@@ -44,12 +39,16 @@ serve(async (req) => {
         metadata: { userId, priceId },
         ...(isRecurring && { subscription_data: { metadata: { userId, priceId } } }),
       }),
-      ...(useAutomaticTax && { automatic_tax: { enabled: true } }),
+      automatic_tax: { enabled: false },
     };
+
+
+
+
 
     const session = await stripe.checkout.sessions.create(sessionParams);
 
-    return new Response(JSON.stringify({ clientSecret: session.client_secret }), { headers: corsHeaders });
+    return new Response(JSON.stringify({ clientSecret: session.client_secret, v: "no-tax-v2" }), { headers: corsHeaders });
   } catch (error) {
     return new Response(JSON.stringify({ error: error instanceof Error ? error.message : String(error) }), { status: 500, headers: corsHeaders });
   }
