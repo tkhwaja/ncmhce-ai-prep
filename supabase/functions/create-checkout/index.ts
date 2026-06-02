@@ -40,6 +40,9 @@ serve(async (req) => {
         ...(isRecurring && { subscription_data: { metadata: { userId, priceId } } }),
       }),
       automatic_tax: { enabled: false },
+    };
+
+
 
 
 
