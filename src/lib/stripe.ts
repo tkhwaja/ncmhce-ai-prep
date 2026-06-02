@@ -2,23 +2,30 @@ import { loadStripe, Stripe } from "@stripe/stripe-js";
 import { supabase } from "@/integrations/supabase/client";
 
 const clientToken = import.meta.env.VITE_PAYMENTS_CLIENT_TOKEN;
-const environment = clientToken?.startsWith('pk_test_') ? 'sandbox' : 'live';
+
+export type StripeEnvironment = "sandbox" | "live";
+
+function paymentsEnvironment(): StripeEnvironment {
+  if (clientToken?.startsWith("pk_test_")) return "sandbox";
+  if (clientToken?.startsWith("pk_live_")) return "live";
+  throw new Error(
+    "Stripe checkout is not configured for this build yet. Complete payments go-live and publish again to enable checkout."
+  );
+}
 
 let stripePromise: Promise<Stripe | null> | null = null;
 
 export function getStripe(): Promise<Stripe | null> {
   if (!stripePromise) {
-    if (!clientToken) {
-      throw new Error("VITE_PAYMENTS_CLIENT_TOKEN is not set");
-    }
-    stripePromise = loadStripe(clientToken);
+    paymentsEnvironment();
+    stripePromise = loadStripe(clientToken as string);
   }
   return stripePromise;
 }
 
 export async function getStripePriceId(priceId: string): Promise<string> {
   const { data, error } = await supabase.functions.invoke("get-stripe-price", {
-    body: { priceId, environment },
+    body: { priceId, environment: paymentsEnvironment() },
   });
   if (error || !data?.stripeId) {
     throw new Error(`Failed to resolve price: ${priceId}`);
@@ -26,6 +33,6 @@ export async function getStripePriceId(priceId: string): Promise<string> {
   return data.stripeId;
 }
 
-export function getStripeEnvironment(): string {
-  return environment;
+export function getStripeEnvironment(): StripeEnvironment {
+  return paymentsEnvironment();
 }
