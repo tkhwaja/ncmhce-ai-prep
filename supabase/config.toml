@@ -31,6 +31,3 @@ project_id = "dhcjjwxrksojseskqofl"
     verify_jwt = false
   [functions.waitlist-signup]
     verify_jwt = false
-
-[functions.admin-fix-lookup-key]
-verify_jwt = false
