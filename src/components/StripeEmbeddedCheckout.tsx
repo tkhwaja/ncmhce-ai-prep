@@ -13,6 +13,20 @@ interface StripeEmbeddedCheckoutProps {
   returnUrl?: string;
 }
 
+async function getCheckoutErrorMessage(error: unknown, fallback: string) {
+  const context = (error as { context?: Response })?.context;
+  if (context) {
+    try {
+      const body = await context.clone().json();
+      if (typeof body?.error === "string") return body.error;
+    } catch {
+      // Fall back to the SDK error message below.
+    }
+  }
+
+  return error instanceof Error ? error.message : fallback;
+}
+
 export function StripeEmbeddedCheckout({
   priceId,
   quantity,
@@ -38,7 +52,10 @@ export function StripeEmbeddedCheckout({
         if (!active) return;
 
         if (error || data?.error || !data?.clientSecret) {
-          setErrorMessage(data?.error || error?.message || "Checkout could not be started.");
+          setErrorMessage(
+            data?.error ||
+              (error ? await getCheckoutErrorMessage(error, "Checkout could not be started.") : "Checkout could not be started.")
+          );
           return;
         }
 
