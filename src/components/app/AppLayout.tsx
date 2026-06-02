@@ -4,6 +4,8 @@ import AppSidebar from "./AppSidebar";
 import AppHeader from "./AppHeader";
 import AIChatSidebar from "./AIChatSidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
+import { useSubscription } from "@/hooks/useSubscription";
+
 
 export interface AppLayoutOutletContext {
   openChatWithPrompt: (prompt: string) => void;
