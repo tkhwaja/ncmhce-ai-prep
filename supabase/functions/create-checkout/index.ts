@@ -49,6 +49,8 @@ serve(async (req) => {
 
     return new Response(JSON.stringify({ clientSecret: session.client_secret }), { headers: corsHeaders });
   } catch (error) {
-    return new Response(JSON.stringify({ error: error instanceof Error ? error.message : String(error) }), { status: 500, headers: corsHeaders });
+    const message = error instanceof Error ? error.message : String(error);
+    console.error("create-checkout failed", { message, stack: error instanceof Error ? error.stack : undefined });
+    return new Response(JSON.stringify({ error: message }), { status: 500, headers: corsHeaders });
   }
 });

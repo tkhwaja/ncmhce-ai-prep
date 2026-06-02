@@ -20,19 +20,37 @@ type CheckoutState =
 
 // Surface the edge function's own error body (e.g. "Price not found") instead of
 // the generic "Edge Function returned a non-2xx status code" that supabase-js throws.
+// supabase-js wraps the Response in `error.context`; the body may be JSON, plain
+// text, or already-consumed — so try each and always include the status code.
 async function extractInvokeError(error: unknown): Promise<string> {
   const fallback =
     error instanceof Error ? error.message : "Failed to create checkout session";
   const context = (error as { context?: Response })?.context;
-  if (context && typeof context.clone === "function") {
+  if (!context) return fallback;
+
+  const status = typeof context.status === "number" ? context.status : undefined;
+  const statusTag = status ? `HTTP ${status}` : "Edge function error";
+
+  if (typeof context.clone === "function") {
     try {
       const body = await context.clone().json();
-      if (body?.error && typeof body.error === "string") return body.error;
+      if (body && typeof body.error === "string" && body.error.trim()) {
+        return `${statusTag}: ${body.error}`;
+      }
+      if (body && typeof body.message === "string" && body.message.trim()) {
+        return `${statusTag}: ${body.message}`;
+      }
     } catch {
-      /* response had no JSON body — fall back below */
+      /* not JSON — fall through to text */
+    }
+    try {
+      const text = (await context.clone().text()).trim();
+      if (text) return `${statusTag}: ${text.slice(0, 300)}`;
+    } catch {
+      /* body already consumed */
     }
   }
-  return fallback;
+  return status ? `${statusTag} (no body) — ${fallback}` : fallback;
 }
 
 export function StripeEmbeddedCheckout({

@@ -56,9 +56,13 @@ describe("StripeEmbeddedCheckout", () => {
     );
   });
 
-  it("surfaces the edge function's own error message (e.g. Price not found)", async () => {
+  it("surfaces the edge function's JSON error body with status (e.g. Price not found)", async () => {
     const context = {
-      clone: () => ({ json: () => Promise.resolve({ error: "Price not found" }) }),
+      status: 404,
+      clone: () => ({
+        json: () => Promise.resolve({ error: "Price not found" }),
+        text: () => Promise.resolve(""),
+      }),
     };
     invokeMock.mockResolvedValue({
       data: null,
@@ -69,13 +73,39 @@ describe("StripeEmbeddedCheckout", () => {
 
     render(<StripeEmbeddedCheckout {...props} />);
 
-    await waitFor(() => expect(screen.getByText("Price not found")).toBeInTheDocument());
+    await waitFor(() =>
+      expect(screen.getByText("HTTP 404: Price not found")).toBeInTheDocument(),
+    );
     expect(screen.getByText(/checkout couldn't load/i)).toBeInTheDocument();
     // The blank-render bug would have shown nothing — assert the form is absent.
     expect(screen.queryByTestId("embedded-checkout")).not.toBeInTheDocument();
   });
 
-  it("falls back to the generic error message when there is no JSON body", async () => {
+  it("falls back to plain text body when the response isn't JSON", async () => {
+    const context = {
+      status: 500,
+      clone: () => ({
+        json: () => Promise.reject(new SyntaxError("not json")),
+        text: () => Promise.resolve("Internal Server Error: boom"),
+      }),
+    };
+    invokeMock.mockResolvedValue({
+      data: null,
+      error: Object.assign(new Error("Edge Function returned a non-2xx status code"), {
+        context,
+      }),
+    });
+
+    render(<StripeEmbeddedCheckout {...props} />);
+
+    await waitFor(() =>
+      expect(
+        screen.getByText("HTTP 500: Internal Server Error: boom"),
+      ).toBeInTheDocument(),
+    );
+  });
+
+  it("falls back to the generic error message when there is no response context", async () => {
     invokeMock.mockResolvedValue({
       data: null,
       error: new Error("Failed to send a request to the Edge Function"),
