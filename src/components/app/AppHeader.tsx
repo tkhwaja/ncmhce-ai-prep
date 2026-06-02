@@ -49,6 +49,7 @@ const AppHeader = ({ onToggleChat, chatOpen }: AppHeaderProps) => {
   const sub = useSubscription();
   const [searchQuery, setSearchQuery] = useState("");
   const [showResults, setShowResults] = useState(false);
+  const [showPaywall, setShowPaywall] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
 
   // Show "Upgrade" CTA only to users without a real paid plan
