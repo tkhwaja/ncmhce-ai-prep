@@ -55,15 +55,7 @@ export function StripeEmbeddedCheckout({
     };
   }, [priceId, quantity, customerEmail, userId, returnUrl, retryKey]);
 
-  const stripe = useMemo(() => {
-    if (!clientSecret) return null;
-    try {
-      return getStripe();
-    } catch (error) {
-      setErrorMessage(error instanceof Error ? error.message : "Stripe checkout is not configured.");
-      return null;
-    }
-  }, [clientSecret]);
+  const stripe = useMemo(() => (clientSecret ? getStripe() : null), [clientSecret]);
 
   const options = useMemo(() => ({ clientSecret }), [clientSecret]);
 
