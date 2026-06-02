@@ -148,17 +148,40 @@ const Profile = () => {
     }
     setCancelSubmitting(true);
     try {
-      const { error } = await supabase.functions.invoke("submit-cancellation-feedback", {
-        body: { reason: cancelReason, details: cancelDetails },
+      const { data, error } = await supabase.functions.invoke("submit-cancellation-feedback", {
+        body: { reason: cancelReason, details: cancelDetails, environment: getStripeEnvironment() },
       });
       if (error) throw new Error(error.message);
-      toast({
-        title: "Feedback submitted",
-        description: "Thank you. We'll process your cancellation request shortly. You can also manage billing directly via the portal.",
-      });
+
+      const accessUntil: string | null = data?.accessUntil || null;
+      const hadStripeSub: boolean = !!data?.hadStripeSub;
+      const stripeCanceled: boolean = !!data?.stripeCanceled;
+      const stripeCancelError: string | null = data?.stripeCancelError || null;
+
+      if (hadStripeSub && stripeCanceled) {
+        toast({
+          title: "Subscription canceled",
+          description: accessUntil
+            ? `You'll keep access until ${new Date(accessUntil).toLocaleDateString()}.`
+            : "You'll keep access until the end of your current billing period.",
+        });
+      } else if (hadStripeSub && stripeCancelError) {
+        toast({
+          title: "Feedback received, but cancellation failed",
+          description: "Please use Manage Billing to cancel directly, or contact support.",
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: "Feedback submitted",
+          description: "Thank you. Our team will follow up shortly.",
+        });
+      }
+
       setCancelOpen(false);
       setCancelReason("");
       setCancelDetails("");
+      await sub.refresh();
     } catch (e: any) {
       toast({ title: "Error", description: e.message || "Failed to submit feedback", variant: "destructive" });
     } finally {
