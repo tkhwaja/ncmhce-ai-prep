@@ -50,9 +50,10 @@ const Signup = () => {
 
   useEffect(() => {
     if (!authLoading && user) {
-      navigate(safeNext ?? "/checkout", { replace: true });
+      navigate(safeNext ?? "/dashboard", { replace: true });
     }
   }, [authLoading, user, safeNext, navigate]);
+
 
 
   const {
@@ -112,7 +113,7 @@ const Signup = () => {
       password: values.password,
       options: {
         data: { full_name: values.fullName, target_exam_date: examDate?.toISOString() },
-        emailRedirectTo: `${window.location.origin}${safeNext ?? "/checkout"}`,
+        emailRedirectTo: `${window.location.origin}${safeNext ?? "/dashboard"}`,
       },
     });
     setLoading(false);
@@ -125,7 +126,7 @@ const Signup = () => {
     if (data.session) {
       posthog.identify(data.session.user.id, { email: values.email, full_name: values.fullName });
       posthog.capture("email_signup", { email: values.email, source: "signup_page", confirmed: true });
-      navigate(safeNext ?? "/checkout");
+      navigate(safeNext ?? "/dashboard");
       return;
     }
     if (data.user) {
