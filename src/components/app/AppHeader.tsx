@@ -153,7 +153,13 @@ const AppHeader = ({ onToggleChat, chatOpen }: AppHeaderProps) => {
 
         <Button
           variant={chatOpen ? "default" : "outline"}
-          onClick={onToggleChat}
+          onClick={() => {
+            if (isFreeUser) {
+              setShowPaywall(true);
+            } else {
+              onToggleChat();
+            }
+          }}
           className="relative gap-2"
           title="Toggle AI Chat"
         >
