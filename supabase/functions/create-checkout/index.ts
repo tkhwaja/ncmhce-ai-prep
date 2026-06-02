@@ -27,12 +27,11 @@ serve(async (req) => {
       return price.active && (typeof product === "string" || product.active !== false);
     });
 
-    if (!prices.data.length || !stripePrice) {
+    if (!prices.data.length) {
       return new Response(JSON.stringify({ error: "Price not found" }), { status: 404, headers: corsHeaders });
     }
 
-    const product = stripePrice.product as any;
-    if (typeof product !== "string" && product.active === false) {
+    if (!stripePrice) {
       return new Response(
         JSON.stringify({
           error: environment === "live"
@@ -42,6 +41,8 @@ serve(async (req) => {
         { status: 409, headers: corsHeaders }
       );
     }
+
+    const product = stripePrice.product as any;
 
     const isRecurring = stripePrice.type === "recurring";
 
