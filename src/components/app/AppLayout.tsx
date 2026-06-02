@@ -4,6 +4,8 @@ import AppSidebar from "./AppSidebar";
 import AppHeader from "./AppHeader";
 import AIChatSidebar from "./AIChatSidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
+import { useSubscription } from "@/hooks/useSubscription";
+
 
 export interface AppLayoutOutletContext {
   openChatWithPrompt: (prompt: string) => void;
@@ -24,8 +26,10 @@ const pageContextMap: Record<string, string> = {
 };
 
 const AppLayout = () => {
+  const { hasAccess } = useSubscription();
   const [chatOpen, setChatOpen] = useState(true);
   const [chatWidth, setChatWidth] = useState(380);
+
   const [queuedPrompt, setQueuedPrompt] = useState<{ id: number; text: string } | null>(null);
   const location = useLocation();
   const currentContext =
@@ -42,7 +46,7 @@ const AppLayout = () => {
       <div className="min-h-screen flex w-full bg-background app-text-scale">
         <AppSidebar />
         <div className="flex-1 flex flex-col min-w-0">
-          <AppHeader onToggleChat={() => setChatOpen(!chatOpen)} chatOpen={chatOpen} />
+          <AppHeader onToggleChat={() => setChatOpen(!chatOpen)} chatOpen={chatOpen && hasAccess} />
           <main className="flex-1 overflow-auto">
             <Outlet context={{ openChatWithPrompt } satisfies AppLayoutOutletContext} />
           </main>
@@ -52,15 +56,18 @@ const AppLayout = () => {
             </p>
           </footer>
         </div>
-        <AIChatSidebar
-          open={chatOpen}
-          onClose={() => setChatOpen(false)}
-          context={currentContext}
-          queuedPrompt={queuedPrompt}
-          width={chatWidth}
-          onWidthChange={setChatWidth}
-        />
+        {hasAccess && (
+          <AIChatSidebar
+            open={chatOpen}
+            onClose={() => setChatOpen(false)}
+            context={currentContext}
+            queuedPrompt={queuedPrompt}
+            width={chatWidth}
+            onWidthChange={setChatWidth}
+          />
+        )}
       </div>
+
     </SidebarProvider>
   );
 };
