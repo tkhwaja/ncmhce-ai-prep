@@ -1,53 +1,19 @@
-## Short answer
+I found the checkout is still explicitly enabling automatic tax for `ncmhce_monthly`, so Stripe will keep rejecting the session until the sandbox tax origin setup is accepted by Stripe. Since you asked me to fix it directly, I’ll make checkout work by removing that failing tax automation from the session creation.
 
-No — Practice Exam 1 was **not** updated for difficulty. The narratives are the original versions, and the database confirms it:
+Plan:
+1. Update `supabase/functions/create-checkout/index.ts`
+   - Remove `automatic_tax: { enabled: true }` for `ncmhce_monthly` and `early_access_yearly`.
+   - Keep embedded checkout, promo codes, return URL, and subscription metadata intact.
+   - Validate the `environment` value instead of silently defaulting.
 
-**Recent completions on Practice Exam 1:**
-- 98%, 97%, 97%, 97%, 96%, 93% (last 6 finishers)
-- Every domain averaging 88–100%
+2. Update the shared Stripe helper
+   - Bring `supabase/functions/_shared/stripe.ts` in line with the current Lovable payments gateway pattern so Stripe calls use the expected pinned SDK/API version.
 
-That's not user skill — that's the item bank. I reviewed the questions in `practice-exam-01-case-03-neha-gad.ts` and the pattern is consistent across all 11 cases: the correct answer is obvious and the 3 distractors are weak (one is blaming, one is advice-giving, one is clinically absurd). Real NCMHCE items have 2–3 *plausible* options where the difference is subtle clinical judgment.
+3. Update frontend environment handling
+   - Fix `src/lib/stripe.ts` so missing or invalid payment tokens fail clearly instead of defaulting to live mode.
 
-## What to change
+4. Test the checkout function again
+   - Call `create-checkout` for `ncmhce_monthly` in sandbox.
+   - Confirm it returns a `clientSecret`, meaning the embedded checkout form can load.
 
-Rewrite the question bank for all 11 Practice Exam 1 cases to NCMHCE-grade difficulty, without changing the narratives, scoring engine, exam structure, or UI.
-
-**Files touched (data only):**
-- `src/data/narratives/01-priya-gad.ts`
-- `src/data/narratives/02-marcus-mdd.ts`
-- `src/data/narratives/03-david-ptsd.ts`
-- `src/data/narratives/04-elena-bipolar.ts`
-- `src/data/narratives/05-james-aud.ts`
-- `src/data/narratives/exam-01-02-danielle-mdd.ts`
-- `src/data/narratives/practice-exam-01-case-03-neha-gad.ts`
-- `src/data/narratives/practice-exam-01-case-04-luis-panic.ts`
-- `src/data/narratives/practice-exam-01-case-05-rachel-aud.ts`
-- `src/data/narratives/practice-exam-01-case-06-samuel-ocd.ts`
-- `src/data/narratives/practice-exam-01-case-07-monica-bipolar-ii.ts`
-
-No code changes, no schema changes, no scoring logic changes. Existing user attempts remain valid (questions are referenced by id; I'll keep ids stable and only rewrite stems/options/correctAnswer/explanation).
-
-## Difficulty rubric I'll apply to every item
-
-1. **Two-plausible distractor rule** — at least two options must be defensible-sounding clinical actions. Discriminator is *order of operations*, *stage of treatment*, *ethical priority*, or *specificity to diagnosis*.
-2. **Remove "obvious-wrong" options** — no blaming family, no "tell them to just stop," no "ignore the symptom," no advice the user would never pick.
-3. **Test sequencing, not recognition** — e.g. "what do you do *next*" when safety, informed consent, assessment, and intervention are all reasonable in isolation.
-4. **Domain-true scoring traps** — Assessment/Diagnosis items force differential reasoning (GAD vs. adjustment vs. OCD vs. illness anxiety), not category labeling.
-5. **Ethics items** — pull from ACA Code real sections (A.2 informed consent, B.2.a duty to warn, A.4.b personal values, C.2.a boundaries of competence) with two options that both *sound* ethical.
-6. **Treatment planning items** — distinguish phase-of-treatment (stabilization vs. processing vs. relapse prevention) and evidence-based first-line vs. reasonable second-line.
-7. **Calibrate target score** — average completion should land **70–80%** for a prepared test-taker, with weaker domains pulling individuals into the 60s. No item bank where 6/6 finishers clear 93%.
-
-## Scope guardrails
-
-- I will **not** touch Practice Exam 2 (still coming-soon), the standalone narratives shown outside the exam, the scoring engine, or the UI.
-- I will **keep question ids stable** so existing `narrative_attempts` rows continue to map.
-- I will **keep question counts per case the same** so the exam length and timing don't shift.
-- I will **not** rewrite the narrative text, MSE, or intake summaries — only the question stems, options, correctAnswer index, and explanations.
-
-## Out of scope (ask if you want these too)
-
-- Recalibrating Practice Exam 2 when it ships (will mirror this rubric automatically).
-- Adding a difficulty indicator on the results screen ("Your score vs. typical NCMHCE pass band").
-- Resetting/flagging the 6 inflated historical attempts.
-
-Want me to proceed with the rewrite across all 11 cases?
+Important note: this gets payment working now, but it means tax will not be automatically calculated/collected at checkout. We can re-enable tax automation later after the Stripe sandbox tax setup is fully working.
