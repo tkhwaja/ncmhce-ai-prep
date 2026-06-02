@@ -131,9 +131,9 @@ const App = () => (
                 <Route path="/admin/emails" element={<AdminEmails />} />
 
                 <Route element={<ProtectedRoute><PomodoroProvider><AppLayout /></PomodoroProvider></ProtectedRoute>}>
-                  <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/dashboard" element={<PaidFeatureGate feature="Dashboard"><Dashboard /></PaidFeatureGate>} />
                   <Route path="/profile" element={<Profile />} />
-                  <Route path="/exam-info" element={<ExamInfo />} />
+                  <Route path="/exam-info" element={<PaidFeatureGate feature="Exam Info"><ExamInfo /></PaidFeatureGate>} />
                   <Route path="/narratives" element={<PaidFeatureGate feature="Narratives"><Narratives /></PaidFeatureGate>} />
                   <Route path="/narrative/:id" element={<PaidFeatureGate feature="Narratives"><NarrativePage /></PaidFeatureGate>} />
                   <Route path="/practice-exams" element={<PaidFeatureGate feature="Practice Exams"><PracticeExams /></PaidFeatureGate>} />
@@ -144,7 +144,8 @@ const App = () => (
                   <Route path="/study-plan" element={<PaidFeatureGate feature="Study Plan"><StudyPlan /></PaidFeatureGate>} />
                   <Route path="/analytics" element={<PaidFeatureGate feature="Analytics"><Analytics /></PaidFeatureGate>} />
                   <Route path="/flashcards" element={<PaidFeatureGate feature="Flashcards"><Flashcards /></PaidFeatureGate>} />
-                  <Route path="/library" element={<Library />} />
+                  <Route path="/library" element={<PaidFeatureGate feature="Library"><Library /></PaidFeatureGate>} />
+
                   <Route path="/tools" element={<PaidFeatureGate feature="Study Tools"><Tools /></PaidFeatureGate>} />
                 </Route>
 
