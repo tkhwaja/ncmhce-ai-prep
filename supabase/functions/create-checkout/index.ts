@@ -48,7 +48,7 @@ serve(async (req) => {
 
     const session = await stripe.checkout.sessions.create(sessionParams);
 
-    return new Response(JSON.stringify({ clientSecret: session.client_secret }), { headers: corsHeaders });
+    return new Response(JSON.stringify({ clientSecret: session.client_secret, v: "no-tax-v2" }), { headers: corsHeaders });
   } catch (error) {
     return new Response(JSON.stringify({ error: error instanceof Error ? error.message : String(error) }), { status: 500, headers: corsHeaders });
   }
