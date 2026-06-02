@@ -50,9 +50,10 @@ const Signup = () => {
 
   useEffect(() => {
     if (!authLoading && user) {
-      navigate(safeNext ?? "/checkout", { replace: true });
+      navigate(safeNext ?? "/dashboard", { replace: true });
     }
   }, [authLoading, user, safeNext, navigate]);
+
 
 
   const {
