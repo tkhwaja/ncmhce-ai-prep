@@ -21,11 +21,28 @@ serve(async (req) => {
     const env = (environment || 'sandbox') as StripeEnv;
     const stripe = createStripeClient(env);
 
-    const prices = await stripe.prices.list({ lookup_keys: [priceId] });
-    if (!prices.data.length) {
+    const prices = await stripe.prices.list({ lookup_keys: [priceId], active: true, expand: ["data.product"] });
+    const stripePrice = prices.data.find((price: any) => {
+      const product = price.product;
+      return price.active && (typeof product === "string" || product.active !== false);
+    });
+
+    if (!prices.data.length || !stripePrice) {
       return new Response(JSON.stringify({ error: "Price not found" }), { status: 404, headers: corsHeaders });
     }
-    const stripePrice = prices.data[0];
+
+    const product = stripePrice.product as any;
+    if (typeof product !== "string" && product.active === false) {
+      return new Response(
+        JSON.stringify({
+          error: environment === "live"
+            ? "Live checkout is not ready yet because the live subscription product is inactive. Publish the latest Lovable changes to sync the repaired product, then try again."
+            : "Checkout is not ready yet because the subscription product is inactive.",
+        }),
+        { status: 409, headers: corsHeaders }
+      );
+    }
+
     const isRecurring = stripePrice.type === "recurring";
 
     const sessionParams: any = {
