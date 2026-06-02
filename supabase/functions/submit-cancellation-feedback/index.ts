@@ -1,4 +1,5 @@
 import { createClient } from "npm:@supabase/supabase-js@2";
+import { type StripeEnv, createStripeClient } from "../_shared/stripe.ts";
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -28,12 +29,17 @@ Deno.serve(async (req) => {
     const body = await req.json().catch(() => ({}));
     const reason = String(body.reason || "").slice(0, 200);
     const details = String(body.details || "").slice(0, 2000);
+    const rawEnv = body.environment;
 
     if (!reason) {
       return new Response(JSON.stringify({ error: "reason is required" }), { status: 400, headers: corsHeaders });
     }
+    if (rawEnv !== "sandbox" && rawEnv !== "live") {
+      return new Response(JSON.stringify({ error: "environment must be 'sandbox' or 'live'" }), { status: 400, headers: corsHeaders });
+    }
+    const env: StripeEnv = rawEnv;
 
-    // Get profile + subscription context
+    // Profile + latest sub in this env
     const { data: profile } = await supabase
       .from("profiles")
       .select("full_name, email, access_expires_at, payment_status")
@@ -42,8 +48,9 @@ Deno.serve(async (req) => {
 
     const { data: sub } = await supabase
       .from("subscriptions")
-      .select("status, current_period_end, cancel_at_period_end")
+      .select("status, current_period_end, cancel_at_period_end, stripe_subscription_id")
       .eq("user_id", user.id)
+      .eq("environment", env)
       .order("created_at", { ascending: false })
       .limit(1)
       .maybeSingle();
@@ -54,7 +61,7 @@ Deno.serve(async (req) => {
       ? "founding (one-time)"
       : "none";
 
-    // Send via internal transactional email (template has fixed `to:` support@)
+    // Send support email
     const sendRes = await fetch(`${supabaseUrl}/functions/v1/send-transactional-email`, {
       method: "POST",
       headers: {
@@ -82,7 +89,42 @@ Deno.serve(async (req) => {
       return new Response(JSON.stringify({ error: "Failed to submit feedback" }), { status: 500, headers: corsHeaders });
     }
 
-    return new Response(JSON.stringify({ success: true }), { headers: corsHeaders });
+    // Attempt to cancel the Stripe sub at period end
+    let stripeCanceled = false;
+    let stripeCancelError: string | null = null;
+    let accessUntil: string | null = sub?.current_period_end ?? null;
+
+    const canCancel =
+      !!sub?.stripe_subscription_id &&
+      sub.status !== "canceled" &&
+      !sub.cancel_at_period_end;
+
+    if (canCancel) {
+      try {
+        const stripe = createStripeClient(env);
+        const updated = await stripe.subscriptions.update(sub.stripe_subscription_id!, {
+          cancel_at_period_end: true,
+        });
+        stripeCanceled = true;
+        const item: any = (updated as any).items?.data?.[0];
+        const periodEnd = item?.current_period_end ?? (updated as any).current_period_end;
+        if (periodEnd) accessUntil = new Date(periodEnd * 1000).toISOString();
+      } catch (e) {
+        console.error("Stripe cancel failed", e);
+        stripeCancelError = e instanceof Error ? e.message : String(e);
+      }
+    }
+
+    return new Response(
+      JSON.stringify({
+        success: true,
+        stripeCanceled,
+        stripeCancelError,
+        accessUntil,
+        hadStripeSub: !!sub?.stripe_subscription_id,
+      }),
+      { headers: corsHeaders },
+    );
   } catch (e) {
     console.error(e);
     return new Response(JSON.stringify({ error: e instanceof Error ? e.message : String(e) }), { status: 500, headers: corsHeaders });
