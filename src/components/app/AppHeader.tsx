@@ -1,4 +1,11 @@
 import { useState, useRef, useEffect } from "react";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+} from "@/components/ui/dialog";
 import { useAuth } from "@/contexts/AuthContext";
 import { SidebarTrigger } from "@/components/ui/sidebar";
 import { Button } from "@/components/ui/button";
@@ -11,9 +18,9 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
-import { MessageSquare, Search, LayoutDashboard, User, LogOut, Sun, Moon, MessageCircle, Sparkles } from "lucide-react";
+import { MessageSquare, Search, LayoutDashboard, User, LogOut, Sun, Moon, MessageCircle, Sparkles, Lock, Check } from "lucide-react";
 import { useSubscription } from "@/hooks/useSubscription";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useTheme } from "@/contexts/ThemeContext";
 import FeedbackDialog from "@/components/FeedbackDialog";
 
@@ -42,6 +49,7 @@ const AppHeader = ({ onToggleChat, chatOpen }: AppHeaderProps) => {
   const sub = useSubscription();
   const [searchQuery, setSearchQuery] = useState("");
   const [showResults, setShowResults] = useState(false);
+  const [showPaywall, setShowPaywall] = useState(false);
   const searchRef = useRef<HTMLDivElement>(null);
 
   // Show "Upgrade" CTA only to users without a real paid plan
@@ -145,7 +153,13 @@ const AppHeader = ({ onToggleChat, chatOpen }: AppHeaderProps) => {
 
         <Button
           variant={chatOpen ? "default" : "outline"}
-          onClick={onToggleChat}
+          onClick={() => {
+            if (isFreeUser) {
+              setShowPaywall(true);
+            } else {
+              onToggleChat();
+            }
+          }}
           className="relative gap-2"
           title="Toggle AI Chat"
         >
@@ -184,6 +198,57 @@ const AppHeader = ({ onToggleChat, chatOpen }: AppHeaderProps) => {
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
+
+      <Dialog open={showPaywall} onOpenChange={setShowPaywall}>
+        <DialogContent className="sm:max-w-md">
+          <DialogHeader>
+            <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+              <Lock className="h-6 w-6 text-primary" />
+            </div>
+            <DialogTitle className="text-center">AI Tutor is a Pro feature</DialogTitle>
+            <DialogDescription className="text-center">
+              Subscribe to NCMHCE Pro to unlock the AI Tutor and every other study tool on The Exam Path.
+            </DialogDescription>
+          </DialogHeader>
+          <div className="my-4 rounded-xl border border-border bg-background p-5">
+            <div className="flex items-baseline justify-center gap-1">
+              <span className="text-3xl font-bold text-foreground">$79</span>
+              <span className="text-sm text-muted-foreground">/month</span>
+            </div>
+            <ul className="mt-4 space-y-2">
+              <li className="flex items-start gap-2 text-sm text-foreground">
+                <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                <span>Full clinical narrative library</span>
+              </li>
+              <li className="flex items-start gap-2 text-sm text-foreground">
+                <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                <span>Realistic NCMHCE practice exams</span>
+              </li>
+              <li className="flex items-start gap-2 text-sm text-foreground">
+                <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                <span>Personalized study plan & analytics</span>
+              </li>
+              <li className="flex items-start gap-2 text-sm text-foreground">
+                <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                <span>Flashcards, AI counselor chat & study tools</span>
+              </li>
+              <li className="flex items-start gap-2 text-sm text-foreground">
+                <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
+                <span>Cancel anytime from your profile</span>
+              </li>
+            </ul>
+          </div>
+          <Button asChild className="w-full" size="lg">
+            <Link to="/checkout">Subscribe to unlock</Link>
+          </Button>
+          <p className="mt-3 text-center text-xs text-muted-foreground">
+            Already subscribed?{" "}
+            <Link to="/profile" className="underline hover:text-foreground">
+              Check your account
+            </Link>
+          </p>
+        </DialogContent>
+      </Dialog>
     </header>
   );
 };
