@@ -15,7 +15,7 @@ import {
 import type { TemplateEntry } from './registry.ts'
 
 const SITE_NAME = 'The Exam Path'
-const PRICING_URL = 'https://theexampath.com/founding'
+const PRICING_URL = 'https://theexampath.com/checkout'
 
 interface AnswerBreakdownItem {
   questionId: string
@@ -195,9 +195,9 @@ const FreeDiagnosticBreakdownEmail = ({
 
         <Heading as="h2" style={h2}>Ready for the full platform?</Heading>
         <Text style={text}>
-          Get full-length practice exams, 20+ narratives, domain analytics, and new narratives added weekly.
+          Get full-length practice exams, 20+ narratives, domain analytics, and new narratives added weekly. $79/month, cancel anytime.
         </Text>
-        <Button href={PRICING_URL} style={button}>Claim founding member offer — $67</Button>
+        <Button href={PRICING_URL} style={button}>Subscribe — $79/month</Button>
 
         <Text style={text}>
           Questions or need a hand? Reply to this email or reach us at{' '}
