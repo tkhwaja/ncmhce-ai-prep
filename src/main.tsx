@@ -3,6 +3,7 @@ import { HelmetProvider } from "react-helmet-async";
 import App from "./App.tsx";
 import "./index.css";
 import { initPostHog } from "./lib/posthog";
+import { initMetaPixel } from "./lib/meta-pixel";
 
 initPostHog();
 
