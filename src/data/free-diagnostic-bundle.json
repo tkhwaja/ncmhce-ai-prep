@@ -40,71 +40,71 @@
             "id": "tessa-q1",
             "questionNumber": 1,
             "domain": "Intake/assessment/diagnosis",
-            "stem": "When the client says she feels close to 'losing it,' she spontaneously clarifies she does not mean hurting herself or anyone else, but rather 'losing the ability to keep all the plates spinning.' What should the counselor do FIRST?",
+            "stem": "Tessa has just clarified that 'losing it' does not mean suicidal or homicidal intent — she means losing her capacity to hold everything together. What is the MOST appropriate next step?",
             "options": [
-              "Ask a structured suicide risk assessment using a validated screener since any 'losing it' language warrants formal screening",
-              "Reflect the meaning she just offered and ask her to describe what 'losing it' looks like in her body and behavior in those moments",
-              "Move directly into teaching a grounding exercise so she has a coping tool before leaving the session",
-              "Document her denial of suicidal and homicidal ideation and proceed with the rest of the intake"
+              "Reflect the meaning she just offered and ask her to describe what 'losing it' looks like in her body, behavior, and choices when it peaks",
+              "Administer the GAD-7 now to anchor a measurable baseline before continuing with the intake narrative",
+              "Normalize that high-functioning professionals often describe overload this way and offer brief psychoeducation about the worry cycle",
+              "Document her denial of suicidal and homicidal ideation and continue gathering history per the intake template"
             ],
-            "correctAnswer": 1,
-            "explanation": "Best (B): The client has already volunteered that she is not describing suicidal or homicidal intent. The next NCMHCE-aligned step is to deepen understanding of what she actually means functionally and somatically before pivoting to assessment instruments or skills. Second-best (A): A formal screener is appropriate later, but jumping straight to it after she has clarified she is not suicidal can feel dismissive and misses clinical nuance. (C) Skills-first skips assessment and rapport. (D) Closing out the safety thread on a denial alone is premature documentation, not clinical care."
+            "correctAnswer": 0,
+            "explanation": "Best (A): She has just opened a meaningful self-disclosure. The most therapeutic next move is to deepen her own definition before pivoting to instruments, education, or admin — that becomes the working model you and she share. Second-best (B): A baseline is appropriate this session, but sequencing it ahead of exploration treats her like a data point. (C) Psychoeducation is correct content delivered at the wrong moment — it closes a door she just opened. (D) Documenting and moving on is defensible from a risk standpoint but skips clinical depth. NCMHCE pattern: when a client volunteers meaning, follow the meaning before reaching for a tool."
           },
           {
             "id": "tessa-q2",
             "questionNumber": 2,
             "domain": "Core counseling attributes",
-            "stem": "The client states, 'I’m exhausted from being myself.' Which response best balances empathy with clinical depth?",
+            "stem": "Tessa says, 'I'm exhausted from being myself.' Which response BEST balances empathy with therapeutic depth?",
             "options": [
               "What has it been like carrying this level of tension for so long?",
-              "It sounds like the version of you that other people see is not the version you actually live with.",
-              "That’s a really powerful statement — say more about what you mean.",
-              "I hear how tired you are. We can work on building you a more sustainable pace."
+              "It sounds like the version of you other people see is not the version you actually live with.",
+              "Say more about what 'being yourself' is costing you.",
+              "I hear how tired you are — that exhaustion makes sense given everything you're holding."
             ],
             "correctAnswer": 1,
-            "explanation": "Best (B): A complex reflection names the gap between her external presentation and internal experience, which is the meaning she is actually pointing to. Second-best (A): A solid open question, but it stays at the level of duration and tension rather than meaning. (C) Generic prompt without reflection — common but shallow. (D) Pivots to problem-solving before her statement has been received."
+            "explanation": "Best (B): Advanced empathy that names the implicit split between her public self and her internal experience — this is the wound under the sentence. Second-best (A): A warm open invitation, but it puts the burden back on her to find the depth. (C) A useful probe that asks her to explain rather than feel understood. (D) Validation that lands, but does not move the work forward. All four are therapeutic; only one reflects underlying meaning at depth."
           },
           {
             "id": "tessa-q3",
             "questionNumber": 3,
             "domain": "Intake/assessment/diagnosis",
-            "stem": "Which DSM-5-TR diagnosis BEST fits the client’s presentation, and what is the strongest reason to favor it over a close differential?",
+            "stem": "Which DSM-5-TR diagnosis BEST fits Tessa's presentation, and what is the strongest reason to favor it over a close competitor?",
             "options": [
-              "Generalized Anxiety Disorder, because her worry is excessive, difficult to control, present more days than not for years across multiple domains, and accompanied by the required physical symptoms",
-              "Obsessive-Compulsive Disorder, because her checking emails and rereading messages function as compulsions tied to intrusive fears",
-              "Adjustment Disorder with Anxiety, because symptoms intensified after the work promotion eight months ago",
-              "Illness Anxiety Disorder, because much of her worry centers on her father’s health"
+              "Generalized Anxiety Disorder — excessive, hard-to-control worry across multiple domains, more days than not for years, with required somatic features",
+              "Social Anxiety Disorder — much of her worry centers on how she is perceived (replaying conversations, fearing she sounded rude, rereading emails)",
+              "Obsessive-Compulsive Disorder — repeated email checking and message rereading function as compulsions tied to intrusive fears",
+              "Adjustment Disorder with Anxiety — symptoms escalated after the promotion eight months ago and are stressor-linked"
             ],
             "correctAnswer": 0,
-            "explanation": "Best (A): Worry is diffuse, chronic since adolescence, ego-dystonic, and meets the GAD physical-symptom threshold (fatigue, muscle tension, sleep disturbance, irritability, restlessness, concentration). Second-best (C): The promotion is a real stressor, but Adjustment Disorder requires symptoms not better explained by another disorder — and her pattern predates the stressor by more than a decade, which rules it out. (B) Her checking is anxiety-driven worry behavior, not ego-dystonic obsessions paired with ritualized compulsions. (D) Her health-related worry is one of many themes, not the pervasive somatic preoccupation IAD requires."
+            "explanation": "Best (A): Her worry is uncontrollable, broad (work, fiancé, father, the dog, finances), chronic (years), and accompanied by required GAD somatic features (tension, sleep disturbance, fatigue, restlessness). Second-best (B): Social evaluation is *part* of her picture, but it is not the only or primary axis of her worry. (C) The checking is *worry-driven*, not ego-dystonic intrusions followed by ritualized neutralization — that distinction rules OCD out as primary. (D) The promotion intensified symptoms but did not create them; her pattern predates it by years, which exceeds Adjustment Disorder's 6-month window. NCMHCE pattern: pick the diagnosis that explains the *most* of the picture, not the one that fits one slice."
           },
           {
             "id": "tessa-q4",
             "questionNumber": 4,
             "domain": "Treatment planning",
-            "stem": "Which treatment plan element should be sequenced FIRST in this client’s CBT for GAD?",
+            "stem": "Which CBT-for-GAD element should be sequenced FIRST in Tessa's treatment plan?",
             "options": [
-              "Cognitive restructuring of catastrophic thoughts about being fired",
-              "Behavioral experiments around sending unchecked emails at work",
-              "Psychoeducation about the worry cycle and collaborative worry monitoring with a daily log",
-              "Applied relaxation training and diaphragmatic breathing"
+              "Cognitive restructuring of her catastrophic predictions about being fired",
+              "Applied relaxation and diaphragmatic breathing to lower her chronic somatic arousal",
+              "Psychoeducation about the worry cycle paired with collaborative worry monitoring via a daily log",
+              "Graduated behavioral experiments in which she tolerates uncertainty without reassurance-seeking"
             ],
             "correctAnswer": 2,
-            "explanation": "Best (C): Evidence-based CBT for GAD begins with psychoeducation and self-monitoring so the client can identify her own triggers, themes, and maintaining patterns before active intervention. Second-best (D): Relaxation is a legitimate early CBT component but, without monitoring first, the client cannot tell when or why to apply it. (A) and (B) are appropriate later interventions, but cognitive restructuring and behavioral experiments require baseline data the worry log will produce."
+            "explanation": "Best (C): Every protocolized CBT-for-GAD model opens with a shared conceptualization (psychoeducation) and a baseline (self-monitoring). Without these, the other interventions land in a vacuum and she cannot tell whether they are working. Second-best (B): Relaxation is appropriate early, but it treats the symptom before she understands the cycle that produces it. (A) Cognitive restructuring works once she can catch a worry in real time — which requires the monitoring from (C) first. (D) Experiments are powerful but premature before she has a working model of the mechanism they are testing. All four are real components; sequencing is the test."
           },
           {
             "id": "tessa-q5",
             "questionNumber": 5,
             "domain": "Counseling skills and interventions",
-            "stem": "The client reports replaying conversations at night to check whether she sounded rude. This is BEST conceptualized as:",
+            "stem": "Tessa replays conversations at night to check whether she sounded rude. This is BEST conceptualized as:",
             "options": [
-              "A compulsion that should be targeted with exposure and response prevention",
-              "Post-event processing functioning as a covert checking behavior that maintains anxiety",
-              "Normal conscientiousness that does not require clinical intervention",
-              "A depressive ruminative style consistent with comorbid MDD"
+              "A safety behavior preventing corrective learning about how others actually perceived her",
+              "Post-event processing functioning as covert mental checking that maintains the anxiety cycle",
+              "A compulsion that warrants exposure and response prevention targeting mental checking",
+              "Cognitive rumination consistent with an emerging comorbid depressive process"
             ],
             "correctAnswer": 1,
-            "explanation": "Best (B): Post-event mental review is a well-documented anxiety-maintaining process — it provides short-term reassurance while reinforcing the belief that vigilance prevents harm. Second-best (A): Conceptually adjacent and ERP-informed strategies can help, but framing it as an OCD compulsion overpathologizes and points to the wrong protocol. (C) Minimizes clinically significant impairment. (D) Depressive rumination is past- and self-focused on loss/worthlessness, not future- and evaluation-focused like hers."
+            "explanation": "Best (B): 'Post-event processing' is the precise transdiagnostic label for repetitive mental review after a social interaction; framing it as *covert checking* names the maintenance mechanism you will target. Second-best (A): True — it is also a safety behavior — but that label is broader and less actionable than naming the specific process. (C) Importing OCD language overpathologizes a worry-driven behavior; her checking is ego-syntonic worry, not intrusion + neutralization. (D) Rumination is depression-coded; nothing in the case supports a depressive comorbidity, so adding it muddies the formulation."
           }
         ]
       },
@@ -117,71 +117,71 @@
             "id": "tessa-q6",
             "questionNumber": 6,
             "domain": "Counseling skills and interventions",
-            "stem": "The client asks how to stop needing certainty all the time. Which intervention BEST targets the underlying mechanism?",
+            "stem": "Tessa asks how to stop needing certainty all the time. Which intervention BEST targets the underlying mechanism?",
             "options": [
-              "Teach progressive muscle relaxation so she can lower physiological arousal when uncertainty arises",
-              "Use Socratic questioning to dispute the evidence behind each individual catastrophic prediction",
-              "Plan graduated, in-vivo experiments in which she deliberately tolerates uncertainty without reassurance-seeking and tracks the actual outcome",
-              "Schedule daily worry time so she contains the worry to a defined window"
+              "Schedule a daily 20-minute 'worry time' so worry is contained to a defined window",
+              "Use Socratic questioning to examine the evidence behind each catastrophic prediction as it arises",
+              "Plan graduated, in-vivo experiments in which she deliberately tolerates uncertainty without seeking reassurance, and tracks what actually happens",
+              "Teach mindfulness defusion so she can notice the urge for certainty without automatically acting on it"
             ],
             "correctAnswer": 2,
-            "explanation": "Best (C): Intolerance of uncertainty is the transdiagnostic core of GAD; behavioral experiments that deliberately approach uncertain situations without safety behaviors directly retrain the threat response. Second-best (B): Cognitive disputation helps with content but tends to become its own form of reassurance-seeking when uncertainty is the real driver. (A) and (D) are useful adjuncts but address symptoms, not the mechanism."
+            "explanation": "Best (C): Intolerance of uncertainty is the engine of GAD. Only experiments where she *deliberately sits with not knowing* directly extinguish the loop she is asking about. Second-best (D): Defusion supports tolerance but does not produce new learning about outcomes the way an experiment does. (B) Socratic work targets the *content* of each worry; she could win every debate and still need certainty. (A) Worry time contains the symptom; it does not address why uncertainty feels intolerable. All four are real interventions; only one targets the mechanism she named."
           },
           {
             "id": "tessa-q7",
             "questionNumber": 7,
             "domain": "Intake/assessment/diagnosis",
-            "stem": "Reassurance from her fiancé relieves her anxiety for ten minutes, then it returns. From a behavioral standpoint, this pattern is BEST explained as:",
+            "stem": "Reassurance from her fiancé relieves Tessa's anxiety for about ten minutes, then it returns. From a behavioral standpoint, this pattern is BEST described as:",
             "options": [
-              "Negative reinforcement of reassurance-seeking, which strengthens the behavior and maintains the anxiety cycle",
-              "Positive reinforcement, because the fiancé’s warm response makes her feel loved",
-              "Habituation failure caused by the anxiety being too intense to extinguish",
-              "Evidence that her anxiety has shifted from cognitive to interpersonal in nature"
+              "Negative reinforcement of reassurance-seeking — the brief relief strengthens the behavior and maintains the anxiety cycle",
+              "Intermittent reinforcement that makes the reassurance-seeking especially resistant to extinction",
+              "A two-factor process in which short-term relief blocks habituation to the feared outcome",
+              "A safety behavior that prevents disconfirmation of her catastrophic prediction"
             ],
             "correctAnswer": 0,
-            "explanation": "Best (A): Reassurance removes an aversive state (uncertainty), so the behavior that produced relief (asking) is negatively reinforced and recurs more often. Second-best (C): Habituation language is in the right family but misnames the mechanism — the issue is reinforcement of avoidance, not failed extinction. (B) Confuses operant categories. (D) Mislabels a maintaining process as a diagnostic shift."
+            "explanation": "Best (A): The cleanest behavioral label for the immediate relief-then-repeat loop. Anxiety drops, the drop *reinforces* the seeking, and the behavior strengthens. Second-best (D): Also accurate — reassurance-seeking is a safety behavior — but that frames the *function* rather than the *mechanism* of reinforcement the question asks about. (C) Two-factor theory is more typically applied to phobic avoidance; it overstates what's happening here. (B) Intermittent reinforcement applies if reassurance only *sometimes* helps; the case describes consistent short-term relief, which is straightforward negative reinforcement."
           },
           {
             "id": "tessa-q8",
             "questionNumber": 8,
             "domain": "Core counseling attributes",
-            "stem": "The client says, 'I acted like I survived a crisis that never happened.' Which response best supports therapeutic depth without colluding with self-criticism?",
+            "stem": "Tessa says, 'I acted like I survived a crisis that never happened.' Which response BEST supports therapeutic depth and the alliance?",
             "options": [
               "What was happening inside you in those two hours before he called back?",
               "It sounds like part of you is harsh with the part of you that was scared.",
-              "That reaction makes sense given how anxiety hijacks the brain.",
-              "Let’s map that two-hour spiral on a thought record so we can see the chain."
+              "That's the anxiety brain — it treats *possible* like *actual*. Your body was responding to a real threat signal.",
+              "Let's map that two-hour spiral on a thought record so we can see the chain from trigger to behavior."
             ],
             "correctAnswer": 1,
-            "explanation": "Best (B): Names the internal split between her self-critical voice and the frightened part — this is depth-oriented and counters shame without minimizing. Second-best (A): A strong open question, but stays at the level of content rather than the self-to-self relationship she just revealed. (C) Educates and normalizes but bypasses the affect. (D) Useful CBT tool, but pivots to technique before the moment is metabolized."
+            "explanation": "Best (B): Names the self-criticism inside her sentence — that contempt for the part of her that was frightened is the active wound and the leverage point. Second-best (A): A good exploratory question, but it asks her to *describe* rather than to *feel met*. (C) Psychoeducation that is true and well-timed but moves to teaching before she has been understood. (D) A solid CBT move, but technique offered too soon can feel like the counselor sidestepping the emotional content."
           },
           {
             "id": "tessa-q9",
             "questionNumber": 9,
             "domain": "Treatment planning",
-            "stem": "She has begun sending work emails after one review instead of four. From a CBT standpoint, this is MOST accurately described as:",
+            "stem": "Tessa has begun sending work emails after one review instead of four. From a CBT standpoint, this is MOST accurately described as:",
             "options": [
-              "Exposure with response prevention targeting a checking compulsion",
+              "Exposure with response prevention targeting a checking behavior",
               "A behavioral experiment that tests her catastrophic prediction by reducing a safety behavior",
-              "Behavioral activation aimed at reducing avoidance and increasing reinforcement",
-              "Stimulus control to limit the cues that trigger her anxiety"
+              "Successful cognitive restructuring, evidenced by a change in her observable action",
+              "Habituation to email-related anxiety through repeated, graduated exposure"
             ],
             "correctAnswer": 1,
-            "explanation": "Best (B): Behavioral experiments in CBT for GAD specifically test a predicted catastrophe by deliberately dropping a safety behavior (re-checking) and observing the actual outcome. Second-best (A): Mechanically similar, but ERP belongs to OCD protocols — the framing matters because rationale, dose, and homework instructions differ. (C) Behavioral activation is for depression. (D) Stimulus control is a sleep/habit technique, not what is happening here."
+            "explanation": "Best (B): In CBT-for-GAD, deliberately reducing a safety behavior to *test a prediction* ('something bad will happen if I don't reread') is called a behavioral experiment. The label captures both the action and its hypothesis-testing function. Second-best (A): ERP language belongs to OCD protocols; using it here implies an intrusion-compulsion frame that does not fit her worry-driven checking. (D) Habituation describes anxiety decreasing through exposure alone; her change is driven by *new learning* about outcomes, not just repetition. (C) Restructuring would have to happen at the cognitive level; the case describes a behavioral change first, which then updates the cognition."
           },
           {
             "id": "tessa-q10",
             "questionNumber": 10,
             "domain": "Professional practice and ethics",
-            "stem": "The client’s fiancé emails you directly asking 'how can I best support her between sessions?' What is the MOST appropriate next step under the ACA Code of Ethics?",
+            "stem": "Tessa's fiancé emails you directly to ask how he can best support her between sessions. What is the MOST appropriate response?",
             "options": [
-              "Send a brief, generic reply with publicly available psychoeducation about anxiety so you do not disclose anything client-specific",
-              "Do not respond to the email; raise the contact with the client at the next session and let her decide whether and how to involve him, then obtain a written release before any further communication",
-              "Acknowledge receipt of the email, decline to discuss the client, and invite him to a joint session so collaboration can happen transparently",
-              "Forward the email to the client so she knows he reached out and can reply herself"
+              "Do not respond to the email; raise the contact at the next session, let Tessa decide whether and how to involve him, and then act on her direction",
+              "Reply that you cannot confirm or discuss her treatment, and invite him to a future joint session contingent on Tessa's written consent",
+              "Send a brief, generic reply with publicly available psychoeducation about anxiety so nothing client-specific is disclosed",
+              "Forward the email to Tessa so she sees it directly and can decide whether to reply or bring it to session"
             ],
-            "correctAnswer": 1,
-            "explanation": "Best (B): Confidentiality means even acknowledging the therapeutic relationship requires consent. The clinically and ethically clean move is to bring the contact to the client, let her direct the response, and obtain a written release before any substantive exchange. Second-best (C): Inviting him to a joint session still presupposes acknowledgment of treatment and skips the consent step. (A) Generic content sent from your professional address still confirms a relationship. (D) Forwarding without prior conversation can feel intrusive and shifts a clinical decision onto the client without framing."
+            "correctAnswer": 0,
+            "explanation": "Best (A): Preserves confidentiality, protects the therapeutic frame, and centers Tessa's autonomy. The contact becomes clinical material she controls. Second-best (B): Defensible, but *replying at all* — even to decline — confirms a treatment relationship and opens a direct channel with a third party before she has consented. (C) A generic reply feels safe but still creates an outside-of-session channel and subtly aligns you with him. (D) Forwarding hands her the problem without the therapeutic processing she is paying you for. NCMHCE pattern: in third-party-contact items, the answer is almost always *do not act unilaterally; route the decision through the client*."
           }
         ]
       },
@@ -194,29 +194,29 @@
             "id": "tessa-q11",
             "questionNumber": 11,
             "domain": "Core counseling attributes",
-            "stem": "She asks whether her symptom spike means she is 'back at square one.' Which response is MOST therapeutic?",
+            "stem": "Tessa asks whether her symptom spike means she is 'back at square one.' Which response is MOST therapeutic?",
             "options": [
-              "Setbacks are a normal part of recovery and don’t erase the work you’ve done.",
-              "Notice that you recognized the pattern, named it, and used your skills — that’s very different from where you were at intake.",
+              "Setbacks are a normal part of recovery and don't erase the work you've done.",
+              "Notice that you recognized the pattern, named it, and used your skills — that is very different from where you were at intake.",
               "What would it mean about you if it did mean you were back at square one?",
-              "Let’s look at the data: your GAD-7 dropped from 16 to 8, which objectively shows progress."
+              "Let's look at the data: your GAD-7 dropped from 16 to 8, which objectively shows progress."
             ],
             "correctAnswer": 1,
-            "explanation": "Best (B): Reflects observable, behavioral evidence of skill use, which directly disconfirms the 'back at square one' belief and builds self-efficacy without reassuring her out of her feeling. Second-best (C): A meaningful exploratory question, but in this moment she is asking for orientation, not deeper interpretation of her catastrophizing. (A) True but generic — slides toward reassurance. (D) Score-based reassurance can feel invalidating when the client is reporting an emotional setback."
+            "explanation": "Best (B): Validates without dismissing *and* points to the specific behavior that proves the mechanism of change is now hers. That consolidates the gain rather than just reassuring her. Second-best (C): A strong schema-level question, but at this moment she needs the spike contextualized before she can do that work. (A) True and warm, but generic — could be said to any client about any setback. (D) Data-based and accurate, yet showing her the chart can feel like a rebuttal of her feeling rather than a response to it."
           },
           {
             "id": "tessa-q12",
             "questionNumber": 12,
             "domain": "Counseling skills and interventions",
-            "stem": "Her response to her father’s hypoglycemic episode is BEST conceptualized as:",
+            "stem": "Tessa's response to her father's hypoglycemic episode is BEST conceptualized as:",
             "options": [
-              "A trauma response indicating that PTSD criteria should now be reassessed",
               "State-dependent reactivation of an early family role under a salient cue, not a return of the underlying disorder",
-              "Evidence that the treatment plan needs to address codependency as a primary issue",
-              "A normal stress response that does not warrant clinical attention"
+              "A core schema around responsibility and overcontrol flaring under stress, indicating schema-focused work should now be added",
+              "A trauma response suggesting PTSD criteria should be reassessed given her caregiving history",
+              "Anticipatory anxiety indicating that GAD symptoms are returning and the treatment plan should be intensified"
             ],
-            "correctAnswer": 1,
-            "explanation": "Best (B): A familiar cue (father’s medical crisis) triggered an old, well-rehearsed family role of overfunctioning. Naming it as cue-driven and role-based — rather than as relapse — is what enables relapse-prevention work. Second-best (D): It is a stress response, but dismissing it as 'normal' misses the clinically rich material. (A) The episode does not meet PTSD Criterion A or symptom clusters. (C) 'Codependency' is not a DSM construct and reframes the case unnecessarily."
+            "correctAnswer": 0,
+            "explanation": "Best (A): The reaction is cue-driven (a real medical event in the parent she has long managed) and time-limited. It reflects an old role lighting up under a matching stimulus — not relapse. Naming it this way preserves treatment gains and gives her a usable frame. Second-best (B): The schema is real and worth noting, but pivoting to schema therapy after one cued episode overcorrects. (D) Reintensifying treatment after a single cue treats a normal reactivation as a recurrence. (C) PTSD requires Criterion A and a symptom cluster the case does not describe; reaching for that label overpathologizes a meaningful but bounded response."
           },
           {
             "id": "tessa-q13",
@@ -224,27 +224,27 @@
             "domain": "Treatment planning",
             "stem": "Given a GAD-7 of 8 and consistent skill use, what is the MOST appropriate next phase of treatment?",
             "options": [
-              "Begin spacing sessions and collaboratively build a written relapse-prevention plan that includes early-warning signs, high-risk situations, and a coping menu",
-              "Maintain weekly sessions until the GAD-7 is below 5 to ensure full remission before any change",
-              "Begin termination this session since she has met treatment goals",
-              "Add a second modality such as group therapy to consolidate gains"
+              "Begin spacing sessions and collaboratively build a written relapse-prevention plan that includes early-warning signs, high-risk situations, skills to deploy, and when to re-engage",
+              "Maintain weekly sessions until her GAD-7 is below 5 to ensure full remission before any change in frequency",
+              "Add a between-session self-monitoring protocol and reassess in four weeks before changing session frequency",
+              "Shift to monthly maintenance sessions focused on consolidation and skill review"
             ],
             "correctAnswer": 0,
-            "explanation": "Best (A): Mild-range GAD-7 with active skill use is the standard window to taper, formalize relapse prevention, and shift the client toward being her own therapist. Second-best (B): Defensible but over-treats — there is no evidence base requiring sub-clinical scores before tapering, and continued weekly contact can foster therapy dependence. (C) Skips relapse prevention entirely. (D) Adds intensity when the indication is to reduce it."
+            "explanation": "Best (A): Mild-range GAD-7 plus demonstrated skill ownership is exactly the inflection point for tapering paired with a written relapse-prevention plan — the evidence-based standard for ending CBT-for-GAD. Second-best (C): A reasonable conservative move, but it postpones a transition she is clinically ready for. (D) Monthly is too large a jump straight from weekly; tapering should be graded. (B) Holding weekly until full remission risks fostering dependence on the therapy structure and works against the autonomy the protocol is trying to build."
           },
           {
             "id": "tessa-q14",
             "questionNumber": 14,
             "domain": "Counseling skills and interventions",
-            "stem": "Which statement BEST captures the durable mechanism of change this client is internalizing?",
+            "stem": "Which statement BEST captures the durable mechanism of change Tessa is internalizing?",
             "options": [
-              "Her worries were inaccurate and she has learned to think more realistically",
-              "Her relationship with uncertainty has shifted: she can notice the urge to control it and choose not to act on it",
-              "She has reduced her exposure to stressors that used to trigger her",
-              "She has built a stronger support system to help her contain her anxiety"
+              "Her catastrophic predictions have been disconfirmed enough times that she no longer believes them",
+              "Her relationship with uncertainty has shifted — she can notice the urge to control it and choose not to act on it",
+              "She has built relaxation and grounding skills that reliably down-regulate her physiological arousal",
+              "She has restructured her cognitive distortions into more balanced, evidence-based thoughts"
             ],
             "correctAnswer": 1,
-            "explanation": "Best (B): The therapeutic target in GAD is the relationship to uncertainty and the urge to control it, not the content of any single worry. This is what generalizes across future stressors. Second-best (A): Cognitive accuracy improves, but framing change as 'thoughts were wrong' is brittle — the next real uncertainty will produce real risk, and 'wrong thoughts' framing collapses. (C) She has not reduced exposure; she has changed her response. (D) External support is helpful but is not the internal mechanism of change."
+            "explanation": "Best (B): For GAD specifically, the durable change is a new relationship with uncertainty — the *intolerance* is the engine, and loosening it generalizes across every domain she worries about. Second-best (A): True at the level of individual predictions, but new content always appears; without (B), each new worry restarts the cycle. (D) Restructuring is a vehicle for change, not the durable mechanism that survives novel stressors. (C) Skills help in the moment but, like (A), depend on (B) to keep working when life produces something genuinely uncertain."
           }
         ]
       }
