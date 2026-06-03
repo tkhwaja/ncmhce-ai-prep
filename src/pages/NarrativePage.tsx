@@ -27,6 +27,7 @@ import {
   RotateCcw, ArrowRight, LayoutDashboard, Mail, UnlockKeyhole, FileText, Sparkles,
 } from "lucide-react";
 import NarrativeReviewChat from "@/components/NarrativeReviewChat";
+import { trackMetaEvent } from "@/lib/meta-pixel";
 
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 
