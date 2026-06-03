@@ -382,6 +382,10 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
 
     setLeadSubmitted(true);
     setLeadLoading(false);
+    trackMetaEvent("Lead", {
+      content_name: "Free Diagnostic Case",
+      content_category: "free_diagnostic_submit",
+    });
   };
 
   const allCurrentSectionAnswered = currentSection.questions.every((q) => answers[q.id] !== undefined);
