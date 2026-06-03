@@ -6,6 +6,7 @@ import { initPostHog } from "./lib/posthog";
 import { initMetaPixel } from "./lib/meta-pixel";
 
 initPostHog();
+initMetaPixel();
 
 createRoot(document.getElementById("root")!).render(
   <HelmetProvider>
