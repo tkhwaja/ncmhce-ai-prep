@@ -115,6 +115,7 @@ const App = () => (
         <BrowserRouter>
           <AuthProvider>
             <PostHogPageview />
+            <MetaPixelPageview />
             <ChunkErrorBoundary>
             <Suspense fallback={<RouteFallback />}>
               <Routes>
