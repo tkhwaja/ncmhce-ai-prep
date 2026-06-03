@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
 import { useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
+import { trackMetaEvent } from "@/lib/meta-pixel";
 
 const CheckoutReturn = () => {
   const [searchParams] = useSearchParams();
