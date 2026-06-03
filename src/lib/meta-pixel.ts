@@ -53,3 +53,12 @@ export function trackMetaPageView() {
   if (!import.meta.env.PROD || typeof window === "undefined") return;
   window.fbq?.("track", "PageView");
 }
+
+/** Fire a standard Meta Pixel event (CompleteRegistration, Lead, Purchase, etc). */
+export function trackMetaEvent(
+  eventName: string,
+  params?: Record<string, unknown>,
+) {
+  if (!import.meta.env.PROD || typeof window === "undefined") return;
+  window.fbq?.("track", eventName, params);
+}

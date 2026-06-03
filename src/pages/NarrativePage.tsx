@@ -27,6 +27,7 @@ import {
   RotateCcw, ArrowRight, LayoutDashboard, Mail, UnlockKeyhole, FileText, Sparkles,
 } from "lucide-react";
 import NarrativeReviewChat from "@/components/NarrativeReviewChat";
+import { trackMetaEvent } from "@/lib/meta-pixel";
 
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 
@@ -381,6 +382,10 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
 
     setLeadSubmitted(true);
     setLeadLoading(false);
+    trackMetaEvent("Lead", {
+      content_name: "Free Diagnostic Case",
+      content_category: "free_diagnostic_submit",
+    });
   };
 
   const allCurrentSectionAnswered = currentSection.questions.every((q) => answers[q.id] !== undefined);

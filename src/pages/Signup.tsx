@@ -13,6 +13,7 @@ import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
 import { UserPlus, CalendarIcon, Check, X } from "lucide-react";
+import { trackMetaEvent } from "@/lib/meta-pixel";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
 import { Calendar } from "@/components/ui/calendar";
@@ -126,12 +127,14 @@ const Signup = () => {
     if (data.session) {
       posthog.identify(data.session.user.id, { email: values.email, full_name: values.fullName });
       posthog.capture("email_signup", { email: values.email, source: "signup_page", confirmed: true });
+      trackMetaEvent("CompleteRegistration", { status: true, method: "email" });
       navigate(safeNext ?? "/dashboard");
       return;
     }
     if (data.user) {
       posthog.identify(data.user.id, { email: values.email, full_name: values.fullName });
       posthog.capture("email_signup", { email: values.email, source: "signup_page", confirmed: false });
+      trackMetaEvent("CompleteRegistration", { status: false, method: "email" });
       setConfirmSent(values.email);
       return;
     }

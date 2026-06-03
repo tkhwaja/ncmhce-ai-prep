@@ -4,6 +4,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { CheckCircle } from "lucide-react";
 import { useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
+import { trackMetaEvent } from "@/lib/meta-pixel";
 
 const CheckoutReturn = () => {
   const [searchParams] = useSearchParams();
@@ -13,6 +14,13 @@ const CheckoutReturn = () => {
 
   useEffect(() => {
     if (sessionId) {
+      // Fire Meta Pixel Purchase on successful return from Stripe Checkout
+      trackMetaEvent("Purchase", {
+        value: 79,
+        currency: "USD",
+        content_name: "NCMHCE Pro Monthly",
+        content_type: "product",
+      });
       // Refresh profile to pick up updated payment_status
       const timer = setTimeout(() => refreshProfile(), 2000);
       return () => clearTimeout(timer);
