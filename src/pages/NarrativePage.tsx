@@ -767,6 +767,7 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
                     correctIndex: q.correctAnswer,
                     explanation: q.explanation,
                   }))}
+                  publicMode={publicMode}
                 />
               )}
             </div>
