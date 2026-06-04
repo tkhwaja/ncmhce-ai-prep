@@ -594,19 +594,57 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
 
           {phase === "results" && results && (
             <div className="p-4 sm:p-6 max-w-2xl mx-auto space-y-6">
-              {publicMode && (
-                <Card className="card-elevated border-primary/20 bg-primary/5">
-                  <CardContent className="p-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              {publicMode && resultsLocked && (
+                <Card className="card-elevated border-primary/30 bg-primary/5">
+                  <CardContent className="p-5 sm:p-6 space-y-4">
                     <div>
-                      <p className="text-sm font-semibold text-foreground">Unlock your full breakdown</p>
+                      <p className="text-base sm:text-lg font-semibold text-foreground">
+                        Enter your name and email to see your score breakdown
+                      </p>
                       <p className="text-sm text-muted-foreground mt-1">
-                        Enter your full name and email to reveal your score, missed questions, and get the one-page strategy sheet.
+                        We'll instantly reveal your score, missed questions, and domain breakdown — and email you the one-page strategy sheet.
                       </p>
                     </div>
-                    <Button onClick={() => setLeadOpen(true)}>
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      <div className="space-y-1.5">
+                        <Label htmlFor="inline-lead-name" className="text-xs">Full name</Label>
+                        <Input
+                          id="inline-lead-name"
+                          value={leadForm.fullName}
+                          onChange={(e) => {
+                            setLeadForm((prev) => ({ ...prev, fullName: e.target.value }));
+                            setLeadError("");
+                          }}
+                          placeholder="Your full name"
+                        />
+                      </div>
+                      <div className="space-y-1.5">
+                        <Label htmlFor="inline-lead-email" className="text-xs">Email</Label>
+                        <Input
+                          id="inline-lead-email"
+                          type="email"
+                          value={leadForm.email}
+                          onChange={(e) => {
+                            setLeadForm((prev) => ({ ...prev, email: e.target.value }));
+                            setLeadError("");
+                          }}
+                          placeholder="you@example.com"
+                        />
+                      </div>
+                    </div>
+                    {leadError && <p className="text-sm text-destructive">{leadError}</p>}
+                    <Button
+                      onClick={() => void handleLeadSubmit()}
+                      disabled={leadLoading}
+                      size="lg"
+                      className="w-full sm:w-auto"
+                    >
                       <UnlockKeyhole className="h-4 w-4" />
-                      Unlock Breakdown
+                      {leadLoading ? "Unlocking..." : "Show My Score Breakdown"}
                     </Button>
+                    <p className="text-xs text-muted-foreground">
+                      No spam. We'll email your strategy sheet and breakdown.
+                    </p>
                   </CardContent>
                 </Card>
               )}
