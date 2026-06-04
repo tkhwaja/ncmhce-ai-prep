@@ -27,11 +27,12 @@ interface Message {
 interface Props {
   narrativeTitle: string;
   questions: ReviewQuestion[];
+  publicMode?: boolean;
 }
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/counselor-chat`;
 
-const NarrativeReviewChat = ({ narrativeTitle, questions }: Props) => {
+const NarrativeReviewChat = ({ narrativeTitle, questions, publicMode = false }: Props) => {
   const { session } = useAuth();
   const wrong = questions.filter((q) => q.userAnswerIndex !== q.correctIndex);
 
