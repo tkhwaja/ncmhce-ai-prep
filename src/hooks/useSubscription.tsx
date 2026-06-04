@@ -67,8 +67,11 @@ export function useSubscription(): SubscriptionState {
   const foundingActive =
     !!profile?.access_expires_at && new Date(profile.access_expires_at) > new Date();
 
+  // Personal owner override for testing
+  const ownerOverride = profile?.email?.toLowerCase() === "tahahareb7@gmail.com";
+
   return {
-    hasAccess: !!subActive || legacyPaid || foundingActive,
+    hasAccess: !!subActive || legacyPaid || foundingActive || ownerOverride,
     loading,
     status,
     cancelAtPeriodEnd,
