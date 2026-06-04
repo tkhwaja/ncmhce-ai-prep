@@ -1,10 +1,11 @@
 import { useEffect, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { Badge } from "@/components/ui/badge";
-import { Sparkles, Send, BookOpen, HelpCircle, GraduationCap } from "lucide-react";
+import { Sparkles, Send, BookOpen, HelpCircle, GraduationCap, Lock } from "lucide-react";
 import ReactMarkdown from "react-markdown";
 import { cn } from "@/lib/utils";
 import { useAuth } from "@/contexts/AuthContext";
@@ -26,11 +27,12 @@ interface Message {
 interface Props {
   narrativeTitle: string;
   questions: ReviewQuestion[];
+  publicMode?: boolean;
 }
 
 const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/counselor-chat`;
 
-const NarrativeReviewChat = ({ narrativeTitle, questions }: Props) => {
+const NarrativeReviewChat = ({ narrativeTitle, questions, publicMode = false }: Props) => {
   const { session } = useAuth();
   const wrong = questions.filter((q) => q.userAnswerIndex !== q.correctIndex);
 
@@ -53,6 +55,70 @@ const NarrativeReviewChat = ({ narrativeTitle, questions }: Props) => {
     { label: "Explain the diagnosis", icon: BookOpen, prompt: "Explain the diagnostic reasoning for this case, including DSM-5-TR criteria and key differential diagnoses I should rule out." },
     { label: "Study tips", icon: GraduationCap, prompt: "Based on what I missed, what should I focus on studying next? Give me 3 concrete topics with DSM-5-TR section references." },
   ];
+
+  const publicLockedView = (
+    <Card className="card-elevated border-primary/20 relative overflow-hidden">
+      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
+        <CardTitle className="text-base flex items-center gap-2">
+          <Sparkles className="h-4 w-4 text-primary" />
+          Review with CounselorAI
+        </CardTitle>
+        {wrong.length > 0 && (
+          <Badge variant="outline" className="text-xs">
+            {wrong.length} question{wrong.length === 1 ? "" : "s"} to review
+          </Badge>
+        )}
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <p className="text-sm text-muted-foreground">
+          Get unlimited follow-up coaching from CounselorAI on every case — explanations grounded in DSM-5-TR, exam strategy, and clinical reasoning.
+        </p>
+
+        <div className="flex flex-wrap gap-2 opacity-70">
+          {quickActions.map((a) => (
+            <Button
+              key={a.label}
+              variant="outline"
+              size="sm"
+              className="h-7 text-xs cursor-not-allowed"
+              disabled
+              title="Unlock with NCMHCE Pro"
+            >
+              <Lock className="h-3 w-3 mr-1" />
+              {a.label}
+            </Button>
+          ))}
+        </div>
+
+        <div className="flex gap-2 opacity-70">
+          <Input
+            disabled
+            placeholder="Sign up to chat with CounselorAI…"
+            className="flex-1 cursor-not-allowed"
+          />
+          <Button size="icon" disabled>
+            <Send className="h-4 w-4" />
+          </Button>
+        </div>
+
+        <div className="rounded-lg border border-primary/30 bg-primary/5 p-4 space-y-3">
+          <div className="flex items-center gap-2 text-sm font-medium text-foreground">
+            <Lock className="h-4 w-4 text-primary" />
+            CounselorAI is a Pro feature
+          </div>
+          <Button asChild size="lg" className="w-full">
+            <Link to="/signup">Unlock CounselorAI — $79/mo</Link>
+          </Button>
+          <p className="text-xs text-muted-foreground text-center">
+            Cancel anytime. Includes every clinical case, practice exams, flashcards, and study tools.
+          </p>
+        </div>
+      </CardContent>
+    </Card>
+  );
+
+
+
 
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
@@ -130,6 +196,8 @@ const NarrativeReviewChat = ({ narrativeTitle, questions }: Props) => {
       setIsLoading(false);
     }
   };
+
+  if (publicMode) return publicLockedView;
 
   return (
     <Card className="card-elevated border-primary/20">
