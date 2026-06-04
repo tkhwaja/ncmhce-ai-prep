@@ -37,6 +37,7 @@ export const practiceExams: PracticeExam[] = [
     narrativeIds: [
       "practice-exam-02-case-01-nia-mdd-suicide-risk",
       "practice-exam-02-case-02-gabriel-ptsd-moral-injury",
+      "practice-exam-02-case-03-leena-ocd-relationship-centered",
     ],
     comingSoon: true,
   },
