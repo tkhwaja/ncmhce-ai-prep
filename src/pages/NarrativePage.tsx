@@ -594,19 +594,57 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
 
           {phase === "results" && results && (
             <div className="p-4 sm:p-6 max-w-2xl mx-auto space-y-6">
-              {publicMode && (
-                <Card className="card-elevated border-primary/20 bg-primary/5">
-                  <CardContent className="p-5 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+              {publicMode && resultsLocked && (
+                <Card className="card-elevated border-primary/30 bg-primary/5">
+                  <CardContent className="p-5 sm:p-6 space-y-4">
                     <div>
-                      <p className="text-sm font-semibold text-foreground">Unlock your full breakdown</p>
+                      <p className="text-base sm:text-lg font-semibold text-foreground">
+                        Enter your name and email to see your score breakdown
+                      </p>
                       <p className="text-sm text-muted-foreground mt-1">
-                        Enter your full name and email to reveal your score, missed questions, and get the one-page strategy sheet.
+                        We'll instantly reveal your score, missed questions, and domain breakdown — and email you the one-page strategy sheet.
                       </p>
                     </div>
-                    <Button onClick={() => setLeadOpen(true)}>
+                    <div className="grid gap-3 sm:grid-cols-2">
+                      <div className="space-y-1.5">
+                        <Label htmlFor="inline-lead-name" className="text-xs">Full name</Label>
+                        <Input
+                          id="inline-lead-name"
+                          value={leadForm.fullName}
+                          onChange={(e) => {
+                            setLeadForm((prev) => ({ ...prev, fullName: e.target.value }));
+                            setLeadError("");
+                          }}
+                          placeholder="Your full name"
+                        />
+                      </div>
+                      <div className="space-y-1.5">
+                        <Label htmlFor="inline-lead-email" className="text-xs">Email</Label>
+                        <Input
+                          id="inline-lead-email"
+                          type="email"
+                          value={leadForm.email}
+                          onChange={(e) => {
+                            setLeadForm((prev) => ({ ...prev, email: e.target.value }));
+                            setLeadError("");
+                          }}
+                          placeholder="you@example.com"
+                        />
+                      </div>
+                    </div>
+                    {leadError && <p className="text-sm text-destructive">{leadError}</p>}
+                    <Button
+                      onClick={() => void handleLeadSubmit()}
+                      disabled={leadLoading}
+                      size="lg"
+                      className="w-full sm:w-auto"
+                    >
                       <UnlockKeyhole className="h-4 w-4" />
-                      Unlock Breakdown
+                      {leadLoading ? "Unlocking..." : "Show My Score Breakdown"}
                     </Button>
+                    <p className="text-xs text-muted-foreground">
+                      No spam. We'll email your strategy sheet and breakdown.
+                    </p>
                   </CardContent>
                 </Card>
               )}
@@ -641,18 +679,27 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
               </Card>
 
               {publicMode && !resultsLocked && (
-                <Card className="card-elevated border-primary/40 bg-primary/5">
-                  <CardContent className="p-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                    <div>
-                      <p className="text-sm font-semibold text-foreground">Get full access</p>
-                      <p className="text-sm text-muted-foreground mt-1">
-                        Unlock every clinical case, practice exam, and study tool for <strong>$79/month</strong>. Cancel anytime.
-                      </p>
+                <Card className="card-elevated border-2 border-primary bg-gradient-to-br from-primary/15 via-primary/10 to-primary/5 shadow-lg ring-1 ring-primary/20">
+                  <CardContent className="p-6 sm:p-7 space-y-4 text-center sm:text-left">
+                    <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-6">
+                      <div className="flex-1">
+                        <Badge className="bg-primary/20 text-primary mb-2">Limited-Time Founders Pricing</Badge>
+                        <p className="text-xl sm:text-2xl font-bold text-foreground">
+                          Pass the NCMHCE with full access
+                        </p>
+                        <p className="text-sm text-muted-foreground mt-1.5">
+                          Unlock <strong>every clinical case</strong>, full-length practice exams, flashcards, and the AI counselor coach — <strong className="text-foreground">$79/month</strong>, cancel anytime.
+                        </p>
+                      </div>
+                      <Button
+                        onClick={() => navigate("/signup")}
+                        size="lg"
+                        className="shrink-0 text-base font-semibold px-6 py-6 shadow-md hover:shadow-xl transition-all hover:scale-[1.03] animate-pulse-subtle"
+                      >
+                        <Sparkles className="h-5 w-5" />
+                        Get Full Access →
+                      </Button>
                     </div>
-                    <Button onClick={() => navigate("/signup")} className="shrink-0">
-                      <Sparkles className="h-4 w-4" />
-                      Get Full Access
-                    </Button>
                   </CardContent>
                 </Card>
               )}
