@@ -56,68 +56,68 @@ const NarrativeReviewChat = ({ narrativeTitle, questions, publicMode = false }: 
     { label: "Study tips", icon: GraduationCap, prompt: "Based on what I missed, what should I focus on studying next? Give me 3 concrete topics with DSM-5-TR section references." },
   ];
 
-  if (publicMode) {
-    return (
-      <Card className="card-elevated border-primary/20 relative overflow-hidden">
-        <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
-          <CardTitle className="text-base flex items-center gap-2">
-            <Sparkles className="h-4 w-4 text-primary" />
-            Review with CounselorAI
-          </CardTitle>
-          {wrong.length > 0 && (
-            <Badge variant="outline" className="text-xs">
-              {wrong.length} question{wrong.length === 1 ? "" : "s"} to review
-            </Badge>
-          )}
-        </CardHeader>
-        <CardContent className="space-y-4">
-          <p className="text-sm text-muted-foreground">
-            Get unlimited follow-up coaching from CounselorAI on every case — explanations grounded in DSM-5-TR, exam strategy, and clinical reasoning.
-          </p>
+  const publicLockedView = (
+    <Card className="card-elevated border-primary/20 relative overflow-hidden">
+      <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
+        <CardTitle className="text-base flex items-center gap-2">
+          <Sparkles className="h-4 w-4 text-primary" />
+          Review with CounselorAI
+        </CardTitle>
+        {wrong.length > 0 && (
+          <Badge variant="outline" className="text-xs">
+            {wrong.length} question{wrong.length === 1 ? "" : "s"} to review
+          </Badge>
+        )}
+      </CardHeader>
+      <CardContent className="space-y-4">
+        <p className="text-sm text-muted-foreground">
+          Get unlimited follow-up coaching from CounselorAI on every case — explanations grounded in DSM-5-TR, exam strategy, and clinical reasoning.
+        </p>
 
-          <div className="flex flex-wrap gap-2 opacity-70">
-            {quickActions.map((a) => (
-              <Button
-                key={a.label}
-                variant="outline"
-                size="sm"
-                className="h-7 text-xs cursor-not-allowed"
-                disabled
-                title="Unlock with NCMHCE Pro"
-              >
-                <Lock className="h-3 w-3 mr-1" />
-                {a.label}
-              </Button>
-            ))}
-          </div>
-
-          <div className="flex gap-2 opacity-70">
-            <Input
+        <div className="flex flex-wrap gap-2 opacity-70">
+          {quickActions.map((a) => (
+            <Button
+              key={a.label}
+              variant="outline"
+              size="sm"
+              className="h-7 text-xs cursor-not-allowed"
               disabled
-              placeholder="Sign up to chat with CounselorAI…"
-              className="flex-1 cursor-not-allowed"
-            />
-            <Button size="icon" disabled>
-              <Send className="h-4 w-4" />
+              title="Unlock with NCMHCE Pro"
+            >
+              <Lock className="h-3 w-3 mr-1" />
+              {a.label}
             </Button>
-          </div>
+          ))}
+        </div>
 
-          <div className="rounded-lg border border-primary/30 bg-primary/5 p-4 space-y-3">
-            <div className="flex items-center gap-2 text-sm font-medium text-foreground">
-              <Lock className="h-4 w-4 text-primary" />
-              CounselorAI is a Pro feature
-            </div>
-            <Button asChild size="lg" className="w-full">
-              <Link to="/signup">Unlock CounselorAI — $79/mo</Link>
-            </Button>
-            <p className="text-xs text-muted-foreground text-center">
-              Cancel anytime. Includes every clinical case, practice exams, flashcards, and study tools.
-            </p>
+        <div className="flex gap-2 opacity-70">
+          <Input
+            disabled
+            placeholder="Sign up to chat with CounselorAI…"
+            className="flex-1 cursor-not-allowed"
+          />
+          <Button size="icon" disabled>
+            <Send className="h-4 w-4" />
+          </Button>
+        </div>
+
+        <div className="rounded-lg border border-primary/30 bg-primary/5 p-4 space-y-3">
+          <div className="flex items-center gap-2 text-sm font-medium text-foreground">
+            <Lock className="h-4 w-4 text-primary" />
+            CounselorAI is a Pro feature
           </div>
-        </CardContent>
-      </Card>
-    );
-  }
+          <Button asChild size="lg" className="w-full">
+            <Link to="/signup">Unlock CounselorAI — $79/mo</Link>
+          </Button>
+          <p className="text-xs text-muted-foreground text-center">
+            Cancel anytime. Includes every clinical case, practice exams, flashcards, and study tools.
+          </p>
+        </div>
+      </CardContent>
+    </Card>
+  );
+
+
 
 
   const [messages, setMessages] = useState<Message[]>([]);
