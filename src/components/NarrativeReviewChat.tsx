@@ -197,6 +197,8 @@ const NarrativeReviewChat = ({ narrativeTitle, questions, publicMode = false }: 
     }
   };
 
+  if (publicMode) return publicLockedView;
+
   return (
     <Card className="card-elevated border-primary/20">
       <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-3">
