@@ -56,6 +56,7 @@ const AppHeader = ({ onToggleChat, chatOpen }: AppHeaderProps) => {
   // (no Stripe sub, no founder access, not legacy paid).
   const isFreeUser =
     !sub.loading &&
+    !sub.hasAccess &&
     !sub.status &&
     profile?.payment_status !== "paid" &&
     !profile?.access_expires_at;
