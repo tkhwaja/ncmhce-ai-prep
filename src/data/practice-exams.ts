@@ -36,6 +36,7 @@ export const practiceExams: PracticeExam[] = [
     description: "In progress — being built case by case (Elite tier)",
     narrativeIds: [
       "practice-exam-02-case-01-nia-mdd-suicide-risk",
+      "practice-exam-02-case-02-gabriel-ptsd-moral-injury",
     ],
     comingSoon: true,
   },
