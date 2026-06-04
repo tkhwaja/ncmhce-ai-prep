@@ -60,6 +60,11 @@ const Narratives = () => {
       gradient: "linear-gradient(135deg, #A78BFA 0%, #7C3AED 40%, #C4B5FD 60%, #6D28D9 100%)",
       shadow: "0 4px 14px -2px rgba(124, 58, 237, 0.5), inset 1px 1px 2px rgba(255,255,255,0.55)",
     },
+    "28-alina-postpartum-ocd": {
+      addedAt: "2026-06-04",
+      gradient: "linear-gradient(135deg, #F472B6 0%, #DB2777 40%, #FBCFE8 60%, #BE185D 100%)",
+      shadow: "0 4px 14px -2px rgba(219, 39, 119, 0.5), inset 1px 1px 2px rgba(255,255,255,0.55)",
+    },
   };
   const NEW_BADGE_DAYS = 7;
   const isBadgeActive = (id: string) => {
