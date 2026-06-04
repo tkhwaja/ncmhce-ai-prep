@@ -39,6 +39,7 @@ import { kiaraBPDPracticeExamNarrative } from "./practice-exam-01-case-08-kiara-
 import { emilyBulimiaPracticeExamNarrative } from "./practice-exam-01-case-09-emily-bulimia";
 import { ericaProlongedGriefPracticeExamNarrative } from "./practice-exam-01-case-10-erica-prolonged-grief";
 import { jonahSchizophreniformPracticeExamNarrative } from "./practice-exam-01-case-11-jonah-schizophreniform";
+import { niaMddSuicidePracticeExam2Narrative } from "./practice-exam-02-case-01-nia-mdd-suicide";
 import freeDiagnosticBundle from "@/data/free-diagnostic-bundle.json";
 
 export type { Narrative, NarrativeSection, NarrativeQuestion, NarrativeDomain, NarrativeClientInfo } from "./types";
@@ -119,6 +120,7 @@ const practiceExamNarratives: Narrative[] = [
   rachelAUDNarrative,
   samuelOCDPracticeExamNarrative,
   monicaBipolarIIPracticeExamNarrative,
+  niaMddSuicidePracticeExam2Narrative,
 ];
 
 const allNarratives: Narrative[] = [freeDiagnosticNarrative, ...narratives, ...practiceExamNarratives];

@@ -33,8 +33,10 @@ export const practiceExams: PracticeExam[] = [
   {
     id: "practice-exam-2",
     title: "Practice Exam 2",
-    description: "Coming soon — 11 new clinical narratives",
-    narrativeIds: [],
+    description: "In progress — being built case by case (Elite tier)",
+    narrativeIds: [
+      "practice-exam-02-case-01-nia-mdd-suicide-risk",
+    ],
     comingSoon: true,
   },
 ];
