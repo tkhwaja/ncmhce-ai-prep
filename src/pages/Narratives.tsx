@@ -120,16 +120,28 @@ const Narratives = () => {
               </Button>
             </CardContent>
           </Card>
-          <Card className="card-elevated opacity-70 relative">
+          <Card
+            className="card-elevated cursor-pointer hover:border-primary/30 transition-all group relative overflow-hidden"
+            onClick={() => navigate("/practice-exams")}
+          >
             <CardContent className="p-6">
-              <span className="absolute top-3 right-3 z-10 px-2 py-0.5 text-[10px] font-bold tracking-wider rounded-full bg-muted text-muted-foreground border border-border">
-                COMING SOON
+              <span
+                className="absolute -top-1 -right-1 z-10 px-4 py-1.5 text-[12px] font-extrabold tracking-widest uppercase rounded-[999px] text-white shadow-lg"
+                style={{
+                  background:
+                    "linear-gradient(135deg, #60A5FA 0%, #2563EB 40%, #93C5FD 60%, #1D4ED8 100%)",
+                  boxShadow:
+                    "0 4px 14px -2px rgba(37, 99, 235, 0.55), inset 1px 1px 2px rgba(255,255,255,0.55)",
+                  textShadow: "0 1px 2px rgba(0,0,0,0.2)",
+                }}
+              >
+                NEW
               </span>
-              <LockIcon className="h-8 w-8 text-muted-foreground mb-3" />
-              <h3 className="font-semibold text-foreground">Practice Exam 2</h3>
-              <p className="text-sm text-muted-foreground mt-1">Coming soon — 11 new clinical narratives</p>
-              <Button size="sm" className="mt-4 h-7 text-xs" disabled>
-                <LockIcon className="h-3 w-3 mr-1" /> Coming Soon
+              <Brain className="h-8 w-8 text-primary mb-3" />
+              <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">Practice Exam 2</h3>
+              <p className="text-sm text-muted-foreground mt-1">11 clinical narratives • ~4 hours</p>
+              <Button size="sm" className="mt-4 h-7 text-xs">
+                <PlayCircle className="h-3 w-3 mr-1" /> Open Exam
               </Button>
             </CardContent>
           </Card>

@@ -34,7 +34,7 @@ export const practiceExams: PracticeExam[] = [
   {
     id: "practice-exam-2",
     title: "Practice Exam 2",
-    description: "11 clinical narratives • ~4 hours (Elite tier)",
+    description: "11 clinical narratives • ~4 hours",
     ungradedNarrativeCount: 1,
     narrativeIds: [
       "practice-exam-02-case-01-nia-mdd-suicide-risk",
