@@ -137,6 +137,10 @@ const practiceExamNarratives: Narrative[] = [
   omarAudCourtPracticeExam2Narrative,
   mayaAutismBurnoutPracticeExam2Narrative,
   imaniBpdAbandonmentPracticeExam2Narrative,
+  julianPanicCardiacAnxietyPracticeExam2Narrative,
+  tessaBulimiaMedicalRiskPracticeExam2Narrative,
+  ariSchizophreniformFirstEpisodePracticeExam2Narrative,
+  marciaProlongedGriefCaregiverIdentityPracticeExam2Narrative,
 ];
 
 const allNarratives: Narrative[] = [freeDiagnosticNarrative, ...narratives, ...practiceExamNarratives];

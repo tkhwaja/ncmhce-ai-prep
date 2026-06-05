@@ -33,7 +33,8 @@ export const practiceExams: PracticeExam[] = [
   {
     id: "practice-exam-2",
     title: "Practice Exam 2",
-    description: "In progress — being built case by case (Elite tier)",
+    description: "11 clinical narratives • ~4 hours (Elite tier)",
+    ungradedNarrativeCount: 1,
     narrativeIds: [
       "practice-exam-02-case-01-nia-mdd-suicide-risk",
       "practice-exam-02-case-02-gabriel-ptsd-moral-injury",
@@ -42,8 +43,11 @@ export const practiceExams: PracticeExam[] = [
       "practice-exam-02-case-05-omar-aud-court-involved",
       "practice-exam-02-case-06-maya-autism-burnout",
       "practice-exam-02-case-07-imani-bpd-abandonment",
+      "practice-exam-02-case-08-julian-panic-cardiac-anxiety",
+      "practice-exam-02-case-09-tessa-bulimia-medical-risk",
+      "practice-exam-02-case-10-ari-schizophreniform-first-episode",
+      "practice-exam-02-case-11-marcia-prolonged-grief-caregiver-identity",
     ],
-    comingSoon: true,
   },
 ];
 
