@@ -1,7 +1,7 @@
 {
   "name": "The Exam Path",
   "short_name": "Exam Path",
-  "description": "NCMHCE prep — close the ring.",
+  "description": "The one and done exam platform.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#162033",
