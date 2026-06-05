@@ -40,7 +40,7 @@ export const mayaAutismBurnoutPracticeExam2Narrative: Narrative = {
         {
           id: "maya-q1",
           questionNumber: 1,
-          domain: "Intake, Assessment, and Diagnosis",
+          domain: "Intake/assessment/diagnosis",
           stem: "Which formulation is best supported by Maya's intake presentation?",
           options: [
             "Social Anxiety Disorder with occupational burnout, because the primary impairment occurs in meetings, networking, and fear of workplace judgment.",
@@ -54,7 +54,7 @@ export const mayaAutismBurnoutPracticeExam2Narrative: Narrative = {
         {
           id: "maya-q2",
           questionNumber: 2,
-          domain: "Intake, Assessment, and Diagnosis",
+          domain: "Intake/assessment/diagnosis",
           stem: "Which detail most strongly supports Autism Spectrum Disorder rather than adult-onset burnout alone?",
           options: [
             "She has begun taking sick days after meeting-heavy weeks and is considering stepping down from leadership.",
@@ -68,7 +68,7 @@ export const mayaAutismBurnoutPracticeExam2Narrative: Narrative = {
         {
           id: "maya-q3",
           questionNumber: 3,
-          domain: "Counseling Skills and Interventions",
+          domain: "Counseling skills and interventions",
           stem: "Maya says, “I am not here to become less autistic.” Which initial treatment frame is most appropriate?",
           options: [
             "Focus on reducing anxiety so she can participate more comfortably in required leadership activities.",
@@ -82,7 +82,7 @@ export const mayaAutismBurnoutPracticeExam2Narrative: Narrative = {
         {
           id: "maya-q4",
           questionNumber: 4,
-          domain: "Professional Practice and Ethics",
+          domain: "Professional practice and ethics",
           stem: "Maya asks whether you can write a letter saying she has autism and cannot attend the leadership retreat. What is the best response?",
           options: [
             "Write the letter because the developmental history and current impairment support Autism Spectrum Disorder and the retreat is likely to worsen burnout.",
@@ -96,7 +96,7 @@ export const mayaAutismBurnoutPracticeExam2Narrative: Narrative = {
         {
           id: "maya-q5",
           questionNumber: 5,
-          domain: "Core Counseling Attributes",
+          domain: "Core counseling attributes",
           stem: "Maya says, “If I ask for a clear agenda, I am rigid. If I do not smile enough, I am cold. If I need quiet, I am difficult.” Which response best deepens the work?",
           options: [
             "Those are common experiences for autistic adults who have had to mask in professional environments.",
@@ -117,7 +117,7 @@ export const mayaAutismBurnoutPracticeExam2Narrative: Narrative = {
         {
           id: "maya-q6",
           questionNumber: 6,
-          domain: "Treatment Planning",
+          domain: "Treatment planning",
           stem: "Maya wants a private room, written agenda, sensory breaks, and permission to skip unstructured evening social events at the retreat. How should these requests be conceptualized?",
           options: [
             "They are likely avoidance because she is asking to reduce exposure to anxiety-provoking leadership activities.",
@@ -131,7 +131,7 @@ export const mayaAutismBurnoutPracticeExam2Narrative: Narrative = {
         {
           id: "maya-q7",
           questionNumber: 7,
-          domain: "Intake, Assessment, and Diagnosis",
+          domain: "Intake/assessment/diagnosis",
           stem: "Maya loses track of tasks after long meetings and procrastinates on ambiguous emails, but focuses intensely on systems work. Which assessment direction is most appropriate?",
           options: [
             "Diagnose ADHD because task disorganization and procrastination are impairing across work and home.",
@@ -145,7 +145,7 @@ export const mayaAutismBurnoutPracticeExam2Narrative: Narrative = {
         {
           id: "maya-q8",
           questionNumber: 8,
-          domain: "Core Counseling Attributes",
+          domain: "Core counseling attributes",
           stem: "Maya wants Priya to understand that after-work shutdowns are not rejection. What is the best clinical direction?",
           options: [
             "Invite Priya to a consented support session focused on shutdowns, sensory recovery, and communication plans, while avoiding a frame that Maya must prove she is trying hard enough.",
@@ -159,7 +159,7 @@ export const mayaAutismBurnoutPracticeExam2Narrative: Narrative = {
         {
           id: "maya-q9",
           questionNumber: 9,
-          domain: "Professional Practice and Ethics",
+          domain: "Professional practice and ethics",
           stem: "Maya says, “Maybe I should tell HR everything so they finally understand, but maybe that ruins my career.” What response best fits the counselor's role?",
           options: [
             "Advise limited disclosure of functional needs rather than diagnosis because diagnosis disclosure is rarely necessary for accommodations.",
@@ -173,7 +173,7 @@ export const mayaAutismBurnoutPracticeExam2Narrative: Narrative = {
         {
           id: "maya-q10",
           questionNumber: 10,
-          domain: "Counseling Skills and Interventions",
+          domain: "Counseling skills and interventions",
           stem: "At session eight, Maya reports fewer shutdowns after reducing optional meetings, using noise-reducing earbuds, and taking scheduled sensory breaks. She worries this means she is “getting weaker.” What is the best intervention?",
           options: [
             "Reframe the changes as energy-conservation and nervous-system support while monitoring whether her life is becoming more flexible and values-consistent, not smaller from fear.",
@@ -194,7 +194,7 @@ export const mayaAutismBurnoutPracticeExam2Narrative: Narrative = {
         {
           id: "maya-q11",
           questionNumber: 11,
-          domain: "Treatment Planning",
+          domain: "Treatment planning",
           stem: "By session twelve, Maya has completed the retreat with accommodations but remains drained by unpredictable leadership demands. What is the most appropriate treatment focus?",
           options: [
             "Help her decide whether leadership roles are incompatible with autism so she can stop forcing herself into harmful environments.",
@@ -208,7 +208,7 @@ export const mayaAutismBurnoutPracticeExam2Narrative: Narrative = {
         {
           id: "maya-q12",
           questionNumber: 12,
-          domain: "Intake, Assessment, and Diagnosis",
+          domain: "Intake/assessment/diagnosis",
           stem: "Maya continues to report exhaustion and occasional crying but denies persistent depressed mood, anhedonia, hopelessness, suicidal ideation, or major appetite change. What is the best clinical interpretation?",
           options: [
             "Major Depressive Disorder is unlikely at present, but mood and risk should continue to be monitored because burnout and chronic overload can worsen depression risk.",
@@ -222,7 +222,7 @@ export const mayaAutismBurnoutPracticeExam2Narrative: Narrative = {
         {
           id: "maya-q13",
           questionNumber: 13,
-          domain: "Treatment Planning",
+          domain: "Treatment planning",
           stem: "Maya asks whether she can reduce session frequency after the retreat. Which plan is most appropriate?",
           options: [
             "Step down immediately because the main workplace crisis has passed and accommodations were successful.",
