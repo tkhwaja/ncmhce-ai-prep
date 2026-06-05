@@ -44,6 +44,7 @@ import { gabrielPtsdMoralInjuryPracticeExam2Narrative } from "./practice-exam-02
 import { leenaOcdRelationshipPracticeExam2Narrative } from "./practice-exam-02-case-03-leena-ocd-relationship";
 import { camilaBipolarIIAdhdPracticeExam2Narrative } from "./practice-exam-02-case-04-camila-bipolar-ii-adhd";
 import { omarAudCourtPracticeExam2Narrative } from "./practice-exam-02-case-05-omar-aud-court";
+import { mayaAutismBurnoutPracticeExam2Narrative } from "./practice-exam-02-case-06-maya-autism-burnout";
 import freeDiagnosticBundle from "@/data/free-diagnostic-bundle.json";
 
 export type { Narrative, NarrativeSection, NarrativeQuestion, NarrativeDomain, NarrativeClientInfo } from "./types";
