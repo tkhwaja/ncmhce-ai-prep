@@ -5,11 +5,7 @@ export const marciaProlongedGriefCaregiverIdentityPracticeExam2Narrative: Narrat
   "title": "Marcia — Prolonged Grief Disorder with Caregiver Identity Loss",
   "category": "Trauma- and Stressor-Related Disorders",
   "difficulty": "Advanced",
-  "recommendedTimeBySectionMinutes": {
-    "firstSection": 8,
-    "secondSection": 8,
-    "thirdSection": 8
-  },
+  "recommendedTimeBySectionMinutes": [8, 8, 8],
   "clientInfo": {
     "age": 59,
     "sexAssignedAtBirth": "Female",

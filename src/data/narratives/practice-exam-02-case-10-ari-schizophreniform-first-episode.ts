@@ -5,11 +5,7 @@ export const ariSchizophreniformFirstEpisodePracticeExam2Narrative: Narrative = 
   "title": "Ari — Schizophreniform Disorder / First-Episode Psychosis",
   "category": "Schizophrenia Spectrum and Other Psychotic Disorders",
   "difficulty": "Advanced",
-  "recommendedTimeBySectionMinutes": {
-    "firstSection": 8,
-    "secondSection": 8,
-    "thirdSection": 8
-  },
+  "recommendedTimeBySectionMinutes": [8, 8, 8],
   "clientInfo": {
     "age": 22,
     "sexAssignedAtBirth": "Male",

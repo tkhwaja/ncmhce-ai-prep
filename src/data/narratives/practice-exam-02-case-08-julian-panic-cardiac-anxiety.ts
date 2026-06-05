@@ -5,11 +5,7 @@ export const julianPanicCardiacAnxietyPracticeExam2Narrative: Narrative = {
   "title": "Julian — Panic Disorder with Cardiac Anxiety",
   "category": "Anxiety Disorders",
   "difficulty": "Advanced",
-  "recommendedTimeBySectionMinutes": {
-    "firstSection": 7,
-    "secondSection": 7,
-    "thirdSection": 6
-  },
+  "recommendedTimeBySectionMinutes": [7, 7, 6],
   "clientInfo": {
     "age": 42,
     "sexAssignedAtBirth": "Male",

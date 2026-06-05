@@ -5,11 +5,7 @@ export const tessaBulimiaMedicalRiskPracticeExam2Narrative: Narrative = {
   "title": "Tessa — Bulimia Nervosa with Medical Risk and Professional-Training Pressure",
   "category": "Feeding and Eating Disorders",
   "difficulty": "Advanced",
-  "recommendedTimeBySectionMinutes": {
-    "firstSection": 8,
-    "secondSection": 7,
-    "thirdSection": 7
-  },
+  "recommendedTimeBySectionMinutes": [8, 7, 7],
   "clientInfo": {
     "age": 24,
     "sexAssignedAtBirth": "Female",
