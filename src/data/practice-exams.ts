@@ -38,6 +38,7 @@ export const practiceExams: PracticeExam[] = [
       "practice-exam-02-case-01-nia-mdd-suicide-risk",
       "practice-exam-02-case-02-gabriel-ptsd-moral-injury",
       "practice-exam-02-case-03-leena-ocd-relationship-centered",
+      "practice-exam-02-case-04-camila-bipolar-ii-adhd-differential",
     ],
     comingSoon: true,
   },

@@ -42,6 +42,7 @@ import { jonahSchizophreniformPracticeExamNarrative } from "./practice-exam-01-c
 import { niaMddSuicidePracticeExam2Narrative } from "./practice-exam-02-case-01-nia-mdd-suicide";
 import { gabrielPtsdMoralInjuryPracticeExam2Narrative } from "./practice-exam-02-case-02-gabriel-ptsd-moral-injury";
 import { leenaOcdRelationshipPracticeExam2Narrative } from "./practice-exam-02-case-03-leena-ocd-relationship";
+import { camilaBipolarIIAdhdPracticeExam2Narrative } from "./practice-exam-02-case-04-camila-bipolar-ii-adhd";
 import freeDiagnosticBundle from "@/data/free-diagnostic-bundle.json";
 
 export type { Narrative, NarrativeSection, NarrativeQuestion, NarrativeDomain, NarrativeClientInfo } from "./types";
@@ -125,6 +126,7 @@ const practiceExamNarratives: Narrative[] = [
   niaMddSuicidePracticeExam2Narrative,
   gabrielPtsdMoralInjuryPracticeExam2Narrative,
   leenaOcdRelationshipPracticeExam2Narrative,
+  camilaBipolarIIAdhdPracticeExam2Narrative,
 ];
 
 const allNarratives: Narrative[] = [freeDiagnosticNarrative, ...narratives, ...practiceExamNarratives];
