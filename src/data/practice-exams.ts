@@ -40,6 +40,7 @@ export const practiceExams: PracticeExam[] = [
       "practice-exam-02-case-03-leena-ocd-relationship-centered",
       "practice-exam-02-case-04-camila-bipolar-ii-adhd-differential",
       "practice-exam-02-case-05-omar-aud-court-involved",
+      "practice-exam-02-case-06-maya-autism-burnout",
     ],
     comingSoon: true,
   },
