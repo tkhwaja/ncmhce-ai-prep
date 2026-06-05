@@ -45,6 +45,7 @@ import { leenaOcdRelationshipPracticeExam2Narrative } from "./practice-exam-02-c
 import { camilaBipolarIIAdhdPracticeExam2Narrative } from "./practice-exam-02-case-04-camila-bipolar-ii-adhd";
 import { omarAudCourtPracticeExam2Narrative } from "./practice-exam-02-case-05-omar-aud-court";
 import { mayaAutismBurnoutPracticeExam2Narrative } from "./practice-exam-02-case-06-maya-autism-burnout";
+import { imaniBpdAbandonmentPracticeExam2Narrative } from "./practice-exam-02-case-07-imani-bpd-abandonment";
 import freeDiagnosticBundle from "@/data/free-diagnostic-bundle.json";
 
 export type { Narrative, NarrativeSection, NarrativeQuestion, NarrativeDomain, NarrativeClientInfo } from "./types";
@@ -131,6 +132,7 @@ const practiceExamNarratives: Narrative[] = [
   camilaBipolarIIAdhdPracticeExam2Narrative,
   omarAudCourtPracticeExam2Narrative,
   mayaAutismBurnoutPracticeExam2Narrative,
+  imaniBpdAbandonmentPracticeExam2Narrative,
 ];
 
 const allNarratives: Narrative[] = [freeDiagnosticNarrative, ...narratives, ...practiceExamNarratives];
