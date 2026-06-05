@@ -87,6 +87,11 @@ const PracticeExams = () => {
                     COMING SOON
                   </span>
                 )}
+                {!exam.comingSoon && exam.isNew && (
+                  <span className="absolute top-3 right-3 z-10 px-2 py-0.5 text-[10px] font-bold tracking-wider rounded-full bg-primary text-primary-foreground shadow">
+                    NEW
+                  </span>
+                )}
                 <div className="flex items-start gap-3">
                   <div className={`h-10 w-10 rounded-lg flex items-center justify-center shrink-0 ${exam.comingSoon ? "bg-muted" : "bg-primary/10"}`}>
                     {exam.comingSoon ? (
