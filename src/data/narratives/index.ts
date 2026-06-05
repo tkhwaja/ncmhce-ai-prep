@@ -46,6 +46,10 @@ import { camilaBipolarIIAdhdPracticeExam2Narrative } from "./practice-exam-02-ca
 import { omarAudCourtPracticeExam2Narrative } from "./practice-exam-02-case-05-omar-aud-court";
 import { mayaAutismBurnoutPracticeExam2Narrative } from "./practice-exam-02-case-06-maya-autism-burnout";
 import { imaniBpdAbandonmentPracticeExam2Narrative } from "./practice-exam-02-case-07-imani-bpd-abandonment";
+import { julianPanicCardiacAnxietyPracticeExam2Narrative } from "./practice-exam-02-case-08-julian-panic-cardiac-anxiety";
+import { tessaBulimiaMedicalRiskPracticeExam2Narrative } from "./practice-exam-02-case-09-tessa-bulimia-medical-risk";
+import { ariSchizophreniformFirstEpisodePracticeExam2Narrative } from "./practice-exam-02-case-10-ari-schizophreniform-first-episode";
+import { marciaProlongedGriefCaregiverIdentityPracticeExam2Narrative } from "./practice-exam-02-case-11-marcia-prolonged-grief-caregiver-identity";
 import freeDiagnosticBundle from "@/data/free-diagnostic-bundle.json";
 
 export type { Narrative, NarrativeSection, NarrativeQuestion, NarrativeDomain, NarrativeClientInfo } from "./types";
@@ -133,6 +137,10 @@ const practiceExamNarratives: Narrative[] = [
   omarAudCourtPracticeExam2Narrative,
   mayaAutismBurnoutPracticeExam2Narrative,
   imaniBpdAbandonmentPracticeExam2Narrative,
+  julianPanicCardiacAnxietyPracticeExam2Narrative,
+  tessaBulimiaMedicalRiskPracticeExam2Narrative,
+  ariSchizophreniformFirstEpisodePracticeExam2Narrative,
+  marciaProlongedGriefCaregiverIdentityPracticeExam2Narrative,
 ];
 
 const allNarratives: Narrative[] = [freeDiagnosticNarrative, ...narratives, ...practiceExamNarratives];
