@@ -130,16 +130,9 @@ Deno.serve(async (req) => {
   const supabaseServiceKey = Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!;
   const authHeader = req.headers.get("Authorization") || "";
   const bearer = authHeader.startsWith("Bearer ") ? authHeader.slice(7) : "";
-  const ADMIN_EMAILS = ["tahahareb18@gmail.com", "tahahareb7@gmail.com"];
-  let authorized = false;
-  if (bearer && bearer === supabaseServiceKey) authorized = true;
-  else if (bearer) {
-    try {
-      const payload = JSON.parse(atob(bearer.split(".")[1]));
-      if (payload?.role === "service_role") authorized = true;
-      else if (payload?.email && ADMIN_EMAILS.includes(String(payload.email).toLowerCase())) authorized = true;
-    } catch { /* */ }
-  }
+  // Require an exact match against the service role key. Unverified JWT
+  // payloads (including email claims) are forgeable and must not grant access.
+  const authorized = !!bearer && bearer === supabaseServiceKey;
   if (!authorized) {
     return new Response(JSON.stringify({ error: "Unauthorized" }), { status: 401, headers: corsHeaders });
   }
