@@ -1,41 +1,56 @@
 ## Goal
 
-Fix the critical security issue: any logged-in user can currently run an update on their own `profiles` row and set `payment_status = 'paid'` or push `access_expires_at` into the future, unlocking the platform for free.
+Close the email-relay JWT bypass (ERROR-level) and remove the public test email endpoint. No impact on current users, paying customers, or any working email flow.
 
-## Why current paying customers are safe
+## The vulnerability (in plain terms)
 
-- Paid status is written by **Stripe webhooks / edge functions using the service role key**, not by the browser.
-- The fix only blocks the *client* from writing `payment_status` and `access_expires_at`. Service role keeps full access.
-- No data is changed. Existing `paid` users stay `paid`, existing `access_expires_at` values stay intact.
-- The frontend never legitimately writes these two columns, so no UI breaks.
+Three edge functions claim to require a service-role token, but they only base64-decode the token's middle segment — they never verify the signature. Anyone on the internet can hand-craft a fake token whose payload says `{"role":"service_role"}` and gain full access to:
 
-## The fix (one database migration)
+- `send-transactional-email` — send any template to any email address
+- `sync-brevo-founders-list` — push your contact list to Brevo
+- `sync-brevo-second-blast` — same
 
-There is already a function in the database called `prevent_profile_sensitive_update` that does exactly the right thing:
-- If the caller is `service_role` → allow anything (webhooks keep working).
-- Otherwise → block changes to `payment_status`, `email`, and `id`.
+A fourth function, `test-send-emails`, has no auth at all and can spam any address through your sending infrastructure.
 
-But it is not currently attached to the `profiles` table, so it never runs. The migration will:
+## Changes
 
-1. Attach `prevent_profile_sensitive_update` as a `BEFORE UPDATE` trigger on `public.profiles`.
-2. Extend the function to also block changes to `access_expires_at` from non-service-role callers (the existing version only guards `payment_status`, `email`, `id`).
-3. Tighten the RLS UPDATE policy on `profiles` to add a `WITH CHECK (auth.uid() = id)` as defense-in-depth, so even if the trigger were dropped, users still can't write rows belonging to others.
+### 1. `supabase/functions/send-transactional-email/index.ts`
+Remove the `atob(bearer.split('.')[1])` branch. Keep only the literal comparison `bearer === SUPABASE_SERVICE_ROLE_KEY`. Update the misleading comment that says `verify_jwt = true`.
 
-## What this does NOT change
+### 2. `supabase/functions/sync-brevo-founders-list/index.ts`
+Same fix: delete the atob branch, keep only the literal service-role key comparison.
 
-- No table columns added or removed.
-- No data rewritten.
-- No edge functions changed.
-- No frontend code changed.
-- Stripe webhook (`payments-webhook`) and any admin edge functions continue to update `payment_status` and `access_expires_at` normally because they use the service role key.
+### 3. `supabase/functions/sync-brevo-second-blast/index.ts`
+Same fix. Also remove the `ADMIN_EMAILS` branch (it relies on the same unverified payload).
 
-## Verification after deploy
+### 4. Delete `supabase/functions/test-send-emails/`
+One-off helper, no longer needed. The file's own comment says "Safe to delete after use."
 
-- Confirm a logged-in test user gets a permission error when attempting `update profiles set payment_status='paid'` from the browser.
-- Confirm an existing paid user still sees paid access (no change to their row).
-- Confirm a fresh Stripe test checkout still flips a new user to paid via the webhook.
-- Re-run the security scan and mark `profiles_payment_self_update` as fixed.
+### 5. Deploy the three edited functions
 
-## Out of scope (will be tackled in follow-up plans)
+After the edits, redeploy `send-transactional-email`, `sync-brevo-founders-list`, and `sync-brevo-second-blast`.
 
-The other ERROR-level findings (email function auth bypasses, open blast endpoints, `test-send-emails`) are not touched here so this change stays small and low-risk. We will handle them next, in order of impact.
+### 6. Mark the two findings as fixed in the scanner
+
+`send_email_jwt_bypass` and `test_send_no_auth`.
+
+## Why this is safe for current users
+
+All legitimate callers of `send-transactional-email` already pass the real service-role key in the Authorization header:
+
+- `auth-email-hook` (auth emails — signup, password reset, magic link)
+- `process-email-queue` (the queue worker that actually delivers all emails)
+- `blast-confirm-reminders` and `blast-recovery-emails` (admin tools, internal)
+- `daily-diagnostic-report` (cron job)
+
+The literal-key branch is what they all hit today. Removing only the broken atob branch changes nothing for them. Paying customers, signup confirmation emails, password resets, and Stripe-driven notifications all keep working exactly as before.
+
+The two Brevo sync functions are admin-only and invoked manually with the service-role key, so the same applies.
+
+`test-send-emails` is not referenced by any frontend or backend code — safe to delete.
+
+## Out of scope (handled next, in order of impact)
+
+- `blast-confirm-reminders` and `blast-recovery-emails` — open admin endpoints. Higher friction to fix because the signup page currently calls `blast-confirm-reminders` with the anon key. Needs its own plan.
+- `create_checkout_no_auth` (warn) — Stripe checkout trusts client-supplied `userId`.
+- Remaining warn-level findings (waitlist read policy, leaked-password protection, SECURITY DEFINER exec grants, public bucket listing).
