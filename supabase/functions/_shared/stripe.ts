@@ -21,10 +21,15 @@ export function createStripeClient(env: StripeEnv): Stripe {
   return new Stripe(connectionApiKey, {
     httpClient: Stripe.createFetchHttpClient((url: string | URL, init?: RequestInit) => {
       const gatewayUrl = url.toString().replace('https://api.stripe.com', GATEWAY_STRIPE_BASE);
+      const mergedHeaders = Object.fromEntries(new Headers(init?.headers).entries());
+      // Stripe SDK sets Authorization: Bearer <key>, but the connector gateway
+      // rejects requests that carry both Authorization and Lovable-API-Key.
+      delete mergedHeaders.authorization;
+      delete mergedHeaders.Authorization;
       return fetch(gatewayUrl, {
         ...init,
         headers: {
-          ...Object.fromEntries(new Headers(init?.headers).entries()),
+          ...mergedHeaders,
           'X-Connection-Api-Key': connectionApiKey,
           'Lovable-API-Key': lovableApiKey,
         },
