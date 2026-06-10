@@ -93,7 +93,7 @@ const edgeFnChecks = (): Array<Promise<CheckResult>> => {
     ['get-stripe-price', { body: { priceId: 'pro_monthly', environment: 'sandbox' }, expect: [200, 400, 404] }],
     ['create-checkout', { body: {}, expect: [400, 422] }],
     ['create-portal-session', { body: {}, expect: [400, 401, 422] }],
-    ['waitlist-signup', { body: {}, expect: [400, 422] }],
+    // waitlist-signup intentionally excluded — only used during pre-launch
     ['free-diagnostic-lead', { body: {}, expect: [400, 422] }],
     ['handle-email-unsubscribe', { method: 'GET', expect: [200, 400, 404] }],
     ['handle-email-suppression', { body: {}, expect: [400, 401, 422] }],
