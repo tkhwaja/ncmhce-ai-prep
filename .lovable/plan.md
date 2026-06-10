@@ -1,56 +1,56 @@
-## Goal
+## 1. Coupon field — no code change needed
 
-Close the email-relay JWT bypass (ERROR-level) and remove the public test email endpoint. No impact on current users, paying customers, or any working email flow.
+`supabase/functions/create-checkout/index.ts` already sets `allow_promotion_codes: true`. Stripe's Embedded Checkout automatically renders an "Add promotion code" link. As soon as you create the `WELCOME20` coupon + promo code in Stripe, customers can type it and the discount applies. I'll verify by opening the live checkout in the preview after you confirm the coupon exists.
 
-## The vulnerability (in plain terms)
+## 2. New edge function: `create-recovery-campaign`
 
-Three edge functions claim to require a service-role token, but they only base64-decode the token's middle segment — they never verify the signature. Anyone on the internet can hand-craft a fake token whose payload says `{"role":"service_role"}` and gain full access to:
+A one-shot admin function that creates a **draft** email campaign in Brevo containing the 7 stuck-checkout users. You open Brevo → Campaigns → review → click Send.
 
-- `send-transactional-email` — send any template to any email address
-- `sync-brevo-founders-list` — push your contact list to Brevo
-- `sync-brevo-second-blast` — same
+**Auth:** Restricted to admins. Requires logged-in user with `admin` role (checked via `has_role`). Returns 403 otherwise. `verify_jwt = true`.
 
-A fourth function, `test-send-emails`, has no auth at all and can spam any address through your sending infrastructure.
+**What it does:**
+1. Validates caller is an admin.
+2. Queries the 7 affected users (same query I used earlier to identify stuck-checkout users — failed `create-checkout` invocations / opened checkout but no completed payment in the affected window) and pulls their email + first name.
+3. Calls Brevo `POST /emailCampaigns` via the connector gateway (`https://connector-gateway.lovable.dev/brevo/emailCampaigns`) with:
+   - `name`: `Checkout recovery — June 2026`
+   - `subject`: `A small thank-you while we fixed checkout`
+   - `sender`: `{ name: "ExamPath", email: "<your verified domain sender>" }`
+   - `htmlContent`: the recovery email body (apology + `WELCOME20` code + CTA back to pricing page)
+   - `recipients.listIds`: a new Brevo contact list created in the same call (so we don't email your whole audience by mistake), OR uses an existing list ID if you pass one.
+   - No `scheduledAt` → Brevo saves it as a **draft**.
+4. Before creating the campaign, upserts the 7 contacts into a dedicated Brevo list named `Checkout Recovery — June 2026` via `POST /contacts` and `POST /contacts/lists`.
+5. Returns `{ campaignId, listId, recipientCount, brevoUrl }` so the response links you straight to the draft in Brevo.
 
-## Changes
+**Email copy (HTML, plain version):**
 
-### 1. `supabase/functions/send-transactional-email/index.ts`
-Remove the `atob(bearer.split('.')[1])` branch. Keep only the literal comparison `bearer === SUPABASE_SERVICE_ROLE_KEY`. Update the misleading comment that says `verify_jwt = true`.
+> Subject: A small thank-you while we fixed checkout
+>
+> Hi {{FIRSTNAME|there}},
+>
+> You tried to start your ExamPath subscription recently and ran into a checkout issue on our end. That's fixed now, and I'm sorry for the friction — especially while you're preparing for the NCMHCE.
+>
+> As a thank-you for your patience, here's **20% off your first 3 months**: use code **`WELCOME20`** at checkout.
+>
+> [Resume checkout →](https://www.theexampath.com/pricing)
+>
+> If anything still doesn't work, just reply to this email and I'll sort it out personally.
+>
+> — The ExamPath team
 
-### 2. `supabase/functions/sync-brevo-founders-list/index.ts`
-Same fix: delete the atob branch, keep only the literal service-role key comparison.
+## 3. How you'll use it
 
-### 3. `supabase/functions/sync-brevo-second-blast/index.ts`
-Same fix. Also remove the `ADMIN_EMAILS` branch (it relies on the same unverified payload).
+After implementation:
+1. Open the preview, sign in as admin.
+2. I'll run the function once via `supabase--curl_edge_functions` and paste the returned Brevo campaign URL.
+3. You open it in Brevo, double-check the 7 recipients + body, and click Send.
 
-### 4. Delete `supabase/functions/test-send-emails/`
-One-off helper, no longer needed. The file's own comment says "Safe to delete after use."
+## Technical notes
 
-### 5. Deploy the three edited functions
+- Brevo connector is already linked (`BREVO_API_KEY` secret present), so no new credential setup.
+- Sender email must be on a verified Brevo domain — I'll read `email_domain--check_email_domain_status` to pick the right `from` address before writing the function.
+- The function is idempotent-ish: if a list with that name already exists, it reuses it; if a draft campaign with the same `name` exists, it creates a new one (Brevo allows duplicate names) — safer than mutating an existing draft.
+- No DB schema changes.
 
-After the edits, redeploy `send-transactional-email`, `sync-brevo-founders-list`, and `sync-brevo-second-blast`.
-
-### 6. Mark the two findings as fixed in the scanner
-
-`send_email_jwt_bypass` and `test_send_no_auth`.
-
-## Why this is safe for current users
-
-All legitimate callers of `send-transactional-email` already pass the real service-role key in the Authorization header:
-
-- `auth-email-hook` (auth emails — signup, password reset, magic link)
-- `process-email-queue` (the queue worker that actually delivers all emails)
-- `blast-confirm-reminders` and `blast-recovery-emails` (admin tools, internal)
-- `daily-diagnostic-report` (cron job)
-
-The literal-key branch is what they all hit today. Removing only the broken atob branch changes nothing for them. Paying customers, signup confirmation emails, password resets, and Stripe-driven notifications all keep working exactly as before.
-
-The two Brevo sync functions are admin-only and invoked manually with the service-role key, so the same applies.
-
-`test-send-emails` is not referenced by any frontend or backend code — safe to delete.
-
-## Out of scope (handled next, in order of impact)
-
-- `blast-confirm-reminders` and `blast-recovery-emails` — open admin endpoints. Higher friction to fix because the signup page currently calls `blast-confirm-reminders` with the anon key. Needs its own plan.
-- `create_checkout_no_auth` (warn) — Stripe checkout trusts client-supplied `userId`.
-- Remaining warn-level findings (waitlist read policy, leaked-password protection, SECURITY DEFINER exec grants, public bucket listing).
+Files touched:
+- `supabase/functions/create-recovery-campaign/index.ts` (new)
+- `supabase/config.toml` (add `[functions.create-recovery-campaign]` block; `verify_jwt = true`)
