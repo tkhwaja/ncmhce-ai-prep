@@ -257,6 +257,36 @@ export type Database = {
         }
         Relationships: []
       }
+      health_check_runs: {
+        Row: {
+          duration_ms: number
+          fail_count: number
+          id: string
+          pass_count: number
+          run_at: string
+          summary: Json
+          warn_count: number
+        }
+        Insert: {
+          duration_ms?: number
+          fail_count?: number
+          id?: string
+          pass_count?: number
+          run_at?: string
+          summary: Json
+          warn_count?: number
+        }
+        Update: {
+          duration_ms?: number
+          fail_count?: number
+          id?: string
+          pass_count?: number
+          run_at?: string
+          summary?: Json
+          warn_count?: number
+        }
+        Relationships: []
+      }
       narrative_attempts: {
         Row: {
           completed_at: string | null

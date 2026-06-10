@@ -23,6 +23,14 @@ interface FunnelStep {
   conversionFromPrev?: number | null
 }
 
+interface HealthResult {
+  name: string
+  category: string
+  status: 'pass' | 'warn' | 'fail'
+  message: string
+  durationMs: number
+}
+
 interface DailyDiagnosticReportProps {
   reportDateLabel?: string
   windowLabel?: string
@@ -54,6 +62,13 @@ interface DailyDiagnosticReportProps {
     failed: number
     suppressed: number
   }
+  systemHealth?: {
+    results: HealthResult[]
+    pass: number
+    warn: number
+    fail: number
+    duration: number
+  } | null
   errors?: string[]
 }
 
@@ -67,6 +82,11 @@ const fmtSec = (s: number) => {
   return m > 0 ? `${m}m ${sec}s` : `${sec}s`
 }
 
+const statusColor = (s: 'pass' | 'warn' | 'fail') =>
+  s === 'pass' ? '#16a34a' : s === 'warn' ? '#d97706' : '#dc2626'
+const statusGlyph = (s: 'pass' | 'warn' | 'fail') =>
+  s === 'pass' ? '✓' : s === 'warn' ? '!' : '✗'
+
 const DailyDiagnosticReportEmail = ({
   reportDateLabel,
   windowLabel,
@@ -75,6 +95,7 @@ const DailyDiagnosticReportEmail = ({
   traffic,
   revenue,
   emailHealth,
+  systemHealth,
   errors,
 }: DailyDiagnosticReportProps) => (
   <Html lang="en" dir="ltr">
@@ -85,6 +106,45 @@ const DailyDiagnosticReportEmail = ({
         <Text style={eyebrow}>The Exam Path · Daily Diagnostic</Text>
         <Heading style={h1}>{reportDateLabel ?? 'Daily report'}</Heading>
         <Text style={subhead}>{windowLabel ?? 'Last 24 hours'}</Text>
+
+        {/* System health — render at the top so issues are seen first */}
+        {systemHealth && (
+          <Section
+            style={{
+              ...card,
+              borderColor: systemHealth.fail > 0 ? '#fecaca' : systemHealth.warn > 0 ? '#fed7aa' : '#bbf7d0',
+              backgroundColor: systemHealth.fail > 0 ? '#fef2f2' : systemHealth.warn > 0 ? '#fff7ed' : '#f0fdf4',
+            }}
+          >
+            <Heading as="h2" style={h2}>
+              System health · {systemHealth.fail > 0 ? '✗ ' + systemHealth.fail + ' failing' : systemHealth.warn > 0 ? '! ' + systemHealth.warn + ' warning(s)' : '✓ All systems normal'}
+            </Heading>
+            <Text style={{ ...subhead, margin: '0 0 10px' }}>
+              {systemHealth.pass} passed · {systemHealth.warn} warn · {systemHealth.fail} failed · ran in {(systemHealth.duration / 1000).toFixed(1)}s
+            </Text>
+            {(systemHealth.fail > 0 || systemHealth.warn > 0) && (
+              <table style={statTable}>
+                <tbody>
+                  {systemHealth.results
+                    .filter((r) => r.status !== 'pass')
+                    .map((r, i) => (
+                      <tr key={i}>
+                        <td style={statLabel}>
+                          <span style={{ color: statusColor(r.status), fontWeight: 700, marginRight: 6 }}>
+                            {statusGlyph(r.status)}
+                          </span>
+                          {r.category} · {r.name}
+                        </td>
+                        <td style={{ ...statValue, color: statusColor(r.status), fontSize: '12px', fontWeight: 500 }}>
+                          {r.message}
+                        </td>
+                      </tr>
+                    ))}
+                </tbody>
+              </table>
+            )}
+          </Section>
+        )}
 
         {/* Signups & Funnel totals */}
         <Section style={card}>
@@ -263,6 +323,13 @@ export const template = {
     },
     revenue: { newCustomers: 0, revenue: 0, activeSubscriptions: 0 },
     emailHealth: { sent: 14, failed: 0, suppressed: 1 },
+    systemHealth: {
+      pass: 18, warn: 1, fail: 1, duration: 3420,
+      results: [
+        { name: 'Stripe live key valid', category: 'Payments', status: 'warn', message: 'Live key not configured (pre go-live)', durationMs: 12 },
+        { name: 'Edge fn: counselor-chat', category: 'Edge functions', status: 'fail', message: 'HTTP 500 — internal error', durationMs: 220 },
+      ],
+    },
   },
 } satisfies TemplateEntry
 

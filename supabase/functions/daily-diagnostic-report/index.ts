@@ -293,6 +293,18 @@ Deno.serve(async (req) => {
     },
   ]
 
+  // ── System health checks ──────────────────────────────────────────────
+  let systemHealth: any = null
+  try {
+    const { data: hc, error: hcErr } = await supabase.functions.invoke('daily-health-checks', {
+      body: {},
+    })
+    if (hcErr) throw hcErr
+    systemHealth = hc
+  } catch (e) {
+    errors.push(`Health checks failed: ${(e as Error).message}`)
+  }
+
   const templateData = {
     reportDateLabel: label,
     windowLabel: 'Last 24 hours (ending 7:00 PM ET)',
@@ -301,6 +313,7 @@ Deno.serve(async (req) => {
     traffic: { visitors, pageviews, avgSessionSec, bounceRatePct, topPages, topSources, devices, topCountries },
     revenue: { newCustomers, revenue: revenueAmt, activeSubscriptions },
     emailHealth: { sent: emailSent, failed: emailFailed, suppressed: emailSuppressed },
+    systemHealth,
     errors,
   }
 
