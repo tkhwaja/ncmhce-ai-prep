@@ -22,7 +22,6 @@ serve(async (req) => {
     const stripe = createStripeClient(env);
 
     const prices = await stripe.prices.list({ lookup_keys: [priceId], active: true, expand: ["data.product"] });
-    console.log("prices response shape:", JSON.stringify(prices)?.slice(0, 800));
     const stripePrice = prices.data.find((price: any) => {
       const product = price.product;
       return price.active && (typeof product === "string" || product.active !== false);
