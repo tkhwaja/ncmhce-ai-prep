@@ -23,6 +23,14 @@ interface FunnelStep {
   conversionFromPrev?: number | null
 }
 
+interface HealthResult {
+  name: string
+  category: string
+  status: 'pass' | 'warn' | 'fail'
+  message: string
+  durationMs: number
+}
+
 interface DailyDiagnosticReportProps {
   reportDateLabel?: string
   windowLabel?: string
@@ -54,6 +62,13 @@ interface DailyDiagnosticReportProps {
     failed: number
     suppressed: number
   }
+  systemHealth?: {
+    results: HealthResult[]
+    pass: number
+    warn: number
+    fail: number
+    duration: number
+  } | null
   errors?: string[]
 }
 
