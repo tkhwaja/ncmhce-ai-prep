@@ -323,6 +323,13 @@ export const template = {
     },
     revenue: { newCustomers: 0, revenue: 0, activeSubscriptions: 0 },
     emailHealth: { sent: 14, failed: 0, suppressed: 1 },
+    systemHealth: {
+      pass: 18, warn: 1, fail: 1, duration: 3420,
+      results: [
+        { name: 'Stripe live key valid', category: 'Payments', status: 'warn', message: 'Live key not configured (pre go-live)', durationMs: 12 },
+        { name: 'Edge fn: counselor-chat', category: 'Edge functions', status: 'fail', message: 'HTTP 500 — internal error', durationMs: 220 },
+      ],
+    },
   },
 } satisfies TemplateEntry
 
