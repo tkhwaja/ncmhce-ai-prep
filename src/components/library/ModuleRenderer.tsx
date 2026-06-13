@@ -269,7 +269,7 @@ const GuidedSection = ({
     <CollapsibleSection title={title} defaultOpen={defaultOpen} sectionId={id}>
       <div className="space-y-4 pt-1">
         {summary ? <p className="text-sm leading-relaxed text-muted-foreground">{summary}</p> : null}
-        {children}
+        <SectionErrorBoundary label={title}>{children}</SectionErrorBoundary>
       </div>
     </CollapsibleSection>
   </section>
