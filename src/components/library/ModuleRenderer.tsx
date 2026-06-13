@@ -1539,9 +1539,58 @@ const DiagnosticCategories = ({ categories }: { categories: any[] }) => (
                   </div>
                 )}
                 {disorder.minimumThreshold && (
-                  <p className="text-sm text-muted-foreground mb-2">
-                    <span className="font-medium text-foreground">Minimum Threshold: </span>{disorder.minimumThreshold}
-                  </p>
+                  typeof disorder.minimumThreshold === "string" ? (
+                    <p className="text-sm text-muted-foreground mb-2">
+                      <span className="font-medium text-foreground">Minimum Threshold: </span>{disorder.minimumThreshold}
+                    </p>
+                  ) : (
+                    <div className="mb-3">
+                      <p className="text-xs font-semibold text-foreground uppercase tracking-wide mb-1">Minimum Threshold</p>
+                      <ul className="space-y-1 ml-4">
+                        {Object.entries(disorder.minimumThreshold).map(([k, v]) => (
+                          <li key={k} className="text-sm text-muted-foreground flex items-start gap-1">
+                            <span className="text-primary text-xs">•</span>
+                            <span><span className="font-medium text-foreground capitalize">{formatKey(k)}: </span>{Array.isArray(v) ? v.join(", ") : String(v)}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  )
+                )}
+                {disorder.clusters && typeof disorder.clusters === "object" && (
+                  <div className="mb-3">
+                    <p className="text-xs font-semibold text-foreground uppercase tracking-wide mb-1">Symptom Clusters</p>
+                    <div className="space-y-2 ml-4">
+                      {Object.entries(disorder.clusters).map(([k, v]) => (
+                        <div key={k}>
+                          <p className="text-sm font-medium text-foreground capitalize">{formatKey(k)}</p>
+                          {Array.isArray(v) ? (
+                            <ul className="ml-4 space-y-0.5">
+                              {(v as any[]).map((item, idx) => (
+                                <li key={idx} className="text-sm text-muted-foreground flex items-start gap-1">
+                                  <span className="text-primary text-xs">•</span>{String(item)}
+                                </li>
+                              ))}
+                            </ul>
+                          ) : (
+                            <p className="text-sm text-muted-foreground ml-4">{String(v)}</p>
+                          )}
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {disorder.traumaExposureWays && Array.isArray(disorder.traumaExposureWays) && (
+                  <div className="mb-3">
+                    <p className="text-xs font-semibold text-foreground uppercase tracking-wide mb-1">Trauma Exposure Pathways</p>
+                    <ul className="space-y-1 ml-4">
+                      {disorder.traumaExposureWays.map((w: string, k: number) => (
+                        <li key={k} className="text-sm text-muted-foreground flex items-start gap-1">
+                          <span className="text-primary text-xs">•</span>{w}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 )}
                 {disorder.mustRuleOut && (
                   <div className="mb-3">
