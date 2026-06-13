@@ -10,6 +10,7 @@ import ModuleSectionNavigator from "@/components/library/ModuleSectionNavigator"
 import { ExamLikelihoodBadge } from "@/components/library/ExamLikelihoodBadge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useBookmark } from "@/hooks/useBookmark";
+import { SectionErrorBoundary } from "@/components/SectionErrorBoundary";
 import { ChevronDown, ChevronRight, Lightbulb, AlertTriangle, BookOpen, Target, HelpCircle, Sparkles, ListChecks, Brain, Repeat, ShieldAlert, Compass, Bookmark, BookmarkCheck } from "lucide-react";
 
 const ModuleIdContext = createContext<string | undefined>(undefined);
@@ -268,7 +269,7 @@ const GuidedSection = ({
     <CollapsibleSection title={title} defaultOpen={defaultOpen} sectionId={id}>
       <div className="space-y-4 pt-1">
         {summary ? <p className="text-sm leading-relaxed text-muted-foreground">{summary}</p> : null}
-        {children}
+        <SectionErrorBoundary label={title}>{children}</SectionErrorBoundary>
       </div>
     </CollapsibleSection>
   </section>

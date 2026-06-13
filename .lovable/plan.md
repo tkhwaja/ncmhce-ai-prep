@@ -1,83 +1,39 @@
-# Daily Platform Health Checks
+## What's happening
 
-A nightly self-test that exercises every critical config and API path, with results folded into the existing daily diagnostic email you already receive at 10am ET. No browser automation — fast, cheap, and catches the class of issues that broke things today (misconfigured Site URL, expired/missing secrets, broken edge functions, stuck email queue, Stripe checkout regression).
+The user (latanyadeniese@gmail.com) just upgraded and clicked into the **DSM-5-TR Diagnoses** module in the Learning Library. The page crashed with "Something went wrong loading this page" — that fallback comes from the `ChunkErrorBoundary` in `src/App.tsx`, which catches *any* render error (not just chunk-load errors). When she clicks Reload it returns her to `/library` because the selected module is held only in local React state and is lost on refresh.
 
-## What gets checked each day
+So the bug is a **runtime render error inside the DSM-5-TR module page**, most likely in `ModuleRenderer.tsx` (`DiagnosticCategories` or one of the related sub-renderers) hitting an unexpected shape in `src/data/library/dsm-5-tr.json`. No runtime error is currently captured in logs (her crash happened on production, not in our sandbox), so step 1 is to reproduce it.
 
-Each check returns `pass` / `warn` / `fail` with a short reason. All failures bubble up into a new "System Health" section in the daily email — green checks if everything passed, red rows with details if not.
+## Plan
 
-### 1. Auth & config invariants
-- Supabase Site URL == `https://theexampath.com` (this is what bit us with Sarah's reset link)
-- Redirect allow-list contains both `theexampath.com` and the lovable.app preview
-- Google OAuth provider enabled
-- `auth-email-hook` reachable and returns expected shape
+### 1. Reproduce in the live preview
+- Open the preview, log in (or use my own paid test account), navigate to **Library → DSM-5-TR Diagnoses**.
+- Capture the exact error from the browser console / runtime errors.
 
-### 2. Edge function health
-Ping each public function with a harmless probe payload and assert 2xx (or expected 4xx for bad input):
-- `create-checkout`, `create-portal-session`, `get-stripe-price`
-- `check-signup-status`, `waitlist-signup`, `free-diagnostic-lead`
-- `send-transactional-email` (dry-run mode), `process-email-queue`
-- `handle-email-unsubscribe`, `handle-email-suppression`
-- `counselor-chat` (small test prompt)
-- `payments-webhook` (signature-rejection check — confirms it's listening)
+### 2. Fix the render crash
+- Patch the offending renderer in `src/components/library/ModuleRenderer.tsx` (likely `DiagnosticCategories`, `redFlags`, `differentialDiagnosis`, or `severity` block) to defensively handle the unexpected shape.
+- If a single JSON entry in `src/data/library/dsm-5-tr.json` is malformed, also fix the data.
 
-### 3. Stripe (sandbox/test mode only)
-- Create a real test-mode checkout session for the live price IDs → assert `client_secret` returned
-- Confirm webhook secret is set and webhook endpoint reachable
-- List recent failed payment intents in last 24h (surface count, not alert)
-- Confirm both sandbox and live API keys present and valid (auth-only call, no charges)
+### 3. Harden the error boundary so this never blanks a page again
+Right now `ChunkErrorBoundary` returns a generic "Something went wrong" screen for *every* error and only auto-reloads chunk errors. For non-chunk errors I'll:
+- Log the error to the console (and to PostHog if available) with component stack, so future incidents leave a trail.
+- Show a more helpful fallback with a **"Back to Library"** button in addition to Reload, so users aren't stuck.
+- Keep the chunk-reload behavior unchanged.
 
-### 4. Email pipeline
-- Brevo API key valid (account info call)
-- Sender domain `theexampath.com` still verified
-- `pgmq` queues exist and aren't backing up (>100 pending = warn, >500 = fail)
-- DLQ message count in last 24h
-- `email_send_state` cron job last-ran timestamp is recent (<10 min)
+### 4. Add the DSM-5-TR module page to the daily health check
+The Level 1 daily health checks ping edge functions and the homepage but don't render-test any library module. I'll add a lightweight "module data integrity" check to `daily-health-checks` that imports each library JSON file and walks the shapes the renderers expect (presence of `title`, arrays where arrays are expected, `severity` is dict-or-string, `redFlags` items have a `title`, etc.). This would have caught today's bug before the user did.
 
-### 5. Database invariants
-- No orphaned subscriptions (subscription rows with no matching auth user)
-- No profiles missing email
-- `user_roles` table reachable with RLS intact
-- No long-running queries / locks
-- Row counts for key tables vs yesterday (flag >50% drop)
-
-### 6. AI gateway
-- `LOVABLE_API_KEY` valid via a 1-token completion call
-- PostHog API key valid (already implicitly tested by the report)
-
-### 7. Frontend smoke (lightweight, no browser)
-- `GET https://theexampath.com/` returns 200 with expected `<title>` and meta description
-- `GET /sitemap.xml` returns 200 and parses
-- `GET /robots.txt` returns 200
-- Favicon and manifest reachable
-- Critical JS bundle hash present (catches deploy failures)
-
-## How it runs
-
-- **New edge function:** `daily-health-checks` — runs all checks in parallel, returns a structured JSON result.
-- **Scheduling:** invoked from inside the existing `daily-diagnostic-report` function right before the email is composed (no new cron job needed). Adds ~5–10s to that function's runtime.
-- **Output:** new `systemHealth` block on the email template with a green ✓ banner if all pass, or a red section listing each failure with the check name, error, and any actionable hint.
-- **Storage:** results written to a new `health_check_runs` table so you can chart drift over time later.
-
-## Why not GitHub Actions / Playwright
-
-You picked Level 1 only, so this stays entirely inside Lovable Cloud:
-- No external runner to maintain
-- No GitHub Actions secrets to sync
-- No headless browser cost
-- Runs in the same context as the rest of your monitoring
-
-If you later want to add real signup → checkout → reset browser flows, that's a clean follow-up (Level 2) we can layer on without changing any of this.
+### 5. Verify
+- Re-open the DSM-5-TR module in the preview and confirm it renders end-to-end.
+- Run the health-check function and confirm it reports the module as healthy.
 
 ## Technical details
 
-Files to create:
-- `supabase/functions/daily-health-checks/index.ts` — orchestrator + all check implementations, each as a small async function returning `{ name, status, message, durationMs }`
-- New table `health_check_runs` (id, run_at, summary jsonb, pass_count, warn_count, fail_count) with RLS locked to service_role + admin reads
-- Update `supabase/functions/daily-diagnostic-report/index.ts` to `invoke('daily-health-checks')` and pass results into `templateData.systemHealth`
-- Update `supabase/functions/_shared/transactional-email-templates/daily-diagnostic-report.tsx` to render a new "System Health" section at the top of the email
-- `supabase/config.toml`: add `[functions.daily-health-checks]` with `verify_jwt = true`
+- Crash surface: `src/components/library/ModuleRenderer.tsx` (lines ~1494-1631 for `DiagnosticCategories`).
+- Error fallback: `src/App.tsx` `ChunkErrorBoundary` (lines 68-107).
+- Health check: `supabase/functions/daily-health-checks/index.ts` — add a `checkLibraryModules()` step that runs server-side over the JSON files bundled in the function (or re-uses a shared schema validator).
+- No DB or auth changes; no Stripe changes; no user-data changes.
 
-Stripe test-mode checks use `createStripeClient('sandbox')` with the existing `STRIPE_SANDBOX_API_KEY`. No live-mode mutations. No real charges. No emails sent to real users from the checks themselves.
+## Quick question before I start
 
-Total work: ~1 hour. No new secrets needed.
+Want me to go ahead and reproduce + fix now (option A), or just patch the error boundary today so the user sees a friendlier screen and dig into the DSM render bug tomorrow (option B)? I'd recommend **option A** — the user is blocked from a core paid feature right now.

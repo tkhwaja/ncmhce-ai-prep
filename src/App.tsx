@@ -65,8 +65,11 @@ const RouteFallback = () => (
 );
 
 // Recover from stale lazy-chunk hashes after a deploy/rebuild by reloading once.
-class ChunkErrorBoundary extends Component<{ children: ReactNode }, { hasError: boolean }> {
-  state = { hasError: false };
+class ChunkErrorBoundary extends Component<
+  { children: ReactNode },
+  { hasError: boolean; message?: string }
+> {
+  state = { hasError: false, message: undefined as string | undefined };
   static getDerivedStateFromError(error: unknown) {
     const msg = error instanceof Error ? `${error.name} ${error.message}` : String(error);
     const isChunkError =
@@ -78,26 +81,45 @@ class ChunkErrorBoundary extends Component<{ children: ReactNode }, { hasError: 
       if (!sessionStorage.getItem(KEY)) {
         sessionStorage.setItem(KEY, "1");
         window.location.reload();
-        return { hasError: true };
+        return { hasError: true, message: msg };
       }
     }
-    return { hasError: true };
+    return { hasError: true, message: msg };
   }
   componentDidMount() {
     if (typeof window !== "undefined") sessionStorage.removeItem("lovable:chunk-reload");
+  }
+  componentDidCatch(error: unknown, info: { componentStack?: string }) {
+    // eslint-disable-next-line no-console
+    console.error("[ChunkErrorBoundary] Render failure:", error, info?.componentStack);
   }
   render() {
     if (this.state.hasError) {
       return (
         <div className="min-h-screen w-full flex items-center justify-center bg-background p-6">
-          <div className="text-center">
+          <div className="text-center max-w-md">
             <p className="text-foreground mb-3">Something went wrong loading this page.</p>
-            <button
-              onClick={() => window.location.reload()}
-              className="text-sm text-primary underline"
-            >
-              Reload
-            </button>
+            {this.state.message && (
+              <p className="text-xs text-muted-foreground mb-4 font-mono break-all">
+                {this.state.message}
+              </p>
+            )}
+            <div className="flex items-center justify-center gap-4">
+              <button
+                onClick={() => window.location.reload()}
+                className="text-sm text-primary underline"
+              >
+                Reload
+              </button>
+              <button
+                onClick={() => {
+                  window.location.href = "/dashboard";
+                }}
+                className="text-sm text-primary underline"
+              >
+                Back to dashboard
+              </button>
+            </div>
           </div>
         </div>
       );
