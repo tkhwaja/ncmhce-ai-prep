@@ -10,6 +10,7 @@ import ModuleSectionNavigator from "@/components/library/ModuleSectionNavigator"
 import { ExamLikelihoodBadge } from "@/components/library/ExamLikelihoodBadge";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { useBookmark } from "@/hooks/useBookmark";
+import { SectionErrorBoundary } from "@/components/SectionErrorBoundary";
 import { ChevronDown, ChevronRight, Lightbulb, AlertTriangle, BookOpen, Target, HelpCircle, Sparkles, ListChecks, Brain, Repeat, ShieldAlert, Compass, Bookmark, BookmarkCheck } from "lucide-react";
 
 const ModuleIdContext = createContext<string | undefined>(undefined);
