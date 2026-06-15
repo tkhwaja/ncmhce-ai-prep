@@ -157,33 +157,49 @@ const NarrativeReviewChat = ({ narrativeTitle, questions, publicMode = false }: 
       const decoder = new TextDecoder();
       let buffer = "";
 
+      const applyChunk = (rawLine: string) => {
+        let line = rawLine;
+        if (line.endsWith("\r")) line = line.slice(0, -1);
+        if (line.startsWith(":") || line.trim() === "") return false;
+        if (!line.startsWith("data: ")) return false;
+        const json = line.slice(6).trim();
+        if (json === "[DONE]") return true;
+        const p = JSON.parse(json);
+        const c = p.choices?.[0]?.delta?.content;
+        if (c) {
+          assistantSoFar += c;
+          setMessages((prev) => {
+            const last = prev[prev.length - 1];
+            if (last?.role === "assistant") {
+              return prev.map((m, i) => (i === prev.length - 1 ? { ...m, content: assistantSoFar } : m));
+            }
+            return [...prev, { role: "assistant", content: assistantSoFar }];
+          });
+        }
+        return false;
+      };
+
       while (true) {
         const { done, value } = await reader.read();
-        if (done) break;
+        if (done) {
+          buffer += decoder.decode();
+          if (buffer.trim()) {
+            try {
+              for (const line of buffer.split("\n")) applyChunk(line);
+            } catch {
+              // Ignore incomplete trailing SSE fragments after stream completion.
+            }
+          }
+          break;
+        }
         buffer += decoder.decode(value, { stream: true });
 
         let nl: number;
         while ((nl = buffer.indexOf("\n")) !== -1) {
-          let line = buffer.slice(0, nl);
+          const line = buffer.slice(0, nl);
           buffer = buffer.slice(nl + 1);
-          if (line.endsWith("\r")) line = line.slice(0, -1);
-          if (line.startsWith(":") || line.trim() === "") continue;
-          if (!line.startsWith("data: ")) continue;
-          const json = line.slice(6).trim();
-          if (json === "[DONE]") break;
           try {
-            const p = JSON.parse(json);
-            const c = p.choices?.[0]?.delta?.content;
-            if (c) {
-              assistantSoFar += c;
-              setMessages((prev) => {
-                const last = prev[prev.length - 1];
-                if (last?.role === "assistant") {
-                  return prev.map((m, i) => (i === prev.length - 1 ? { ...m, content: assistantSoFar } : m));
-                }
-                return [...prev, { role: "assistant", content: assistantSoFar }];
-              });
-            }
+            if (applyChunk(line)) break;
           } catch {
             buffer = line + "\n" + buffer;
             break;
