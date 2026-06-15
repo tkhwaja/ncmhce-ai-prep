@@ -121,66 +121,6 @@ You provided psychoeducation about Specific Phobia, blood-injection-injury type,
           correctAnswer: 2,
           explanation: `Medical coordination can be clinically important, but it requires informed written consent and minimum necessary disclosure.`,
         },
-        {
-          id: "nora-q2",
-          questionNumber: 2,
-          domain: "Intake/assessment/diagnosis",
-          stem: "What feature is especially characteristic of blood-injection-injury phobia compared with many other phobias?",
-          options: [
-            "Compulsive checking",
-            "Vasovagal fainting response",
-            "Grandiose beliefs",
-            "Fear of contamination",
-          ],
-          correctAnswer: 1,
-          explanation:
-            "Blood-injection-injury phobia is often associated with a vasovagal response that can lead to fainting. This makes applied tension and medical coordination especially relevant in treatment.",
-        },
-        {
-          id: "nora-q3",
-          questionNumber: 3,
-          domain: "Core counseling attributes",
-          stem: "The client says, \"I am a grown woman with two kids, and I cannot handle a needle.\" What is the most therapeutic response?",
-          options: [
-            "Lots of adults are afraid of needles.",
-            "You should not judge yourself for this.",
-            "It sounds painful to feel competent in so many areas and still feel powerless here.",
-            "Needles are medically necessary, so we need to face this.",
-          ],
-          correctAnswer: 2,
-          explanation:
-            "The response validates the shame and discrepancy she experiences without minimizing or rushing her. Simple reassurance or advice may miss the deeper emotional meaning.",
-        },
-        {
-          id: "nora-q4",
-          questionNumber: 4,
-          domain: "Treatment planning",
-          stem: "What is the most appropriate first-line treatment plan?",
-          options: [
-            "Gradual exposure with applied tension and coordination for necessary medical care",
-            "Avoid all needles unless absolutely life-threatening",
-            "Insight-oriented therapy focused only on childhood embarrassment",
-            "Immediate psychiatric hospitalization",
-          ],
-          correctAnswer: 0,
-          explanation:
-            "Specific phobias are commonly treated with exposure-based interventions. For blood-injection-injury phobia, applied tension and medical coordination are important because fainting risk may be part of the presentation.",
-        },
-        {
-          id: "nora-q5",
-          questionNumber: 5,
-          domain: "Professional practice and ethics",
-          stem: "The primary care physician asks whether the client is ready to complete bloodwork next week. What is the best response?",
-          options: [
-            "Tell the physician she is ready if she attended therapy",
-            "Share details of her fear hierarchy",
-            "Coordinate only with the client's written consent and discuss what information may be shared",
-            "Decline all coordination because therapy is confidential",
-          ],
-          correctAnswer: 2,
-          explanation:
-            "Integrated care can be clinically useful, but information sharing requires the client's written consent and clear agreement about what will be shared. Confidentiality does not prevent coordination when authorized.",
-        },
       ],
     },
     {
@@ -264,66 +204,6 @@ She is scheduled for bloodwork in three weeks. She asked whether she should brin
           correctAnswer: 1,
           explanation: `The response is triggered by blood/injury cues and fits the specific phobia pattern. The narrative does not support trauma re-experiencing or a generalized panic pattern.`,
         },
-        {
-          id: "nora-q7",
-          questionNumber: 7,
-          domain: "Treatment planning",
-          stem: "What is the best next step in her exposure hierarchy?",
-          options: [
-            "Complete the blood draw immediately",
-            "Avoid blood-related exposures until the appointment",
-            "Continue gradual exposures while practicing applied tension",
-            "Skip lower-level exposures because they are too easy",
-          ],
-          correctAnswer: 2,
-          explanation:
-            "Gradual exposure paired with applied tension allows the client to build mastery and reduce avoidance. Jumping too quickly may overwhelm her, while avoiding exposures maintains the phobia.",
-        },
-        {
-          id: "nora-q8",
-          questionNumber: 8,
-          domain: "Core counseling attributes",
-          stem: "The client says her mother's comment made her feel \"twelve years old again.\" What is the most therapeutic response?",
-          options: [
-            "Your mother should take this more seriously.",
-            "You should ignore comments like that.",
-            "What did that younger part of you need in that moment?",
-            "This is why family should not be involved.",
-          ],
-          correctAnswer: 2,
-          explanation:
-            "The response invites exploration of the emotional impact without blaming the mother or dismissing the client's reaction. It keeps the focus on the client's experience.",
-        },
-        {
-          id: "nora-q9",
-          questionNumber: 9,
-          domain: "Counseling skills and interventions",
-          stem: "The client calls bringing her husband to the blood draw \"cheating.\" What is the best clinical response?",
-          options: [
-            "Agree that true exposure must be done alone",
-            "Encourage her to avoid all support people",
-            "Explore whether support helps values-based approach or becomes a safety behavior that prevents learning",
-            "Tell her husband not to attend",
-          ],
-          correctAnswer: 2,
-          explanation:
-            "Support is not automatically harmful, but it can become a safety behavior if it prevents new learning. The clinician should help the client evaluate its function and make a planned decision.",
-        },
-        {
-          id: "nora-q10",
-          questionNumber: 10,
-          domain: "Intake/assessment/diagnosis",
-          stem: "Her dizziness after seeing a student's blood at school is best understood as:",
-          options: [
-            "A psychotic symptom",
-            "A trauma flashback",
-            "A phobic response to blood-injury cues",
-            "A manic symptom",
-          ],
-          correctAnswer: 2,
-          explanation:
-            "The dizziness occurred in response to blood/injury cues and fits the diagnosed phobic pattern. There is no evidence of psychosis, trauma re-experiencing, or mania.",
-        },
       ],
     },
     {
@@ -378,36 +258,6 @@ A new gynecology appointment is scheduled in one month, and the client is worrie
           ],
           correctAnswer: 1,
           explanation: `The central learning is not that fear or symptoms disappear, but that she can approach necessary care while tolerating sensations and using skills.`,
-        },
-        {
-          id: "nora-q12",
-          questionNumber: 12,
-          domain: "Core counseling attributes",
-          stem: "The client says she is angry she delayed care because of fear. What is the most therapeutic response?",
-          options: [
-            "At least you finally did it.",
-            "Anger makes sense; let's hold both the cost of avoidance and the courage it took to change.",
-            "You should focus on the positive now.",
-            "The delay was medically irresponsible.",
-          ],
-          correctAnswer: 1,
-          explanation:
-            "The response validates both grief/anger about the cost of avoidance and pride in change. It avoids minimizing, shaming, or forcing positivity.",
-        },
-        {
-          id: "nora-q13",
-          questionNumber: 13,
-          domain: "Counseling skills and interventions",
-          stem: "Which statement best captures the new learning from the blood draw exposure?",
-          options: [
-            "Medical procedures are now safe and will not cause anxiety",
-            "She can experience fear and lightheadedness while still completing necessary care",
-            "She should always bring her husband to all appointments",
-            "Avoidance was not actually a problem",
-          ],
-          correctAnswer: 1,
-          explanation:
-            "The key exposure learning is not that anxiety disappears, but that she can tolerate fear and physiological sensations while acting according to her values and health needs.",
         },
       ],
     },

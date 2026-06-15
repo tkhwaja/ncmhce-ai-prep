@@ -121,66 +121,6 @@ You discussed Hoarding Disorder as a provisional diagnosis, emphasizing that it 
           correctAnswer: 2,
           explanation: `The counselor may receive collateral information but cannot disclose protected information without written authorization. Even attendance and diagnosis require consent.`,
         },
-        {
-          id: "rafael-q2",
-          questionNumber: 2,
-          domain: "Intake/assessment/diagnosis",
-          stem: "Which differential diagnosis is most important to consider given the client's age and apartment conditions?",
-          options: [
-            "Major Neurocognitive Disorder",
-            "Dissociative Identity Disorder",
-            "Anorexia Nervosa",
-            "Panic Disorder",
-          ],
-          correctAnswer: 0,
-          explanation:
-            "In an older adult with significant functional impairment at home, cognitive decline should be screened and monitored. The case does not suggest dissociative identity disorder, anorexia nervosa, or panic disorder as central differentials.",
-        },
-        {
-          id: "rafael-q3",
-          questionNumber: 3,
-          domain: "Core counseling attributes",
-          stem: "The client says, \"She sees trash. I see history, money, memory, and possibility.\" What is the most therapeutic response?",
-          options: [
-            "Most of those items are probably trash though.",
-            "Your daughter is only trying to protect you.",
-            "Help me understand what those items represent to you before we talk about changing anything.",
-            "That kind of thinking is why the apartment became unsafe.",
-          ],
-          correctAnswer: 2,
-          explanation:
-            "The response communicates respect and curiosity about the meanings attached to possessions. Direct correction, siding with the daughter, or confrontation would likely increase defensiveness and reduce engagement.",
-        },
-        {
-          id: "rafael-q4",
-          questionNumber: 4,
-          domain: "Treatment planning",
-          stem: "What is the most appropriate initial treatment focus?",
-          options: [
-            "Have his daughter remove items while he is out",
-            "Begin with safety priorities, motivational interviewing, reduced acquisition, and collaborative decision-making",
-            "Focus only on grief counseling",
-            "Tell him he must clear the entire apartment within 30 days",
-          ],
-          correctAnswer: 1,
-          explanation:
-            "Early treatment should prioritize safety and engagement while using motivational interviewing and CBT-based strategies for hoarding. Forced cleanouts or ultimatums often increase distress and relapse, while grief work alone would not address the hoarding behaviors.",
-        },
-        {
-          id: "rafael-q5",
-          questionNumber: 5,
-          domain: "Professional practice and ethics",
-          stem: "The daughter calls asking whether her father has \"admitted he has hoarding.\" What is the most appropriate response?",
-          options: [
-            "Explain the diagnosis because she is his daughter",
-            "Decline to disclose information without written authorization while inviting her to share concerns",
-            "Tell her he has poor insight but is attending",
-            "Confirm only whether he attended the session",
-          ],
-          correctAnswer: 1,
-          explanation:
-            "Family members do not have automatic access to treatment information. The counselor may listen to collateral concerns without disclosing protected information unless the client has provided appropriate authorization.",
-        },
       ],
     },
     {
@@ -264,66 +204,6 @@ You ask about safety. He acknowledges that the front door does not open fully, o
           correctAnswer: 1,
           explanation: `The counselor may provide accurate, limited documentation within scope but should not function as a legal advocate or make demands outside professional competence.`,
         },
-        {
-          id: "rafael-q7",
-          questionNumber: 7,
-          domain: "Treatment planning",
-          stem: "Given the blocked front door, blocked window, and unusable stove, what should be prioritized?",
-          options: [
-            "Aesthetic organization of the living room",
-            "Immediate safety access to exits, stove, and pathways",
-            "Sorting sentimental items first",
-            "Exploring childhood poverty before any home changes",
-          ],
-          correctAnswer: 1,
-          explanation:
-            "Safety priorities such as exits, stove access, and clear walking paths should come first. Treatment can still be collaborative, but fire, fall, and emergency-access risks require focused attention.",
-        },
-        {
-          id: "rafael-q8",
-          questionNumber: 8,
-          domain: "Core counseling attributes",
-          stem: "The client says his grandson asked whether he loves the boxes more than him. What is the most therapeutic response?",
-          options: [
-            "That should motivate you to clean faster.",
-            "Children often say dramatic things.",
-            "That sounds painful because your love for him is not what is in question, but the clutter is affecting access to him.",
-            "Your daughter should not have allowed him to say that.",
-          ],
-          correctAnswer: 2,
-          explanation:
-            "The response validates the pain while gently linking the client's values to the consequences of clutter. It avoids shame, minimization, and blaming the family.",
-        },
-        {
-          id: "rafael-q9",
-          questionNumber: 9,
-          domain: "Counseling skills and interventions",
-          stem: "He brought home a bookshelf after five days of no acquisition. What is the best clinical response?",
-          options: [
-            "Frame it as total failure and restart treatment",
-            "Analyze the acquisition chain and identify decision points for next time",
-            "Tell his daughter to monitor him more closely",
-            "Avoid discussing it to prevent shame",
-          ],
-          correctAnswer: 1,
-          explanation:
-            "A lapse in acquisition is an opportunity for chain analysis and skill-building. Examining triggers, thoughts, emotions, and decision points is more useful than shame, surveillance, or avoidance.",
-        },
-        {
-          id: "rafael-q10",
-          questionNumber: 10,
-          domain: "Professional practice and ethics",
-          stem: "The client asks for a letter telling the landlord to \"back off.\" What is the most appropriate response?",
-          options: [
-            "Write the letter exactly as requested",
-            "Refuse all documentation because housing is legal, not clinical",
-            "Discuss what limited factual documentation you can ethically provide with consent, avoiding legal advocacy beyond your role",
-            "Call the landlord directly to negotiate",
-          ],
-          correctAnswer: 2,
-          explanation:
-            "The counselor may provide limited factual documentation, such as attendance or treatment engagement, with consent. The counselor should avoid legal advocacy, guarantees, or statements outside professional knowledge.",
-        },
       ],
     },
     {
@@ -394,51 +274,6 @@ He asked, "What if getting better means losing the only proof that my life happe
           ],
           correctAnswer: 1,
           explanation: `The client retains autonomy unless capacity or imminent safety issues require intervention. The counselor can facilitate discussion but should not coerce a housing decision for the family.`,
-        },
-        {
-          id: "rafael-q12",
-          questionNumber: 12,
-          domain: "Counseling skills and interventions",
-          stem: "The client says the box of his wife's scarves and medical supplies \"shuts me up.\" What is the most therapeutic response?",
-          options: [
-            "That box should be discarded last.",
-            "Let's slow down and understand what that box holds before deciding what happens to it.",
-            "Keeping medical supplies after death is unhealthy.",
-            "You have avoided that box long enough.",
-          ],
-          correctAnswer: 1,
-          explanation:
-            "The response respects the emotional intensity of the item category and avoids rushing the client into discarding. Hoarding treatment often requires pacing and careful meaning-making around highly sentimental possessions.",
-        },
-        {
-          id: "rafael-q13",
-          questionNumber: 13,
-          domain: "Core counseling attributes",
-          stem: "He asks, \"What if getting better means losing the only proof that my life happened?\" What is the most therapeutic response?",
-          options: [
-            "Your memories are proof enough.",
-            "That fear makes sense; let's explore ways to preserve memory without letting possessions take over your home.",
-            "That is the hoarding disorder talking.",
-            "Your family is more important than objects.",
-          ],
-          correctAnswer: 1,
-          explanation:
-            "The response validates the existential fear while opening a path toward adaptive memory preservation. Reassurance, labeling, or value confrontation would likely increase shame and resistance.",
-        },
-        {
-          id: "rafael-q14",
-          questionNumber: 14,
-          domain: "Professional practice and ethics",
-          stem: "The daughter asks you to tell him he must move to senior housing. What is the most appropriate response?",
-          options: [
-            "Agree because the daughter's plan is safer",
-            "Tell the client he must move if he wants grandchildren visits",
-            "Clarify that housing decisions belong to the client unless capacity or immediate safety concerns require further action",
-            "Refuse to discuss housing in therapy",
-          ],
-          correctAnswer: 2,
-          explanation:
-            "The client retains autonomy over housing decisions unless there is evidence of impaired capacity or immediate danger requiring intervention. The counselor can facilitate discussion and planning but should not coerce the client on the daughter's behalf.",
         },
       ],
     },
