@@ -131,8 +131,14 @@ const edgeFnChecks = (): Array<Promise<CheckResult>> => {
   return fns.map(([name, opts]) =>
     timed(`Edge fn: ${name}`, 'Edge functions', async () => {
       const r = await pingFn(name, opts)
-      if (!r.ok) return { status: 'fail' as const, message: `HTTP ${r.status} — ${r.body}` }
-      return { status: 'pass' as const, message: `HTTP ${r.status}` }
+      if (r.ok) return { status: 'pass' as const, message: `HTTP ${r.status}` }
+      if (r.transient) {
+        return {
+          status: 'warn' as const,
+          message: `Platform degraded (transient, retried 3x) — HTTP ${r.status}`,
+        }
+      }
+      return { status: 'fail' as const, message: `HTTP ${r.status} — ${r.body}` }
     }),
   )
 }
