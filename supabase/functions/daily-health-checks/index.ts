@@ -47,23 +47,50 @@ async function timed(
   }
 }
 
+const TRANSIENT_PATTERNS = [
+  'SUPABASE_EDGE_RUNTIME_SERVICE_DEGRADED',
+  'BOOT_ERROR',
+  'WORKER_LIMIT',
+  'Service is temporarily unavailable',
+]
+
+function isTransientPlatformError(status: number, body: string): boolean {
+  if (status < 500) return false
+  return TRANSIENT_PATTERNS.some((p) => body.includes(p))
+}
+
 async function pingFn(
   path: string,
   opts: { method?: string; body?: unknown; expect?: number[] } = {},
 ) {
-  const res = await fetch(`${FUNCTIONS_BASE}/${path}`, {
-    method: opts.method ?? 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-      'apikey': ANON_KEY,
-      'Authorization': `Bearer ${ANON_KEY}`,
-    },
-    body: opts.body !== undefined ? JSON.stringify(opts.body) : undefined,
-  })
-  const text = await res.text()
-  const ok = (opts.expect ?? [200, 400, 401, 422]).includes(res.status)
-  return { ok, status: res.status, body: text.slice(0, 200) }
+  const expect = opts.expect ?? [200, 400, 401, 422]
+  const backoffs = [0, 800, 1600]
+  let lastStatus = 0
+  let lastBody = ''
+  let transient = false
+
+  for (const wait of backoffs) {
+    if (wait > 0) await new Promise((r) => setTimeout(r, wait))
+    const res = await fetch(`${FUNCTIONS_BASE}/${path}`, {
+      method: opts.method ?? 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'apikey': ANON_KEY,
+        'Authorization': `Bearer ${ANON_KEY}`,
+      },
+      body: opts.body !== undefined ? JSON.stringify(opts.body) : undefined,
+    })
+    lastStatus = res.status
+    lastBody = (await res.text()).slice(0, 200)
+    if (expect.includes(lastStatus)) {
+      return { ok: true, status: lastStatus, body: lastBody, transient: false }
+    }
+    transient = isTransientPlatformError(lastStatus, lastBody)
+    if (!transient) break // real failure — don't retry
+  }
+  return { ok: false, status: lastStatus, body: lastBody, transient }
 }
+
 
 // ── Checks ───────────────────────────────────────────────────────────────
 
@@ -104,8 +131,14 @@ const edgeFnChecks = (): Array<Promise<CheckResult>> => {
   return fns.map(([name, opts]) =>
     timed(`Edge fn: ${name}`, 'Edge functions', async () => {
       const r = await pingFn(name, opts)
-      if (!r.ok) return { status: 'fail' as const, message: `HTTP ${r.status} — ${r.body}` }
-      return { status: 'pass' as const, message: `HTTP ${r.status}` }
+      if (r.ok) return { status: 'pass' as const, message: `HTTP ${r.status}` }
+      if (r.transient) {
+        return {
+          status: 'warn' as const,
+          message: `Platform degraded (transient, retried 3x) — HTTP ${r.status}`,
+        }
+      }
+      return { status: 'fail' as const, message: `HTTP ${r.status} — ${r.body}` }
     }),
   )
 }
