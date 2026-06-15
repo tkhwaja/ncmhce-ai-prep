@@ -499,9 +499,9 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
                     className="space-y-3"
                   >
                     {currentQuestion.options.map((opt, i) => (
-                      <div key={i} className="flex items-start space-x-3 p-3 rounded-lg hover:bg-muted/50 transition-colors">
+                      <div key={i} className="flex min-w-0 items-start space-x-3 p-3 rounded-lg hover:bg-muted/50 transition-colors">
                         <RadioGroupItem value={i.toString()} id={`${currentQuestion.id}-${i}`} className="mt-0.5" />
-                        <Label htmlFor={`${currentQuestion.id}-${i}`} className="text-sm cursor-pointer leading-relaxed">{opt}</Label>
+                        <Label htmlFor={`${currentQuestion.id}-${i}`} className="min-w-0 flex-1 cursor-pointer break-words text-sm leading-relaxed whitespace-normal">{opt}</Label>
                       </div>
                     ))}
                   </RadioGroup>
@@ -814,10 +814,10 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
                               "border-border text-muted-foreground"
                             }`}
                           >
-                            <div className="flex items-center gap-2">
+                            <div className="flex min-w-0 items-start gap-2">
                               {isRight && <CheckCircle2 className="h-4 w-4 text-emerald-400 shrink-0" />}
                               {isUser && !isRight && <XCircle className="h-4 w-4 text-red-400 shrink-0" />}
-                              <span>{opt}</span>
+                              <span className="min-w-0 flex-1 break-words whitespace-normal">{opt}</span>
                             </div>
                             {isUser && <p className="text-xs text-muted-foreground mt-1 ml-6">Your answer</p>}
                             {isRight && !isUser && <p className="text-xs text-emerald-400 mt-1 ml-6">Correct answer</p>}
