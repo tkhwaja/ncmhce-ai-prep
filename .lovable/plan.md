@@ -1,37 +1,55 @@
-## What's actually going on
+## Goal
+Give `latanya@authenticperspectivescc.com` a full year of free access starting from her original subscription date, and ensure Stripe does not charge her again.
 
-The daily diagnostic flagged two failures:
-- `check-signup-status` → HTTP 503 `SUPABASE_EDGE_RUNTIME_SERVICE_DEGRADED`
-- `auth-email-hook` → HTTP 503 `SUPABASE_EDGE_RUNTIME_SERVICE_DEGRADED`
+## How access works in this app
+`useSubscription` grants access if ANY of these are true:
+1. An active `subscriptions` row (Stripe-managed)
+2. `profiles.payment_status = 'paid'` (legacy)
+3. `profiles.access_expires_at` is in the future (founding-member style)
 
-I just pinged both functions live:
-- `check-signup-status` → 200 OK (`{"status":"new"}`)
-- `auth-email-hook` → 401 "Invalid signature" (expected for an empty body)
+That means we don't need to touch Stripe billing dates at all — we can grant access purely through `profiles.access_expires_at`, then cancel her Stripe subscription so she's never billed again.
 
-Both functions are healthy. The 503 is a Lovable Cloud / edge-runtime platform-level "service degraded" response — usually a transient cold-start or regional hiccup, not a bug in our code. Nothing in our codebase caused it, and there is nothing to "fix" in the functions themselves.
+## Steps
 
-The real fix is to make the daily health check resilient to transient infra blips so a single flaky ping doesn't generate a scary red "2 failing" email when the system is actually fine.
+### 1. Look up her account (read-only)
+Run a `SELECT` against `profiles` and `subscriptions` for her email to get:
+- `profiles.id`
+- `subscriptions.stripe_subscription_id`
+- `subscriptions.stripe_customer_id`
+- `subscriptions.current_period_end`
+- her original subscription start date (`subscriptions.created_at` or `current_period_start` of the first row)
 
-## Plan
+### 2. Grant 1 year of free access in our DB
+Insert/update `profiles` for her user:
+```sql
+UPDATE profiles
+SET access_expires_at = <original_subscription_start> + INTERVAL '1 year',
+    payment_status = 'comped'
+WHERE email = 'latanya@authenticperspectivescc.com';
+```
+The `prevent_profile_sensitive_update` trigger blocks user edits to these fields but **bypasses for `service_role`**, so this runs fine as an admin SQL insert/update.
 
-Update `supabase/functions/daily-health-checks/index.ts`:
+This alone guarantees access for 1 year regardless of Stripe status.
 
-1. **Retry on transient platform errors.** In `pingFn`, if the response is 5xx **or** the body contains `SUPABASE_EDGE_RUNTIME_SERVICE_DEGRADED` / `BOOT_ERROR`, retry up to 2 times with a short backoff (e.g. 800ms, then 1600ms) before recording the result.
+### 3. Stop Stripe from charging her
+Two options — I recommend **Option A**:
 
-2. **Classify lingering 503s as `warn`, not `fail`.** If after retries the function still returns a 5xx with a known platform-degradation code, mark the check as `warn` with a message like "Platform degraded (transient) — retried 3x". A true function bug (4xx outside expected set, or 5xx with a real error body) still fails.
+**Option A (recommended): Cancel her Stripe subscription at period end.**
+She keeps the time she already paid for, never gets billed again, and our `access_expires_at` covers the full year. One-time edge function call (or done by you in Stripe Dashboard) — no recurring management needed.
 
-3. **Verify by re-running the function locally** via `curl_edge_functions` after deploy to confirm both endpoints respond as expected.
+**Option B: Extend her Stripe subscription's `trial_end` by 12 months with `proration_behavior: 'none'`.**
+Keeps the subscription "live" in Stripe but pauses billing for a year. More fragile — if anything changes on the sub, webhooks could overwrite state.
 
-No changes to `check-signup-status` or `auth-email-hook` themselves — they're working correctly.
+### 4. Send her the confirmation email
+Use the draft email already prepared confirming her year of free access from her original subscription date.
 
-## Email to send (no user action needed)
+## Technical details
 
-> Subject: Daily diagnostic — false alarm, system is healthy
->
-> Hi,
->
-> The two failures in this morning's diagnostic (`check-signup-status` and `auth-email-hook`) were transient platform errors from the edge runtime ("service temporarily unavailable"), not bugs in the functions. I re-tested both and they're responding normally.
->
-> I'm updating the daily health check to retry transient platform errors and downgrade them to a warning instead of a failure, so you won't get a red alert next time the infrastructure has a brief hiccup.
->
-> — The Exam Path Team
+- **No schema changes required.** Everything uses existing columns (`profiles.access_expires_at`, `profiles.payment_status`).
+- **Migration vs insert tool:** This is a data update, so it goes through the insert/update path (service_role), not a schema migration.
+- **Stripe cancellation:** Easiest path is for you to cancel her sub in the Stripe Dashboard (Customer → Subscription → Cancel → "at period end"). If you'd rather I build a small admin edge function to do it programmatically, I can — but for a one-off comp, Dashboard is faster.
+- **Webhook safety:** When Stripe eventually fires `customer.subscription.deleted`, our webhook will mark the `subscriptions` row `canceled`. That's fine — her access still flows through `access_expires_at` on the profile.
+
+## What I need from you to proceed
+1. Confirm: cancel her Stripe sub via **Dashboard** (you) or **build an admin function** (me)?
+2. Confirm her "original subscription date" should be the date of her **first** subscription row (in case she has more than one). I'll surface the exact date from the DB before applying the update.
