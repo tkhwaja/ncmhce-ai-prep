@@ -134,7 +134,8 @@ const resolveNarrativeResource = (topic: string): StudyResource | null => {
 
 const resolveStudyActivity = (activity: string): StudyResource => {
   const trimmed = activity.trim();
-  if (/complete timed practice exam/i.test(trimmed)) {
+  const normalizedActivity = normalizeResourceKey(trimmed.replace(/^[^:]+:\s*/, ""));
+  if (/complete timed practice exam/i.test(trimmed) || normalizedActivity === "multi domain integration") {
     return { label: "Complete timed practice exam", href: "/practice-exams" };
   }
 
