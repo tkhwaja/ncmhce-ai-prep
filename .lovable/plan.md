@@ -1,55 +1,30 @@
-## Goal
-Give `latanya@authenticperspectivescc.com` a full year of free access starting from her original subscription date, and ensure Stripe does not charge her again.
+Root cause
+--------
+The recent study-plan update added a `resolveStudyActivity` mapping that rewrites the visible text of stored activities when the page renders. LaTanya's existing plan contains generic AI-generated labels such as:
 
-## How access works in this app
-`useSubscription` grants access if ANY of these are true:
-1. An active `subscriptions` row (Stripe-managed)
-2. `profiles.payment_status = 'paid'` (legacy)
-3. `profiles.access_expires_at` is in the future (founding-member style)
+- "Study Learning Library: Treatment Planning"
+- "Practice Narrative: Case Conceptualization"
+- "Practice Narrative: Treatment Sequencing"
 
-That means we don't need to touch Stripe billing dates at all — we can grant access purely through `profiles.access_expires_at`, then cancel her Stripe subscription so she's never billed again.
+The resolver silently converts those into different real-resource titles, and it even falls back across resource types (a "Practice Narrative" can resolve to a "Study Learning Library" module). That makes it look like items were removed or swapped, and it breaks the mental model the user had for her progress.
 
-## Steps
+Fix
+---
+1. In `src/pages/StudyPlan.tsx`, change `resolveStudyActivity` so it **never rewrites the visible label** of a stored activity. The text the user saved is the text they should see.
+2. Only add a clickable link when the stored activity prefix and topic cleanly match an existing resource of the **same type** (library, flashcard, narrative). Remove cross-type fallbacks.
+3. If there is no clean match, render the activity as plain text (or with a generic section link), exactly as it appeared before the clickable-link update.
+4. Keep the stricter AI prompt for **newly generated** plans so future plans use exact resource names, but do not re-interpret old plans through that mapping.
 
-### 1. Look up her account (read-only)
-Run a `SELECT` against `profiles` and `subscriptions` for her email to get:
-- `profiles.id`
-- `subscriptions.stripe_subscription_id`
-- `subscriptions.stripe_customer_id`
-- `subscriptions.current_period_end`
-- her original subscription start date (`subscriptions.created_at` or `current_period_start` of the first row)
+No database migration is needed: existing `plan_data` stays untouched; the fix is purely in the display resolver.
 
-### 2. Grant 1 year of free access in our DB
-Insert/update `profiles` for her user:
-```sql
-UPDATE profiles
-SET access_expires_at = <original_subscription_start> + INTERVAL '1 year',
-    payment_status = 'comped'
-WHERE email = 'latanya@authenticperspectivescc.com';
-```
-The `prevent_profile_sensitive_update` trigger blocks user edits to these fields but **bypasses for `service_role`**, so this runs fine as an admin SQL insert/update.
+Testing
+-------
+- Add/update a unit test that feeds LaTanya's actual stored activity strings into the resolver and asserts:
+  - Labels remain unchanged.
+  - Only exact same-type matches produce a non-generic link.
+  - Non-matching generic labels still render with their original text.
+- Manually verify the study plan page renders her plan correctly after the fix.
 
-This alone guarantees access for 1 year regardless of Stripe status.
-
-### 3. Stop Stripe from charging her
-Two options — I recommend **Option A**:
-
-**Option A (recommended): Cancel her Stripe subscription at period end.**
-She keeps the time she already paid for, never gets billed again, and our `access_expires_at` covers the full year. One-time edge function call (or done by you in Stripe Dashboard) — no recurring management needed.
-
-**Option B: Extend her Stripe subscription's `trial_end` by 12 months with `proration_behavior: 'none'`.**
-Keeps the subscription "live" in Stripe but pauses billing for a year. More fragile — if anything changes on the sub, webhooks could overwrite state.
-
-### 4. Send her the confirmation email
-Use the draft email already prepared confirming her year of free access from her original subscription date.
-
-## Technical details
-
-- **No schema changes required.** Everything uses existing columns (`profiles.access_expires_at`, `profiles.payment_status`).
-- **Migration vs insert tool:** This is a data update, so it goes through the insert/update path (service_role), not a schema migration.
-- **Stripe cancellation:** Easiest path is for you to cancel her sub in the Stripe Dashboard (Customer → Subscription → Cancel → "at period end"). If you'd rather I build a small admin edge function to do it programmatically, I can — but for a one-off comp, Dashboard is faster.
-- **Webhook safety:** When Stripe eventually fires `customer.subscription.deleted`, our webhook will mark the `subscriptions` row `canceled`. That's fine — her access still flows through `access_expires_at` on the profile.
-
-## What I need from you to proceed
-1. Confirm: cancel her Stripe sub via **Dashboard** (you) or **build an admin function** (me)?
-2. Confirm her "original subscription date" should be the date of her **first** subscription row (in case she has more than one). I'll surface the exact date from the DB before applying the update.
+Communication
+-------------
+Draft a direct, calm response for LaTanya explaining that her items were not deleted; the new clickable-link feature was rewriting the labels and causing confusion, and that the fix restores the original labels so she can keep working from where she left off.
