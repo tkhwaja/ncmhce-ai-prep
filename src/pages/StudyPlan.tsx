@@ -1,6 +1,10 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
+import { libraryModules } from "@/data/library-modules";
+import { flashcardDecks } from "@/data/flashcards";
+import { narratives } from "@/data/narratives";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -43,9 +47,127 @@ const confidenceAreas = [
   "Crisis Intervention",
 ];
 
+type StudyResource = {
+  label: string;
+  href: string;
+};
+
+const normalizeResourceKey = (value: string) =>
+  value
+    .toLowerCase()
+    .replace(/[—–-]/g, " ")
+    .replace(/&/g, "and")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+
+const findByTitle = <T extends { title?: string; name?: string; id: string }>(
+  items: T[],
+  topic: string,
+) => {
+  const key = normalizeResourceKey(topic);
+  return items.find((item) => normalizeResourceKey(item.title ?? item.name ?? "") === key);
+};
+
+const libraryAliases: Record<string, string> = {
+  "treatment planning": "clinical-case-conceptualization",
+  "case conceptualization": "clinical-case-conceptualization",
+  "ethical codes and standards": "ethics-and-legal-issues",
+  "ethics and legal issues": "ethics-and-legal-issues",
+  "boundaries and informed consent": "ethics-and-legal-issues",
+  "crisis intervention": "crisis-trauma-and-disaster-counseling",
+  "trauma and mandatory reporting": "crisis-trauma-and-disaster-counseling",
+  "counseling skills and attributes": "counseling-theories-techniques",
+  "counselor client relationship": "counseling-theories-techniques",
+  "diagnosis and assessment": "assessment-and-testing",
+  "assessment and diagnosis": "assessment-and-testing",
+  "dsm 5 tr criteria": "dsm-5-tr-diagnoses",
+  "dsm 5 tr overview": "dsm-5-tr-diagnoses",
+};
+
+const flashcardAliases: Record<string, string> = {
+  "dsm 5 tr criteria": "dsm5",
+  "dsm 5 tr disorders": "dsm5",
+  "therapeutic modalities": "treatment",
+  "treatment modalities": "treatment",
+  "ethical codes and standards": "ethics",
+  "ethical codes aca": "ethics",
+  "counseling theories": "theories",
+  "assessment tools": "assessment",
+  "crisis intervention": "crisis",
+};
+
+const narrativeAliases: Record<string, string> = {
+  "mood disorders": "02-marcus-mdd",
+  "major depressive disorder": "02-marcus-mdd",
+  "anxiety disorders": "01-priya-gad",
+  "generalized anxiety disorder": "01-priya-gad",
+  "social anxiety": "12-miguel-social-anxiety",
+  "trauma": "03-david-ptsd",
+  "ptsd": "03-david-ptsd",
+  "substance use": "05-james-aud",
+  "alcohol use disorder": "05-james-aud",
+  "obsessive compulsive disorder": "09-mei-ocd",
+  "eating disorders": "07-jordan-anorexia",
+  "personality disorders": "10-tyrone-bpd",
+  "suicidality and self harm": "02-marcus-mdd",
+  "self harm": "10-tyrone-bpd",
+  "treatment sequencing": "28-rafael-ptsd",
+};
+
+const resolveLibraryResource = (topic: string): StudyResource | null => {
+  const exact = findByTitle(libraryModules, topic);
+  const module = exact ?? libraryModules.find((item) => item.id === libraryAliases[normalizeResourceKey(topic)]);
+  return module ? { label: `Study Learning Library: ${module.title}`, href: `/library?module=${module.id}` } : null;
+};
+
+const resolveFlashcardResource = (topic: string): StudyResource | null => {
+  const exact = findByTitle(flashcardDecks, topic);
+  const deck = exact ?? flashcardDecks.find((item) => item.id === flashcardAliases[normalizeResourceKey(topic)]);
+  return deck ? { label: `Review Flashcards: ${deck.name}`, href: `/flashcards?deck=${deck.id}` } : null;
+};
+
+const resolveNarrativeResource = (topic: string): StudyResource | null => {
+  const exact = findByTitle(narratives, topic);
+  const narrative = exact ?? narratives.find((item) => item.id === narrativeAliases[normalizeResourceKey(topic)]);
+  return narrative ? { label: `Practice Narrative: ${narrative.title}`, href: `/narrative/${narrative.id}` } : null;
+};
+
+const resolveStudyActivity = (activity: string): StudyResource => {
+  const trimmed = activity.trim();
+  const normalizedActivity = normalizeResourceKey(trimmed.replace(/^[^:]+:\s*/, ""));
+  if (/complete timed practice exam/i.test(trimmed) || normalizedActivity === "multi domain integration") {
+    return { label: "Complete timed practice exam", href: "/practice-exams" };
+  }
+
+  const match = trimmed.match(/^(Study Learning Library|Review Flashcards|Practice Narrative):\s*(.+)$/i);
+  if (!match) return { label: trimmed, href: "/study-plan" };
+
+  const [, type, topic] = match;
+  if (/study learning library/i.test(type)) {
+    return resolveLibraryResource(topic) ?? { label: trimmed, href: "/library" };
+  }
+  if (/review flashcards/i.test(type)) {
+    return resolveFlashcardResource(topic) ?? { label: trimmed, href: "/flashcards" };
+  }
+
+  return (
+    resolveNarrativeResource(topic) ??
+    resolveLibraryResource(topic) ??
+    resolveFlashcardResource(topic) ??
+    { label: trimmed, href: "/narratives" }
+  );
+};
+
+const platformResourcePrompt = `Available platform resources. Use ONLY these exact names after the activity prefix.
+Learning Library modules: ${libraryModules.map((module) => module.title).join("; ")}.
+Flashcard decks: ${flashcardDecks.map((deck) => deck.name).join("; ")}.
+Practice narratives: ${narratives.map((narrative) => narrative.title).join("; ")}.
+Full exam simulation: Complete timed practice exam.`;
+
 const StudyPlan = () => {
   const { user, session } = useAuth();
   const { toast } = useToast();
+  const navigate = useNavigate();
   const [plan, setPlan] = useState<StudyPlan | null>(null);
   const [loading, setLoading] = useState(true);
   const [generating, setGenerating] = useState(false);
@@ -108,16 +230,21 @@ Student info:
 
 CRITICAL: Generate EXACTLY ${Math.max(1, Math.ceil((examDate.getTime() - Date.now()) / (7 * 24 * 60 * 60 * 1000)))} weeks — this is the actual number of weeks until the student's exam date. Do NOT default to 10 weeks.
 
-Create a realistic plan focusing more time on weaker areas. All activities MUST reference resources available on the platform:
-- "Practice Narrative: [topic]" for clinical case practice
-- "Review Flashcards: [deck name]" for flashcard decks (DSM-5-TR Criteria, Therapeutic Modalities, Ethical Codes & Standards, Counseling Theories, Assessment Tools, Crisis Intervention)
-- "Study Learning Library: [module]" for reading content
-- "Complete timed practice exam" for full exam simulation
+Create a realistic plan focusing more time on weaker areas. All activities MUST reference real resources available on the platform.
+${platformResourcePrompt}
+
+Allowed activity formats:
+- "Practice Narrative: [exact practice narrative title from the list]"
+- "Review Flashcards: [exact deck name from the list]"
+- "Study Learning Library: [exact module title from the list]"
+- "Complete timed practice exam"
+
+Do NOT create generic practice narrative titles like "Case Conceptualization," "Treatment Sequencing," or "Boundaries and Informed Consent" unless that exact narrative title appears in the resource list.
 
 Do NOT suggest external textbooks, websites, or resources not on the platform.
 
 IMPORTANT: Return ONLY a valid JSON array, no markdown, no explanation. Example format:
-[{"week":1,"topic":"DSM-5-TR Foundations","activities":["Study Learning Library: DSM-5-TR Overview","Review Flashcards: DSM-5-TR Criteria","Practice Narrative: Mood Disorders"],"hours":10}]`
+[{"week":1,"topic":"DSM-5-TR Foundations","activities":["Study Learning Library: DSM-5-TR Diagnoses","Review Flashcards: DSM-5-TR Disorders","Practice Narrative: Marcus — Major Depressive Disorder"],"hours":10}]`
           }],
           context: "Study Plan Generator",
         }),
@@ -156,7 +283,10 @@ IMPORTANT: Return ONLY a valid JSON array, no markdown, no explanation. Example 
 
       const planData: WeekPlan[] = JSON.parse(jsonMatch[0]).map((w: any) => ({
         ...w,
-        completed: new Array(w.activities.length).fill(false),
+        activities: Array.isArray(w.activities)
+          ? w.activities.map((activity: string) => resolveStudyActivity(activity).label)
+          : [],
+        completed: new Array(Array.isArray(w.activities) ? w.activities.length : 0).fill(false),
       }));
 
       // Save to DB
@@ -240,18 +370,30 @@ IMPORTANT: Return ONLY a valid JSON array, no markdown, no explanation. Example 
                   <CollapsibleContent>
                     <CardContent className="pt-0 px-4 pb-4">
                       <div className="space-y-2">
-                        {week.activities.map((activity, ai) => (
-                          <div key={ai} className="flex items-start gap-3 py-1">
-                            <Checkbox
-                              checked={week.completed?.[ai] || false}
-                              onCheckedChange={() => toggleActivity(wi, ai)}
-                              className="mt-0.5"
-                            />
-                            <span className={`text-sm ${week.completed?.[ai] ? "text-muted-foreground line-through" : "text-foreground"}`}>
-                              {activity}
-                            </span>
-                          </div>
-                        ))}
+                        {week.activities.map((activity, ai) => {
+                          const resolved = resolveStudyActivity(activity);
+                          const isComplete = week.completed?.[ai] || false;
+                          return (
+                            <div key={ai} className="flex items-start gap-3 py-1">
+                              <Checkbox
+                                checked={isComplete}
+                                onCheckedChange={() => toggleActivity(wi, ai)}
+                                className="mt-0.5"
+                              />
+                              <button
+                                type="button"
+                                onClick={() => navigate(resolved.href)}
+                                className={cn(
+                                  "group/activity flex min-w-0 flex-1 items-start justify-between gap-2 rounded-md px-1 py-0.5 text-left text-sm transition-colors hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring",
+                                  isComplete ? "text-muted-foreground line-through" : "text-foreground",
+                                )}
+                              >
+                                <span className="min-w-0 break-words">{resolved.label}</span>
+                                <ChevronRight className="mt-0.5 h-4 w-4 shrink-0 opacity-0 transition-opacity group-hover/activity:opacity-100" />
+                              </button>
+                            </div>
+                          );
+                        })}
                       </div>
                     </CardContent>
                   </CollapsibleContent>

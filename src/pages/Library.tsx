@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect, useRef } from "react";
-import { useOutletContext, useLocation } from "react-router-dom";
+import { useOutletContext, useLocation, useNavigate } from "react-router-dom";
 import { libraryModules, LibraryModule, LibraryCategory, categoryOrder } from "@/data/library-modules";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -146,16 +146,25 @@ const LibraryModuleDetail = ({ module, onBack }: { module: LibraryModule; onBack
 const Library = () => {
   const [selectedModule, setSelectedModule] = useState<LibraryModule | null>(null);
   const location = useLocation();
+  const navigate = useNavigate();
   const previousPathname = useRef(location.pathname);
   const [search, setSearch] = useState("");
 
-  // Reset to library index only on real /library re-navigation, not section hash jumps.
   useEffect(() => {
-    if (location.pathname === previousPathname.current && !location.hash) {
+    const moduleId = new URLSearchParams(location.search).get("module");
+    if (!moduleId) return;
+    const module = libraryModules.find((item) => item.id === moduleId);
+    if (module) setSelectedModule(module);
+  }, [location.search]);
+
+  // Reset to library index only on real /library re-navigation, not direct module links.
+  useEffect(() => {
+    const hasModuleLink = new URLSearchParams(location.search).has("module");
+    if (location.pathname === previousPathname.current && !location.hash && !hasModuleLink) {
       setSelectedModule(null);
     }
     previousPathname.current = location.pathname;
-  }, [location.key, location.pathname, location.hash]);
+  }, [location.key, location.pathname, location.hash, location.search]);
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
   const [sort, setSort] = useState<"default" | "az" | "za">("default");
 
@@ -213,7 +222,7 @@ const Library = () => {
   }, [filtered]);
 
   if (selectedModule) {
-    return <LibraryModuleDetail module={selectedModule} onBack={() => setSelectedModule(null)} />;
+    return <LibraryModuleDetail module={selectedModule} onBack={() => { setSelectedModule(null); navigate("/library"); }} />;
   }
 
   return (

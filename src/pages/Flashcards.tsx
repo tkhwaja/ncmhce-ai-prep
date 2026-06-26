@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { flashcardDecks, Flashcard, FlashcardDeck } from "@/data/flashcards";
@@ -28,6 +29,8 @@ interface ProgressMap {
 const Flashcards = () => {
   const { user, session } = useAuth();
   const { toast } = useToast();
+  const location = useLocation();
+  const navigate = useNavigate();
   const [selectedDeck, setSelectedDeck] = useState<FlashcardDeck | null>(null);
   const [studyMode, setStudyMode] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -35,6 +38,13 @@ const Flashcards = () => {
   const [progress, setProgress] = useState<ProgressMap>({});
   const [extraCards, setExtraCards] = useState<Record<string, Flashcard[]>>({});
   const [generating, setGenerating] = useState(false);
+
+  useEffect(() => {
+    const deckId = new URLSearchParams(location.search).get("deck");
+    if (!deckId) return;
+    const deck = flashcardDecks.find((item) => item.id === deckId);
+    if (deck) setSelectedDeck(deck);
+  }, [location.search]);
 
   useEffect(() => {
     if (!user) return;
@@ -265,7 +275,7 @@ Return ONLY valid JSON, no markdown or explanation.`
     return (
       <div className="p-4 sm:p-6 max-w-4xl mx-auto space-y-6">
         <div className="flex items-center justify-between">
-          <Button variant="ghost" onClick={() => setSelectedDeck(null)}>
+          <Button variant="ghost" onClick={() => { setSelectedDeck(null); navigate("/flashcards"); }}>
             <ArrowLeft className="mr-2 h-4 w-4" /> All Decks
           </Button>
         </div>
