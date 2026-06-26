@@ -164,7 +164,7 @@ const Library = () => {
       setSelectedModule(null);
     }
     previousPathname.current = location.pathname;
-  }, [location.key, location.pathname, location.hash]);
+  }, [location.key, location.pathname, location.hash, location.search]);
   const [categoryFilter, setCategoryFilter] = useState<string>("all");
   const [sort, setSort] = useState<"default" | "az" | "za">("default");
 
