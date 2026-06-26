@@ -157,9 +157,10 @@ const Library = () => {
     if (module) setSelectedModule(module);
   }, [location.search]);
 
-  // Reset to library index only on real /library re-navigation, not section hash jumps.
+  // Reset to library index only on real /library re-navigation, not direct module links.
   useEffect(() => {
-    if (location.pathname === previousPathname.current && !location.hash) {
+    const hasModuleLink = new URLSearchParams(location.search).has("module");
+    if (location.pathname === previousPathname.current && !location.hash && !hasModuleLink) {
       setSelectedModule(null);
     }
     previousPathname.current = location.pathname;
