@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect, useRef } from "react";
-import { useOutletContext, useLocation } from "react-router-dom";
+import { useOutletContext, useLocation, useNavigate } from "react-router-dom";
 import { libraryModules, LibraryModule, LibraryCategory, categoryOrder } from "@/data/library-modules";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -146,8 +146,16 @@ const LibraryModuleDetail = ({ module, onBack }: { module: LibraryModule; onBack
 const Library = () => {
   const [selectedModule, setSelectedModule] = useState<LibraryModule | null>(null);
   const location = useLocation();
+  const navigate = useNavigate();
   const previousPathname = useRef(location.pathname);
   const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    const moduleId = new URLSearchParams(location.search).get("module");
+    if (!moduleId) return;
+    const module = libraryModules.find((item) => item.id === moduleId);
+    if (module) setSelectedModule(module);
+  }, [location.search]);
 
   // Reset to library index only on real /library re-navigation, not section hash jumps.
   useEffect(() => {
@@ -213,7 +221,7 @@ const Library = () => {
   }, [filtered]);
 
   if (selectedModule) {
-    return <LibraryModuleDetail module={selectedModule} onBack={() => setSelectedModule(null)} />;
+    return <LibraryModuleDetail module={selectedModule} onBack={() => { setSelectedModule(null); navigate("/library"); }} />;
   }
 
   return (
