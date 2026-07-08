@@ -1,30 +1,52 @@
-Root cause
---------
-The recent study-plan update added a `resolveStudyActivity` mapping that rewrites the visible text of stored activities when the page renders. LaTanya's existing plan contains generic AI-generated labels such as:
 
-- "Study Learning Library: Treatment Planning"
-- "Practice Narrative: Case Conceptualization"
-- "Practice Narrative: Treatment Sequencing"
+# Facebook ads attribution — one-off report
 
-The resolver silently converts those into different real-resource titles, and it even falls back across resource types (a "Practice Narrative" can resolve to a "Study Learning Library" module). That makes it look like items were removed or swapped, and it breaks the mental model the user had for her progress.
+No code changes. Read-only queries across three sources, then a summary posted in chat.
 
-Fix
----
-1. In `src/pages/StudyPlan.tsx`, change `resolveStudyActivity` so it **never rewrites the visible label** of a stored activity. The text the user saved is the text they should see.
-2. Only add a clickable link when the stored activity prefix and topic cleanly match an existing resource of the **same type** (library, flashcard, narrative). Remove cross-type fallbacks.
-3. If there is no clean match, render the activity as plain text (or with a generic section link), exactly as it appeared before the clickable-link update.
-4. Keep the stricter AI prompt for **newly generated** plans so future plans use exact resource names, but do not re-interpret old plans through that mapping.
+## What I'll pull
 
-No database migration is needed: existing `plan_data` stays untouched; the fix is purely in the display resolver.
+### 1. PostHog — who came from Facebook
+Query `$pageview` events where `$initial_utm_source` matches `facebook|fb|ig|instagram` or `$initial_referring_domain` contains `facebook.com` / `l.facebook.com` / `instagram.com`. From those persons:
+- unique visitors from FB
+- `email_signup` events from FB-attributed persons
+- distinct emails captured (so we can join to Stripe)
 
-Testing
--------
-- Add/update a unit test that feeds LaTanya's actual stored activity strings into the resolver and asserts:
-  - Labels remain unchanged.
-  - Only exact same-type matches produce a non-generic link.
-  - Non-matching generic labels still render with their original text.
-- Manually verify the study plan page renders her plan correctly after the fix.
+Time window: **last 90 days** (adjustable — tell me if you want lifetime or a specific range).
 
-Communication
--------------
-Draft a direct, calm response for LaTanya explaining that her items were not deleted; the new clickable-link feature was rewriting the labels and causing confusion, and that the fix restores the original labels so she can keep working from where she left off.
+### 2. Meta Ads — spend + platform-side conversions
+You don't have a Meta Ads connector linked yet. Two options:
+- **(a)** Connect the Meta Ads connector so I can pull spend, impressions, clicks, and Pixel-reported conversions directly. ~2 min setup.
+- **(b)** Skip Meta side — you paste the total ad spend for the window and I compute CAC / ROAS against Stripe revenue.
+
+### 3. Stripe — actual revenue from FB-attributed users
+For each FB-attributed email/userId from step 1:
+- match against Stripe customers (metadata `userId` search, then email fallback)
+- sum `amount_paid` on paid invoices
+- count new paying customers + active subscriptions
+- compare against total Stripe revenue in the same window to get **% of revenue from FB**
+
+Uses the existing pattern from `get-stripe-data` (Subscriptions/Customers search by metadata, email fallback). Live env only unless you want sandbox too.
+
+## Output in chat
+A single summary like:
+
+```text
+Window: last 90 days
+FB-attributed visitors:      1,240
+FB-attributed signups:          82   (18% of all signups)
+FB-attributed paying customers:  6   ($354 revenue, 22% of total)
+Meta Ads spend:              $420
+CAC (FB):                     $70
+ROAS:                         0.84x
+```
+
+## Caveats I'll call out
+- PostHog attribution is **first-touch** via `$initial_utm_source` / `$initial_referring_domain`. Users who visited from FB in an incognito session, then converted later on desktop, won't be attributed.
+- Meta Pixel conversions in Ads Manager will usually be **higher** than Stripe-matched conversions (Meta uses view-through + cross-device modeling).
+- Email-only Stripe matches can false-positive if a user signed up organically but shares an email with an FB visitor.
+
+## Questions before I run it
+1. **Window**: last 30 / 90 days, or lifetime?
+2. **Meta Ads**: connect the connector, or paste spend manually?
+3. **Env**: Stripe live only, or include sandbox?
+
