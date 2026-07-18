@@ -1,52 +1,51 @@
 
-# Facebook ads attribution — one-off report
+## Goal
 
-No code changes. Read-only queries across three sources, then a summary posted in chat.
+Determine whether the "Fraudulent" dispute from `ssupreme2@mercy.edu` (dispute `du_1TuOlg70VlXdNqxgXKHgOwt5`, evidence deadline **Aug 11, 2026**) is a legitimate chargeback, a customer misunderstanding, or a platform error — and tell you exactly what to do in Stripe.
 
-## What I'll pull
+## What I already confirmed (read-only)
 
-### 1. PostHog — who came from Facebook
-Query `$pageview` events where `$initial_utm_source` matches `facebook|fb|ig|instagram` or `$initial_referring_domain` contains `facebook.com` / `l.facebook.com` / `instagram.com`. From those persons:
-- unique visitors from FB
-- `email_signup` events from FB-attributed persons
-- distinct emails captured (so we can join to Stripe)
+- **No account in our system for that email.** `profiles`, `auth.users`, and `subscriptions` all return zero rows for `ssupreme2@mercy.edu` (searched exact + `%mercy.edu%` + `%supreme%`).
+- Reason code from your email: **Fraudulent** — the cardholder told their bank they didn't authorize the charge.
+- All recent live subscriptions (last 10) belong to other customers — this dispute is not tied to any of them.
 
-Time window: **last 90 days** (adjustable — tell me if you want lifetime or a specific range).
+## Investigation steps (Stripe side)
 
-### 2. Meta Ads — spend + platform-side conversions
-You don't have a Meta Ads connector linked yet. Two options:
-- **(a)** Connect the Meta Ads connector so I can pull spend, impressions, clicks, and Pixel-reported conversions directly. ~2 min setup.
-- **(b)** Skip Meta side — you paste the total ad spend for the window and I compute CAC / ROAS against Stripe revenue.
+1. **Pull the dispute** via the connector gateway (live env):
+   - `GET /v1/disputes/du_1TuOlg70VlXdNqxgXKHgOwt5` → amount, currency, charge id, created date, network reason code, evidence deadline (confirm Aug 11), current status.
+2. **Pull the charge** it's tied to:
+   - `GET /v1/charges/<charge_id>` → payment_method, card brand/last4/country, billing email, name, IP address, `risk_score` and `risk_level` from Stripe Radar, receipt url.
+3. **Pull the customer** on that charge:
+   - `GET /v1/customers/<customer_id>` → email on file at checkout (may differ from bank email), created date, metadata (should contain our `userId` if checkout was completed through our flow).
+4. **Pull the checkout session** (search sessions by `customer` or `payment_intent`) to see whether it was our `create-checkout` session (has `metadata.userId`) or something else.
+5. **Cross-check `metadata.userId`** against our `profiles` and `subscriptions` tables — this catches the case where they signed up with one email and paid with another.
+6. **Look for prior refund attempts** on the charge (`refunds` array).
 
-### 3. Stripe — actual revenue from FB-attributed users
-For each FB-attributed email/userId from step 1:
-- match against Stripe customers (metadata `userId` search, then email fallback)
-- sum `amount_paid` on paid invoices
-- count new paying customers + active subscriptions
-- compare against total Stripe revenue in the same window to get **% of revenue from FB**
+## Platform-side checks
 
-Uses the existing pattern from `get-stripe-data` (Subscriptions/Customers search by metadata, email fallback). Live env only unless you want sandbox too.
+- `subscriptions` and `profiles` lookup by any `userId` / `stripe_customer_id` returned above.
+- Edge function logs around the charge timestamp: any `create-portal-session`, `submit-cancellation-feedback`, or failed cancellation attempt from that user? (A user who tried to cancel and couldn't is a red flag we caused it.)
+- Auth logs: did the account ever log in after paying? Zero sessions after payment supports the "never used the product" angle.
 
-## Output in chat
-A single summary like:
+## Verdict framework
 
-```text
-Window: last 90 days
-FB-attributed visitors:      1,240
-FB-attributed signups:          82   (18% of all signups)
-FB-attributed paying customers:  6   ($354 revenue, 22% of total)
-Meta Ads spend:              $420
-CAC (FB):                     $70
-ROAS:                         0.84x
-```
+| Finding | Likely verdict | Action |
+|---|---|---|
+| Stripe Radar flagged high risk, card country mismatches billing, no login after payment | Real card fraud | **Accept the dispute** in Stripe. Do not submit evidence. |
+| Customer exists, used the app, then filed "fraudulent" instead of contacting us | "Friendly fraud" | Submit evidence: signup timestamp, login history, terms accepted, receipt, product usage. Odds of winning "Fraudulent" reason code are low (~15–25%) but non-zero. |
+| Customer tried to cancel / refund and we failed them (webhook bug, portal error) | Our fault | Refund immediately (accepts the dispute) and reply to the customer. |
+| No `metadata.userId`, unknown email, checkout via a link they didn't recognize | Descriptor confusion (statement said `LINK.COM* …`) | Usually still lose. Accept + tighten statement descriptor going forward. |
 
-## Caveats I'll call out
-- PostHog attribution is **first-touch** via `$initial_utm_source` / `$initial_referring_domain`. Users who visited from FB in an incognito session, then converted later on desktop, won't be attributed.
-- Meta Pixel conversions in Ads Manager will usually be **higher** than Stripe-matched conversions (Meta uses view-through + cross-device modeling).
-- Email-only Stripe matches can false-positive if a user signed up organically but shares an email with an FB visitor.
+## Deliverable to you
 
-## Questions before I run it
-1. **Window**: last 30 / 90 days, or lifetime?
-2. **Meta Ads**: connect the connector, or paste spend manually?
-3. **Env**: Stripe live only, or include sandbox?
+A short writeup with:
+- Charge amount, date, card country, Radar score
+- Whether an account was created and whether it was used
+- Whether we contributed to the dispute in any way
+- One clear recommendation: **Accept** (one click in Stripe, refunds money + closes dispute, avoids further fees) or **Submit evidence** (I'll list the exact evidence to attach)
+- If you want, a short apology / offer-to-refund email to send to the customer's email on file — sometimes they withdraw the dispute with their bank when contacted directly.
 
+## Technical notes
+
+- All Stripe calls go through `https://connector-gateway.lovable.dev/stripe` with `STRIPE_LIVE_API_KEY` + `LOVABLE_API_KEY` (per our shared `_shared/stripe.ts` pattern). I'll run these as ad-hoc reads from an edge function invocation — no new persistent code, no schema changes, no user-visible changes.
+- Nothing in this plan touches any user's data, subscription, or billing. It's read-only until you approve an action (accept / refund / submit evidence).
