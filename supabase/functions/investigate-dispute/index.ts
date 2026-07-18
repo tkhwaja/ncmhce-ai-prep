@@ -19,7 +19,6 @@ serve(async (req) => {
       }, null, 2), { headers: { "Content-Type": "application/json" } });
     }
     const disputeId = url.searchParams.get("dispute");
-    const stripe = createStripeClient("live");
     if (!disputeId) {
       const list: any = await stripe.disputes.list({ limit: 10 });
       return new Response(JSON.stringify(list.data.map((d: any) => ({ id: d.id, reason: d.reason, status: d.status, amount: d.amount, created: new Date(d.created * 1000).toISOString(), charge: d.charge })), null, 2), { headers: { "Content-Type": "application/json" } });
