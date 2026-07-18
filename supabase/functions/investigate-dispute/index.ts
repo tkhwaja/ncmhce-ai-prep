@@ -4,8 +4,12 @@ import { createStripeClient } from "../_shared/stripe.ts";
 serve(async (req) => {
   try {
     const url = new URL(req.url);
-    const disputeId = url.searchParams.get("dispute") || "du_1TuOlg70VlXdNqxgXKHgOwt5";
+    const disputeId = url.searchParams.get("dispute");
     const stripe = createStripeClient("live");
+    if (!disputeId) {
+      const list: any = await stripe.disputes.list({ limit: 10 });
+      return new Response(JSON.stringify(list.data.map((d: any) => ({ id: d.id, reason: d.reason, status: d.status, amount: d.amount, created: new Date(d.created * 1000).toISOString(), charge: d.charge })), null, 2), { headers: { "Content-Type": "application/json" } });
+    }
     const dispute: any = await stripe.disputes.retrieve(disputeId, { expand: ["charge", "charge.customer", "payment_intent"] });
     const charge = dispute.charge;
     const customer = charge?.customer;
