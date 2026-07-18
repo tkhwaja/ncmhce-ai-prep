@@ -4,6 +4,20 @@ import { createStripeClient } from "../_shared/stripe.ts";
 serve(async (req) => {
   try {
     const url = new URL(req.url);
+    const customerId = url.searchParams.get("customer");
+    const stripe = createStripeClient("live");
+    if (customerId) {
+      const [subs, invoices, charges] = await Promise.all([
+        stripe.subscriptions.list({ customer: customerId, status: "all", limit: 20, expand: ["data.items.data.price"] }),
+        stripe.invoices.list({ customer: customerId, limit: 20 }),
+        stripe.charges.list({ customer: customerId, limit: 20 }),
+      ]);
+      return new Response(JSON.stringify({
+        subscriptions: subs.data.map((s: any) => ({ id: s.id, status: s.status, created: new Date(s.created * 1000).toISOString(), canceled_at: s.canceled_at ? new Date(s.canceled_at * 1000).toISOString() : null, cancel_at_period_end: s.cancel_at_period_end, current_period_end: s.current_period_end ? new Date(s.current_period_end * 1000).toISOString() : null, metadata: s.metadata, price: s.items?.data?.[0]?.price?.lookup_key || s.items?.data?.[0]?.price?.id })),
+        invoices: invoices.data.map((i: any) => ({ id: i.id, status: i.status, amount_paid: i.amount_paid, created: new Date(i.created * 1000).toISOString(), period_start: i.period_start ? new Date(i.period_start * 1000).toISOString() : null, period_end: i.period_end ? new Date(i.period_end * 1000).toISOString() : null, subscription: i.subscription, charge: i.charge })),
+        charges: charges.data.map((c: any) => ({ id: c.id, amount: c.amount, status: c.status, created: new Date(c.created * 1000).toISOString(), paid: c.paid, refunded: c.refunded, disputed: c.disputed, payment_intent: c.payment_intent, invoice: c.invoice })),
+      }, null, 2), { headers: { "Content-Type": "application/json" } });
+    }
     const disputeId = url.searchParams.get("dispute");
     const stripe = createStripeClient("live");
     if (!disputeId) {
