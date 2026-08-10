@@ -129,8 +129,10 @@ async function handleSubscriptionCreated(subscription: any, env: StripeEnv) {
   const priceId = item?.price?.metadata?.lovable_external_id || item?.price?.id;
   const productId = item?.price?.product;
 
-  const periodStart = subscription.current_period_start;
-  const periodEnd = subscription.current_period_end;
+  // Newer Stripe API versions expose period fields on the subscription item.
+  const periodStart = subscription.current_period_start ?? item?.current_period_start;
+  const periodEnd = subscription.current_period_end ?? item?.current_period_end ?? subscription.cancel_at;
+
 
   const { error } = await supabase.from("subscriptions").upsert(
     {
