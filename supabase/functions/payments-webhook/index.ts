@@ -169,8 +169,9 @@ async function handleSubscriptionUpdated(subscription: any, env: StripeEnv) {
   const priceId = item?.price?.metadata?.lovable_external_id || item?.price?.id;
   const productId = item?.price?.product;
 
-  const periodStart = subscription.current_period_start;
-  const periodEnd = subscription.current_period_end;
+  const periodStart = subscription.current_period_start ?? item?.current_period_start;
+  const periodEnd = subscription.current_period_end ?? item?.current_period_end ?? subscription.cancel_at;
+
 
   await supabase
     .from("subscriptions")
