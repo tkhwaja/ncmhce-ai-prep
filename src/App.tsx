@@ -138,8 +138,8 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <AuthProvider>
-          <AuthProvider>
             <ExamTrackProvider>
+
             <PostHogPageview />
             <MetaPixelPageview />
 
