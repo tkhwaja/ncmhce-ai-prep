@@ -184,6 +184,8 @@ const App = () => (
             </Suspense>
             </ChunkErrorBoundary>
             <SupportFab />
+            </ExamTrackProvider>
+
           </AuthProvider>
         </BrowserRouter>
       </TooltipProvider>
