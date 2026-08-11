@@ -5,6 +5,8 @@ import AppHeader from "./AppHeader";
 import AIChatSidebar from "./AIChatSidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { useSubscription } from "@/hooks/useSubscription";
+import { useExamTrack } from "@/contexts/ExamTrackContext";
+
 
 
 export interface AppLayoutOutletContext {
