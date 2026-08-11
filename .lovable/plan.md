@@ -1,51 +1,73 @@
+# Adding an NCE Track Alongside NCMHCE
 
-## Goal
+Goal: a second exam track (NCE) that mirrors the existing layout and quality, built entirely behind a feature flag so current NCMHCE users see zero change until you say "go live."
 
-Determine whether the "Fraudulent" dispute from `ssupreme2@mercy.edu` (dispute `du_1TuOlg70VlXdNqxgXKHgOwt5`, evidence deadline **Aug 11, 2026**) is a legitimate chargeback, a customer misunderstanding, or a platform error — and tell you exactly what to do in Stripe.
+## Guiding rules
 
-## What I already confirmed (read-only)
+1. **Nothing ships early.** All NCE UI sits behind a build flag that is off in production. Every deploy in the meantime is safe.
+2. **Additive only.** No existing table, column, route, or component changes behavior for current users. New columns get defaults of `ncmhce` so all existing data stays correct.
+3. **Separate subscription.** NCE is its own product/price. Existing NCMHCE subscribers are unaffected; they can add NCE separately.
+4. **Switch anytime.** An exam switcher in the app header; progress is tracked per track so a user with both never sees mixed data.
+5. **Content placeholder first.** Since NCE material doesn't exist yet, the build delivers the full structure plus a validated upload format, so content can drop in later without code changes.
 
-- **No account in our system for that email.** `profiles`, `auth.users`, and `subscriptions` all return zero rows for `ssupreme2@mercy.edu` (searched exact + `%mercy.edu%` + `%supreme%`).
-- Reason code from your email: **Fraudulent** — the cardholder told their bank they didn't authorize the charge.
-- All recent live subscriptions (last 10) belong to other customers — this dispute is not tied to any of them.
+## Phase 1 — Foundation (invisible to users)
 
-## Investigation steps (Stripe side)
+- Add an "exam track" concept: `ncmhce` and `nce`, with per-track labels, domain lists, and route config in one file.
+- Database (additive): store the user's currently selected track on their profile, and stamp every progress record (narrative attempts, practice exam attempts, flashcard progress, study plans) with a track that defaults to `ncmhce`. Existing rows backfill to `ncmhce`.
+- Entitlements: extend access checks so access is answered per track. NCMHCE access logic stays byte-identical; NCE access is a separate check that always returns "no access" until the NCE product exists.
+- Feature flag: NCE code paths compile but render nothing while the flag is off.
 
-1. **Pull the dispute** via the connector gateway (live env):
-   - `GET /v1/disputes/du_1TuOlg70VlXdNqxgXKHgOwt5` → amount, currency, charge id, created date, network reason code, evidence deadline (confirm Aug 11), current status.
-2. **Pull the charge** it's tied to:
-   - `GET /v1/charges/<charge_id>` → payment_method, card brand/last4/country, billing email, name, IP address, `risk_score` and `risk_level` from Stripe Radar, receipt url.
-3. **Pull the customer** on that charge:
-   - `GET /v1/customers/<customer_id>` → email on file at checkout (may differ from bank email), created date, metadata (should contain our `userId` if checkout was completed through our flow).
-4. **Pull the checkout session** (search sessions by `customer` or `payment_intent`) to see whether it was our `create-checkout` session (has `metadata.userId`) or something else.
-5. **Cross-check `metadata.userId`** against our `profiles` and `subscriptions` tables — this catches the case where they signed up with one email and paid with another.
-6. **Look for prior refund attempts** on the charge (`refunds` array).
+**Gate:** existing app behaves identically; automated tests + a click-through of dashboard, narratives, practice exams, study plan, flashcards, library.
 
-## Platform-side checks
+## Phase 2 — Track-aware shell
 
-- `subscriptions` and `profiles` lookup by any `userId` / `stripe_customer_id` returned above.
-- Edge function logs around the charge timestamp: any `create-portal-session`, `submit-cancellation-feedback`, or failed cancellation attempt from that user? (A user who tried to cancel and couldn't is a red flag we caused it.)
-- Auth logs: did the account ever log in after paying? Zero sessions after payment supports the "never used the product" angle.
+- Exam switcher in the header (only visible when the flag is on and the user has more than one track available).
+- Sidebar, dashboard stats, analytics, and study plan read from the active track instead of hard-coded NCMHCE content.
+- Signup gains an exam-choice step (NCMHCE preselected so current-style signups are unchanged).
 
-## Verdict framework
+**Gate:** with the flag forced on locally, switching tracks changes content and progress cleanly; with it off, the app is visually identical to today.
 
-| Finding | Likely verdict | Action |
-|---|---|---|
-| Stripe Radar flagged high risk, card country mismatches billing, no login after payment | Real card fraud | **Accept the dispute** in Stripe. Do not submit evidence. |
-| Customer exists, used the app, then filed "fraudulent" instead of contacting us | "Friendly fraud" | Submit evidence: signup timestamp, login history, terms accepted, receipt, product usage. Odds of winning "Fraudulent" reason code are low (~15–25%) but non-zero. |
-| Customer tried to cancel / refund and we failed them (webhook bug, portal error) | Our fault | Refund immediately (accepts the dispute) and reply to the customer. |
-| No `metadata.userId`, unknown email, checkout via a link they didn't recognize | Descriptor confusion (statement said `LINK.COM* …`) | Usually still lose. Accept + tighten statement descriptor going forward. |
+## Phase 3 — NCE content structures + upload path
 
-## Deliverable to you
+NCE is a multiple-choice exam across eight domains, not case simulations, so it needs its own shapes:
 
-A short writeup with:
-- Charge amount, date, card country, Radar score
-- Whether an account was created and whether it was used
-- Whether we contributed to the dispute in any way
-- One clear recommendation: **Accept** (one click in Stripe, refunds money + closes dispute, avoids further fees) or **Submit evidence** (I'll list the exact evidence to attach)
-- If you want, a short apology / offer-to-refund email to send to the customer's email on file — sometimes they withdraw the dispute with their bank when contacted directly.
+- **Question bank**: domain-tagged multiple-choice items with rationales for correct *and* incorrect options (matching your rationale standard).
+- **Practice exams**: fixed-length, timed, domain-weighted sets drawn from the bank.
+- **Library modules**: same renderer as today, NCE domain structure.
+- **Flashcards**: same deck format, NCE decks.
+- A schema + validation test suite so any content you add is checked automatically for duplicate IDs, missing rationales, bad domain tags, and answer-key errors — the same class of check that caught the duplicate-question bug in the NCMHCE narratives.
+- Empty datasets ship with clean "content coming soon" states so nothing looks broken mid-build.
+
+**Gate:** validation tests pass on a small sample set I generate as a format example for you to approve.
+
+## Phase 4 — Billing
+
+- New NCE product and monthly price in test mode, synced to live on publish.
+- Checkout, paywall, and profile billing become track-aware: a user can hold NCMHCE, NCE, or both, with the paywall naming the right exam and price.
+- Webhook maps the purchased price to the right track. NCMHCE mapping is unchanged, so live subscribers are untouched.
+
+**Gate:** sandbox purchase of NCE-only, NCMHCE-only, and both; verify each unlocks exactly its own track and nothing else.
+
+## Phase 5 — Content load + launch
+
+- You upload NCE material; validation runs on every batch.
+- Full pre-launch pass: every route on both tracks, paywall states, mobile, dark mode, integrity tests, health checks extended to cover NCE.
+- Flip the flag on and publish. Marketing/landing/SEO updates for NCE at the same time.
+
+## What I need from you
+
+1. **NCE price** — same $79/month, or different? And do you want a both-exams bundle price at launch or later?
+2. **Domain structure** — confirm the eight NCE work-behavior domains (or CACREP's eight core areas) as the organizing spine for library, question tags, and analytics.
+3. **Question volume target** for launch (e.g. 500 bank questions + 2 full 200-question practice exams) so the practice-exam weighting math is built to the right size.
+4. **Content later** — after Phase 3 I'll give you one sample question and one sample library module in the exact format; approve those and everything else can be produced against them.
+
+Nothing above requires content from you to start. Phases 1 and 2 can begin immediately.
 
 ## Technical notes
 
-- All Stripe calls go through `https://connector-gateway.lovable.dev/stripe` with `STRIPE_LIVE_API_KEY` + `LOVABLE_API_KEY` (per our shared `_shared/stripe.ts` pattern). I'll run these as ad-hoc reads from an edge function invocation — no new persistent code, no schema changes, no user-visible changes.
-- Nothing in this plan touches any user's data, subscription, or billing. It's read-only until you approve an action (accept / refund / submit evidence).
+- Track config centralized in `src/config/exam-tracks.ts`; data lives under `src/data/nce/` mirroring `src/data/library/` and `src/data/narratives/`.
+- Flag: `VITE_ENABLE_NCE`, on in `.env.development`, off in `.env.production` until launch.
+- Migrations: `profiles.active_exam_track` plus `exam_track` on `narrative_attempts`, `practice_exam_attempts`, `flashcard_progress`, `study_plans`, all `NOT NULL DEFAULT 'ncmhce'`. No RLS policy changes needed since all policies are already user-scoped.
+- `useSubscription` gains `hasAccess(track)` while keeping the current `hasAccess` boolean as an NCMHCE alias, so no existing call site breaks.
+- Stripe entitlement mapping keys off `price_id` (stable across sandbox/live), not `product_id`.
+- New content gets a Vitest suite modeled on `narrative-integrity.test.ts`.
