@@ -1,18 +1,30 @@
 import { Link } from "react-router-dom";
 import { useSubscription } from "@/hooks/useSubscription";
+import { useExamTrack } from "@/contexts/ExamTrackContext";
+import { formatPrice } from "@/config/exam-tracks";
 import { Button } from "@/components/ui/button";
-import { Check, Lock } from "lucide-react";
+import { Check, Lock, Hammer } from "lucide-react";
 
-const FEATURES = [
-  "Full clinical narrative library",
-  "Realistic NCMHCE practice exams",
-  "Personalized study plan & analytics",
-  "Flashcards, AI counselor chat & study tools",
-  "Cancel anytime from your profile",
-];
+const trackFeatures: Record<string, string[]> = {
+  ncmhce: [
+    "Full clinical narrative library",
+    "Realistic NCMHCE practice exams",
+    "Personalized study plan & analytics",
+    "Flashcards, AI counselor chat & study tools",
+    "Cancel anytime from your profile",
+  ],
+  nce: [
+    "Domain-tagged NCE question bank",
+    "Full-length timed NCE practice exams",
+    "Answer rationales for every option",
+    "Flashcards, AI tutor & study tools",
+    "Cancel anytime from your profile",
+  ],
+};
 
 const PaidFeatureGate = ({ children, feature }: { children: React.ReactNode; feature: string }) => {
-  const { hasAccess, loading } = useSubscription();
+  const { hasAccessTo, loading } = useSubscription();
+  const { track, config } = useExamTrack();
 
   if (loading) {
     return (
@@ -22,7 +34,28 @@ const PaidFeatureGate = ({ children, feature }: { children: React.ReactNode; fea
     );
   }
 
-  if (!hasAccess) {
+  // Track still under construction — never show a paywall for something that
+  // can't be purchased yet.
+  if (!config.contentReady) {
+    return (
+      <div className="min-h-[60vh] flex items-center justify-center p-4">
+        <div className="w-full max-w-md rounded-2xl border border-border bg-card p-8 text-center shadow-sm">
+          <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-primary/10">
+            <Hammer className="h-6 w-6 text-primary" />
+          </div>
+          <h2 className="text-xl font-semibold text-foreground">
+            {config.label} {feature} is coming soon
+          </h2>
+          <p className="mt-2 text-sm text-muted-foreground">
+            We're building the {config.fullName} track right now. {config.tagline}
+          </p>
+        </div>
+      </div>
+    );
+  }
+
+  if (!hasAccessTo(track)) {
+    const features = trackFeatures[track] ?? trackFeatures.ncmhce;
     return (
       <div className="min-h-[60vh] flex items-center justify-center p-4">
         <div className="w-full max-w-md rounded-2xl border border-border bg-card p-8 shadow-sm">
@@ -33,16 +66,19 @@ const PaidFeatureGate = ({ children, feature }: { children: React.ReactNode; fea
             {feature} is a Pro feature
           </h2>
           <p className="mt-2 text-center text-sm text-muted-foreground">
-            Subscribe to NCMHCE Pro to unlock {feature.toLowerCase()} and every other study tool on The Exam Path.
+            Subscribe to {config.label} Pro to unlock {feature.toLowerCase()} and every other study
+            tool on The Exam Path.
           </p>
 
           <div className="my-6 rounded-xl border border-border bg-background p-5">
             <div className="flex items-baseline justify-center gap-1">
-              <span className="text-3xl font-bold text-foreground">$79</span>
+              <span className="text-3xl font-bold text-foreground">
+                {formatPrice(config.monthlyPriceCents)}
+              </span>
               <span className="text-sm text-muted-foreground">/month</span>
             </div>
             <ul className="mt-4 space-y-2">
-              {FEATURES.map((f) => (
+              {features.map((f) => (
                 <li key={f} className="flex items-start gap-2 text-sm text-foreground">
                   <Check className="mt-0.5 h-4 w-4 flex-shrink-0 text-primary" />
                   <span>{f}</span>
@@ -52,7 +88,7 @@ const PaidFeatureGate = ({ children, feature }: { children: React.ReactNode; fea
           </div>
 
           <Button asChild className="w-full" size="lg">
-            <Link to="/checkout">Subscribe to unlock</Link>
+            <Link to={`/checkout?track=${track}`}>Subscribe to unlock</Link>
           </Button>
           <p className="mt-3 text-center text-xs text-muted-foreground">
             Already subscribed?{" "}
