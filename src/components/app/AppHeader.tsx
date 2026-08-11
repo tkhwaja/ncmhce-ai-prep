@@ -128,7 +128,11 @@ const AppHeader = ({ onToggleChat, chatOpen }: AppHeaderProps) => {
       </div>
 
       <div className="flex items-center gap-2">
+        <ExamTrackSwitcher />
+
         {isFreeUser && (
+          <Button
+
           <Button
             size="sm"
             onClick={() => navigate("/checkout")}
