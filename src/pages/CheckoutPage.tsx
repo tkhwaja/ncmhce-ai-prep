@@ -3,11 +3,18 @@ import { StripeEmbeddedCheckout } from "@/components/StripeEmbeddedCheckout";
 import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useSearchParams } from "react-router-dom";
+import { formatPrice, resolveTrack, trackConfig } from "@/config/exam-tracks";
 
 const CheckoutPage = () => {
   const { user, loading: authLoading } = useAuth();
   const navigate = useNavigate();
+  const [searchParams] = useSearchParams();
+
+  // Defaults to NCMHCE, so every existing /checkout link behaves exactly as before.
+  const track = resolveTrack(searchParams.get("track"));
+  const config = trackConfig(track);
+  const nextPath = `/checkout?track=${track}`;
 
   return (
     <div className="min-h-screen bg-background">
@@ -17,10 +24,14 @@ const CheckoutPage = () => {
           <ArrowLeft className="mr-2 h-4 w-4" /> Back
         </Button>
 
-        <h1 className="text-2xl font-bold text-foreground mb-2">NCMHCE Pro — $79/month</h1>
+        <h1 className="text-2xl font-bold text-foreground mb-2">
+          {config.label} Pro — {formatPrice(config.monthlyPriceCents)}/month
+        </h1>
         <p className="text-muted-foreground mb-6">
-          Full access to The Exam Path. Cancel anytime from your profile.
+          Full access to the {config.label} track on The Exam Path. Cancel anytime from your
+          profile.
         </p>
+
 
         {authLoading ? (
           <div className="flex justify-center py-12">
