@@ -23,6 +23,8 @@ import { useSubscription } from "@/hooks/useSubscription";
 import { Link, useNavigate } from "react-router-dom";
 import { useTheme } from "@/contexts/ThemeContext";
 import FeedbackDialog from "@/components/FeedbackDialog";
+import ExamTrackSwitcher from "@/components/app/ExamTrackSwitcher";
+
 
 interface AppHeaderProps {
   onToggleChat: () => void;
