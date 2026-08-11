@@ -91,6 +91,18 @@ export const EXAM_TRACKS: Record<ExamTrack, ExamTrackConfig> = {
       "Assessment and Testing",
       "Research and Program Evaluation",
     ],
+    nav: [
+      { title: "Dashboard", url: "/dashboard", icon: "dashboard" },
+      { title: "Question Bank", url: "/questions", icon: "narrative" },
+      { title: "Practice Exams", url: "/practice-exams", icon: "exam-info" },
+      { title: "Study Plan", url: "/study-plan", icon: "study-plan" },
+      { title: "Learning Library", url: "/library", icon: "library" },
+      { title: "Flashcards", url: "/flashcards", icon: "flashcards" },
+      { title: "Analytics", url: "/analytics", icon: "analytics" },
+      { title: "Study Tools", url: "/tools", icon: "tools" },
+      { title: "Exam Info", url: "/exam-info", icon: "exam-info" },
+    ],
+
     priceId: "nce_monthly",
     monthlyPriceCents: 7900,
     contentReady: false,
