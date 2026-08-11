@@ -12,24 +12,15 @@ import {
 import { NavLink, useLocation } from "react-router-dom";
 import TceIcon, { TceIconName } from "@/components/icons/TceIcon";
 import SidebarPomodoro from "./SidebarPomodoro";
-
-const navItems: { title: string; url: string; icon: TceIconName }[] = [
-  { title: "Dashboard", url: "/dashboard", icon: "dashboard" },
-  { title: "Narratives", url: "/narratives", icon: "narrative" },
-  { title: "Practice Exams", url: "/practice-exams", icon: "exam-info" },
-  { title: "Study Plan", url: "/study-plan", icon: "study-plan" },
-  { title: "Learning Library", url: "/library", icon: "library" },
-  { title: "Flashcards", url: "/flashcards", icon: "flashcards" },
-  { title: "Analytics", url: "/analytics", icon: "analytics" },
-  { title: "Study Tools", url: "/tools", icon: "tools" },
-  
-  { title: "Exam Info", url: "/exam-info", icon: "exam-info" },
-];
+import { useExamTrack } from "@/contexts/ExamTrackContext";
 
 const AppSidebar = () => {
   const { state } = useSidebar();
   const collapsed = state === "collapsed";
   const location = useLocation();
+  const { config } = useExamTrack();
+  const navItems = config.nav as { title: string; url: string; icon: TceIconName }[];
+
 
   return (
     <Sidebar collapsible="icon">
