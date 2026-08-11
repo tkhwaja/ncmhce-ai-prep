@@ -8,6 +8,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { PomodoroProvider } from "@/contexts/PomodoroContext";
+import { ExamTrackProvider } from "@/contexts/ExamTrackContext";
+
 import ProtectedRoute from "@/components/ProtectedRoute";
 import PostHogPageview from "@/components/PostHogPageview";
 import PaidFeatureGate from "./components/PaidFeatureGate";
