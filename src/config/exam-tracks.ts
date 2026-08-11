@@ -33,6 +33,9 @@ export interface ExamTrackConfig {
   format: "case-simulation" | "multiple-choice";
   /** Content domains — the spine for library, tagging and analytics. */
   domains: string[];
+  /** Sidebar navigation for this track. */
+  nav: { title: string; url: string; icon: string }[];
+
   /** Stripe price lookup key that grants this track. */
   priceId: string;
   /** Monthly price in cents, for paywall copy. */
