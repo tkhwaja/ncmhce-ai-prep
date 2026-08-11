@@ -187,6 +187,7 @@ export type Database = {
           card_id: string
           created_at: string
           deck_id: string
+          exam_track: string
           id: string
           last_reviewed: string | null
           next_review: string | null
@@ -197,6 +198,7 @@ export type Database = {
           card_id: string
           created_at?: string
           deck_id: string
+          exam_track?: string
           id?: string
           last_reviewed?: string | null
           next_review?: string | null
@@ -207,6 +209,7 @@ export type Database = {
           card_id?: string
           created_at?: string
           deck_id?: string
+          exam_track?: string
           id?: string
           last_reviewed?: string | null
           next_review?: string | null
@@ -293,6 +296,7 @@ export type Database = {
           created_at: string
           dm_answers: Json
           domain_scores: Json
+          exam_track: string
           feedback: string | null
           id: string
           ig_selections: Json
@@ -308,6 +312,7 @@ export type Database = {
           created_at?: string
           dm_answers?: Json
           domain_scores?: Json
+          exam_track?: string
           feedback?: string | null
           id?: string
           ig_selections?: Json
@@ -323,6 +328,7 @@ export type Database = {
           created_at?: string
           dm_answers?: Json
           domain_scores?: Json
+          exam_track?: string
           feedback?: string | null
           id?: string
           ig_selections?: Json
@@ -394,6 +400,7 @@ export type Database = {
           completed_at: string | null
           created_at: string
           domain_scores: Json
+          exam_track: string
           graded_case_count: number | null
           id: string
           practice_exam_id: string
@@ -409,6 +416,7 @@ export type Database = {
           completed_at?: string | null
           created_at?: string
           domain_scores?: Json
+          exam_track?: string
           graded_case_count?: number | null
           id?: string
           practice_exam_id: string
@@ -424,6 +432,7 @@ export type Database = {
           completed_at?: string | null
           created_at?: string
           domain_scores?: Json
+          exam_track?: string
           graded_case_count?: number | null
           id?: string
           practice_exam_id?: string
@@ -440,6 +449,7 @@ export type Database = {
       profiles: {
         Row: {
           access_expires_at: string | null
+          active_exam_track: string
           avatar_url: string | null
           bio: string | null
           created_at: string
@@ -453,6 +463,7 @@ export type Database = {
         }
         Insert: {
           access_expires_at?: string | null
+          active_exam_track?: string
           avatar_url?: string | null
           bio?: string | null
           created_at?: string
@@ -466,6 +477,7 @@ export type Database = {
         }
         Update: {
           access_expires_at?: string | null
+          active_exam_track?: string
           avatar_url?: string | null
           bio?: string | null
           created_at?: string
@@ -514,6 +526,7 @@ export type Database = {
       study_plans: {
         Row: {
           created_at: string
+          exam_track: string
           id: string
           intake_data: Json
           plan_data: Json
@@ -522,6 +535,7 @@ export type Database = {
         }
         Insert: {
           created_at?: string
+          exam_track?: string
           id?: string
           intake_data?: Json
           plan_data?: Json
@@ -530,6 +544,7 @@ export type Database = {
         }
         Update: {
           created_at?: string
+          exam_track?: string
           id?: string
           intake_data?: Json
           plan_data?: Json

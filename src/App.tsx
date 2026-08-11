@@ -8,6 +8,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { AuthProvider } from "@/contexts/AuthContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { PomodoroProvider } from "@/contexts/PomodoroContext";
+import { ExamTrackProvider } from "@/contexts/ExamTrackContext";
+
 import ProtectedRoute from "@/components/ProtectedRoute";
 import PostHogPageview from "@/components/PostHogPageview";
 import PaidFeatureGate from "./components/PaidFeatureGate";
@@ -136,8 +138,11 @@ const App = () => (
         <Sonner />
         <BrowserRouter>
           <AuthProvider>
+            <ExamTrackProvider>
+
             <PostHogPageview />
             <MetaPixelPageview />
+
             <ChunkErrorBoundary>
             <Suspense fallback={<RouteFallback />}>
               <Routes>
@@ -179,6 +184,8 @@ const App = () => (
             </Suspense>
             </ChunkErrorBoundary>
             <SupportFab />
+            </ExamTrackProvider>
+
           </AuthProvider>
         </BrowserRouter>
       </TooltipProvider>

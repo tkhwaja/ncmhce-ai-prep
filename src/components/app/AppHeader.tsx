@@ -23,6 +23,8 @@ import { useSubscription } from "@/hooks/useSubscription";
 import { Link, useNavigate } from "react-router-dom";
 import { useTheme } from "@/contexts/ThemeContext";
 import FeedbackDialog from "@/components/FeedbackDialog";
+import ExamTrackSwitcher from "@/components/app/ExamTrackSwitcher";
+
 
 interface AppHeaderProps {
   onToggleChat: () => void;
@@ -126,8 +128,11 @@ const AppHeader = ({ onToggleChat, chatOpen }: AppHeaderProps) => {
       </div>
 
       <div className="flex items-center gap-2">
+        <ExamTrackSwitcher />
+
         {isFreeUser && (
           <Button
+
             size="sm"
             onClick={() => navigate("/checkout")}
             className="gap-1.5 bg-gradient-to-r from-primary to-primary/80 hover:from-primary/90 hover:to-primary/70 text-primary-foreground shadow-sm"

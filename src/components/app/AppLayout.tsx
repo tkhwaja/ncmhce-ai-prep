@@ -5,6 +5,8 @@ import AppHeader from "./AppHeader";
 import AIChatSidebar from "./AIChatSidebar";
 import { SidebarProvider } from "@/components/ui/sidebar";
 import { useSubscription } from "@/hooks/useSubscription";
+import { useExamTrack } from "@/contexts/ExamTrackContext";
+
 
 
 export interface AppLayoutOutletContext {
@@ -26,9 +28,12 @@ const pageContextMap: Record<string, string> = {
 };
 
 const AppLayout = () => {
-  const { hasAccess } = useSubscription();
+  const { hasAccessTo } = useSubscription();
+  const { track, config } = useExamTrack();
+  const hasAccess = hasAccessTo(track) && config.contentReady;
   const [chatOpen, setChatOpen] = useState(true);
   const [chatWidth, setChatWidth] = useState(380);
+
 
   const [queuedPrompt, setQueuedPrompt] = useState<{ id: number; text: string } | null>(null);
   const location = useLocation();
