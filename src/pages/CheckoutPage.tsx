@@ -46,21 +46,22 @@ const CheckoutPage = () => {
             </p>
             <div className="flex gap-3">
               <Button asChild>
-                <Link to="/signup?next=/checkout">Create account</Link>
+                <Link to={`/signup?next=${encodeURIComponent(nextPath)}`}>Create account</Link>
               </Button>
               <Button asChild variant="outline">
-                <Link to="/login?next=/checkout">Log in</Link>
+                <Link to={`/login?next=${encodeURIComponent(nextPath)}`}>Log in</Link>
               </Button>
             </div>
           </div>
         ) : (
           <StripeEmbeddedCheckout
-            priceId="ncmhce_monthly"
+            priceId={config.priceId}
             customerEmail={user.email || undefined}
             userId={user.id}
             returnUrl={`${window.location.origin}/checkout/return?session_id={CHECKOUT_SESSION_ID}`}
           />
         )}
+
       </div>
     </div>
   );
