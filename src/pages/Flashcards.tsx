@@ -30,9 +30,11 @@ interface ProgressMap {
 
 const Flashcards = () => {
   const { user, session } = useAuth();
+  const { track, config } = useExamTrack();
   const { toast } = useToast();
   const location = useLocation();
   const navigate = useNavigate();
+  const flashcardDecks = getActiveFlashcardDecks(track);
   const [selectedDeck, setSelectedDeck] = useState<FlashcardDeck | null>(null);
   const [studyMode, setStudyMode] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -46,7 +48,7 @@ const Flashcards = () => {
     if (!deckId) return;
     const deck = flashcardDecks.find((item) => item.id === deckId);
     if (deck) setSelectedDeck(deck);
-  }, [location.search]);
+  }, [location.search, flashcardDecks]);
 
   useEffect(() => {
     if (!user) return;
@@ -54,13 +56,14 @@ const Flashcards = () => {
       .from("flashcard_progress")
       .select("card_id, status, next_review")
       .eq("user_id", user.id)
+      .eq("exam_track", track)
       .then(({ data }) => {
         if (!data) return;
         const map: ProgressMap = {};
         data.forEach((d) => { map[d.card_id] = { status: d.status, next_review: d.next_review }; });
         setProgress(map);
       });
-  }, [user]);
+  }, [user, track]);
 
   const getAllCards = (deck: FlashcardDeck) => {
     return [...deck.cards, ...(extraCards[deck.id] || [])];
