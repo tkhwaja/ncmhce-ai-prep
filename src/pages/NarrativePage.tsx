@@ -294,6 +294,7 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
         await supabase.from("narrative_attempts").insert({
           user_id: user.id,
           narrative_id: narrative.id,
+          exam_track: track,
           ig_selections: [],
           narrative_version: freeze?.version ?? null,
           narrative_snapshot: (freeze as unknown as never) ?? null,
