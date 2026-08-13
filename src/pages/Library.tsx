@@ -1,6 +1,8 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import { useOutletContext, useLocation, useNavigate } from "react-router-dom";
-import { libraryModules, LibraryModule, LibraryCategory, categoryOrder } from "@/data/library-modules";
+import { useExamTrack } from "@/contexts/ExamTrackContext";
+import { LibraryModule, LibraryCategory } from "@/data/library-modules";
+import { getActiveLibraryModules, getActiveCategoryOrder } from "@/lib/exam-content";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
