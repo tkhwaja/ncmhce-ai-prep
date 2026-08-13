@@ -34,6 +34,14 @@ const CheckoutPage = () => {
           profile.
         </p>
 
+        {isFounderPrice && (
+          <div className="mb-6 rounded-lg border border-primary/30 bg-primary/10 p-4">
+            <p className="text-sm font-medium text-primary">
+              Founder pricing active: {formatPrice(config.monthlyPriceCents)} {formatPrice(config.monthlyPriceCents) !== formatPrice(config.monthlyPriceCents) ? "" : ""}
+              — lock in {formatPrice(config.monthlyPriceCents)}/month as long as you stay subscribed.
+            </p>
+          </div>
+        )}
 
         {authLoading ? (
           <div className="flex justify-center py-12">
@@ -57,7 +65,7 @@ const CheckoutPage = () => {
           </div>
         ) : (
           <StripeEmbeddedCheckout
-            priceId={config.priceId}
+            priceId={priceId}
             customerEmail={user.email || undefined}
             userId={user.id}
             returnUrl={`${window.location.origin}/checkout/return?session_id={CHECKOUT_SESSION_ID}`}
