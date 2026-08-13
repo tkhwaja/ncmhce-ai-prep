@@ -193,10 +193,12 @@ const Profile = () => {
     }
   };
 
-  // Determine subscription display info
-  const hasStripeSub = !!sub.status && sub.status !== "none";
-  const isFounding = !hasStripeSub && (profile?.payment_status === "paid" || !!profile?.access_expires_at);
-  const accessUntil = sub.currentPeriodEnd || profile?.access_expires_at || null;
+  // Determine subscription display info for the active exam track
+  const trackSub = sub.trackStatus(track);
+  const hasAccess = sub.hasAccessTo(track);
+  const hasStripeSub = !!trackSub.status && trackSub.status !== "none";
+  const isFounding = !hasStripeSub && hasAccess && track === "ncmhce" && (profile?.payment_status === "paid" || !!profile?.access_expires_at);
+  const accessUntil = trackSub.currentPeriodEnd || profile?.access_expires_at || null;
 
   const initials = (fullName || "?").split(" ").map(n => n[0]).join("").toUpperCase().slice(0, 2);
 
