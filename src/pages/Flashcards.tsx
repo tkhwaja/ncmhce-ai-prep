@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
+import { useExamTrack } from "@/contexts/ExamTrackContext";
 import { supabase } from "@/integrations/supabase/client";
-import { flashcardDecks, Flashcard, FlashcardDeck } from "@/data/flashcards";
+import { Flashcard, FlashcardDeck } from "@/data/flashcards";
+import { getActiveFlashcardDecks } from "@/lib/exam-content";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
