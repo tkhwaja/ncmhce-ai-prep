@@ -152,20 +152,20 @@ const Analytics = () => {
         body: JSON.stringify({
           messages: [{
             role: "user",
-            content: `Analyze my NCMHCE prep data and give structured recommendations. Use exactly these 3 markdown headers and keep each section to 2-3 bullet points max:
+            content: `Analyze my ${config.label} prep data and give structured recommendations. Use exactly these 3 markdown headers and keep each section to 2-3 bullet points max:
 
 ## 💪 Strengths
 ## ⚠️ Areas to Improve  
 ## 📋 Study Plan
 
 My data:
-- Narratives completed: ${completed.length}
+- ${config.format === "multiple-choice" ? "Practice sessions" : "Narratives"} completed: ${completed.length}
 - Average score: ${avgScore}%
 - Pass rate: ${passRate}%
 - Domain scores:
 ${domainAvgs.map((d) => `  ${d.domain}: ${d.score}%`).join("\n")}
 
-Be specific — name exact DSM-5-TR categories or topics to review. Keep it actionable and concise.`
+Be specific — name exact ${config.format === "multiple-choice" ? "counseling content areas" : "DSM-5-TR categories"} or topics to review. Keep it actionable and concise.`
           }],
           context: "Analytics Dashboard — structured analysis",
         }),
