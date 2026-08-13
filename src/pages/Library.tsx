@@ -219,7 +219,7 @@ const Library = () => {
 
   // Group by category
   const grouped = useMemo(() => {
-    const map: Record<string, LibraryModule[]> = {};
+    const map: Record<string, AnyLibraryModule[]> = {};
     filtered.forEach((m) => {
       if (!map[m.category]) map[m.category] = [];
       map[m.category].push(m);
