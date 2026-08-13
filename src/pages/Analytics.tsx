@@ -215,7 +215,7 @@ Be specific — name exact DSM-5-TR categories or topics to review. Keep it acti
           <CardContent className="p-12 text-center">
             <BarChart3 className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
             <h2 className="text-lg font-semibold text-foreground mb-2">No Data Yet</h2>
-            <p className="text-muted-foreground text-sm">Complete your first narrative to see your analytics here.</p>
+            <p className="text-muted-foreground text-sm">Complete your first {config.format === "multiple-choice" ? "practice session" : "narrative"} to see your analytics here.</p>
           </CardContent>
         </Card>
       </div>
