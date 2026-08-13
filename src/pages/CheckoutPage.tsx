@@ -16,6 +16,9 @@ const CheckoutPage = () => {
   const config = trackConfig(track);
   const priceId = currentPriceId(track);
   const isFounderPrice = priceId === config.founderPriceId;
+  const displayedPriceCents = isFounderPrice && config.founderMonthlyPriceCents
+    ? config.founderMonthlyPriceCents
+    : config.monthlyPriceCents;
   const nextPath = `/checkout?track=${track}`;
 
   return (
