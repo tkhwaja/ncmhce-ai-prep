@@ -114,55 +114,69 @@ const narrativeAliases: Record<string, string> = {
   "treatment sequencing": "28-rafael-ptsd",
 };
 
-const resolveLibraryHref = (topic: string): string | null => {
-  const exact = findByTitle(libraryModules, topic);
-  const module = exact ?? libraryModules.find((item) => item.id === libraryAliases[normalizeResourceKey(topic)]);
-  return module ? `/library?module=${module.id}` : null;
+interface ContentSet {
+  libraryModules: { title: string; id: string }[];
+  flashcardDecks: { name: string; id: string }[];
+  narratives: { title: string; id: string }[];
+}
+
+const createResolvers = (content: ContentSet) => {
+  const resolveLibraryHref = (topic: string): string | null => {
+    const exact = findByTitle(content.libraryModules, topic);
+    const module = exact ?? content.libraryModules.find((item) => item.id === libraryAliases[normalizeResourceKey(topic)]);
+    return module ? `/library?module=${module.id}` : null;
+  };
+
+  const resolveFlashcardHref = (topic: string): string | null => {
+    const exact = findByTitle(content.flashcardDecks, topic);
+    const deck = exact ?? content.flashcardDecks.find((item) => item.id === flashcardAliases[normalizeResourceKey(topic)]);
+    return deck ? `/flashcards?deck=${deck.id}` : null;
+  };
+
+  const resolveNarrativeHref = (topic: string): string | null => {
+    const exact = findByTitle(content.narratives, topic);
+    const narrative = exact ?? content.narratives.find((item) => item.id === narrativeAliases[normalizeResourceKey(topic)]);
+    return narrative ? `/narrative/${narrative.id}` : null;
+  };
+
+  // IMPORTANT: Never rewrite the saved activity label. Only attach a link.
+  // Match strictly within the activity's own type (library / flashcards / narrative).
+  // If no clean same-type match, fall back to that section's index page.
+  const resolveStudyActivity = (activity: string): StudyResource => {
+    const trimmed = activity.trim();
+    const normalizedActivity = normalizeResourceKey(trimmed.replace(/^[^:]+:\s*/, ""));
+
+    if (/complete timed practice exam/i.test(trimmed) || normalizedActivity === "multi domain integration") {
+      return { label: trimmed, href: "/practice-exams" };
+    }
+
+    const match = trimmed.match(/^(Study Learning Library|Review Flashcards|Practice Narrative):\s*(.+)$/i);
+    if (!match) return { label: trimmed, href: "/study-plan" };
+
+    const [, type, topic] = match;
+    if (/study learning library/i.test(type)) {
+      return { label: trimmed, href: resolveLibraryHref(topic) ?? "/library" };
+    }
+    if (/review flashcards/i.test(type)) {
+      return { label: trimmed, href: resolveFlashcardHref(topic) ?? "/flashcards" };
+    }
+    // Practice Narrative — narrative only, no cross-type fallback
+    return { label: trimmed, href: resolveNarrativeHref(topic) ?? "/narratives" };
+  };
+
+  return { resolveStudyActivity };
 };
 
-const resolveFlashcardHref = (topic: string): string | null => {
-  const exact = findByTitle(flashcardDecks, topic);
-  const deck = exact ?? flashcardDecks.find((item) => item.id === flashcardAliases[normalizeResourceKey(topic)]);
-  return deck ? `/flashcards?deck=${deck.id}` : null;
-};
-
-const resolveNarrativeHref = (topic: string): string | null => {
-  const exact = findByTitle(narratives, topic);
-  const narrative = exact ?? narratives.find((item) => item.id === narrativeAliases[normalizeResourceKey(topic)]);
-  return narrative ? `/narrative/${narrative.id}` : null;
-};
-
-// IMPORTANT: Never rewrite the saved activity label. Only attach a link.
-// Match strictly within the activity's own type (library / flashcards / narrative).
-// If no clean same-type match, fall back to that section's index page.
-const resolveStudyActivity = (activity: string): StudyResource => {
-  const trimmed = activity.trim();
-  const normalizedActivity = normalizeResourceKey(trimmed.replace(/^[^:]+:\s*/, ""));
-
-  if (/complete timed practice exam/i.test(trimmed) || normalizedActivity === "multi domain integration") {
-    return { label: trimmed, href: "/practice-exams" };
-  }
-
-  const match = trimmed.match(/^(Study Learning Library|Review Flashcards|Practice Narrative):\s*(.+)$/i);
-  if (!match) return { label: trimmed, href: "/study-plan" };
-
-  const [, type, topic] = match;
-  if (/study learning library/i.test(type)) {
-    return { label: trimmed, href: resolveLibraryHref(topic) ?? "/library" };
-  }
-  if (/review flashcards/i.test(type)) {
-    return { label: trimmed, href: resolveFlashcardHref(topic) ?? "/flashcards" };
-  }
-  // Practice Narrative — narrative only, no cross-type fallback
-  return { label: trimmed, href: resolveNarrativeHref(topic) ?? "/narratives" };
-};
-
-
-const platformResourcePrompt = `Available platform resources. Use ONLY these exact names after the activity prefix.
-Learning Library modules: ${libraryModules.map((module) => module.title).join("; ")}.
-Flashcard decks: ${flashcardDecks.map((deck) => deck.name).join("; ")}.
-Practice narratives: ${narratives.map((narrative) => narrative.title).join("; ")}.
+const getResourcePrompt = (track: ExamTrack, content: ContentSet): string => {
+  const practiceItems = track === "nce"
+    ? `Practice questions: use the Question Bank and the practice exams listed above.`
+    : `Practice narratives: ${content.narratives.map((narrative) => narrative.title).join("; ")}.`;
+  return `Available platform resources. Use ONLY these exact names after the activity prefix.
+Learning Library modules: ${content.libraryModules.map((module) => module.title).join("; ")}.
+Flashcard decks: ${content.flashcardDecks.map((deck) => deck.name).join("; ")}.
+${practiceItems}
 Full exam simulation: Complete timed practice exam.`;
+};
 
 const StudyPlan = () => {
   const { user, session } = useAuth();
