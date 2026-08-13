@@ -275,13 +275,13 @@ const Dashboard = () => {
             <p className="text-sm text-muted-foreground">
               {weakestDomain
                 ? <>
-                    Based on your completed narratives, your lowest domain is{" "}
+                    Based on your completed {track === "nce" ? "questions" : "narratives"}, your lowest domain is{" "}
                     <span className="text-foreground font-medium">{weakestDomain.domain}</span> at {weakestDomain.average}%.
-                    Start with targeted review and then retake a related case.
+                    Start with targeted review and then retake a related {track === "nce" ? "question set" : "case"}.
                   </>
-                : "Complete a narrative to unlock personalized recommendations based on your actual score history."}
+                : `Complete a ${track === "nce" ? "question set" : "narrative"} to unlock personalized recommendations based on your actual score history.`}
             </p>
-            <Button variant="outline" size="sm" className="mt-4" onClick={() => navigate("/narratives")}>
+            <Button variant="outline" size="sm" className="mt-4" onClick={() => navigate(track === "nce" ? "/questions" : "/narratives")}>
               Start Learning
             </Button>
           </CardContent>
