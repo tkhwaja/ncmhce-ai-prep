@@ -34,11 +34,12 @@ const CheckoutPage = () => {
           profile.
         </p>
 
-        {isFounderPrice && (
+        {isFounderPrice && config.founderMonthlyPriceCents && (
           <div className="mb-6 rounded-lg border border-primary/30 bg-primary/10 p-4">
             <p className="text-sm font-medium text-primary">
-              Founder pricing active: {formatPrice(config.monthlyPriceCents)} {formatPrice(config.monthlyPriceCents) !== formatPrice(config.monthlyPriceCents) ? "" : ""}
-              — lock in {formatPrice(config.monthlyPriceCents)}/month as long as you stay subscribed.
+              Founder pricing active: {formatPrice(config.founderMonthlyPriceCents)}/month
+              (regular {formatPrice(config.monthlyPriceCents)}/month after the founder window).
+              Lock in the founder rate as long as you stay subscribed.
             </p>
           </div>
         )}
