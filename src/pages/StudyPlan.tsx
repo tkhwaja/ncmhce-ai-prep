@@ -470,7 +470,7 @@ IMPORTANT: Return ONLY a valid JSON array, no markdown, no explanation. Example 
 
           {/* Taken before */}
           <div className="flex items-center justify-between">
-            <Label>Have you taken the NCMHCE before?</Label>
+            <Label>Have you taken the {config.label} before?</Label>
             <Switch checked={takenBefore} onCheckedChange={setTakenBefore} />
           </div>
 
