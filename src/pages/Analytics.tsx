@@ -64,6 +64,7 @@ const Analytics = () => {
         .from("narrative_attempts")
         .select("narrative_id, total_score, domain_scores, ig_selections, completed_at, created_at")
         .eq("user_id", user.id)
+        .eq("exam_track", track)
         .not("completed_at", "is", null)
         .order("created_at", { ascending: true });
       setAttempts((data as Attempt[]) || []);
