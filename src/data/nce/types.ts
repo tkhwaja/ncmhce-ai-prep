@@ -1,0 +1,92 @@
+/**
+ * NCE content types.
+ *
+ * The NCE is a multiple-choice knowledge exam across eight CACREP-derived
+ * domains. These shapes are intentionally separate from the NCMHCE
+ * case-simulation types so both exams can evolve independently.
+ */
+
+export const NCE_DOMAINS = [
+  "Professional Counseling Orientation and Ethical Practice",
+  "Social and Cultural Diversity",
+  "Human Growth and Development",
+  "Career Development",
+  "Counseling and Helping Relationships",
+  "Group Counseling and Group Work",
+  "Assessment and Testing",
+  "Research and Program Evaluation",
+] as const;
+
+export type NCEDomain = (typeof NCE_DOMAINS)[number];
+
+export type NCEDifficulty = "Easy" | "Medium" | "Hard";
+
+export interface NCEQuestion {
+  /** Stable ID used across the bank, practice exams, and analytics. */
+  id: string;
+  /** NCE work-behavior domain this item belongs to. */
+  domain: NCEDomain;
+  /** Multiple-choice stem. */
+  stem: string;
+  /** Answer options. The correct option is at correctAnswerIndex. */
+  options: string[];
+  /** Zero-based index of the correct option. */
+  correctAnswerIndex: number;
+  /** Overall rationale / teaching explanation. */
+  explanation: string;
+  /** Per-option rationales (optional but strongly encouraged). */
+  optionRationales?: string[];
+  /** Estimated difficulty. */
+  difficulty?: NCEDifficulty;
+  /** Optional tags for filtering and search. */
+  tags?: string[];
+}
+
+export interface NCEPracticeExam {
+  id: string;
+  title: string;
+  description: string;
+  /** Ordered list of question IDs drawn from the bank. */
+  questionIds: string[];
+  /** Total time allowed in minutes. */
+  timeLimitMinutes: number;
+  /** Passing score as a percentage (default 70). */
+  passingScore?: number;
+  /** Optional domain weight map for score breakdowns. */
+  domainWeights?: Partial<Record<NCEDomain, number>>;
+  /** Marks an exam that is not yet ready for users. */
+  comingSoon?: boolean;
+  /** Marks a newly released exam. */
+  isNew?: boolean;
+}
+
+export interface NCELibraryModule {
+  id: string;
+  title: string;
+  /** NCE domain or sub-topic category. */
+  category: string;
+  description: string;
+  icon: string;
+  keyConcepts: string[];
+  tags: string[];
+  /** Legacy text content for simple modules. */
+  content?: string;
+  /** Rich structured JSON data for complex modules. */
+  data?: unknown;
+  moduleType?: "standard" | "glossary";
+}
+
+export interface NCEFlashcard {
+  id: string;
+  front: string;
+  back: string;
+}
+
+export interface NCEFlashcardDeck {
+  id: string;
+  name: string;
+  icon: string;
+  /** Domain this deck targets. */
+  domain: NCEDomain;
+  cards: NCEFlashcard[];
+}
