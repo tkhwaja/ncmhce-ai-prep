@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
+import { useExamTrack } from "@/contexts/ExamTrackContext";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -14,6 +15,7 @@ import {
   Target, TrendingUp, CheckCircle2, Sparkles, BarChart3
 } from "lucide-react";
 import TceIcon, { TceIconName } from "@/components/icons/TceIcon";
+import { getAnalyticsConfig } from "@/lib/exam-analytics";
 
 const DOMAIN_ICONS: Record<string, TceIconName> = {
   "Intake/assessment/diagnosis": "domain-assessment",
@@ -21,14 +23,14 @@ const DOMAIN_ICONS: Record<string, TceIconName> = {
   "Core counseling attributes": "domain-counseling",
   "Treatment planning": "domain-treatment",
   "Counseling skills and interventions": "domain-intervention",
-};
-
-const DOMAIN_SHORT: Record<string, string> = {
-  "Intake/assessment/diagnosis": "Assessment",
-  "Professional practice and ethics": "Ethics",
-  "Core counseling attributes": "Core Counseling",
-  "Treatment planning": "Treatment",
-  "Counseling skills and interventions": "Interventions",
+  "Professional Counseling Orientation and Ethical Practice": "domain-ethics",
+  "Social and Cultural Diversity": "domain-counseling",
+  "Human Growth and Development": "domain-counseling",
+  "Career Development": "domain-treatment",
+  "Counseling and Helping Relationships": "domain-intervention",
+  "Group Counseling and Group Work": "domain-intervention",
+  "Assessment and Testing": "domain-assessment",
+  "Research and Program Evaluation": "domain-treatment",
 };
 
 interface Attempt {
@@ -40,24 +42,17 @@ interface Attempt {
   created_at: string;
 }
 
-const DOMAINS = [
-  "Intake/assessment/diagnosis",
-  "Professional practice and ethics",
-  "Core counseling attributes",
-  "Treatment planning",
-  "Counseling skills and interventions",
-];
+const Analytics = () => {
+  const { user, session } = useAuth();
+  const { track, config } = useExamTrack();
+  const analyticsConfig = getAnalyticsConfig(track);
+  const { toast } = useToast();
+  const [attempts, setAttempts] = useState<Attempt[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [aiAnalysis, setAiAnalysis] = useState("");
+  const [aiLoading, setAiLoading] = useState(false);
 
-const DOMAIN_ALIASES: Record<string, string> = {
-  "Assessment & Diagnosis": "Intake/assessment/diagnosis",
-  "Information Gathering": "Intake/assessment/diagnosis",
-  "Professional Practice & Ethics": "Professional practice and ethics",
-  "Counselor Attributes & Core Competencies": "Core counseling attributes",
-  "Treatment Planning": "Treatment planning",
-  "Counseling Skills & Interventions": "Counseling skills and interventions",
-};
-
-const normalizeDomain = (domain: string) => DOMAIN_ALIASES[domain] || domain;
+  const normalizeDomain = (domain: string) => analyticsConfig.aliases[domain] || domain;
 
 const Analytics = () => {
   const { user, session } = useAuth();
