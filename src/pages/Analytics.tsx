@@ -233,7 +233,7 @@ Be specific — name exact DSM-5-TR categories or topics to review. Keep it acti
             <div className="p-2 rounded-lg bg-primary/20 text-primary"><Target className="h-5 w-5" /></div>
             <div>
               <p className="text-2xl font-bold text-foreground">{completed.length}</p>
-              <p className="text-xs text-muted-foreground">Narratives Completed</p>
+              <p className="text-xs text-muted-foreground">{config.format === "multiple-choice" ? "Practice Sessions" : "Narratives"} Completed</p>
             </div>
           </CardContent>
         </Card>
