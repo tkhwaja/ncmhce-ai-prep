@@ -35,6 +35,8 @@ interface SubscriptionState {
 /** Maps a stored Stripe price lookup key to the track it grants. */
 const trackForPriceId = (priceId: string | null | undefined): ExamTrack => {
   if (!priceId) return DEFAULT_EXAM_TRACK;
+  // NCE may be purchased through the founder price or the regular monthly price.
+  if (priceId === "nce_founder_monthly" || priceId === "nce_monthly") return "nce";
   for (const cfg of Object.values(EXAM_TRACKS)) {
     if (cfg.priceId === priceId) return cfg.id;
   }
