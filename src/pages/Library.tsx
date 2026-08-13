@@ -230,7 +230,7 @@ const Library = () => {
   }, [filtered]);
 
   if (selectedModule) {
-    return <LibraryModuleDetail module={selectedModule} onBack={() => { setSelectedModule(null); navigate("/library"); }} />;
+    return <LibraryModuleDetail module={selectedModule} onBack={() => { setSelectedModule(null); navigate("/library"); }} trackLabel={config.label} />;
   }
 
   return (
