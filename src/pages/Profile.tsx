@@ -297,11 +297,11 @@ const Profile = () => {
               <div className="flex items-center justify-between flex-wrap gap-3">
                 <div>
                   <p className="text-sm font-medium text-foreground capitalize">
-                    Status: {sub.status}{sub.cancelAtPeriodEnd ? " (cancels at period end)" : ""}
+                    {config.label} status: {trackSub.status}{trackSub.cancelAtPeriodEnd ? " (cancels at period end)" : ""}
                   </p>
                   {accessUntil && (
                     <p className="text-xs text-muted-foreground">
-                      {sub.cancelAtPeriodEnd || sub.status === "canceled" ? "Access until " : "Renews "}
+                      {trackSub.cancelAtPeriodEnd || trackSub.status === "canceled" ? "Access until " : "Renews "}
                       {new Date(accessUntil).toLocaleDateString()}
                     </p>
                   )}
