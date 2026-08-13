@@ -98,7 +98,7 @@ const Analytics = () => {
       supabase.removeChannel(channel);
       window.removeEventListener("focus", onFocus);
     };
-  }, [user]);
+  }, [user, track]);
 
   const completed = attempts.filter((a) => a.completed_at);
   const avgScore = completed.length > 0
