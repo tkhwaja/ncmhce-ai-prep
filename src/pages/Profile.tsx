@@ -19,6 +19,7 @@ const Profile = () => {
   const { user, profile, refreshProfile, signOut } = useAuth();
   const { toast } = useToast();
   const navigate = useNavigate();
+  const { track, config } = useExamTrack();
   const [fullName, setFullName] = useState("");
   const [bio, setBio] = useState("");
   const [studyHours, setStudyHours] = useState(0);
