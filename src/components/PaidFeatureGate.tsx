@@ -78,10 +78,15 @@ const PaidFeatureGate = ({ children, feature }: { children: React.ReactNode; fea
           <div className="my-6 rounded-xl border border-border bg-background p-5">
             <div className="flex items-baseline justify-center gap-1">
               <span className="text-3xl font-bold text-foreground">
-                {formatPrice(config.monthlyPriceCents)}
+                {formatPrice(displayedPriceCents)}
               </span>
               <span className="text-sm text-muted-foreground">/month</span>
             </div>
+            {isFounderPrice && (
+              <p className="mt-2 text-center text-xs text-primary">
+                Founder price — regular {formatPrice(config.monthlyPriceCents)}/month after the founder window.
+              </p>
+            )}
             <ul className="mt-4 space-y-2">
               {features.map((f) => (
                 <li key={f} className="flex items-start gap-2 text-sm text-foreground">
