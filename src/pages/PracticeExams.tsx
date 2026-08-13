@@ -72,7 +72,9 @@ const PracticeExams = () => {
     <div className="p-4 sm:p-6 max-w-6xl mx-auto space-y-6 sm:space-y-8">
       <div>
         <h1 className="text-2xl font-bold text-foreground mb-2">Practice Exams</h1>
-        <p className="text-muted-foreground">Full-length, timed NCMHCE-style practice exams. Each exam saves your score and tracks your progress.</p>
+        <p className="text-muted-foreground">
+          Full-length, timed {config.label}-style practice exams. Each exam saves your score and tracks your progress.
+        </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
