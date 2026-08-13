@@ -134,7 +134,7 @@ const Flashcards = () => {
         body: JSON.stringify({
           messages: [{
             role: "user",
-            content: `Generate 5 flashcards for the category "${deck.name}" for NCMHCE exam preparation. Return ONLY a JSON array with objects having "front" and "back" fields. Make them high-yield, clinically relevant, and distinct from basic concepts. Focus on differential diagnosis, nuanced clinical scenarios, and frequently tested concepts.
+            content: `Generate 5 flashcards for the category "${deck.name}" for ${config.label} exam preparation. Return ONLY a JSON array with objects having "front" and "back" fields. Make them high-yield, clinically relevant, and distinct from basic concepts. Focus on ${track === "nce" ? "frequently tested concepts, definitions, and application to counseling scenarios" : "differential diagnosis, nuanced clinical scenarios, and frequently tested concepts"}.
 
 Example format: [{"front":"Question here?","back":"Detailed answer here"}]
 
