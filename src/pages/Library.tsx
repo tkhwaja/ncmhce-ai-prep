@@ -2,6 +2,7 @@ import { useState, useMemo, useEffect, useRef } from "react";
 import { useOutletContext, useLocation, useNavigate } from "react-router-dom";
 import { useExamTrack } from "@/contexts/ExamTrackContext";
 import { LibraryModule, LibraryCategory } from "@/data/library-modules";
+import type { NCELibraryModule } from "@/data/nce/types";
 import { getActiveLibraryModules, getActiveCategoryOrder } from "@/lib/exam-content";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -17,6 +18,8 @@ import { ExamLikelihoodBadge } from "@/components/library/ExamLikelihoodBadge";
 import { useBookmark } from "@/hooks/useBookmark";
 import { InlineBackToTop, FloatingBackToTop } from "@/components/library/BackToTopButton";
 import type { AppLayoutOutletContext } from "@/components/app/AppLayout";
+
+type AnyLibraryModule = LibraryModule | NCELibraryModule;
 
 const iconMap: Record<string, React.ElementType> = {
   ClipboardCheck, FileText, Lightbulb, Scale, AlertTriangle, Heart,
