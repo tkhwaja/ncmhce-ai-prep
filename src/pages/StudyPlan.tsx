@@ -244,14 +244,14 @@ const StudyPlan = () => {
         body: JSON.stringify({
           messages: [{
             role: "user",
-            content: `Generate a structured week-by-week NCMHCE study plan as a JSON array. Each element should have: week (number), topic (string), activities (array of strings), hours (number).
+            content: `Generate a structured week-by-week ${config.label} study plan as a JSON array. Each element should have: week (number), topic (string), activities (array of strings), hours (number).
 
 Student info:
 - Exam date: ${format(examDate, "PPP")}
 - Today's date: ${format(new Date(), "PPP")}
 - Weeks until exam: ${Math.max(1, Math.ceil((examDate.getTime() - Date.now()) / (7 * 24 * 60 * 60 * 1000)))}
 - Study hours per week: ${hoursPerWeek[0]}
-- Taken NCMHCE before: ${takenBefore ? "Yes" : "No"}
+- Taken ${config.label} before: ${takenBefore ? "Yes" : "No"}
 - Confidence ratings (1-5): ${JSON.stringify(confidence)}
 - Biggest concern: ${biggestConcern}
 
@@ -261,17 +261,16 @@ Create a realistic plan focusing more time on weaker areas. All activities MUST 
 ${platformResourcePrompt}
 
 Allowed activity formats:
-- "Practice Narrative: [exact practice narrative title from the list]"
-- "Review Flashcards: [exact deck name from the list]"
 - "Study Learning Library: [exact module title from the list]"
-- "Complete timed practice exam"
+- "Review Flashcards: [exact deck name from the list]"
+${track === "nce" ? '- "Practice Question Bank: [domain or topic from the list]"\n- "Complete timed practice exam"' : '- "Practice Narrative: [exact practice narrative title from the list]"\n- "Complete timed practice exam"'}
 
-Do NOT create generic practice narrative titles like "Case Conceptualization," "Treatment Sequencing," or "Boundaries and Informed Consent" unless that exact narrative title appears in the resource list.
+Do NOT create generic activity titles unless that exact resource appears in the list.
 
 Do NOT suggest external textbooks, websites, or resources not on the platform.
 
 IMPORTANT: Return ONLY a valid JSON array, no markdown, no explanation. Example format:
-[{"week":1,"topic":"DSM-5-TR Foundations","activities":["Study Learning Library: DSM-5-TR Diagnoses","Review Flashcards: DSM-5-TR Disorders","Practice Narrative: Marcus — Major Depressive Disorder"],"hours":10}]`
+[{"week":1,"topic":"${config.domains[0] || "Foundations"}","activities":["Study Learning Library: ${content.libraryModules[0]?.title || "Foundations"}","Review Flashcards: ${content.flashcardDecks[0]?.name || "Key Terms"}","Complete timed practice exam"],"hours":10}]`
           }],
           context: "Study Plan Generator",
         }),
