@@ -39,6 +39,7 @@ const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Profile = lazy(() => import("./pages/Profile"));
 const Narratives = lazy(() => import("./pages/Narratives"));
 const NarrativePage = lazy(() => import("./pages/NarrativePage"));
+const Questions = lazy(() => import("./pages/Questions"));
 const Analytics = lazy(() => import("./pages/Analytics"));
 const StudyPlan = lazy(() => import("./pages/StudyPlan"));
 const Flashcards = lazy(() => import("./pages/Flashcards"));
