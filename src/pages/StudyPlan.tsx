@@ -39,13 +39,6 @@ interface StudyPlan {
   plan_data: WeekPlan[];
 }
 
-const confidenceAreas = [
-  "Diagnosis & Assessment",
-  "Treatment Planning",
-  "Ethics & Professional Practice",
-  "Counselor Skills & Attributes",
-  "Crisis Intervention",
-];
 
 type StudyResource = {
   label: string;
