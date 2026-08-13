@@ -167,6 +167,7 @@ const App = () => (
 
                   <Route path="/narratives" element={<PaidFeatureGate feature="Narratives"><Narratives /></PaidFeatureGate>} />
                   <Route path="/narrative/:id" element={<PaidFeatureGate feature="Narratives"><NarrativePage /></PaidFeatureGate>} />
+                  <Route path="/questions" element={<PaidFeatureGate feature="Question Bank"><Questions /></PaidFeatureGate>} />
                   <Route path="/practice-exams" element={<PaidFeatureGate feature="Practice Exams"><PracticeExams /></PaidFeatureGate>} />
                   <Route path="/practice-exam/:examId/attempt/:attemptId" element={<PaidFeatureGate feature="Practice Exams"><PracticeExamRunner /></PaidFeatureGate>} />
                   <Route path="/practice-exam/:examId/results/:attemptId" element={<PaidFeatureGate feature="Practice Exams"><PracticeExamResults /></PaidFeatureGate>} />
