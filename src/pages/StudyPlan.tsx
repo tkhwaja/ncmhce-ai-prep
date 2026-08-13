@@ -318,7 +318,7 @@ IMPORTANT: Return ONLY a valid JSON array, no markdown, no explanation. Example 
       // Save to DB
       const { data: saved, error } = await supabase
         .from("study_plans")
-        .insert({ user_id: user.id, intake_data: intakeData, plan_data: planData as any })
+        .insert({ user_id: user.id, intake_data: intakeData, plan_data: planData as any, exam_track: track })
         .select()
         .single();
 
