@@ -310,10 +310,10 @@ const Profile = () => {
                   {portalLoading ? "Opening..." : "Manage Billing"}
                 </Button>
               </div>
-              {!sub.cancelAtPeriodEnd && sub.status !== "canceled" && (
+              {!trackSub.cancelAtPeriodEnd && trackSub.status !== "canceled" && (
                 <div className="border-t border-border pt-4 flex items-center justify-between">
                   <div>
-                    <p className="text-sm font-medium text-foreground">Cancel Subscription</p>
+                    <p className="text-sm font-medium text-foreground">Cancel {config.label} Subscription</p>
                     <p className="text-xs text-muted-foreground">We'd love your feedback before you go</p>
                   </div>
                   <Button variant="outline" size="sm" onClick={() => setCancelOpen(true)}>
