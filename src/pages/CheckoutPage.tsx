@@ -4,7 +4,7 @@ import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
-import { formatPrice, resolveTrack, trackConfig } from "@/config/exam-tracks";
+import { formatPrice, resolveTrack, trackConfig, currentPriceId } from "@/config/exam-tracks";
 
 const CheckoutPage = () => {
   const { user, loading: authLoading } = useAuth();
@@ -14,6 +14,8 @@ const CheckoutPage = () => {
   // Defaults to NCMHCE, so every existing /checkout link behaves exactly as before.
   const track = resolveTrack(searchParams.get("track"));
   const config = trackConfig(track);
+  const priceId = currentPriceId(track);
+  const isFounderPrice = priceId === config.founderPriceId;
   const nextPath = `/checkout?track=${track}`;
 
   return (
