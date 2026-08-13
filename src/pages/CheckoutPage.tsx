@@ -30,7 +30,7 @@ const CheckoutPage = () => {
         </Button>
 
         <h1 className="text-2xl font-bold text-foreground mb-2">
-          {config.label} Pro — {formatPrice(config.monthlyPriceCents)}/month
+          {config.label} Pro — {formatPrice(displayedPriceCents)}/month
         </h1>
         <p className="text-muted-foreground mb-6">
           Full access to the {config.label} track on The Exam Path. Cancel anytime from your
