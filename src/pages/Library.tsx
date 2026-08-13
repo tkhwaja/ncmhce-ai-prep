@@ -237,7 +237,7 @@ const Library = () => {
     <div className="p-4 sm:p-6 max-w-6xl mx-auto space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-foreground">Learning Library</h1>
-        <p className="text-muted-foreground">Study materials organized by NCMHCE exam domain</p>
+        <p className="text-muted-foreground">Study materials organized by {config.label} exam domain</p>
       </div>
 
       {/* Search + Filters */}
