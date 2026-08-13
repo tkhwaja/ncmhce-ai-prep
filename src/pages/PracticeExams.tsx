@@ -24,6 +24,8 @@ interface ExamAttemptRow {
 const PracticeExams = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
+  const { track, config } = useExamTrack();
+  const practiceExams = getActivePracticeExams(track);
   const [attempts, setAttempts] = useState<ExamAttemptRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [creating, setCreating] = useState(false);
@@ -34,6 +36,7 @@ const PracticeExams = () => {
       .from("practice_exam_attempts")
       .select("id, practice_exam_id, status, total_score, graded_case_count, time_spent_seconds, started_at, completed_at")
       .eq("user_id", user.id)
+      .eq("exam_track", track)
       .order("started_at", { ascending: false });
     setAttempts((data as ExamAttemptRow[]) || []);
     setLoading(false);
@@ -42,7 +45,7 @@ const PracticeExams = () => {
   useEffect(() => {
     loadAttempts();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user]);
+  }, [user, track]);
 
   const startNewAttempt = async (examId: string) => {
     if (!user || creating) return;
@@ -57,6 +60,7 @@ const PracticeExams = () => {
         status: "in_progress",
         ungraded_narrative_ids: ungradedIds,
         domain_scores: {},
+        exam_track: track,
       })
       .select("id")
       .single();
