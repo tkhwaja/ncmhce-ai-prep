@@ -180,11 +180,21 @@ Full exam simulation: Complete timed practice exam.`;
 
 const StudyPlan = () => {
   const { user, session } = useAuth();
+  const { track, config } = useExamTrack();
   const { toast } = useToast();
   const navigate = useNavigate();
   const [plan, setPlan] = useState<StudyPlan | null>(null);
   const [loading, setLoading] = useState(true);
   const [generating, setGenerating] = useState(false);
+
+  const content = useMemo<ContentSet>(() => ({
+    libraryModules: getActiveLibraryModules(track),
+    flashcardDecks: getActiveFlashcardDecks(track),
+    narratives: getActiveNarratives(track),
+  }), [track]);
+
+  const { resolveStudyActivity } = useMemo(() => createResolvers(content), [content]);
+  const platformResourcePrompt = useMemo(() => getResourcePrompt(track, content), [track, content]);
 
   // Intake form state
   const [examDate, setExamDate] = useState<Date>();
@@ -193,12 +203,15 @@ const StudyPlan = () => {
   const [confidence, setConfidence] = useState<Record<string, number>>({});
   const [biggestConcern, setBiggestConcern] = useState("");
 
+  const confidenceAreas = config.domains.slice(0, 5);
+
   useEffect(() => {
     if (!user) return;
     supabase
       .from("study_plans")
       .select("*")
       .eq("user_id", user.id)
+      .eq("exam_track", track)
       .order("created_at", { ascending: false })
       .limit(1)
       .then(({ data }) => {
@@ -207,7 +220,7 @@ const StudyPlan = () => {
         }
         setLoading(false);
       });
-  }, [user]);
+  }, [user, track]);
 
   const generatePlan = async () => {
     if (!user || !examDate) return;
