@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { practiceExams } from "@/data/practice-exams";
+import { useAuth } from "@/contexts/AuthContext";
+import { useExamTrack } from "@/contexts/ExamTrackContext";
+import { getActivePracticeExams } from "@/lib/exam-content";
 import { getUngradedNarrativeIdsForAttempt } from "@/lib/practice-exams";
 import { supabase } from "@/integrations/supabase/client";
-import { useAuth } from "@/contexts/AuthContext";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -23,6 +24,8 @@ interface ExamAttemptRow {
 const PracticeExams = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
+  const { track, config } = useExamTrack();
+  const practiceExams = getActivePracticeExams(track);
   const [attempts, setAttempts] = useState<ExamAttemptRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [creating, setCreating] = useState(false);
@@ -33,6 +36,7 @@ const PracticeExams = () => {
       .from("practice_exam_attempts")
       .select("id, practice_exam_id, status, total_score, graded_case_count, time_spent_seconds, started_at, completed_at")
       .eq("user_id", user.id)
+      .eq("exam_track", track)
       .order("started_at", { ascending: false });
     setAttempts((data as ExamAttemptRow[]) || []);
     setLoading(false);
@@ -41,7 +45,7 @@ const PracticeExams = () => {
   useEffect(() => {
     loadAttempts();
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user]);
+  }, [user, track]);
 
   const startNewAttempt = async (examId: string) => {
     if (!user || creating) return;
@@ -56,6 +60,7 @@ const PracticeExams = () => {
         status: "in_progress",
         ungraded_narrative_ids: ungradedIds,
         domain_scores: {},
+        exam_track: track,
       })
       .select("id")
       .single();
@@ -67,7 +72,9 @@ const PracticeExams = () => {
     <div className="p-4 sm:p-6 max-w-6xl mx-auto space-y-6 sm:space-y-8">
       <div>
         <h1 className="text-2xl font-bold text-foreground mb-2">Practice Exams</h1>
-        <p className="text-muted-foreground">Full-length, timed NCMHCE-style practice exams. Each exam saves your score and tracks your progress.</p>
+        <p className="text-muted-foreground">
+          Full-length, timed {config.label}-style practice exams. Each exam saves your score and tracks your progress.
+        </p>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { narratives, totalQuestionCount, getNarrativeTotalMinutes } from "@/data/narratives";
-import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
+import { useExamTrack } from "@/contexts/ExamTrackContext";
+import { totalQuestionCount, getNarrativeTotalMinutes } from "@/data/narratives";
+import { getActiveNarratives } from "@/lib/exam-content";
+import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -22,6 +24,8 @@ interface AttemptMap {
 const Narratives = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
+  const { track } = useExamTrack();
+  const narratives = getActiveNarratives(track);
   const [difficultyFilter, setDifficultyFilter] = useState("all");
   const [categoryFilter, setCategoryFilter] = useState("all");
   const [statusFilter, setStatusFilter] = useState("all");
@@ -33,6 +37,7 @@ const Narratives = () => {
       .from("narrative_attempts")
       .select("narrative_id, total_score, completed_at")
       .eq("user_id", user.id)
+      .eq("exam_track", track)
       .order("created_at", { ascending: false })
       .then(({ data }) => {
         if (!data) return;
@@ -44,7 +49,7 @@ const Narratives = () => {
         });
         setAttempts(map);
       });
-  }, [user]);
+  }, [user, track]);
 
   const categories = [...new Set(narratives.map((s) => s.category))];
 
@@ -97,6 +102,16 @@ const Narratives = () => {
     if (attempt.completed_at) return "completed";
     return "in-progress";
   };
+
+  if (track === "nce") {
+    return (
+      <div className="p-4 sm:p-6 max-w-6xl mx-auto space-y-6">
+        <h1 className="text-2xl font-bold text-foreground">Narratives</h1>
+        <p className="text-muted-foreground">The NCE track uses the Question Bank instead of clinical narratives.</p>
+        <Button onClick={() => navigate("/questions")}>Go to Question Bank</Button>
+      </div>
+    );
+  }
 
   return (
     <div className="p-4 sm:p-6 max-w-6xl mx-auto space-y-6 sm:space-y-8">

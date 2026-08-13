@@ -1,11 +1,12 @@
 import { useEffect, useMemo, useState } from "react";
 import { useAuth } from "@/contexts/AuthContext";
+import { useExamTrack } from "@/contexts/ExamTrackContext";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Brain, BarChart3, Layers, Target, TrendingUp, Clock, Flame, Sparkles, BookOpen } from "lucide-react";
 import { useNavigate, useSearchParams } from "react-router-dom";
-import { getNarrativeById } from "@/data/narratives";
+import { getActiveNarratives, getActiveFlashcardDecks } from "@/lib/exam-content";
 
 const capitalize = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
 
@@ -43,6 +44,7 @@ const formatRelativeTime = (value: string | null) => {
 
 const Dashboard = () => {
   const { user, profile } = useAuth();
+  const { track, config } = useExamTrack();
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const isNewUser = searchParams.get("new") === "true";
@@ -52,6 +54,13 @@ const Dashboard = () => {
   const rawFirst = profile?.full_name?.trim().split(/\s+/)[0] || "there";
   const firstName = capitalize(rawFirst);
   const today = new Date().toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
+  const activeNarratives = useMemo(() => getActiveNarratives(track), [track]);
+  const activeDecks = useMemo(() => getActiveFlashcardDecks(track), [track]);
+  const deckNameById = useMemo(() => {
+    const map: Record<string, string> = {};
+    activeDecks.forEach((d) => (map[d.id] = d.name));
+    return map;
+  }, [activeDecks]);
 
   useEffect(() => {
     if (!user) return;
@@ -62,12 +71,14 @@ const Dashboard = () => {
           .from("narrative_attempts")
           .select("id, narrative_id, total_score, domain_scores, time_spent, completed_at, created_at")
           .eq("user_id", user.id)
+          .eq("exam_track", track)
           .not("completed_at", "is", null)
           .order("completed_at", { ascending: false }),
         supabase
           .from("flashcard_progress")
           .select("id, deck_id, card_id, status, last_reviewed, created_at")
           .eq("user_id", user.id)
+          .eq("exam_track", track)
           .order("last_reviewed", { ascending: false, nullsFirst: false }),
       ]);
       setAttempts((attemptData as NarrativeAttempt[]) || []);
@@ -79,7 +90,7 @@ const Dashboard = () => {
     loadDashboardData();
 
     const channel = supabase
-      .channel(`dashboard-realtime-${user.id}`)
+      .channel(`dashboard-realtime-${user.id}-${track}`)
       .on(
         "postgres_changes",
         { event: "*", schema: "public", table: "narrative_attempts", filter: `user_id=eq.${user.id}` },
@@ -95,7 +106,7 @@ const Dashboard = () => {
     return () => {
       supabase.removeChannel(channel);
     };
-  }, [user]);
+  }, [user, track]);
 
   const completedAttempts = attempts.filter((attempt) => attempt.completed_at);
   const averageScore = completedAttempts.length
@@ -116,7 +127,7 @@ const Dashboard = () => {
   }
 
   const stats = [
-    { label: "Narratives Completed", value: loading ? "…" : String(completedAttempts.length), icon: Target, color: "text-primary" },
+    { label: track === "nce" ? "Questions Answered" : "Narratives Completed", value: loading ? "…" : String(completedAttempts.length), icon: Target, color: "text-primary" },
     { label: "Average Score", value: loading ? "…" : averageScore === null ? "—" : `${averageScore}%`, icon: TrendingUp, color: "text-emerald-400" },
     { label: "Study Streak", value: loading ? "…" : `${studyStreak} day${studyStreak === 1 ? "" : "s"}`, icon: Flame, color: "text-amber-400" },
     { label: "Hours Studied", value: loading ? "…" : `${Math.round((totalStudySeconds / 3600) * 10) / 10}h`, icon: Clock, color: "text-violet-400" },
@@ -126,7 +137,7 @@ const Dashboard = () => {
     const narrativeItems = completedAttempts.map((attempt) => ({
       id: attempt.id,
       type: "narrative" as const,
-      title: getNarrativeById(attempt.narrative_id)?.title || "Clinical narrative",
+      title: activeNarratives.find((n) => n.id === attempt.narrative_id)?.title || (track === "nce" ? "Practice question" : "Clinical narrative"),
       score: attempt.total_score,
       date: attempt.completed_at || attempt.created_at,
     }));
@@ -135,7 +146,7 @@ const Dashboard = () => {
       .map((card) => ({
         id: card.id,
         type: "flashcards" as const,
-        title: `${card.deck_id.replace(/-/g, " ")} flashcard review`,
+        title: `${deckNameById[card.deck_id] || card.deck_id} flashcard review`,
         score: null,
         date: card.last_reviewed || card.created_at,
       }));
@@ -143,7 +154,7 @@ const Dashboard = () => {
     return [...narrativeItems, ...flashcardItems]
       .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
       .slice(0, 5);
-  }, [completedAttempts, flashcardProgress]);
+  }, [completedAttempts, flashcardProgress, activeNarratives, deckNameById, track]);
 
   const weakestDomain = useMemo(() => {
     const totals: Record<string, { sum: number; count: number }> = {};
@@ -159,11 +170,17 @@ const Dashboard = () => {
       .sort((a, b) => a.average - b.average)[0];
   }, [completedAttempts]);
 
-  const quickActions = [
-    { title: "Take a Practice Exam", desc: "Full-length, timed, scored — mirrors the real NCMHCE format", icon: Brain, path: "/practice-exams", color: "from-primary/20 to-primary/5" },
-    { title: "Start a Narrative", desc: "Practice individual NCMHCE clinical case narratives", icon: BarChart3, path: "/narratives", color: "from-emerald-500/20 to-emerald-500/5" },
-    { title: "Practice Flashcards", desc: "Review key concepts and DSM-5-TR criteria", icon: Layers, path: "/flashcards", color: "from-violet-500/20 to-violet-500/5" },
-  ];
+  const quickActions = track === "nce"
+    ? [
+        { title: "Take a Practice Exam", desc: `Full-length, timed, scored — mirrors the real ${config.label} format`, icon: Brain, path: "/practice-exams", color: "from-primary/20 to-primary/5" },
+        { title: "Question Bank", desc: "Browse domain-tagged NCE multiple-choice items", icon: BarChart3, path: "/questions", color: "from-emerald-500/20 to-emerald-500/5" },
+        { title: "Practice Flashcards", desc: "Review key concepts across the eight NCE domains", icon: Layers, path: "/flashcards", color: "from-violet-500/20 to-violet-500/5" },
+      ]
+    : [
+        { title: "Take a Practice Exam", desc: "Full-length, timed, scored — mirrors the real NCMHCE format", icon: Brain, path: "/practice-exams", color: "from-primary/20 to-primary/5" },
+        { title: "Start a Narrative", desc: "Practice individual NCMHCE clinical case narratives", icon: BarChart3, path: "/narratives", color: "from-emerald-500/20 to-emerald-500/5" },
+        { title: "Practice Flashcards", desc: "Review key concepts and DSM-5-TR criteria", icon: Layers, path: "/flashcards", color: "from-violet-500/20 to-violet-500/5" },
+      ];
 
   return (
     <div className="p-6 max-w-6xl mx-auto space-y-8">
@@ -258,13 +275,13 @@ const Dashboard = () => {
             <p className="text-sm text-muted-foreground">
               {weakestDomain
                 ? <>
-                    Based on your completed narratives, your lowest domain is{" "}
+                    Based on your completed {track === "nce" ? "questions" : "narratives"}, your lowest domain is{" "}
                     <span className="text-foreground font-medium">{weakestDomain.domain}</span> at {weakestDomain.average}%.
-                    Start with targeted review and then retake a related case.
+                    Start with targeted review and then retake a related {track === "nce" ? "question set" : "case"}.
                   </>
-                : "Complete a narrative to unlock personalized recommendations based on your actual score history."}
+                : `Complete a ${track === "nce" ? "question set" : "narrative"} to unlock personalized recommendations based on your actual score history.`}
             </p>
-            <Button variant="outline" size="sm" className="mt-4" onClick={() => navigate("/narratives")}>
+            <Button variant="outline" size="sm" className="mt-4" onClick={() => navigate(track === "nce" ? "/questions" : "/narratives")}>
               Start Learning
             </Button>
           </CardContent>

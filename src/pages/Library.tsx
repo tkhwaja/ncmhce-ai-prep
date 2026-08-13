@@ -1,6 +1,9 @@
 import { useState, useMemo, useEffect, useRef } from "react";
 import { useOutletContext, useLocation, useNavigate } from "react-router-dom";
-import { libraryModules, LibraryModule, LibraryCategory, categoryOrder } from "@/data/library-modules";
+import { useExamTrack } from "@/contexts/ExamTrackContext";
+import { LibraryModule, LibraryCategory } from "@/data/library-modules";
+import type { NCELibraryModule } from "@/data/nce/types";
+import { getActiveLibraryModules, getActiveCategoryOrder } from "@/lib/exam-content";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -16,6 +19,8 @@ import { useBookmark } from "@/hooks/useBookmark";
 import { InlineBackToTop, FloatingBackToTop } from "@/components/library/BackToTopButton";
 import type { AppLayoutOutletContext } from "@/components/app/AppLayout";
 
+type AnyLibraryModule = LibraryModule | NCELibraryModule;
+
 const iconMap: Record<string, React.ElementType> = {
   ClipboardCheck, FileText, Lightbulb, Scale, AlertTriangle, Heart,
 };
@@ -24,13 +29,13 @@ const iconMap: Record<string, React.ElementType> = {
 /*  Module Detail View                                                 */
 /* ================================================================== */
 
-const LibraryModuleDetail = ({ module, onBack }: { module: LibraryModule; onBack: () => void }) => {
+const LibraryModuleDetail = ({ module, onBack, trackLabel }: { module: AnyLibraryModule; onBack: () => void; trackLabel: string }) => {
   const isGlossary = module.moduleType === "glossary";
   const hasStructuredData = !!module.data;
   const { openChatWithPrompt } = useOutletContext<AppLayoutOutletContext>();
 
   const handleQuizClick = () => {
-    openChatWithPrompt(`Quiz me on the ${module.title} module. Create 5 NCMHCE-style multiple choice questions based on the exact material in this section, ask them one at a time, wait for my answer after each, then explain why the correct answer is right.`);
+    openChatWithPrompt(`Quiz me on the ${module.title} module. Create 5 ${trackLabel}-style multiple choice questions based on the exact material in this section, ask them one at a time, wait for my answer after each, then explain why the correct answer is right.`);
   };
 
   const { bookmarkedId } = useBookmark(module.id);
@@ -144,7 +149,10 @@ const LibraryModuleDetail = ({ module, onBack }: { module: LibraryModule; onBack
 /* ================================================================== */
 
 const Library = () => {
-  const [selectedModule, setSelectedModule] = useState<LibraryModule | null>(null);
+  const { track, config } = useExamTrack();
+  const libraryModules = getActiveLibraryModules(track);
+  const categoryOrder = getActiveCategoryOrder(track);
+  const [selectedModule, setSelectedModule] = useState<AnyLibraryModule | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
   const previousPathname = useRef(location.pathname);
@@ -155,7 +163,7 @@ const Library = () => {
     if (!moduleId) return;
     const module = libraryModules.find((item) => item.id === moduleId);
     if (module) setSelectedModule(module);
-  }, [location.search]);
+  }, [location.search, libraryModules]);
 
   // Reset to library index only on real /library re-navigation, not direct module links.
   useEffect(() => {
@@ -211,7 +219,7 @@ const Library = () => {
 
   // Group by category
   const grouped = useMemo(() => {
-    const map: Record<string, LibraryModule[]> = {};
+    const map: Record<string, AnyLibraryModule[]> = {};
     filtered.forEach((m) => {
       if (!map[m.category]) map[m.category] = [];
       map[m.category].push(m);
@@ -222,14 +230,14 @@ const Library = () => {
   }, [filtered]);
 
   if (selectedModule) {
-    return <LibraryModuleDetail module={selectedModule} onBack={() => { setSelectedModule(null); navigate("/library"); }} />;
+    return <LibraryModuleDetail module={selectedModule} onBack={() => { setSelectedModule(null); navigate("/library"); }} trackLabel={config.label} />;
   }
 
   return (
     <div className="p-4 sm:p-6 max-w-6xl mx-auto space-y-6">
       <div>
         <h1 className="text-2xl font-bold text-foreground">Learning Library</h1>
-        <p className="text-muted-foreground">Study materials organized by NCMHCE exam domain</p>
+        <p className="text-muted-foreground">Study materials organized by {config.label} exam domain</p>
       </div>
 
       {/* Search + Filters */}

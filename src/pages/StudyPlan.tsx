@@ -1,10 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
+import { useExamTrack } from "@/contexts/ExamTrackContext";
 import { supabase } from "@/integrations/supabase/client";
-import { libraryModules } from "@/data/library-modules";
-import { flashcardDecks } from "@/data/flashcards";
-import { narratives } from "@/data/narratives";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -21,6 +19,8 @@ import { useToast } from "@/hooks/use-toast";
 import ReactMarkdown from "react-markdown";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
+import { getActiveLibraryModules, getActiveNarratives, getActiveFlashcardDecks, getActivePracticeExams } from "@/lib/exam-content";
+import type { ExamTrack } from "@/config/exam-tracks";
 import {
   CalendarIcon, Sparkles, ChevronDown, ChevronRight, RotateCcw, BookOpen, CheckCircle2
 } from "lucide-react";
@@ -39,13 +39,6 @@ interface StudyPlan {
   plan_data: WeekPlan[];
 }
 
-const confidenceAreas = [
-  "Diagnosis & Assessment",
-  "Treatment Planning",
-  "Ethics & Professional Practice",
-  "Counselor Skills & Attributes",
-  "Crisis Intervention",
-];
 
 type StudyResource = {
   label: string;
@@ -114,63 +107,87 @@ const narrativeAliases: Record<string, string> = {
   "treatment sequencing": "28-rafael-ptsd",
 };
 
-const resolveLibraryHref = (topic: string): string | null => {
-  const exact = findByTitle(libraryModules, topic);
-  const module = exact ?? libraryModules.find((item) => item.id === libraryAliases[normalizeResourceKey(topic)]);
-  return module ? `/library?module=${module.id}` : null;
+interface ContentSet {
+  libraryModules: { title: string; id: string }[];
+  flashcardDecks: { name: string; id: string }[];
+  narratives: { title: string; id: string }[];
+}
+
+const createResolvers = (content: ContentSet) => {
+  const resolveLibraryHref = (topic: string): string | null => {
+    const exact = findByTitle(content.libraryModules, topic);
+    const module = exact ?? content.libraryModules.find((item) => item.id === libraryAliases[normalizeResourceKey(topic)]);
+    return module ? `/library?module=${module.id}` : null;
+  };
+
+  const resolveFlashcardHref = (topic: string): string | null => {
+    const exact = findByTitle(content.flashcardDecks, topic);
+    const deck = exact ?? content.flashcardDecks.find((item) => item.id === flashcardAliases[normalizeResourceKey(topic)]);
+    return deck ? `/flashcards?deck=${deck.id}` : null;
+  };
+
+  const resolveNarrativeHref = (topic: string): string | null => {
+    const exact = findByTitle(content.narratives, topic);
+    const narrative = exact ?? content.narratives.find((item) => item.id === narrativeAliases[normalizeResourceKey(topic)]);
+    return narrative ? `/narrative/${narrative.id}` : null;
+  };
+
+  // IMPORTANT: Never rewrite the saved activity label. Only attach a link.
+  // Match strictly within the activity's own type (library / flashcards / narrative).
+  // If no clean same-type match, fall back to that section's index page.
+  const resolveStudyActivity = (activity: string): StudyResource => {
+    const trimmed = activity.trim();
+    const normalizedActivity = normalizeResourceKey(trimmed.replace(/^[^:]+:\s*/, ""));
+
+    if (/complete timed practice exam/i.test(trimmed) || normalizedActivity === "multi domain integration") {
+      return { label: trimmed, href: "/practice-exams" };
+    }
+
+    const match = trimmed.match(/^(Study Learning Library|Review Flashcards|Practice Narrative):\s*(.+)$/i);
+    if (!match) return { label: trimmed, href: "/study-plan" };
+
+    const [, type, topic] = match;
+    if (/study learning library/i.test(type)) {
+      return { label: trimmed, href: resolveLibraryHref(topic) ?? "/library" };
+    }
+    if (/review flashcards/i.test(type)) {
+      return { label: trimmed, href: resolveFlashcardHref(topic) ?? "/flashcards" };
+    }
+    // Practice Narrative — narrative only, no cross-type fallback
+    return { label: trimmed, href: resolveNarrativeHref(topic) ?? "/narratives" };
+  };
+
+  return { resolveStudyActivity };
 };
 
-const resolveFlashcardHref = (topic: string): string | null => {
-  const exact = findByTitle(flashcardDecks, topic);
-  const deck = exact ?? flashcardDecks.find((item) => item.id === flashcardAliases[normalizeResourceKey(topic)]);
-  return deck ? `/flashcards?deck=${deck.id}` : null;
-};
-
-const resolveNarrativeHref = (topic: string): string | null => {
-  const exact = findByTitle(narratives, topic);
-  const narrative = exact ?? narratives.find((item) => item.id === narrativeAliases[normalizeResourceKey(topic)]);
-  return narrative ? `/narrative/${narrative.id}` : null;
-};
-
-// IMPORTANT: Never rewrite the saved activity label. Only attach a link.
-// Match strictly within the activity's own type (library / flashcards / narrative).
-// If no clean same-type match, fall back to that section's index page.
-const resolveStudyActivity = (activity: string): StudyResource => {
-  const trimmed = activity.trim();
-  const normalizedActivity = normalizeResourceKey(trimmed.replace(/^[^:]+:\s*/, ""));
-
-  if (/complete timed practice exam/i.test(trimmed) || normalizedActivity === "multi domain integration") {
-    return { label: trimmed, href: "/practice-exams" };
-  }
-
-  const match = trimmed.match(/^(Study Learning Library|Review Flashcards|Practice Narrative):\s*(.+)$/i);
-  if (!match) return { label: trimmed, href: "/study-plan" };
-
-  const [, type, topic] = match;
-  if (/study learning library/i.test(type)) {
-    return { label: trimmed, href: resolveLibraryHref(topic) ?? "/library" };
-  }
-  if (/review flashcards/i.test(type)) {
-    return { label: trimmed, href: resolveFlashcardHref(topic) ?? "/flashcards" };
-  }
-  // Practice Narrative — narrative only, no cross-type fallback
-  return { label: trimmed, href: resolveNarrativeHref(topic) ?? "/narratives" };
-};
-
-
-const platformResourcePrompt = `Available platform resources. Use ONLY these exact names after the activity prefix.
-Learning Library modules: ${libraryModules.map((module) => module.title).join("; ")}.
-Flashcard decks: ${flashcardDecks.map((deck) => deck.name).join("; ")}.
-Practice narratives: ${narratives.map((narrative) => narrative.title).join("; ")}.
+const getResourcePrompt = (track: ExamTrack, content: ContentSet): string => {
+  const practiceItems = track === "nce"
+    ? `Practice questions: use the Question Bank and the practice exams listed above.`
+    : `Practice narratives: ${content.narratives.map((narrative) => narrative.title).join("; ")}.`;
+  return `Available platform resources. Use ONLY these exact names after the activity prefix.
+Learning Library modules: ${content.libraryModules.map((module) => module.title).join("; ")}.
+Flashcard decks: ${content.flashcardDecks.map((deck) => deck.name).join("; ")}.
+${practiceItems}
 Full exam simulation: Complete timed practice exam.`;
+};
 
 const StudyPlan = () => {
   const { user, session } = useAuth();
+  const { track, config } = useExamTrack();
   const { toast } = useToast();
   const navigate = useNavigate();
   const [plan, setPlan] = useState<StudyPlan | null>(null);
   const [loading, setLoading] = useState(true);
   const [generating, setGenerating] = useState(false);
+
+  const content = useMemo<ContentSet>(() => ({
+    libraryModules: getActiveLibraryModules(track),
+    flashcardDecks: getActiveFlashcardDecks(track),
+    narratives: getActiveNarratives(track),
+  }), [track]);
+
+  const { resolveStudyActivity } = useMemo(() => createResolvers(content), [content]);
+  const platformResourcePrompt = useMemo(() => getResourcePrompt(track, content), [track, content]);
 
   // Intake form state
   const [examDate, setExamDate] = useState<Date>();
@@ -179,12 +196,15 @@ const StudyPlan = () => {
   const [confidence, setConfidence] = useState<Record<string, number>>({});
   const [biggestConcern, setBiggestConcern] = useState("");
 
+  const confidenceAreas = config.domains.slice(0, 5);
+
   useEffect(() => {
     if (!user) return;
     supabase
       .from("study_plans")
       .select("*")
       .eq("user_id", user.id)
+      .eq("exam_track", track)
       .order("created_at", { ascending: false })
       .limit(1)
       .then(({ data }) => {
@@ -193,7 +213,7 @@ const StudyPlan = () => {
         }
         setLoading(false);
       });
-  }, [user]);
+  }, [user, track]);
 
   const generatePlan = async () => {
     if (!user || !examDate) return;
@@ -217,14 +237,14 @@ const StudyPlan = () => {
         body: JSON.stringify({
           messages: [{
             role: "user",
-            content: `Generate a structured week-by-week NCMHCE study plan as a JSON array. Each element should have: week (number), topic (string), activities (array of strings), hours (number).
+            content: `Generate a structured week-by-week ${config.label} study plan as a JSON array. Each element should have: week (number), topic (string), activities (array of strings), hours (number).
 
 Student info:
 - Exam date: ${format(examDate, "PPP")}
 - Today's date: ${format(new Date(), "PPP")}
 - Weeks until exam: ${Math.max(1, Math.ceil((examDate.getTime() - Date.now()) / (7 * 24 * 60 * 60 * 1000)))}
 - Study hours per week: ${hoursPerWeek[0]}
-- Taken NCMHCE before: ${takenBefore ? "Yes" : "No"}
+- Taken ${config.label} before: ${takenBefore ? "Yes" : "No"}
 - Confidence ratings (1-5): ${JSON.stringify(confidence)}
 - Biggest concern: ${biggestConcern}
 
@@ -234,17 +254,16 @@ Create a realistic plan focusing more time on weaker areas. All activities MUST 
 ${platformResourcePrompt}
 
 Allowed activity formats:
-- "Practice Narrative: [exact practice narrative title from the list]"
-- "Review Flashcards: [exact deck name from the list]"
 - "Study Learning Library: [exact module title from the list]"
-- "Complete timed practice exam"
+- "Review Flashcards: [exact deck name from the list]"
+${track === "nce" ? '- "Practice Question Bank: [domain or topic from the list]"\n- "Complete timed practice exam"' : '- "Practice Narrative: [exact practice narrative title from the list]"\n- "Complete timed practice exam"'}
 
-Do NOT create generic practice narrative titles like "Case Conceptualization," "Treatment Sequencing," or "Boundaries and Informed Consent" unless that exact narrative title appears in the resource list.
+Do NOT create generic activity titles unless that exact resource appears in the list.
 
 Do NOT suggest external textbooks, websites, or resources not on the platform.
 
 IMPORTANT: Return ONLY a valid JSON array, no markdown, no explanation. Example format:
-[{"week":1,"topic":"DSM-5-TR Foundations","activities":["Study Learning Library: DSM-5-TR Diagnoses","Review Flashcards: DSM-5-TR Disorders","Practice Narrative: Marcus — Major Depressive Disorder"],"hours":10}]`
+[{"week":1,"topic":"${config.domains[0] || "Foundations"}","activities":["Study Learning Library: ${content.libraryModules[0]?.title || "Foundations"}","Review Flashcards: ${content.flashcardDecks[0]?.name || "Key Terms"}","Complete timed practice exam"],"hours":10}]`
           }],
           context: "Study Plan Generator",
         }),
@@ -292,7 +311,7 @@ IMPORTANT: Return ONLY a valid JSON array, no markdown, no explanation. Example 
       // Save to DB
       const { data: saved, error } = await supabase
         .from("study_plans")
-        .insert({ user_id: user.id, intake_data: intakeData, plan_data: planData as any })
+        .insert({ user_id: user.id, intake_data: intakeData, plan_data: planData as any, exam_track: track })
         .select()
         .single();
 
@@ -411,7 +430,7 @@ IMPORTANT: Return ONLY a valid JSON array, no markdown, no explanation. Example 
     <div className="p-6 max-w-2xl mx-auto space-y-6">
       <div className="text-center mb-8">
         <BookOpen className="h-10 w-10 text-primary mx-auto mb-3" />
-        <h1 className="text-2xl font-bold text-foreground">Let's Build Your Personalized Study Plan</h1>
+        <h1 className="text-2xl font-bold text-foreground">Let's Build Your Personalized {config.label} Study Plan</h1>
         <p className="text-muted-foreground mt-2">Answer a few questions and our AI will create a custom study schedule</p>
       </div>
 
@@ -444,7 +463,7 @@ IMPORTANT: Return ONLY a valid JSON array, no markdown, no explanation. Example 
 
           {/* Taken before */}
           <div className="flex items-center justify-between">
-            <Label>Have you taken the NCMHCE before?</Label>
+            <Label>Have you taken the {config.label} before?</Label>
             <Switch checked={takenBefore} onCheckedChange={setTakenBefore} />
           </div>
 

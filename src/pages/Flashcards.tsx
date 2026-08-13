@@ -1,8 +1,10 @@
 import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
+import { useExamTrack } from "@/contexts/ExamTrackContext";
 import { supabase } from "@/integrations/supabase/client";
-import { flashcardDecks, Flashcard, FlashcardDeck } from "@/data/flashcards";
+import { Flashcard, FlashcardDeck } from "@/data/flashcards";
+import { getActiveFlashcardDecks } from "@/lib/exam-content";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -28,9 +30,11 @@ interface ProgressMap {
 
 const Flashcards = () => {
   const { user, session } = useAuth();
+  const { track, config } = useExamTrack();
   const { toast } = useToast();
   const location = useLocation();
   const navigate = useNavigate();
+  const flashcardDecks = getActiveFlashcardDecks(track);
   const [selectedDeck, setSelectedDeck] = useState<FlashcardDeck | null>(null);
   const [studyMode, setStudyMode] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -44,7 +48,7 @@ const Flashcards = () => {
     if (!deckId) return;
     const deck = flashcardDecks.find((item) => item.id === deckId);
     if (deck) setSelectedDeck(deck);
-  }, [location.search]);
+  }, [location.search, flashcardDecks]);
 
   useEffect(() => {
     if (!user) return;
@@ -52,13 +56,14 @@ const Flashcards = () => {
       .from("flashcard_progress")
       .select("card_id, status, next_review")
       .eq("user_id", user.id)
+      .eq("exam_track", track)
       .then(({ data }) => {
         if (!data) return;
         const map: ProgressMap = {};
         data.forEach((d) => { map[d.card_id] = { status: d.status, next_review: d.next_review }; });
         setProgress(map);
       });
-  }, [user]);
+  }, [user, track]);
 
   const getAllCards = (deck: FlashcardDeck) => {
     return [...deck.cards, ...(extraCards[deck.id] || [])];
@@ -98,7 +103,7 @@ const Flashcards = () => {
 
     // Upsert
     const { error } = await supabase.from("flashcard_progress").upsert(
-      { user_id: user.id, card_id: cardId, deck_id: deckId, status, last_reviewed: now.toISOString(), next_review: nextReview },
+      { user_id: user.id, card_id: cardId, deck_id: deckId, status, last_reviewed: now.toISOString(), next_review: nextReview, exam_track: track },
       { onConflict: "user_id,card_id,deck_id" }
     );
 
@@ -129,7 +134,7 @@ const Flashcards = () => {
         body: JSON.stringify({
           messages: [{
             role: "user",
-            content: `Generate 5 flashcards for the category "${deck.name}" for NCMHCE exam preparation. Return ONLY a JSON array with objects having "front" and "back" fields. Make them high-yield, clinically relevant, and distinct from basic concepts. Focus on differential diagnosis, nuanced clinical scenarios, and frequently tested concepts.
+            content: `Generate 5 flashcards for the category "${deck.name}" for ${config.label} exam preparation. Return ONLY a JSON array with objects having "front" and "back" fields. Make them high-yield, clinically relevant, and distinct from basic concepts. Focus on ${track === "nce" ? "frequently tested concepts, definitions, and application to counseling scenarios" : "differential diagnosis, nuanced clinical scenarios, and frequently tested concepts"}.
 
 Example format: [{"front":"Question here?","back":"Detailed answer here"}]
 
@@ -346,7 +351,7 @@ Return ONLY valid JSON, no markdown or explanation.`
   return (
     <div className="p-4 sm:p-6 max-w-4xl mx-auto space-y-6">
       <h1 className="text-2xl font-bold text-foreground">Flashcards</h1>
-      <p className="text-muted-foreground">Review key NCMHCE concepts with spaced repetition</p>
+      <p className="text-muted-foreground">Review key {config.label} concepts with spaced repetition</p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
         {flashcardDecks.map((deck) => {

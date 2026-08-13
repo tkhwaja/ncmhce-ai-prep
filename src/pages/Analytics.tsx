@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
+import { useExamTrack } from "@/contexts/ExamTrackContext";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -14,6 +15,7 @@ import {
   Target, TrendingUp, CheckCircle2, Sparkles, BarChart3
 } from "lucide-react";
 import TceIcon, { TceIconName } from "@/components/icons/TceIcon";
+import { getAnalyticsConfig } from "@/lib/exam-analytics";
 
 const DOMAIN_ICONS: Record<string, TceIconName> = {
   "Intake/assessment/diagnosis": "domain-assessment",
@@ -21,14 +23,14 @@ const DOMAIN_ICONS: Record<string, TceIconName> = {
   "Core counseling attributes": "domain-counseling",
   "Treatment planning": "domain-treatment",
   "Counseling skills and interventions": "domain-intervention",
-};
-
-const DOMAIN_SHORT: Record<string, string> = {
-  "Intake/assessment/diagnosis": "Assessment",
-  "Professional practice and ethics": "Ethics",
-  "Core counseling attributes": "Core Counseling",
-  "Treatment planning": "Treatment",
-  "Counseling skills and interventions": "Interventions",
+  "Professional Counseling Orientation and Ethical Practice": "domain-ethics",
+  "Social and Cultural Diversity": "domain-counseling",
+  "Human Growth and Development": "domain-counseling",
+  "Career Development": "domain-treatment",
+  "Counseling and Helping Relationships": "domain-intervention",
+  "Group Counseling and Group Work": "domain-intervention",
+  "Assessment and Testing": "domain-assessment",
+  "Research and Program Evaluation": "domain-treatment",
 };
 
 interface Attempt {
@@ -40,32 +42,19 @@ interface Attempt {
   created_at: string;
 }
 
-const DOMAINS = [
-  "Intake/assessment/diagnosis",
-  "Professional practice and ethics",
-  "Core counseling attributes",
-  "Treatment planning",
-  "Counseling skills and interventions",
-];
-
-const DOMAIN_ALIASES: Record<string, string> = {
-  "Assessment & Diagnosis": "Intake/assessment/diagnosis",
-  "Information Gathering": "Intake/assessment/diagnosis",
-  "Professional Practice & Ethics": "Professional practice and ethics",
-  "Counselor Attributes & Core Competencies": "Core counseling attributes",
-  "Treatment Planning": "Treatment planning",
-  "Counseling Skills & Interventions": "Counseling skills and interventions",
-};
-
-const normalizeDomain = (domain: string) => DOMAIN_ALIASES[domain] || domain;
-
 const Analytics = () => {
   const { user, session } = useAuth();
+  const { track, config } = useExamTrack();
+  const analyticsConfig = getAnalyticsConfig(track);
   const { toast } = useToast();
   const [attempts, setAttempts] = useState<Attempt[]>([]);
   const [loading, setLoading] = useState(true);
   const [aiAnalysis, setAiAnalysis] = useState("");
   const [aiLoading, setAiLoading] = useState(false);
+
+  const normalizeDomain = (domain: string) => analyticsConfig.aliases[domain] || domain;
+
+
 
   useEffect(() => {
     if (!user) return;
@@ -75,6 +64,7 @@ const Analytics = () => {
         .from("narrative_attempts")
         .select("narrative_id, total_score, domain_scores, ig_selections, completed_at, created_at")
         .eq("user_id", user.id)
+        .eq("exam_track", track)
         .not("completed_at", "is", null)
         .order("created_at", { ascending: true });
       setAttempts((data as Attempt[]) || []);
@@ -108,7 +98,7 @@ const Analytics = () => {
       supabase.removeChannel(channel);
       window.removeEventListener("focus", onFocus);
     };
-  }, [user]);
+  }, [user, track]);
 
   const completed = attempts.filter((a) => a.completed_at);
   const avgScore = completed.length > 0
@@ -129,9 +119,9 @@ const Analytics = () => {
       domainTotals[normalizedDomain].count++;
     });
   });
-  const domainAvgs = DOMAINS.map((d) => ({
+  const domainAvgs = analyticsConfig.domains.map((d) => ({
     domain: d,
-    shortName: DOMAIN_SHORT[d] || d,
+    shortName: analyticsConfig.shortNames[d] || d,
     score: domainTotals[d] ? Math.round(domainTotals[d].sum / domainTotals[d].count) : 0,
   }));
 
@@ -162,20 +152,20 @@ const Analytics = () => {
         body: JSON.stringify({
           messages: [{
             role: "user",
-            content: `Analyze my NCMHCE prep data and give structured recommendations. Use exactly these 3 markdown headers and keep each section to 2-3 bullet points max:
+            content: `Analyze my ${config.label} prep data and give structured recommendations. Use exactly these 3 markdown headers and keep each section to 2-3 bullet points max:
 
 ## 💪 Strengths
 ## ⚠️ Areas to Improve  
 ## 📋 Study Plan
 
 My data:
-- Narratives completed: ${completed.length}
+- ${config.format === "multiple-choice" ? "Practice sessions" : "Narratives"} completed: ${completed.length}
 - Average score: ${avgScore}%
 - Pass rate: ${passRate}%
 - Domain scores:
 ${domainAvgs.map((d) => `  ${d.domain}: ${d.score}%`).join("\n")}
 
-Be specific — name exact DSM-5-TR categories or topics to review. Keep it actionable and concise.`
+Be specific — name exact ${config.format === "multiple-choice" ? "counseling content areas" : "DSM-5-TR categories"} or topics to review. Keep it actionable and concise.`
           }],
           context: "Analytics Dashboard — structured analysis",
         }),
@@ -225,7 +215,7 @@ Be specific — name exact DSM-5-TR categories or topics to review. Keep it acti
           <CardContent className="p-12 text-center">
             <BarChart3 className="h-12 w-12 text-muted-foreground mx-auto mb-4" />
             <h2 className="text-lg font-semibold text-foreground mb-2">No Data Yet</h2>
-            <p className="text-muted-foreground text-sm">Complete your first narrative to see your analytics here.</p>
+            <p className="text-muted-foreground text-sm">Complete your first {config.format === "multiple-choice" ? "practice session" : "narrative"} to see your analytics here.</p>
           </CardContent>
         </Card>
       </div>
@@ -243,7 +233,7 @@ Be specific — name exact DSM-5-TR categories or topics to review. Keep it acti
             <div className="p-2 rounded-lg bg-primary/20 text-primary"><Target className="h-5 w-5" /></div>
             <div>
               <p className="text-2xl font-bold text-foreground">{completed.length}</p>
-              <p className="text-xs text-muted-foreground">Narratives Completed</p>
+              <p className="text-xs text-muted-foreground">{config.format === "multiple-choice" ? "Practice Sessions" : "Narratives"} Completed</p>
             </div>
           </CardContent>
         </Card>
