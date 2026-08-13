@@ -104,7 +104,7 @@ const Flashcards = () => {
     // Upsert
     const { error } = await supabase.from("flashcard_progress").upsert(
       { user_id: user.id, card_id: cardId, deck_id: deckId, status, last_reviewed: now.toISOString(), next_review: nextReview, exam_track: track },
-      { onConflict: "user_track_card_deck" }
+      { onConflict: "user_id,card_id,deck_id" }
     );
 
     if (error) console.error("Failed to save progress:", error);
