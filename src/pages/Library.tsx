@@ -146,6 +146,9 @@ const LibraryModuleDetail = ({ module, onBack }: { module: LibraryModule; onBack
 /* ================================================================== */
 
 const Library = () => {
+  const { track, config } = useExamTrack();
+  const libraryModules = getActiveLibraryModules(track);
+  const categoryOrder = getActiveCategoryOrder(track);
   const [selectedModule, setSelectedModule] = useState<LibraryModule | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
@@ -157,7 +160,7 @@ const Library = () => {
     if (!moduleId) return;
     const module = libraryModules.find((item) => item.id === moduleId);
     if (module) setSelectedModule(module);
-  }, [location.search]);
+  }, [location.search, libraryModules]);
 
   // Reset to library index only on real /library re-navigation, not direct module links.
   useEffect(() => {
