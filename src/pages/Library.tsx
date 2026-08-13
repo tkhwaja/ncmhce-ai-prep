@@ -29,13 +29,13 @@ const iconMap: Record<string, React.ElementType> = {
 /*  Module Detail View                                                 */
 /* ================================================================== */
 
-const LibraryModuleDetail = ({ module, onBack }: { module: LibraryModule; onBack: () => void }) => {
+const LibraryModuleDetail = ({ module, onBack, trackLabel }: { module: AnyLibraryModule; onBack: () => void; trackLabel: string }) => {
   const isGlossary = module.moduleType === "glossary";
   const hasStructuredData = !!module.data;
   const { openChatWithPrompt } = useOutletContext<AppLayoutOutletContext>();
 
   const handleQuizClick = () => {
-    openChatWithPrompt(`Quiz me on the ${module.title} module. Create 5 NCMHCE-style multiple choice questions based on the exact material in this section, ask them one at a time, wait for my answer after each, then explain why the correct answer is right.`);
+    openChatWithPrompt(`Quiz me on the ${module.title} module. Create 5 ${trackLabel}-style multiple choice questions based on the exact material in this section, ask them one at a time, wait for my answer after each, then explain why the correct answer is right.`);
   };
 
   const { bookmarkedId } = useBookmark(module.id);
