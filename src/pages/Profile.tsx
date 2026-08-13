@@ -11,6 +11,7 @@ import { useToast } from "@/hooks/use-toast";
 import { useNavigate } from "react-router-dom";
 import { Save, Target, TrendingUp, Layers, Calendar, BarChart3, CalendarCheck, KeyRound, Trash2, CreditCard, XCircle } from "lucide-react";
 import { useSubscription } from "@/hooks/useSubscription";
+import { useExamTrack } from "@/contexts/ExamTrackContext";
 import { getStripeEnvironment } from "@/lib/stripe";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
@@ -18,6 +19,7 @@ const Profile = () => {
   const { user, profile, refreshProfile, signOut } = useAuth();
   const { toast } = useToast();
   const navigate = useNavigate();
+  const { track, config } = useExamTrack();
   const [fullName, setFullName] = useState("");
   const [bio, setBio] = useState("");
   const [studyHours, setStudyHours] = useState(0);
@@ -53,6 +55,7 @@ const Profile = () => {
         .from("narrative_attempts")
         .select("total_score, completed_at")
         .eq("user_id", user.id)
+        .eq("exam_track", track)
         .not("completed_at", "is", null);
 
       if (attempts) {
@@ -65,6 +68,7 @@ const Profile = () => {
         .from("flashcard_progress")
         .select("*", { count: "exact", head: true })
         .eq("user_id", user.id)
+        .eq("exam_track", track)
         .eq("status", "mastered");
       setFlashcardsMastered(count || 0);
 
@@ -74,7 +78,7 @@ const Profile = () => {
       }
     };
     fetchStats();
-  }, [user]);
+  }, [user, track]);
 
   const handleSave = async () => {
     if (!profile) return;
@@ -189,10 +193,12 @@ const Profile = () => {
     }
   };
 
-  // Determine subscription display info
-  const hasStripeSub = !!sub.status && sub.status !== "none";
-  const isFounding = !hasStripeSub && (profile?.payment_status === "paid" || !!profile?.access_expires_at);
-  const accessUntil = sub.currentPeriodEnd || profile?.access_expires_at || null;
+  // Determine subscription display info for the active exam track
+  const trackSub = sub.trackStatus(track);
+  const hasAccess = sub.hasAccessTo(track);
+  const hasStripeSub = !!trackSub.status && trackSub.status !== "none";
+  const isFounding = !hasStripeSub && hasAccess && track === "ncmhce" && (profile?.payment_status === "paid" || !!profile?.access_expires_at);
+  const accessUntil = trackSub.currentPeriodEnd || profile?.access_expires_at || null;
 
   const initials = (fullName || "?").split(" ").map(n => n[0]).join("").toUpperCase().slice(0, 2);
 
@@ -291,11 +297,11 @@ const Profile = () => {
               <div className="flex items-center justify-between flex-wrap gap-3">
                 <div>
                   <p className="text-sm font-medium text-foreground capitalize">
-                    Status: {sub.status}{sub.cancelAtPeriodEnd ? " (cancels at period end)" : ""}
+                    {config.label} status: {trackSub.status}{trackSub.cancelAtPeriodEnd ? " (cancels at period end)" : ""}
                   </p>
                   {accessUntil && (
                     <p className="text-xs text-muted-foreground">
-                      {sub.cancelAtPeriodEnd || sub.status === "canceled" ? "Access until " : "Renews "}
+                      {trackSub.cancelAtPeriodEnd || trackSub.status === "canceled" ? "Access until " : "Renews "}
                       {new Date(accessUntil).toLocaleDateString()}
                     </p>
                   )}
@@ -304,10 +310,10 @@ const Profile = () => {
                   {portalLoading ? "Opening..." : "Manage Billing"}
                 </Button>
               </div>
-              {!sub.cancelAtPeriodEnd && sub.status !== "canceled" && (
+              {!trackSub.cancelAtPeriodEnd && trackSub.status !== "canceled" && (
                 <div className="border-t border-border pt-4 flex items-center justify-between">
                   <div>
-                    <p className="text-sm font-medium text-foreground">Cancel Subscription</p>
+                    <p className="text-sm font-medium text-foreground">Cancel {config.label} Subscription</p>
                     <p className="text-xs text-muted-foreground">We'd love your feedback before you go</p>
                   </div>
                   <Button variant="outline" size="sm" onClick={() => setCancelOpen(true)}>

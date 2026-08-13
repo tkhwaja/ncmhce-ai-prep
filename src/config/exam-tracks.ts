@@ -38,6 +38,12 @@ export interface ExamTrackConfig {
 
   /** Stripe price lookup key that grants this track. */
   priceId: string;
+  /** Optional founder/intro price lookup key. */
+  founderPriceId?: string;
+  /** ISO deadline after which the regular price is used. */
+  founderDeadline?: string;
+  /** Founder monthly price in cents, for paywall copy. */
+  founderMonthlyPriceCents?: number;
   /** Monthly price in cents, for paywall copy. */
   monthlyPriceCents: number;
   /** False while the track is still being built. */
@@ -45,6 +51,15 @@ export interface ExamTrackConfig {
   /** Visible to users at all. */
   enabled: boolean;
 }
+
+/** Returns the price ID currently offered for a track. */
+export const currentPriceId = (track: ExamTrack): string => {
+  const cfg = EXAM_TRACKS[track];
+  if (cfg.founderPriceId && cfg.founderDeadline) {
+    if (new Date().toISOString() < cfg.founderDeadline) return cfg.founderPriceId;
+  }
+  return cfg.priceId;
+};
 
 export const EXAM_TRACKS: Record<ExamTrack, ExamTrackConfig> = {
   ncmhce: {
@@ -104,7 +119,10 @@ export const EXAM_TRACKS: Record<ExamTrack, ExamTrackConfig> = {
     ],
 
     priceId: "nce_monthly",
-    monthlyPriceCents: 7900,
+    founderPriceId: "nce_founder_monthly",
+    founderDeadline: "2026-08-25T23:59:59Z",
+    founderMonthlyPriceCents: 5900,
+    monthlyPriceCents: 6900,
     contentReady: false,
     enabled: NCE_ENABLED,
   },

@@ -10,6 +10,7 @@ import {
 import type { Narrative, NarrativeQuestion } from "@/data/narratives";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
+import { useExamTrack } from "@/contexts/ExamTrackContext";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -57,6 +58,7 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
   const examAttemptId = searchParams.get("examAttempt");
   const examIdParam = searchParams.get("examId");
   const { user } = useAuth();
+  const { track } = useExamTrack();
   const liveNarrative = getNarrativeById(narrativeIdOverride ?? id);
   // `snapshotNarrative` is the frozen copy attached to an in-progress / completed
   // attempt. When present it overrides the live bundle so that users finishing
@@ -292,6 +294,7 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
         await supabase.from("narrative_attempts").insert({
           user_id: user.id,
           narrative_id: narrative.id,
+          exam_track: track,
           ig_selections: [],
           narrative_version: freeze?.version ?? null,
           narrative_snapshot: (freeze as unknown as never) ?? null,

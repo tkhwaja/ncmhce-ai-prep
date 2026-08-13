@@ -4,7 +4,7 @@ import { PaymentTestModeBanner } from "@/components/PaymentTestModeBanner";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft } from "lucide-react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
-import { formatPrice, resolveTrack, trackConfig } from "@/config/exam-tracks";
+import { formatPrice, resolveTrack, trackConfig, currentPriceId } from "@/config/exam-tracks";
 
 const CheckoutPage = () => {
   const { user, loading: authLoading } = useAuth();
@@ -14,6 +14,11 @@ const CheckoutPage = () => {
   // Defaults to NCMHCE, so every existing /checkout link behaves exactly as before.
   const track = resolveTrack(searchParams.get("track"));
   const config = trackConfig(track);
+  const priceId = currentPriceId(track);
+  const isFounderPrice = priceId === config.founderPriceId;
+  const displayedPriceCents = isFounderPrice && config.founderMonthlyPriceCents
+    ? config.founderMonthlyPriceCents
+    : config.monthlyPriceCents;
   const nextPath = `/checkout?track=${track}`;
 
   return (
@@ -25,13 +30,22 @@ const CheckoutPage = () => {
         </Button>
 
         <h1 className="text-2xl font-bold text-foreground mb-2">
-          {config.label} Pro — {formatPrice(config.monthlyPriceCents)}/month
+          {config.label} Pro — {formatPrice(displayedPriceCents)}/month
         </h1>
         <p className="text-muted-foreground mb-6">
           Full access to the {config.label} track on The Exam Path. Cancel anytime from your
           profile.
         </p>
 
+        {isFounderPrice && config.founderMonthlyPriceCents && (
+          <div className="mb-6 rounded-lg border border-primary/30 bg-primary/10 p-4">
+            <p className="text-sm font-medium text-primary">
+              Founder pricing active: {formatPrice(config.founderMonthlyPriceCents)}/month
+              (regular {formatPrice(config.monthlyPriceCents)}/month after the founder window).
+              Lock in the founder rate as long as you stay subscribed.
+            </p>
+          </div>
+        )}
 
         {authLoading ? (
           <div className="flex justify-center py-12">
@@ -55,7 +69,7 @@ const CheckoutPage = () => {
           </div>
         ) : (
           <StripeEmbeddedCheckout
-            priceId={config.priceId}
+            priceId={priceId}
             customerEmail={user.email || undefined}
             userId={user.id}
             returnUrl={`${window.location.origin}/checkout/return?session_id={CHECKOUT_SESSION_ID}`}
