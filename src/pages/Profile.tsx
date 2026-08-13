@@ -55,6 +55,7 @@ const Profile = () => {
         .from("narrative_attempts")
         .select("total_score, completed_at")
         .eq("user_id", user.id)
+        .eq("exam_track", track)
         .not("completed_at", "is", null);
 
       if (attempts) {
@@ -67,6 +68,7 @@ const Profile = () => {
         .from("flashcard_progress")
         .select("*", { count: "exact", head: true })
         .eq("user_id", user.id)
+        .eq("exam_track", track)
         .eq("status", "mastered");
       setFlashcardsMastered(count || 0);
 
@@ -76,7 +78,7 @@ const Profile = () => {
       }
     };
     fetchStats();
-  }, [user]);
+  }, [user, track]);
 
   const handleSave = async () => {
     if (!profile) return;
