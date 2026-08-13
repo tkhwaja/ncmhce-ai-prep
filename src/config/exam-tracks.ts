@@ -121,6 +121,7 @@ export const EXAM_TRACKS: Record<ExamTrack, ExamTrackConfig> = {
     priceId: "nce_monthly",
     founderPriceId: "nce_founder_monthly",
     founderDeadline: "2026-08-25T23:59:59Z",
+    founderMonthlyPriceCents: 5900,
     monthlyPriceCents: 6900,
     contentReady: false,
     enabled: NCE_ENABLED,
