@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useSubscription } from "@/hooks/useSubscription";
 import { useExamTrack } from "@/contexts/ExamTrackContext";
-import { formatPrice } from "@/config/exam-tracks";
+import { formatPrice, currentPriceId } from "@/config/exam-tracks";
 import { Button } from "@/components/ui/button";
 import { Check, Lock, Hammer } from "lucide-react";
 
