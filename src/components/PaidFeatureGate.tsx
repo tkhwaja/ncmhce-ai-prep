@@ -25,6 +25,11 @@ const trackFeatures: Record<string, string[]> = {
 const PaidFeatureGate = ({ children, feature }: { children: React.ReactNode; feature: string }) => {
   const { hasAccessTo, loading } = useSubscription();
   const { track, config } = useExamTrack();
+  const activePriceId = currentPriceId(track);
+  const isFounderPrice = activePriceId === config.founderPriceId;
+  const displayedPriceCents = isFounderPrice && config.founderMonthlyPriceCents
+    ? config.founderMonthlyPriceCents
+    : config.monthlyPriceCents;
 
   if (loading) {
     return (
