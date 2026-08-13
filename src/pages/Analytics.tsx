@@ -56,11 +56,14 @@ const Analytics = () => {
 
 const Analytics = () => {
   const { user, session } = useAuth();
+  const { track, config } = useExamTrack();
+  const analyticsConfig = getAnalyticsConfig(track);
   const { toast } = useToast();
   const [attempts, setAttempts] = useState<Attempt[]>([]);
   const [loading, setLoading] = useState(true);
   const [aiAnalysis, setAiAnalysis] = useState("");
   const [aiLoading, setAiLoading] = useState(false);
+
 
   useEffect(() => {
     if (!user) return;
