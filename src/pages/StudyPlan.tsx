@@ -1,10 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
+import { useExamTrack } from "@/contexts/ExamTrackContext";
 import { supabase } from "@/integrations/supabase/client";
-import { libraryModules } from "@/data/library-modules";
-import { flashcardDecks } from "@/data/flashcards";
-import { narratives } from "@/data/narratives";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -21,6 +19,8 @@ import { useToast } from "@/hooks/use-toast";
 import ReactMarkdown from "react-markdown";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
+import { getActiveLibraryModules, getActiveNarratives, getActiveFlashcardDecks, getActivePracticeExams } from "@/lib/exam-content";
+import type { ExamTrack } from "@/config/exam-tracks";
 import {
   CalendarIcon, Sparkles, ChevronDown, ChevronRight, RotateCcw, BookOpen, CheckCircle2
 } from "lucide-react";
