@@ -437,7 +437,7 @@ IMPORTANT: Return ONLY a valid JSON array, no markdown, no explanation. Example 
     <div className="p-6 max-w-2xl mx-auto space-y-6">
       <div className="text-center mb-8">
         <BookOpen className="h-10 w-10 text-primary mx-auto mb-3" />
-        <h1 className="text-2xl font-bold text-foreground">Let's Build Your Personalized Study Plan</h1>
+        <h1 className="text-2xl font-bold text-foreground">Let's Build Your Personalized {config.label} Study Plan</h1>
         <p className="text-muted-foreground mt-2">Answer a few questions and our AI will create a custom study schedule</p>
       </div>
 
