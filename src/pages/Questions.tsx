@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { useExamTrack } from "@/contexts/ExamTrack";
+import { useExamTrack } from "@/contexts/ExamTrackContext";
 import { getActiveQuestions } from "@/lib/exam-content";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
@@ -19,14 +19,14 @@ const Questions = () => {
   );
 
   const filtered = useMemo(() => {
-    return questions.filter((q) => {
-      const matchesDomain = domainFilter === "all" || q.domain === domainFilter;
-      const q = search.toLowerCase();
+    const query = search.toLowerCase();
+    return questions.filter((question) => {
+      const matchesDomain = domainFilter === "all" || question.domain === domainFilter;
       const matchesSearch =
         search === "" ||
-        q.stem.toLowerCase().includes(q) ||
-        q.options.some((o) => o.toLowerCase().includes(q)) ||
-        (q.tags?.some((t) => t.toLowerCase().includes(q)) ?? false);
+        question.stem.toLowerCase().includes(query) ||
+        question.options.some((o) => o.toLowerCase().includes(query)) ||
+        (question.tags?.some((t) => t.toLowerCase().includes(query)) ?? false);
       return matchesDomain && matchesSearch;
     });
   }, [questions, search, domainFilter]);
