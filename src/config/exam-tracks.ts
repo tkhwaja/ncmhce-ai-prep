@@ -42,6 +42,8 @@ export interface ExamTrackConfig {
   founderPriceId?: string;
   /** ISO deadline after which the regular price is used. */
   founderDeadline?: string;
+  /** Founder monthly price in cents, for paywall copy. */
+  founderMonthlyPriceCents?: number;
   /** Monthly price in cents, for paywall copy. */
   monthlyPriceCents: number;
   /** False while the track is still being built. */
