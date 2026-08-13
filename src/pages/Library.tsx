@@ -152,7 +152,7 @@ const Library = () => {
   const { track, config } = useExamTrack();
   const libraryModules = getActiveLibraryModules(track);
   const categoryOrder = getActiveCategoryOrder(track);
-  const [selectedModule, setSelectedModule] = useState<LibraryModule | null>(null);
+  const [selectedModule, setSelectedModule] = useState<AnyLibraryModule | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
   const previousPathname = useRef(location.pathname);
