@@ -119,9 +119,9 @@ const Analytics = () => {
       domainTotals[normalizedDomain].count++;
     });
   });
-  const domainAvgs = DOMAINS.map((d) => ({
+  const domainAvgs = analyticsConfig.domains.map((d) => ({
     domain: d,
-    shortName: DOMAIN_SHORT[d] || d,
+    shortName: analyticsConfig.shortNames[d] || d,
     score: domainTotals[d] ? Math.round(domainTotals[d].sum / domainTotals[d].count) : 0,
   }));
 
