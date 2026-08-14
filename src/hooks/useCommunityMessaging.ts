@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState, useId } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import type { CommunityMessage, Conversation } from "@/types/community";
@@ -43,6 +43,7 @@ export function useCommunityMessaging() {
   const { user } = useAuth();
   const [conversations, setConversations] = useState<ConversationSummary[]>([]);
   const [loading, setLoading] = useState(true);
+  const instanceId = useId();
 
   const refresh = useCallback(async () => {
     if (!user) {
@@ -128,6 +129,9 @@ export function useCommunityMessaging() {
     refresh();
   }, [refresh]);
 
+  const refreshRef = useRef(refresh);
+  useEffect(() => { refreshRef.current = refresh; }, [refresh]);
+
   useEffect(() => {
     if (!user) return;
     const channel = supabase
@@ -135,16 +139,16 @@ export function useCommunityMessaging() {
       .on(
         "postgres_changes",
         { event: "*", schema: "public", table: "community_messages" },
-        () => refresh()
+        () => refreshRef.current()
       )
       .on(
         "postgres_changes",
         { event: "*", schema: "public", table: "conversation_members" },
-        () => refresh()
+        () => refreshRef.current()
       )
       .subscribe();
     return () => { supabase.removeChannel(channel); };
-  }, [user, refresh]);
+  }, [user, instanceId]);
 
   const totalUnread = conversations.reduce((sum, c) => sum + c.unread, 0);
 
