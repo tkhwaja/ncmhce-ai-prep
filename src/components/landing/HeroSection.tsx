@@ -1,6 +1,7 @@
 import FreeDiagnosticCTA from "./FreeDiagnosticCTA";
 import { ArrowDown } from "lucide-react";
 import { Link } from "react-router-dom";
+import { NCE_ENABLED } from "@/config/exam-tracks";
 
 const HeroSection = () => {
   return (
@@ -21,13 +22,16 @@ const HeroSection = () => {
 
             <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight leading-[1.1] text-foreground mb-3">
                 The modern way to study
-                <span className="text-gradient"> for the NCMHCE.</span>
+                <span className="text-gradient">
+                  {NCE_ENABLED ? " for the NCMHCE & NCE." : " for the NCMHCE."}
+                </span>
             </h1>
 
 
             <p className="text-lg md:text-xl text-muted-foreground max-w-xl mb-8 leading-relaxed">
-                AI tutoring, narrative simulations, and smart study tools — built for how you actually learn.
-                Start with a free diagnostic case and see exactly where you stand before test day.
+                {NCE_ENABLED
+                  ? "AI tutoring, case simulations, a full NCE question bank, and smart study tools — built for how you actually learn. Choose your exam, then start with a free diagnostic case and see exactly where you stand before test day."
+                  : "AI tutoring, narrative simulations, and smart study tools — built for how you actually learn. Start with a free diagnostic case and see exactly where you stand before test day."}
             </p>
 
               <div className="mb-4 flex flex-col sm:flex-row gap-3 sm:items-center">

@@ -4,8 +4,24 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@/components/ui/accordion";
+import { NCE_ENABLED } from "@/config/exam-tracks";
 
-const faqs = [
+const nceFaqs = [
+  {
+    q: "Do you cover the NCE as well as the NCMHCE?",
+    a: "Yes. The Exam Path supports both counseling licensure exams. The NCMHCE track is built around clinical case simulations, and the NCE track is built around a 1,000-question multiple-choice bank covering all eight CACREP content areas, plus two full-length 200-question practice exams. You choose your exam when you sign up, and the whole platform — practice, analytics, study plan, and library — adapts to it.",
+  },
+  {
+    q: "What is the difference between the NCE and the NCMHCE?",
+    a: "The NCE is a 200-question multiple-choice knowledge exam (160 scored) covering the eight CACREP content areas. The NCMHCE is a clinical case-simulation exam built from case narratives with applied clinical decision questions. Put simply, the NCE asks what you know and the NCMHCE asks what you would do next. Your state licensing board determines which one you need.",
+  },
+  {
+    q: "Can I switch exams or study for both?",
+    a: "You can switch your active exam any time from your profile, and your progress in each track is tracked separately. Each track is its own subscription, so if your licensure path requires both exams you can add the second track when you are ready for it.",
+  },
+];
+
+const baseFaqs = [
   {
     q: "What is The Exam Path?",
     a: "The Exam Path (formerly known as TheCounselorExam.com) is an exam prep platform built specifically for the NCMHCE. It combines realistic clinical case narratives, a full-length timed practice exam, domain analytics, flashcards, a DSM-5-TR library, and optional in-session support to help you practice in a way that feels much closer to the real test.",
@@ -39,6 +55,8 @@ const faqs = [
     a: "Beta users can try the complete platform: all clinical narratives, practice exams, optional in-session support, flashcards with spaced repetition, DSM-5-TR library, personalized study plan, domain analytics, Pomodoro timer, and note-taking tools.",
   },
 ];
+
+const faqs = NCE_ENABLED ? [baseFaqs[0], ...nceFaqs, ...baseFaqs.slice(1)] : baseFaqs;
 
 const FAQSection = () => (
   <section id="faq" className="section-padding bg-muted/10">

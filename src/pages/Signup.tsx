@@ -20,7 +20,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import { MailCheck } from "lucide-react";
-import { availableTracks, DEFAULT_EXAM_TRACK } from "@/config/exam-tracks";
+import { availableTracks, DEFAULT_EXAM_TRACK, resolveTrack } from "@/config/exam-tracks";
 
 const schema = z
   .object({
@@ -46,6 +46,7 @@ const Signup = () => {
   const navigate = useNavigate();
   const [searchParams] = useSearchParams();
   const next = searchParams.get("next");
+  const trackParam = resolveTrack(searchParams.get("track"));
   const safeNext = next && next.startsWith("/") ? next : null;
   const loginHref = safeNext ? `/login?confirm=pending&next=${encodeURIComponent(safeNext)}` : "/login?confirm=pending";
   const { toast } = useToast();
@@ -68,7 +69,7 @@ const Signup = () => {
   } = useForm<FormValues>({
     resolver: zodResolver(schema),
     mode: "onChange",
-    defaultValues: { activeExamTrack: DEFAULT_EXAM_TRACK },
+    defaultValues: { activeExamTrack: trackParam },
   });
 
   const password = watch("password") || "";

@@ -1,4 +1,5 @@
 import { GraduationCap, RotateCcw, BookOpen } from "lucide-react";
+import { NCE_ENABLED } from "@/config/exam-tracks";
 
 const personas = [
   {
@@ -14,7 +15,9 @@ const personas = [
   {
     icon: BookOpen,
     title: "Counseling Students",
-    desc: "You want early exposure to NCMHCE-style clinical simulations so you're not starting from scratch after graduation.",
+    desc: NCE_ENABLED
+      ? "You want early exposure to NCE content areas and NCMHCE-style clinical simulations so you're not starting from scratch after graduation."
+      : "You want early exposure to NCMHCE-style clinical simulations so you're not starting from scratch after graduation.",
   },
 ];
 
@@ -24,7 +27,9 @@ const WhoItsFor = () => (
       <div className="text-center mb-14">
         <p className="text-sm font-medium text-primary uppercase tracking-wider mb-3">Who It's For</p>
         <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-          Built for Every Stage of Your NCMHCE Journey
+          {NCE_ENABLED
+          ? "Built for Every Stage of Your Licensure Journey"
+          : "Built for Every Stage of Your NCMHCE Journey"}
         </h2>
       </div>
 
