@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 
@@ -19,6 +19,7 @@ export function useUnreadMessages() {
   const { user } = useAuth();
   const [total, setTotal] = useState(0);
   const [notifications, setNotifications] = useState<UnreadNotification[]>([]);
+  const instanceId = useId();
 
   const load = useCallback(async () => {
     if (!user) {
@@ -94,15 +95,18 @@ export function useUnreadMessages() {
 
   useEffect(() => { load(); }, [load]);
 
+  const loadRef = useRef(load);
+  useEffect(() => { loadRef.current = load; }, [load]);
+
   useEffect(() => {
     if (!user) return;
     const channel = supabase
-      .channel("community-unread-bell")
-      .on("postgres_changes", { event: "*", schema: "public", table: "community_messages" }, () => load())
-      .on("postgres_changes", { event: "*", schema: "public", table: "conversation_members" }, () => load())
+      .channel(`community-unread-bell:${user.id}:${instanceId}`)
+      .on("postgres_changes", { event: "*", schema: "public", table: "community_messages" }, () => loadRef.current())
+      .on("postgres_changes", { event: "*", schema: "public", table: "conversation_members" }, () => loadRef.current())
       .subscribe();
     return () => { supabase.removeChannel(channel); };
-  }, [user, load]);
+  }, [user, instanceId]);
 
   return { total, notifications, refresh: load };
 }

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState, useId } from "react";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import type { CommunityMessage, Conversation } from "@/types/community";
@@ -131,7 +131,7 @@ export function useCommunityMessaging() {
   useEffect(() => {
     if (!user) return;
     const channel = supabase
-      .channel("community-messaging-sync")
+      .channel(`community-messaging-sync:${user.id}:${instanceId}`)
       .on(
         "postgres_changes",
         { event: "*", schema: "public", table: "community_messages" },
