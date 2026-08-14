@@ -345,12 +345,12 @@ const Profile = () => {
               <div>
                 <p className="text-sm font-semibold text-foreground">You're on the Free plan</p>
                 <p className="text-xs text-muted-foreground mt-1">
-                  Unlock all narratives, full-length practice exams, flashcards, AI coaching, and your
-                  personalized study plan for $79/month. Cancel anytime.
+                  Unlock all {track === "nce" ? "questions" : "narratives"}, full-length practice exams, flashcards, AI coaching, and your
+                  personalized study plan for {config.monthlyPriceCents === 7900 ? "$79" : "$69"}/month. Cancel anytime.
                 </p>
               </div>
-              <Button onClick={() => navigate("/checkout")} className="w-full sm:w-auto">
-                <CreditCard className="mr-2 h-4 w-4" /> Subscribe — $79/month
+              <Button onClick={() => navigate(`/checkout?track=${track}`)} className="w-full sm:w-auto">
+                <CreditCard className="mr-2 h-4 w-4" /> Subscribe — {config.monthlyPriceCents === 7900 ? "$79" : "$69"}/month
               </Button>
             </div>
           )}
