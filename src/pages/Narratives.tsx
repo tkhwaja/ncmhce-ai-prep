@@ -81,6 +81,16 @@ const Narratives = () => {
       gradient: "linear-gradient(135deg, #FCD34D 0%, #F59E0B 40%, #FDE68A 60%, #D97706 100%)",
       shadow: "0 4px 14px -2px rgba(245, 158, 11, 0.55), inset 1px 1px 2px rgba(255,255,255,0.55)",
     },
+    "24-priya-atypical-anorexia-ocd": {
+      addedAt: "2026-08-14",
+      gradient: "linear-gradient(135deg, #5EEAD4 0%, #14B8A6 40%, #99F6E4 60%, #0D9488 100%)",
+      shadow: "0 4px 14px -2px rgba(20, 184, 166, 0.55), inset 1px 1px 2px rgba(255,255,255,0.55)",
+    },
+    "25-marcus-ptsd-panic-alcohol": {
+      addedAt: "2026-08-14",
+      gradient: "linear-gradient(135deg, #FDA4AF 0%, #E11D48 40%, #FECDD3 60%, #BE123C 100%)",
+      shadow: "0 4px 14px -2px rgba(225, 29, 72, 0.55), inset 1px 1px 2px rgba(255,255,255,0.55)",
+    },
   };
   const NEW_BADGE_DAYS = 14;
   const examTwoIsNew = (() => {
