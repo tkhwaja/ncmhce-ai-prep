@@ -110,6 +110,19 @@ const Dashboard = () => {
     };
   }, [user, track]);
 
+  useEffect(() => {
+    if (!isNewUser || loading) return;
+    try {
+      if (localStorage.getItem("tep:welcome-dismissed")) return;
+    } catch {
+      /* storage unavailable */
+    }
+    const hasActivity = attempts.length > 0 || flashcardProgress.length > 0;
+    if (!hasActivity) {
+      setWelcomeOpen(true);
+    }
+  }, [isNewUser, loading, attempts, flashcardProgress]);
+
   const completedAttempts = attempts.filter((attempt) => attempt.completed_at);
   const averageScore = completedAttempts.length
     ? Math.round(completedAttempts.reduce((sum, attempt) => sum + (attempt.total_score || 0), 0) / completedAttempts.length)
