@@ -12,6 +12,7 @@ import { useNavigate } from "react-router-dom";
 import { Save, Target, TrendingUp, Layers, Calendar, BarChart3, CalendarCheck, KeyRound, Trash2, CreditCard, XCircle } from "lucide-react";
 import { useSubscription } from "@/hooks/useSubscription";
 import { useExamTrack } from "@/contexts/ExamTrackContext";
+import { formatPrice, currentPriceId } from "@/config/exam-tracks";
 import { getStripeEnvironment } from "@/lib/stripe";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 
