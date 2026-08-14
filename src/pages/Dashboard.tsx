@@ -52,6 +52,7 @@ const Dashboard = () => {
   const [attempts, setAttempts] = useState<NarrativeAttempt[]>([]);
   const [flashcardProgress, setFlashcardProgress] = useState<FlashcardProgress[]>([]);
   const [loading, setLoading] = useState(true);
+  const [welcomeOpen, setWelcomeOpen] = useState(false);
   const rawFirst = profile?.full_name?.trim().split(/\s+/)[0] || "there";
   const firstName = capitalize(rawFirst);
   const today = new Date().toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
