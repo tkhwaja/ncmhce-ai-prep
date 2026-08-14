@@ -41,7 +41,10 @@ const tracks = [
   },
 ];
 
-const ExamTracksSection = () => (
+const ExamTracksSection = () => {
+  if (!NCE_ENABLED) return null;
+
+  return (
   <section id="exams" className="section-padding">
     <div className="container max-w-5xl mx-auto">
       <div className="text-center mb-12">
@@ -101,6 +104,7 @@ const ExamTracksSection = () => (
       )}
     </div>
   </section>
-);
+  );
+};
 
-export default NCE_ENABLED ? ExamTracksSection : () => null;
+export default ExamTracksSection;
