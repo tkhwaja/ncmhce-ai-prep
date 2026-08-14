@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
@@ -12,7 +12,7 @@ import { PasswordInput } from "@/components/ui/password-input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
-import { UserPlus, CalendarIcon, Check, X } from "lucide-react";
+import { UserPlus, CalendarIcon, Check, X, GraduationCap } from "lucide-react";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
@@ -20,6 +20,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import { MailCheck } from "lucide-react";
+import { availableTracks, type ExamTrack, DEFAULT_EXAM_TRACK, EXAM_TRACKS } from "@/config/exam-tracks";
 
 const schema = z
   .object({
