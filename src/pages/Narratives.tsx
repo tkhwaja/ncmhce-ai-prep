@@ -1,3 +1,4 @@
+import { getPracticeExamById, isExamNew } from "@/data/practice-exams";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/contexts/AuthContext";
@@ -82,6 +83,10 @@ const Narratives = () => {
     },
   };
   const NEW_BADGE_DAYS = 14;
+  const examTwoIsNew = (() => {
+    const exam = getPracticeExamById("practice-exam-2");
+    return exam ? isExamNew(exam) : false;
+  })();
   const isBadgeActive = (id: string) => {
     const entry = NEW_BADGES[id];
     if (!entry) return false;
