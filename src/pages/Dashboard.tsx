@@ -302,6 +302,8 @@ const Dashboard = () => {
           </CardContent>
         </Card>
       </div>
+
+      <WelcomeModal open={welcomeOpen} onOpenChange={setWelcomeOpen} />
     </div>
   );
 };
