@@ -1,12 +1,19 @@
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import { examInfoSections } from "@/data/exam-info";
+import { nceExamInfoSections } from "@/data/exam-info-nce";
+import { useExamTrack } from "@/contexts/ExamTrackContext";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
 import { cn } from "@/lib/utils";
 
 const ExamInfo = () => {
-  const [activeSection, setActiveSection] = useState(examInfoSections[0].id);
-  const currentSection = examInfoSections.find((s) => s.id === activeSection) || examInfoSections[0];
+  const { track, config } = useExamTrack();
+  const sections = useMemo(
+    () => (track === "nce" ? nceExamInfoSections : examInfoSections),
+    [track],
+  );
+  const [activeSection, setActiveSection] = useState(sections[0].id);
+  const currentSection = sections.find((s) => s.id === activeSection) || sections[0];
 
   const renderInline = (text: string) =>
     text.replace(/\*\*(.*?)\*\*/g, '<strong class="text-foreground font-semibold">$1</strong>');
@@ -90,11 +97,11 @@ const ExamInfo = () => {
   return (
     <div className="p-6 max-w-6xl mx-auto">
       <h1 className="text-2xl font-bold text-foreground mb-1">Exam Information</h1>
-      <p className="text-muted-foreground mb-8">Everything you need to know about the NCMHCE</p>
+      <p className="text-muted-foreground mb-8">Everything you need to know about the {config.label}</p>
 
       {/* Mobile tabs */}
       <div className="md:hidden flex gap-2 overflow-x-auto pb-3 mb-4 w-full">
-        {examInfoSections.map((section) => (
+        {sections.map((section) => (
           <button
             key={section.id}
             onClick={() => setActiveSection(section.id)}
@@ -115,7 +122,7 @@ const ExamInfo = () => {
         <div className="hidden md:block w-56 flex-shrink-0">
           <nav className="sticky top-6 space-y-1">
             <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wide mb-2 px-3">Sections</p>
-            {examInfoSections.map((section) => (
+            {sections.map((section) => (
               <button
                 key={section.id}
                 onClick={() => setActiveSection(section.id)}
