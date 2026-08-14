@@ -101,7 +101,7 @@ export function useUnreadMessages() {
   useEffect(() => {
     if (!user) return;
     const channel = supabase
-      .channel(`community-unread-bell:${user.id}:${instanceId}`)
+      .channel(`community-unread-bell:${user.id}:${instanceId}:${Math.random().toString(36).slice(2)}`)
       .on("postgres_changes", { event: "*", schema: "public", table: "community_messages" }, () => loadRef.current())
       .on("postgres_changes", { event: "*", schema: "public", table: "conversation_members" }, () => loadRef.current())
       .subscribe();
