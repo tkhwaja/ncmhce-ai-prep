@@ -270,6 +270,55 @@ const Signup = () => {
                 </PopoverContent>
               </Popover>
             </div>
+            {trackOptions.length > 1 && (
+              <Controller
+                name="activeExamTrack"
+                control={control}
+                render={({ field }) => (
+                  <div className="space-y-2">
+                    <Label>I’m studying for</Label>
+                    <div className="grid grid-cols-2 gap-3">
+                      {trackOptions.map((t) => (
+                        <button
+                          key={t.id}
+                          type="button"
+                          onClick={() => field.onChange(t.id)}
+                          className={cn(
+                            "relative flex flex-col items-start gap-2 rounded-xl border p-4 text-left transition-all",
+                            field.value === t.id
+                              ? "border-primary bg-primary/5 ring-1 ring-primary"
+                              : "border-border bg-card hover:border-primary/30 hover:bg-accent"
+                          )}
+                        >
+                          <div className="flex w-full items-center justify-between">
+                            <span className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                              <GraduationCap className="h-4 w-4 text-primary" />
+                              {t.label}
+                            </span>
+                            {field.value === t.id && (
+                              <span className="flex h-4 w-4 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                                <Check className="h-2.5 w-2.5" />
+                              </span>
+                            )}
+                          </div>
+                          <span className="text-xs text-muted-foreground leading-snug">
+                            {t.tagline}
+                          </span>
+                          {!t.contentReady && (
+                            <span className="mt-1 rounded-full bg-muted px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+                              In progress
+                            </span>
+                          )}
+                        </button>
+                      ))}
+                    </div>
+                    {errors.activeExamTrack && (
+                      <p className="text-xs text-destructive">{errors.activeExamTrack.message}</p>
+                    )}
+                  </div>
+                )}
+              />
+            )}
             <Button type="submit" className="w-full" disabled={loading || !isValid}>
               <UserPlus className="mr-2 h-4 w-4" />
               {loading ? "Creating account..." : "Create Account"}
