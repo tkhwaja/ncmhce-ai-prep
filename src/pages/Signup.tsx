@@ -63,16 +63,20 @@ const Signup = () => {
     register,
     handleSubmit,
     watch,
+    control,
     formState: { errors, isValid },
   } = useForm<FormValues>({
     resolver: zodResolver(schema),
     mode: "onChange",
+    defaultValues: { activeExamTrack: DEFAULT_EXAM_TRACK },
   });
 
   const password = watch("password") || "";
   const checks = [
     { label: "At least 6 characters", ok: password.length >= 6 },
   ];
+
+  const trackOptions = availableTracks();
 
   
 
