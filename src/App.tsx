@@ -46,6 +46,7 @@ const Flashcards = lazy(() => import("./pages/Flashcards"));
 const Library = lazy(() => import("./pages/Library"));
 const ExamInfo = lazy(() => import("./pages/ExamInfo"));
 const Tools = lazy(() => import("./pages/Tools"));
+const Community = lazy(() => import("./pages/Community"));
 const PracticeExams = lazy(() => import("./pages/PracticeExams"));
 const PracticeExamRunner = lazy(() => import("./pages/PracticeExamRunner"));
 const PracticeExamResults = lazy(() => import("./pages/PracticeExamResults"));
@@ -179,6 +180,7 @@ const App = () => (
                   <Route path="/library" element={<PaidFeatureGate feature="Library"><Library /></PaidFeatureGate>} />
 
                   <Route path="/tools" element={<PaidFeatureGate feature="Study Tools"><Tools /></PaidFeatureGate>} />
+                  <Route path="/community" element={<Community />} />
                 </Route>
 
                 <Route path="*" element={<NotFound />} />

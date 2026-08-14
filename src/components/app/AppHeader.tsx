@@ -24,6 +24,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { useTheme } from "@/contexts/ThemeContext";
 import FeedbackDialog from "@/components/FeedbackDialog";
 import ExamTrackSwitcher from "@/components/app/ExamTrackSwitcher";
+import NotificationBell from "@/components/app/NotificationBell";
+
 
 
 interface AppHeaderProps {
@@ -129,6 +131,10 @@ const AppHeader = ({ onToggleChat, chatOpen }: AppHeaderProps) => {
 
       <div className="flex items-center gap-2">
         <ExamTrackSwitcher />
+
+        <NotificationBell />
+
+
 
         {isFreeUser && (
           <Button
