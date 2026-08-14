@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Brain, BarChart3, Layers, Target, TrendingUp, Clock, Flame, Sparkles, BookOpen } from "lucide-react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { getActiveNarratives, getActiveFlashcardDecks } from "@/lib/exam-content";
+import WelcomeModal from "@/components/WelcomeModal";
 
 const capitalize = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
 
@@ -51,6 +52,7 @@ const Dashboard = () => {
   const [attempts, setAttempts] = useState<NarrativeAttempt[]>([]);
   const [flashcardProgress, setFlashcardProgress] = useState<FlashcardProgress[]>([]);
   const [loading, setLoading] = useState(true);
+  const [welcomeOpen, setWelcomeOpen] = useState(false);
   const rawFirst = profile?.full_name?.trim().split(/\s+/)[0] || "there";
   const firstName = capitalize(rawFirst);
   const today = new Date().toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
@@ -107,6 +109,19 @@ const Dashboard = () => {
       supabase.removeChannel(channel);
     };
   }, [user, track]);
+
+  useEffect(() => {
+    if (!isNewUser || loading) return;
+    try {
+      if (localStorage.getItem("tep:welcome-dismissed")) return;
+    } catch {
+      /* storage unavailable */
+    }
+    const hasActivity = attempts.length > 0 || flashcardProgress.length > 0;
+    if (!hasActivity) {
+      setWelcomeOpen(true);
+    }
+  }, [isNewUser, loading, attempts, flashcardProgress]);
 
   const completedAttempts = attempts.filter((attempt) => attempt.completed_at);
   const averageScore = completedAttempts.length
@@ -287,6 +302,8 @@ const Dashboard = () => {
           </CardContent>
         </Card>
       </div>
+
+      <WelcomeModal open={welcomeOpen} onOpenChange={setWelcomeOpen} />
     </div>
   );
 };

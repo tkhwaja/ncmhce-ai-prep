@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link, useNavigate, useSearchParams } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { supabase } from "@/integrations/supabase/client";
@@ -12,7 +12,7 @@ import { PasswordInput } from "@/components/ui/password-input";
 import { Label } from "@/components/ui/label";
 import { useToast } from "@/hooks/use-toast";
 import { useAuth } from "@/contexts/AuthContext";
-import { UserPlus, CalendarIcon, Check, X } from "lucide-react";
+import { UserPlus, CalendarIcon, Check, X, GraduationCap } from "lucide-react";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 import { format } from "date-fns";
 import { cn } from "@/lib/utils";
@@ -20,6 +20,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import { MailCheck } from "lucide-react";
+import { availableTracks, DEFAULT_EXAM_TRACK } from "@/config/exam-tracks";
 
 const schema = z
   .object({
@@ -29,6 +30,7 @@ const schema = z
       .string()
       .min(6, "At least 6 characters"),
     confirmPassword: z.string(),
+    activeExamTrack: z.enum(["ncmhce", "nce"] as const).default(DEFAULT_EXAM_TRACK),
   })
   .refine((d) => d.password === d.confirmPassword, {
     message: "Passwords do not match",
@@ -61,16 +63,20 @@ const Signup = () => {
     register,
     handleSubmit,
     watch,
+    control,
     formState: { errors, isValid },
   } = useForm<FormValues>({
     resolver: zodResolver(schema),
     mode: "onChange",
+    defaultValues: { activeExamTrack: DEFAULT_EXAM_TRACK },
   });
 
   const password = watch("password") || "";
   const checks = [
     { label: "At least 6 characters", ok: password.length >= 6 },
   ];
+
+  const trackOptions = availableTracks();
 
   
 
@@ -113,8 +119,12 @@ const Signup = () => {
       email: values.email,
       password: values.password,
       options: {
-        data: { full_name: values.fullName, target_exam_date: examDate?.toISOString() },
-        emailRedirectTo: `${window.location.origin}${safeNext ?? "/dashboard"}`,
+        data: {
+          full_name: values.fullName,
+          target_exam_date: examDate?.toISOString(),
+          active_exam_track: values.activeExamTrack,
+        },
+        emailRedirectTo: `${window.location.origin}${safeNext ?? "/dashboard?new=true"}`,
       },
     });
     setLoading(false);
@@ -260,6 +270,55 @@ const Signup = () => {
                 </PopoverContent>
               </Popover>
             </div>
+            {trackOptions.length > 1 && (
+              <Controller
+                name="activeExamTrack"
+                control={control}
+                render={({ field }) => (
+                  <div className="space-y-2">
+                    <Label>I’m studying for</Label>
+                    <div className="grid grid-cols-2 gap-3">
+                      {trackOptions.map((t) => (
+                        <button
+                          key={t.id}
+                          type="button"
+                          onClick={() => field.onChange(t.id)}
+                          className={cn(
+                            "relative flex flex-col items-start gap-2 rounded-xl border p-4 text-left transition-all",
+                            field.value === t.id
+                              ? "border-primary bg-primary/5 ring-1 ring-primary"
+                              : "border-border bg-card hover:border-primary/30 hover:bg-accent"
+                          )}
+                        >
+                          <div className="flex w-full items-center justify-between">
+                            <span className="flex items-center gap-2 text-sm font-semibold text-foreground">
+                              <GraduationCap className="h-4 w-4 text-primary" />
+                              {t.label}
+                            </span>
+                            {field.value === t.id && (
+                              <span className="flex h-4 w-4 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                                <Check className="h-2.5 w-2.5" />
+                              </span>
+                            )}
+                          </div>
+                          <span className="text-xs text-muted-foreground leading-snug">
+                            {t.tagline}
+                          </span>
+                          {!t.contentReady && (
+                            <span className="mt-1 rounded-full bg-muted px-1.5 py-0.5 text-[10px] font-semibold uppercase tracking-wide text-muted-foreground">
+                              In progress
+                            </span>
+                          )}
+                        </button>
+                      ))}
+                    </div>
+                    {errors.activeExamTrack && (
+                      <p className="text-xs text-destructive">{errors.activeExamTrack.message}</p>
+                    )}
+                  </div>
+                )}
+              />
+            )}
             <Button type="submit" className="w-full" disabled={loading || !isValid}>
               <UserPlus className="mr-2 h-4 w-4" />
               {loading ? "Creating account..." : "Create Account"}
