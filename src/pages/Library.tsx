@@ -18,6 +18,8 @@ import { ExamLikelihoodBadge } from "@/components/library/ExamLikelihoodBadge";
 import { useBookmark } from "@/hooks/useBookmark";
 import { InlineBackToTop, FloatingBackToTop } from "@/components/library/BackToTopButton";
 import type { AppLayoutOutletContext } from "@/components/app/AppLayout";
+import NceLibrary from "@/components/library/nce/NceLibrary";
+
 
 type AnyLibraryModule = LibraryModule | NCELibraryModule;
 
@@ -152,6 +154,7 @@ const Library = () => {
   const { track, config } = useExamTrack();
   const libraryModules = getActiveLibraryModules(track);
   const categoryOrder = getActiveCategoryOrder(track);
+
   const [selectedModule, setSelectedModule] = useState<AnyLibraryModule | null>(null);
   const location = useLocation();
   const navigate = useNavigate();
@@ -324,4 +327,14 @@ const Library = () => {
   );
 };
 
-export default Library;
+/* ================================================================== */
+/*  Route wrapper: NCE gets its own two-axis library architecture      */
+/* ================================================================== */
+
+const LibraryRoute = () => {
+  const { track } = useExamTrack();
+  return track === "nce" ? <NceLibrary /> : <Library />;
+};
+
+export default LibraryRoute;
+
