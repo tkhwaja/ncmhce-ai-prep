@@ -60,7 +60,7 @@ export const practiceExams: PracticeExam[] = [
       "practice-exam-02-case-10-ari-schizophreniform-first-episode",
       "practice-exam-02-case-11-marcia-prolonged-grief-caregiver-identity",
     ],
-    isNew: true,
+    releasedAt: "2026-07-15",
   },
 ];
 
