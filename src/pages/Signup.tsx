@@ -20,7 +20,7 @@ import { Calendar } from "@/components/ui/calendar";
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from "@/components/ui/dialog";
 import { MailCheck } from "lucide-react";
-import { availableTracks, type ExamTrack, DEFAULT_EXAM_TRACK, EXAM_TRACKS } from "@/config/exam-tracks";
+import { availableTracks, DEFAULT_EXAM_TRACK } from "@/config/exam-tracks";
 
 const schema = z
   .object({
