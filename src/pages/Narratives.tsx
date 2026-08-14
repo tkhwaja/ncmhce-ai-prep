@@ -81,7 +81,7 @@ const Narratives = () => {
       shadow: "0 4px 14px -2px rgba(245, 158, 11, 0.55), inset 1px 1px 2px rgba(255,255,255,0.55)",
     },
   };
-  const NEW_BADGE_DAYS = 7;
+  const NEW_BADGE_DAYS = 14;
   const isBadgeActive = (id: string) => {
     const entry = NEW_BADGES[id];
     if (!entry) return false;
@@ -150,18 +150,20 @@ const Narratives = () => {
             onClick={() => navigate("/practice-exams")}
           >
             <CardContent className="p-6">
-              <span
-                className="absolute -top-1 -right-1 z-10 px-4 py-1.5 text-[12px] font-extrabold tracking-widest uppercase rounded-[999px] text-white shadow-lg"
-                style={{
-                  background:
-                    "linear-gradient(135deg, #60A5FA 0%, #2563EB 40%, #93C5FD 60%, #1D4ED8 100%)",
-                  boxShadow:
-                    "0 4px 14px -2px rgba(37, 99, 235, 0.55), inset 1px 1px 2px rgba(255,255,255,0.55)",
-                  textShadow: "0 1px 2px rgba(0,0,0,0.2)",
-                }}
-              >
-                NEW
-              </span>
+              {examTwoIsNew && (
+                <span
+                  className="absolute -top-1 -right-1 z-10 px-4 py-1.5 text-[12px] font-extrabold tracking-widest uppercase rounded-[999px] text-white shadow-lg"
+                  style={{
+                    background:
+                      "linear-gradient(135deg, #60A5FA 0%, #2563EB 40%, #93C5FD 60%, #1D4ED8 100%)",
+                    boxShadow:
+                      "0 4px 14px -2px rgba(37, 99, 235, 0.55), inset 1px 1px 2px rgba(255,255,255,0.55)",
+                    textShadow: "0 1px 2px rgba(0,0,0,0.2)",
+                  }}
+                >
+                  NEW
+                </span>
+              )}
               <Brain className="h-8 w-8 text-primary mb-3" />
               <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">Practice Exam 2</h3>
               <p className="text-sm text-muted-foreground mt-1">11 clinical narratives • ~4 hours</p>
