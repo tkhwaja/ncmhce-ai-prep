@@ -130,7 +130,7 @@ Psychomotor activity was slowed; she held her hands tightly together throughout 
     {
       sessionLabel: "Fourth session",
       recommendedTimeMinutes: 8,
-      sectionNarrative: `During the remainder of the first intake, Nia disclosed that the night before the appointment she had searched online for whether the quantity of opioid medication she possessed combined with alcohol could be fatal. She placed the medication bottle and a bottle of wine on her kitchen counter. Her sister called unexpectedly, and Nia answered. She reported that the interruption stopped the sequence, but she could not say she would have stopped on her own. When asked whether she could remain safe alone that evening, she said, "I want to say yes so I can go home, but I do not trust that answer."
+      sectionNarrative: `The remainder of the first intake is summarized here for continuity. Nia completed the suicide inquiry described during the first section of this case, including her method research, the medication and wine placed on her kitchen counter, the interrupted sequence when her sister called, and her uncertainty about remaining safe alone that night.
 
 Nia accepted a collaborative plan for same-day crisis evaluation. With her permission, Adaeze transported her and removed the opioid medication and alcohol from the apartment. Following evaluation, Nia participated in a short intensive outpatient stabilization program and began medication management with a psychiatric prescriber. Written releases permitted limited coordination among you, the prescriber, and the IOP team. She returned to weekly outpatient sessions with you following step-down from the program and continues to use an updated safety plan.
 
