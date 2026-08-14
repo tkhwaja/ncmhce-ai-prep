@@ -119,8 +119,12 @@ const Signup = () => {
       email: values.email,
       password: values.password,
       options: {
-        data: { full_name: values.fullName, target_exam_date: examDate?.toISOString() },
-        emailRedirectTo: `${window.location.origin}${safeNext ?? "/dashboard"}`,
+        data: {
+          full_name: values.fullName,
+          target_exam_date: examDate?.toISOString(),
+          active_exam_track: values.activeExamTrack,
+        },
+        emailRedirectTo: `${window.location.origin}${safeNext ?? "/dashboard?new=true"}`,
       },
     });
     setLoading(false);
