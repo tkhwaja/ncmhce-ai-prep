@@ -1,4 +1,5 @@
 import { Helmet } from "react-helmet-async";
+import { NCE_ENABLED } from "@/config/exam-tracks";
 import Navbar from "@/components/landing/Navbar";
 import HeroSection from "@/components/landing/HeroSection";
 import TrustBar from "@/components/landing/TrustBar";
@@ -15,6 +16,25 @@ import WaitlistCTA from "@/components/landing/WaitlistCTA";
 import FAQSection from "@/components/landing/FAQSection";
 import Footer from "@/components/landing/Footer";
 
+const nceFaqEntries = [
+  {
+    "@type": "Question",
+    name: "Do you cover the NCE as well as the NCMHCE?",
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: "Yes. The Exam Path supports both counseling licensure exams: an NCMHCE track built around clinical case simulations, and an NCE track with a 1,000-question bank across the eight CACREP content areas plus two full-length 200-question practice exams. You choose your exam at signup and the platform adapts to it.",
+    },
+  },
+  {
+    "@type": "Question",
+    name: "What is the difference between the NCE and the NCMHCE?",
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: "The NCE is a 200-question multiple-choice knowledge exam (160 scored) covering the eight CACREP content areas. The NCMHCE is a clinical case-simulation exam with applied clinical decision questions. Your state licensing board determines which exam you need.",
+    },
+  },
+];
+
 const faqSchema = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -28,6 +48,7 @@ const faqSchema = {
       },
     },
     {
+      ...(NCE_ENABLED ? {} : {}),
       "@type": "Question",
       name: "How many practice cases are available?",
       acceptedAnswer: {
@@ -67,13 +88,14 @@ const faqSchema = {
         text: "Yes. You can retake any narrative or practice exam as many times as you want, and each attempt is tracked separately.",
       },
     },
+    ...(NCE_ENABLED ? nceFaqEntries : []),
   ],
 };
 
 const Index = () => (
   <div className="min-h-screen bg-background">
     <Helmet>
-      <title>The Exam Path | Free NCMHCE Diagnostic Case</title>
+      <title>{NCE_ENABLED ? "The Exam Path | NCMHCE & NCE Exam Prep" : "The Exam Path | Free NCMHCE Diagnostic Case"}</title>
       <meta name="description" content="Take a free NCMHCE diagnostic case, review 20+ narrative simulations, and study with detailed visual guides built for the real exam." />
       <link rel="canonical" href="https://theexampath.com/" />
       <meta property="og:title" content="The Exam Path | Free NCMHCE Diagnostic Case" />
