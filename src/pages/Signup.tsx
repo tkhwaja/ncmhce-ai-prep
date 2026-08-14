@@ -30,6 +30,7 @@ const schema = z
       .string()
       .min(6, "At least 6 characters"),
     confirmPassword: z.string(),
+    activeExamTrack: z.enum(["ncmhce", "nce"] as const).default(DEFAULT_EXAM_TRACK),
   })
   .refine((d) => d.password === d.confirmPassword, {
     message: "Passwords do not match",
