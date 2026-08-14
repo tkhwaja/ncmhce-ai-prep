@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Brain, BarChart3, Layers, Target, TrendingUp, Clock, Flame, Sparkles, BookOpen } from "lucide-react";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { getActiveNarratives, getActiveFlashcardDecks } from "@/lib/exam-content";
+import WelcomeModal from "@/components/WelcomeModal";
 
 const capitalize = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
 
