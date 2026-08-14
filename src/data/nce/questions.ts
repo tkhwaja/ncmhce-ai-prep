@@ -1,4 +1,5 @@
 import type { NCEQuestion } from "./types";
+import { nceQuestionsBatch001 } from "./questions-batch-001";
 
 /**
  * Sample NCE question bank.
@@ -8,7 +9,7 @@ import type { NCEQuestion } from "./types";
  * rationales for the correct and incorrect options.
  */
 
-export const nceQuestions: NCEQuestion[] = [
+const sampleQuestions: NCEQuestion[] = [
   {
     id: "nce-q-001",
     domain: "Professional Counseling Orientation and Ethical Practice",
@@ -186,3 +187,5 @@ export const nceQuestions: NCEQuestion[] = [
     tags: ["research", "statistics", "p-value", "significance"],
   },
 ];
+
+export const nceQuestions: NCEQuestion[] = [...sampleQuestions, ...nceQuestionsBatch001];
