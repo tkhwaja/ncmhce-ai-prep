@@ -48,7 +48,6 @@ const faqSchema = {
       },
     },
     {
-      ...(NCE_ENABLED ? {} : {}),
       "@type": "Question",
       name: "How many practice cases are available?",
       acceptedAnswer: {
@@ -92,14 +91,22 @@ const faqSchema = {
   ],
 };
 
+const pageTitle = NCE_ENABLED
+  ? "The Exam Path | NCMHCE & NCE Exam Prep"
+  : "The Exam Path | Free NCMHCE Diagnostic Case";
+
+const pageDescription = NCE_ENABLED
+  ? "Prep for the NCMHCE or the NCE in one platform: clinical case simulations, a 1,000-question NCE bank, full-length practice exams, and analytics built for the real exams."
+  : "Take a free NCMHCE diagnostic case, review 20+ narrative simulations, and study with detailed visual guides built for the real exam.";
+
 const Index = () => (
   <div className="min-h-screen bg-background">
     <Helmet>
-      <title>{NCE_ENABLED ? "The Exam Path | NCMHCE & NCE Exam Prep" : "The Exam Path | Free NCMHCE Diagnostic Case"}</title>
-      <meta name="description" content="Take a free NCMHCE diagnostic case, review 20+ narrative simulations, and study with detailed visual guides built for the real exam." />
+      <title>{pageTitle}</title>
+      <meta name="description" content={pageDescription} />
       <link rel="canonical" href="https://theexampath.com/" />
-      <meta property="og:title" content="The Exam Path | Free NCMHCE Diagnostic Case" />
-      <meta property="og:description" content="Take a free NCMHCE diagnostic case, review 20+ narrative simulations, and study with detailed visual guides built for the real exam." />
+      <meta property="og:title" content={pageTitle} />
+      <meta property="og:description" content={pageDescription} />
       <meta property="og:url" content="https://theexampath.com/" />
       <script type="application/ld+json">{JSON.stringify(faqSchema)}</script>
     </Helmet>
