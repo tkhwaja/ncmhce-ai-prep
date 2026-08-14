@@ -342,18 +342,25 @@ const Profile = () => {
               </div>
             </>
           ) : (
-            <div className="rounded-lg border border-primary/30 bg-primary/5 p-4 space-y-3">
-              <div>
-                <p className="text-sm font-semibold text-foreground">You're on the Free plan</p>
-                <p className="text-xs text-muted-foreground mt-1">
-                  Unlock all {track === "nce" ? "questions" : "narratives"}, full-length practice exams, flashcards, AI coaching, and your
-                  personalized study plan for {formatPrice(currentPriceId(track) === config.founderPriceId && config.founderMonthlyPriceCents ? config.founderMonthlyPriceCents : config.monthlyPriceCents)}/month. Cancel anytime.
-                </p>
-              </div>
-              <Button onClick={() => navigate(`/checkout?track=${track}`)} className="w-full sm:w-auto">
-                <CreditCard className="mr-2 h-4 w-4" /> Subscribe — {formatPrice(currentPriceId(track) === config.founderPriceId && config.founderMonthlyPriceCents ? config.founderMonthlyPriceCents : config.monthlyPriceCents)}/month
-              </Button>
-            </div>
+            (() => {
+              const currentPriceCents = currentPriceId(track) === config.founderPriceId && config.founderMonthlyPriceCents
+                ? config.founderMonthlyPriceCents
+                : config.monthlyPriceCents;
+              return (
+                <div className="rounded-lg border border-primary/30 bg-primary/5 p-4 space-y-3">
+                  <div>
+                    <p className="text-sm font-semibold text-foreground">You're on the Free plan</p>
+                    <p className="text-xs text-muted-foreground mt-1">
+                      Unlock all {track === "nce" ? "questions" : "narratives"}, full-length practice exams, flashcards, AI coaching, and your
+                      personalized study plan for {formatPrice(currentPriceCents)}/month. Cancel anytime.
+                    </p>
+                  </div>
+                  <Button onClick={() => navigate(`/checkout?track=${track}`)} className="w-full sm:w-auto">
+                    <CreditCard className="mr-2 h-4 w-4" /> Subscribe — {formatPrice(currentPriceCents)}/month
+                  </Button>
+                </div>
+              );
+            })()
           )}
         </CardContent>
       </Card>
