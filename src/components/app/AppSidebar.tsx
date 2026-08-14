@@ -13,6 +13,7 @@ import { NavLink, useLocation } from "react-router-dom";
 import TceIcon, { TceIconName } from "@/components/icons/TceIcon";
 import SidebarPomodoro from "./SidebarPomodoro";
 import { useExamTrack } from "@/contexts/ExamTrackContext";
+import { useUnreadMessages } from "@/hooks/useUnreadMessages";
 
 const AppSidebar = () => {
   const { state } = useSidebar();
@@ -20,6 +21,7 @@ const AppSidebar = () => {
   const location = useLocation();
   const { config } = useExamTrack();
   const navItems = config.nav as { title: string; url: string; icon: TceIconName }[];
+  const { total: unreadMessages } = useUnreadMessages();
 
 
   return (
@@ -45,7 +47,12 @@ const AppSidebar = () => {
                   <SidebarMenuButton asChild isActive={location.pathname === item.url}>
                     <NavLink to={item.url} className="flex items-center gap-2">
                       <TceIcon name={item.icon} size={18} />
-                      {!collapsed && <span>{item.title}</span>}
+                      {!collapsed && <span className="flex-1">{item.title}</span>}
+                      {item.url === "/community" && unreadMessages > 0 && (
+                        <span className="ml-auto flex h-5 min-w-5 items-center justify-center rounded-full bg-primary px-1.5 text-[10px] font-semibold text-primary-foreground">
+                          {unreadMessages > 9 ? "9+" : unreadMessages}
+                        </span>
+                      )}
                     </NavLink>
                   </SidebarMenuButton>
                 </SidebarMenuItem>
