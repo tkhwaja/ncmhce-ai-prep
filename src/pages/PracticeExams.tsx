@@ -4,6 +4,7 @@ import { useAuth } from "@/contexts/AuthContext";
 import { useExamTrack } from "@/contexts/ExamTrackContext";
 import { getActivePracticeExams } from "@/lib/exam-content";
 import { getUngradedNarrativeIdsForAttempt } from "@/lib/practice-exams";
+import { isExamNew } from "@/data/practice-exams";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -94,7 +95,7 @@ const PracticeExams = () => {
                     COMING SOON
                   </span>
                 )}
-                {!exam.comingSoon && exam.isNew && (
+                {isExamNew(exam) && (
                   <span className="absolute top-3 right-3 z-10 px-2 py-0.5 text-[10px] font-bold tracking-wider rounded-full bg-primary text-primary-foreground shadow">
                     NEW
                   </span>

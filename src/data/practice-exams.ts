@@ -8,8 +8,19 @@ export interface PracticeExam {
   narrativeIds: string[];
   ungradedNarrativeCount?: number;
   comingSoon?: boolean;
-  isNew?: boolean;
+  /** ISO date (YYYY-MM-DD) the exam shipped. NEW badge auto-expires after NEW_BADGE_DAYS. */
+  releasedAt?: string;
 }
+
+export const NEW_BADGE_DAYS = 14;
+
+/** True while an exam is still within the NEW badge window. */
+export const isExamNew = (exam: Pick<PracticeExam, "releasedAt" | "comingSoon">): boolean => {
+  if (exam.comingSoon || !exam.releasedAt) return false;
+  const added = new Date(`${exam.releasedAt}T00:00:00Z`).getTime();
+  if (Number.isNaN(added)) return false;
+  return Date.now() - added < NEW_BADGE_DAYS * 24 * 60 * 60 * 1000;
+};
 
 export const practiceExams: PracticeExam[] = [
   {
@@ -49,7 +60,7 @@ export const practiceExams: PracticeExam[] = [
       "practice-exam-02-case-10-ari-schizophreniform-first-episode",
       "practice-exam-02-case-11-marcia-prolonged-grief-caregiver-identity",
     ],
-    isNew: true,
+    releasedAt: "2026-07-15",
   },
 ];
 
