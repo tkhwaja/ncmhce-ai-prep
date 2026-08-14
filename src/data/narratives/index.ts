@@ -30,6 +30,7 @@ import { rafaelPtsd } from "./28-rafael-ptsd";
 import { reneeDid } from "./32-renee-did";
 import { alinaPostpartumOcd } from "./33-alina-postpartum-ocd";
 import { janelleBipolarPerinatalOcd } from "./22-janelle-bipolar-perinatal-ocd";
+import { malcolmDidPtsd } from "./23-malcolm-did-ptsd";
 import { daniellePeripartumMDDNarrative } from "./exam-01-02-danielle-mdd";
 import { nehaGADPracticeExamNarrative } from "./practice-exam-01-case-03-neha-gad";
 import { luisPanicNarrative } from "./practice-exam-01-case-04-luis-panic";
@@ -119,6 +120,7 @@ export const narratives: Narrative[] = [
   reneeDid,
   alinaPostpartumOcd,
   janelleBipolarPerinatalOcd,
+  malcolmDidPtsd,
   kiaraBPDPracticeExamNarrative,
   emilyBulimiaPracticeExamNarrative,
   ericaProlongedGriefPracticeExamNarrative,
