@@ -70,6 +70,11 @@ const Narratives = () => {
       gradient: "linear-gradient(135deg, #F472B6 0%, #DB2777 40%, #FBCFE8 60%, #BE185D 100%)",
       shadow: "0 4px 14px -2px rgba(219, 39, 119, 0.5), inset 1px 1px 2px rgba(255,255,255,0.55)",
     },
+    "22-janelle-bipolar-perinatal-ocd": {
+      addedAt: "2026-08-14",
+      gradient: "linear-gradient(135deg, #60A5FA 0%, #2563EB 40%, #93C5FD 60%, #1D4ED8 100%)",
+      shadow: "0 4px 14px -2px rgba(37, 99, 235, 0.55), inset 1px 1px 2px rgba(255,255,255,0.55)",
+    },
   };
   const NEW_BADGE_DAYS = 7;
   const isBadgeActive = (id: string) => {
