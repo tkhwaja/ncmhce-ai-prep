@@ -54,6 +54,7 @@ import { julianPanicCardiacAnxietyPracticeExam2Narrative } from "./practice-exam
 import { tessaBulimiaMedicalRiskPracticeExam2Narrative } from "./practice-exam-02-case-09-tessa-bulimia-medical-risk";
 import { ariSchizophreniformFirstEpisodePracticeExam2Narrative } from "./practice-exam-02-case-10-ari-schizophreniform-first-episode";
 import { marciaProlongedGriefCaregiverIdentityPracticeExam2Narrative } from "./practice-exam-02-case-11-marcia-prolonged-grief-caregiver-identity";
+import { amaraSchoolReferralNarrative } from "./exam-03-01-amara-school-referral";
 import freeDiagnosticBundle from "@/data/free-diagnostic-bundle.json";
 
 export type { Narrative, NarrativeSection, NarrativeQuestion, NarrativeDomain, NarrativeClientInfo } from "./types";
@@ -149,6 +150,8 @@ const practiceExamNarratives: Narrative[] = [
   tessaBulimiaMedicalRiskPracticeExam2Narrative,
   ariSchizophreniformFirstEpisodePracticeExam2Narrative,
   marciaProlongedGriefCaregiverIdentityPracticeExam2Narrative,
+  // Practice Exam 3 (coming soon) — seeded but not yet listed in any released exam.
+  amaraSchoolReferralNarrative,
 ];
 
 const allNarratives: Narrative[] = [freeDiagnosticNarrative, ...narratives, ...practiceExamNarratives];

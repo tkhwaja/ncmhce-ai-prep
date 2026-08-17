@@ -62,6 +62,13 @@ export const practiceExams: PracticeExam[] = [
     ],
     releasedAt: "2026-07-15",
   },
+  {
+    id: "practice-exam-3",
+    title: "Practice Exam 3",
+    description: "In development • coming soon",
+    comingSoon: true,
+    narrativeIds: [],
+  },
 ];
 
 export const getPracticeExamById = (id: string): PracticeExam | undefined =>
