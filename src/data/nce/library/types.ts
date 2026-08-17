@@ -118,6 +118,8 @@ export interface NceLessonContent {
   appliedExample?: string;
   examTraps?: string[];
   doNotConfuse?: NceDoNotConfuse[];
+  /** Prose form of the "Do not confuse with" callout (authored batches). */
+  doNotConfuseNotes?: string[];
   memoryAnchor?: string;
   keyTakeaways: string[];
   knowledgeChecks?: NceKnowledgeCheck[];
