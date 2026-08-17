@@ -25,7 +25,7 @@ export const or01LessonContent: Record<string, NceLessonContent> = {
       "core-counseling-attributes"
     ],
     "futureDomains": [
-      "professional-development-counselor-self-awareness",
+      "professional-development-self-awareness",
       "intake-assessment",
       "treatment-planning-continuity-care",
       "provision-counseling-interventions",
@@ -142,7 +142,7 @@ export const or01LessonContent: Record<string, NceLessonContent> = {
       "core-counseling-attributes"
     ],
     "futureDomains": [
-      "professional-development-counselor-self-awareness",
+      "professional-development-self-awareness",
       "intake-assessment",
       "treatment-planning-continuity-care",
       "provision-counseling-interventions",
@@ -274,7 +274,7 @@ export const or01LessonContent: Record<string, NceLessonContent> = {
       "core-counseling-attributes"
     ],
     "futureDomains": [
-      "professional-development-counselor-self-awareness",
+      "professional-development-self-awareness",
       "intake-assessment",
       "treatment-planning-continuity-care",
       "provision-counseling-interventions",
@@ -426,7 +426,7 @@ export const or01LessonContent: Record<string, NceLessonContent> = {
       "core-counseling-attributes"
     ],
     "futureDomains": [
-      "professional-development-counselor-self-awareness",
+      "professional-development-self-awareness",
       "intake-assessment",
       "treatment-planning-continuity-care",
       "provision-counseling-interventions",
@@ -530,7 +530,7 @@ export const or01LessonContent: Record<string, NceLessonContent> = {
       "core-counseling-attributes"
     ],
     "futureDomains": [
-      "professional-development-counselor-self-awareness",
+      "professional-development-self-awareness",
       "intake-assessment",
       "treatment-planning-continuity-care",
       "provision-counseling-interventions",
@@ -662,7 +662,7 @@ export const or01LessonContent: Record<string, NceLessonContent> = {
       "core-counseling-attributes"
     ],
     "futureDomains": [
-      "professional-development-counselor-self-awareness",
+      "professional-development-self-awareness",
       "intake-assessment",
       "treatment-planning-continuity-care",
       "provision-counseling-interventions",
@@ -757,7 +757,7 @@ export const or01LessonContent: Record<string, NceLessonContent> = {
       "core-counseling-attributes"
     ],
     "futureDomains": [
-      "professional-development-counselor-self-awareness",
+      "professional-development-self-awareness",
       "intake-assessment",
       "treatment-planning-continuity-care",
       "provision-counseling-interventions",
@@ -896,7 +896,7 @@ export const or01LessonContent: Record<string, NceLessonContent> = {
       "core-counseling-attributes"
     ],
     "futureDomains": [
-      "professional-development-counselor-self-awareness",
+      "professional-development-self-awareness",
       "intake-assessment",
       "treatment-planning-continuity-care",
       "provision-counseling-interventions",

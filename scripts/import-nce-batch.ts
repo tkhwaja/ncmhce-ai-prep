@@ -254,6 +254,13 @@ interface LessonRecord {
   reviewedOn?: string;
 }
 
+/** Front-matter domain slugs sometimes differ slightly from the blueprint ids. */
+const DOMAIN_ALIASES: Record<string, string> = {
+  "professional-development-counselor-self-awareness": "professional-development-self-awareness",
+};
+
+const normalizeDomain = (d: string) => DOMAIN_ALIASES[d] ?? d;
+
 const asArray = (v: string | string[] | undefined): string[] =>
   v === undefined ? [] : Array.isArray(v) ? v : v ? [v] : [];
 
@@ -286,8 +293,8 @@ const buildLesson = (
     contentType,
     difficulty: (fm.difficulty as string) || undefined,
     examVersions,
-    currentDomains: asArray(fm.currentDomains),
-    futureDomains: asArray(fm.futureDomains),
+    currentDomains: asArray(fm.currentDomains).map(normalizeDomain),
+    futureDomains: asArray(fm.futureDomains).map(normalizeDomain),
     tags: asArray(fm.tags),
     whyItMatters: "",
     learningObjectives: [],
@@ -384,6 +391,8 @@ const validate = (
     if (!r.keyTakeaways.length) errors.push(`${where}: missing key takeaways`);
     for (const d of r.currentDomains)
       if (!blueprint.includes(`id: "${d}"`)) errors.push(`${where}: unknown current domain "${d}"`);
+    for (const d of r.futureDomains ?? [])
+      if (!blueprint.includes(`id: "${d}"`)) errors.push(`${where}: unknown future domain "${d}"`);
     for (const c of r.knowledgeChecks ?? []) {
       if (c.options.length < 3) errors.push(`${c.id}: fewer than 3 options`);
       if (c.correctAnswerIndex < 0 || c.correctAnswerIndex >= c.options.length)
