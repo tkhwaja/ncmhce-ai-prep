@@ -1,10 +1,11 @@
-import { Narrative } from '@/types/narrative';
+import type { Narrative } from "./types";
 
 export const amaraSchoolReferralNarrative: Narrative = {
   id: 'exam-03-01-amara-school-referral',
   title: 'Amara — School Referral',
-  difficulty: 'advanced',
-  estimatedTimeMinutes: 20,
+  category: 'Practice Exam Case',
+  difficulty: 'Advanced',
+  recommendedTimeBySectionMinutes: [7, 7, 6],
 
   clientInfo: {
     age: 13,
