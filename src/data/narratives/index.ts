@@ -31,8 +31,8 @@ import { reneeDid } from "./32-renee-did";
 import { alinaPostpartumOcd } from "./33-alina-postpartum-ocd";
 import { janelleBipolarPerinatalOcd } from "./22-janelle-bipolar-perinatal-ocd";
 import { malcolmDidPtsd } from "./23-malcolm-did-ptsd";
-import { priyaAtypicalAnorexiaOcd } from "./24-priya-atypical-anorexia-ocd";
-import { marcusPtsdPanicAlcohol } from "./25-marcus-ptsd-panic-alcohol";
+import { anjaliAtypicalAnorexiaOcd } from "./24-anjali-atypical-anorexia-ocd";
+import { terrencePtsdPanicAlcohol } from "./25-terrence-ptsd-panic-alcohol";
 import { daniellePeripartumMDDNarrative } from "./exam-01-02-danielle-mdd";
 import { nehaGADPracticeExamNarrative } from "./practice-exam-01-case-03-neha-gad";
 import { luisPanicNarrative } from "./practice-exam-01-case-04-luis-panic";
@@ -124,8 +124,8 @@ export const narratives: Narrative[] = [
   alinaPostpartumOcd,
   janelleBipolarPerinatalOcd,
   malcolmDidPtsd,
-  priyaAtypicalAnorexiaOcd,
-  marcusPtsdPanicAlcohol,
+  anjaliAtypicalAnorexiaOcd,
+  terrencePtsdPanicAlcohol,
   kiaraBPDPracticeExamNarrative,
   emilyBulimiaPracticeExamNarrative,
   ericaProlongedGriefPracticeExamNarrative,
