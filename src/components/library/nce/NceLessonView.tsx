@@ -16,6 +16,7 @@ import {
 import { getNceLessonContent } from "@/data/nce/library";
 import { getLesson, getLessonNeighbors, getModule } from "@/lib/nce-library";
 import { useNceLibraryProgress } from "@/hooks/useNceLibraryProgress";
+import NceRichText from "./NceRichText";
 
 const Section = ({
   title,
@@ -60,14 +61,23 @@ const NceLessonView = ({
 
   const checks = content?.knowledgeChecks ?? [];
   const answeredAll = checks.length > 0 && checks.every((c) => answers[c.id] !== undefined);
-  const accuracy = useMemo(() => {
-    if (!answeredAll) return null;
-    const correct = checks.filter((c) => answers[c.id] === c.correctAnswerIndex).length;
-    return correct / checks.length;
-  }, [answeredAll, answers, checks]);
+  const correctCount = useMemo(
+    () => checks.filter((c) => answers[c.id] === c.correctAnswerIndex).length,
+    [answers, checks],
+  );
+  const accuracy = useMemo(
+    () => (answeredAll ? correctCount / checks.length : null),
+    [answeredAll, correctCount, checks.length],
+  );
 
   useEffect(() => {
-    if (accuracy !== null) recordCheckAccuracy(lessonId, accuracy);
+    if (accuracy !== null)
+      recordCheckAccuracy(lessonId, accuracy, {
+        moduleId: lesson?.moduleId,
+        correctCount,
+        questionCount: checks.length,
+        answers,
+      });
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [accuracy]);
 
@@ -122,25 +132,21 @@ const NceLessonView = ({
             <p className="text-sm text-muted-foreground">{content.whyItMatters}</p>
           </Section>
 
-          <Section title="Learning objectives" icon={BookOpen}>
-            <ul className="space-y-1.5">
-              {content.learningObjectives.map((o) => (
-                <li key={o} className="flex gap-2 text-sm text-muted-foreground">
-                  <span className="text-primary">•</span>
-                  {o}
-                </li>
-              ))}
-            </ul>
-          </Section>
+          {!!content.learningObjectives?.length && (
+            <Section title="Learning objectives" icon={BookOpen}>
+              <ul className="space-y-1.5">
+                {content.learningObjectives.map((o) => (
+                  <li key={o} className="flex gap-2 text-sm text-muted-foreground">
+                    <span className="text-primary">•</span>
+                    {o}
+                  </li>
+                ))}
+              </ul>
+            </Section>
+          )}
 
           <Section title="Core explanation">
-            <div className="space-y-3">
-              {content.coreExplanation.map((p, i) => (
-                <p key={i} className="text-sm leading-relaxed text-muted-foreground">
-                  {p}
-                </p>
-              ))}
-            </div>
+            <NceRichText blocks={content.coreExplanation} />
           </Section>
 
           {!!content.keyConcepts?.length && (
@@ -204,8 +210,8 @@ const NceLessonView = ({
           {content.appliedExample && (
             <Section title="Applied counseling example">
               <Card className="card-elevated border-primary/20 bg-primary/5">
-                <CardContent className="p-4 text-sm leading-relaxed text-muted-foreground">
-                  {content.appliedExample}
+                <CardContent className="p-4">
+                  <NceRichText blocks={content.appliedExample.split("\n\n")} />
                 </CardContent>
               </Card>
             </Section>
@@ -241,6 +247,16 @@ const NceLessonView = ({
             </Section>
           )}
 
+          {!!content.doNotConfuseNotes?.length && (
+            <Section title="Do not confuse with">
+              <Card className="card-elevated border-amber-500/30 bg-amber-500/5">
+                <CardContent className="p-4">
+                  <NceRichText blocks={content.doNotConfuseNotes} />
+                </CardContent>
+              </Card>
+            </Section>
+          )}
+
           {content.memoryAnchor && (
             <Section title="Memory anchor" icon={Lightbulb}>
               <p className="rounded-lg border border-border bg-muted/40 p-4 text-sm text-foreground">
@@ -262,6 +278,12 @@ const NceLessonView = ({
 
           {!!checks.length && (
             <Section title="Knowledge check">
+              {accuracy !== null && (
+                <p className="text-sm font-medium text-foreground">
+                  You answered {correctCount} of {checks.length} correctly (
+                  {Math.round(accuracy * 100)}%).
+                </p>
+              )}
               <div className="space-y-4">
                 {checks.map((c, qi) => {
                   const picked = answers[c.id];
