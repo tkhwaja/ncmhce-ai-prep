@@ -360,8 +360,12 @@ const buildLesson = (
 
 /* -------------------------------- validate -------------------------------- */
 
-const validate = (records: LessonRecord[], moduleId: string): string[] => {
+const validate = (
+  records: LessonRecord[],
+  moduleId: string,
+): { errors: string[]; warnings: string[] } => {
   const errors: string[] = [];
+  const warnings: string[] = [];
   const curriculum = readFileSync("src/data/nce/library/curriculum.ts", "utf8");
   const blueprint = readFileSync("src/data/nce/library/blueprint-domains.ts", "utf8");
 
@@ -374,7 +378,8 @@ const validate = (records: LessonRecord[], moduleId: string): string[] => {
     seen.add(r.lessonId);
     if (!curriculum.includes(`id: "${r.lessonId}"`)) errors.push(`${where}: lesson id not in curriculum`);
     if (!r.whyItMatters) errors.push(`${where}: missing "Why this matters"`);
-    if (!r.learningObjectives.length) errors.push(`${where}: missing learning objectives`);
+    if (!r.learningObjectives.length)
+      warnings.push(`${where}: no lesson-level learning objectives (module objectives will apply)`);
     if (!r.coreExplanation.length) errors.push(`${where}: missing core explanation`);
     if (!r.keyTakeaways.length) errors.push(`${where}: missing key takeaways`);
     for (const d of r.currentDomains)
@@ -387,7 +392,7 @@ const validate = (records: LessonRecord[], moduleId: string): string[] => {
       if (!c.stem) errors.push(`${c.id}: missing stem`);
     }
   }
-  return errors;
+  return { errors, warnings };
 };
 
 /* --------------------------------- emit ----------------------------------- */
@@ -448,13 +453,17 @@ const records = lessonSections.map((s, i) => {
   return buildLesson(moduleId, order, title, s.body, fm);
 });
 
-const errors = validate(records, moduleId);
+const { errors, warnings } = validate(records, moduleId);
 console.log(`parsed ${records.length} lessons from ${basename(file)} (module ${moduleId})`);
 for (const r of records) {
   console.log(
     `  ${r.lessonId}  ${r.estimatedMinutes}min  ${r.coreExplanation.length} blocks  ` +
       `${r.knowledgeChecks?.length ?? 0} checks  ${r.comparisonTables?.length ?? 0} tables`,
   );
+}
+if (warnings.length) {
+  console.warn(`\n${warnings.length} warning(s):`);
+  for (const w of warnings) console.warn(`  - ${w}`);
 }
 if (errors.length) {
   console.error(`\n${errors.length} validation error(s):`);
