@@ -97,6 +97,7 @@ const Narratives = () => {
     const exam = getPracticeExamById("practice-exam-2");
     return exam ? isExamNew(exam) : false;
   })();
+  const examThree = getPracticeExamById("practice-exam-3");
   const isBadgeActive = (id: string) => {
     const entry = NEW_BADGES[id];
     if (!entry) return false;
