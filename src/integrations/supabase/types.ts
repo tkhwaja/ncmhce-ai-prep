@@ -462,6 +462,81 @@ export type Database = {
         }
         Relationships: []
       }
+      nce_knowledge_check_results: {
+        Row: {
+          accuracy: number
+          answers: Json
+          correct_count: number | null
+          created_at: string
+          id: string
+          lesson_id: string
+          module_id: string | null
+          question_count: number | null
+          user_id: string
+        }
+        Insert: {
+          accuracy: number
+          answers?: Json
+          correct_count?: number | null
+          created_at?: string
+          id?: string
+          lesson_id: string
+          module_id?: string | null
+          question_count?: number | null
+          user_id: string
+        }
+        Update: {
+          accuracy?: number
+          answers?: Json
+          correct_count?: number | null
+          created_at?: string
+          id?: string
+          lesson_id?: string
+          module_id?: string | null
+          question_count?: number | null
+          user_id?: string
+        }
+        Relationships: []
+      }
+      nce_lesson_progress: {
+        Row: {
+          check_accuracy: number | null
+          completed: boolean
+          completed_at: string | null
+          created_at: string
+          id: string
+          lesson_id: string
+          module_id: string | null
+          opened: boolean
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          check_accuracy?: number | null
+          completed?: boolean
+          completed_at?: string | null
+          created_at?: string
+          id?: string
+          lesson_id: string
+          module_id?: string | null
+          opened?: boolean
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          check_accuracy?: number | null
+          completed?: boolean
+          completed_at?: string | null
+          created_at?: string
+          id?: string
+          lesson_id?: string
+          module_id?: string | null
+          opened?: boolean
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: []
+      }
       notes: {
         Row: {
           content: string
