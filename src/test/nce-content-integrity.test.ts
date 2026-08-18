@@ -5,6 +5,11 @@ import {
   nceLibraryModules,
   nceFlashcardDecks,
 } from "@/data/nce";
+import { NCE_DOMAINS } from "@/data/nce/types";
+import {
+  nceDiagnosticQuestions,
+  NCE_DIAGNOSTIC_ITEMS_PER_DOMAIN,
+} from "@/data/nce/diagnostic";
 import {
   validateNCEQuestions,
   validateNCEPracticeExams,
