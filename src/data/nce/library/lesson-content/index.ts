@@ -1,5 +1,6 @@
 import type { NceLessonContent } from "../types";
 import { or01LessonContent } from "./or-01";
+import { or02LessonContent } from "./or-02";
 
 /**
  * Authored NCE lesson content, keyed by canonical lesson id (e.g. "CH-05-L03").
@@ -14,6 +15,7 @@ import { or01LessonContent } from "./or-01";
  */
 export const nceLessonContent: Record<string, NceLessonContent> = {
   ...or01LessonContent,
+  ...or02LessonContent,
 };
 
 export const getNceLessonContent = (lessonId: string): NceLessonContent | undefined =>
