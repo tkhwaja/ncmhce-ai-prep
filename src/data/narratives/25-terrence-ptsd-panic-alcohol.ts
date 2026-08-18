@@ -1,7 +1,7 @@
 import type { Narrative } from "./types";
 
 export const terrencePtsdPanicAlcohol: Narrative = {
-  id: '25-marcus-ptsd-panic-alcohol',
+  id: '25-terrence-ptsd-panic-alcohol',
   title: 'Terrence — PTSD with Dissociative Symptoms, Panic Disorder, and Alcohol Use Disorder',
   category: "Trauma and Substance Use",
   difficulty: "Advanced",
@@ -55,7 +55,7 @@ Given the recent firearm behavior, intoxication-linked suicidal thinking, uncert
       sectionNarrative: '',
       questions: [
         {
-          id: 'marcus-q1',
+          id: 'terrence-q1',
           questionNumber: 1,
           domain: 'Intake/assessment/diagnosis',
           stem: 'Which formulation best integrates the supported syndromes without prematurely closing the differential?',
@@ -69,7 +69,7 @@ Given the recent firearm behavior, intoxication-linked suicidal thinking, uncert
           explanation: 'The full formulation preserves both positive evidence and uncertainty. PTSD explains trauma-specific symptoms; recurrent depersonalization and derealization support its dissociative specifier. Unexpected attacks followed by persistent concern and avoidance support Panic Disorder beyond trauma-cued arousal. Four described criteria support moderate AUD. Medical, withdrawal, sleep, toxic, and head-injury contributors still require assessment, but their possibility does not erase independently supported syndromes. Trauma-bound reliving with restored context does not establish schizoaffective disorder.',
         },
         {
-          id: 'marcus-q2',
+          id: 'terrence-q2',
           questionNumber: 2,
           domain: 'Intake/assessment/diagnosis',
           stem: 'What is the best interpretation of Terrence’s episodes of seeing the hallway and hearing Luis?',
@@ -83,7 +83,7 @@ Given the recent firearm behavior, intoxication-linked suicidal thinking, uncert
           explanation: 'The discriminating features are cue linkage, trauma-specific content, present-tense reliving, brief duration, and recovery of contextual awareness. Alcohol withdrawal remains urgent to evaluate, but it does not best explain a year-long pattern of trauma-bound episodes. Perceptual vividness and behavior during reliving do not independently establish psychosis. Depersonalization occurs elsewhere in the case, but feeling detached from oneself does not fully describe reenactment of an entire traumatic scene.',
         },
         {
-          id: 'marcus-q3',
+          id: 'terrence-q3',
           questionNumber: 3,
           domain: 'Treatment planning',
           stem: 'Which immediate disposition best addresses the combined suicide, alcohol, and unresolved medical risks?',
@@ -97,7 +97,7 @@ Given the recent firearm behavior, intoxication-linked suicidal thinking, uncert
           explanation: 'Neither present denial nor interrupted firearm access neutralizes recent preparatory behavior, intoxication-linked suicidal thinking, uncertain future intent, and reliving. Tremor, sweating, tachycardia, nausea, and chest symptoms also require timely medical assessment. The safest disposition addresses both domains without using one to postpone the other. Outpatient planning remains useful after immediate evaluation, while supervision, transportation, necessary information transfer, and continued lethal-means separation reduce risk during the transition.',
         },
         {
-          id: 'marcus-q4',
+          id: 'terrence-q4',
           questionNumber: 4,
           domain: 'Intake/assessment/diagnosis',
           stem: 'Which assessment strategy best separates overlapping psychiatric, substance-related, and medical contributors?',
@@ -111,7 +111,7 @@ Given the recent firearm behavior, intoxication-linked suicidal thinking, uncert
           explanation: 'The counselor needs both immediate medical evaluation and longitudinal phenomenology. Timing, triggers, content, orientation, exertion, sleep, alcohol exposure, injury, collateral observations, and functional consequences can clarify interacting causes. A short abstinence period may improve later interpretation but should not delay treatment of supported conditions. Rating scales track constructs rather than allocate causation. Neither workplace location nor failure to prove a neurologic cause establishes that PTSD explains a particular episode.',
         },
         {
-          id: 'marcus-q5',
+          id: 'terrence-q5',
           questionNumber: 5,
           domain: 'Professional practice and ethics',
           stem: 'How should you initially respond to the chief’s request for notes and immediate clearance?',
@@ -137,7 +137,7 @@ Terrence wants trauma-focused care while continuing recovery treatment. One grou
 An independent occupational clinician has begun the established fitness process. The chief again seeks full notes and a prognosis. The evaluator offers a narrowly worded request for attendance, broad functional observations, and treatment recommendations relevant to work, excluding psychotherapy process notes. Terrence has not signed it and asks you instead for a letter guaranteeing that he is completely safe.` ,
       questions: [
         {
-          id: 'marcus-q6',
+          id: 'terrence-q6',
           questionNumber: 6,
           domain: 'Core counseling attributes',
           stem: 'Which response best integrates cultural humility with responsible risk assessment?',
@@ -151,7 +151,7 @@ An independent occupational clinician has begun the established fitness process.
           explanation: 'Cultural humility requires examining how bias, role expectations, and realistic employment concerns may shape communication while preserving direct individualized assessment. An identity-blind stance can hide rather than eliminate bias. Conversely, responsiveness does not require abandoning collateral or accepting safety conclusions uncritically. Assuming that Terrence’s identities determine the meaning of silence simply substitutes a new stereotype. The counselor should name possibilities tentatively and privilege Terrence’s contextual meaning.',
         },
         {
-          id: 'marcus-q7',
+          id: 'terrence-q7',
           questionNumber: 7,
           domain: 'Treatment planning',
           stem: 'Which plan best coordinates PTSD and alcohol treatment at this stage?',
@@ -165,7 +165,7 @@ An independent occupational clinician has begun the established fitness process.
           explanation: 'Readiness depends on current safety, withdrawal resolution, engagement, craving management, orientation, preferences, and capacity to use supports—not an arbitrary abstinence duration or complete symptom elimination. PTSD and AUD can maintain one another, so coordinated or integrated care is preferable to rigid sequencing. Trauma work should be paced and monitored rather than automatically delayed or delivered without regard to dissociation. Recovery treatment remains active rather than being suspended during trauma-focused care.',
         },
         {
-          id: 'marcus-q8',
+          id: 'terrence-q8',
           questionNumber: 8,
           domain: 'Counseling skills and interventions',
           stem: 'After appropriate medical review, which intervention most directly addresses Terrence’s panic-maintaining fear of bodily sensations?',
@@ -179,7 +179,7 @@ An independent occupational clinician has begun the established fitness process.
           explanation: 'Interoceptive exposure tests catastrophic predictions about benign sensations, while in-vivo practice reverses avoidance of exercise and stores. Pulse checking can preserve the belief that safety depends on monitoring, even if later fading is planned. Trauma work may improve cue-linked arousal but does not replace direct panic treatment, and derealization can be assessed during graded work. Combining every intervention in a group is not automatically clinically or procedurally appropriate.',
         },
         {
-          id: 'marcus-q9',
+          id: 'terrence-q9',
           questionNumber: 9,
           domain: 'Professional practice and ethics',
           stem: 'What is the best response to the narrow occupational request and Terrence’s demand for a guarantee?',
@@ -193,7 +193,7 @@ An independent occupational clinician has begun the established fitness process.
           explanation: 'A future-safety guarantee is clinically indefensible. Terrence should understand the request’s scope, possible benefits and risks, recipients, revocation limits, and alternatives before authorizing disclosure. With valid authorization, the counselor may share limited factual information without becoming the fitness evaluator. Neither functional language nor omission of diagnosis removes confidentiality. Categorical refusal may unnecessarily obstruct an independent process that can use appropriately bounded treatment input.',
         },
         {
-          id: 'marcus-q10',
+          id: 'terrence-q10',
           questionNumber: 10,
           domain: 'Counseling skills and interventions',
           stem: 'Terrence anticipates heavy drinking at a retirement banquet but fears that declining alcohol will expose his diagnosis. What should you do?',
@@ -221,7 +221,7 @@ Three days later, during a medically approved stair drill, he experienced palpit
 Terrence also describes guilt and betrayal connected to obeying the evacuation order while Luis moved toward the trapped child. He asks whether “moral injury” replaces PTSD. The evaluator requests updated functional observations and whether the alcohol use or drill episode changed recommendations. Terrence asks you to omit the drinking, decide fitness yourself, and connect firearm return to successful work performance.` ,
       questions: [
         {
-          id: 'marcus-q11',
+          id: 'terrence-q11',
           questionNumber: 11,
           domain: 'Treatment planning',
           stem: 'What is the best response to Terrence’s alcohol use at the anniversary event?',
@@ -235,7 +235,7 @@ Terrence also describes guilt and betrayal connected to obeying the evacuation o
           explanation: 'The episode matters because alcohol previously interacted with trauma, suicidality, and firearm risk. Analysis should examine cues, social pressure, decisions, craving, protective actions, current suicide and access risk, and subsequent behavior. Terrence’s early disclosure and help-seeking are strengths but do not prove controlled drinking is safe. Conversely, two drinks do not automatically erase progress or mandate a higher level of care. The response should be proportionate, collaborative, and coordinated.',
         },
         {
-          id: 'marcus-q12',
+          id: 'terrence-q12',
           questionNumber: 12,
           domain: 'Intake/assessment/diagnosis',
           stem: 'Which formulation of the stair-climb episode is best supported?',
@@ -249,7 +249,7 @@ Terrence also describes guilt and betrayal connected to obeying the evacuation o
           explanation: 'The rapid somatic surge, fear, derealization, preserved orientation, and absence of trauma-specific content most strongly support a panic attack. The drill context means PTSD and occupational implications should still be considered, but context alone does not establish a flashback. Derealization can accompany panic without present-tense trauma reliving. Two beers three days earlier do not establish withdrawal. Exertional symptoms still merit appropriate medical and functional review despite a leading psychological formulation.',
         },
         {
-          id: 'marcus-q13',
+          id: 'terrence-q13',
           questionNumber: 13,
           domain: 'Counseling skills and interventions',
           stem: 'How should moral injury be incorporated into Terrence’s treatment?',
@@ -263,7 +263,7 @@ Terrence also describes guilt and betrayal connected to obeying the evacuation o
           explanation: 'Moral injury is a useful clinical framework, not a separate DSM diagnosis. It can broaden attention to omission, betrayal, values, shame, grief, trust, responsibility, repair, and meaning while PTSD, depression, substance use, and suicide risk continue to be assessed. The counselor should not force total exoneration or delay values-based work until symptoms disappear. Pacing remains individualized, but the topic is not inherently contraindicated when residual symptoms remain.',
         },
         {
-          id: 'marcus-q14',
+          id: 'terrence-q14',
           questionNumber: 14,
           domain: 'Professional practice and ethics',
           stem: 'What is the most defensible response to the evaluator’s updated request?',

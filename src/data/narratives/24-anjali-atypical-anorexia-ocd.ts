@@ -1,7 +1,7 @@
 import type { Narrative } from "./types";
 
 export const anjaliAtypicalAnorexiaOcd: Narrative = {
-  id: '24-priya-atypical-anorexia-ocd',
+  id: '24-anjali-atypical-anorexia-ocd',
   title: 'Anjali — Atypical Anorexia Nervosa and OCD',
   category: "Feeding and Eating Disorders",
   difficulty: "Advanced",
@@ -55,7 +55,7 @@ Anjali agrees that Nisha may transport her and that the receiving team may recei
       sectionNarrative: '',
       questions: [
         {
-          id: 'priya-q1',
+          id: 'anjali-q1',
           questionNumber: 1,
           domain: 'Intake/assessment/diagnosis',
           stem: 'Which formulation best accounts for Anjali’s full presentation?',
@@ -69,7 +69,7 @@ Anjali agrees that Nisha may transport her and that the receiving team may recei
           explanation: 'Atypical anorexia nervosa captures all anorexia features except low body weight; medical instability does not replace that criterion. Anjali’s weight-driven restriction, checking, exercise, fear, and limited insight are not fully explained by contamination. Her harm, chemical-contamination, checking, exactness, and reassurance symptoms began years earlier, consume substantial time, and extend beyond eating concerns, supporting separate OCD. Undernutrition may intensify rigidity and cognition without retroactively accounting for the longstanding syndrome.',
         },
         {
-          id: 'priya-q2',
+          id: 'anjali-q2',
           questionNumber: 2,
           domain: 'Core counseling attributes',
           stem: 'How should culturally meaningful vegetarianism and fasting be differentiated from eating-disorder behavior?',
@@ -83,7 +83,7 @@ Anjali agrees that Nisha may transport her and that the receiving team may recei
           explanation: 'Surface form is insufficient. Longstanding shared vegetarianism can coexist with new fear-driven exclusions, and a culturally meaningful fast can also be recruited into an eating-disorder cycle. Function, flexibility, context, secrecy, consequences, and Anjali’s own meaning distinguish them better than a calendar, family vote, or protected category. Blanket suspension is coercive and clinically unnecessary. Cultural responsiveness neither pathologizes difference nor exempts a harmful behavior from individualized assessment.',
         },
         {
-          id: 'priya-q3',
+          id: 'anjali-q3',
           questionNumber: 3,
           domain: 'Intake/assessment/diagnosis',
           stem: 'Which finding most strongly argues against bulimia nervosa or binge-eating disorder?',
@@ -97,7 +97,7 @@ Anjali agrees that Nisha may transport her and that the receiving team may recei
           explanation: 'Bulimia nervosa and binge-eating disorder require recurrent objective binge episodes involving both a large amount and loss of control. Anjali uses “binge” for ordinary portions, so the clinician must clarify the phenomenon rather than accept the label. Exercise, fasting, guilt, non-low weight, and subjective overeating can occur across eating disorders. Absence of purging distinguishes some patterns but does not itself exclude binge-eating disorder; absence of qualifying binges is the decisive evidence.',
         },
         {
-          id: 'priya-q4',
+          id: 'anjali-q4',
           questionNumber: 4,
           domain: 'Treatment planning',
           stem: 'What is the most appropriate immediate response to Anjali’s intake findings?',
@@ -111,7 +111,7 @@ Anjali agrees that Nisha may transport her and that the receiving team may recei
           explanation: 'Near-syncope, bradycardia, marked orthostatic change, palpitations, low temperature, rapid loss, and continued restriction require immediate medical evaluation. Orientation and low acute suicide risk do not establish cardiovascular safety or safe independent travel. Delaying until another event or using behavioral promises as medical clearance is inappropriate. The counselor facilitates evaluation and communicates relevant facts; qualified eating-disorder professionals determine the level of care from medical, nutritional, behavioral, psychiatric, and support factors.',
         },
         {
-          id: 'priya-q5',
+          id: 'anjali-q5',
           questionNumber: 5,
           domain: 'Professional practice and ethics',
           stem: 'Anjali limits disclosure while urgent medical transfer is arranged. Which response is most defensible?',
@@ -137,7 +137,7 @@ Anjali and her clinicians disagree about how to classify overlapping behavior. C
 With consent, Nisha joins part of the session. She still prepares backup meals and answers safety questions, but also checks browser history, watches the bathroom, and compares receipts with the nutrition plan. Anjali deletes step data to avoid scrutiny. Both want a support plan that reduces accommodation without converting Nisha into a clinician. Anjali also expects to attend the next video session while visiting her parents in another state.` ,
       questions: [
         {
-          id: 'priya-q6',
+          id: 'anjali-q6',
           questionNumber: 6,
           domain: 'Core counseling attributes',
           stem: 'How should you respond to the body-size-based comments Anjali experienced in treatment?',
@@ -151,7 +151,7 @@ With consent, Nisha joins part of the session. She still prepares backup meals a
           explanation: 'The response validates impact without defending intent, accurately separates severity from appearance, and restores Anjali’s participation in care. Immediate redirection to medical facts can reproduce the experience of not being heard. Avoiding all body-related discussion is impractical because respectful conversations about nutrition, health, and body image remain necessary. Speculating that staff intended reassurance centers their motives rather than Anjali’s experience and may minimize a treatment-interfering rupture.',
         },
         {
-          id: 'priya-q7',
+          id: 'anjali-q7',
           questionNumber: 7,
           domain: 'Counseling skills and interventions',
           stem: 'Which treatment strategy best addresses both disorders without confusing their maintaining functions?',
@@ -165,7 +165,7 @@ With consent, Nisha joins part of the session. She still prepares backup meals a
           explanation: 'A coordinated plan can address both disorders without treating every rigid behavior as equivalent. CBT-E targets regular eating, overvaluation, checking, avoidance, and dietary rules; ERP targets obsessions and rituals such as washing, checking, repetition, and reassurance. Food-related exposure must support rather than undermine the nutrition plan. Rigidly completing one treatment first can prolong the other, while a single undifferentiated protocol ignores distinct feared outcomes and can turn exposure into restriction or control.',
         },
         {
-          id: 'priya-q8',
+          id: 'anjali-q8',
           questionNumber: 8,
           domain: 'Intake/assessment/diagnosis',
           stem: 'Which method most accurately classifies Anjali’s overlapping rituals?',
@@ -179,7 +179,7 @@ With consent, Nisha joins part of the session. She still prepares backup meals a
           explanation: 'The visible behavior, object, onset date, and family approval do not establish function. Restaurant avoidance, for example, may protect an ethical value, reduce contamination uncertainty, prevent calorie exposure, or serve several purposes. Functional analysis examines antecedents, feared outcomes, short-term relief, and longer consequences. Undernutrition can intensify rigidity without erasing longstanding OCD. A formulation should remain testable and revisable rather than forcing every food-related act into one diagnostic category.',
         },
         {
-          id: 'priya-q9',
+          id: 'anjali-q9',
           questionNumber: 9,
           domain: 'Counseling skills and interventions',
           stem: 'What is the best plan for Nisha’s accommodation and surveillance?',
@@ -193,7 +193,7 @@ With consent, Nisha joins part of the session. She still prepares backup meals a
           explanation: 'The plan should distinguish practical support from ritual participation and surveillance. Agreed meal logistics, transport, or response to observable warning signs may be appropriate, while reassurance, browser inspection, bathroom watching, and indefinite data review can maintain symptoms or secrecy. Abrupt removal of all support may conflict with current care needs. Prioritizing one disorder does not justify unbounded monitoring. Consent, capacity, safety, and effectiveness require explicit boundaries and repeated review.',
         },
         {
-          id: 'priya-q10',
+          id: 'anjali-q10',
           questionNumber: 10,
           domain: 'Professional practice and ethics',
           stem: 'What should occur before counseling Anjali by video while she is in another state?',
@@ -219,7 +219,7 @@ Anjali’s medical clinician sees no current cardiac contraindication to low-int
 Anjali is considering a future family fast that matters spiritually and relationally. She fears it could become a socially protected return to restriction and asks for a permanent rule. Her insurer also requests records for continued-care review. Anjali first says, “Send everything,” then worries that details about sexuality, family conflict, and harm obsessions are irrelevant.` ,
       questions: [
         {
-          id: 'priya-q11',
+          id: 'anjali-q11',
           questionNumber: 11,
           domain: 'Treatment planning',
           stem: 'What is the most appropriate response to Anjali’s recent warning-sign cluster?',
@@ -233,7 +233,7 @@ Anjali is considering a future family fast that matters spiritually and relation
           explanation: 'The linked return of skipped nutrition, tracking, label comparison, low-fat selection, and reinforcement from praise is more informative than any behavior alone. Relapse planning is intended for early use, before major weight or medical deterioration. The team should restore regular eating, reduce maintaining behaviors, assess current status and stressors, involve consented supports, and adjust intensity if needed. Automatic readmission is premature, but waiting for objective deterioration forfeits the advantage of early disclosure.',
         },
         {
-          id: 'priya-q12',
+          id: 'anjali-q12',
           questionNumber: 12,
           domain: 'Counseling skills and interventions',
           stem: 'Which plan best supports Anjali’s return to exercise and movement?',
@@ -247,7 +247,7 @@ Anjali is considering a future family fast that matters spiritually and relation
           explanation: 'Return to movement is not determined by stated enjoyment or one metric. It should integrate medical stability, adequate intake and recovery, injury status, graded progression, the ability to rest, flexibility, and reduced compensatory function. Waiting for perfect body image is unnecessarily absolute, while immediate endurance training can outpace recovery. Tracking and partner review may recreate competition, compulsion, or surveillance; any measurement requires a specific rationale and monitoring of its actual effects.',
         },
         {
-          id: 'priya-q13',
+          id: 'anjali-q13',
           questionNumber: 13,
           domain: 'Professional practice and ethics',
           stem: 'How should you handle the insurer request after Anjali expresses concern about her initial broad permission?',
@@ -261,7 +261,7 @@ Anjali is considering a future family fast that matters spiritually and relation
           explanation: 'Anjali’s concern requires clarification before disclosure, not reliance on the earliest broad statement or categorical refusal. The counselor should identify purpose, recipient, scope, authorization requirements, payer contract, applicable law, policy, and whether selected records or a focused summary can meet the legitimate need. “Minimum necessary” does not produce one universal content list. Unrelated sensitive information should not be included merely because a larger record might appear more persuasive.',
         },
         {
-          id: 'priya-q14',
+          id: 'anjali-q14',
           questionNumber: 14,
           domain: 'Core counseling attributes',
           stem: 'How should you respond to Anjali’s request for a permanent rule about religious fasting?',
