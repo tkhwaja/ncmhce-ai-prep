@@ -10,6 +10,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Brain, Clock, PlayCircle, RotateCcw, CheckCircle2, ArrowRight, Lock } from "lucide-react";
+import NcePracticeExamsView from "@/components/nce/NcePracticeExamsView";
 
 interface ExamAttemptRow {
   id: string;
@@ -68,6 +69,9 @@ const PracticeExams = () => {
     setCreating(false);
     if (!error && data) navigate(`/practice-exam/${examId}/attempt/${data.id}`);
   };
+
+  // NCE exams are multiple-choice and full-length, so they use their own hub.
+  if (track === "nce") return <NcePracticeExamsView />;
 
   return (
     <div className="p-4 sm:p-6 max-w-6xl mx-auto space-y-6 sm:space-y-8">

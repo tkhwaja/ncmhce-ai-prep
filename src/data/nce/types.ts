@@ -58,6 +58,14 @@ export interface NCEPracticeExam {
   comingSoon?: boolean;
   /** Marks a newly released exam. */
   isNew?: boolean;
+  /** Full-length runner format (item counts, timing, scheduled break). */
+  format?: import("./practice-exam-types").NCEExamFormat;
+  /** Authored item set backing this exam, when it has one. */
+  itemSet?: "pe-01";
+  /** Scored-item counts per NBCC blueprint domain id (D1–D6). */
+  scoredBlueprint?: Record<string, number>;
+  /** ISO date the exam shipped. */
+  releasedAt?: string;
 }
 
 export interface NCELibraryModule {
