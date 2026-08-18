@@ -25,6 +25,7 @@ const bodySchema = z.object({
   fullName: z.string().trim().min(2).max(120),
   email: z.string().trim().email().max(255),
   narrativeId: z.string().trim().min(1).max(120),
+  examTrack: z.enum(['ncmhce', 'nce']).default('ncmhce'),
   totalScore: z.number().int().min(0).max(100),
   correctAnswers: z.number().int().min(0).max(100),
   totalQuestions: z.number().int().min(1).max(100),
@@ -84,6 +85,7 @@ Deno.serve(async (req) => {
       full_name: payload.fullName,
       email: payload.email.toLowerCase(),
       narrative_id: payload.narrativeId,
+      exam_track: payload.examTrack,
       total_score: payload.totalScore,
       correct_answers: payload.correctAnswers,
       total_questions: payload.totalQuestions,
@@ -107,9 +109,10 @@ Deno.serve(async (req) => {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      templateName: 'free-diagnostic-breakdown',
+      templateName:
+        payload.examTrack === 'nce' ? 'nce-diagnostic-breakdown' : 'free-diagnostic-breakdown',
       recipientEmail: payload.email.toLowerCase(),
-      idempotencyKey: `free-diagnostic-${insertedLead.id}`,
+      idempotencyKey: `free-diagnostic-${payload.examTrack}-${insertedLead.id}`,
       templateData: {
         fullName: payload.fullName,
         totalScore: payload.totalScore,
