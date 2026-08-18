@@ -6,6 +6,7 @@ import {
   nceFlashcardDecks,
 } from "@/data/nce";
 import { NCE_DOMAINS } from "@/data/nce/types";
+import { nceCollections } from "@/data/nce/library/curriculum";
 import {
   nceDiagnosticQuestions,
   NCE_DIAGNOSTIC_ITEMS_PER_DOMAIN,
@@ -77,6 +78,60 @@ describe("free NCE diagnostic", () => {
     nceDiagnosticQuestions.forEach((q) => {
       expect(q.options.length).toBeGreaterThanOrEqual(4);
       expect(q.options[q.correctAnswerIndex]).toBeTruthy();
+    });
+  });
+});
+
+describe("question bank blueprint metadata", () => {
+  const curriculumModuleIds = new Set(
+    nceCollections.flatMap((c) => c.modules.map((m) => m.id)),
+  );
+  const BLUEPRINT_IDS = ["D1", "D2", "D3", "D4", "D5", "D6"];
+  /** Target share of the finished 1,000-item bank, per NBCC blueprint domain. */
+  const BLUEPRINT_TARGET: Record<string, number> = {
+    D1: 12,
+    D2: 12,
+    D3: 29,
+    D4: 9,
+    D5: 30,
+    D6: 8,
+  };
+
+  const authored = nceQuestions.filter((q) => q.blueprintDomainId);
+
+  it("has unique ids and stems across the bank", () => {
+    const ids = new Set(nceQuestions.map((q) => q.id));
+    const stems = new Set(nceQuestions.map((q) => q.stem.trim().toLowerCase()));
+    expect(ids.size).toBe(nceQuestions.length);
+    expect(stems.size).toBe(nceQuestions.length);
+  });
+
+  it("keeps every item answerable with a rationale per option", () => {
+    nceQuestions.forEach((q) => {
+      expect(q.options[q.correctAnswerIndex]).toBeTruthy();
+      expect(q.explanation.length).toBeGreaterThan(30);
+      if (q.optionRationales) expect(q.optionRationales.length).toBe(q.options.length);
+    });
+  });
+
+  it("tags blueprint-authored items with a valid domain, topic, module and level", () => {
+    expect(authored.length).toBeGreaterThan(0);
+    authored.forEach((q) => {
+      expect(BLUEPRINT_IDS).toContain(q.blueprintDomainId);
+      expect(q.blueprintDomainName).toBeTruthy();
+      expect(q.topic).toBeTruthy();
+      expect(curriculumModuleIds.has(q.moduleId ?? "")).toBe(true);
+      expect(q.difficultyLevel).toBeGreaterThanOrEqual(1);
+      expect(q.difficultyLevel).toBeLessThanOrEqual(5);
+    });
+  });
+
+  it("lands on the blueprint weights once the bank is large enough", () => {
+    // Batches 002+ correct batch 001's skew; only enforce the mix at scale.
+    if (authored.length < 500) return;
+    BLUEPRINT_IDS.forEach((domain) => {
+      const share = (authored.filter((q) => q.blueprintDomainId === domain).length / authored.length) * 100;
+      expect(Math.abs(share - BLUEPRINT_TARGET[domain])).toBeLessThanOrEqual(4);
     });
   });
 });
