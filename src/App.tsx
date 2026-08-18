@@ -50,6 +50,7 @@ const Community = lazy(() => import("./pages/Community"));
 const PracticeExams = lazy(() => import("./pages/PracticeExams"));
 const PracticeExamRunner = lazy(() => import("./pages/PracticeExamRunner"));
 const PracticeExamResults = lazy(() => import("./pages/PracticeExamResults"));
+const NceExamRunner = lazy(() => import("./pages/NceExamRunner"));
 
 const queryClient = new QueryClient();
 
