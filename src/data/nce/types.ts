@@ -40,7 +40,26 @@ export interface NCEQuestion {
   difficulty?: NCEDifficulty;
   /** Optional tags for filtering and search. */
   tags?: string[];
+
+  /* ---- Blueprint metadata (authored from batch 002 onward, backfilled on 001) ---- */
+  /** NBCC work-behavior domain id (D1–D6) this item is written to. */
+  blueprintDomainId?: string;
+  /** Human-readable NBCC domain title matching blueprintDomainId. */
+  blueprintDomainName?: string;
+  /** Optional NBCC task code(s) the item targets. */
+  taskCode?: string;
+  /** Short topic label used for topic-repeat limits and drills. */
+  topic?: string;
+  /** Optional finer-grained topic detail. */
+  subtopic?: string;
+  /** Curriculum module id the item maps back to (e.g. "AT-03"). */
+  moduleId?: string;
+  /** Authored difficulty on the 1–5 scale used by the practice exams. */
+  difficultyLevel?: number;
+  /** One-line takeaway shown after review. */
+  keyTakeaway?: string;
 }
+
 
 export interface NCEPracticeExam {
   id: string;
