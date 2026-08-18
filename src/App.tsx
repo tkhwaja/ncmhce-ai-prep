@@ -27,6 +27,8 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Marketing / standalone
 const FreeDiagnosticCase = lazy(() => import("./pages/FreeDiagnosticCase"));
+const FreeDiagnosticChooser = lazy(() => import("./pages/FreeDiagnosticChooser"));
+const FreeDiagnosticNce = lazy(() => import("./pages/FreeDiagnosticNce"));
 const CheckoutPage = lazy(() => import("./pages/CheckoutPage"));
 const CheckoutReturn = lazy(() => import("./pages/CheckoutReturn"));
 const IconsPreview = lazy(() => import("./pages/IconsPreview"));
@@ -151,6 +153,8 @@ const App = () => (
               <Routes>
                 <Route path="/" element={<Index />} />
                 <Route path="/free-diagnostic-case" element={<FreeDiagnosticCase />} />
+                <Route path="/free-diagnostic" element={<FreeDiagnosticChooser />} />
+                <Route path="/free-diagnostic-nce" element={<FreeDiagnosticNce />} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/forgot-password" element={<ForgotPassword />} />
