@@ -173,6 +173,7 @@ const App = () => (
                   <Route path="/practice-exams" element={<PaidFeatureGate feature="Practice Exams"><PracticeExams /></PaidFeatureGate>} />
                   <Route path="/practice-exam/:examId/attempt/:attemptId" element={<PaidFeatureGate feature="Practice Exams"><PracticeExamRunner /></PaidFeatureGate>} />
                   <Route path="/practice-exam/:examId/results/:attemptId" element={<PaidFeatureGate feature="Practice Exams"><PracticeExamResults /></PaidFeatureGate>} />
+                  <Route path="/nce-practice-exam/:examId" element={<PaidFeatureGate feature="Practice Exams"><NceExamRunner /></PaidFeatureGate>} />
                   <Route path="/simulations" element={<Navigate to="/narratives" replace />} />
                   <Route path="/simulation/:id" element={<RedirectSimulation />} />
                   <Route path="/study-plan" element={<PaidFeatureGate feature="Study Plan"><StudyPlan /></PaidFeatureGate>} />
