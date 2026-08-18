@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { Link } from "react-router-dom";
 import logoMark from "@/assets/brand/ring-mark-dark.svg";
+import { FREE_DIAGNOSTIC_PATH } from "./FreeDiagnosticCTA";
+import { NCE_ENABLED } from "@/config/exam-tracks";
 
 const navLinks = [
   { label: "Features", href: "#features" },
@@ -60,10 +62,10 @@ const Navbar = () => {
             Sign Up
           </Link>
           <Link
-            to="/free-diagnostic-case"
+            to={FREE_DIAGNOSTIC_PATH}
             className="inline-flex items-center justify-center rounded-lg bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:bg-primary/90 transition-colors"
           >
-            Take Free Case
+            {NCE_ENABLED ? "Free Diagnostic" : "Take Free Case"}
           </Link>
         </div>
 
@@ -104,11 +106,11 @@ const Navbar = () => {
             Log In
           </Link>
           <Link
-            to="/free-diagnostic-case"
+            to={FREE_DIAGNOSTIC_PATH}
             onClick={() => setMobileOpen(false)}
             className="mt-2 inline-flex w-full items-center justify-center rounded-lg bg-primary px-4 py-2.5 text-sm font-medium text-primary-foreground"
           >
-            Take the Free Diagnostic Case
+            {NCE_ENABLED ? "Take the Free Diagnostic" : "Take the Free Diagnostic Case"}
           </Link>
           <Link
             to="/signup"
