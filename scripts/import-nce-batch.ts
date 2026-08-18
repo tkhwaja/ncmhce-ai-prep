@@ -432,14 +432,218 @@ ${entries}
 `;
 };
 
+/* --------------------------- question batch mode -------------------------- */
+
+import { nceCollections } from "../src/data/nce/library/curriculum";
+
+const BLUEPRINT_NAMES: Record<string, string> = {
+  D1: "Professional Practice and Ethics",
+  D2: "Intake, Assessment, and Diagnosis",
+  D3: "Areas of Clinical Focus",
+  D4: "Treatment Planning",
+  D5: "Counseling Skills and Interventions",
+  D6: "Core Counseling Attributes",
+};
+
+/** Target items per 100-item batch, per NBCC blueprint domain. */
+const DOMAIN_QUOTA: Record<string, number> = { D1: 12, D2: 12, D3: 29, D4: 9, D5: 30, D6: 8 };
+const DOMAIN_TOLERANCE = 3;
+/** Target items per 100-item batch, per authored difficulty level. */
+const DIFFICULTY_QUOTA: Record<number, number> = { 2: 15, 3: 45, 4: 30, 5: 10 };
+const DIFFICULTY_TOLERANCE = 5;
+const MAX_TOPIC_REPEATS = 3;
+
+const CACREP_DOMAINS = [
+  "Professional Counseling Orientation and Ethical Practice",
+  "Social and Cultural Diversity",
+  "Human Growth and Development",
+  "Career Development",
+  "Counseling and Helping Relationships",
+  "Group Counseling and Group Work",
+  "Assessment and Testing",
+  "Research and Program Evaluation",
+];
+
+const curriculumModuleIds = new Set(
+  nceCollections.flatMap((c) => c.modules.map((m) => m.id)),
+);
+
+interface RawQuestion {
+  id?: string;
+  domain?: string;
+  blueprintDomainId?: string;
+  taskCode?: string;
+  topic?: string;
+  subtopic?: string;
+  moduleId?: string;
+  difficultyLevel?: number;
+  stem?: string;
+  options?: string[];
+  correctAnswerIndex?: number;
+  explanation?: string;
+  optionRationales?: string[];
+  keyTakeaway?: string;
+  tags?: string[];
+}
+
+const difficultyLabel = (level: number): string =>
+  level <= 2 ? "Easy" : level === 3 ? "Medium" : "Hard";
+
+const validateQuestions = (items: RawQuestion[]) => {
+  const errors: string[] = [];
+  const warnings: string[] = [];
+  const ids = new Set<string>();
+  const stems = new Set<string>();
+  const byDomain: Record<string, number> = {};
+  const byLevel: Record<number, number> = {};
+  const byTopic = new Map<string, number>();
+  const byAnswer: Record<number, number> = {};
+
+  items.forEach((q, i) => {
+    const at = `item ${i + 1} (${q.id ?? "no id"})`;
+    if (!q.id) errors.push(`${at}: missing id`);
+    else if (ids.has(q.id)) errors.push(`${at}: duplicate id`);
+    else ids.add(q.id);
+
+    if (q.stem) {
+      const key = q.stem.trim().toLowerCase();
+      if (stems.has(key)) errors.push(`${at}: duplicate stem`);
+      stems.add(key);
+    } else errors.push(`${at}: missing stem`);
+
+    if (!q.domain || !CACREP_DOMAINS.includes(q.domain)) errors.push(`${at}: invalid CACREP domain "${q.domain}"`);
+    if (!q.blueprintDomainId || !BLUEPRINT_NAMES[q.blueprintDomainId])
+      errors.push(`${at}: invalid blueprintDomainId "${q.blueprintDomainId}" (expected D1–D6)`);
+    else byDomain[q.blueprintDomainId] = (byDomain[q.blueprintDomainId] ?? 0) + 1;
+
+    if (!q.topic) errors.push(`${at}: missing topic`);
+    else byTopic.set(q.topic, (byTopic.get(q.topic) ?? 0) + 1);
+
+    if (!q.moduleId) errors.push(`${at}: missing moduleId`);
+    else if (!curriculumModuleIds.has(q.moduleId)) errors.push(`${at}: unknown moduleId "${q.moduleId}"`);
+
+    const level = q.difficultyLevel;
+    if (typeof level !== "number" || level < 1 || level > 5) errors.push(`${at}: difficultyLevel must be 1–5`);
+    else byLevel[level] = (byLevel[level] ?? 0) + 1;
+
+    if (!Array.isArray(q.options) || q.options.length !== 4) errors.push(`${at}: needs exactly 4 options`);
+    if (typeof q.correctAnswerIndex !== "number" || !q.options?.[q.correctAnswerIndex])
+      errors.push(`${at}: correctAnswerIndex does not point at an option`);
+    else byAnswer[q.correctAnswerIndex] = (byAnswer[q.correctAnswerIndex] ?? 0) + 1;
+    if (!Array.isArray(q.optionRationales) || q.optionRationales.length !== q.options?.length)
+      errors.push(`${at}: needs one rationale per option`);
+    if (!q.explanation) errors.push(`${at}: missing explanation`);
+    if (!q.keyTakeaway) warnings.push(`${at}: no keyTakeaway`);
+  });
+
+  const scale = items.length / 100;
+  for (const [domain, target] of Object.entries(DOMAIN_QUOTA)) {
+    const want = Math.round(target * scale);
+    const got = byDomain[domain] ?? 0;
+    if (Math.abs(got - want) > DOMAIN_TOLERANCE)
+      errors.push(`blueprint quota: ${domain} has ${got} items, expected ~${want} (±${DOMAIN_TOLERANCE})`);
+  }
+  for (const [level, target] of Object.entries(DIFFICULTY_QUOTA)) {
+    const want = Math.round(target * scale);
+    const got = byLevel[Number(level)] ?? 0;
+    if (Math.abs(got - want) > DIFFICULTY_TOLERANCE)
+      errors.push(`difficulty spread: level ${level} has ${got} items, expected ~${want} (±${DIFFICULTY_TOLERANCE})`);
+  }
+  for (const [topic, count] of byTopic) {
+    if (count > MAX_TOPIC_REPEATS) errors.push(`topic "${topic}" appears ${count} times (max ${MAX_TOPIC_REPEATS})`);
+  }
+  for (let i = 0; i < 4; i += 1) {
+    const share = (byAnswer[i] ?? 0) / Math.max(items.length, 1);
+    if (share < 0.15) warnings.push(`answer position ${"ABCD"[i]} used in only ${Math.round(share * 100)}% of items`);
+  }
+
+  return { errors, warnings, byDomain, byLevel };
+};
+
+const emitQuestions = (items: RawQuestion[], batchId: string, sourceFile: string) => {
+  const records = items.map((q) => ({
+    id: q.id,
+    domain: q.domain,
+    stem: q.stem,
+    options: q.options,
+    correctAnswerIndex: q.correctAnswerIndex,
+    explanation: q.explanation,
+    optionRationales: q.optionRationales,
+    blueprintDomainId: q.blueprintDomainId,
+    blueprintDomainName: BLUEPRINT_NAMES[q.blueprintDomainId as string],
+    ...(q.taskCode ? { taskCode: q.taskCode } : {}),
+    topic: q.topic,
+    ...(q.subtopic ? { subtopic: q.subtopic } : {}),
+    moduleId: q.moduleId,
+    difficultyLevel: q.difficultyLevel,
+    difficulty: difficultyLabel(q.difficultyLevel as number),
+    ...(q.keyTakeaway ? { keyTakeaway: q.keyTakeaway } : {}),
+    ...(q.tags?.length ? { tags: q.tags } : {}),
+  }));
+  const varName = `nceQuestionsBatch${batchId}`;
+  return `import type { NCEQuestion } from "./types";
+
+/**
+ * NCE question bank — Batch ${batchId} (${records.length} items).
+ *
+ * Generated by scripts/import-nce-batch.ts from ${basename(sourceFile)}.
+ * Authored to the blueprint quota in docs/nce-question-batch-spec.md.
+ * Do not hand-edit; update the source JSON and re-import.
+ */
+export const ${varName}: NCEQuestion[] = ${JSON.stringify(records, null, 2)};
+`;
+};
+
+const importQuestionBatch = (file: string, outOverride?: string) => {
+  const parsed = JSON.parse(readFileSync(file, "utf8")) as RawQuestion[] | { questions: RawQuestion[]; batchId?: string };
+  const items = Array.isArray(parsed) ? parsed : parsed.questions;
+  const batchId =
+    (Array.isArray(parsed) ? undefined : parsed.batchId) ??
+    basename(file).match(/(\d{3})/)?.[1] ??
+    "999";
+  const { errors, warnings, byDomain, byLevel } = validateQuestions(items ?? []);
+
+  console.log(`parsed ${items?.length ?? 0} questions from ${basename(file)} (batch ${batchId})`);
+  console.log(
+    "  blueprint:",
+    Object.keys(BLUEPRINT_NAMES)
+      .map((d) => `${d}=${byDomain[d] ?? 0}`)
+      .join(" "),
+  );
+  console.log(
+    "  difficulty:",
+    [2, 3, 4, 5].map((l) => `L${l}=${byLevel[l] ?? 0}`).join(" "),
+  );
+  if (warnings.length) {
+    console.warn(`\n${warnings.length} warning(s):`);
+    for (const w of warnings) console.warn(`  - ${w}`);
+  }
+  if (errors.length) {
+    console.error(`\n${errors.length} validation error(s):`);
+    for (const e of errors) console.error(`  - ${e}`);
+    process.exit(1);
+  }
+  const outPath = outOverride ?? `src/data/nce/questions-batch-${batchId}.ts`;
+  mkdirSync(dirname(outPath), { recursive: true });
+  writeFileSync(outPath, emitQuestions(items ?? [], batchId, file));
+  console.log(`\nwrote ${outPath}`);
+};
+
 /* --------------------------------- main ----------------------------------- */
 
 const [file, ...rest] = process.argv.slice(2);
 if (!file) {
-  console.error("usage: bun scripts/import-nce-batch.ts <batch.md> [--out <file.ts>]");
+  console.error(
+    "usage: bun scripts/import-nce-batch.ts <batch.md> [--out <file.ts>]\n" +
+      "       bun scripts/import-nce-batch.ts <questions.json> --questions [--out <file.ts>]",
+  );
   process.exit(1);
 }
 const outFlag = rest.indexOf("--out");
+if (rest.includes("--questions") || file.endsWith(".json")) {
+  importQuestionBatch(file, outFlag >= 0 ? rest[outFlag + 1] : undefined);
+  process.exit(0);
+}
 const src = readFileSync(file, "utf8");
 const { fm, body } = parseFrontMatter(src);
 const moduleId = String(fm.id ?? "");
