@@ -5,6 +5,11 @@ import {
   nceLibraryModules,
   nceFlashcardDecks,
 } from "@/data/nce";
+import { NCE_DOMAINS } from "@/data/nce/types";
+import {
+  nceDiagnosticQuestions,
+  NCE_DIAGNOSTIC_ITEMS_PER_DOMAIN,
+} from "@/data/nce/diagnostic";
 import {
   validateNCEQuestions,
   validateNCEPracticeExams,
@@ -53,5 +58,25 @@ describe("NCE content integrity", () => {
     const ids = nceQuestions.map((q) => q.id);
     const uniqueIds = new Set(ids);
     expect(uniqueIds.size).toBe(ids.length);
+  });
+});
+
+describe("free NCE diagnostic", () => {
+  it("covers all eight content areas with the configured item count", () => {
+    const byDomain = new Map<string, number>();
+    nceDiagnosticQuestions.forEach((q) =>
+      byDomain.set(q.domain, (byDomain.get(q.domain) ?? 0) + 1),
+    );
+    expect(byDomain.size).toBe(NCE_DOMAINS.length);
+    byDomain.forEach((count) => expect(count).toBe(NCE_DIAGNOSTIC_ITEMS_PER_DOMAIN));
+  });
+
+  it("has unique items with valid correct answers", () => {
+    const ids = new Set(nceDiagnosticQuestions.map((q) => q.id));
+    expect(ids.size).toBe(nceDiagnosticQuestions.length);
+    nceDiagnosticQuestions.forEach((q) => {
+      expect(q.options.length).toBeGreaterThanOrEqual(4);
+      expect(q.options[q.correctAnswerIndex]).toBeTruthy();
+    });
   });
 });

@@ -346,6 +346,7 @@ export type Database = {
           domain_scores: Json
           email: string
           email_sent_at: string | null
+          exam_track: string
           full_name: string
           id: string
           narrative_id: string
@@ -359,6 +360,7 @@ export type Database = {
           domain_scores?: Json
           email: string
           email_sent_at?: string | null
+          exam_track?: string
           full_name: string
           id?: string
           narrative_id: string
@@ -372,6 +374,7 @@ export type Database = {
           domain_scores?: Json
           email?: string
           email_sent_at?: string | null
+          exam_track?: string
           full_name?: string
           id?: string
           narrative_id?: string
