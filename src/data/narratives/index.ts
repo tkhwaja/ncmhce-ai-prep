@@ -156,7 +156,16 @@ const practiceExamNarratives: Narrative[] = [
 
 const allNarratives: Narrative[] = [freeDiagnosticNarrative, ...narratives, ...practiceExamNarratives];
 
-export const getNarrativeById = (id: string | undefined): Narrative | undefined =>
-  allNarratives.find((n) => n.id === id);
+// Legacy narrative IDs kept so previously shared links/bookmarks keep working.
+const legacyNarrativeIdAliases: Record<string, string> = {
+  "24-priya-atypical-anorexia-ocd": "24-anjali-atypical-anorexia-ocd",
+  "25-marcus-ptsd-panic-alcohol": "25-terrence-ptsd-panic-alcohol",
+};
+
+export const getNarrativeById = (id: string | undefined): Narrative | undefined => {
+  if (!id) return undefined;
+  const resolvedId = legacyNarrativeIdAliases[id] ?? id;
+  return allNarratives.find((n) => n.id === resolvedId);
+};
 
 export const freeDiagnosticCase = freeDiagnosticNarrative;
