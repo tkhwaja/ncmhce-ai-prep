@@ -23,6 +23,9 @@ export const nceLessonContent: Record<string, NceLessonContent> = {
   ...or02LessonContent,
   ...po01LessonContent,
   ...po02LessonContent,
+  ...po03LessonContent,
+  ...po04LessonContent,
+
 };
 
 export const getNceLessonContent = (lessonId: string): NceLessonContent | undefined =>
