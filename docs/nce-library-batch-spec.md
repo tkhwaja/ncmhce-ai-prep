@@ -192,7 +192,7 @@ Rules that the importer enforces — violations block the batch:
 1. Generator produces one `.md` file per module, in the order listed in section 1.
 2. Send 1–3 batches at a time (more than that slows review).
 3. Import runs through `scripts/import-nce-batch.ts`, which validates front matter,
-   lesson IDs, knowledge-check shape, and word/lesson budgets, then writes
+   lesson IDs, and knowledge-check shape, then writes
    `src/data/nce/library/lesson-content/<module-id>.ts` and registers it.
 4. Tests that gate the import: `src/test/nce-lesson-content.test.ts`,
    `nce-library-structure.test.ts`, `nce-lesson-view.test.tsx`, `nce-content-integrity.test.ts`.
