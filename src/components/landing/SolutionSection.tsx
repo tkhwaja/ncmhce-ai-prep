@@ -1,11 +1,11 @@
 import { NCE_ENABLED } from "@/config/exam-tracks";
-import { MessageSquare, Monitor, CalendarClock, BarChart3, BookOpen, Layers } from "lucide-react";
+import { Monitor, CalendarClock, BarChart3, BookOpen, Layers, Users } from "lucide-react";
 
 const features = [
   {
-    icon: MessageSquare,
-    title: "Support when you need it",
-    desc: "Get optional in-context help and follow-up explanations without turning the platform into a gimmick.",
+    icon: Users,
+    title: "Study partners and community",
+    desc: "Find a partner testing the same month you are, join a small study group, and message privately inside the platform.",
     badge: null,
   },
   {
