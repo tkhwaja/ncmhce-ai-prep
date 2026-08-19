@@ -355,9 +355,15 @@ const Profile = () => {
                       personalized study plan for {formatPrice(currentPriceCents)}/month. Cancel anytime.
                     </p>
                   </div>
-                  <Button onClick={() => navigate(`/checkout?track=${track}`)} className="w-full sm:w-auto">
-                    <CreditCard className="mr-2 h-4 w-4" /> Subscribe — {formatPrice(currentPriceCents)}/month
-                  </Button>
+                  {config.subscriptionsOpen ? (
+                    <Button onClick={() => navigate(`/checkout?track=${track}`)} className="w-full sm:w-auto">
+                      <CreditCard className="mr-2 h-4 w-4" /> Subscribe — {formatPrice(currentPriceCents)}/month
+                    </Button>
+                  ) : (
+                    <Button className="w-full sm:w-auto" disabled>
+                      {config.label} subscriptions coming soon
+                    </Button>
+                  )}
                 </div>
               );
             })()

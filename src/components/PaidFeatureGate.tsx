@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useSubscription } from "@/hooks/useSubscription";
 import { useExamTrack } from "@/contexts/ExamTrackContext";
-import { formatPrice, currentPriceId } from "@/config/exam-tracks";
+import { formatPrice, currentPriceId, NCE_PREVIEW_UNLOCK } from "@/config/exam-tracks";
 import { Button } from "@/components/ui/button";
 import { Check, Lock, Hammer } from "lucide-react";
 
@@ -41,7 +41,7 @@ const PaidFeatureGate = ({ children, feature }: { children: React.ReactNode; fea
 
   // Track still under construction — never show a paywall for something that
   // can't be purchased yet.
-  if (!config.contentReady) {
+  if (!config.contentReady && !hasAccessTo(track) && !NCE_PREVIEW_UNLOCK) {
     return (
       <div className="min-h-[60vh] flex items-center justify-center p-4">
         <div className="w-full max-w-md rounded-2xl border border-border bg-card p-8 text-center shadow-sm">
@@ -97,9 +97,15 @@ const PaidFeatureGate = ({ children, feature }: { children: React.ReactNode; fea
             </ul>
           </div>
 
-          <Button asChild className="w-full" size="lg">
-            <Link to={`/checkout?track=${track}`}>Subscribe to unlock</Link>
-          </Button>
+          {config.subscriptionsOpen ? (
+            <Button asChild className="w-full" size="lg">
+              <Link to={`/checkout?track=${track}`}>Subscribe to unlock</Link>
+            </Button>
+          ) : (
+            <Button className="w-full" size="lg" disabled>
+              Coming soon
+            </Button>
+          )}
           <p className="mt-3 text-center text-xs text-muted-foreground">
             Already subscribed?{" "}
             <Link to="/profile" className="underline hover:text-foreground">
