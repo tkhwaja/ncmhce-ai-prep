@@ -17,6 +17,7 @@ import { po01LessonContent } from "./po-01";
 export const nceLessonContent: Record<string, NceLessonContent> = {
   ...or01LessonContent,
   ...or02LessonContent,
+  ...po01LessonContent,
 };
 
 export const getNceLessonContent = (lessonId: string): NceLessonContent | undefined =>
