@@ -69,6 +69,8 @@ export interface ExamTrackConfig {
   monthlyPriceCents: number;
   /** False while the track is still being built. */
   contentReady: boolean;
+  /** False while the track is visible but not yet purchasable. */
+  subscriptionsOpen: boolean;
   /** Visible to users at all. */
   enabled: boolean;
 }
@@ -110,6 +112,7 @@ export const EXAM_TRACKS: Record<ExamTrack, ExamTrackConfig> = {
     priceId: "ncmhce_monthly",
     monthlyPriceCents: 7900,
     contentReady: true,
+    subscriptionsOpen: true,
     enabled: true,
   },
   nce: {
@@ -147,6 +150,7 @@ export const EXAM_TRACKS: Record<ExamTrack, ExamTrackConfig> = {
     founderMonthlyPriceCents: 5900,
     monthlyPriceCents: 6900,
     contentReady: false,
+    subscriptionsOpen: false,
     enabled: NCE_ENABLED,
   },
 };
