@@ -268,7 +268,10 @@ interface LessonRecord {
 /** Front-matter domain slugs sometimes differ slightly from the blueprint ids. */
 const DOMAIN_ALIASES: Record<string, string> = {
   "professional-development-counselor-self-awareness": "professional-development-self-awareness",
+  "counseling-process": "counseling-skills-interventions",
+  "direct-client-care": "provision-counseling-interventions",
 };
+
 
 const normalizeDomain = (d: string) => DOMAIN_ALIASES[d] ?? d;
 
