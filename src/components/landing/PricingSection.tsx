@@ -102,9 +102,28 @@ const PricingSection = () => {
                     </li>
                   ))}
                 </ul>
-                <Button className="w-full" size="lg" variant="outline" onClick={() => navigate("/signup?track=nce")}>
-                  Start Subscription
-                </Button>
+                {nce.subscriptionsOpen ? (
+                  <Button className="w-full" size="lg" variant="outline" onClick={() => navigate("/signup?track=nce")}>
+                    Start Subscription
+                  </Button>
+                ) : (
+                  <>
+                    <Button className="w-full" size="lg" variant="outline" disabled>
+                      Coming Soon
+                    </Button>
+                    <p className="text-center text-xs text-muted-foreground">
+                      The NCE track is launching soon. Try the{" "}
+                      <button
+                        type="button"
+                        className="underline hover:text-foreground"
+                        onClick={() => navigate("/free-diagnostic")}
+                      >
+                        free NCE diagnostic
+                      </button>{" "}
+                      in the meantime.
+                    </p>
+                  </>
+                )}
               </CardContent>
             </Card>
           )}
