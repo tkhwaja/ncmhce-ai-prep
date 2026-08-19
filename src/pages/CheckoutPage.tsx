@@ -47,7 +47,23 @@ const CheckoutPage = () => {
           </div>
         )}
 
-        {authLoading ? (
+        {!config.subscriptionsOpen ? (
+          <div className="rounded-lg border border-border bg-card p-6">
+            <h2 className="text-lg font-semibold mb-2">{config.label} subscriptions are coming soon</h2>
+            <p className="text-sm text-muted-foreground mb-4">
+              We're finishing the {config.fullName} track. You can't subscribe to it yet — check back
+              shortly, or start with the free {config.label} diagnostic.
+            </p>
+            <div className="flex gap-3">
+              <Button asChild>
+                <Link to="/free-diagnostic">Free diagnostic</Link>
+              </Button>
+              <Button asChild variant="outline">
+                <Link to="/">Back to home</Link>
+              </Button>
+            </div>
+          </div>
+        ) : authLoading ? (
           <div className="flex justify-center py-12">
             <div className="h-6 w-6 animate-spin rounded-full border-2 border-primary border-t-transparent" />
           </div>
