@@ -505,7 +505,9 @@ IMPORTANT: Return ONLY a valid JSON array, no markdown, no explanation. Example 
           <Button
             className="w-full"
             onClick={generatePlan}
-            disabled={!examDate || generating || Object.keys(confidence).length < 5}
+            disabled={
+              !examDate || generating || Object.keys(confidence).length < confidenceAreas.length
+            }
           >
             <Sparkles className="mr-2 h-4 w-4" />
             {generating ? "Generating Your Plan..." : "Generate My Study Plan"}
