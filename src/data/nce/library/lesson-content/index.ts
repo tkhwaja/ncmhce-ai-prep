@@ -3,6 +3,9 @@ import { or01LessonContent } from "./or-01";
 import { or02LessonContent } from "./or-02";
 import { po01LessonContent } from "./po-01";
 import { po02LessonContent } from "./po-02";
+import { po03LessonContent } from "./po-03";
+import { po04LessonContent } from "./po-04";
+
 
 /**
  * Authored NCE lesson content, keyed by canonical lesson id (e.g. "CH-05-L03").
@@ -20,6 +23,9 @@ export const nceLessonContent: Record<string, NceLessonContent> = {
   ...or02LessonContent,
   ...po01LessonContent,
   ...po02LessonContent,
+  ...po03LessonContent,
+  ...po04LessonContent,
+
 };
 
 export const getNceLessonContent = (lessonId: string): NceLessonContent | undefined =>

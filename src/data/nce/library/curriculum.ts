@@ -89,14 +89,14 @@ export const nceCollections: NceCollection[] = [
         title: "Informed Consent, Confidentiality, and Client Rights",
         collectionSlug: "professional-orientation-ethics",
         lessons: [
-          { id: "PO-03-L01", slug: "elements-of-informed-consent", title: "Elements of informed consent", order: 1 },
-          { id: "PO-03-L02", slug: "capacity-assent-and-consent-involving-minors-or-guardians", title: "Capacity, assent, and consent involving minors or guardians", order: 2 },
-          { id: "PO-03-L03", slug: "ongoing-nature-of-informed-consent", title: "Ongoing nature of informed consent", order: 3 },
-          { id: "PO-03-L04", slug: "confidentiality-versus-privileged-communication", title: "Confidentiality versus privileged communication", order: 4 },
-          { id: "PO-03-L05", slug: "limits-and-exceptions-to-confidentiality", title: "Limits and exceptions to confidentiality", order: 5 },
-          { id: "PO-03-L06", slug: "releases-of-information", title: "Releases of information", order: 6 },
-          { id: "PO-03-L07", slug: "group-couples-and-family-confidentiality-issues", title: "Group, couples, and family confidentiality issues", order: 7 },
-          { id: "PO-03-L08", slug: "electronic-communication-and-privacy", title: "Electronic communication and privacy", order: 8 },
+          { id: "PO-03-L01", slug: "elements-of-meaningful-informed-consent", title: "The elements of meaningful informed consent", order: 1 },
+          { id: "PO-03-L02", slug: "ongoing-consent-client-choice-and-client-rights", title: "Ongoing consent, client choice, and client rights", order: 2 },
+          { id: "PO-03-L03", slug: "capacity-assent-minors-guardians-and-personal-representatives", title: "Capacity, assent, minors, guardians, and personal representatives", order: 3 },
+          { id: "PO-03-L04", slug: "privacy-confidentiality-privilege-and-federal-privacy-frameworks", title: "Privacy, confidentiality, privilege, and federal privacy frameworks", order: 4 },
+          { id: "PO-03-L05", slug: "limits-exceptions-and-the-minimal-disclosure-principle", title: "Limits, exceptions, and the minimal-disclosure principle", order: 5 },
+          { id: "PO-03-L06", slug: "releases-of-information-authorizations-and-record-access", title: "Releases of information, authorizations, and record access", order: 6 },
+          { id: "PO-03-L07", slug: "confidentiality-in-groups-couples-and-families", title: "Confidentiality in groups, couples, and families", order: 7 },
+          { id: "PO-03-L08", slug: "electronic-communication-privacy-and-integrated-cases", title: "Electronic communication, privacy, and integrated cases", order: 8 },
         ],
       },
       {
@@ -111,7 +111,8 @@ export const nceCollections: NceCollection[] = [
           { id: "PO-04-L05", slug: "telemental-health-jurisdiction-and-informed-consent", title: "Telemental health jurisdiction and informed consent", order: 5 },
           { id: "PO-04-L06", slug: "social-media-and-digital-boundaries", title: "Social media and digital boundaries", order: 6 },
           { id: "PO-04-L07", slug: "accessibility-and-reasonable-accommodations", title: "Accessibility and reasonable accommodations", order: 7 },
-          { id: "PO-04-L08", slug: "emergency-procedures-and-continuity-planning", title: "Emergency procedures and continuity planning", order: 8 },
+          { id: "PO-04-L08", slug: "emergency-procedures-continuity-planning-and-integrated-cases", title: "Emergency procedures, continuity planning, and integrated cases", order: 8 },
+
         ],
       },
       {
