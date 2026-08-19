@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import ReactMarkdown from "react-markdown";
 import { useAuth } from "@/contexts/AuthContext";
+import { useExamTrack } from "@/contexts/ExamTrackContext";
 import { supabase } from "@/integrations/supabase/client";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -118,6 +119,7 @@ const PomodoroTimer = () => {
 
 // ─── FEYNMAN TECHNIQUE ───
 const FeynmanTool = () => {
+  const { config } = useExamTrack();
   const [step, setStep] = useState(1);
   const [concept, setConcept] = useState("");
   const [explanation, setExplanation] = useState("");
@@ -141,7 +143,7 @@ const FeynmanTool = () => {
         body: JSON.stringify({
           messages: [{
             role: "user",
-            content: `I'm using the Feynman Technique to study for the NCMHCE. The concept I chose is: "${concept}"\n\nHere is my explanation in simple terms:\n"${explanation}"\n\nPlease analyze my explanation. Tell me:\n1. What I got RIGHT (be specific)\n2. What I MISSED (key points I didn't cover)\n3. What I got WRONG (any inaccuracies)\n4. A brief correct explanation for comparison\n\nFormat with markdown headers and bullet points.`
+            content: `I'm using the Feynman Technique to study for the ${config.label}. The concept I chose is: "${concept}"\n\nHere is my explanation in simple terms:\n"${explanation}"\n\nPlease analyze my explanation. Tell me:\n1. What I got RIGHT (be specific)\n2. What I MISSED (key points I didn't cover)\n3. What I got WRONG (any inaccuracies)\n4. A brief correct explanation for comparison\n\nFormat with markdown headers and bullet points.`
           }],
           context: "Feynman Technique Study Tool"
         }),
@@ -191,7 +193,7 @@ const FeynmanTool = () => {
       {step === 1 && (
         <div className="space-y-4">
           <h3 className="text-lg font-semibold text-foreground">Step 1: Choose a Concept</h3>
-          <p className="text-sm text-muted-foreground">What NCMHCE topic do you want to study?</p>
+          <p className="text-sm text-muted-foreground">What {config.label} topic do you want to study?</p>
           <Input
             placeholder="e.g., Generalized Anxiety Disorder diagnostic criteria"
             value={concept}
