@@ -133,8 +133,8 @@ interface Section {
   body: string;
 }
 
-const splitSections = (body: string, level: 1 | 2): { intro: string; sections: Section[] } => {
-  const marker = level === 1 ? /^#\s+(.*)$/ : /^##\s+(.*)$/;
+const splitSections = (body: string, level: 1 | 2 | 3): { intro: string; sections: Section[] } => {
+  const marker = level === 1 ? /^#\s+(.*)$/ : level === 2 ? /^##\s+(.*)$/ : /^###\s+(.*)$/;
   const lines = body.split(/\r?\n/);
   const sections: Section[] = [];
   let intro: string[] = [];
@@ -955,15 +955,22 @@ if (rest.includes("--questions") || file.endsWith(".json")) {
 }
 const src = readFileSync(file, "utf8");
 const { fm, body } = parseFrontMatter(src);
-const moduleId = String(fm.id ?? "");
+const moduleId = String(fm.moduleId ?? fm.id ?? "");
 if (!moduleId) {
-  console.error("batch front matter is missing `id` (e.g. id: OR-01)");
+  console.error("batch front matter is missing `moduleId` (e.g. moduleId: CH-02)");
   process.exit(1);
 }
 const outPath =
   outFlag >= 0
     ? rest[outFlag + 1]
     : `src/data/nce/library/lesson-content/${moduleId.toLowerCase()}.ts`;
+
+// Batches 10+ use the compact format from docs/nce-library-batch-spec.md.
+const isCompact = fm.moduleId !== undefined || /^##\s+Lesson\s+[A-Z]{2}-\d{2}-L\d{2}/m.test(body);
+if (isCompact) {
+  importCompactBatch(file, fm, body, outPath);
+  process.exit(0);
+}
 
 const { sections } = splitSections(body, 1);
 const lessonSections = sections.filter((s) => /^lesson\s*\d+/i.test(s.heading));
