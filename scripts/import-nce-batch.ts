@@ -270,6 +270,8 @@ const DOMAIN_ALIASES: Record<string, string> = {
   "professional-development-counselor-self-awareness": "professional-development-self-awareness",
   "counseling-process": "counseling-skills-interventions",
   "direct-client-care": "provision-counseling-interventions",
+  "provision-of-counseling-interventions": "provision-counseling-interventions",
+  "treatment-planning-continuity-of-care": "treatment-planning-continuity-care",
 };
 
 
