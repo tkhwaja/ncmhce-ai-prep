@@ -11,11 +11,12 @@ interface Props {
   onMessage: (userId: string) => void;
   onBlocked: () => void;
   busy?: boolean;
+  sample?: boolean;
 }
 
 const trackLabel = (track: string) => (track === "nce" ? "NCE" : "NCMHCE");
 
-const PartnerCard = ({ partner, onMessage, onBlocked, busy }: Props) => {
+const PartnerCard = ({ partner, onMessage, onBlocked, busy, sample }: Props) => {
   const name = partner.display_name || "Member";
   const initials = name
     .split(" ")
@@ -49,7 +50,9 @@ const PartnerCard = ({ partner, onMessage, onBlocked, busy }: Props) => {
               )}
             </div>
           </div>
-          <BlockReportMenu targetUserId={partner.user_id} targetName={name} onBlocked={onBlocked} />
+            {!sample && (
+            <BlockReportMenu targetUserId={partner.user_id} targetName={name} onBlocked={onBlocked} />
+          )}
         </div>
 
         {partner.blurb && (

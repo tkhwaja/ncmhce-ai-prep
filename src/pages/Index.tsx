@@ -7,6 +7,7 @@ import ExamTracksSection from "@/components/landing/ExamTracksSection";
 import PainPointsSection from "@/components/landing/PainPointsSection";
 import SolutionSection from "@/components/landing/SolutionSection";
 import FeatureSpotlight from "@/components/landing/FeatureSpotlight";
+import CommunitySection from "@/components/landing/CommunitySection";
 import HowItWorks from "@/components/landing/HowItWorks";
 import ComparisonTable from "@/components/landing/ComparisonTable";
 import WhoItsFor from "@/components/landing/WhoItsFor";
@@ -120,6 +121,7 @@ const Index = () => (
     <PainPointsSection />
     <SolutionSection />
     <FeatureSpotlight />
+    <CommunitySection />
     <HowItWorks />
     <ComparisonTable />
     <WhoItsFor />
