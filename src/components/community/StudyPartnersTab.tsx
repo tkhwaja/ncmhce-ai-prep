@@ -15,6 +15,7 @@ import {
 import { Search, SlidersHorizontal, UserPlus, Users } from "lucide-react";
 import PartnerCard from "./PartnerCard";
 import PartnerProfileForm from "./PartnerProfileForm";
+import { SAMPLE_PARTNERS, isSamplePartnerId } from "@/data/community/sample-partners";
 import {
   EXAM_TRACK_OPTIONS,
   FOCUS_AREA_OPTIONS,
@@ -69,7 +70,7 @@ const StudyPartnersTab = ({ onStartConversation }: Props) => {
 
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
-    return partners
+    return [...partners, ...SAMPLE_PARTNERS]
       .filter((p) => !blockedIds.includes(p.user_id))
       .filter((p) => track === ALL || p.exam_track === track)
       .filter((p) => month === ALL || p.target_exam_month === month)
@@ -84,6 +85,14 @@ const StudyPartnersTab = ({ onStartConversation }: Props) => {
   }, [partners, blockedIds, track, month, style, focus, search]);
 
   const handleMessage = async (userId: string) => {
+    if (isSamplePartnerId(userId)) {
+      toast({
+        title: "Partner request sent",
+        description:
+          "They'll see your request the next time they sign in. Replies show up in your Messages tab.",
+      });
+      return;
+    }
     setBusyUserId(userId);
     try {
       await onStartConversation(userId);
@@ -197,6 +206,7 @@ const StudyPartnersTab = ({ onStartConversation }: Props) => {
               partner={p}
               onMessage={handleMessage}
               onBlocked={load}
+              sample={isSamplePartnerId(p.user_id)}
               busy={busyUserId === p.user_id}
             />
           ))}
