@@ -196,7 +196,8 @@ const StudyPlan = () => {
   const [confidence, setConfidence] = useState<Record<string, number>>({});
   const [biggestConcern, setBiggestConcern] = useState("");
 
-  const confidenceAreas = config.domains.slice(0, 5);
+  // Rate every content area for the active track (NCE has 8, NCMHCE has 3).
+  const confidenceAreas = config.domains;
 
   useEffect(() => {
     if (!user) return;
@@ -504,7 +505,9 @@ IMPORTANT: Return ONLY a valid JSON array, no markdown, no explanation. Example 
           <Button
             className="w-full"
             onClick={generatePlan}
-            disabled={!examDate || generating || Object.keys(confidence).length < 5}
+            disabled={
+              !examDate || generating || Object.keys(confidence).length < confidenceAreas.length
+            }
           >
             <Sparkles className="mr-2 h-4 w-4" />
             {generating ? "Generating Your Plan..." : "Generate My Study Plan"}
