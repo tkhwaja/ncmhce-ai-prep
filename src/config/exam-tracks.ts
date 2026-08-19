@@ -13,13 +13,29 @@ export type ExamTrack = "ncmhce" | "nce";
 export const DEFAULT_EXAM_TRACK: ExamTrack = "ncmhce";
 
 /**
- * NCE is visible in development and the Lovable preview, and hidden in
- * production builds. Flip `NCE_ENABLED` to `true` at launch.
+ * NCE is visible in development and hidden in production builds.
+ * Flip `NCE_ENABLED` to `true` at launch.
  *
- * Kept as a code constant rather than an env var so the published bundle can
- * never accidentally ship NCE because of an env-file mismatch.
+ * Private preview: visiting any page with `?nce=preview` stores a local flag
+ * that unlocks the NCE track for that browser only (published site included).
+ * `?nce=off` clears it. Nothing is exposed to other visitors.
  */
-export const NCE_ENABLED: boolean = import.meta.env.DEV;
+const PREVIEW_KEY = "nce_preview_unlocked";
+
+const readPreviewOverride = (): boolean => {
+  try {
+    const params = new URLSearchParams(window.location.search);
+    const param = params.get("nce");
+    if (param === "preview") localStorage.setItem(PREVIEW_KEY, "1");
+    if (param === "off") localStorage.removeItem(PREVIEW_KEY);
+    return localStorage.getItem(PREVIEW_KEY) === "1";
+  } catch {
+    return false;
+  }
+};
+
+export const NCE_ENABLED: boolean = import.meta.env.DEV || readPreviewOverride();
+
 
 export interface ExamTrackConfig {
   id: ExamTrack;

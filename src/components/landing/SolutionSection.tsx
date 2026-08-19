@@ -1,3 +1,4 @@
+import { NCE_ENABLED } from "@/config/exam-tracks";
 import { MessageSquare, Monitor, CalendarClock, BarChart3, BookOpen, Layers } from "lucide-react";
 
 const features = [
@@ -9,7 +10,7 @@ const features = [
   },
   {
     icon: Monitor,
-    title: "Realistic NCMHCE simulations",
+    title: NCE_ENABLED ? "Realistic exam simulations" : "Realistic NCMHCE simulations",
     desc: "Practice inside an exam-style layout that mirrors how clinical information unfolds, sections lock, and timing pressure builds.",
     badge: null,
   },

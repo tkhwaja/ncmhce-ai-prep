@@ -1,3 +1,4 @@
+import { NCE_ENABLED } from "@/config/exam-tracks";
 const Footer = () => (
   <footer className="border-t border-border py-12 px-4">
     <div className="container max-w-6xl mx-auto">
@@ -10,7 +11,7 @@ const Footer = () => (
             Formerly known as TheCounselorExam.com
           </p>
           <p className="text-sm text-muted-foreground mt-2">
-            NCMHCE prep built for real clinical reasoning.
+            {NCE_ENABLED ? "NCMHCE & NCE prep built for real clinical reasoning." : "NCMHCE prep built for real clinical reasoning."}
           </p>
         </div>
 
