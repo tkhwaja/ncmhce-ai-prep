@@ -1,17 +1,34 @@
-# NCE Learning Library — Authoring Spec (Batches 10+)
+# NCE Learning Library — Authoring Spec (Batches 10–51)
 
-This is the authoritative brief for generating NCE Learning Library content batches.
-Hand this whole file to the content generator. It supersedes the format used for
-Batches 01–09 (those are already imported and stay as-is; see "Already-delivered batches").
+Single source of truth for generating NCE Learning Library content. Hand this whole file
+to the content generator. It merges the generator's Batches 10–51 spec with the platform's
+importer rules, and supersedes the format used for Batches 01–09 (already imported; see
+section 8).
+
+The importer (`scripts/import-nce-batch.ts`) **enforces** everything marked "blocks the
+import." A batch that violates one of those rules writes nothing and exits with an error
+list, so it is cheaper to follow the format than to fix it afterwards.
 
 ---
 
-## 1. Golden rule: one batch = one curriculum module
+## 1. Exam version lock
 
-Do **not** invent module numbering or split a module across batches. The curriculum is
-fixed in the platform. There are **51 modules total**, so there are **51 batches total**
-(not 42, not 80). Batches 01–09 are done, leaving **42 remaining batches** — which lines
-up with the generator's count, as long as each one is exactly one module.
+Content targets the **current NCE (pre-July 2027)**:
+
+- Six-domain NBCC blueprint (see valid `blueprintDomain` values in section 4).
+- Four-option multiple-choice items only. Never three options, never five.
+- No "new 2027 blueprint" framing, badges, or domain names in lesson prose.
+
+The July 2027 blueprint exists in the platform for later use. Using its domain ids in a
+batch **blocks the import**.
+
+---
+
+## 2. Golden rule: one batch = one curriculum module
+
+Do not invent module numbering or split a module across batches. The curriculum is fixed
+in the platform at **51 modules**, so there are **51 batches total**. Batches 01–09 are
+done, leaving **42 remaining**.
 
 ### Remaining modules to author, in order
 
@@ -62,35 +79,40 @@ up with the generator's count, as long as each one is exactly one module.
 
 ---
 
-## 2. Size budget (this is the change from Batches 01–09)
+## 3. Size budget
 
-Batches 01–09 ran long (~1,400–1,700 words per lesson, 8 lessons per module).
-Tighten from Batch 10 onward:
+Batches 01–09 ran long (~1,400–1,700 words per lesson, 7–8 lessons per module). Tighten
+from Batch 10 onward:
 
 | Unit | Target | Hard max |
 |---|---|---|
-| Lessons per module | **5–6** | 7 |
+| Lessons per module | **5–6** | 6 (7 only for the modules named below) — blocks the import |
 | Words per lesson | **700–900** | 1,000 |
-| Knowledge checks per lesson | **2** | 3 |
+| Knowledge checks per lesson | **2** | 3 — blocks the import |
 | Est. minutes per lesson | **8–10** | 12 |
 | Words per module | **4,000–5,000** | 6,000 |
 
-Whole library lands around 180k–200k words (about 2x the NCMHCE library at 88k). That is
-the right ratio: NCE is a broad multiple-choice exam, so breadth beats depth.
+**Weighting exception — 7 lessons and up to 6,000 words** for these high-yield modules
+only: `CH-05`, `CH-07`, `CH-09`, `AT-03`, `AT-06`. Every other module is capped at 6.
 
-**Weighting exception — allow 7 lessons and up to 6,000 words** for these high-yield
-modules only: CH-05, CH-07, CH-09, AT-03, AT-06. Everything else stays at 5–6 lessons.
+### Realistic library size
+
+Batches 01–09 as imported are ~103,000 words. Batches 10–51 at 4–5k words each add
+168,000–210,000, so the finished library lands around **270,000–310,000 words** — roughly
+3x the NCMHCE library (88,000 words). That is the accepted tradeoff: NCE is a broad
+multiple-choice exam, and 01–09 keep their extra depth. Do not pad to hit a number, and
+do not exceed the per-module ceiling to "match" the earlier batches.
 
 ### How to cut without losing value
 - One idea per paragraph; 3–5 sentences max.
 - Prefer a table or bulleted comparison over prose whenever contrasting 2+ concepts.
-- No restating the same point in the Overview, the body, and the Summary. Say it once.
-- Cut generic reassurance/motivational filler — the platform's tone lives in the UI.
-- Examples: one short clinical vignette per lesson, 2–4 sentences, not one per section.
+- Do not restate a point in the Overview, the body, and the takeaways. Say it once.
+- Cut generic reassurance and motivational filler — the platform's tone lives in the UI.
+- One short clinical vignette per lesson (2–4 sentences), not one per section.
 
 ---
 
-## 3. File format
+## 4. File format
 
 One markdown file per module. Filename:
 
@@ -107,23 +129,30 @@ moduleTitle: Foundational Counseling Skills
 subjectArea: counseling-helping-relationships
 blueprintDomain: counseling-skills-interventions
 difficulty: intermediate
-estimatedMinutes: 50
+estimatedMinutes: 45
 ---
 ```
 
+- `moduleId` — must exist in the platform curriculum. Blocks the import if unknown.
 - `subjectArea` — one of: `orientation`, `professional-orientation-ethics`,
   `counseling-helping-relationships`, `human-growth-development`,
   `social-cultural-diversity`, `assessment-testing`, `group-counseling-group-work`,
   `career-development`, `research-program-evaluation`.
-- `blueprintDomain` — one of: `professional-practice-ethics`,
-  `intake-assessment-diagnosis`, `areas-clinical-focus`,
-  `treatment-planning-continuity-of-care`, `provision-counseling-interventions`,
-  `core-counseling-attributes`.
+- `blueprintDomain` — exactly one of the **current** six ids:
+  `professional-practice-ethics`, `intake-assessment-diagnosis`, `areas-clinical-focus`,
+  `treatment-planning`, `counseling-skills-interventions`, `core-counseling-attributes`.
+  **Forbidden (2027-only, blocks the import):** `treatment-planning-continuity-of-care`,
+  `treatment-planning-continuity-care`, `provision-counseling-interventions`,
+  `provision-of-counseling-interventions`, `intake-assessment`, `indirect-client-care`,
+  `legal-ethical-compliance`, `professional-development-self-awareness`.
 - `difficulty` — a **single** value: `foundational`, `intermediate`, or `advanced`.
-  Do not write spans like `foundational-intermediate`.
-- `estimatedMinutes` — sum of the lesson estimates.
+  Spans like `foundational-intermediate` block the import.
+- `estimatedMinutes` — must equal the sum of the lesson estimates. Blocks the import.
 
 ### Lesson structure (repeat per lesson)
+
+Heading names must match exactly — they map to typed fields, and unrecognized `###`
+headings are dumped into the body text.
 
 ```markdown
 ## Lesson CH-02-L01 — Attending, Observing, and Nonverbal Behavior
@@ -155,6 +184,9 @@ One short vignette (2–4 sentences) plus the counselor's best next move.
 ### Memory Anchors
 - Short mnemonic or one-line hook. (2–3 bullets)
 
+### Key Takeaways
+- What the learner should walk away holding. (2–4 bullets)
+
 ### Knowledge Checks
 1. Question stem?
    - A) option
@@ -166,17 +198,21 @@ One short vignette (2–4 sentences) plus the counselor's best next move.
 2. (second check, same shape)
 ```
 
-Rules that the importer enforces — violations block the batch:
+Rules the importer enforces — each one blocks the batch:
 - Lesson IDs must be `<MODULE-ID>-L01`, `-L02`, … sequential, no gaps.
-- `slug` must be lowercase kebab-case, unique within the module.
-- Every knowledge check needs exactly 4 options, one bolded answer, and a rationale
-  that names why the correct option wins *and* why a distractor tempts.
-- Heading names must match exactly as written above (they map to typed fields).
+- `slug` must be lowercase kebab-case and unique within the module.
+- Every lesson needs `### Why It Matters for the NCE`, `### Overview`, and
+  `### Key Takeaways` (Memory Anchors are used as a fallback for takeaways).
+- Every knowledge check needs exactly 4 options, one bolded `**Answer: X**`, and a
+  `**Rationale:**` naming why the correct option wins *and* why a distractor tempts.
 - No duplicate question stems anywhere in the library.
+
+Lesson IDs that are not yet in the curriculum import as a **warning**, not an error — the
+module's lesson list in the platform is rewritten to match the batch.
 
 ---
 
-## 4. Content accuracy rules
+## 5. Content accuracy rules
 
 - Align to the **NBCC NCE content outline** and **CACREP 8 core areas**; no prep-company folklore.
 - Diagnostic content aligns to **DSM-5-TR**. Never invent criteria.
@@ -187,24 +223,32 @@ Rules that the importer enforces — violations block the batch:
 
 ---
 
-## 5. Delivery workflow
+## 6. Delivery workflow
 
-1. Generator produces one `.md` file per module, in the order listed in section 1.
+1. Generator produces one `.md` file per module, in the order listed in section 2.
 2. Send 1–3 batches at a time (more than that slows review).
-3. Import runs through `scripts/import-nce-batch.ts`, which validates front matter,
-   lesson IDs, and knowledge-check shape, then writes
+3. Import runs through `scripts/import-nce-batch.ts`, which auto-detects the compact
+   format, validates it, then writes
    `src/data/nce/library/lesson-content/<module-id>.ts` and registers it.
 4. Tests that gate the import: `src/test/nce-lesson-content.test.ts`,
    `nce-library-structure.test.ts`, `nce-lesson-view.test.tsx`, `nce-content-integrity.test.ts`.
 
 ---
 
-## 6. Already-delivered batches (01–09)
+## 7. Question batches
 
-OR-01, OR-02, PO-01 … PO-06, CH-01 are imported and live in preview. They are longer than
-this spec (8 lessons, ~1,400 words/lesson). **Leave them as they are** — they cover
-orientation and the ethics/legal core, which is the highest-weight, highest-anxiety
-material on the exam, so extra depth is justified there. No rewrite, no re-import.
+Multiple-choice bank items are a **separate** pipeline with its own brief:
+`docs/nce-question-batch-spec.md`. Do not mix bank questions into a library batch; the
+lesson knowledge checks in section 4 are the only questions a library batch carries.
+
+---
+
+## 8. Already-delivered batches (01–09)
+
+OR-01, OR-02, PO-01 … PO-06, and CH-01 are imported and live in preview. They are longer
+than this spec (7–8 lessons, ~1,400 words/lesson). **Leave them as they are** — they cover
+orientation and the ethics/legal core, the highest-weight, highest-anxiety material on the
+exam, so the extra depth is justified. No rewrite, no re-import.
 
 If any of them later reads as bloated in use, the fix is trimming individual lessons in
 place, not regenerating the module.
