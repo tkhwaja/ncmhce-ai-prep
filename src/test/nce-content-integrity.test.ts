@@ -7,6 +7,11 @@ import {
 } from "@/data/nce";
 import { NCE_DOMAINS } from "@/data/nce/types";
 import { nceCollections } from "@/data/nce/library/curriculum";
+import { nceLessonContent } from "@/data/nce/library/lesson-content";
+import {
+  nceCurrentBlueprintDomains,
+  nceFutureBlueprintDomains,
+} from "@/data/nce/library/blueprint-domains";
 import {
   nceDiagnosticQuestions,
   NCE_DIAGNOSTIC_ITEMS_PER_DOMAIN,
