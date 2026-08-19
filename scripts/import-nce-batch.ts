@@ -645,7 +645,300 @@ const importQuestionBatch = (file: string, outOverride?: string) => {
   console.log(`\nwrote ${outPath}`);
 };
 
+/* ------------------- compact batch format (Batches 10+) ------------------- */
+/**
+ * Batches 10+ follow docs/nce-library-batch-spec.md:
+ *   `moduleId` front matter, `## Lesson <ID>-L01 — Title` headings,
+ *   fixed `### ...` section names, and `1. stem / - A) ... / **Answer: B**`
+ *   knowledge checks. Violations fail the import — nothing is written.
+ */
+
+const FUTURE_ONLY_DOMAIN_IDS = new Set([
+  "professional-development-self-awareness",
+  "intake-assessment",
+  "treatment-planning-continuity-care",
+  "treatment-planning-continuity-of-care",
+  "provision-counseling-interventions",
+  "provision-of-counseling-interventions",
+  "indirect-client-care",
+  "legal-ethical-compliance",
+]);
+
+/** Modules allowed 7 lessons and the full 6,000-word budget. */
+const HIGH_YIELD_MODULES = new Set(["CH-05", "CH-07", "CH-09", "AT-03", "AT-06"]);
+const DIFFICULTY_VALUES = new Set(["foundational", "intermediate", "advanced"]);
+
+const V2_HEADINGS = {
+  overview: /^overview$/i,
+  why: /^why it matters for the nce$/i,
+  keyConcepts: /^key concepts$/i,
+  inPractice: /^in practice$/i,
+  table: /^comparison table/i,
+  traps: /^exam traps$/i,
+  anchors: /^memory anchors$/i,
+  takeaways: /^key takeaways$/i,
+  checks: /^knowledge checks$/i,
+  sources: /^sources$/i,
+};
+
+const parseChecksV2 = (block: string, lessonId: string): Check[] => {
+  const chunks = block.split(/^\s*\d+\.\s+/m).slice(1);
+  return chunks.map((chunk, idx) => {
+    const stemLines: string[] = [];
+    const options: string[] = [];
+    let correct = -1;
+    let explanation = "";
+    for (const raw of chunk.split(/\r?\n/)) {
+      const line = raw.trim();
+      if (!line) continue;
+      const opt = line.match(/^[-*]?\s*([A-E])\)\s+(.*)$/);
+      if (opt && !/^\*\*/.test(line)) {
+        options.push(stripInline(opt[2]));
+        continue;
+      }
+      const ans = line.match(/^[-*]?\s*\*\*Answer:\s*([A-E])\*\*/i);
+      if (ans) {
+        correct = ans[1].toUpperCase().charCodeAt(0) - 65;
+        continue;
+      }
+      const rat = line.match(/^[-*]?\s*\*\*Rationale:?\*\*:?\s*(.*)$/i);
+      if (rat) {
+        explanation = stripInline(rat[1]);
+        continue;
+      }
+      if (explanation) {
+        explanation += " " + stripInline(line.replace(/^[-*]\s*/, ""));
+        continue;
+      }
+      if (!options.length) stemLines.push(stripInline(line));
+    }
+    return {
+      id: `${lessonId}-Q${idx + 1}`,
+      stem: stemLines.join(" ").trim(),
+      options,
+      correctAnswerIndex: correct,
+      explanation,
+    };
+  });
+};
+
+interface V2Lesson extends LessonRecord {
+  slug: string;
+  order: number;
+  keyConcepts?: { term: string; definition: string }[];
+}
+
+const buildLessonV2 = (
+  moduleId: string,
+  heading: string,
+  body: string,
+  fm: FrontMatter,
+  fallbackOrder: number,
+): V2Lesson => {
+  const idMatch = heading.match(/^([A-Z]{2}-\d{2}-L\d{2})\s*[—–:-]\s*(.*)$/);
+  const lessonId = idMatch ? idMatch[1] : `${moduleId}-L${String(fallbackOrder).padStart(2, "0")}`;
+  const title = idMatch ? idMatch[2].trim() : heading.replace(/^\S+\s*[—–:-]\s*/, "").trim();
+
+  const { intro, sections } = splitSections(body, 3);
+  const slug = intro.match(/^\s*slug:\s*(.*)$/m)?.[1]?.trim() ?? "";
+  const minutes = Number(intro.match(/^\s*estimatedMinutes:\s*(\d+)/m)?.[1] ?? 0) || 9;
+
+  const domain = normalizeDomain(String(fm.blueprintDomain ?? ""));
+  const rec: V2Lesson = {
+    lessonId,
+    slug,
+    order: Number(lessonId.match(/L(\d{2})$/)?.[1] ?? fallbackOrder),
+    title,
+    estimatedMinutes: minutes,
+    contentType: "concept",
+    difficulty: normalizeDifficulty(fm.difficulty as string | undefined),
+    examVersions: ["current"],
+    currentDomains: domain ? [domain] : [],
+    tags: asArray(fm.tags),
+    whyItMatters: "",
+    learningObjectives: [],
+    coreExplanation: [],
+    keyTakeaways: [],
+  };
+
+  const core: string[] = [];
+  const tables: LessonRecord["comparisonTables"] = [];
+  const prose = (b: string) => parseProse(b).paragraphs.filter((p) => !p.startsWith("###"));
+
+  for (const s of sections) {
+    const h = s.heading;
+    if (V2_HEADINGS.overview.test(h)) {
+      core.push(...prose(s.body));
+      continue;
+    }
+    if (V2_HEADINGS.why.test(h)) {
+      rec.whyItMatters = prose(s.body).join(" ");
+      continue;
+    }
+    if (V2_HEADINGS.keyConcepts.test(h)) {
+      rec.keyConcepts = bullets(s.body).map((b) => {
+        const m = b.match(/^\*\*(.+?)\*\*\s*[—–:-]\s*(.*)$/) ?? b.match(/^(.+?)\s+[—–]\s+(.*)$/);
+        return m
+          ? { term: stripInline(m[1]), definition: stripInline(m[2]) }
+          : { term: stripInline(b), definition: "" };
+      });
+      continue;
+    }
+    if (V2_HEADINGS.inPractice.test(h)) {
+      rec.appliedExample = prose(s.body).join("\n\n");
+      continue;
+    }
+    if (V2_HEADINGS.table.test(h)) {
+      const t = parseProse(s.body).tables;
+      tables.push(...t.map((tb) => ({ ...tb, title: tb.title === "Comparison" ? h : tb.title })));
+      continue;
+    }
+    if (V2_HEADINGS.traps.test(h)) {
+      rec.examTraps = bullets(s.body);
+      continue;
+    }
+    if (V2_HEADINGS.anchors.test(h)) {
+      rec.memoryAnchor = bullets(s.body).join(" • ") || prose(s.body).join(" ");
+      continue;
+    }
+    if (V2_HEADINGS.takeaways.test(h)) {
+      rec.keyTakeaways = bullets(s.body);
+      continue;
+    }
+    if (V2_HEADINGS.checks.test(h)) {
+      rec.knowledgeChecks = parseChecksV2(s.body, lessonId);
+      continue;
+    }
+    if (V2_HEADINGS.sources.test(h)) continue;
+
+    const { paragraphs, tables: t } = parseProse(s.body);
+    core.push(`## ${h}`);
+    core.push(...paragraphs);
+    tables.push(...t.map((tb) => ({ ...tb, title: tb.title === "Comparison" ? h : tb.title })));
+  }
+
+  rec.coreExplanation = core;
+  if (tables.length) rec.comparisonTables = tables;
+  // Memory Anchors double as takeaways when the batch omits an explicit section.
+  if (!rec.keyTakeaways.length && rec.memoryAnchor) rec.keyTakeaways = bullets(rec.memoryAnchor);
+  return rec;
+};
+
+const validateV2 = (
+  records: V2Lesson[],
+  moduleId: string,
+  fm: FrontMatter,
+): { errors: string[]; warnings: string[] } => {
+  const errors: string[] = [];
+  const warnings: string[] = [];
+  const curriculum = readFileSync("src/data/nce/library/curriculum.ts", "utf8");
+  const blueprint = readFileSync("src/data/nce/library/blueprint-domains.ts", "utf8");
+
+  if (!curriculum.includes(`id: "${moduleId}"`))
+    errors.push(`module ${moduleId} is not in the curriculum`);
+
+  const rawDifficulty = String(fm.difficulty ?? "").trim();
+  if (!DIFFICULTY_VALUES.has(rawDifficulty))
+    errors.push(
+      `front matter difficulty "${rawDifficulty}" must be exactly one of foundational | intermediate | advanced (no spans)`,
+    );
+
+  const domain = normalizeDomain(String(fm.blueprintDomain ?? ""));
+  if (!domain) errors.push("front matter is missing blueprintDomain");
+  else if (FUTURE_ONLY_DOMAIN_IDS.has(domain))
+    errors.push(
+      `blueprintDomain "${fm.blueprintDomain}" is a July 2027 domain — Batches 10+ must use a current domain id`,
+    );
+  else if (!blueprint.includes(`id: "${domain}"`))
+    errors.push(`unknown blueprintDomain "${fm.blueprintDomain}"`);
+
+  const maxLessons = HIGH_YIELD_MODULES.has(moduleId) ? 7 : 6;
+  if (records.length > maxLessons)
+    errors.push(
+      `${records.length} lessons exceeds the ${maxLessons}-lesson limit for ${moduleId}` +
+        (maxLessons === 6 ? " (only CH-05, CH-07, CH-09, AT-03, AT-06 may use 7)" : ""),
+    );
+  if (records.length < 5) warnings.push(`${records.length} lessons is below the 5-lesson target`);
+
+  const fmMinutes = Number(fm.estimatedMinutes ?? 0);
+  const sumMinutes = records.reduce((s, r) => s + r.estimatedMinutes, 0);
+  if (fmMinutes && fmMinutes !== sumMinutes)
+    errors.push(`front matter estimatedMinutes ${fmMinutes} !== sum of lesson minutes ${sumMinutes}`);
+
+  const slugs = new Set<string>();
+  records.forEach((r, i) => {
+    const where = `${r.lessonId} (${r.title})`;
+    const expected = `${moduleId}-L${String(i + 1).padStart(2, "0")}`;
+    if (r.lessonId !== expected)
+      errors.push(`${where}: lesson ids must be sequential — expected ${expected}`);
+    if (!/^[a-z0-9]+(-[a-z0-9]+)*$/.test(r.slug))
+      errors.push(`${where}: slug "${r.slug}" must be lowercase kebab-case`);
+    else if (slugs.has(r.slug)) errors.push(`${where}: duplicate slug "${r.slug}"`);
+    else slugs.add(r.slug);
+
+    if (!curriculum.includes(`id: "${r.lessonId}"`))
+      warnings.push(`${where}: not yet in the curriculum — update the module lesson list after import`);
+    if (!r.whyItMatters) errors.push(`${where}: missing "### Why It Matters for the NCE"`);
+    if (!r.coreExplanation.length) errors.push(`${where}: missing "### Overview" / teaching content`);
+    if (!r.keyTakeaways.length)
+      errors.push(`${where}: missing "### Key Takeaways" (or "### Memory Anchors" to derive them)`);
+    if (!r.keyConcepts?.length) warnings.push(`${where}: no "### Key Concepts" bullets`);
+    if (r.estimatedMinutes > 12) warnings.push(`${where}: ${r.estimatedMinutes} min exceeds the 12-min max`);
+
+    const checks = r.knowledgeChecks ?? [];
+    if (checks.length < 2) errors.push(`${where}: needs 2 knowledge checks (found ${checks.length})`);
+    if (checks.length > 3) errors.push(`${where}: ${checks.length} knowledge checks exceeds the max of 3`);
+    for (const c of checks) {
+      if (c.options.length !== 4) errors.push(`${c.id}: needs exactly 4 options (found ${c.options.length})`);
+      if (c.correctAnswerIndex < 0 || c.correctAnswerIndex >= c.options.length)
+        errors.push(`${c.id}: missing or out-of-range "**Answer: X**"`);
+      if (!c.explanation) errors.push(`${c.id}: missing "**Rationale:**"`);
+      if (!c.stem) errors.push(`${c.id}: missing stem`);
+    }
+  });
+
+  return { errors, warnings };
+};
+
+const importCompactBatch = (file: string, fm: FrontMatter, body: string, outPath: string) => {
+  const moduleId = String(fm.moduleId ?? fm.id ?? "");
+  const chunks = body
+    .split(/^##\s+Lesson\s+/m)
+    .slice(1)
+    .map((chunk) => {
+      const nl = chunk.indexOf("\n");
+      return { heading: stripInline(chunk.slice(0, nl < 0 ? undefined : nl)), body: chunk.slice(nl + 1) };
+    });
+  const records = chunks.map((c, i) => buildLessonV2(moduleId, c.heading, c.body, fm, i + 1));
+  const { errors, warnings } = validateV2(records, moduleId, fm);
+
+  console.log(`parsed ${records.length} lessons from ${basename(file)} (module ${moduleId}, compact format)`);
+  for (const r of records)
+    console.log(
+      `  ${r.lessonId}  ${r.estimatedMinutes}min  ${r.coreExplanation.length} blocks  ` +
+        `${r.knowledgeChecks?.length ?? 0} checks  ${r.comparisonTables?.length ?? 0} tables`,
+    );
+  if (warnings.length) {
+    console.warn(`\n${warnings.length} warning(s):`);
+    for (const w of warnings) console.warn(`  - ${w}`);
+  }
+  if (errors.length) {
+    console.error(`\n${errors.length} validation error(s) — nothing written:`);
+    for (const e of errors) console.error(`  - ${e}`);
+    process.exit(1);
+  }
+  const emitted = records.map(({ slug, order, ...rest }) => {
+    void slug;
+    void order;
+    return rest as LessonRecord;
+  });
+  mkdirSync(dirname(outPath), { recursive: true });
+  writeFileSync(outPath, emit(emitted, moduleId, file));
+  console.log(`\nwrote ${outPath}`);
+};
+
 /* --------------------------------- main ----------------------------------- */
+
 
 const [file, ...rest] = process.argv.slice(2);
 if (!file) {
