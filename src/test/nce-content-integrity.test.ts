@@ -135,3 +135,18 @@ describe("question bank blueprint metadata", () => {
     });
   });
 });
+
+describe("NCE lesson content blueprint hygiene", () => {
+  it("never files a lesson's current-exam review under a July 2027 domain id", () => {
+    const futureOnly = new Set(
+      nceFutureBlueprintDomains
+        .map((d) => d.id)
+        .filter((id) => !nceCurrentBlueprintDomains.some((c) => c.id === id)),
+    );
+    for (const rec of Object.values(nceLessonContent))
+      for (const d of rec.currentDomains)
+        expect(futureOnly.has(d), `${rec.lessonId} currentDomains includes 2027-only "${d}"`).toBe(
+          false,
+        );
+  });
+});
