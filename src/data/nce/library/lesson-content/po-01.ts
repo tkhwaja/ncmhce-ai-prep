@@ -11,7 +11,7 @@ export const po01LessonContent: Record<string, NceLessonContent> = {
     "lessonId": "PO-01-L01",
     "estimatedMinutes": 12,
     "contentType": "concept",
-    "difficulty": "foundational-intermediate",
+    "difficulty": "intermediate",
     "examVersions": [
       "current",
       "2027"
@@ -180,7 +180,7 @@ export const po01LessonContent: Record<string, NceLessonContent> = {
     "lessonId": "PO-01-L02",
     "estimatedMinutes": 13,
     "contentType": "concept",
-    "difficulty": "foundational-intermediate",
+    "difficulty": "intermediate",
     "examVersions": [
       "current",
       "2027"
@@ -414,7 +414,7 @@ export const po01LessonContent: Record<string, NceLessonContent> = {
     "lessonId": "PO-01-L03",
     "estimatedMinutes": 13,
     "contentType": "concept",
-    "difficulty": "foundational-intermediate",
+    "difficulty": "intermediate",
     "examVersions": [
       "current",
       "2027"
@@ -609,7 +609,7 @@ export const po01LessonContent: Record<string, NceLessonContent> = {
     "lessonId": "PO-01-L04",
     "estimatedMinutes": 14,
     "contentType": "concept",
-    "difficulty": "foundational-intermediate",
+    "difficulty": "intermediate",
     "examVersions": [
       "current",
       "2027"
@@ -824,7 +824,7 @@ export const po01LessonContent: Record<string, NceLessonContent> = {
     "lessonId": "PO-01-L05",
     "estimatedMinutes": 14,
     "contentType": "concept",
-    "difficulty": "foundational-intermediate",
+    "difficulty": "intermediate",
     "examVersions": [
       "current",
       "2027"
@@ -1032,7 +1032,7 @@ export const po01LessonContent: Record<string, NceLessonContent> = {
     "lessonId": "PO-01-L06",
     "estimatedMinutes": 12,
     "contentType": "concept",
-    "difficulty": "foundational-intermediate",
+    "difficulty": "intermediate",
     "examVersions": [
       "current",
       "2027"
@@ -1287,7 +1287,7 @@ export const po01LessonContent: Record<string, NceLessonContent> = {
     "lessonId": "PO-01-L07",
     "estimatedMinutes": 10,
     "contentType": "concept",
-    "difficulty": "foundational-intermediate",
+    "difficulty": "intermediate",
     "examVersions": [
       "current",
       "2027"
@@ -1483,7 +1483,7 @@ export const po01LessonContent: Record<string, NceLessonContent> = {
     "lessonId": "PO-01-L08",
     "estimatedMinutes": 8,
     "contentType": "concept",
-    "difficulty": "foundational-intermediate",
+    "difficulty": "intermediate",
     "examVersions": [
       "current",
       "2027"
