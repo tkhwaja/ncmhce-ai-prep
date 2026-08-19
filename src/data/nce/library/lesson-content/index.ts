@@ -5,6 +5,7 @@ import { po01LessonContent } from "./po-01";
 import { po02LessonContent } from "./po-02";
 import { po03LessonContent } from "./po-03";
 import { po04LessonContent } from "./po-04";
+import { po05LessonContent } from "./po-05";
 
 
 /**
@@ -25,6 +26,7 @@ export const nceLessonContent: Record<string, NceLessonContent> = {
   ...po02LessonContent,
   ...po03LessonContent,
   ...po04LessonContent,
+  ...po05LessonContent,
 
 };
 
