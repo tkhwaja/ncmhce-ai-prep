@@ -13,12 +13,12 @@ export type ExamTrack = "ncmhce" | "nce";
 export const DEFAULT_EXAM_TRACK: ExamTrack = "ncmhce";
 
 /**
- * NCE is visible in development and hidden in production builds.
- * Flip `NCE_ENABLED` to `true` at launch.
+ * The NCE track is publicly visible (marketing, nav, exam info, pricing card),
+ * but NCE subscriptions are not open yet — see `subscriptionsOpen` below.
  *
- * Private preview: visiting any page with `?nce=preview` stores a local flag
- * that unlocks the NCE track for that browser only (published site included).
- * `?nce=off` clears it. Nothing is exposed to other visitors.
+ * Private content preview: visiting any page with `?nce=preview` stores a local
+ * flag that unlocks in-progress NCE study content for that browser only.
+ * `?nce=off` clears it. The owner account also gets it automatically.
  */
 const PREVIEW_KEY = "nce_preview_unlocked";
 
@@ -34,7 +34,12 @@ const readPreviewOverride = (): boolean => {
   }
 };
 
-export const NCE_ENABLED: boolean = import.meta.env.DEV || readPreviewOverride();
+/** NCE track is visible to everyone. */
+export const NCE_ENABLED = true;
+
+/** Unlocks unfinished NCE study content for the owner / preview browsers only. */
+export const NCE_PREVIEW_UNLOCK: boolean = import.meta.env.DEV || readPreviewOverride();
+
 
 
 export interface ExamTrackConfig {
