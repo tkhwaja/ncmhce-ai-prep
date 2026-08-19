@@ -291,7 +291,7 @@ const buildLesson = (
     title,
     estimatedMinutes: minutes,
     contentType,
-    difficulty: (fm.difficulty as string) || undefined,
+    difficulty: normalizeDifficulty(fm.difficulty as string | undefined),
     examVersions,
     currentDomains: asArray(fm.currentDomains).map(normalizeDomain),
     futureDomains: asArray(fm.futureDomains).map(normalizeDomain),
