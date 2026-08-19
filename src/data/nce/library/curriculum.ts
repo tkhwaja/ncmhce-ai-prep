@@ -120,14 +120,15 @@ export const nceCollections: NceCollection[] = [
         title: "Boundaries, Competence, Supervision, and Referral",
         collectionSlug: "professional-orientation-ethics",
         lessons: [
-          { id: "PO-05-L01", slug: "professional-boundaries", title: "Professional boundaries", order: 1 },
-          { id: "PO-05-L02", slug: "multiple-and-dual-relationships", title: "Multiple and dual relationships", order: 2 },
+          { id: "PO-05-L01", slug: "professional-boundaries-and-boundary-decision-making", title: "Professional boundaries and boundary decision-making", order: 1 },
+          { id: "PO-05-L02", slug: "multiple-and-noncounseling-relationships", title: "Multiple and noncounseling relationships", order: 2 },
           { id: "PO-05-L03", slug: "sexual-and-romantic-prohibitions", title: "Sexual and romantic prohibitions", order: 3 },
           { id: "PO-05-L04", slug: "gifts-bartering-fees-and-conflicts-of-interest", title: "Gifts, bartering, fees, and conflicts of interest", order: 4 },
           { id: "PO-05-L05", slug: "competence-and-limits-of-practice", title: "Competence and limits of practice", order: 5 },
           { id: "PO-05-L06", slug: "supervision-versus-consultation", title: "Supervision versus consultation", order: 6 },
-          { id: "PO-05-L07", slug: "referral-and-abandonment", title: "Referral and abandonment", order: 7 },
-          { id: "PO-05-L08", slug: "counselor-impairment", title: "Counselor impairment", order: 8 },
+          { id: "PO-05-L07", slug: "referral-termination-transfer-and-abandonment", title: "Referral, termination, transfer, and abandonment", order: 7 },
+          { id: "PO-05-L08", slug: "counselor-impairment-colleague-response-and-integrated-cases", title: "Counselor impairment, colleague response, and integrated cases", order: 8 },
+
         ],
       },
       {
