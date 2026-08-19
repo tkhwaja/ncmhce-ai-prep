@@ -196,7 +196,8 @@ const StudyPlan = () => {
   const [confidence, setConfidence] = useState<Record<string, number>>({});
   const [biggestConcern, setBiggestConcern] = useState("");
 
-  const confidenceAreas = config.domains.slice(0, 5);
+  // Rate every content area for the active track (NCE has 8, NCMHCE has 3).
+  const confidenceAreas = config.domains;
 
   useEffect(() => {
     if (!user) return;
