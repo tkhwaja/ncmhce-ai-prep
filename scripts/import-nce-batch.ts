@@ -21,6 +21,17 @@ interface FrontMatter {
   [key: string]: string | string[];
 }
 
+const normalizeDifficulty = (raw?: string): string | undefined => {
+  if (!raw) return undefined;
+  const parts = raw.toLowerCase().split(/[^a-z]+/).filter(Boolean);
+  const allowed = ["foundational", "intermediate", "advanced"];
+  // authored batches sometimes span two levels ("foundational-intermediate");
+  // keep the higher of the two so filters do not under-rate the lesson.
+  const matched = parts.filter((p) => allowed.includes(p));
+  if (!matched.length) return undefined;
+  return matched.sort((a, b) => allowed.indexOf(b) - allowed.indexOf(a))[0];
+};
+
 const parseFrontMatter = (src: string): { fm: FrontMatter; body: string } => {
   const m = src.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?/);
   if (!m) return { fm: {}, body: src };
@@ -291,7 +302,7 @@ const buildLesson = (
     title,
     estimatedMinutes: minutes,
     contentType,
-    difficulty: (fm.difficulty as string) || undefined,
+    difficulty: normalizeDifficulty(fm.difficulty as string | undefined),
     examVersions,
     currentDomains: asArray(fm.currentDomains).map(normalizeDomain),
     futureDomains: asArray(fm.futureDomains).map(normalizeDomain),
