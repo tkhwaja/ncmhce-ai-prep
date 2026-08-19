@@ -7,6 +7,11 @@ import {
 } from "@/data/nce";
 import { NCE_DOMAINS } from "@/data/nce/types";
 import { nceCollections } from "@/data/nce/library/curriculum";
+import { nceLessonContent } from "@/data/nce/library/lesson-content";
+import {
+  nceCurrentBlueprintDomains,
+  nceFutureBlueprintDomains,
+} from "@/data/nce/library/blueprint-domains";
 import {
   nceDiagnosticQuestions,
   NCE_DIAGNOSTIC_ITEMS_PER_DOMAIN,
@@ -133,5 +138,20 @@ describe("question bank blueprint metadata", () => {
       const share = (authored.filter((q) => q.blueprintDomainId === domain).length / authored.length) * 100;
       expect(Math.abs(share - BLUEPRINT_TARGET[domain])).toBeLessThanOrEqual(4);
     });
+  });
+});
+
+describe("NCE lesson content blueprint hygiene", () => {
+  it("never files a lesson's current-exam review under a July 2027 domain id", () => {
+    const futureOnly = new Set(
+      nceFutureBlueprintDomains
+        .map((d) => d.id)
+        .filter((id) => !nceCurrentBlueprintDomains.some((c) => c.id === id)),
+    );
+    for (const rec of Object.values(nceLessonContent))
+      for (const d of rec.currentDomains)
+        expect(futureOnly.has(d), `${rec.lessonId} currentDomains includes 2027-only "${d}"`).toBe(
+          false,
+        );
   });
 });
