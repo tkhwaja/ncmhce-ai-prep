@@ -220,6 +220,20 @@ const StudyPlan = () => {
     if (!user || !examDate) return;
     setGenerating(true);
 
+    // Always use a fresh access token — a tab left open can hold an expired one,
+    // which made generation fail with a generic error.
+    const { data: sessionData } = await supabase.auth.getSession();
+    const accessToken = sessionData.session?.access_token ?? session?.access_token ?? "";
+    if (!accessToken) {
+      setGenerating(false);
+      toast({
+        title: "Please sign in again",
+        description: "Your session expired. Refresh the page and try once more.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     const intakeData = {
       examDate: examDate.toISOString(),
       hoursPerWeek: hoursPerWeek[0],
