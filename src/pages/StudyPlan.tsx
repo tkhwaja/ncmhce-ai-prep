@@ -199,6 +199,21 @@ const StudyPlan = () => {
   // Rate every content area for the active track (NCE has 8, NCMHCE has 3).
   const confidenceAreas = config.domains;
 
+  const missingRequirements = useMemo(() => {
+    const missing: string[] = [];
+    if (!examDate) missing.push("your exam date");
+    const unrated = confidenceAreas.filter((area) => !confidence[area]);
+    if (unrated.length > 0) {
+      missing.push(
+        unrated.length === confidenceAreas.length
+          ? "confidence ratings for every area"
+          : `confidence rating for ${unrated.join(", ")}`,
+      );
+    }
+    return missing;
+  }, [examDate, confidence, confidenceAreas]);
+
+
   useEffect(() => {
     if (!user) return;
     supabase
