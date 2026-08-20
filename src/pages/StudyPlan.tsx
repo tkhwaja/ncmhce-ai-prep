@@ -545,16 +545,25 @@ IMPORTANT: Return ONLY a valid JSON array, no markdown, no explanation. Example 
             />
           </div>
 
+          {missingRequirements.length > 0 && (
+            <p className="text-xs text-muted-foreground">
+              Still needed before we can build your plan: {missingRequirements.join(" · ")}
+            </p>
+          )}
+
           <Button
             className="w-full"
             onClick={generatePlan}
-            disabled={
-              !examDate || generating || Object.keys(confidence).length < confidenceAreas.length
-            }
+            disabled={missingRequirements.length > 0 || generating}
           >
             <Sparkles className="mr-2 h-4 w-4" />
             {generating ? "Generating Your Plan..." : "Generate My Study Plan"}
           </Button>
+          {generating && (
+            <p className="text-center text-xs text-muted-foreground">
+              This can take up to a minute — please keep this page open.
+            </p>
+          )}
         </CardContent>
       </Card>
     </div>
