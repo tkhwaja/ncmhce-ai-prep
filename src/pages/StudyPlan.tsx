@@ -315,7 +315,10 @@ IMPORTANT: Return ONLY a valid JSON array, no markdown, no explanation. Example 
             const p = JSON.parse(json);
             const c = p.choices?.[0]?.delta?.content;
             if (c) fullText += c;
-          } catch { break; }
+          } catch {
+            // Ignore non-JSON keepalive/metadata lines instead of aborting the stream.
+            continue;
+          }
         }
       }
 
