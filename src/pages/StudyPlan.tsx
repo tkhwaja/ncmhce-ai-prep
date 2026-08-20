@@ -322,11 +322,29 @@ IMPORTANT: Return ONLY a valid JSON array, no markdown, no explanation. Example 
         }
       }
 
-      // Parse JSON from response
-      const jsonMatch = fullText.match(/\[[\s\S]*\]/);
-      if (!jsonMatch) throw new Error("Invalid plan format");
+      // Parse JSON from response. Long plans can arrive truncated, so recover the
+      // complete weeks instead of failing the whole generation.
+      const parsePlanArray = (text: string): any[] | null => {
+        const start = text.indexOf("[");
+        if (start === -1) return null;
+        const candidates = [text.slice(start, text.lastIndexOf("]") + 1)];
+        const lastComplete = text.lastIndexOf("}");
+        if (lastComplete > start) candidates.push(`${text.slice(start, lastComplete + 1)}]`);
+        for (const candidate of candidates) {
+          try {
+            const parsed = JSON.parse(candidate);
+            if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+          } catch {
+            // try the next candidate
+          }
+        }
+        return null;
+      };
 
-      const planData: WeekPlan[] = JSON.parse(jsonMatch[0]).map((w: any) => ({
+      const parsedWeeks = parsePlanArray(fullText);
+      if (!parsedWeeks) throw new Error("We couldn't build your plan just now. Please try again.");
+
+      const planData: WeekPlan[] = parsedWeeks.map((w: any) => ({
         ...w,
         activities: Array.isArray(w.activities)
           ? w.activities.map((activity: string) => resolveStudyActivity(activity).label)
