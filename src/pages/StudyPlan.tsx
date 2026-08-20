@@ -284,7 +284,15 @@ IMPORTANT: Return ONLY a valid JSON array, no markdown, no explanation. Example 
         }),
       });
 
-      if (!resp.ok) throw new Error("Failed to generate plan");
+      if (!resp.ok) {
+        if (resp.status === 401 || resp.status === 403) {
+          throw new Error("Your session expired. Please refresh the page and try again.");
+        }
+        if (resp.status === 429) {
+          throw new Error("The planner is busy right now. Please wait a minute and try again.");
+        }
+        throw new Error("We couldn't build your plan just now. Please try again in a moment.");
+      }
 
       const reader = resp.body!.getReader();
       const decoder = new TextDecoder();
