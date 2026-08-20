@@ -199,6 +199,21 @@ const StudyPlan = () => {
   // Rate every content area for the active track (NCE has 8, NCMHCE has 3).
   const confidenceAreas = config.domains;
 
+  const missingRequirements = useMemo(() => {
+    const missing: string[] = [];
+    if (!examDate) missing.push("your exam date");
+    const unrated = confidenceAreas.filter((area) => !confidence[area]);
+    if (unrated.length > 0) {
+      missing.push(
+        unrated.length === confidenceAreas.length
+          ? "confidence ratings for every area"
+          : `confidence rating for ${unrated.join(", ")}`,
+      );
+    }
+    return missing;
+  }, [examDate, confidence, confidenceAreas]);
+
+
   useEffect(() => {
     if (!user) return;
     supabase
@@ -220,6 +235,20 @@ const StudyPlan = () => {
     if (!user || !examDate) return;
     setGenerating(true);
 
+    // Always use a fresh access token — a tab left open can hold an expired one,
+    // which made generation fail with a generic error.
+    const { data: sessionData } = await supabase.auth.getSession();
+    const accessToken = sessionData.session?.access_token ?? session?.access_token ?? "";
+    if (!accessToken) {
+      setGenerating(false);
+      toast({
+        title: "Please sign in again",
+        description: "Your session expired. Refresh the page and try once more.",
+        variant: "destructive",
+      });
+      return;
+    }
+
     const intakeData = {
       examDate: examDate.toISOString(),
       hoursPerWeek: hoursPerWeek[0],
@@ -233,7 +262,7 @@ const StudyPlan = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${session?.access_token ?? ""}`,
+          Authorization: `Bearer ${accessToken}`,
         },
         body: JSON.stringify({
           messages: [{
@@ -270,7 +299,15 @@ IMPORTANT: Return ONLY a valid JSON array, no markdown, no explanation. Example 
         }),
       });
 
-      if (!resp.ok) throw new Error("Failed to generate plan");
+      if (!resp.ok) {
+        if (resp.status === 401 || resp.status === 403) {
+          throw new Error("Your session expired. Please refresh the page and try again.");
+        }
+        if (resp.status === 429) {
+          throw new Error("The planner is busy right now. Please wait a minute and try again.");
+        }
+        throw new Error("We couldn't build your plan just now. Please try again in a moment.");
+      }
 
       const reader = resp.body!.getReader();
       const decoder = new TextDecoder();
@@ -293,15 +330,36 @@ IMPORTANT: Return ONLY a valid JSON array, no markdown, no explanation. Example 
             const p = JSON.parse(json);
             const c = p.choices?.[0]?.delta?.content;
             if (c) fullText += c;
-          } catch { break; }
+          } catch {
+            // Ignore non-JSON keepalive/metadata lines instead of aborting the stream.
+            continue;
+          }
         }
       }
 
-      // Parse JSON from response
-      const jsonMatch = fullText.match(/\[[\s\S]*\]/);
-      if (!jsonMatch) throw new Error("Invalid plan format");
+      // Parse JSON from response. Long plans can arrive truncated, so recover the
+      // complete weeks instead of failing the whole generation.
+      const parsePlanArray = (text: string): any[] | null => {
+        const start = text.indexOf("[");
+        if (start === -1) return null;
+        const candidates = [text.slice(start, text.lastIndexOf("]") + 1)];
+        const lastComplete = text.lastIndexOf("}");
+        if (lastComplete > start) candidates.push(`${text.slice(start, lastComplete + 1)}]`);
+        for (const candidate of candidates) {
+          try {
+            const parsed = JSON.parse(candidate);
+            if (Array.isArray(parsed) && parsed.length > 0) return parsed;
+          } catch {
+            // try the next candidate
+          }
+        }
+        return null;
+      };
 
-      const planData: WeekPlan[] = JSON.parse(jsonMatch[0]).map((w: any) => ({
+      const parsedWeeks = parsePlanArray(fullText);
+      if (!parsedWeeks) throw new Error("We couldn't build your plan just now. Please try again.");
+
+      const planData: WeekPlan[] = parsedWeeks.map((w: any) => ({
         ...w,
         activities: Array.isArray(w.activities)
           ? w.activities.map((activity: string) => resolveStudyActivity(activity).label)
@@ -502,16 +560,25 @@ IMPORTANT: Return ONLY a valid JSON array, no markdown, no explanation. Example 
             />
           </div>
 
+          {missingRequirements.length > 0 && (
+            <p className="text-xs text-muted-foreground">
+              Still needed before we can build your plan: {missingRequirements.join(" · ")}
+            </p>
+          )}
+
           <Button
             className="w-full"
             onClick={generatePlan}
-            disabled={
-              !examDate || generating || Object.keys(confidence).length < confidenceAreas.length
-            }
+            disabled={missingRequirements.length > 0 || generating}
           >
             <Sparkles className="mr-2 h-4 w-4" />
             {generating ? "Generating Your Plan..." : "Generate My Study Plan"}
           </Button>
+          {generating && (
+            <p className="text-center text-xs text-muted-foreground">
+              This can take up to a minute — please keep this page open.
+            </p>
+          )}
         </CardContent>
       </Card>
     </div>
