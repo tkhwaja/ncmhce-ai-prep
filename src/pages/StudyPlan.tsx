@@ -16,6 +16,7 @@ import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/component
 import { useToast } from "@/hooks/use-toast";
 import ReactMarkdown from "react-markdown";
 import { format } from "date-fns";
+import { cn } from "@/lib/utils";
 import { getActiveLibraryModules, getActiveNarratives, getActiveFlashcardDecks, getActivePracticeExams } from "@/lib/exam-content";
 import type { ExamTrack } from "@/config/exam-tracks";
 import {
