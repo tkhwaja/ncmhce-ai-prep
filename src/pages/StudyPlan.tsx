@@ -13,8 +13,6 @@ import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { Calendar } from "@/components/ui/calendar";
-import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
 import { useToast } from "@/hooks/use-toast";
 import ReactMarkdown from "react-markdown";
 import { format } from "date-fns";
@@ -195,6 +193,17 @@ const StudyPlan = () => {
   const [takenBefore, setTakenBefore] = useState(false);
   const [confidence, setConfidence] = useState<Record<string, number>>({});
   const [biggestConcern, setBiggestConcern] = useState("");
+
+  const handleExamDateChange = (value: string) => {
+    if (!value) {
+      setExamDate(undefined);
+      return;
+    }
+
+    const [year, month, day] = value.split("-").map(Number);
+    if (!year || !month || !day) return;
+    setExamDate(new Date(year, month - 1, day, 12));
+  };
 
   // Rate every content area for the active track (NCE has 8, NCMHCE has 3).
   const confidenceAreas = config.domains;
@@ -497,18 +506,20 @@ IMPORTANT: Return ONLY a valid JSON array, no markdown, no explanation. Example 
         <CardContent className="p-6 space-y-6">
           {/* Exam Date */}
           <div className="space-y-2">
-            <Label>When is your exam date?</Label>
-            <Popover>
-              <PopoverTrigger asChild>
-                <Button variant="outline" className={cn("w-full justify-start text-left font-normal", !examDate && "text-muted-foreground")}>
-                  <CalendarIcon className="mr-2 h-4 w-4" />
-                  {examDate ? format(examDate, "PPP") : "Pick a date"}
-                </Button>
-              </PopoverTrigger>
-              <PopoverContent className="w-auto p-0" align="start">
-                <Calendar mode="single" selected={examDate} onSelect={setExamDate} disabled={(d) => d < new Date()} initialFocus className="p-3 pointer-events-auto" />
-              </PopoverContent>
-            </Popover>
+            <Label htmlFor="exam-date">When is your exam date? <span className="text-destructive">*</span></Label>
+            <div className="relative">
+              <CalendarIcon className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                id="exam-date"
+                type="date"
+                min={format(new Date(), "yyyy-MM-dd")}
+                value={examDate ? format(examDate, "yyyy-MM-dd") : ""}
+                onChange={(event) => handleExamDateChange(event.target.value)}
+                className="h-11 w-full pl-10"
+                aria-required="true"
+              />
+            </div>
+            {!examDate && <p className="text-xs text-destructive">Choose your exam date to enable plan generation.</p>}
           </div>
 
           {/* Hours per week */}
