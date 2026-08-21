@@ -46,6 +46,15 @@ export const nceLessonContent: Record<string, NceLessonContent> = {
   ...ch02LessonContent,
   ...ch03LessonContent,
   ...ch04LessonContent,
+  ...ch06LessonContent,
+  ...ch07LessonContent,
+  ...ch08LessonContent,
+  ...ch09LessonContent,
+  ...ch10LessonContent,
+  ...hg01LessonContent,
+  ...hg02LessonContent,
+  ...hg03LessonContent,
+  ...hg04LessonContent,
 
 };
 
