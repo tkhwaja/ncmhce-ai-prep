@@ -28,7 +28,14 @@ export function useUnreadMessages() {
       return;
     }
 
-    const { data: counts } = await supabase.rpc("community_unread_counts");
+    // The RPC is only executable by the `authenticated` role. If the access token
+    // has expired (or is mid-refresh) the client falls back to `anon` and Postgres
+    // returns "permission denied", so confirm a live session first.
+    const { data: sessionData } = await supabase.auth.getSession();
+    if (!sessionData.session) return;
+
+    const { data: counts, error } = await supabase.rpc("community_unread_counts");
+    if (error) return;
     const rows = (counts as { conversation_id: string; unread_count: number }[] | null) ?? [];
     const unreadRows = rows.filter((r) => Number(r.unread_count) > 0);
     setTotal(unreadRows.reduce((sum, r) => sum + Number(r.unread_count), 0));
