@@ -52,6 +52,14 @@ export function useCommunityMessaging() {
       return;
     }
 
+    // community_unread_counts is granted to `authenticated` only; an expired or
+    // refreshing token downgrades the request to `anon` and Postgres denies it.
+    const { data: sessionData } = await supabase.auth.getSession();
+    if (!sessionData.session) {
+      setLoading(false);
+      return;
+    }
+
     const { data: myMemberships } = await supabase
       .from("conversation_members")
       .select("conversation_id, last_read_at")
