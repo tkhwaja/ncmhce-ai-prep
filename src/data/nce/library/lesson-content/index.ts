@@ -34,6 +34,16 @@ import { at02LessonContent } from "./at-02";
 import { at03LessonContent } from "./at-03";
 import { at04LessonContent } from "./at-04";
 import { at05LessonContent } from "./at-05";
+import { at06LessonContent } from "./at-06";
+import { at07LessonContent } from "./at-07";
+import { gw01LessonContent } from "./gw-01";
+import { gw02LessonContent } from "./gw-02";
+import { gw03LessonContent } from "./gw-03";
+import { gw04LessonContent } from "./gw-04";
+import { gw05LessonContent } from "./gw-05";
+import { cd01LessonContent } from "./cd-01";
+import { cd02LessonContent } from "./cd-02";
+import { cd03LessonContent } from "./cd-03";
 
 /**
  * Authored NCE lesson content, keyed by canonical lesson id (e.g. "CH-05-L03").
@@ -81,6 +91,16 @@ export const nceLessonContent: Record<string, NceLessonContent> = {
   ...at03LessonContent,
   ...at04LessonContent,
   ...at05LessonContent,
+  ...at06LessonContent,
+  ...at07LessonContent,
+  ...gw01LessonContent,
+  ...gw02LessonContent,
+  ...gw03LessonContent,
+  ...gw04LessonContent,
+  ...gw05LessonContent,
+  ...cd01LessonContent,
+  ...cd02LessonContent,
+  ...cd03LessonContent,
 
 };
 
