@@ -1,5 +1,14 @@
 import type { NCEQuestion } from "./types";
 import { nceQuestionsBatch001 } from "./questions-batch-001";
+import { nceQuestionsBatch002 } from "./questions-batch-002";
+import { nceQuestionsBatch003 } from "./questions-batch-003";
+import { nceQuestionsBatch004 } from "./questions-batch-004";
+import { nceQuestionsBatch005 } from "./questions-batch-005";
+import { nceQuestionsBatch006 } from "./questions-batch-006";
+import { nceQuestionsBatch007 } from "./questions-batch-007";
+import { nceQuestionsBatch008 } from "./questions-batch-008";
+import { nceQuestionsBatch009 } from "./questions-batch-009";
+import { nceQuestionsBatch010 } from "./questions-batch-010";
 
 /**
  * Sample NCE question bank.
@@ -188,4 +197,16 @@ const sampleQuestions: NCEQuestion[] = [
   },
 ];
 
-export const nceQuestions: NCEQuestion[] = [...sampleQuestions, ...nceQuestionsBatch001];
+export const nceQuestions: NCEQuestion[] = [
+  ...sampleQuestions,
+  ...nceQuestionsBatch001,
+  ...nceQuestionsBatch002,
+  ...nceQuestionsBatch003,
+  ...nceQuestionsBatch004,
+  ...nceQuestionsBatch005,
+  ...nceQuestionsBatch006,
+  ...nceQuestionsBatch007,
+  ...nceQuestionsBatch008,
+  ...nceQuestionsBatch009,
+  ...nceQuestionsBatch010,
+];
