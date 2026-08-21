@@ -65,10 +65,24 @@ export const practiceExams: PracticeExam[] = [
   {
     id: "practice-exam-3",
     title: "Practice Exam 3",
-    description: "In development • coming soon",
-    comingSoon: true,
-    narrativeIds: [],
+    description: "11 clinical narratives • ~4 hours",
+    ungradedNarrativeCount: 1,
+    narrativeIds: [
+      "exam-03-01-amara-school-referral",
+      "exam-03-02-yusef-post-hospital-follow-up",
+      "exam-03-03-lian-neurology-follow-up",
+      "exam-03-04-desmond-urgent-outpatient-referral",
+      "exam-03-05-celeste-presurgical-consultation",
+      "exam-03-06-rohan-workplace-consultation",
+      "exam-03-07-naomi-adolescent-medicine-referral",
+      "exam-03-08-mireya-cyclical-mood-consultation",
+      "exam-03-09-bennett-medication-and-sleep-referral",
+      "exam-03-10-lorraine-independent-living-consultation",
+      "exam-03-11-talia-campus-support-consultation",
+    ],
+    releasedAt: "2026-08-21",
   },
+
 ];
 
 export const getPracticeExamById = (id: string): PracticeExam | undefined =>
