@@ -189,20 +189,35 @@ const Narratives = () => {
             </CardContent>
           </Card>
           {examThree && (
-            <Card className="card-elevated relative overflow-hidden opacity-70">
+            <Card
+              className="card-elevated cursor-pointer hover:border-primary/30 transition-all group relative overflow-hidden"
+              onClick={() => navigate("/practice-exams")}
+            >
               <CardContent className="p-6">
-                <span className="absolute top-3 right-3 z-10 px-2 py-0.5 text-[10px] font-bold tracking-wider rounded-full bg-muted text-muted-foreground border border-border">
-                  COMING SOON
-                </span>
-                <LockIcon className="h-8 w-8 text-muted-foreground mb-3" />
-                <h3 className="font-semibold text-foreground">{examThree.title}</h3>
+                {isExamNew(examThree) && (
+                  <span
+                    className="absolute -top-1 -right-1 z-10 px-4 py-1.5 text-[12px] font-extrabold tracking-widest uppercase rounded-[999px] text-white shadow-lg"
+                    style={{
+                      background:
+                        "linear-gradient(135deg, #C4B5FD 0%, #7C3AED 40%, #DDD6FE 60%, #5B21B6 100%)",
+                      boxShadow:
+                        "0 4px 14px -2px rgba(124, 58, 237, 0.55), inset 1px 1px 2px rgba(255,255,255,0.55)",
+                      textShadow: "0 1px 2px rgba(0,0,0,0.2)",
+                    }}
+                  >
+                    NEW
+                  </span>
+                )}
+                <Brain className="h-8 w-8 text-primary mb-3" />
+                <h3 className="font-semibold text-foreground group-hover:text-primary transition-colors">{examThree.title}</h3>
                 <p className="text-sm text-muted-foreground mt-1">{examThree.description}</p>
-                <Button size="sm" className="mt-4 h-7 text-xs" disabled>
-                  <LockIcon className="h-3 w-3 mr-1" /> Coming Soon
+                <Button size="sm" className="mt-4 h-7 text-xs">
+                  <PlayCircle className="h-3 w-3 mr-1" /> Open Exam
                 </Button>
               </CardContent>
             </Card>
           )}
+
         </div>
       </div>
 
