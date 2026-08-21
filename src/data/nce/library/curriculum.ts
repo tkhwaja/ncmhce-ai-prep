@@ -229,12 +229,12 @@ export const nceCollections: NceCollection[] = [
         title: "Brief, Constructivist, and Contemporary Approaches",
         collectionSlug: "counseling-helping-relationships",
         lessons: [
-          { id: "CH-06-L01", slug: "solution-focused-brief-therapy", title: "Solution-Focused brief therapy", order: 1, estimatedMinutes: 9 },
+          { id: "CH-06-L01", slug: "solution-focused-brief-therapy", title: "Solution-focused brief therapy", order: 1, estimatedMinutes: 9 },
           { id: "CH-06-L02", slug: "narrative-therapy", title: "Narrative therapy", order: 2, estimatedMinutes: 9 },
           { id: "CH-06-L03", slug: "reality-therapy-choice-theory", title: "Reality therapy and choice theory", order: 3, estimatedMinutes: 9 },
           { id: "CH-06-L04", slug: "motivational-interviewing", title: "Motivational interviewing", order: 4, estimatedMinutes: 9 },
           { id: "CH-06-L05", slug: "acceptance-commitment-therapy", title: "Acceptance and commitment therapy", order: 5, estimatedMinutes: 9 },
-          { id: "CH-06-L06", slug: "dbt-mindfulness-approach-selection", title: "Dialectical behavior Therapy, mindfulness, and approach selection", order: 6, estimatedMinutes: 9 },
+          { id: "CH-06-L06", slug: "dbt-mindfulness-approach-selection", title: "Dialectical behavior therapy, mindfulness, and approach selection", order: 6, estimatedMinutes: 9 },
         ],
       },
       {
@@ -242,13 +242,13 @@ export const nceCollections: NceCollection[] = [
         title: "Trauma, Crisis, Suicide, and Safety Interventions",
         collectionSlug: "counseling-helping-relationships",
         lessons: [
-          { id: "CH-07-L01", slug: "trauma-informed-principles", title: "Trauma-Informed principles and initial response", order: 1, estimatedMinutes: 9 },
+          { id: "CH-07-L01", slug: "trauma-informed-principles", title: "Trauma-informed principles and initial response", order: 1, estimatedMinutes: 9 },
           { id: "CH-07-L02", slug: "acute-crisis-stabilization-deescalation", title: "Acute crisis assessment, stabilization, and de-escalation", order: 2, estimatedMinutes: 9 },
           { id: "CH-07-L03", slug: "suicide-risk-assessment", title: "Suicide risk assessment", order: 3, estimatedMinutes: 9 },
           { id: "CH-07-L04", slug: "safety-planning-lethal-means-level-care", title: "Safety planning, lethal means, and level of care", order: 4, estimatedMinutes: 9 },
           { id: "CH-07-L05", slug: "violence-homicide-risk", title: "Violence and homicide risk", order: 5, estimatedMinutes: 9 },
           { id: "CH-07-L06", slug: "abuse-neglect-interpersonal-violence", title: "Abuse, neglect, and interpersonal violence", order: 6, estimatedMinutes: 9 },
-          { id: "CH-07-L07", slug: "referral-continuity-post-crisis-care", title: "Referral, continuity, and post-Crisis care", order: 7, estimatedMinutes: 9 },
+          { id: "CH-07-L07", slug: "referral-continuity-post-crisis-care", title: "Referral, continuity, and post-crisis care", order: 7, estimatedMinutes: 9 },
         ],
       },
       {
@@ -261,7 +261,7 @@ export const nceCollections: NceCollection[] = [
           { id: "CH-08-L03", slug: "bowenian-multigenerational-concepts", title: "Bowenian and multigenerational concepts", order: 3, estimatedMinutes: 9 },
           { id: "CH-08-L04", slug: "structural-family-therapy", title: "Structural family therapy", order: 4, estimatedMinutes: 9 },
           { id: "CH-08-L05", slug: "strategic-family-approaches", title: "Strategic family approaches", order: 5, estimatedMinutes: 9 },
-          { id: "CH-08-L06", slug: "eft-gottman-couples-work", title: "Emotionally focused and Gottman-Informed couples work", order: 6, estimatedMinutes: 9 },
+          { id: "CH-08-L06", slug: "eft-gottman-couples-work", title: "Emotionally focused and Gottman-informed couples work", order: 6, estimatedMinutes: 9 },
         ],
       },
       {
@@ -269,7 +269,7 @@ export const nceCollections: NceCollection[] = [
         title: "Case Conceptualization, Treatment Planning, and Continuity",
         collectionSlug: "counseling-helping-relationships",
         lessons: [
-          { id: "CH-09-L01", slug: "theory-based-case-conceptualization", title: "Theory-Based case conceptualization", order: 1, estimatedMinutes: 9 },
+          { id: "CH-09-L01", slug: "theory-based-case-conceptualization", title: "Theory-based case conceptualization", order: 1, estimatedMinutes: 9 },
           { id: "CH-09-L02", slug: "priorities-strengths-barriers-risk", title: "Priorities, strengths, barriers, risk, and protection", order: 2, estimatedMinutes: 9 },
           { id: "CH-09-L03", slug: "goals-objectives-smart-planning", title: "Goals, objectives, and SMART planning", order: 3, estimatedMinutes: 9 },
           { id: "CH-09-L04", slug: "intervention-goal-formulation-alignment", title: "Aligning interventions with goals and formulation", order: 4, estimatedMinutes: 9 },
@@ -333,7 +333,7 @@ export const nceCollections: NceCollection[] = [
           { id: "HG-03-L01", slug: "bowlby-attachment-system", title: "Bowlby and the attachment system", order: 1, estimatedMinutes: 9 },
           { id: "HG-03-L02", slug: "ainsworth-attachment-patterns", title: "Ainsworth attachment patterns and assessment limits", order: 2, estimatedMinutes: 9 },
           { id: "HG-03-L03", slug: "conditioning-development-behavior", title: "Conditioning and the development of behavior", order: 3, estimatedMinutes: 9 },
-          { id: "HG-03-L04", slug: "bandura-observational-learning-self-efficacy", title: "Bandura, observational learning, and self-Efficacy", order: 4, estimatedMinutes: 9 },
+          { id: "HG-03-L04", slug: "bandura-observational-learning-self-efficacy", title: "Bandura, observational learning, and self-efficacy", order: 4, estimatedMinutes: 9 },
           { id: "HG-03-L05", slug: "temperament-caregiving-socialization", title: "Temperament, caregiving, and socialization", order: 5, estimatedMinutes: 9 },
           { id: "HG-03-L06", slug: "peer-relationships-social-development", title: "Peer relationships and integrated social development", order: 6, estimatedMinutes: 9 },
         ],
