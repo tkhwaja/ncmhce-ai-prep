@@ -11,6 +11,15 @@ import { ch01LessonContent } from "./ch-01";
 import { ch02LessonContent } from "./ch-02";
 import { ch03LessonContent } from "./ch-03";
 import { ch04LessonContent } from "./ch-04";
+import { ch06LessonContent } from "./ch-06";
+import { ch07LessonContent } from "./ch-07";
+import { ch08LessonContent } from "./ch-08";
+import { ch09LessonContent } from "./ch-09";
+import { ch10LessonContent } from "./ch-10";
+import { hg01LessonContent } from "./hg-01";
+import { hg02LessonContent } from "./hg-02";
+import { hg03LessonContent } from "./hg-03";
+import { hg04LessonContent } from "./hg-04";
 
 
 /**
