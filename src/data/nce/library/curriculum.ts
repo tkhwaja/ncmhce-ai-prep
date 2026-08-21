@@ -531,7 +531,7 @@ export const nceCollections: NceCollection[] = [
         collectionSlug: "assessment-testing",
         lessons: [
           { id: "AT-07-L01", slug: "baseline-ongoing-post-treatment", title: "Baseline, ongoing, and post-treatment measurement", order: 1, estimatedMinutes: 7 },
-          { id: "AT-07-L02", slug: "pretest-posttest-clinical-significance", title: "Pretest–Posttest change and clinical significance", order: 2, estimatedMinutes: 7 },
+          { id: "AT-07-L02", slug: "pretest-posttest-clinical-significance", title: "Pretest–posttest change and clinical significance", order: 2, estimatedMinutes: 7 },
           { id: "AT-07-L03", slug: "progress-monitoring-measurement-based-care", title: "Progress monitoring and measurement-based care", order: 3, estimatedMinutes: 7 },
           { id: "AT-07-L04", slug: "client-feedback-alliance", title: "Client feedback and the therapeutic alliance", order: 4, estimatedMinutes: 7 },
           { id: "AT-07-L05", slug: "revising-treatment-termination", title: "Revising treatment, stepping care, and termination", order: 5, estimatedMinutes: 7 },
