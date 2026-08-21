@@ -55,6 +55,16 @@ import { tessaBulimiaMedicalRiskPracticeExam2Narrative } from "./practice-exam-0
 import { ariSchizophreniformFirstEpisodePracticeExam2Narrative } from "./practice-exam-02-case-10-ari-schizophreniform-first-episode";
 import { marciaProlongedGriefCaregiverIdentityPracticeExam2Narrative } from "./practice-exam-02-case-11-marcia-prolonged-grief-caregiver-identity";
 import { amaraSchoolReferralNarrative } from "./exam-03-01-amara-school-referral";
+import { yusefPostHospitalFollowUpNarrative } from "./exam-03-02-yusef-post-hospital-follow-up";
+import { meiNeurologyFollowUpNarrative } from "./exam-03-03-mei-neurology-follow-up";
+import { andreUrgentOutpatientReferralNarrative } from "./exam-03-04-andre-urgent-outpatient-referral";
+import { celestePresurgicalConsultationNarrative } from "./exam-03-05-celeste-presurgical-consultation";
+import { rohanWorkplaceConsultationNarrative } from "./exam-03-06-rohan-workplace-consultation";
+import { hanaAdolescentMedicineReferralNarrative } from "./exam-03-07-hana-adolescent-medicine-referral";
+import { mireyaCyclicalMoodConsultationNarrative } from "./exam-03-08-mireya-cyclical-mood-consultation";
+import { bennettMedicationAndSleepReferralNarrative } from "./exam-03-09-bennett-medication-and-sleep-referral";
+import { lorraineIndependentLivingConsultationNarrative } from "./exam-03-10-lorraine-independent-living-consultation";
+import { taliaCampusSupportConsultationNarrative } from "./exam-03-11-talia-campus-support-consultation";
 import freeDiagnosticBundle from "@/data/free-diagnostic-bundle.json";
 
 export type { Narrative, NarrativeSection, NarrativeQuestion, NarrativeDomain, NarrativeClientInfo } from "./types";
@@ -152,6 +162,16 @@ const practiceExamNarratives: Narrative[] = [
   marciaProlongedGriefCaregiverIdentityPracticeExam2Narrative,
   // Practice Exam 3 (coming soon) — seeded but not yet listed in any released exam.
   amaraSchoolReferralNarrative,
+  yusefPostHospitalFollowUpNarrative,
+  meiNeurologyFollowUpNarrative,
+  andreUrgentOutpatientReferralNarrative,
+  celestePresurgicalConsultationNarrative,
+  rohanWorkplaceConsultationNarrative,
+  hanaAdolescentMedicineReferralNarrative,
+  mireyaCyclicalMoodConsultationNarrative,
+  bennettMedicationAndSleepReferralNarrative,
+  lorraineIndependentLivingConsultationNarrative,
+  taliaCampusSupportConsultationNarrative,
 ];
 
 const allNarratives: Narrative[] = [freeDiagnosticNarrative, ...narratives, ...practiceExamNarratives];
