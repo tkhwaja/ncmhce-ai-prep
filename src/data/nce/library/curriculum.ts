@@ -591,7 +591,7 @@ export const nceCollections: NceCollection[] = [
           { id: "GW-04-L02", slug: "altruism-information-modeling", title: "Altruism, information, modeling, and skill learning", order: 2, estimatedMinutes: 7 },
           { id: "GW-04-L03", slug: "interpersonal-corrective-existential", title: "Interpersonal learning, corrective recapitulation, catharsis, and existential factors", order: 3, estimatedMinutes: 7 },
           { id: "GW-04-L04", slug: "here-now-norms-roles-themes", title: "Here-and-Now process, norms, roles, and themes", order: 4, estimatedMinutes: 7 },
-          { id: "GW-04-L05", slug: "relational-dynamics-feedback", title: "Leader–Member and member–Member dynamics", order: 5, estimatedMinutes: 7 },
+          { id: "GW-04-L05", slug: "relational-dynamics-feedback", title: "Leader–member and member–member dynamics", order: 5, estimatedMinutes: 7 },
         ],
       },
       {
@@ -635,7 +635,7 @@ export const nceCollections: NceCollection[] = [
           { id: "CD-02-L01", slug: "parsons-trait-factor", title: "Parsons and the trait-and-factor foundation", order: 1, estimatedMinutes: 7 },
           { id: "CD-02-L02", slug: "holland-riasec", title: "Holland’s RIASEC theory", order: 2, estimatedMinutes: 7 },
           { id: "CD-02-L03", slug: "theory-work-adjustment", title: "Theory of work adjustment", order: 3, estimatedMinutes: 7 },
-          { id: "CD-02-L04", slug: "person-environment-assessment", title: "Applying person–Environment fit and career assessment", order: 4, estimatedMinutes: 7 },
+          { id: "CD-02-L04", slug: "person-environment-assessment", title: "Applying person–environment fit and career assessment", order: 4, estimatedMinutes: 7 },
           { id: "CD-02-L05", slug: "strengths-limitations-context", title: "Strengths, limitations, and contextual use", order: 5, estimatedMinutes: 7 },
         ],
       },
