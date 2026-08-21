@@ -44,6 +44,13 @@ import { gw05LessonContent } from "./gw-05";
 import { cd01LessonContent } from "./cd-01";
 import { cd02LessonContent } from "./cd-02";
 import { cd03LessonContent } from "./cd-03";
+import { rp05LessonContent } from "./rp-05";
+import { rp04LessonContent } from "./rp-04";
+import { rp03LessonContent } from "./rp-03";
+import { rp02LessonContent } from "./rp-02";
+import { rp01LessonContent } from "./rp-01";
+import { cd05LessonContent } from "./cd-05";
+import { cd04LessonContent } from "./cd-04";
 
 /**
  * Authored NCE lesson content, keyed by canonical lesson id (e.g. "CH-05-L03").
@@ -101,6 +108,13 @@ export const nceLessonContent: Record<string, NceLessonContent> = {
   ...cd01LessonContent,
   ...cd02LessonContent,
   ...cd03LessonContent,
+  ...rp05LessonContent,
+  ...rp04LessonContent,
+  ...rp03LessonContent,
+  ...rp02LessonContent,
+  ...rp01LessonContent,
+  ...cd05LessonContent,
+  ...cd04LessonContent,
 
 };
 
