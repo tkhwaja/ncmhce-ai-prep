@@ -20,6 +20,8 @@ import { hg01LessonContent } from "./hg-01";
 import { hg02LessonContent } from "./hg-02";
 import { hg03LessonContent } from "./hg-03";
 import { hg04LessonContent } from "./hg-04";
+import { hg05LessonContent } from "./hg-05";
+import { hg06LessonContent } from "./hg-06";
 
 
 /**
@@ -55,6 +57,8 @@ export const nceLessonContent: Record<string, NceLessonContent> = {
   ...hg02LessonContent,
   ...hg03LessonContent,
   ...hg04LessonContent,
+  ...hg05LessonContent,
+  ...hg06LessonContent,
 
 };
 
