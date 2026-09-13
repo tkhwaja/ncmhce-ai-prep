@@ -1,0 +1,1 @@
+SET request.jwt.claims = '{"role":"service_role"}'; UPDATE public.profiles SET payment_status = 'comped', access_expires_at = now() + interval '24 hours' WHERE email = 'paguilr001@gmail.com';
