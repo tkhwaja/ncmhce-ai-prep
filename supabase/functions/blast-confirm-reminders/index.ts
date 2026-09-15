@@ -7,6 +7,7 @@
 //   ?mode=blast               -> sends to all 33 unconfirmed users (excludes overlap).
 //   default                   -> dry run: returns who would be targeted, sends nothing.
 import { createClient } from 'npm:@supabase/supabase-js@2'
+import { sendAppEmail } from '../_shared/send-app-email.ts'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
