@@ -62,15 +62,11 @@ Deno.serve(async (req) => {
       : "none";
 
     // Send support email
-    const sendRes = await fetch(`${supabaseUrl}/functions/v1/send-transactional-email`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${serviceKey}`,
-      },
-      body: JSON.stringify({
-        templateName: "subscription-cancellation-feedback",
-        recipientEmail: "support@theexampath.com",
+    const sendRes = await sendAppEmail(
+      "subscription-cancellation-feedback",
+      "support@theexampath.com",
+      {
+        idempotencyKey: `cancellation-feedback-${user.id}-${Date.now()}`,
         templateData: {
           userEmail: user.email || profile?.email || "unknown",
           userName: profile?.full_name || "",
@@ -80,12 +76,11 @@ Deno.serve(async (req) => {
           subscriptionStatus,
           accessExpiresAt: profile?.access_expires_at || sub?.current_period_end || "",
         },
-      }),
-    });
+      },
+    );
 
     if (!sendRes.ok) {
-      const errText = await sendRes.text();
-      console.error("send-transactional-email failed", errText);
+      console.error("cancellation feedback email failed", sendRes.error);
       return new Response(JSON.stringify({ error: "Failed to submit feedback" }), { status: 500, headers: corsHeaders });
     }
 
