@@ -1,4 +1,5 @@
 import { createClient } from 'npm:@supabase/supabase-js@2'
+import { EmailAPIError } from 'npm:@lovable.dev/email-js@0.1.0'
 import { sendTemplateEmail } from './transactional-email-templates/send-email.ts'
 
 // Thin wrapper around the managed send helper that preserves this project's
