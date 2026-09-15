@@ -122,9 +122,7 @@ const edgeFnChecks = (): Array<Promise<CheckResult>> => {
     ['create-portal-session', { body: {}, expect: [400, 401, 422] }],
     // waitlist-signup intentionally excluded — only used during pre-launch
     ['free-diagnostic-lead', { body: {}, expect: [400, 422] }],
-    ['handle-email-unsubscribe', { method: 'GET', expect: [200, 400, 404] }],
-    ['handle-email-suppression', { body: {}, expect: [400, 401, 422] }],
-    ['send-transactional-email', { body: {}, expect: [400, 401, 422] }],
+    ['handle-email-events', { body: {}, expect: [400, 401, 422] }],
     ['payments-webhook', { body: {}, expect: [400, 401] }],
     ['auth-email-hook', { body: {}, expect: [400, 401, 422] }],
   ]

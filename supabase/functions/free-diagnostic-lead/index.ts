@@ -1,5 +1,6 @@
 import { createClient } from 'npm:@supabase/supabase-js@2'
 import { z } from 'npm:zod@3.23.8'
+import { sendAppEmail } from '../_shared/send-app-email.ts'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
@@ -102,16 +103,10 @@ Deno.serve(async (req) => {
 
   const { strongestDomain, weakestDomain } = getDomainSummary(payload.domainScores)
 
-  const sendResponse = await fetch(`${supabaseUrl}/functions/v1/send-transactional-email`, {
-    method: 'POST',
-    headers: {
-      Authorization: `Bearer ${supabaseServiceKey}`,
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      templateName:
-        payload.examTrack === 'nce' ? 'nce-diagnostic-breakdown' : 'free-diagnostic-breakdown',
-      recipientEmail: payload.email.toLowerCase(),
+  const sendResult = await sendAppEmail(
+    payload.examTrack === 'nce' ? 'nce-diagnostic-breakdown' : 'free-diagnostic-breakdown',
+    payload.email.toLowerCase(),
+    {
       idempotencyKey: `free-diagnostic-${payload.examTrack}-${insertedLead.id}`,
       templateData: {
         fullName: payload.fullName,
@@ -123,17 +118,15 @@ Deno.serve(async (req) => {
         domainScores: payload.domainScores,
         answerBreakdown: payload.answerBreakdown,
       },
-    }),
-  })
+    },
+  )
 
-  if (!sendResponse.ok) {
-    const errorText = await sendResponse.text()
-    console.error('Failed to queue free diagnostic email', {
+  if (!sendResult.ok) {
+    console.error('Failed to send free diagnostic email', {
       leadId: insertedLead.id,
-      status: sendResponse.status,
-      error: errorText,
+      error: sendResult.error,
     })
-    return jsonResponse({ error: 'Result saved but email delivery could not be queued yet' }, 500)
+    return jsonResponse({ error: 'Result saved but email delivery could not be completed' }, 500)
   }
 
   await supabase
