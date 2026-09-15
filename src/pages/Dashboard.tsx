@@ -8,6 +8,8 @@ import { Brain, BarChart3, Layers, Target, TrendingUp, Clock, Flame, Sparkles, B
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { getActiveNarratives, getActiveFlashcardDecks } from "@/lib/exam-content";
 import WelcomeModal from "@/components/WelcomeModal";
+import ListingPromptCard from "@/components/community/ListingPromptCard";
+import { useStudyPartnerListingPrompt } from "@/hooks/useStudyPartnerListingPrompt";
 
 const capitalize = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
 
@@ -223,6 +225,11 @@ const Dashboard = () => {
           </Card>
         ))}
       </div>
+
+      {/* Study partner invitation */}
+      {listingPrompt.shouldPrompt && (
+        <ListingPromptCard onDismiss={listingPrompt.dismiss} />
+      )}
 
       {/* Quick Actions */}
       <div>
