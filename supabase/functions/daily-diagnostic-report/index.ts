@@ -317,18 +317,15 @@ Deno.serve(async (req) => {
     errors,
   }
 
-  // Send via existing transactional pipeline (fixed recipient set in template)
-  const { data: sendResult, error: sendError } = await supabase.functions.invoke('send-transactional-email', {
-    body: {
-      templateName: 'daily-diagnostic-report',
-      idempotencyKey,
-      templateData,
-    },
+  // Send through Lovable's managed email API (fixed recipient set in template)
+  const sendResult = await sendAppEmail('daily-diagnostic-report', 'support@theexampath.com', {
+    idempotencyKey,
+    templateData,
   })
 
-  if (sendError) {
-    console.error('daily-diagnostic-report send failed', sendError)
-    return new Response(JSON.stringify({ ok: false, error: String(sendError) }), {
+  if (!sendResult.ok) {
+    console.error('daily-diagnostic-report send failed', sendResult.error)
+    return new Response(JSON.stringify({ ok: false, error: sendResult.error }), {
       status: 500, headers: { ...corsHeaders, 'Content-Type': 'application/json' },
     })
   }
