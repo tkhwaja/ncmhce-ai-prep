@@ -30,6 +30,8 @@ import {
 import NarrativeReviewChat from "@/components/NarrativeReviewChat";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 import { EXAM_TRACKS, formatPrice } from "@/config/exam-tracks";
+import { CREATE_LISTING_PATH } from "@/components/community/ListingPromptCard";
+import { useStudyPartnerListingPrompt } from "@/hooks/useStudyPartnerListingPrompt";
 
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 
@@ -60,6 +62,7 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
   const examIdParam = searchParams.get("examId");
   const { user } = useAuth();
   const { track } = useExamTrack();
+  const listingPrompt = useStudyPartnerListingPrompt("results");
   const liveNarrative = getNarrativeById(narrativeIdOverride ?? id);
   // `snapshotNarrative` is the frozen copy attached to an in-progress / completed
   // attempt. When present it overrides the live bundle so that users finishing
@@ -760,6 +763,28 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
                   </Button>
                 )}
               </div>
+
+              {!publicMode && listingPrompt.shouldPrompt && (
+                <p className="text-sm text-muted-foreground">
+                  Compare your reasoning with someone sitting the same exam —{" "}
+                  <button
+                    type="button"
+                    onClick={() => navigate(CREATE_LISTING_PATH)}
+                    className="font-medium text-primary underline-offset-2 hover:underline"
+                  >
+                    list yourself as a study partner
+                  </button>
+                  .{" "}
+                  <button
+                    type="button"
+                    onClick={listingPrompt.dismiss}
+                    className="text-xs text-muted-foreground/80 underline-offset-2 hover:underline"
+                  >
+                    Not now
+                  </button>
+                </p>
+              )}
+
 
               {!resultsLocked && (
                 <NarrativeReviewChat

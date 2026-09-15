@@ -8,6 +8,8 @@ import { Brain, BarChart3, Layers, Target, TrendingUp, Clock, Flame, Sparkles, B
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { getActiveNarratives, getActiveFlashcardDecks } from "@/lib/exam-content";
 import WelcomeModal from "@/components/WelcomeModal";
+import ListingPromptCard from "@/components/community/ListingPromptCard";
+import { useStudyPartnerListingPrompt } from "@/hooks/useStudyPartnerListingPrompt";
 
 const capitalize = (s: string) => (s ? s.charAt(0).toUpperCase() + s.slice(1) : s);
 
@@ -53,6 +55,7 @@ const Dashboard = () => {
   const [flashcardProgress, setFlashcardProgress] = useState<FlashcardProgress[]>([]);
   const [loading, setLoading] = useState(true);
   const [welcomeOpen, setWelcomeOpen] = useState(false);
+  const listingPrompt = useStudyPartnerListingPrompt("dashboard");
   const rawFirst = profile?.full_name?.trim().split(/\s+/)[0] || "there";
   const firstName = capitalize(rawFirst);
   const today = new Date().toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
@@ -223,6 +226,11 @@ const Dashboard = () => {
           </Card>
         ))}
       </div>
+
+      {/* Study partner invitation */}
+      {listingPrompt.shouldPrompt && (
+        <ListingPromptCard onDismiss={listingPrompt.dismiss} />
+      )}
 
       {/* Quick Actions */}
       <div>

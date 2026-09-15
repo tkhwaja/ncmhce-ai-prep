@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/hooks/use-toast";
@@ -16,6 +17,7 @@ import { Search, SlidersHorizontal, UserPlus, Users } from "lucide-react";
 import PartnerCard from "./PartnerCard";
 import PartnerProfileForm from "./PartnerProfileForm";
 import { SAMPLE_PARTNERS, isSamplePartnerId } from "@/data/community/sample-partners";
+import ListingPromptCard from "./ListingPromptCard";
 import {
   EXAM_TRACK_OPTIONS,
   FOCUS_AREA_OPTIONS,
@@ -32,6 +34,7 @@ const ALL = "all";
 
 const StudyPartnersTab = ({ onStartConversation }: Props) => {
   const { user, profile } = useAuth();
+  const [searchParams] = useSearchParams();
   const { toast } = useToast();
   const [partners, setPartners] = useState<StudyPartnerProfile[]>([]);
   const [myListing, setMyListing] = useState<StudyPartnerProfile | null>(null);
@@ -67,6 +70,11 @@ const StudyPartnersTab = ({ onStartConversation }: Props) => {
   useEffect(() => {
     if (!loading && !myListing) setShowForm(true);
   }, [loading, myListing]);
+
+  // Deep link from the dashboard / messages nudge: /community?tab=partners&listing=new
+  useEffect(() => {
+    if (searchParams.get("listing") === "new") setShowForm(true);
+  }, [searchParams]);
 
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
@@ -132,6 +140,11 @@ const StudyPartnersTab = ({ onStartConversation }: Props) => {
           }}
         />
       )}
+
+      {!loading && !showForm && !myListing?.is_listed && (
+        <ListingPromptCard />
+      )}
+
 
       <Card className="card-elevated">
         <CardContent className="flex flex-wrap items-center gap-2 p-3">
