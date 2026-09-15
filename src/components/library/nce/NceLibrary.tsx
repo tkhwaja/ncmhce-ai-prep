@@ -89,36 +89,8 @@ const NceLibrary = () => {
   const collectionParam = params.get("collection");
   const domainParam = params.get("domain");
 
-  if (lessonParam && getLesson(lessonParam))
-    return <NceLessonView lessonId={lessonParam} onNavigate={navigate} onBack={backHome} />;
-  if (moduleParam && getModule(moduleParam))
-    return (
-      <NceModuleView
-        moduleId={moduleParam}
-        examVersion={examVersion}
-        onNavigate={navigate}
-        onBack={backHome}
-      />
-    );
-  if (collectionParam)
-    return (
-      <NceCollectionView
-        slug={collectionParam}
-        examVersion={examVersion}
-        onNavigate={navigate}
-        onBack={backHome}
-      />
-    );
-  if (domainParam)
-    return (
-      <NceBlueprintHubView
-        domainId={domainParam}
-        examVersion={examVersion}
-        onNavigate={navigate}
-        onBack={backHome}
-      />
-    );
-
+  // Hooks must run unconditionally on every render — the detail-view early
+  // returns below come after all hooks so the hook count never differs.
   const allIds = allLessons.map((l) => l.id);
   const overallCompleted = completedCount(allIds);
   const domains = getBlueprintDomains(examVersion);
@@ -152,6 +124,37 @@ const NceLibrary = () => {
       );
     return list;
   }, [collectionFilter, sort, completedCount]);
+
+  if (lessonParam && getLesson(lessonParam))
+    return <NceLessonView lessonId={lessonParam} onNavigate={navigate} onBack={backHome} />;
+  if (moduleParam && getModule(moduleParam))
+    return (
+      <NceModuleView
+        moduleId={moduleParam}
+        examVersion={examVersion}
+        onNavigate={navigate}
+        onBack={backHome}
+      />
+    );
+  if (collectionParam)
+    return (
+      <NceCollectionView
+        slug={collectionParam}
+        examVersion={examVersion}
+        onNavigate={navigate}
+        onBack={backHome}
+      />
+    );
+  if (domainParam)
+    return (
+      <NceBlueprintHubView
+        domainId={domainParam}
+        examVersion={examVersion}
+        onNavigate={navigate}
+        onBack={backHome}
+      />
+    );
+
 
   return (
     <div className="p-4 sm:p-6 max-w-6xl mx-auto space-y-6">
