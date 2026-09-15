@@ -29,16 +29,11 @@ Deno.serve(async (req) => {
   const previewAs = url.searchParams.get('as') || ''
 
   const sendEmail = async (templateName: string, recipientEmail: string, idempotencyKey: string, templateData: Record<string, unknown>) => {
-    try {
-      const r = await fetch(`${supabaseUrl}/functions/v1/send-transactional-email`, {
-        method: 'POST',
-        headers: { Authorization: `Bearer ${serviceKey}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({ templateName, recipientEmail, idempotencyKey, templateData }),
-      })
-      const body = await r.text()
-      return { ok: r.ok, status: r.status, body }
-    } catch (e) {
-      return { ok: false, status: 0, body: String(e) }
+    const r = await sendAppEmail(templateName, recipientEmail, { idempotencyKey, templateData })
+    return {
+      ok: r.ok && r.sent,
+      status: r.ok ? 200 : 500,
+      body: r.sent ? 'sent' : (r.reason ?? r.error ?? 'not_sent'),
     }
   }
 
