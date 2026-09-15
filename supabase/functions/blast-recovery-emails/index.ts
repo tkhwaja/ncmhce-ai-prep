@@ -1,6 +1,7 @@
 // One-off blast: signup-recovery-apology + free-diagnostic-breakdown.
 // Idempotent: skips recipients already logged for the same template in last 24h.
 import { createClient } from 'npm:@supabase/supabase-js@2'
+import { sendAppEmail } from '../_shared/send-app-email.ts'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
