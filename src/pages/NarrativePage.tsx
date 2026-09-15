@@ -761,6 +761,28 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
                 )}
               </div>
 
+              {!publicMode && listingPrompt.shouldPrompt && (
+                <p className="text-sm text-muted-foreground">
+                  Compare your reasoning with someone sitting the same exam —{" "}
+                  <button
+                    type="button"
+                    onClick={() => navigate(CREATE_LISTING_PATH)}
+                    className="font-medium text-primary underline-offset-2 hover:underline"
+                  >
+                    list yourself as a study partner
+                  </button>
+                  .{" "}
+                  <button
+                    type="button"
+                    onClick={listingPrompt.dismiss}
+                    className="text-xs text-muted-foreground/80 underline-offset-2 hover:underline"
+                  >
+                    Not now
+                  </button>
+                </p>
+              )}
+
+
               {!resultsLocked && (
                 <NarrativeReviewChat
                   narrativeTitle={narrative.title}
