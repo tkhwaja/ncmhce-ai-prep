@@ -1,9 +1,9 @@
 import { describe, it, expect } from "vitest";
 import { getNCEExamItems, getNCEPracticeExamById } from "@/data/nce/practice-exams";
 
-describe("NCE Practice Exam 1 item set", () => {
-  const exam = getNCEPracticeExamById("nce-practice-exam-1")!;
-  const items = getNCEExamItems("nce-practice-exam-1");
+describe.each(["nce-practice-exam-1", "nce-practice-exam-2"])("NCE %s item set", (examId) => {
+  const exam = getNCEPracticeExamById(examId)!;
+  const items = getNCEExamItems(examId);
 
   it("has the full 200-item current format", () => {
     expect(items).toHaveLength(200);
