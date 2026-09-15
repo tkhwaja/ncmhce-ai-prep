@@ -62,6 +62,7 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
   const examIdParam = searchParams.get("examId");
   const { user } = useAuth();
   const { track } = useExamTrack();
+  const listingPrompt = useStudyPartnerListingPrompt("results");
   const liveNarrative = getNarrativeById(narrativeIdOverride ?? id);
   // `snapshotNarrative` is the frozen copy attached to an in-progress / completed
   // attempt. When present it overrides the live bundle so that users finishing
