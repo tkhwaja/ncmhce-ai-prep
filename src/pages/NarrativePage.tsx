@@ -29,6 +29,7 @@ import {
 } from "lucide-react";
 import NarrativeReviewChat from "@/components/NarrativeReviewChat";
 import { trackMetaEvent } from "@/lib/meta-pixel";
+import { EXAM_TRACKS, formatPrice } from "@/config/exam-tracks";
 
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 
@@ -689,14 +690,14 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
                       <div className="flex-1">
                         <Badge className="bg-primary/20 text-primary mb-2">Limited-Time Founders Pricing</Badge>
                         <p className="text-xl sm:text-2xl font-bold text-foreground">
-                          Pass the NCMHCE with full access
+                          Pass the {EXAM_TRACKS.ncmhce.label} with full access
                         </p>
                         <p className="text-sm text-muted-foreground mt-1.5">
-                          Unlock <strong>every clinical case</strong>, full-length practice exams, flashcards, and the AI counselor coach — <strong className="text-foreground">$79/month</strong>, cancel anytime.
+                          Unlock <strong>every clinical case</strong>, full-length practice exams, flashcards, and the AI counselor coach — <strong className="text-foreground">{formatPrice(EXAM_TRACKS.ncmhce.monthlyPriceCents)}/month</strong>, cancel anytime.
                         </p>
                       </div>
                       <Button
-                        onClick={() => navigate("/signup")}
+                        onClick={() => navigate("/signup?track=ncmhce")}
                         size="lg"
                         className="shrink-0 text-base font-semibold px-6 py-6 shadow-md hover:shadow-xl transition-all hover:scale-[1.03] animate-pulse-subtle"
                       >
