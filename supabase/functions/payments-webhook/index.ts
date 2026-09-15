@@ -96,15 +96,11 @@ async function handleCheckoutCompleted(session: any) {
         .maybeSingle();
       const recipientEmail = profile?.email || session.customer_details?.email || session.customer_email;
       if (recipientEmail) {
-        const { error: emailError } = await supabase.functions.invoke("send-transactional-email", {
-          body: {
-            templateName: "founders-offer-confirmation",
-            recipientEmail,
-            idempotencyKey: `founders-confirm-${session.id}`,
-            templateData: { fullName: profile?.full_name || session.customer_details?.name || null },
-          },
+        const emailResult = await sendAppEmail("founders-offer-confirmation", recipientEmail, {
+          idempotencyKey: `founders-confirm-${session.id}`,
+          templateData: { fullName: profile?.full_name || session.customer_details?.name || null },
         });
-        if (emailError) console.error("Failed to send founders confirmation email:", emailError);
+        if (!emailResult.ok) console.error("Failed to send founders confirmation email:", emailResult.error);
       } else {
         console.warn("No recipient email available for founders confirmation; userId:", userId);
       }
