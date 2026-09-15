@@ -34,6 +34,7 @@ const ALL = "all";
 
 const StudyPartnersTab = ({ onStartConversation }: Props) => {
   const { user, profile } = useAuth();
+  const [searchParams] = useSearchParams();
   const { toast } = useToast();
   const [partners, setPartners] = useState<StudyPartnerProfile[]>([]);
   const [myListing, setMyListing] = useState<StudyPartnerProfile | null>(null);
@@ -69,6 +70,11 @@ const StudyPartnersTab = ({ onStartConversation }: Props) => {
   useEffect(() => {
     if (!loading && !myListing) setShowForm(true);
   }, [loading, myListing]);
+
+  // Deep link from the dashboard / messages nudge: /community?tab=partners&listing=new
+  useEffect(() => {
+    if (searchParams.get("listing") === "new") setShowForm(true);
+  }, [searchParams]);
 
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase();
