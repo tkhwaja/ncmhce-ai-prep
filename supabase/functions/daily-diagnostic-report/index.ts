@@ -2,6 +2,7 @@
 // Self-checks current Eastern time and only proceeds at hour 19 (7 PM ET, DST-aware).
 // Idempotency key per calendar day (Eastern) prevents duplicate sends.
 import { createClient } from 'npm:@supabase/supabase-js@2'
+import { sendAppEmail } from '../_shared/send-app-email.ts'
 
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
