@@ -52,12 +52,28 @@ export async function sendAppEmail(
   recipientEmail: string,
   options: SendAppEmailOptions = {},
 ): Promise<SendAppEmailResult> {
-  try {
-    const result = await sendTemplateEmail(templateName, recipientEmail, {
+  const send = () =>
+    sendTemplateEmail(templateName, recipientEmail, {
       templateData: options.templateData as Record<string, any> | undefined,
       idempotencyKey: options.idempotencyKey,
       replyTo: options.replyTo,
     })
+
+  try {
+    let result
+    try {
+      result = await send()
+    } catch (error) {
+      // Rate limited: wait the interval Lovable asks for, then retry once.
+      if (error instanceof EmailAPIError && error.status === 429) {
+        const waitSeconds = error.retryAfterSeconds ?? 60
+        console.warn('Email rate limited — waiting before retry', { templateName, waitSeconds })
+        await new Promise((resolve) => setTimeout(resolve, waitSeconds * 1000))
+        result = await send()
+      } else {
+        throw error
+      }
+    }
 
     if (result.sent) {
       await log(templateName, recipientEmail, 'sent')
