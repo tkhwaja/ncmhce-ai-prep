@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { supabase } from "@/integrations/supabase/client";
 import { useAuth } from "@/contexts/AuthContext";
 import { useToast } from "@/hooks/use-toast";
@@ -16,6 +17,7 @@ import { Search, SlidersHorizontal, UserPlus, Users } from "lucide-react";
 import PartnerCard from "./PartnerCard";
 import PartnerProfileForm from "./PartnerProfileForm";
 import { SAMPLE_PARTNERS, isSamplePartnerId } from "@/data/community/sample-partners";
+import ListingPromptCard from "./ListingPromptCard";
 import {
   EXAM_TRACK_OPTIONS,
   FOCUS_AREA_OPTIONS,
