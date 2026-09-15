@@ -55,6 +55,7 @@ const Dashboard = () => {
   const [flashcardProgress, setFlashcardProgress] = useState<FlashcardProgress[]>([]);
   const [loading, setLoading] = useState(true);
   const [welcomeOpen, setWelcomeOpen] = useState(false);
+  const listingPrompt = useStudyPartnerListingPrompt("dashboard");
   const rawFirst = profile?.full_name?.trim().split(/\s+/)[0] || "there";
   const firstName = capitalize(rawFirst);
   const today = new Date().toLocaleDateString("en-US", { weekday: "long", month: "long", day: "numeric" });
