@@ -5,6 +5,7 @@ import { MessageSquare, Users } from "lucide-react";
 import { useAuth } from "@/contexts/AuthContext";
 import NewGroupDialog from "./NewGroupDialog";
 import MessageThread from "./MessageThread";
+import ListingPromptCard from "./ListingPromptCard";
 import { conversationTitle, type ConversationSummary } from "@/hooks/useCommunityMessaging";
 
 interface Props {
@@ -62,10 +63,15 @@ const MessagesTab = ({
           ))}
         </div>
       ) : conversations.length === 0 ? (
-        <div className="py-12 text-center text-muted-foreground">
-          <MessageSquare className="mx-auto mb-3 h-12 w-12 opacity-50" />
-          <p>No conversations yet.</p>
-          <p className="text-sm">Head to Study Partners and message someone to get started.</p>
+        <div className="space-y-5">
+          <div className="py-10 text-center text-muted-foreground">
+            <MessageSquare className="mx-auto mb-3 h-12 w-12 opacity-50" />
+            <p>No conversations yet.</p>
+            <p className="text-sm">
+              Message someone from Study Partners, or use “New group” above to start a study group.
+            </p>
+          </div>
+          <ListingPromptCard />
         </div>
       ) : (
         <div className="space-y-2">

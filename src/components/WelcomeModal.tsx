@@ -10,7 +10,7 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 import { useExamTrack } from "@/contexts/ExamTrackContext";
-import { GraduationCap, ArrowRight, BookOpen, Brain, Layers } from "lucide-react";
+import { GraduationCap, ArrowRight, BookOpen, Brain, Layers, Users } from "lucide-react";
 
 const STORAGE_KEY = "tep:welcome-dismissed";
 
@@ -83,6 +83,12 @@ const WelcomeModal = ({ open, onOpenChange }: WelcomeModalProps) => {
                 <li className="flex items-start gap-3 text-sm">
                   <Layers className="mt-0.5 h-4 w-4 text-primary shrink-0" />
                   <span>Flashcards, analytics, and progress tracking</span>
+                </li>
+                <li className="flex items-start gap-3 text-sm">
+                  <Users className="mt-0.5 h-4 w-4 text-primary shrink-0" />
+                  <span>
+                    Community — list yourself to find a study partner sitting the same exam
+                  </span>
                 </li>
               </ul>
             </div>
