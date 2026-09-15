@@ -30,6 +30,8 @@ import {
 import NarrativeReviewChat from "@/components/NarrativeReviewChat";
 import { trackMetaEvent } from "@/lib/meta-pixel";
 import { EXAM_TRACKS, formatPrice } from "@/config/exam-tracks";
+import { CREATE_LISTING_PATH } from "@/components/community/ListingPromptCard";
+import { useStudyPartnerListingPrompt } from "@/hooks/useStudyPartnerListingPrompt";
 
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 
