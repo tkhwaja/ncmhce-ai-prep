@@ -141,6 +141,11 @@ const StudyPartnersTab = ({ onStartConversation }: Props) => {
         />
       )}
 
+      {!loading && !showForm && !myListing?.is_listed && (
+        <ListingPromptCard />
+      )}
+
+
       <Card className="card-elevated">
         <CardContent className="flex flex-wrap items-center gap-2 p-3">
           <div className="relative min-w-[180px] flex-1">
