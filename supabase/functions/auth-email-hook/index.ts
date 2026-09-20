@@ -15,7 +15,7 @@ const corsHeaders = {
 }
 
 // Configuration
-const SITE_NAME = "NCMHCE AI Prep"
+const SITE_NAME = "The Exam Path"
 const SENDER_DOMAIN = "notify.theexampath.com"
 const ROOT_DOMAIN = "theexampath.com"
 const FROM_DOMAIN = "theexampath.com"
