@@ -131,7 +131,9 @@ export function validateNCEPracticeExams(
             });
           }
           seenQuestionIds.add(qid);
-          if (!bankIds.has(qid)) {
+          // Full-length exams use dedicated, independently validated item sets;
+          // smaller exams may continue to reference the shared question bank.
+          if (!exam.itemSet && !bankIds.has(qid)) {
             errors.push({
               type: "practice-exam",
               id: exam.id,

@@ -6,10 +6,8 @@ import { ncePracticeExam02Items } from "./practice-exam-02-items";
 /**
  * Full-length NCE practice exams.
  *
- * Exams 1 and 2 are authored and imported (200 items each: 160 scored + 40
- * field-test) but stay `comingSoon` so they are not accessible to users while
- * the item sets are in SME review. The runner UI can still be previewed in
- * development.
+ * Exams 1 and 2 are authored and released (200 items each: 160 scored + 40
+ * field-test), matching the current full-length exam structure.
  */
 
 export const ncePracticeExams: NCEPracticeExam[] = [
@@ -20,7 +18,7 @@ export const ncePracticeExams: NCEPracticeExam[] = [
     questionIds: ncePracticeExam01Items.map((i) => i.id),
     timeLimitMinutes: 225,
     passingScore: 70,
-    comingSoon: true,
+    comingSoon: false,
     itemSet: "pe-01",
     scoredBlueprint: { D1: 19, D2: 19, D3: 47, D4: 14, D5: 48, D6: 13 },
     format: {
@@ -40,7 +38,7 @@ export const ncePracticeExams: NCEPracticeExam[] = [
     questionIds: ncePracticeExam02Items.map((i) => i.id),
     timeLimitMinutes: 225,
     passingScore: 70,
-    comingSoon: true,
+    comingSoon: false,
     itemSet: "pe-02",
     scoredBlueprint: { D1: 19, D2: 19, D3: 47, D4: 14, D5: 48, D6: 13 },
     format: {

@@ -1,4 +1,5 @@
 import { serve } from "https://deno.land/std@0.168.0/http/server.ts";
+import { createClient } from "npm:@supabase/supabase-js@2";
 import { type StripeEnv, createStripeClient } from "../_shared/stripe.ts";
 
 const corsHeaders = {
@@ -7,19 +8,91 @@ const corsHeaders = {
   'Content-Type': 'application/json',
 };
 
+const supabase = createClient(
+  Deno.env.get("SUPABASE_URL") ?? "",
+  Deno.env.get("SUPABASE_ANON_KEY") ?? "",
+);
+
+async function resolveOrCreateCustomer(
+  stripe: ReturnType<typeof createStripeClient>,
+  options: { email?: string; userId: string },
+): Promise<string> {
+  if (!/^[a-zA-Z0-9_-]+$/.test(options.userId)) throw new Error("Invalid userId");
+  const found = await stripe.customers.search({
+    query: `metadata['userId']:'${options.userId}'`,
+    limit: 1,
+  });
+  if (found.data.length) return found.data[0].id;
+
+  if (options.email) {
+    const existing = await stripe.customers.list({ email: options.email, limit: 1 });
+    if (existing.data.length) {
+      const customer = existing.data[0];
+      if (customer.metadata?.userId !== options.userId) {
+        await stripe.customers.update(customer.id, {
+          metadata: { ...customer.metadata, userId: options.userId },
+        });
+      }
+      return customer.id;
+    }
+  }
+
+  const created = await stripe.customers.create({
+    ...(options.email && { email: options.email }),
+    metadata: { userId: options.userId },
+  });
+  return created.id;
+}
+
 serve(async (req) => {
   if (req.method === "OPTIONS") {
     return new Response(null, { headers: corsHeaders });
   }
 
   try {
-    const { priceId, quantity, customerEmail, userId, returnUrl, environment } = await req.json();
+    const authHeader = req.headers.get("authorization");
+    const token = authHeader?.replace(/^Bearer\s+/i, "");
+    const { data: { user }, error: authError } = await supabase.auth.getUser(token);
+    if (authError || !user) {
+      return new Response(JSON.stringify({ error: "Please sign in before starting checkout." }), { status: 401, headers: corsHeaders });
+    }
+
+    const { priceId, quantity, returnUrl, environment } = await req.json();
     if (!priceId || typeof priceId !== 'string' || !/^[a-zA-Z0-9_-]+$/.test(priceId)) {
       return new Response(JSON.stringify({ error: "Invalid priceId" }), { status: 400, headers: corsHeaders });
     }
 
-    const env = (environment || 'sandbox') as StripeEnv;
+    if (environment !== "sandbox" && environment !== "live") {
+      return new Response(JSON.stringify({ error: "Invalid payment environment" }), { status: 400, headers: corsHeaders });
+    }
+    const env: StripeEnv = environment;
     const stripe = createStripeClient(env);
+
+    const userClient = createClient(
+      Deno.env.get("SUPABASE_URL") ?? "",
+      Deno.env.get("SUPABASE_ANON_KEY") ?? "",
+      { global: { headers: { Authorization: authHeader ?? "" } } },
+    );
+    const equivalentPriceIds = priceId.startsWith("nce_")
+      ? ["nce_founder_monthly", "nce_monthly"]
+      : [priceId];
+    const { data: existingSubscriptions } = await userClient
+      .from("subscriptions")
+      .select("status, current_period_end, price_id")
+      .eq("user_id", user.id)
+      .eq("environment", env)
+      .in("price_id", equivalentPriceIds);
+    const hasActiveSubscription = (existingSubscriptions ?? []).some((subscription) => {
+      const periodIsCurrent = !subscription.current_period_end
+        || new Date(subscription.current_period_end) > new Date();
+      return ["active", "trialing", "past_due"].includes(subscription.status) && periodIsCurrent;
+    });
+    if (hasActiveSubscription) {
+      return new Response(
+        JSON.stringify({ error: `You already have an active ${priceId.startsWith("nce_") ? "NCE" : "NCMHCE"} subscription.` }),
+        { status: 409, headers: corsHeaders },
+      );
+    }
 
     const prices = await stripe.prices.list({ lookup_keys: [priceId], active: true, expand: ["data.product"] });
     const stripePrice = prices.data.find((price: any) => {
@@ -42,22 +115,22 @@ serve(async (req) => {
       );
     }
 
-    const product = stripePrice.product as any;
-
     const isRecurring = stripePrice.type === "recurring";
+    const customerId = await resolveOrCreateCustomer(stripe, {
+      email: user.email,
+      userId: user.id,
+    });
 
     const sessionParams: any = {
       line_items: [{ price: stripePrice.id, quantity: quantity || 1 }],
       mode: isRecurring ? "subscription" : "payment",
-      ui_mode: "embedded",
+      ui_mode: "embedded_page",
       return_url: returnUrl || `${req.headers.get("origin")}/checkout/return?session_id={CHECKOUT_SESSION_ID}`,
       allow_promotion_codes: true,
-      ...(customerEmail && { customer_email: customerEmail }),
-      ...(userId && {
-        metadata: { userId, priceId },
-        ...(isRecurring && { subscription_data: { metadata: { userId, priceId } } }),
-      }),
-      automatic_tax: { enabled: false },
+      customer: customerId,
+      metadata: { userId: user.id, priceId, managed_payments: "true" },
+      ...(isRecurring && { subscription_data: { metadata: { userId: user.id, priceId } } }),
+      managed_payments: { enabled: true },
     };
 
 
@@ -66,7 +139,7 @@ serve(async (req) => {
 
     const session = await stripe.checkout.sessions.create(sessionParams);
 
-    return new Response(JSON.stringify({ clientSecret: session.client_secret, v: "no-tax-v2" }), { headers: corsHeaders });
+    return new Response(JSON.stringify({ clientSecret: session.client_secret }), { headers: corsHeaders });
   } catch (error) {
     return new Response(JSON.stringify({ error: error instanceof Error ? error.message : String(error) }), { status: 500, headers: corsHeaders });
   }
