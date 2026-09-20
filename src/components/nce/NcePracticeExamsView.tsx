@@ -4,14 +4,13 @@ import { NCE_ENABLED } from "@/config/exam-tracks";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Brain, Lock, Clock, ListChecks, Coffee, Eye } from "lucide-react";
+import { Brain, Lock, Clock, ListChecks, Coffee, Play } from "lucide-react";
 
 /**
  * NCE practice exam hub.
  *
  * The NCE exams are multiple-choice and full-length, so they use their own
- * runner instead of the NCMHCE narrative-based flow. Exam 1 is authored but
- * still locked; the design is previewable in development only.
+ * runner instead of the NCMHCE narrative-based flow.
  */
 const NcePracticeExamsView = () => {
   const navigate = useNavigate();
@@ -91,22 +90,22 @@ const NcePracticeExamsView = () => {
                 )}
 
                 <div className="flex flex-wrap gap-2 mt-5">
-                  <Button className="flex-1 min-w-[140px]" disabled>
-                    <Lock className="h-4 w-4 mr-1" /> Coming Soon
+                  <Button
+                    className="flex-1 min-w-[140px]"
+                    disabled={exam.comingSoon || !NCE_ENABLED || !authored}
+                    onClick={() => navigate(`/nce-practice-exam/${exam.id}`)}
+                  >
+                    {exam.comingSoon ? (
+                      <><Lock className="h-4 w-4 mr-1" /> Coming Soon</>
+                    ) : (
+                      <><Play className="h-4 w-4 mr-1" /> Start Exam</>
+                    )}
                   </Button>
-                  {import.meta.env.DEV && NCE_ENABLED && authored && (
-                    <Button
-                      variant="outline"
-                      onClick={() => navigate(`/nce-practice-exam/${exam.id}`)}
-                    >
-                      <Eye className="h-4 w-4 mr-1" /> Preview design
-                    </Button>
-                  )}
                 </div>
 
                 {authored && (
                   <p className="text-[11px] text-muted-foreground mt-3">
-                    Item set authored and imported • in subject-matter review
+                    Complete 200-question exam • progress resumes on this browser
                   </p>
                 )}
               </CardContent>

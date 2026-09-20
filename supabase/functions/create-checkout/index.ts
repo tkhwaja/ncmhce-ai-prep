@@ -68,6 +68,32 @@ serve(async (req) => {
     const env: StripeEnv = environment;
     const stripe = createStripeClient(env);
 
+    const userClient = createClient(
+      Deno.env.get("SUPABASE_URL") ?? "",
+      Deno.env.get("SUPABASE_ANON_KEY") ?? "",
+      { global: { headers: { Authorization: authHeader ?? "" } } },
+    );
+    const equivalentPriceIds = priceId.startsWith("nce_")
+      ? ["nce_founder_monthly", "nce_monthly"]
+      : [priceId];
+    const { data: existingSubscriptions } = await userClient
+      .from("subscriptions")
+      .select("status, current_period_end, price_id")
+      .eq("user_id", user.id)
+      .eq("environment", env)
+      .in("price_id", equivalentPriceIds);
+    const hasActiveSubscription = (existingSubscriptions ?? []).some((subscription) => {
+      const periodIsCurrent = !subscription.current_period_end
+        || new Date(subscription.current_period_end) > new Date();
+      return ["active", "trialing", "past_due"].includes(subscription.status) && periodIsCurrent;
+    });
+    if (hasActiveSubscription) {
+      return new Response(
+        JSON.stringify({ error: `You already have an active ${priceId.startsWith("nce_") ? "NCE" : "NCMHCE"} subscription.` }),
+        { status: 409, headers: corsHeaders },
+      );
+    }
+
     const prices = await stripe.prices.list({ lookup_keys: [priceId], active: true, expand: ["data.product"] });
     const stripePrice = prices.data.find((price: any) => {
       const product = price.product;
@@ -88,8 +114,6 @@ serve(async (req) => {
         { status: 409, headers: corsHeaders }
       );
     }
-
-    const product = stripePrice.product as any;
 
     const isRecurring = stripePrice.type === "recurring";
     const customerId = await resolveOrCreateCustomer(stripe, {
