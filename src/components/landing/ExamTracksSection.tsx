@@ -37,7 +37,7 @@ const tracks = [
     price: nce.founderMonthlyPriceCents
       ? `${formatPrice(nce.founderMonthlyPriceCents)}/month founding price`
       : `${formatPrice(nce.monthlyPriceCents)}/month`,
-    status: "Launching soon",
+    status: "Available now",
   },
 ];
 
