@@ -20,6 +20,13 @@ const testimonials = [
     quote:
       "The narratives feel exactly like the real exam. The rationales taught me how to think clinically instead of just memorizing answers.",
   },
+  {
+    name: "NCE Student",
+    role: "NCE Candidate",
+    quote:
+      "The question bank helped me see exactly which content areas needed more work. The explanations made every practice session feel focused instead of overwhelming.",
+    draft: true,
+  },
 ];
 
 const Testimonials = () => (
@@ -37,7 +44,7 @@ const Testimonials = () => (
         </p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {testimonials.map((t, i) => (
           <div
             key={i}
@@ -58,7 +65,14 @@ const Testimonials = () => (
               </div>
               <div>
                 <p className="text-sm font-semibold text-foreground">{t.name}</p>
-                <p className="text-xs text-muted-foreground">{t.role}</p>
+                <div className="flex flex-wrap items-center gap-2">
+                  <p className="text-xs text-muted-foreground">{t.role}</p>
+                  {t.draft && (
+                    <span className="rounded-full border border-border bg-muted px-2 py-0.5 text-[10px] font-semibold text-muted-foreground">
+                      Draft copy
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
           </div>
