@@ -5,27 +5,33 @@ import { CheckCircle } from "lucide-react";
 import { useEffect } from "react";
 import { useAuth } from "@/contexts/AuthContext";
 import { trackMetaEvent } from "@/lib/meta-pixel";
+import { formatPrice, resolveTrack, trackConfig } from "@/config/exam-tracks";
 
 const CheckoutReturn = () => {
   const [searchParams] = useSearchParams();
   const sessionId = searchParams.get("session_id");
+  const track = resolveTrack(searchParams.get("track"));
+  const config = trackConfig(track);
+  const purchasedPrice = searchParams.get("price");
+  const value = purchasedPrice === config.founderPriceId && config.founderMonthlyPriceCents
+    ? config.founderMonthlyPriceCents / 100
+    : config.monthlyPriceCents / 100;
   const navigate = useNavigate();
   const { refreshProfile } = useAuth();
 
   useEffect(() => {
     if (sessionId) {
-      // Fire Meta Pixel Purchase on successful return from Stripe Checkout
       trackMetaEvent("Purchase", {
-        value: 79,
+        value,
         currency: "USD",
-        content_name: "NCMHCE Pro Monthly",
+        content_name: `${config.label} Pro Monthly`,
         content_type: "product",
       });
       // Refresh profile to pick up updated payment_status
       const timer = setTimeout(() => refreshProfile(), 2000);
       return () => clearTimeout(timer);
     }
-  }, [sessionId, refreshProfile]);
+  }, [sessionId, refreshProfile, value, config.label]);
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center p-4">
@@ -38,7 +44,7 @@ const CheckoutReturn = () => {
               </div>
               <h1 className="text-2xl font-bold text-foreground">Access Active!</h1>
               <p className="text-muted-foreground">
-                Your account has full access to the complete platform.
+                 Your {config.label} subscription is active. You now have full access to the {config.label} study platform.
               </p>
               <Button onClick={() => navigate("/dashboard")} className="w-full">
                 Go to Dashboard

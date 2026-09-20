@@ -1,9 +1,9 @@
 # NCE launch readiness
 
-- [ ] Open NCE content and subscriptions for testing
-- [ ] Release both NCE practice exams
-- [ ] Secure and enable NCE Stripe checkout
-- [ ] Make checkout completion track-aware
-- [ ] Verify test/live NCE products and prices
+- [x] Open NCE content and subscriptions for testing
+- [x] Release both NCE practice exams
+- [x] Secure and enable NCE Stripe checkout
+- [x] Make checkout completion track-aware
+- [x] Verify test/live NCE products and prices
 - [ ] Complete automated and browser walkthroughs
 - [ ] Document remaining publish and marketing actions

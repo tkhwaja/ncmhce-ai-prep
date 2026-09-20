@@ -14,7 +14,15 @@ serve(async (req) => {
   }
 
   const url = new URL(req.url);
-  const env = (url.searchParams.get('env') || 'sandbox') as StripeEnv;
+  const rawEnv = url.searchParams.get("env");
+  if (rawEnv !== "sandbox" && rawEnv !== "live") {
+    console.error("Webhook received with invalid or missing environment:", rawEnv);
+    return new Response(JSON.stringify({ received: true, ignored: "invalid environment" }), {
+      status: 200,
+      headers: { "Content-Type": "application/json" },
+    });
+  }
+  const env: StripeEnv = rawEnv;
 
   try {
     const event = await verifyWebhook(req, env);
@@ -123,7 +131,9 @@ async function handleSubscriptionCreated(subscription: any, env: StripeEnv) {
   }
 
   const item = subscription.items?.data?.[0];
-  const priceId = item?.price?.metadata?.lovable_external_id || item?.price?.id;
+  const priceId = item?.price?.lookup_key
+    || item?.price?.metadata?.lovable_external_id
+    || item?.price?.id;
   const productId = item?.price?.product;
 
   // Newer Stripe API versions expose period fields on the subscription item.
@@ -163,7 +173,9 @@ async function handleSubscriptionCreated(subscription: any, env: StripeEnv) {
 
 async function handleSubscriptionUpdated(subscription: any, env: StripeEnv) {
   const item = subscription.items?.data?.[0];
-  const priceId = item?.price?.metadata?.lovable_external_id || item?.price?.id;
+  const priceId = item?.price?.lookup_key
+    || item?.price?.metadata?.lovable_external_id
+    || item?.price?.id;
   const productId = item?.price?.product;
 
   const periodStart = subscription.current_period_start ?? item?.current_period_start;

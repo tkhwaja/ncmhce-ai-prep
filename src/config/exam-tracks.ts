@@ -1,8 +1,7 @@
 /**
  * Exam track configuration.
  *
- * The platform hosts two exam tracks. NCMHCE is live today; NCE is under
- * construction and stays completely hidden in production builds until launch.
+ * The platform hosts two live exam tracks: NCMHCE and NCE.
  *
  * Everything track-specific (labels, domains, routes, billing) is declared here
  * so page code never hard-codes a single exam.
@@ -13,8 +12,7 @@ export type ExamTrack = "ncmhce" | "nce";
 export const DEFAULT_EXAM_TRACK: ExamTrack = "ncmhce";
 
 /**
- * The NCE track is publicly visible (marketing, nav, exam info, pricing card),
- * but NCE subscriptions are not open yet — see `subscriptionsOpen` below.
+ * The NCE track is publicly visible and available for subscription.
  *
  * Private content preview: visiting any page with `?nce=preview` stores a local
  * flag that unlocks in-progress NCE study content for that browser only.
@@ -37,7 +35,7 @@ const readPreviewOverride = (): boolean => {
 /** NCE track is visible to everyone. */
 export const NCE_ENABLED = true;
 
-/** Unlocks unfinished NCE study content for the owner / preview browsers only. */
+  /** Retained for backwards-compatible preview links. */
 export const NCE_PREVIEW_UNLOCK: boolean = import.meta.env.DEV || readPreviewOverride();
 
 
@@ -146,11 +144,11 @@ export const EXAM_TRACKS: Record<ExamTrack, ExamTrackConfig> = {
 
     priceId: "nce_monthly",
     founderPriceId: "nce_founder_monthly",
-    founderDeadline: "2026-08-25T23:59:59Z",
+    founderDeadline: "2026-09-28T03:59:59Z",
     founderMonthlyPriceCents: 5900,
     monthlyPriceCents: 6900,
-    contentReady: false,
-    subscriptionsOpen: false,
+    contentReady: true,
+    subscriptionsOpen: true,
     enabled: NCE_ENABLED,
   },
 };

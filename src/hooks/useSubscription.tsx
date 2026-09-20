@@ -47,7 +47,7 @@ const trackForPriceId = (priceId: string | null | undefined): ExamTrack => {
 /** Subscription active, or canceled but still inside the paid period. */
 const rowIsActive = (row: SubscriptionRow): boolean => {
   const future = !row.current_period_end || new Date(row.current_period_end) > new Date();
-  if (["active", "trialing"].includes(row.status)) return future;
+  if (["active", "trialing", "past_due"].includes(row.status)) return future;
   if (row.status === "canceled") {
     return !!row.current_period_end && new Date(row.current_period_end) > new Date();
   }

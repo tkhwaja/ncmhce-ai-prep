@@ -21,10 +21,9 @@ import {
 } from "lucide-react";
 
 /**
- * Full-length NCE practice exam runner (design preview).
+ * Full-length NCE practice exam runner.
  *
- * Attempt state is kept in localStorage only — this flow is not released to
- * users yet, so no backend attempt records are created.
+ * Attempt state is kept in localStorage so users can resume on this browser.
  */
 
 interface AttemptState {
@@ -36,7 +35,7 @@ interface AttemptState {
   submitted: boolean;
 }
 
-const storageKey = (examId: string) => `nce-exam-preview:${examId}`;
+const storageKey = (examId: string) => `nce-exam-attempt:${examId}`;
 
 const blankState = (seconds: number): AttemptState => ({
   answers: {},
@@ -345,7 +344,7 @@ const NceExamRunner = () => {
             setReviewIndex(0);
           }}
         >
-          Reset preview attempt
+          Start a new attempt
         </Button>
       </div>
     );

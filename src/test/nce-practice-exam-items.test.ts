@@ -13,8 +13,8 @@ describe.each(["nce-practice-exam-1", "nce-practice-exam-2"])("NCE %s item set",
     expect(exam.format?.breakAfterQuestion).toBe(100);
   });
 
-  it("is not accessible to users yet", () => {
-    expect(exam.comingSoon).toBe(true);
+  it("is released to users", () => {
+    expect(exam.comingSoon).toBe(false);
   });
 
   it("has sequential ids, four options, valid keys and rationales", () => {
