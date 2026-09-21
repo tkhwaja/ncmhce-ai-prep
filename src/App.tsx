@@ -9,6 +9,7 @@ import { AuthProvider } from "@/contexts/AuthContext";
 import { ThemeProvider } from "@/contexts/ThemeContext";
 import { PomodoroProvider } from "@/contexts/PomodoroContext";
 import { ExamTrackProvider } from "@/contexts/ExamTrackContext";
+import { useExamTrack } from "@/contexts/ExamTrackContext";
 
 import ProtectedRoute from "@/components/ProtectedRoute";
 import PostHogPageview from "@/components/PostHogPageview";
@@ -58,6 +59,20 @@ const queryClient = new QueryClient();
 const RedirectSimulation = () => {
   const { id } = useParams<{ id: string }>();
   return <Navigate to={`/narrative/${id}`} replace />;
+};
+
+const TrackAwareDashboard = () => {
+  const { track } = useExamTrack();
+
+  if (track === "nce") {
+    return (
+      <PaidFeatureGate feature="NCE Dashboard">
+        <Dashboard />
+      </PaidFeatureGate>
+    );
+  }
+
+  return <Dashboard />;
 };
 
 const RouteFallback = () => (
@@ -165,7 +180,7 @@ const App = () => (
                 <Route path="/admin/emails" element={<AdminEmails />} />
 
                 <Route element={<ProtectedRoute><PomodoroProvider><AppLayout /></PomodoroProvider></ProtectedRoute>}>
-                  <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/dashboard" element={<TrackAwareDashboard />} />
                   <Route path="/profile" element={<Profile />} />
                   <Route path="/exam-info" element={<PaidFeatureGate feature="Exam Info"><ExamInfo /></PaidFeatureGate>} />
 
