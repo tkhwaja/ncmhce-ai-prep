@@ -1,9 +1,11 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useMemo, useRef } from "react";
+import type { Session } from "@supabase/supabase-js";
 import { useAuth } from "@/contexts/AuthContext";
 import { supabase } from "@/integrations/supabase/client";
 import { useToast } from "@/hooks/use-toast";
 
 const HEARTBEAT_MS = 60_000;
+const CLAIM_RETRY_DELAY_MS = 1_500;
 
 function getDeviceLabel(): string {
   const ua = navigator.userAgent;
@@ -15,6 +17,35 @@ function getDeviceLabel(): string {
   return "Unknown device";
 }
 
+function decodeJwtPayload(token: string): Record<string, unknown> | null {
+  const [, payload] = token.split(".");
+  if (!payload) return null;
+
+  try {
+    const normalized = payload.replace(/-/g, "+").replace(/_/g, "/");
+    const padded = normalized.padEnd(Math.ceil(normalized.length / 4) * 4, "=");
+    const decoded = atob(padded);
+    return JSON.parse(decoded) as Record<string, unknown>;
+  } catch {
+    return null;
+  }
+}
+
+function getStableSessionId(session: Session): string {
+  const payload = decodeJwtPayload(session.access_token);
+  const jwtSessionId = payload?.session_id;
+
+  if (typeof jwtSessionId === "string" && jwtSessionId.length > 0) {
+    return `session:${jwtSessionId}`;
+  }
+
+  return `token:${session.access_token.slice(-32)}`;
+}
+
+function wait(ms: number) {
+  return new Promise((resolve) => window.setTimeout(resolve, ms));
+}
+
 /**
  * Enforces a single active session per user.
  * On mount: claims the active session slot for this user (overwriting any prior session).
@@ -24,30 +55,53 @@ export function useActiveSessionEnforcement() {
   const { user, session, signOut } = useAuth();
   const { toast } = useToast();
   const claimedRef = useRef(false);
+  const sessionId = useMemo(() => (session ? getStableSessionId(session) : null), [session]);
 
   useEffect(() => {
-    if (!user || !session) {
+    if (!user || !session || !sessionId) {
       claimedRef.current = false;
       return;
     }
 
-    const sessionId = session.access_token.slice(-32); // unique-enough fingerprint per session
     const deviceLabel = getDeviceLabel();
     let cancelled = false;
 
-    const claim = async () => {
+    const upsertClaim = async () => {
       // upsert on user_id (unique index) -> overwrites any prior session
-      await supabase
+      const { error } = await supabase
         .from("active_sessions")
         .upsert(
           { user_id: user.id, session_id: sessionId, device_label: deviceLabel, last_seen: new Date().toISOString() },
           { onConflict: "user_id" }
         );
-      claimedRef.current = true;
+
+      return !error;
+    };
+
+    const claim = async () => {
+      if (await upsertClaim()) {
+        claimedRef.current = true;
+        return true;
+      }
+
+      await supabase.auth.refreshSession();
+      if (cancelled) return false;
+
+      await wait(CLAIM_RETRY_DELAY_MS);
+      if (cancelled) return false;
+
+      const claimed = await upsertClaim();
+      claimedRef.current = claimed;
+      return claimed;
     };
 
     const heartbeat = async () => {
       if (cancelled) return;
+      if (!claimedRef.current) {
+        await claim();
+        return;
+      }
+
       const { data } = await supabase
         .from("active_sessions")
         .select("session_id")
@@ -85,6 +139,5 @@ export function useActiveSessionEnforcement() {
       cancelled = true;
       clearInterval(id);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user?.id, session?.access_token]);
+  }, [user, session, sessionId, signOut, toast]);
 }
