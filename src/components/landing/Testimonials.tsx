@@ -20,12 +20,6 @@ const testimonials = [
     quote:
       "The narratives feel exactly like the real exam. The rationales taught me how to think clinically instead of just memorizing answers.",
   },
-  {
-    name: "Aisha R.",
-    role: "Counseling Graduate",
-    quote:
-      "The narratives feel exactly like the real exam. The rationales taught me how to think clinically instead of just memorizing answers.",
-  },
 ];
 
 const Testimonials = () => (
