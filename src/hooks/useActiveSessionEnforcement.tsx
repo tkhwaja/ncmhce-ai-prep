@@ -55,10 +55,11 @@ export function useActiveSessionEnforcement() {
   const { user, session, signOut } = useAuth();
   const { toast } = useToast();
   const claimedRef = useRef(false);
+  const userId = user?.id;
   const sessionId = useMemo(() => (session ? getStableSessionId(session) : null), [session]);
 
   useEffect(() => {
-    if (!user || !session || !sessionId) {
+    if (!userId || !sessionId) {
       claimedRef.current = false;
       return;
     }
@@ -71,7 +72,7 @@ export function useActiveSessionEnforcement() {
       const { error } = await supabase
         .from("active_sessions")
         .upsert(
-          { user_id: user.id, session_id: sessionId, device_label: deviceLabel, last_seen: new Date().toISOString() },
+          { user_id: userId, session_id: sessionId, device_label: deviceLabel, last_seen: new Date().toISOString() },
           { onConflict: "user_id" }
         );
 
@@ -105,7 +106,7 @@ export function useActiveSessionEnforcement() {
       const { data } = await supabase
         .from("active_sessions")
         .select("session_id")
-        .eq("user_id", user.id)
+        .eq("user_id", userId)
         .maybeSingle();
 
       if (!data) {
@@ -129,7 +130,7 @@ export function useActiveSessionEnforcement() {
       await supabase
         .from("active_sessions")
         .update({ last_seen: new Date().toISOString() })
-        .eq("user_id", user.id)
+        .eq("user_id", userId)
         .eq("session_id", sessionId);
     };
 
@@ -139,5 +140,6 @@ export function useActiveSessionEnforcement() {
       cancelled = true;
       clearInterval(id);
     };
-  }, [user, session, sessionId, signOut, toast]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [userId, sessionId]);
 }
