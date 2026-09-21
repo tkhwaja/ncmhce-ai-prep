@@ -31,7 +31,7 @@ function decodeJwtPayload(token: string): Record<string, unknown> | null {
   }
 }
 
-function getStableSessionId(session: Session): string {
+function getStableSessionId(session: Session): string | null {
   const payload = decodeJwtPayload(session.access_token);
   const jwtSessionId = payload?.session_id;
 
@@ -39,7 +39,7 @@ function getStableSessionId(session: Session): string {
     return `session:${jwtSessionId}`;
   }
 
-  return `token:${session.access_token.slice(-32)}`;
+  return null;
 }
 
 function wait(ms: number) {
