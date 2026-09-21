@@ -398,8 +398,7 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
   const allCurrentSectionAnswered = currentSection.questions.every((q) => answers[q.id] !== undefined);
   const answeredCountThisSection = currentSection.questions.filter((q) => answers[q.id] !== undefined).length;
   const results = phase === "results" || phase === "review" ? calculateResults() : null;
-  const ownerBypass = user?.email?.toLowerCase() === "tahahareb7@gmail.com";
-  const resultsLocked = publicMode && !leadSubmitted && !ownerBypass;
+  const resultsLocked = publicMode && !leadSubmitted;
 
   const caseFileBody = (
     <div className="narrative-text-scale space-y-5 pb-8">

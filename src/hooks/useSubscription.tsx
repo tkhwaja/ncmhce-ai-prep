@@ -89,8 +89,8 @@ export function useSubscription(): SubscriptionState {
   // Founding members / comped accounts: access via access_expires_at on profile
   const foundingActive =
     !!profile?.access_expires_at && new Date(profile.access_expires_at) > new Date();
-  // Personal owner override for testing
-  const ownerOverride = profile?.email?.toLowerCase() === "tahahareb7@gmail.com";
+  // Owner override disabled — the owner tests as a normal paying user.
+  const ownerOverride = false;
 
   const latestByTrack = useMemo(() => {
     // Rows arrive newest-first, so the first row per track is the current one.
