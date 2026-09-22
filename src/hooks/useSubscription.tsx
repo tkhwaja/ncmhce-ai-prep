@@ -91,6 +91,7 @@ export function useSubscription(): SubscriptionState {
   // Founding members / comped accounts: access via access_expires_at on profile
   const foundingActive =
     !!profile?.access_expires_at && new Date(profile.access_expires_at) > new Date();
+  const compedActive = profile?.payment_status === "comped" && foundingActive;
   const profileGrantTrack: ExamTrack = profile?.active_exam_track === "nce" ? "nce" : DEFAULT_EXAM_TRACK;
   // Explicit owner access is intentionally limited to the verified project owner account.
   const ownerOverride = OWNER_ACCESS_EMAILS.has(user?.email?.toLowerCase() ?? "");
@@ -107,6 +108,8 @@ export function useSubscription(): SubscriptionState {
 
   const hasAccessTo = (track: ExamTrack): boolean => {
     if (ownerOverride) return true;
+    // Complimentary access is a full-platform grant, regardless of exam track.
+    if (compedActive) return true;
     // Profile-level grants unlock the exam track selected on the account.
     if (track === profileGrantTrack && (legacyPaid || foundingActive)) return true;
     const row = latestByTrack.get(track);
