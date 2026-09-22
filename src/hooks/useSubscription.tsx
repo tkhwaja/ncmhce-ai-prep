@@ -92,7 +92,13 @@ export function useSubscription(): SubscriptionState {
   const foundingActive =
     !!profile?.access_expires_at && new Date(profile.access_expires_at) > new Date();
   const compedActive = profile?.payment_status === "comped" && foundingActive;
-  const profileGrantTrack: ExamTrack = profile?.active_exam_track === "nce" ? "nce" : DEFAULT_EXAM_TRACK;
+  // Legacy one-time / early-access (founding) purchases were NCMHCE products.
+  // "subscribed" profiles only mirror a Stripe subscription, whose entitlement
+  // comes from the subscription rows below — never from the profile window.
+  // NOTE: active_exam_track is a UI preference, not an entitlement, so it must
+  // never decide access here.
+  const profileGrantActive =
+    legacyPaid || (foundingActive && profile?.payment_status !== "subscribed");
   // Explicit owner access is intentionally limited to the verified project owner account.
   const ownerOverride = OWNER_ACCESS_EMAILS.has(user?.email?.toLowerCase() ?? "");
 
@@ -110,8 +116,8 @@ export function useSubscription(): SubscriptionState {
     if (ownerOverride) return true;
     // Complimentary access is a full-platform grant, regardless of exam track.
     if (compedActive) return true;
-    // Profile-level grants unlock the exam track selected on the account.
-    if (track === profileGrantTrack && (legacyPaid || foundingActive)) return true;
+    // Profile-level purchases always unlock NCMHCE, whichever track is selected.
+    if (track === DEFAULT_EXAM_TRACK && profileGrantActive) return true;
     const row = latestByTrack.get(track);
     return !!row && rowIsActive(row);
   };
