@@ -54,6 +54,8 @@ const rowIsActive = (row: SubscriptionRow): boolean => {
   return false;
 };
 
+const OWNER_ACCESS_EMAILS = new Set(["tahahareb7@gmail.com"]);
+
 export function useSubscription(): SubscriptionState {
   const { user, profile } = useAuth();
   const [loading, setLoading] = useState(true);
@@ -89,8 +91,8 @@ export function useSubscription(): SubscriptionState {
   // Founding members / comped accounts: access via access_expires_at on profile
   const foundingActive =
     !!profile?.access_expires_at && new Date(profile.access_expires_at) > new Date();
-  // Owner override disabled — the owner tests as a normal paying user.
-  const ownerOverride = false;
+  // Explicit owner access is intentionally limited to the verified project owner account.
+  const ownerOverride = OWNER_ACCESS_EMAILS.has(user?.email?.toLowerCase() ?? "");
 
   const latestByTrack = useMemo(() => {
     // Rows arrive newest-first, so the first row per track is the current one.
