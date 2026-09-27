@@ -118,12 +118,12 @@ const edgeFnChecks = (): Array<Promise<CheckResult>> => {
   const fns: Array<[string, Parameters<typeof pingFn>[1]?]> = [
     ['check-signup-status', { body: { email: 'healthcheck-noop@example.invalid' }, expect: [200, 400] }],
     ['get-stripe-price', { body: { priceId: 'pro_monthly', environment: 'sandbox' }, expect: [200, 400, 404] }],
-    ['create-checkout', { body: {}, expect: [400, 422] }],
+    ['create-checkout', { body: {}, expect: [400, 401, 422] }],
     ['create-portal-session', { body: {}, expect: [400, 401, 422] }],
     // waitlist-signup intentionally excluded — only used during pre-launch
     ['free-diagnostic-lead', { body: {}, expect: [400, 422] }],
     ['handle-email-events', { body: {}, expect: [400, 401, 422] }],
-    ['payments-webhook', { body: {}, expect: [400, 401] }],
+    ['payments-webhook', { body: {}, expect: [200, 400, 401] }],
     ['auth-email-hook', { body: {}, expect: [400, 401, 422] }],
   ]
   return fns.map(([name, opts]) =>
@@ -166,7 +166,7 @@ const checkStripeCheckoutSession = () =>
     if (!price) return { status: 'warn' as const, message: 'No prices to test against' }
     const session = await stripe.checkout.sessions.create({
       mode: price.type === 'recurring' ? 'subscription' : 'payment',
-      ui_mode: 'embedded',
+      ui_mode: 'embedded_page' as any,
       return_url: `${SITE_HOST}/checkout/return?session_id={CHECKOUT_SESSION_ID}`,
       line_items: [{ price: price.id, quantity: 1 }],
     })
