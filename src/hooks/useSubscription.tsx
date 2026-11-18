@@ -54,8 +54,6 @@ const rowIsActive = (row: SubscriptionRow): boolean => {
   return false;
 };
 
-const OWNER_ACCESS_EMAILS = new Set(["tahahareb7@gmail.com"]);
-
 export function useSubscription(): SubscriptionState {
   const { user, profile } = useAuth();
   const [loading, setLoading] = useState(true);
@@ -99,8 +97,6 @@ export function useSubscription(): SubscriptionState {
   // never decide access here.
   const profileGrantActive =
     legacyPaid || (foundingActive && profile?.payment_status !== "subscribed");
-  // Explicit owner access is intentionally limited to the verified project owner account.
-  const ownerOverride = OWNER_ACCESS_EMAILS.has(user?.email?.toLowerCase() ?? "");
 
   const latestByTrack = useMemo(() => {
     // Rows arrive newest-first, so the first row per track is the current one.
@@ -113,7 +109,6 @@ export function useSubscription(): SubscriptionState {
   }, [rows]);
 
   const hasAccessTo = (track: ExamTrack): boolean => {
-    if (ownerOverride) return true;
     // Complimentary access is a full-platform grant, regardless of exam track.
     if (compedActive) return true;
     // Profile-level purchases always unlock NCMHCE, whichever track is selected.
