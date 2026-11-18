@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
+import { AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent, AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle } from "@/components/ui/alert-dialog";
 import { cn } from "@/lib/utils";
 import {
   ArrowLeft,
@@ -18,6 +19,10 @@ import {
   CheckCircle2,
   XCircle,
   LayoutGrid,
+  Pause,
+  Play,
+  Square,
+  RotateCcw,
 } from "lucide-react";
 
 /**
@@ -33,6 +38,7 @@ interface AttemptState {
   secondsLeft: number;
   breakTaken: boolean;
   submitted: boolean;
+  paused: boolean;
 }
 
 const storageKey = (examId: string) => `nce-exam-attempt:${examId}`;
@@ -44,6 +50,7 @@ const blankState = (seconds: number): AttemptState => ({
   secondsLeft: seconds,
   breakTaken: false,
   submitted: false,
+  paused: false,
 });
 
 const formatClock = (totalSeconds: number) => {
@@ -63,23 +70,18 @@ const NceExamRunner = () => {
   const format = exam?.format;
   const totalSeconds = (format?.testingMinutes ?? exam?.timeLimitMinutes ?? 225) * 60;
 
-  const [state, setState] = useState<AttemptState>(() => blankState(totalSeconds));
+  const [state, setState] = useState<AttemptState>(() => {
+    try {
+      const raw = examId ? localStorage.getItem(storageKey(examId)) : null;
+      return raw ? { ...blankState(totalSeconds), ...JSON.parse(raw) } : blankState(totalSeconds);
+    } catch {
+      return blankState(totalSeconds);
+    }
+  });
   const [onBreak, setOnBreak] = useState(false);
   const [showPalette, setShowPalette] = useState(false);
   const [reviewIndex, setReviewIndex] = useState(0);
-
-  useEffect(() => {
-    if (!examId) return;
-    const raw = localStorage.getItem(storageKey(examId));
-    if (raw) {
-      try {
-        setState({ ...blankState(totalSeconds), ...(JSON.parse(raw) as AttemptState) });
-      } catch {
-        setState(blankState(totalSeconds));
-      }
-    }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [examId]);
+  const [confirmAction, setConfirmAction] = useState<"stop" | "restart" | null>(null);
 
   useEffect(() => {
     if (!examId) return;
@@ -88,7 +90,7 @@ const NceExamRunner = () => {
 
   // Testing timer — pauses during the scheduled break and after submission.
   useEffect(() => {
-    if (state.submitted || onBreak) return;
+    if (state.submitted || state.paused || onBreak || confirmAction) return;
     const t = window.setInterval(() => {
       setState((prev) =>
         prev.secondsLeft <= 1
@@ -97,7 +99,7 @@ const NceExamRunner = () => {
       );
     }, 1000);
     return () => window.clearInterval(t);
-  }, [state.submitted, onBreak]);
+  }, [state.submitted, state.paused, onBreak, confirmAction]);
 
   const breakAfter = format?.breakAfterQuestion ?? 0;
   const lockFirstHalf = Boolean(format?.lockFirstHalfAfterBreak) && state.breakTaken;
@@ -110,7 +112,7 @@ const NceExamRunner = () => {
   );
 
   const select = (item: NCEExamItem, optionIndex: number) => {
-    if (isLocked(item) || state.submitted) return;
+    if (isLocked(item) || state.submitted || state.paused) return;
     setState((prev) => ({ ...prev, answers: { ...prev.answers, [item.id]: optionIndex } }));
   };
 
@@ -166,10 +168,70 @@ const NceExamRunner = () => {
     );
   }
 
+  const attemptControls = (
+    <>
+      <div className="flex flex-wrap items-center gap-2">
+        {!state.submitted && (
+          <Button size="sm" variant="outline" onClick={() => setConfirmAction("stop")}>
+            <Square className="h-4 w-4 mr-1" /> Stop exam
+          </Button>
+        )}
+        <Button size="sm" variant="outline" onClick={() => setConfirmAction("restart")}>
+          <RotateCcw className="h-4 w-4 mr-1" /> Start over
+        </Button>
+      </div>
+      <AlertDialog open={confirmAction !== null} onOpenChange={(open) => { if (!open) setConfirmAction(null); }}>
+        <AlertDialogContent>
+          <AlertDialogHeader>
+            <AlertDialogTitle>{confirmAction === "stop" ? "Stop this exam?" : "Start this exam over?"}</AlertDialogTitle>
+            <AlertDialogDescription>
+              {confirmAction === "stop"
+                ? "Your answers and remaining time will be saved on this browser. You can resume later."
+                : "This clears all answers, flags, and results for this attempt and resets the timer. This cannot be undone."}
+            </AlertDialogDescription>
+          </AlertDialogHeader>
+          <AlertDialogFooter>
+            <AlertDialogCancel>Cancel</AlertDialogCancel>
+            <AlertDialogAction onClick={() => {
+              if (confirmAction === "stop") {
+                const saved = { ...state, paused: true };
+                if (examId) localStorage.setItem(storageKey(examId), JSON.stringify(saved));
+                setState(saved);
+                navigate("/practice-exams");
+              } else {
+                setState(blankState(totalSeconds));
+                setOnBreak(false);
+                setShowPalette(false);
+                setReviewIndex(0);
+              }
+              setConfirmAction(null);
+            }}>
+              {confirmAction === "stop" ? "Save and exit" : "Clear and start over"}
+            </AlertDialogAction>
+          </AlertDialogFooter>
+        </AlertDialogContent>
+      </AlertDialog>
+    </>
+  );
+
+  if (state.paused && !state.submitted) {
+    return (
+      <div className="p-4 sm:p-6 max-w-3xl mx-auto space-y-6">
+        <h1 className="text-xl font-bold text-foreground">{exam.title} — Paused</h1>
+        <p className="text-muted-foreground">{answeredCount} of {items.length} answered · {formatClock(state.secondsLeft)} remaining</p>
+        <Button onClick={() => setState((prev) => ({ ...prev, paused: false }))}>
+          <Play className="h-4 w-4 mr-2" /> Resume exam
+        </Button>
+        {attemptControls}
+      </div>
+    );
+  }
+
   /* ------------------------------- Break screen ------------------------------- */
   if (onBreak) {
     return (
       <div className="p-6 max-w-2xl mx-auto">
+        {attemptControls}
         <Card className="card-elevated border-primary/30">
           <CardContent className="p-8 text-center space-y-4">
             <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mx-auto">
@@ -337,15 +399,7 @@ const NceExamRunner = () => {
           </CardContent>
         </Card>
 
-        <Button
-          variant="outline"
-          onClick={() => {
-            setState(blankState(totalSeconds));
-            setReviewIndex(0);
-          }}
-        >
-          Start a new attempt
-        </Button>
+        {attemptControls}
       </div>
     );
   }
@@ -365,15 +419,20 @@ const NceExamRunner = () => {
             {half} • {answeredCount} of {items.length} answered
           </p>
         </div>
-        <div className="flex items-center gap-2">
-          <Badge variant="outline" className="font-mono">
+        <div className="flex flex-wrap items-center gap-2">
+          <Badge variant="outline" className="font-mono tabular-nums" aria-label="Time remaining">
             <Clock className="h-3 w-3 mr-1" /> {formatClock(state.secondsLeft)}
           </Badge>
+          <Button size="sm" variant="outline" onClick={() => setState((prev) => ({ ...prev, paused: true }))}>
+            <Pause className="h-4 w-4 mr-1" /> Pause timer
+          </Button>
           <Button size="sm" variant="outline" onClick={() => setShowPalette((v) => !v)}>
             <LayoutGrid className="h-4 w-4 mr-1" /> Review
           </Button>
         </div>
       </div>
+
+      {attemptControls}
 
       <Progress value={((state.index + 1) / items.length) * 100} className="h-1.5" />
 
@@ -485,4 +544,9 @@ const NceExamRunner = () => {
   );
 };
 
-export default NceExamRunner;
+const NceExamRoute = () => {
+  const { examId } = useParams<{ examId: string }>();
+  return <NceExamRunner key={examId} />;
+};
+
+export default NceExamRoute;
