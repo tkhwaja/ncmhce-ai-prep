@@ -22,7 +22,7 @@ export const SignupEmail = ({ siteName, confirmationUrl }: SignupEmailProps) => 
         <Text style={logo}>The Exam<span style={logoAccent}> Path</span></Text>
         <Heading style={h1}>Confirm your email</Heading>
         <Text style={text}>
-          Welcome to {siteName} — your AI-powered NCMHCE prep companion. Confirm your
+          Welcome to {siteName} — your AI-powered NCE and NCMHCE prep companion. Confirm your
           email below to activate your account and get started.
         </Text>
         <Button style={button} href={confirmationUrl}>Confirm email</Button>
