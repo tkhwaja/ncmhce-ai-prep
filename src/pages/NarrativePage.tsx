@@ -26,6 +26,7 @@ import {
 import {
   Clock, ChevronRight, ChevronLeft, CheckCircle2, XCircle,
   RotateCcw, ArrowRight, LayoutDashboard, Mail, UnlockKeyhole, FileText, Sparkles,
+  Pause, Play,
 } from "lucide-react";
 import NarrativeReviewChat from "@/components/NarrativeReviewChat";
 import { trackMetaEvent } from "@/lib/meta-pixel";
@@ -85,6 +86,8 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
     narrative ? getNarrativeSectionMinutesAt(narrative, 0) * 60 : 420,
   );
   const [timerExpired, setTimerExpired] = useState(false);
+  const [paused, setPaused] = useState(false);
+  const [confirmRestart, setConfirmRestart] = useState(false);
   const [showExpiryDialog, setShowExpiryDialog] = useState(false);
   const dialogShownRef = useRef(false);
   const [submitting, setSubmitting] = useState(false);
@@ -203,7 +206,7 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
   }, [phase, sectionIndex, narrative]);
 
   useEffect(() => {
-    if (phase !== "answering") return;
+    if (phase !== "answering" || paused) return;
     const interval = setInterval(() => {
       setSecondsRemaining((s) => {
         const next = s - 1;
@@ -217,7 +220,7 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
       });
     }, 1000);
     return () => clearInterval(interval);
-  }, [phase]);
+  }, [phase, paused]);
 
   if (!narrative || loadingDraft) {
     return (
@@ -329,6 +332,8 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
     setAttemptId(null);
     setSnapshotNarrative(null);
     setTimerExpired(false);
+    setPaused(false);
+    setConfirmRestart(false);
     setSecondsRemaining(getNarrativeSectionMinutesAt(narrative, 0) * 60);
     dialogShownRef.current = false;
     setLeadOpen(false);
@@ -336,6 +341,47 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
     setLeadError("");
     setLeadForm({ fullName: "", email: "" });
   };
+
+  const restartDialog = (
+    <AlertDialog open={confirmRestart} onOpenChange={setConfirmRestart}>
+      <AlertDialogContent>
+        <AlertDialogHeader>
+          <AlertDialogTitle>Start this case over?</AlertDialogTitle>
+          <AlertDialogDescription>
+            This clears all your answers for this case and resets the timer. This cannot be undone.
+          </AlertDialogDescription>
+        </AlertDialogHeader>
+        <AlertDialogFooter>
+          <AlertDialogCancel>Cancel</AlertDialogCancel>
+          <AlertDialogAction onClick={handleRetry}>Clear and start over</AlertDialogAction>
+        </AlertDialogFooter>
+      </AlertDialogContent>
+    </AlertDialog>
+  );
+
+  if (paused && phase === "answering") {
+    const answeredCount = Object.keys(answers).length;
+    return (
+      <div className="p-6 max-w-2xl mx-auto space-y-6">
+        <h1 className="text-xl font-bold text-foreground">{narrative.title} — Paused</h1>
+        <p className="text-muted-foreground">
+          {answeredCount} of {totalQs} answered · {formatTime(secondsRemaining)} remaining
+        </p>
+        <p className="text-sm text-muted-foreground">
+          Your answers are saved and the timer is stopped. Resume whenever you're ready.
+        </p>
+        <div className="flex flex-wrap gap-2">
+          <Button onClick={() => setPaused(false)}>
+            <Play className="h-4 w-4 mr-2" /> Resume
+          </Button>
+          <Button variant="outline" onClick={() => setConfirmRestart(true)}>
+            <RotateCcw className="h-4 w-4 mr-1" /> Start over
+          </Button>
+        </div>
+        {restartDialog}
+      </div>
+    );
+  }
 
   const handleLeadSubmit = async () => {
     const parsed = leadSchema.safeParse(leadForm);
@@ -445,6 +491,7 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
 
   return (
     <div className="flex flex-col h-screen bg-background">
+      {restartDialog}
       <div className="h-12 border-b border-border flex items-center justify-between px-4 bg-muted/30 shrink-0">
         <div className="flex items-center gap-3 min-w-0">
           {phase === "answering" && (
@@ -462,6 +509,16 @@ const NarrativePage = ({ narrativeIdOverride, publicMode = false }: NarrativePag
           <span className="text-sm font-medium text-foreground truncate">{narrative.title}</span>
         </div>
         <div className="flex items-center gap-2 shrink-0">
+          {phase === "answering" && (
+            <>
+              <Button variant="outline" size="sm" className="h-8 px-2" onClick={() => setPaused(true)}>
+                <Pause className="h-4 w-4 mr-1" /> Pause
+              </Button>
+              <Button variant="outline" size="sm" className="h-8 px-2" onClick={() => setConfirmRestart(true)}>
+                <RotateCcw className="h-4 w-4 mr-1" /> Start over
+              </Button>
+            </>
+          )}
           <Sheet>
             <SheetTrigger asChild>
               <Button variant="outline" size="sm" className="lg:hidden h-8 px-2">
